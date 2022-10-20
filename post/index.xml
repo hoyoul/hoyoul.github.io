@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Frege to Godel to Church and Me</title>
-    <link>http://hoyoul.github.io/</link>
-    <description>Recent content on Frege to Godel to Church and Me</description>
+    <title>Posts on Frege to Godel to Church and Me</title>
+    <link>http://hoyoul.github.io/post/</link>
+    <description>Recent content in Posts on Frege to Godel to Church and Me</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Oct 2022 15:53:11 +0900</lastBuildDate><atom:link href="http://hoyoul.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Oct 2022 15:53:11 +0900</lastBuildDate><atom:link href="http://hoyoul.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test</title>
       <link>http://hoyoul.github.io/post/test/</link>
