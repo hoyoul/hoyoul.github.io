@@ -2,38 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://braindump.frege2godel.me/</loc>
     <lastmod>2023-05-03T03:58:02+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/a/</loc>
-    <lastmod>2023-05-04T16:08:50+09:00</lastmod>
+    <loc>http://braindump.frege2godel.me/posts/a/</loc>
+    <lastmod>2023-05-04T16:24:23+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/about-these-notes/</loc>
-    <lastmod>2023-05-04T16:08:50+09:00</lastmod>
+    <loc>http://braindump.frege2godel.me/posts/about-these-notes/</loc>
+    <lastmod>2023-05-04T16:24:24+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/b/</loc>
-    <lastmod>2023-05-04T16:08:51+09:00</lastmod>
+    <loc>http://braindump.frege2godel.me/posts/b/</loc>
+    <lastmod>2023-05-04T16:24:25+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/c/</loc>
-    <lastmod>2023-05-04T16:08:52+09:00</lastmod>
+    <loc>http://braindump.frege2godel.me/posts/c/</loc>
+    <lastmod>2023-05-04T16:24:25+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/hello-again/</loc>
-    <lastmod>2023-05-04T16:08:53+09:00</lastmod>
+    <loc>http://braindump.frege2godel.me/posts/hello-again/</loc>
+    <lastmod>2023-05-04T16:24:26+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/test_pdf/</loc>
-    <lastmod>2023-05-04T16:08:55+09:00</lastmod>
+    <loc>http://braindump.frege2godel.me/posts/test_pdf/</loc>
+    <lastmod>2023-05-04T16:24:28+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2023-05-04T16:08:55+09:00</lastmod>
+    <loc>http://braindump.frege2godel.me/posts/</loc>
+    <lastmod>2023-05-04T16:24:28+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/temp/</loc>
-    <lastmod>2023-05-04T16:08:53+09:00</lastmod>
+    <loc>http://braindump.frege2godel.me/posts/temp/</loc>
+    <lastmod>2023-05-04T16:24:27+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/test_img/</loc>
-    <lastmod>2023-05-04T16:08:54+09:00</lastmod>
+    <loc>http://braindump.frege2godel.me/posts/test_img/</loc>
+    <lastmod>2023-05-04T16:24:28+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://braindump.frege2godel.me/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://braindump.frege2godel.me/tags/</loc>
   </url>
 </urlset>
