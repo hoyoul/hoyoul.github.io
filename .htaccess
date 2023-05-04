@@ -1,0 +1,4 @@
+RewriteEngine on
+
+# Redirect to /about-these-notes to skip HTML redirect
+Redirect /index.html /posts/about-these-notes/
