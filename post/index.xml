@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Post on Holy Frege</title>
+    <link>http://braindump.frege2godel.me/post/</link>
+    <description>Recent content in Post on Holy Frege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 May 2023 17:51:00 +0900</lastBuildDate><atom:link href="http://braindump.frege2godel.me/post/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

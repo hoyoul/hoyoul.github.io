@@ -17,8 +17,8 @@ function renderPageWhenClick(href, column){
     // 	return;
     // }    
     column = Number(column) || rendered_pages.length;
-    alert("현재 page의 column은?");
-    alert(column);
+    // alert("현재 page의 column은?");
+    // alert(column);
     const request = new Request(href);
      fetch(request)
 	.then((response) => response.text())
