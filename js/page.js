@@ -11,6 +11,7 @@ function unStackPages(column) {
   rendered_pages = rendered_pages.slice(0, column);
 }
 
+
 function renderPageWhenClick(href, column){
     // if (rendered_pages.indexOf(href) > -1){
     // 	alert("이미 보여진 page에요");
@@ -28,13 +29,19 @@ function renderPageWhenClick(href, column){
 	    fragment.innerHTML = text;
 	    let element = fragment.content.querySelector(".page");
 	    
-	    unStackPages(column)
-	    container.appendChild(element);	    
-	    element.dataset.column = column + 1;
-	    rendered_pages.push(href);	    
-	    addLinksToHandlerFromPage(element,element.dataset.column)
-
-	})
+	    unStackPages(column);
+	    container.appendChild(element);
+	    
+	    setTimeout(
+		function(element,column){
+		    element.dataset.column = column + 1;
+		    rendered_pages.push(href);	    
+		    addLinksToHandlerFromPage(element,element.dataset.column)
+		    element.scrollIntoView({behavior: "smooth"});		    
+		}.bind(null,element,column),
+		10
+	    );
+	});
 }
 
 function addLinksToHandlerFromPage(page,column) {
