@@ -102,7 +102,7 @@ header small{
 .container{
     width:100%;
     height: calc(100% - 51px);
-    border: #823 solid;
+    /* border: #823 solid; */
 
     display: flex;
     direction: row;
@@ -110,10 +110,53 @@ header small{
 }
 
 .page{
+    /* display: inline-block; */
+    position:sticky;    
     width:625px;
     min-width: 620px;
     max-width: 620px;
-    border: #883 solid;
-
+    box-shadow: 1px 0px 1px 1px #eacc724f;
+    background-color: #fff;
 }
 
+/* .page .collapsed-title { */
+/*     display: none; */
+/*     /\* position: absolute; *\/ */
+/*     /\* writing-mode: vertical-lr; *\/ */
+/*     /\* font-size: 20px; *\/ */
+/*     /\* margin: 16px 0 0; *\/ */
+/*     /\* line-height: 42px; *\/ */
+/*     /\* white-space: nowrap; *\/ */
+/*     /\* font-weight: 400 *\/ */
+/* } */
+/* .collapsed{ */
+/*     display: block; */
+/*     position: absolute; */
+/*     writing-mode: vertical-lr; */
+/*     font-size: 20px; */
+/*     margin: 16px 0 0; */
+/*     line-height: 42px; */
+/*     white-space: nowrap; */
+/*     font-weight: 400 */
+/* } */
+.page:nth-child(1){
+    left:0;
+}
+.page:nth-child(2){
+    left:40px;
+}
+.page:nth-child(3){
+    left:80px;
+}
+.page:nth-child(4){
+    left:120px;
+}
+.page:nth-child(5){
+    left:160px;
+}
+.page:nth-child(6){
+    left:200px;
+}
+.page:last-child{
+    margin-right: 80px;
+}

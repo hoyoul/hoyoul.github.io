@@ -1,5 +1,35 @@
 let rendered_pages = [];
 
+function updateCollapsedState() {
+  const pages = document.querySelectorAll('.page');
+  const width = pages[0].offsetWidth;
+  const titleWidth = 40; // px
+
+  for (let i = 0; i < pages.length; i++) {
+      const offsetWidth = (width * (i+1));
+      const collapsedWidth = pages[i].offsetLeft + titleWidth;
+      alert(i+" page's offsetLeft is" + pages[i].offsetLeft);
+      
+      if (offsetWidth < collapsedWidth) {
+	  alert('page' + i );
+	  pages[i].classList.add("collapsed");
+      }
+    //   pages[i].classList.add("collapsed");
+    //   pages[i].classList.remove("collapsing");
+    //   continue
+    // } else {
+    //   pages[i].classList.remove("collapsed");
+    // }
+
+    // if (offsetWidth < collapsedWidth + 2) {
+    //   pages[i].classList.add("collapsing");
+    // } else {
+    //   pages[i].classList.remove("collapsing");
+    // }
+  }
+}
+
+
 function unStackPages(column) {
   let container = document.querySelector(".container");
   let children = Array.prototype.slice.call(container.children);
@@ -10,7 +40,6 @@ function unStackPages(column) {
   }
   rendered_pages = rendered_pages.slice(0, column);
 }
-
 
 function updateBreadCrums() {
   links = Array.prototype.slice.call(document.querySelectorAll("a"));
@@ -25,15 +54,9 @@ function updateBreadCrums() {
 }
 
 function renderPageWhenClick(href, column){
-    // if (rendered_pages.indexOf(href) > -1){
-    // 	alert("이미 보여진 page에요");
-    // 	return;
-    // }    
     column = Number(column) || rendered_pages.length;
-    // alert("현재 page의 column은?");
-    // alert(column);
     const request = new Request(href);
-     fetch(request)
+    fetch(request)
 	.then((response) => response.text())
 	.then((text) => {
 	    let container = document.querySelector(".container");
@@ -41,18 +64,16 @@ function renderPageWhenClick(href, column){
 	    fragment.innerHTML = text;
 	    let element = fragment.content.querySelector(".page");
 	    
-	    // updateBreadCrums();	    	    
 	    unStackPages(column);
 	    container.appendChild(element);
-	    
+	    // updateCollapsedState();	    
 	    setTimeout(
 		function(element,column){
-		    // updateBreadCrums()
 		    element.dataset.column = column + 1;
 		    rendered_pages.push(href);	    
 		    addLinksToHandlerFromPage(element,element.dataset.column);
 		    updateBreadCrums();	    	    		    
-		    element.scrollIntoView({behavior: "smooth"});		    
+		    element.scrollIntoView({behavior: "smooth"});	     
 		}.bind(null,element,column),
 		10
 	    );
