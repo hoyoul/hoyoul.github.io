@@ -160,3 +160,6 @@ header small{
 .page:last-child{
     margin-right: 80px;
 }
+.page > .content{
+    padding:32px;
+}
