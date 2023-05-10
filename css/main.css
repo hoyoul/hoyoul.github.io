@@ -112,12 +112,16 @@ header small{
 .page{
     /* display: inline-block; */
     position:sticky;
-    min-width: 640px;
-    max-width: 640px;
+    min-width: 620px;
+    max-width: 620px;
     border-left:1px #eacc724f solid;
     /* border-right:1px #eacc724f solid;     */
     box-shadow: 3px 3px 2px 1px #eacc724f;
     background-color: #fff;
+
+}
+.page.collapsed{
+    min-width: 40px;
 }
 
 .page .collapsed-title {
@@ -129,19 +133,35 @@ header small{
     margin: 16px 0 0;
     line-height: 42px;
     white-space: nowrap;
-    font-weight: 600;    
+    font-weight: 600;
+    background-color:#fff ;    
+    transition: background-color 2s;    
+    
 }
+
+/* collapsing이 되면 수행되는 것들 */
 .page.collapsed .collapsed-title {
     margin-top: 0px;
     padding-top: 20px;
     display:block;
     height: 100%;
     background-color:#eefdff ;
+    cursor: pointer;
+}
+.page.collapsed .collapsed-title:hover {
+    background-color: #ccc;
 }
 .page.collapsed .content, .page.collapsed .bl-section {
     display: none;
 }
 
+.page.collapsing .collapsed-title{
+    display: block;
+    opacity: 0;
+}
+.page.collapsing .content, .page.collapsing .bl-section{
+    opacity: 0;
+}
 
 /* .page .collapsed-title { */
 /*     display: none; */
@@ -165,26 +185,42 @@ header small{
 /* } */
 .page:nth-child(1){
     left:0px;
-    /* z-index:10; */
+
 }
 .page:nth-child(2){
     left:40px;
+
 }
 .page:nth-child(3){
     left:80px;
+
 }
 .page:nth-child(4){
     left:120px;
+
 }
 .page:nth-child(5){
     left:160px;
+
 }
 .page:nth-child(6){
     left:200px;
 }
-.page:last-child{
-    margin-right: 80px;
+.page:nth-child(7){
+    left:240px;
 }
+.page:nth-child(8){
+    left:280px;
+}
+.page:nth-child(9){
+    left:320px;
+}
+.page:nth-child(10){
+    left:360px;
+}
+/* .page:last-child{ */
+/*     margin-right: 80px; */
+/* } */
 .page > .content{
     padding:32px;
 }
