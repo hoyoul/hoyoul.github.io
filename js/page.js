@@ -1,32 +1,14 @@
 let rendered_pages = [];
 
 function updateCollapsedState() {
-  const pages = document.querySelectorAll('.page');
-  const width = pages[0].offsetWidth;
-  const titleWidth = 40; // px
-
-  for (let i = 0; i < pages.length; i++) {
-      const offsetWidth = (width * (i+1));
-      const collapsedWidth = pages[i].offsetLeft + titleWidth;
-      alert(i+" page's offsetLeft is" + pages[i].offsetLeft);
-      
-      if (offsetWidth < collapsedWidth) {
-	  alert('page' + i );
-	  pages[i].classList.add("collapsed");
-      }
-    //   pages[i].classList.add("collapsed");
-    //   pages[i].classList.remove("collapsing");
-    //   continue
-    // } else {
-    //   pages[i].classList.remove("collapsed");
-    // }
-
-    // if (offsetWidth < collapsedWidth + 2) {
-    //   pages[i].classList.add("collapsing");
-    // } else {
-    //   pages[i].classList.remove("collapsing");
-    // }
-  }
+    const pages = document.querySelectorAll('.page');
+    
+    for (let i = 0; i < pages.length; i++) {
+	if(pages[i].offsetLeft != (i*641))
+	{
+	    pages[i].classList.add("collapsed");	    
+	}
+    }
 }
 
 
@@ -66,18 +48,20 @@ function renderPageWhenClick(href, column){
 	    
 	    unStackPages(column);
 	    container.appendChild(element);
-	    // updateCollapsedState();	    
+
 	    setTimeout(
 		function(element,column){
 		    element.dataset.column = column + 1;
 		    rendered_pages.push(href);	    
 		    addLinksToHandlerFromPage(element,element.dataset.column);
 		    updateBreadCrums();	    	    		    
-		    element.scrollIntoView({behavior: "smooth"});	     
+		    element.scrollIntoView({behavior: "smooth"});
+		    updateCollapsedState();	    		    
 		}.bind(null,element,column),
 		10
 	    );
 	});
+
 }
 
 function addLinksToHandlerFromPage(page,column) {
@@ -107,8 +91,11 @@ function addLinksToHandlerFromPage(page,column) {
 };
 window.onload = function () {
     rendered_pages.push(window.location.pathname);
+    container = document.querySelector(".container");
+    // alert("container's scroll width: " + container.scrollWidth);
     page = document.querySelector(".page");
     page.dataset.column = rendered_pages.length;
     column = page.dataset.column;
+    updateCollapsedState();	        
     addLinksToHandlerFromPage(page,column);
 };
