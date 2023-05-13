@@ -5,7 +5,8 @@ document.addEventListener('click', (event) => {
     if (event.target.classList.contains('collapsed-title')) {
 	const title = event.target.innerText;
 	unfoldHead(title);
-  }
+    }
+    
 });
 
 function unfoldHead(title){
@@ -21,7 +22,7 @@ function unfoldHead(title){
 }
 
 // scroll 화면에 3개 이상의 page가 있을때 앞에 page들을 collapsing
-function computeLayout(){
+function attachCollapsingHeader(){
     let pages = document.querySelectorAll('.page');
     for (i=0; i< pages.length; i++){
 	if (i < pages.length - 3){
@@ -52,6 +53,8 @@ function unstackPages(clicked_page_column,last_child,href){
 
     for (let i = 0; i < total_remove_child; i++) {
 	container.removeChild(container.lastChild);
+	// container.lastChild.classList.remove("page");
+	// container.lastChild.classList.add("pagenil");	
     }
     rendered_pages = rendered_pages.slice(0, clicked_page_column+1);
 
@@ -66,14 +69,12 @@ function renderPage(page,clicked_page_column,href){
     last_child_page = children.length-1;
     if (clicked_page_column < last_child_page)
 	unstackPages(clicked_page_column,last_child_page,href);
-
     rendered_pages.push(href);
     updateBreadCrumbs();            
-    
     container.appendChild(page);
-    computeLayout();    
-    // page.scrollIntoView({behavior: "smooth"});		
-    addHandlerLinksFromPage(page,clicked_page_column+1);
+    // page.scrollIntoview({behavior: "smooth"});
+    attachCollapsingHeader()	
+    addHandlerLinksFromPage(page,clicked_page_column+1);	
 }
 
 function fetchPage(href,clicked_page_column){

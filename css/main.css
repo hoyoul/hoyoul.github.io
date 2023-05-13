@@ -108,25 +108,27 @@ header small{
     display: flex;
     direction: row;
     overflow-x: scroll;
-    transition: all 1.0s ease;    
+
 }
 
 .page{
     /* display: inline-block; */
     position:sticky;
-    min-width: 620px;
-    max-width: 620px;
+    width: 620px;
+    min-width: 600px;
+    /* max-width: 620px; */
     border-left:1px #eacc724f solid;
     /* border-right:1px #eacc724f solid;     */
     box-shadow: 3px 3px 2px 1px #eacc724f;
     background-color: #fff;
     overflow-y: auto;
 
+    transition: min-width 0.3s ease-out;    
     opacity: 0;
     animation-name: fade-in;
-    animation-duration: 0.5s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
-    /* transition: all 1.0s ease; */
+    transition: all 0.6s ease;
 }
 
 
@@ -141,48 +143,69 @@ header small{
   }
 }
 
-.page.collapsed{
-    min-width: 40px;
-}
 
 .page .collapsed-title {
     display:none;
-    position: absolute;
 
-    writing-mode: vertical-lr;
-    font-size: 20px;
-    margin: 16px 0 0;
-    line-height: 42px;
-    white-space: nowrap;
-    font-weight: 600;
-    background-color:#fff ;    
-    transition: background-color 2s;    
+    /* transition: background-color 2s;     */
     
 }
 
 /* collapsing이 되면 수행되는 것들 */
+.page.collapsed{
+    width: 40px;
+    min-width: 0px;
+    /* opacity:0;     */
+    /* display: none; */
+
+}
 .page.collapsed .collapsed-title {
-    margin-top: 0px;
-    padding-top: 20px;
+
+    /* position: absolute; */
+
+    writing-mode: vertical-lr;
     display:block;
     height: 100%;
-    background-color:#eefdff ;
-    cursor: pointer;
+    background-color:#eefdff ;    
+    font-size: 20px;
+    margin: 0 0 0;
+    padding-top: 20px;    
+    line-height: 40px;
+    white-space: nowrap;
+    cursor: pointer;    
+    /* font-weight: 600; */
+    /* background-color:#fff ; */
+    
+    /* opacity: 1; */
+    /* margin-top: 0px; */
+
 }
 .page.collapsed .collapsed-title:hover {
-    background-color: #ccc;
+    /* transition: background-color: #ccc 0.2s; */
 }
 .page.collapsed .content, .page.collapsed .bl-section {
     display: none;
+    /* width: 0px; */
+    /* opacity:0; */
+    /* display: none; */
+    /* transition: all 3.6s ease; */
+
+
 }
 
-.page.collapsing .collapsed-title{
-    display: block;
-    opacity: 0;
+/* .page.collapsing .collapsed-title{ */
+/*     display: block; */
+/*     opacity: 0; */
+
+/* } */
+/* .page.collapsing .content, .page.collapsing .bl-section{ */
+/*     opacity: 0; */
+/* } */
+
+.pagenil{
+    display: none;
 }
-.page.collapsing .content, .page.collapsing .bl-section{
-    opacity: 0;
-}
+
 
 /* .page .collapsed-title { */
 /*     display: none; */
@@ -209,7 +232,7 @@ header small{
 
 }
 .page:nth-child(2){
-    left:40px;
+    left: 40px;
 
 }
 .page:nth-child(3){
