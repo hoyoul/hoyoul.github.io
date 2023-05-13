@@ -49,10 +49,11 @@ a {
     text-decoration: none;
     cursor: e-resize;    
     color: rgba(10, 132, 255, 1);
+    background-color:none;
 }
 
 a.active {
-    background-color: rgba(10, 132, 255, 0.15);
+    color: green;
 }
 
 a:hover {
@@ -107,6 +108,7 @@ header small{
     display: flex;
     direction: row;
     overflow-x: scroll;
+    
 }
 
 .page{
@@ -118,8 +120,27 @@ header small{
     /* border-right:1px #eacc724f solid;     */
     box-shadow: 3px 3px 2px 1px #eacc724f;
     background-color: #fff;
+    overflow-y: auto;
 
+    opacity: 0;
+    animation-name: fade-in;
+    animation-duration: 1.0s;
+    animation-fill-mode: forwards;
+    transition: all 1.0s ease;
 }
+
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .page.collapsed{
     min-width: 40px;
 }

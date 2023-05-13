@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+  <head><title>[모두의딥러닝] chapter4 - 오차수정하기 경사하강법</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">[모두의딥러닝] chapter4 - 오차수정하기 경사하강법</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/posts/20220304111516-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter4_%E1%84%80%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/" alt="[모두의딥러닝] chapter4 - 오차수정하기 경사하강법" class="permalink"><h1>[모두의딥러닝] chapter4 - 오차수정하기 경사하강법</h1></a>      
+	<h2 id="1--기울기와-오차의-관계">(1) 기울기와 오차의 관계</h2>
+<ul>
+<li>
+<p>기울기에 따른 제곱오차의 합은, 오차그래프에서 점으로 나타낼 수 있다.</p>
+</li>
+<li>
+<p>chapter3에서 직선의 기울기와 오차의 관계를 알 수 있었다.</p>
+</li>
+<li>
+<p>절편과 오차의 관계도 동일하게 2차원 곡선으로 그려진다.</p>
+</li>
+<li>
+<p>이것은 직접 그려보면 알수 있다. 기울기가 아주 작을경우, 데이터와
+거리가 멀어서 오차가 커진다. 기울기가 아주 클경우, 데이터와 거리가
+멀어서 오차가 커진다. 적절한 기울기를 가질때만이 오차가 적은데,
+이를 표시하면, 2차 함수가 된다. 절편도 마찬가지다.</p>
+<img src="./img/everyone_deepLearning/chapter4/gd1.png" width="600px">
+<img src="./img/everyone_deepLearning/chapter4/gd1_2.png" width="600px">
+</li>
+<li>
+<p>우리의 목표: 오차함수그래프에서 최저값을 찾는게 목표.</p>
+<img src="./img/everyone_deepLearning/chapter4/gd2.png" width="600px">
+</li>
+</ul>
+<h2 id="2--경사-하강법의-개요">(2) 경사 하강법의 개요</h2>
+<ul>
+<li>경사 하강법은 2차 함수에서 learning rate만큼 이동해서 최소값을 찾는 방식이다.</li>
+<li>직선을 update하는 방식을 경사하강법으로 봐도 된다. 미분을 통해서
+방향을 정하고, learning rate를 통해서 얼만큼의 변화를 줄것인가를
+정한다. 이렇게 정해진 값이 update된다.</li>
+</ul>
+<img src="./img/everyone_deepLearning/chapter4/gd3.png" width="600px">
+<img src="./img/everyone_deepLearning/chapter4/gd4.png" width="600px">
+<h2 id="3--코딩으로-확인하는-경사하강법">(3) 코딩으로 확인하는 경사하강법</h2>
+<ul>
+<li>
+<p>평균 제곱 오차의 식</p>
+<img src="./img/everyone_deepLearning/chapter4/mse1.png" width="400px">
+</li>
+<li>
+<p>기울기와 절편의 편미분</p>
+<img src="./img/everyone_deepLearning/chapter4/mse2.png" width="400px">
+</li>
+</ul>
+<h2 id="4--소스-코드">(4) 소스 코드</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#!/usr/bin/env python</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#-*- coding: utf-8 -*-</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">matplotlib.pyplot</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">plt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#공부시간 X와 성적 Y의 리스트를 만듭니다.</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#666">=</span> [[<span style="color:#40a070">2</span>, <span style="color:#40a070">81</span>], [<span style="color:#40a070">4</span>, <span style="color:#40a070">93</span>], [<span style="color:#40a070">6</span>, <span style="color:#40a070">91</span>], [<span style="color:#40a070">8</span>, <span style="color:#40a070">97</span>]]
+</span></span><span style="display:flex;"><span>x <span style="color:#666">=</span> [i[<span style="color:#40a070">0</span>] <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> data]
+</span></span><span style="display:flex;"><span>y <span style="color:#666">=</span> [i[<span style="color:#40a070">1</span>] <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> data]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#그래프로 나타내 봅니다.</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>figure(figsize<span style="color:#666">=</span>(<span style="color:#40a070">8</span>,<span style="color:#40a070">5</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>scatter(x, y)
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#리스트로 되어 있는 x와 y값을 넘파이 배열로 바꾸어 줍니다.(인덱스를 주어 하나씩 불러와 계산이 가능해 지도록 하기 위함입니다.)</span>
+</span></span><span style="display:flex;"><span>x_data <span style="color:#666">=</span> np<span style="color:#666">.</span>array(x)
+</span></span><span style="display:flex;"><span>y_data <span style="color:#666">=</span> np<span style="color:#666">.</span>array(y)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># 기울기 a와 절편 b의 값을 초기화 합니다.</span>
+</span></span><span style="display:flex;"><span>a <span style="color:#666">=</span> <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#666">=</span> <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#학습률을 정합니다.</span>
+</span></span><span style="display:flex;"><span>lr <span style="color:#666">=</span> <span style="color:#40a070">0.03</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#몇 번 반복될지를 설정합니다.</span>
+</span></span><span style="display:flex;"><span>epochs <span style="color:#666">=</span> <span style="color:#40a070">2001</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#경사 하강법을 시작합니다.</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> <span style="color:#007020">range</span>(epochs): <span style="color:#60a0b0;font-style:italic"># epoch 수 만큼 반복</span>
+</span></span><span style="display:flex;"><span>    y_hat <span style="color:#666">=</span> a <span style="color:#666">*</span> x_data <span style="color:#666">+</span> b  <span style="color:#60a0b0;font-style:italic">#y를 구하는 식을 세웁니다</span>
+</span></span><span style="display:flex;"><span>    error <span style="color:#666">=</span> y_data <span style="color:#666">-</span> y_hat  <span style="color:#60a0b0;font-style:italic">#오차를 구하는 식입니다.</span>
+</span></span><span style="display:flex;"><span>    a_diff <span style="color:#666">=</span> <span style="color:#666">-</span>(<span style="color:#40a070">2</span><span style="color:#666">/</span><span style="color:#007020">len</span>(x_data)) <span style="color:#666">*</span> <span style="color:#007020">sum</span>(x_data <span style="color:#666">*</span> (error)) <span style="color:#60a0b0;font-style:italic"># 오차함수를 a로 미분한 값입니다.</span>
+</span></span><span style="display:flex;"><span>    b_diff <span style="color:#666">=</span> <span style="color:#666">-</span>(<span style="color:#40a070">2</span><span style="color:#666">/</span><span style="color:#007020">len</span>(x_data)) <span style="color:#666">*</span> <span style="color:#007020">sum</span>(error)  <span style="color:#60a0b0;font-style:italic"># 오차함수를 b로 미분한 값입니다.</span>
+</span></span><span style="display:flex;"><span>    a <span style="color:#666">=</span> a <span style="color:#666">-</span> lr <span style="color:#666">*</span> a_diff  <span style="color:#60a0b0;font-style:italic"># 학습률을 곱해 기존의 a값을 업데이트합니다.</span>
+</span></span><span style="display:flex;"><span>    b <span style="color:#666">=</span> b <span style="color:#666">-</span> lr <span style="color:#666">*</span> b_diff  <span style="color:#60a0b0;font-style:italic"># 학습률을 곱해 기존의 b값을 업데이트합니다.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">if</span> i <span style="color:#666">%</span> <span style="color:#40a070">100</span> <span style="color:#666">==</span> <span style="color:#40a070">0</span>:    <span style="color:#60a0b0;font-style:italic"># 100번 반복될 때마다 현재의 a값, b값을 출력합니다.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020">print</span>(<span style="color:#4070a0">&#34;epoch=%.f, 기울기=</span><span style="color:#70a0d0">%.04f</span><span style="color:#4070a0">, 절편=</span><span style="color:#70a0d0">%.04f</span><span style="color:#4070a0">&#34;</span> <span style="color:#666">%</span> (i, a, b))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># 앞서 구한 기울기와 절편을 이용해 그래프를 그려 봅니다.</span>
+</span></span><span style="display:flex;"><span>y_pred <span style="color:#666">=</span> a <span style="color:#666">*</span> x_data <span style="color:#666">+</span> b
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>scatter(x, y)
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>plot([<span style="color:#007020">min</span>(x_data), <span style="color:#007020">max</span>(x_data)], [<span style="color:#007020">min</span>(y_pred), <span style="color:#007020">max</span>(y_pred)])
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>show()
+</span></span></code></pre></div><h2 id="질문-and-내생각-2차함수의-방정식을-구할-수-있다면-편미분값이-0가-되는-기울기-절편을-바로-계산할-수-있지-않은가-왜-경사-하강법을-사용하는가">[질문&amp;내생각] 2차함수의 방정식을 구할 수 있다면, 편미분값이 0가 되는 기울기 절편을 바로 계산할 수 있지 않은가? 왜 경사 하강법을 사용하는가?</h2>
+<ul>
+<li>우선 이 예는 최소제곱법의 예와 같이 편미분이 0이되는 기울기 절편을
+바로 계산할 수 있다. 똑같은 예를 단지 경사하강법으로 풀었기
+때문이다. 다변수로 되어 있는 경우는 2차함수처럼 계산으로 구할 수
+없다. 경사하강법을 사용해야 한다.</li>
+</ul>
+<h2 id="질문-and-내생각-2차-함수의-방정식에서-최소값을-구하는-방식-최적의-직선을-구하는-다른-방법은-없는가">[질문&amp;내생각] 2차 함수의 방정식에서 최소값을 구하는 방식, 최적의 직선을 구하는 다른 방법은 없는가?</h2>
+<ul>
+<li>
+<p>우선 떠오르는 생각은 brute force방식이다. 직선의 기울기와 절편을
+하나 하나 다 대입해서 최소 오류값을 찾는 방식이다. 그러나 개수가
+너무 많다. 무한이라고 보면 된다. 계산량을 감당할 수 없다.</p>
+</li>
+<li>
+<p>두번째로, 생각나는 것은 2차원 공간에서 3개의 점의 좌표를 안다면,
+연립방정식으로 풀수 있다.1개의 점을 구하기 위해서는 기울기와
+절편을 대입한 후, 모든 데이터에 대해서 MSE를 구해야 했다. 3개의
+점을 구하는 것은 3번 과정을 거쳐야 하는데, 이것은 데이터 수가
+많으면 계산량이 많아져서 안될뿐 아니라, 다변수에는 적용될 수 없다.</p>
+</li>
+</ul>
+<h2 id="5--다중-선형-회귀">(5) 다중 선형 회귀</h2>
+<ul>
+<li>
+<p>예측값과 실제값을 살펴보면, 차이가 있다. 이 차이를 책에선, 정보의
+부족으로 설명한다. 독립변수와 종속변수의 관계가 100%의존적이라면,
+확실한 인과 관계가 있어서, 구해진 직선으로 예측한값과 data가 같을
+거라 한다. 그런데 인과관계에 관여하는 변수가 한개가 아니라는
+말이다. 관여하는 독립변수를 추가한 게 다중 선형 회귀다.</p>
+</li>
+<li>
+<p>chapter1에서 환자를 위해서 17개의 feature가 각각의 공간을
+만들어내는 것과 비슷하게 독립변수는 공간을 만들어 낸다.</p>
+</li>
+<li>
+<p>과외한 시간을 추가.</p>
+<img src="./img/everyone_deepLearning/chapter4/mlr1.png" width="400px">
+</li>
+<li>
+<p>수식</p>
+<img src="./img/everyone_deepLearning/chapter4/mlr2.png" width="400px">
+</li>
+</ul>
+<h2 id="6--코딩으로-확인하는-다중-선형-회귀">(6) 코딩으로 확인하는 다중 선형 회귀</h2>
+<ul>
+<li>코드
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#!/usr/bin/env python</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># coding: utf-8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># In[1]:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">matplotlib.pyplot</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">plt</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">mpl_toolkits</span> <span style="color:#007020;font-weight:bold">import</span> mplot3d
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#공부시간 X와 성적 Y의 리스트를 만듭니다.</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#666">=</span> [[<span style="color:#40a070">2</span>, <span style="color:#40a070">0</span>, <span style="color:#40a070">81</span>], [<span style="color:#40a070">4</span>, <span style="color:#40a070">4</span>, <span style="color:#40a070">93</span>], [<span style="color:#40a070">6</span>, <span style="color:#40a070">2</span>, <span style="color:#40a070">91</span>], [<span style="color:#40a070">8</span>, <span style="color:#40a070">3</span>, <span style="color:#40a070">97</span>]]
+</span></span><span style="display:flex;"><span>x1 <span style="color:#666">=</span> [i[<span style="color:#40a070">0</span>] <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> data]
+</span></span><span style="display:flex;"><span>x2 <span style="color:#666">=</span> [i[<span style="color:#40a070">1</span>] <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> data]
+</span></span><span style="display:flex;"><span>y <span style="color:#666">=</span> [i[<span style="color:#40a070">2</span>] <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> data]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#그래프로 확인해 봅니다.</span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#666">=</span> plt<span style="color:#666">.</span>axes(projection<span style="color:#666">=</span><span style="color:#4070a0">&#39;3d&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#666">.</span>set_xlabel(<span style="color:#4070a0">&#39;study_hours&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#666">.</span>set_ylabel(<span style="color:#4070a0">&#39;private_class&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#666">.</span>set_zlabel(<span style="color:#4070a0">&#39;Score&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#666">.</span>dist <span style="color:#666">=</span> <span style="color:#40a070">11</span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#666">.</span>scatter(x1, x2, y)
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># In[2]:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#리스트로 되어 있는 x와 y값을 넘파이 배열로 바꾸어 줍니다.(인덱스를 주어 하나씩 불러와 계산이 가능해 지도록 하기 위함입니다.)</span>
+</span></span><span style="display:flex;"><span>x1_data <span style="color:#666">=</span> np<span style="color:#666">.</span>array(x1)
+</span></span><span style="display:flex;"><span>x2_data <span style="color:#666">=</span> np<span style="color:#666">.</span>array(x2)
+</span></span><span style="display:flex;"><span>y_data <span style="color:#666">=</span> np<span style="color:#666">.</span>array(y)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># 기울기 a와 절편 b의 값을 초기화 합니다.</span>
+</span></span><span style="display:flex;"><span>a1 <span style="color:#666">=</span> <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>a2 <span style="color:#666">=</span> <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#666">=</span> <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#학습률을 정합니다.</span>
+</span></span><span style="display:flex;"><span>lr <span style="color:#666">=</span> <span style="color:#40a070">0.02</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#몇 번 반복될지를 설정합니다.(0부터 세므로 원하는 반복 횟수에 +1을 해 주어야 합니다.)</span>
+</span></span><span style="display:flex;"><span>epochs <span style="color:#666">=</span> <span style="color:#40a070">2001</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#경사 하강법을 시작합니다.</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> <span style="color:#007020">range</span>(epochs): <span style="color:#60a0b0;font-style:italic"># epoch 수 만큼 반복</span>
+</span></span><span style="display:flex;"><span>    y_pred <span style="color:#666">=</span> a1 <span style="color:#666">*</span> x1_data <span style="color:#666">+</span> a2 <span style="color:#666">*</span> x2_data <span style="color:#666">+</span> b  <span style="color:#60a0b0;font-style:italic">#y를 구하는 식을 세웁니다</span>
+</span></span><span style="display:flex;"><span>    error <span style="color:#666">=</span> y_data <span style="color:#666">-</span> y_pred  <span style="color:#60a0b0;font-style:italic">#오차를 구하는 식입니다.</span>
+</span></span><span style="display:flex;"><span>    a1_diff <span style="color:#666">=</span> <span style="color:#666">-</span>(<span style="color:#40a070">2</span><span style="color:#666">/</span><span style="color:#007020">len</span>(x1_data)) <span style="color:#666">*</span> <span style="color:#007020">sum</span>(x1_data <span style="color:#666">*</span> (error)) <span style="color:#60a0b0;font-style:italic"># 오차함수를 a1로 미분한 값입니다.</span>
+</span></span><span style="display:flex;"><span>    a2_diff <span style="color:#666">=</span> <span style="color:#666">-</span>(<span style="color:#40a070">2</span><span style="color:#666">/</span><span style="color:#007020">len</span>(x2_data)) <span style="color:#666">*</span> <span style="color:#007020">sum</span>(x2_data <span style="color:#666">*</span> (error)) <span style="color:#60a0b0;font-style:italic"># 오차함수를 a2로 미분한 값입니다.</span>
+</span></span><span style="display:flex;"><span>    b_new <span style="color:#666">=</span> <span style="color:#666">-</span>(<span style="color:#40a070">2</span><span style="color:#666">/</span><span style="color:#007020">len</span>(x1_data)) <span style="color:#666">*</span> <span style="color:#007020">sum</span>(y_data <span style="color:#666">-</span> y_pred)  <span style="color:#60a0b0;font-style:italic"># 오차함수를 b로 미분한 값입니다.</span>
+</span></span><span style="display:flex;"><span>    a1 <span style="color:#666">=</span> a1 <span style="color:#666">-</span> lr <span style="color:#666">*</span> a1_diff  <span style="color:#60a0b0;font-style:italic"># 학습률을 곱해 기존의 a1값을 업데이트합니다.</span>
+</span></span><span style="display:flex;"><span>    a2 <span style="color:#666">=</span> a2 <span style="color:#666">-</span> lr <span style="color:#666">*</span> a2_diff  <span style="color:#60a0b0;font-style:italic"># 학습률을 곱해 기존의 a2값을 업데이트합니다.</span>
+</span></span><span style="display:flex;"><span>    b <span style="color:#666">=</span> b <span style="color:#666">-</span> lr <span style="color:#666">*</span> b_new  <span style="color:#60a0b0;font-style:italic"># 학습률을 곱해 기존의 b값을 업데이트합니다.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">if</span> i <span style="color:#666">%</span> <span style="color:#40a070">100</span> <span style="color:#666">==</span> <span style="color:#40a070">0</span>:    <span style="color:#60a0b0;font-style:italic"># 100번 반복될 때마다 현재의 a1, a2, b값을 출력합니다.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020">print</span>(<span style="color:#4070a0">&#34;epoch=%.f, 기울기1=</span><span style="color:#70a0d0">%.04f</span><span style="color:#4070a0">, 기울기2=</span><span style="color:#70a0d0">%.04f</span><span style="color:#4070a0">, 절편=</span><span style="color:#70a0d0">%.04f</span><span style="color:#4070a0">&#34;</span> <span style="color:#666">%</span> (i, a1, a2, b))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># In[3]:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#참고 자료, 다중 선형회귀 &#39;예측 평면&#39; 3D로 보기</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">statsmodels.api</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">statm</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">statsmodels.formula.api</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">statfa</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#from matplotlib.pyplot import figure</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#666">=</span> [i[<span style="color:#40a070">0</span>:<span style="color:#40a070">2</span>] <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> data]
+</span></span><span style="display:flex;"><span>y <span style="color:#666">=</span> [i[<span style="color:#40a070">2</span>] <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> data]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_1<span style="color:#666">=</span>statm<span style="color:#666">.</span>add_constant(X)
+</span></span><span style="display:flex;"><span>results<span style="color:#666">=</span>statm<span style="color:#666">.</span>OLS(y,X_1)<span style="color:#666">.</span>fit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hour_class<span style="color:#666">=</span>pd<span style="color:#666">.</span>DataFrame(X,columns<span style="color:#666">=</span>[<span style="color:#4070a0">&#39;study_hours&#39;</span>,<span style="color:#4070a0">&#39;private_class&#39;</span>])
+</span></span><span style="display:flex;"><span>hour_class[<span style="color:#4070a0">&#39;Score&#39;</span>]<span style="color:#666">=</span>pd<span style="color:#666">.</span>Series(y)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#666">=</span> statfa<span style="color:#666">.</span>ols(formula<span style="color:#666">=</span><span style="color:#4070a0">&#39;Score ~ study_hours + private_class&#39;</span>, data<span style="color:#666">=</span>hour_class)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>results_formula <span style="color:#666">=</span> model<span style="color:#666">.</span>fit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>a, b <span style="color:#666">=</span> np<span style="color:#666">.</span>meshgrid(np<span style="color:#666">.</span>linspace(hour_class<span style="color:#666">.</span>study_hours<span style="color:#666">.</span>min(),hour_class<span style="color:#666">.</span>study_hours<span style="color:#666">.</span>max(),<span style="color:#40a070">100</span>),
+</span></span><span style="display:flex;"><span>		   np<span style="color:#666">.</span>linspace(hour_class<span style="color:#666">.</span>private_class<span style="color:#666">.</span>min(),hour_class<span style="color:#666">.</span>private_class<span style="color:#666">.</span>max(),<span style="color:#40a070">100</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_ax <span style="color:#666">=</span> pd<span style="color:#666">.</span>DataFrame({<span style="color:#4070a0">&#39;study_hours&#39;</span>: a<span style="color:#666">.</span>ravel(), <span style="color:#4070a0">&#39;private_class&#39;</span>: b<span style="color:#666">.</span>ravel()})
+</span></span><span style="display:flex;"><span>fittedY<span style="color:#666">=</span>results_formula<span style="color:#666">.</span>predict(exog<span style="color:#666">=</span>X_ax)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#666">=</span> plt<span style="color:#666">.</span>figure()
+</span></span><span style="display:flex;"><span>graph <span style="color:#666">=</span> fig<span style="color:#666">.</span>add_subplot(<span style="color:#40a070">111</span>, projection<span style="color:#666">=</span><span style="color:#4070a0">&#39;3d&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>graph<span style="color:#666">.</span>scatter(hour_class[<span style="color:#4070a0">&#39;study_hours&#39;</span>],hour_class[<span style="color:#4070a0">&#39;private_class&#39;</span>],hour_class[<span style="color:#4070a0">&#39;Score&#39;</span>],
+</span></span><span style="display:flex;"><span>	      c<span style="color:#666">=</span><span style="color:#4070a0">&#39;blue&#39;</span>,marker<span style="color:#666">=</span><span style="color:#4070a0">&#39;o&#39;</span>, alpha<span style="color:#666">=</span><span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>graph<span style="color:#666">.</span>plot_surface(a,b,fittedY<span style="color:#666">.</span>values<span style="color:#666">.</span>reshape(a<span style="color:#666">.</span>shape),
+</span></span><span style="display:flex;"><span>		   rstride<span style="color:#666">=</span><span style="color:#40a070">1</span>, cstride<span style="color:#666">=</span><span style="color:#40a070">1</span>, color<span style="color:#666">=</span><span style="color:#4070a0">&#39;none&#39;</span>, alpha<span style="color:#666">=</span><span style="color:#40a070">0.4</span>)
+</span></span><span style="display:flex;"><span>graph<span style="color:#666">.</span>set_xlabel(<span style="color:#4070a0">&#39;study hours&#39;</span>)
+</span></span><span style="display:flex;"><span>graph<span style="color:#666">.</span>set_ylabel(<span style="color:#4070a0">&#39;private class&#39;</span>)
+</span></span><span style="display:flex;"><span>graph<span style="color:#666">.</span>set_zlabel(<span style="color:#4070a0">&#39;Score&#39;</span>)
+</span></span><span style="display:flex;"><span>graph<span style="color:#666">.</span>dist <span style="color:#666">=</span> <span style="color:#40a070">11</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>show()
+</span></span></code></pre></div></li>
+</ul>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

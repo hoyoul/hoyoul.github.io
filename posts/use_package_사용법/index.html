@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+  <head><title>use-package 사용법</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">use-package 사용법</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/posts/use_package_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/" alt="use-package 사용법" class="permalink"><h1>use-package 사용법</h1></a>      
+	<h2 id="package란">package란</h2>
+<p>library, module하고 같다고 보면된다. 함수나 class, macro 변수에대한
+definition있는 파일로 보면된다.</p>
+<h2 id="archives">archives</h2>
+<p>package들은 archives(melpa,elpa,github)에 저장되어 있다. archive는
+melpa,elpa같이 emacs package저장소로 오랫동안 사용된 server도 있는
+반면에 요즘은 github같은 곳도 package를 만들고 유지하기때문에
+이런곳도 archive라고 볼 수 있다. github같은 archive에서 package를
+가져오고 관리하기 위해서는 straight.el을 사용한다.</p>
+<h2 id="package-managing">package managing</h2>
+<p>package manager는 여러가지 일을 하지만, brew install package처럼
+설치하는게 주 업무다. 즉 설치하고 사용하는것이다.</p>
+<ul>
+<li>download: package를 다운로드한다. tar같은 압축파일로 보통 되어
+있다. 보통 .emacs.d/elpa에 다운로드한다.</li>
+<li>install: 다운로드된 압축파일을 푼다. 혹은 .el파일을 만들어서
+.emacs.d/elpa/안에 넣는것도 install이다. 압축을 푼 package나
+직접만들어서 옮긴 .el파일을 컴파일해서 .elc로 만드는
+과정(byte-compile)까지 포함된다.</li>
+<li>load: .elc코드나 .el코드를 eval해서 lisp objects를 memory에
+올린다.</li>
+</ul>
+<h2 id="package-manager-history">package manager history</h2>
+<p>package manager는 역사를 가지고 있다.</p>
+<ul>
+<li>package.el : 모든 package를 load하는식</li>
+<li>use-package.el: package를 load하지 않고 archives에 package가
+설치되었는지만 확인한다. 실제 load는 함수가 호출될때 진행된다.</li>
+<li>use-package + straight.el: archive중에 github에 있는 package를
+straight.el을 사용해서 관리한다.</li>
+</ul>
+<h2 id="load-방식">load 방식</h2>
+<h3 id="require와-feature">require와 feature</h3>
+<p>require는 package를 load한다. require의 인자는 feature라는 것을
+사용하는데, 이것은 마치, python에서 import re라고 하면 re라는
+package가 load되는것과 비슷하다. re.py라는 확장자가 없지만, re.py를
+load하는 것처럼, require의 feature에는 확장자가 없다. 하지만,
+feature.el파일이 보통 존재한다. feature와 package명이 같은게
+관습이기 때문이다. el파일을 보면 맨 마지막 줄에 (provide
+&lsquo;feature)를 정의한다.</p>
+<p>설정파일에서 (require &lsquo;feature1)이 있다면 features라는 list
+변수에서 feature1을 찾는다. 없다면 등록한다. 만일 있다면 load가
+되어 있다는것이다. 따라서 load하지 않는다. (require &lsquo;feature1)이
+여러번 기술되어 있어도 features에 있다면 load하지 않는다. 즉 1번만
+load된다.</p>
+<p>load라는 것은 file을 open하고 read해서 buffer에 넣고eval-buffer로
+해석하는 것을 의미한다. eval-buffer로 해석된 lisp objects들은
+symbol table 저장된다. apropos를 사용하면 symbol table에서 lisp
+object를 검색할 수 있다.</p>
+<h3 id="autoloads">autoloads</h3>
+<p>autoload는 package를 자동으로 load한다는 뜻인데, 앞에 한문장이
+빠졌다. 특정함수를 실행할때, 자동으로 package를 load한다고 해석해야
+한다. 무조건 load하는게 아니다. 함수 실행이라는 trigger가
+있다. trigger(방아쇠)가 당겨질때 load한다는 뜻이다. 그래서
+autoload는 package를 load하는 함수다.라고 이해해도 된다.</p>
+<h2 id="use-package-사용예">use-package 사용예</h2>
+<h3 id="simplest-example">simplest example</h3>
+<div class="important">
+<p>(use-package foo)</p>
+</div>
+<p>system에 foo package가 설치되었는지 설치여부만 확인한다. 설치가
+안되어 있다면 message를 출력한다. 설치가 되어 있다고 해서 load되지
+않는다. use-package는 기본적으로 지연로딩(lazy loading)이기
+때문이다. defer t가 숨겨져 있다고 보면 된다. 즉 설치 여부만
+확인한다.</p>
+<h3 id="demand-t">:demand t</h3>
+<p>use-package는 기본적으로 require처럼 package를 바로 load하지
+않는다. require처럼 바로 load하려면, demant를 사용한다. defer의
+반대라고 생각하면 된다.</p>
+<div class="important">
+<p>(use-package foo
+:demant t)</p>
+</div>
+<h3 id="ensure-t">:ensure t</h3>
+<div class="important">
+<p>(use-package foo
+:ensure t)</p>
+</div>
+<p>:ensure라는 keyword가 붙으면, 설치를 하라는 의미다. foo가
+설치되었는지 확인하고 설치되지 않았다면, 설치를 한다. 최신버전으로
+설치를 한다. 기본버전으로 설치하고 update하는 과정이 나눠져 있기는
+하지만, 최신버전으로 설치한다고 생각하면 된다. use-package는
+기본적으로 (defer t)가 숨어 있기 때문에 load는 하지 않는다.</p>
+<h3 id="pin">:pin</h3>
+<div class="important">
+<p>(use-package foo
+:pin &ldquo;2.9.1&rdquo;
+:ensure t)</p>
+<p>(use-package foo
+:pin &ldquo;gnu&rdquo;
+:ensure t)</p>
+</div>
+<p>foo패키지 설치 여부를 따지고 설치를 하는데, archive와 version을
+지정해서 설치한다. :pin이라는 keyword는 지정하겠다는 의미다.</p>
+<h3 id="init">:init</h3>
+<div class="important">
+<p>(use-package foo
+:init
+(setq foo-variable t))</p>
+</div>
+<p>use-package foo는 (defer t)가 default값이기 때문에 package를
+load하지 않는다. :init블럭은 당연히 패키지의 함수나 변수를
+사용하는게 아니라, 새로운 변수를 만든다던가, 다른 package의 함수를
+실행하는 것들을 수행할 수 있다. package에 포함되지 않은 것들을
+실행한다. 즉 :init은 반드시 실행되는 코드라고 보면 된다.</p>
+<h3 id="config">:config</h3>
+<div class="important">
+<p>(use-package foo
+:config
+(setq foo-inner-variable t))</p>
+</div>
+<p>:config block은 package가 load된 이후 실행되기 때문에 package에
+정의된 변수의 값설정, 함수의 실행이 가능하다.</p>
+<h3 id="command">:command</h3>
+<div class="important">
+<p>(use-package ace-jump-mode
+:commands ace-jump-mode
+:init
+(bind-key &ldquo;C-.&rdquo; &lsquo;ace-jump-mode))</p>
+</div>
+<p>:command가 있으면, 해당 명령어를 실행할때 package를 load하는
+autoload 의미다. 즉, 바로 package를 load하지 않는것은
+동일하다. 추가적인 설명을 한다면 아래와 같다.</p>
+<p>:command는 package안에 autoloads.el이라는 파일을
+만든다. autoloads.el에는 (autoload command_function file)형태로
+command가 저장된다.</p>
+<p>그리고 symbol table에도 저장한다. ace-jump-mode란 symbol을
+등록하는데, 이 symbol에는 symbol definition이 없고, file
+location이 있다.</p>
+<p>emacs에서 ace-jump-mode를 실행하면, apropos로 ace-jump-mode를
+찾는다. 찾은 후 symbol definition을 실행한다. 이 경우는 symbol
+definition이 없다. autoload이기 때문에, symbol defintion 대신에
+package의 location이 있다. 그래서 package를 load하게 된다.</p>
+<p>:init은 무조건 실행하는 keyword다. 다만 package에서 정의된 함수나
+변수를 실행할 순없다.</p>
+<h3 id="bind">:bind</h3>
+<p>:bind keyword의 인자는 con cell이거나, list of concell이다.</p>
+<div class="important">
+<p>(use-package ace-jump-mode
+:bind (&ldquo;C-.&rdquo; . ace-jump-mode))</p>
+<p>(use-package hi-lock
+:bind ((&ldquo;M-o l&rdquo; . highlight-lines-matching-regexp)
+(&ldquo;M-o r&rdquo; . highlight-regexp)
+(&ldquo;M-o w&rdquo; . highlight-phrase)))</p>
+</div>
+<p>:bind도 package load를 나중에 하는 것은 동일하다. :bind에 정의된
+bind들은 :commands라고 봐도 된다. 즉 autoload다. 해당 bind가
+실행될때, package도 load된다.</p>
+<h3 id="custom">:custom</h3>
+<p>:custom은 (setq 변수)처럼 변수를 선언한다. 다만 차이점은 M-x
+customize-variable을 사용해서 해당 변수를 다시 setting할 수
+있다. setq는 그럴수 없다.</p>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

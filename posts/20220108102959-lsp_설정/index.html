@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+  <head><title>lsp 설정과 사용법 (python 설정과 사용법 포함)</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">lsp 설정과 사용법 (python 설정과 사용법 포함)</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/posts/20220108102959-lsp_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/" alt="lsp 설정과 사용법 (python 설정과 사용법 포함)" class="permalink"><h1>lsp 설정과 사용법 (python 설정과 사용법 포함)</h1></a>      
+	<h2 id="lsp-설정">lsp 설정</h2>
+<h3 id="개념">개념</h3>
+<ul>
+<li>lsp를 사용하는 이유는 coding할때 필요로 하는 정적분석기(문법을
+검사하는 syntax checker, pep8 coding guideline검사)기능,
+autocomplete(사용자가 특정 keyword를 입력하면 자동완성하는 ex:
+company)기능, mouse hover시나, keyboard로 특정함수를 입력하면
+document가 보이는 기능 ex: eldoc, jump to definition기능 ex:xref
+등등을  지원해서 코딩을 emacs에서 편하게 해준다.</li>
+<li>예전에는 이런것을 따로 따로 설치했는데, lsp를 사용하면서 공통적으로
+사용한다. 예를 들어서, eldoc의 기능은 lsp-ui, xref기능은 lsp-ivy로
+하고, debugging을 위해선 dap-mode를 지원한다. 이런것들은 모두 lsp
+mode, 즉 lsp client에서 설치하고 설정해야 한다.</li>
+<li>lsp는 server client구조로 되어 있다. server를 설치하는 것은 2가지
+과정이 있다. system에 server를 설치하고, emacs에서도 server
+package를 설정한다. client는 emacs에만 설치하면 된다.</li>
+</ul>
+<h3 id="lsp-server">lsp Server</h3>
+<h4 id="개념">개념</h4>
+<ul>
+<li>
+<p>python lsp server는 여러가지가 있다. pyls server와 microsoft python
+language server(mspyls), pyright, jedi-lsp-server 등등. 가장
+오래된 pyls를 사용하기로 한다.
+참조: <a href="https://emacs-lsp.github.io/lsp-mode/page/lsp-pylsp/">https://emacs-lsp.github.io/lsp-mode/page/lsp-pylsp/</a>
+pyls는 freezing되는 문제가 있다. 그리고 현재 jedi,pyls는 속도가
+느리다. ms가 가장 빠른것으로 알려져 있다.</p>
+</li>
+<li>
+<p>pyright가 ms lsp server로 replaced되었다.<a href="https://github.com/emacs-lsp/lsp-python-ms">pyright</a>
+<a href="https://github.com/emacs-lsp/lsp-pyright">pyright_site</a></p>
+</li>
+<li>
+<p><del>pyls설치는 2가지 option이 있다. dependency에 맞춰서 설치하는 것과
+dependency를 직접 고려해서 설치하는 방식이다. pip나 conda에 맞춰서 설치한다.</del></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>pip install python-language-server[all]
+</span></span><span style="display:flex;"><span>conda install -c conda-forge python-language-server
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="설정--pyright">설정(pyright)</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>(use-package lsp-pyright
+</span></span><span style="display:flex;"><span>  :ensure t
+</span></span><span style="display:flex;"><span>  :hook (python-mode . (lambda ()
+</span></span><span style="display:flex;"><span>                          (require &#39;lsp-pyright)
+</span></span><span style="display:flex;"><span>                          (lsp))))  ; or lsp-deferred
+</span></span></code></pre></div><ul>
+<li>위와 같이 설정하면 lsp-pyright를 다운받아서 설치한다. python file에
+hook이 걸려 있어서, python file을 open하면 server가 실행된다고
+보면된다. lsp-pyright.el은 이미 down받아져 있다.</li>
+</ul>
+<h3 id="lsp-client">lsp client</h3>
+<ul>
+<li>lsp client는 lsp-mode와 eglot가 있다. 나는 lsp-mode를 사용하기로
+한다. 설정은 간단하다. lsp-mode에서 hook을 걸어놓는다. lsp-ui도 설정한다.
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>(use-package lsp-mode
+</span></span><span style="display:flex;"><span>  :hook
+</span></span><span style="display:flex;"><span>  ((python-mode . lsp)))
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="lsp-사용법">lsp 사용법</h2>
+<h3 id="block-indent">block indent</h3>
+<ul>
+<li>python block indent를 하려면,
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>C-c &gt;, C-c &lt; 를 사용한다.
+</span></span></code></pre></div></li>
+<li>python에서 block을 설정하고 &lt;tab&gt;을 누른다고 indentation이 되지
+않는다.</li>
+</ul>
+<h3 id="pep8과-코딩-가이드라인">pep8과 코딩 가이드라인</h3>
+<h4 id="flycheck에-대해서">flycheck에 대해서</h4>
+<ul>
+<li>
+<p>python에서 coding guideline을 나타내는 pep8을 check하는 tool을
+제공한다. pylint라는 툴과 flake라는 tool을 제공하는데, 이 tool은
+console에서 설치하고 사용하는데, 에디터에서도 따로 설치해야 한다. 두
+개의 tool은 syntax checking과 pep8 coding guideline checking 2개의
+역할을 수행한다. 보통은 syntax checker란 용어로 쓰이거나, lsp에서는
+diagnostic, 한국용어로는 정적분석tool이라고도 말한다. 여튼 system에
+설치가 되어 있다면, 에디터에서 2개의 기능을 사용하기 위해선 설정이
+필요하다.</p>
+<p>pycharm이나 vscode에서는 pylint를 install해서 사용하면 되고,
+emacs에서는 연동되는 emacs package가 있는데,flycheck와
+flymake다.built-in으로 제공하는 것은 flymake이고, flycheck는 별도로
+설정해야 한다. 나는 flycheck을 설치해서 사용한다. flycheck는
+system에 설치된, pylint와 flake8을 둘다 사용한다. 두개의 warning과
+error를 에디터 상에서 보여주는 것이다. 이것을 확인하는 방법은 M-x
+flycheck-verify-setup을 실행하면 보여준다. 만일 둘중 한개를 사용하지
+않겠다면, 예를 들어 pylint를 사용하지 않겠다면, 아래를 참고한다.</p>
+</li>
+</ul>
+<h4 id="설치">설치</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>(use-package flycheck
+</span></span><span style="display:flex;"><span>:ensure t
+</span></span><span style="display:flex;"><span>:init
+</span></span><span style="display:flex;"><span>(global-flycheck-mode t)
+</span></span><span style="display:flex;"><span>:config
+</span></span><span style="display:flex;"><span>  (setq-default flycheck-disabled-checkers &#39;(python-pylint))
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h4 id="flycheck-warnings">flycheck warnings</h4>
+<ul>
+<li>lsp python에서 warning이 많은 이유는 flycheck으로 pep8을 적용하기
+때문인데, lsp하고는 무관하다. 복잡하다 싶으면, M-x flycheck-mode를
+실행해서 disable하면 된다.</li>
+</ul>
+<h4 id="flycheck-line-too-long-problem--길이-문제">flycheck line too long problem (길이 문제)</h4>
+<ul>
+<li>
+<p>80 character 길이제한은 옛날 crt 모니터 컬럼이기 때문에 120
+character로 조정하기로 한다. fill-column을 120으로 하면 된다.</p>
+</li>
+<li>
+<p>80컬럼을 120컬럼으로 변경하고 warning을 120이상일때만 보이게 하고
+싶을때는 수정해야 할께, flycheck가 아니다. flycheck의 backends로
+있는 system에 설치된, pylint와 flake8에 대한 설정이 필요하다.</p>
+</li>
+<li>
+<p>[1] pylint 설정 (~/.pylintrc파일 생성)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[FORMAT]
+</span></span><span style="display:flex;"><span>max-line-length=120
+</span></span></code></pre></div></li>
+<li>
+<p>[2] flake8 설정 (~/.config/flake8파일 생성)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>[<span style="color:#bb60d5">flake8</span>]
+</span></span><span style="display:flex;"><span><span style="color:#bb60d5">ignore</span> <span style="color:#06287e">=</span> <span style="color:#bb60d5">E128</span>
+</span></span><span style="display:flex;"><span><span style="color:#bb60d5">max-line-length</span> <span style="color:#06287e">=</span> <span style="color:#40a070">120</span>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="column-bar만들기">column bar만들기</h4>
+<ul>
+<li>display-fill-column-indicator-mode를 활성화한다.</li>
+</ul>
+<h2 id="lsp-mode-vs-eglot">lsp mode vs eglot</h2>
+<ul>
+<li>lsp client에는 2가지가 있다. lsp-mode와 eglot다.</li>
+</ul>
+<h2 id="lsp-rename">lsp-rename</h2>
+<ul>
+<li>pycharm에 보면, refactor-&gt;rename이란 기능이 있다. 이것은 변수나
+함수의 이름을 한번에 싹 바꿔준다. 동일한 기능이 lsp에도 있다.
+lsp-rename을 사용하면 된다.</li>
+</ul>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

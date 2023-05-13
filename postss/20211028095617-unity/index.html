@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+  <head><title>unity</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">unity</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/postss/20211028095617-unity/" alt="unity" class="permalink"><h1>unity</h1></a>      
+	<h2 id="설치">설치</h2>
+<h3 id="unityhub-다운">unityhub 다운</h3>
+<ul>
+<li><a href="https://unity.com/download#how-get-started">여기</a>에서 unity hub를 다운받는다.</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/unityhub1.png" width="800px"/>
+</figure>
+
+<h3 id="unity-다운">unity 다운</h3>
+<ul>
+<li>unityhub는 여러개의 unity가 설치될 수 있는 hub다. unity를 설치해보자.</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/unity1.png" width="800px"/>
+</figure>
+
+<ul>
+<li>unity version 선택</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/unity2.png" width="800px"/>
+</figure>
+
+<ul>
+<li>android, ios 추가 설치</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/unity3.png" width="800px"/>
+</figure>
+
+<ul>
+<li>unity 설치 진행</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/unity4.png" width="800px"/>
+</figure>
+
+<h3 id="android-ios-관련-설치">android, ios 관련 설치</h3>
+<ul>
+<li>ios 는 xcode가 필요.</li>
+<li>android는 android studio가 필요하다. xcode나 android studio가 없다면, 없는것을 설치한다.</li>
+</ul>
+<h2 id="project-실행">Project 실행</h2>
+<ul>
+<li>project 생성</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/project1.png" width="800px"/>
+</figure>
+
+<ul>
+<li>Project 만들기</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/project2.png" width="800px"/>
+</figure>
+
+<div class="warning">
+<p>project를 만들수 없다. valid license가 없다는 에러가 나오면서 진행되지 않는다. License를 만든후 진행하면 만들어지는 것을 확인할 수 있다.</p>
+</div>
+<h2 id="license를-만들기">License를 만들기</h2>
+<ul>
+<li>login
+license는 login을 해야 한다. login후 manual activation을 해도 된다.</li>
+</ul>
+<h2 id="project-실행">Project 실행</h2>
+<ul>
+<li>project 실행 화면</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/project3.png" width="800px"/>
+</figure>
+
+<h2 id="사용법">사용법</h2>
+<h3 id="emacs를-편집기로-사용">emacs를 편집기로 사용</h3>
+<ul>
+<li>lsp C#(ommisharp)을 위해서 mono를 다운받는다.
+<a href="https://www.mono-project.com/download/stable/">여기</a>에서 stable channel에서 다운받는다. 그리고 설치된 위치에서 다음을 설정해야 한다.
+-참조
+<a href="https://elizadev.medium.com/using-unity-editor-with-emacs-9316eb441411">https://elizadev.medium.com/using-unity-editor-with-emacs-9316eb441411</a>
+bin_dir=/Library/Frameworks/Mono.framework/Versions/Current/bin
+<a href="https://github.com/OmniSharp/omnisharp-roslyn/issues/1948">https://github.com/OmniSharp/omnisharp-roslyn/issues/1948</a></li>
+</ul>
+<h3 id="c-code를-visual-studio와-연동하기">C# code를 visual studio와 연동하기</h3>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/editor1.png"
+         alt="Figure 1: editor1" width="800px"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>editor1</p>
+        </figcaption>
+</figure>
+
+<h3 id="script-작성하기">script 작성하기</h3>
+<div class="note">
+<p>project창의 아래를 보면 좌측엔  project라는 메뉴가 보인다. 우측에는 asset창이 보인다. asset창에서 마우스  오른쪽 버튼을 누르고 create-&gt; c#script를 선택하면 script파일이 만들어진다.</p>
+</div>
+<h3 id="game과-scene">game과 scene</h3>
+<div class="note">
+<p>scene은 전지적 시점에서 보는 영상이다.  카메라,조명, object를 설정하고 놓을수 있다. 반면 game에서는 camera에서 보는 영상이다.</p>
+</div>
+<h3 id="도형추가방법">도형추가방법</h3>
+<div class="note">
+<p>아래 그림에서 +를 누르면, 3D object를 화면에 추가할 수 있다.</p>
+</div>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/object1.png"
+         alt="Figure 2: object" width="800px"/><figcaption>
+            <p><span class="figure-number">Figure 2: </span>object</p>
+        </figcaption>
+</figure>
+
+<h2 id="2d-게임-만들기1--roullette">2d 게임 만들기1 (roullette)</h2>
+<h3 id="project를-만든다-dot">Project를 만든다.</h3>
+<div class="note">
+<p>2d 게임으로 Roulette라는 이름으로 project를 만든다.</p>
+</div>
+<h3 id="사용할-resource를-asset창에-drag-and-drop한다-dot">사용할 resource를 asset창에 drag &amp; drop한다.</h3>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

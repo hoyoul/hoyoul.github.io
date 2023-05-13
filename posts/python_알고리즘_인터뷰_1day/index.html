@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+  <head><title>python Algorithm interview (1day)</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">python Algorithm interview (1day)</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/posts/python_%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B3%E1%86%B7_%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%87%E1%85%B2_1day/" alt="python Algorithm interview (1day)" class="permalink"><h1>python Algorithm interview (1day)</h1></a>      
+	<h2 id="들어가며">들어가며</h2>
+<h3 id="개괄적-설명">개괄적 설명</h3>
+<p>2017년도에 카카오에서 코테로 사람을 뽑음. 왜 알고리즘이 필요한가?에
+대해서 설명을 하는데, problem solving skill때문이라고 한다. 코딩문제를
+기계적으로 풀기보단 왜? 이렇게 풀어야 하고 어떤 장점이 있는지를 이책에
+담을려고 노력했다고 함.</p>
+<h3 id="python">python</h3>
+<p>cpython을 사용, cpython은 c로 만들어진 python, python을 설치하면
+사용되는 interpreter가 cpython이라고 보면 됨. jython이란것도
+있음. java로 만든 python.</p>
+<h3 id="coding-convention-tools-dot">coding convention tools.</h3>
+<p>협업을 많이하는 python은 coding convention이 중요하다. 다음과 같은
+tool이 있다.</p>
+<h4 id="pep--python-enhanced-properties--8-사용--style-checker--flake8">pep(Python Enhanced Properties)8 사용(style checker) - flake8</h4>
+<p>python으로 program을 작성할때의 규약(coding convention)이라고 보면
+됨. warning message로 알려줌.</p>
+<div class="important">
+<ul>
+<li>indent: 4 space</li>
+<li>함수와 함수 사이: 2 blanks</li>
+<li>line의 최대길이: 79</li>
+</ul>
+</div>
+<p>pep8은 옛날이름이고 지금은 pycodestyle로 개발 진행되고 있다. pep8이나
+pycodestyle은 guideline만을 제시한다. flake8이라는 checker라는
+program이 pep8을 수행하는 tool이라고 보면된다.</p>
+<h4 id="pylint">pylint</h4>
+<p>pylint는 flake8이라는 tool이 하는 formatting error도 처리하지만,
+syntatic error도 checking한다.</p>
+<h4 id="black-formatter">black formatter</h4>
+<p>pep8에서 warning message를 보여주지만, 고쳐주진 않는다. 고쳐주는 tool</p>
+<h4 id="요약">요약</h4>
+<p>checker로는 pylint, flake8을 사용하고, reformatter로 black을 사용하면
+된다.</p>
+<h4 id="emacs에서-사용법">emacs에서 사용법</h4>
+<p>pylint, flake8과 같은 checker는 flycheck이라는 모든 언어의 checking을
+담당하는 package에서 처리한다. flycheck은 python이외의 다른언어에서도
+사용할 수 있는 범용적인 tool이다. M-x flycheck-verify-setup을 통해서
+원하는 checker를 선택할 수 있다. style만 check할려면, pep8만 선택하고,
+syntax error checking도 하려면 pylint도 설정한다.</p>
+<h3 id="리트코드를-활용한-문제-풀이">리트코드를 활용한 문제 풀이</h3>
+<ul>
+<li>leetcode는 문제를 풀지 않아도 다른사람의 답을 볼 수 있다.</li>
+<li>leetcode는 개인을 위한 문제 풀이 서비스</li>
+<li>별도의 코딩테스트 플랫폼을 활용해야 한다.(hackerank)</li>
+</ul>
+<h3 id="리트코드-가이드">리트코드 가이드</h3>
+<p>front page에 나오는 것은 공지사항이나, 새로운 문제가 추가되거나
+구인광고 같은것들이 시간별로 올라온다. 메뉴를 보자.</p>
+<h4 id="explore">Explore:</h4>
+<p>바로 문제를 풀지 못하는 초보자들을 위한 안내(탐색과정), learn에는 많은 기초적인 내용들이 있다.</p>
+<h4 id="problems">problems:</h4>
+<p>문제들 중엔, 유료문제와 무료 문제가 있다. 유료문제는 한달에 35$, 1년에
+159$, 난이도별, 풀었는지 유무, tag별 정렬이 가능하다. solution도 볼 수
+있다.</p>
+<h4 id="interview">interview</h4>
+<p>돈을 내면 IT기업의 mockup interview에 참가 가능하다.</p>
+<h4 id="contest">contest</h4>
+<p>주간,격주간 contest가 있다. 상금과 상품이 주어진다. 상금은 leetcoin이다.</p>
+<h4 id="discuss">discuss</h4>
+<p>community site다. 게시판이라고 보면 된다.취업, benefits, 문제 풀이에
+대한 정답과 설명도 많다.</p>
+<h3 id="리트코드-문제-풀기">리트코드 문제 풀기</h3>
+<p>문제를 선택하면, 문제 설명, testcase, condition이 나온다.
+사용할 언어를 선택하고 문제를 풀면 된다.</p>
+<h3 id="github-source-code">github source code</h3>
+<p><a href="https://github.com/onlybooks/algorithm-interview">https://github.com/onlybooks/algorithm-interview</a></p>
+<h3 id="youtube-학습동영상">youtube 학습동영상</h3>
+<p>송호연: <a href="https://www.youtube.com/playlist?list=PL1iR1v6eNy5OO01XbQ1djo4P6gNG78wYH">https://www.youtube.com/playlist?list=PL1iR1v6eNy5OO01XbQ1djo4P6gNG78wYH</a></p>
+<h2 id="1장-코딩인터뷰">1장 코딩인터뷰</h2>
+<h3 id="국내회사에서-사용하는-코테사이트">국내회사에서 사용하는 코테사이트</h3>
+<ul>
+<li>해커랭크(<a href="https://www.hackerrank.com/">https://www.hackerrank.com/</a>),카카오,네이버웹툰</li>
+<li>코딜리티(<a href="https://www.codility.com/">https://www.codility.com/</a>),네이버,야놀자</li>
+<li>리모트 인터뷰(<a href="https://www.remoteinterview.io/">https://www.remoteinterview.io/</a>)</li>
+<li>프로그래머스(<a href="https://programmers.co.kr/">https://programmers.co.kr/</a>),라인</li>
+</ul>
+<h3 id="코드-스니펫--snippet">코드 스니펫(snippet)</h3>
+<h3 id="github-gist">github gist</h3>
+<h3 id="test-cases">test cases</h3>
+<p>general하게 풀어야 함.</p>
+<h3 id="timeout">timeout</h3>
+<p>입력값을 수천,수만개로 해서 timeout을 유도한다. python의 timeout이
+작기때문에 좀 더 신경써야 한다.</p>
+<h3 id="예외-코드-처리">예외 코드 처리</h3>
+<p>try catch로 예외코드를 작성하는걸 권장</p>
+<h2 id="2장-프로그래밍-언어선택">2장 프로그래밍 언어선택</h2>
+<p>별다른 내용이 없음. 모든언어의 공통적? 기능</p>
+<h3 id="loop">loop</h3>
+<p>for-loop, range사용, 다양하게 표현할 줄 알아야 한다.</p>
+<h3 id="generic-programming">generic programming</h3>
+<p>parameter type을 나중에 지정되게 하는 방법. python은 dynamic typing
+system이라서 type을 명시하지 않는다. typehint를 사용해서 처리할 수
+있음.</p>
+<h3 id="배열반복">배열반복</h3>
+<p>배열을 순회하면서 task를 처리하는게 많은 모양임.</p>
+<h3 id="구조체-클래스">구조체,클래스</h3>
+<p>python은 type을 사용자가 직접 명시하지 않는다. structure나 class는
+data type을 기술하는 element다. 따라서 python에서는 이를 위해
+@datasclass라는 decoration을 사용한다.</p>
+<h3 id="결론">결론</h3>
+<p>python이 코테를 하는데 부족함이 없는 언어다.</p>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

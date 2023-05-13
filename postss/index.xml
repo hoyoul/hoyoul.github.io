@@ -5,103 +5,1618 @@
     <link>http://braindump.frege2godel.me/postss/</link>
     <description>Recent content in Postsses on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 06 May 2023 00:00:00 +0900</lastBuildDate><atom:link href="http://braindump.frege2godel.me/postss/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://braindump.frege2godel.me/postss/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>한글 파일 두번째 테스트</title>
-      <link>http://braindump.frege2godel.me/postss/%E1%84%92%E1%85%A1%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AF%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF2/</link>
-      <pubDate>Sat, 06 May 2023 00:00:00 +0900</pubDate>
-      
-      <guid>http://braindump.frege2godel.me/postss/%E1%84%92%E1%85%A1%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AF%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF2/</guid>
-      <description>한글파일 두번째 test Aliquam erat volutpat. Nunc eleifend leo vitae magna. In id erat non orci commodo lobortis. Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus. Sed diam. Praesent fermentum tempor tellus. Nullam tempus. Mauris ac felis vel velit tristique imperdiet. Donec at pede. Etiam vel neque nec dui dignissim bibendum. Vivamus id enim. Phasellus neque orci, porta a, aliquet quis, semper a, massa. Phasellus purus. Pellentesque tristique imperdiet tortor.</description>
-    </item>
-    
-    <item>
-      <title>한글 파일 테스트</title>
-      <link>http://braindump.frege2godel.me/postss/%E1%84%92%E1%85%A1%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AF%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF/</link>
-      <pubDate>Sat, 06 May 2023 00:00:00 +0900</pubDate>
-      
-      <guid>http://braindump.frege2godel.me/postss/%E1%84%92%E1%85%A1%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AF%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF/</guid>
-      <description>한글 테스트 한글 lorem ipsum이 없다. 그것도 개발해야할듯 하다.
-날씨가 을씨년 스럽다. 2nd headline 2nd headline이다.
-important option은 어떻게 표현될까?</description>
-    </item>
-    
-    <item>
-      <title>a</title>
-      <link>http://braindump.frege2godel.me/postss/a/</link>
+      <title>Reinforcement Learning</title>
+      <link>http://braindump.frege2godel.me/postss/20211016214850-reinforcement_learning/</link>
       <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://braindump.frege2godel.me/postss/a/</guid>
-      <description>a testb
-Pellentesque dapibus suscipit ligula. Donec posuere augue in quam. Etiam vel tortor sodales tellus ultricies commodo. Suspendisse potenti. Aenean in sem ac leo mollis blandit. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi. Phasellus lacus. Etiam laoreet quam sed arcu. Phasellus at dui in ligula mollis ultricies. Integer placerat tristique nisl. Praesent augue. Fusce commodo. Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus.</description>
+      <guid>http://braindump.frege2godel.me/postss/20211016214850-reinforcement_learning/</guid>
+      <description>좋은 자료들 동영상 혁펜하임,
+책, 논문 website
+RL Korea,
+기타
+unity 공부할 필요 있음. #+end_note
+Learning? Learning in A.I is to make model through Inductive reasoning process. 사례(data)로 법칙?을 만드는것. deductive reasoning 방식과 다름. 작은 법칙을 조합해서 새로운 법칙을 만드는 것. model? Learning으로 통해서 만들어진 법칙, like inductive reasoning, deductive reasoning은 아니다. Reinforcement? Reinforcement란 용어를 Skinner의 이론에서 나왔다는 말이 많다. pavlov, thondike, skinner 중 skinner는 reward에 따른 생쥐연구로 더 비슷하긴 하다.</description>
     </item>
     
     <item>
-      <title>About these notes</title>
-      <link>http://braindump.frege2godel.me/postss/about-these-notes/</link>
-      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+      <title>[모두의딥러닝] chapter6 퍼셉트론</title>
+      <link>http://braindump.frege2godel.me/postss/20220306201545-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter6_%E1%84%91%E1%85%A5%E1%84%89%E1%85%A6%E1%86%B8%E1%84%90%E1%85%B3%E1%84%85%E1%85%A9%E1%86%AB/</link>
+      <pubDate>Sun, 06 Mar 2022 00:00:00 +0900</pubDate>
       
-      <guid>http://braindump.frege2godel.me/postss/about-these-notes/</guid>
-      <description>Hey, I&amp;rsquo;m holy frege and these are my notes.
-I try to collect my knowledge and I&amp;rsquo;m adding new notes almost every day. 1 Check out the Index with all notes, alternatively here&amp;rsquo;s a small selection of good entrypoints:
-The source of this wiki is available on GitHub: holy-brain If you want a personal wiki like this but don&amp;rsquo;t know how to build it, let me know, I&amp;rsquo;ll happily help you find a solution: hoyoul.</description>
+      <guid>http://braindump.frege2godel.me/postss/20220306201545-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter6_%E1%84%91%E1%85%A5%E1%84%89%E1%85%A6%E1%86%B8%E1%84%90%E1%85%B3%E1%84%85%E1%85%A9%E1%86%AB/</guid>
+      <description>(1) Perceptron Figure 1: perceptron
+Perceptron의 구조는 뉴런이란 구조와 비슷하지만, chapter5에서 봤던 sigmoid함수의 구조와 비슷하다. sigmoid함수를 보면, exponential의 인자로 직선의 방정식이 들어가는 합성함수의 구조였다. 마찬가지로 Perceptron도 비슷한 구조로 되어 있다. 직선의 방정식이 a에서 w로 변경되고, 개수가 늘어난 차이만 있다. Perceptron은 Logistic Regression의 확장판으로 보면 된다. (2)가중치, 가중합, 바이어스, 활성화 함수 용어에 대한 정리가 필요하다. 가중치(weight): sigmoid의 입력으로 들어가는 직선의 방정식의 기울기로 보면 된다. bias: sigmoid함수의 입력으로 들어가는 직선의 방정식의 절편으로 보면 된다.</description>
     </item>
     
     <item>
-      <title>b</title>
-      <link>http://braindump.frege2godel.me/postss/b/</link>
-      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+      <title>[모두의딥러닝] chapter7 다층 퍼셉트론</title>
+      <link>http://braindump.frege2godel.me/postss/20220306201445-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter7/</link>
+      <pubDate>Sun, 06 Mar 2022 00:00:00 +0900</pubDate>
       
-      <guid>http://braindump.frege2godel.me/postss/b/</guid>
-      <description>b a파일
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere. Donec vitae dolor. Nullam tristique diam non turpis. Cras placerat accumsan nulla. Nullam rutrum. Nam vestibulum accumsan nisl.</description>
+      <guid>http://braindump.frege2godel.me/postss/20220306201445-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter7/</guid>
+      <description>(1) 다층 퍼셉트론 xor문제의 해결 실마리 &amp;ldquo;성냥개비 6개로 정삼각형 4개 만드는 문제&amp;rdquo;
+XOR문제 해결의 실마리: 2차원 평면이 아닌, 3차원 공간에서 해결
+XOR문제, 종이를 접어서 해결, 좌표평면 자체에 변화를 주는 방식
+hidden layer 종이를 접어서 좌표평면을 변경하는것을 Hidden layer를 추가해서 해결.
+아래 보면, 은닉층에서 평면을 왜곡해서 직선으로 분류하는것을 볼 수 있다.
+(2) 다층 퍼셉트론의 설계 다층 퍼셉트론의 구조 수식 진행 과정 x1,x2는 node1과 node2의 입력이 된다. 이것을 수식으로 다음과 같이 표현한다. node1과 node2는 yout의 입력이 된다.</description>
     </item>
     
     <item>
-      <title>c</title>
-      <link>http://braindump.frege2godel.me/postss/c/</link>
-      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+      <title>[모두의딥러닝] chapter3 - 선형 회귀</title>
+      <link>http://braindump.frege2godel.me/postss/20220302184909-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter3/</link>
+      <pubDate>Wed, 02 Mar 2022 00:00:00 +0900</pubDate>
       
-      <guid>http://braindump.frege2godel.me/postss/c/</guid>
-      <description>c Aliquam erat volutpat. Nunc eleifend leo vitae magna. In id erat non orci commodo lobortis. Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus. Sed diam. Praesent fermentum tempor tellus. Nullam tempus. Mauris ac felis vel velit tristique imperdiet. Donec at pede. Etiam vel neque nec dui dignissim bibendum. Vivamus id enim. Phasellus neque orci, porta a, aliquet quis, semper a, massa. Phasellus purus. Pellentesque tristique imperdiet tortor. Nam euismod tellus id erat.</description>
+      <guid>http://braindump.frege2godel.me/postss/20220302184909-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter3/</guid>
+      <description>1 Linear Regression (선형회귀) 1.1 (1) 선형 회귀의 정의 Linear Regresssion(책에서 정의): 가장 훌륭한 예측선 긋기 학생들의 중간고사 성적이 다 다르다. -&amp;gt; 학생들의 중간고사 성적이 [ ] 에 따라 다르다. 윗 문장에서 독립변수에 의해 종속변수가 결정되는 관계를 볼 수 있다. 안에 공부시간, 시험당일 컨디션, 사교육비 지출액. Simple Linear Regression: 하나의 독립변수로 종속변수가 설명될때. Multiple Linear Regression: 여러개의 독립변수로 종속변수가 설명. 1.2 (2) 가장 훌륭한 예측선이란? Simple Linear Regression의 예: 학생들의 중간고사 성적이 [공부 시간] 에 따라 다르다.</description>
     </item>
     
     <item>
-      <title>hello-again</title>
-      <link>http://braindump.frege2godel.me/postss/hello-again/</link>
-      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+      <title>[An introduction to Programming in Emacs Lisp] chapter 1 List Processing</title>
+      <link>http://braindump.frege2godel.me/postss/20220318164559-an_introduction_to_programming_in_emacs_lisp_chapter_1_list_processing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://braindump.frege2godel.me/postss/hello-again/</guid>
-      <description>this is hello again Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere. Donec vitae dolor. Nullam tristique diam non turpis. Cras placerat accumsan nulla. Nullam rutrum. Nam vestibulum accumsan nisl.</description>
+      <guid>http://braindump.frege2godel.me/postss/20220318164559-an_introduction_to_programming_in_emacs_lisp_chapter_1_list_processing/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>pdf test</title>
-      <link>http://braindump.frege2godel.me/postss/test_pdf/</link>
-      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+      <title>[book] HowToSolveIt</title>
+      <link>http://braindump.frege2godel.me/postss/20211103035920-book_howtosolveit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://braindump.frege2godel.me/postss/test_pdf/</guid>
-      <description>pdf test Lorem ipsum dolor sit amet, consectetuer adipiscing elit. pdf파일</description>
+      <guid>http://braindump.frege2godel.me/postss/20211103035920-book_howtosolveit/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>temp</title>
-      <link>http://braindump.frege2godel.me/postss/temp/</link>
-      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+      <title>[book] 수학적발견</title>
+      <link>http://braindump.frege2godel.me/postss/book_%E1%84%89%E1%85%AE%E1%84%92%E1%85%A1%E1%86%A8%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%87%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A7%E1%86%AB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://braindump.frege2godel.me/postss/temp/</guid>
-      <description>#+ORG-HUGO-BASE-DIRectory
-temp Cras placerat accumsan nulla. Nullam eu ante vel est convallis dignissim. Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio. Nunc porta vulputate tellus. Nunc rutrum turpis sed pede. Sed bibendum. Aliquam posuere. Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio. Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.</description>
+      <guid>http://braindump.frege2godel.me/postss/book_%E1%84%89%E1%85%AE%E1%84%92%E1%85%A1%E1%86%A8%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%87%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A7%E1%86%AB/</guid>
+      <description>문제 풀이 문제는 모르는것, data, 조건으로 구성된다. 문제를 풀때, 한 step 나가면, 문제는 달라진다. 첫번째 예문은 주어진 세 선분을 변으로 하는 삼각형을 작도하라는 문제다. 모르는 것은 삼각형, 주어진것(data)는 세개의 선분, 조건은 세 선분이 삼각형의 변이다. data와 모르는것의 관계를 조건이 말해준다. 이 문제를 풀기 위해서 1 step을 수행한다. 1st step은 하나의 선분을 그리는 것이다. 삼각형을 작도하려면, 어떤 방법을 써도 하나의 선분을 그려야 한다. 즉 어떤 방법, 어떤 알고리즘을 쓰더라도 1st step은 선분 하나를 그리고, 그 다음은 두번째 선분을 그리고, 그다음 삼각형을 이루는 마지막 선분을 그릴거라고 예상하기 때문이다.</description>
     </item>
     
     <item>
-      <title>this is image test</title>
-      <link>http://braindump.frege2godel.me/postss/test_img/</link>
-      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+      <title>[chapter6] Actor-Critic</title>
+      <link>http://braindump.frege2godel.me/postss/20220219001950-test2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://braindump.frege2godel.me/postss/test_img/</guid>
-      <description>this is image test Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere. Donec vitae dolor. Nullam tristique diam non turpis. Cras placerat accumsan nulla. Nullam rutrum. Nam vestibulum accumsan nisl.
-Figure 1: this is image</description>
+      <guid>http://braindump.frege2godel.me/postss/20220219001950-test2/</guid>
+      <description>지금까지 공부한 것 Figure 1: summary
+Policy Iteration review Actor &amp;amp; Critic방식은 Policy Iteration방식을 기반으로 한다. Policy iteration으로 볼때 Actor는 policy table을 따르고, Critic은 value table을 따르는 것과 동일하게 볼수 있다. 따라서Policy iteration의 동작을 review할 필요가 있다. Policy policy function 입력: 상태를 입력받는다. 출력: random하게 출력( policy 확률분포를 따른다.) 동작방식 agent는 policy function을 통해서 이동한다. policy function에는 state와 action에 따른 확률분포를 따라 action이 정해진다. 예를들면, s0의 상태에서 policy 값(동:20%, 서:20%, 북:40%,남:20%)에 따라 random하게 선택되기 때문에 북쪽으로 이동할 확률이 높다.</description>
+    </item>
+    
+    <item>
+      <title>[dictation-엄마를 부탁해]</title>
+      <link>http://braindump.frege2godel.me/postss/20220319165632-dictation_%E1%84%8B%E1%85%A5%E1%86%B7%E1%84%86%E1%85%A1%E1%84%85%E1%85%B3%E1%86%AF_%E1%84%87%E1%85%AE%E1%84%90%E1%85%A1%E1%86%A8%E1%84%92%E1%85%A2_0319/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220319165632-dictation_%E1%84%8B%E1%85%A5%E1%86%B7%E1%84%86%E1%85%A1%E1%84%85%E1%85%B3%E1%86%AF_%E1%84%87%E1%85%AE%E1%84%90%E1%85%A1%E1%86%A8%E1%84%92%E1%85%A2_0319/</guid>
+      <description>0319 영어원문 IT’S BEEN ONE WEEK since Mom went missing. The family is gathered at your eldest brother Hyong-chol’s house, bouncing ideas off each other. You decide to make flyers and hand them out where Mom was last seen. The first thing to do, everyone agrees, is to draft a flyer. Of course, a flyer is an old-fashioned response to a crisis like this. But there are few things a missing person’s family can do, and the missing person is none other than your mom.</description>
+    </item>
+    
+    <item>
+      <title>[Emacs Settings -설정에 관해] from scratch</title>
+      <link>http://braindump.frege2godel.me/postss/20220216210252-emacs_emacs_org_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220216210252-emacs_emacs_org_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/</guid>
+      <description>Emacs Daemon Emacs를 설치하면, 터미널상에서 emacs &amp;ndash;bg-daemon, emacs &amp;ndash;fg-daemon을 실행해서 daemon을 실행할 수 있다. emacsclient -nc로 daemon에 연결해서 사용한다. (Org-babel-tangle) - emacs.org로 설정 emacs의 설정파일은 init.el이다. emacs가 실행시에 init.el만 읽는다. 나는 init.el에서 설정하지 않고, Emacs.org파일에서 설정할려고 한다. emacs.org로 하면 설정 code뿐만 아니라 설정에 대한 설명도 나타낼수 있기때문이다. Emacs.org에 설정을 하고, 설정된 code를 init.el로 옮겨주는 일을 tangle이 한다. 첫번째 방법 emacs.org의 code block에서 tangle을 명시해주는 방법
+M-x org-babel-tangle을 실행하면, Emacs.org의 source code block이 init.</description>
+    </item>
+    
+    <item>
+      <title>[emacs-org-babel] python</title>
+      <link>http://braindump.frege2godel.me/postss/emacs_org_babel_python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/emacs_org_babel_python/</guid>
+      <description>:results output print문이 있는 경우, 출력시 사용
+:session 함수를 만들고 함수내의 print문이나 return값을 출력할때 사용한다.</description>
+    </item>
+    
+    <item>
+      <title>[emacs] org backend 만들기</title>
+      <link>http://braindump.frege2godel.me/postss/emacs_org_backend_%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/emacs_org_backend_%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%B5/</guid>
+      <description>참고 참고
+prerequisite org backend를 알기위해선 아래의 파일에 대한 분석이 필요하다고 한다. 다음 소스는 아래에서 얻을 수 있다. org는 emacs에 built-in되어 있다.
+git clone https://git.savannah.gnu.org/git/emacs/org-mode.git
+ox.el (org export framework) ox-html.el (org export html) ox-md.el (org export md) ox-org.el (org export org)y testing/lisp/test.ox.el 목적 org문서를 다른 형태의 문서로 변환하기 위해선 backend라는게 필요하다. org-export를 통해서 변환하는데, 이때 backend가 사용되기 때문이다. 여기서 다루는 것은 간단한 예제다. 다음과 같은 org buffer가 있다고 하자.
+I like *bold-1* and *bold-2* and you?</description>
+    </item>
+    
+    <item>
+      <title>[emacs] org-roam-ui 분석</title>
+      <link>http://braindump.frege2godel.me/postss/emacs_org_roam_ui_%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/emacs_org_roam_ui_%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8/</guid>
+      <description>목적 org-roam-ui의 graph출력 분석</description>
+    </item>
+    
+    <item>
+      <title>[emacs]cl-lib 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/emacs_cl_lib_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/emacs_cl_lib_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>common lisp package emacs의 거의모든 program들은 common lisp package를 사용한다. 그중 cl-lib을 많이 사용한다.따라서 code를 분석하거나 사용할때 cl-lib를 사용할 줄 알아야 한다.
+참고:https://www.gnu.org/software/emacs/manual/html_mono/cl.html
+usage (require &amp;lsquo;cl-lib)
+위와 같이 load해서 사용한다.</description>
+    </item>
+    
+    <item>
+      <title>[essay- MDP_0] 미래를 예측하는 방법(Markov Property)</title>
+      <link>http://braindump.frege2godel.me/postss/20220222192111-essay_markov_chain_and_property/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220222192111-essay_markov_chain_and_property/</guid>
+      <description>ps: 확률 부분도 참고.
+미래의 예측과 확률 우리가 미래를 알 수 있을까? 점쟁이처럼 미래를 맞출수 있을까? 현재까지 모든 과학적 방법에서 점쟁이처럼 미래를 맞추기란 쉽지 않다. 우리는 미래를 예측할 수 있다. 예측이라는 것은 미래에 나타날 경우의 수 중 하나를 말하고 그것의 가능성을 확률로 말한다. 그러면 그 경우의 수를 어떻게 알 수 있는가? 직관적으로 알수도 있고, 과거를 통해서 알 수도 있다. 예를 들어, 내일 첼시와 토트넘 경기의 승자를 예측할 수 있는가?라는 질문에서 우리는 경우의 수는 알 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>[essay- MDP_1] Markov Process(chain)</title>
+      <link>http://braindump.frege2godel.me/postss/20220223124921-essay_mdp_1_markov_process_chain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220223124921-essay_mdp_1_markov_process_chain/</guid>
+      <description>Markov property markov property는 다음 상태(미래)는 과거의 통계가 아닌, 이전 상태(현재)에만 영향을 받는다는 속성을 의미한다. 여기서 중요한 것은 3가지가 있다. 하나는 시간이고, 두번째는 상태라는 개념이고, 세번째는 상태간의 관계다. 시간은 discrete하게 본다는 것이고, 각각의 시간마다, 어떤 대상이나 환경처럼 주어진 정보가 있는데, 이것을 상태라고 부른다는것, 그리고, 시간에 따른 상태간의 관계가 markov property를 규정한다는 것이다. 구체적으로 어떤게 상태냐?라는 질문은 문제에 따라 달라진다라고 말할수 있을거 같다. 예를 들어, 이전에 설명했던, 화투나 사자를 봐도, 다음 상태는 현재상태에 의존적임을 알 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>[essay- MDP_2] Markov Decision Process</title>
+      <link>http://braindump.frege2godel.me/postss/20220223144341-essay_mdp_2_markov_decision_process/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220223144341-essay_mdp_2_markov_decision_process/</guid>
+      <description>Markov Property, Markov Process, Markov Decision Process라고 하면? 머리속에 떠오르는 생각이 있어야 한다. 예시가 될 수도 있고, 설명이 될 수도 있겠지만, 떠오르는 생각이 있어야 한다. 이것은 나중에 생각해야겠다. MDP(Markov Decision Process) 자연계에서 발생하는 모든 현상은 대부분 Markov Property를 갖기 때문에 Markov Process로 나타낼 수 있다. MDP는 Agent와 Reward가 MP에 포함된 거라고 보면 된다. 즉, MP가 가진, 상태와 Transition Probability에 Agent가 가진 Action과 Reward의 요소의 Discount rate와 reward가 합쳐진 것이다. MP는 관찰자 시점이였다.</description>
+    </item>
+    
+    <item>
+      <title>[lisp 질문] prefix notation과 map reduce</title>
+      <link>http://braindump.frege2godel.me/postss/20220723081241-lisp_%E1%84%8C%E1%85%B5%E1%86%AF%E1%84%86%E1%85%AE%E1%86%AB_prefix_notation%E1%84%80%E1%85%AA_map_reduce/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220723081241-lisp_%E1%84%8C%E1%85%B5%E1%86%AF%E1%84%86%E1%85%AE%E1%86%AB_prefix_notation%E1%84%80%E1%85%AA_map_reduce/</guid>
+      <description>(+ 1 2 3)을 보면 operator를 1개만 쓴다. operator는 여러 operand에 적용된다. 이게 어떻게 가능한가? 어떤 식으로 동작하는 지 궁금하다. 재귀적인 방법을 쓰는지 어떤 방법을 쓰는지 모르겠다. operator를 1개만 사용한다는것은 획기적이다. 기존에는 (infix의 경우) operand가 3개면 2개의 operator가 필요했다. prefix의 경우, operator의 수가 오직1개라서 모든 expression이 동일한 모양을 가지고, 이것은 code = data와 뭔 관계가 있어보이고, 또한 map reduce, functor와 같은 functional language와의 어떤 관계도 있어보인다. 이것을 아는것이 필요하다.</description>
+    </item>
+    
+    <item>
+      <title>[note] Deep Sarsa 소스분석</title>
+      <link>http://braindump.frege2godel.me/postss/20220214163629-note_deep_sarsa_%E1%84%89%E1%85%A9%E1%84%89%E1%85%B3%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220214163629-note_deep_sarsa_%E1%84%89%E1%85%A9%E1%84%89%E1%85%B3%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8/</guid>
+      <description>Deep SARSA 소스 분석 Env + Agent 구조. + interaction(env+agent) Environment open AI gym과 비슷한 구조로 설계. Tcl/tk window program(tkinter) Environment 소스 알아야 할것 중요한 자료 구조 이해 rewards list와 state ps: state변수 naming문제, class를 사용하면서 type hint를 사용하지 않는 문제. (grid의 location을 나타내기도 하지만,agent의 network의 입력값 으로도 사용)
+Environment 소스 분석(rewards) Figure 1: rewards
+소스 분석 (line by line) 시작! import tkinter as tk from PIL import ImageTk, Image PhotoImage = ImageTk.</description>
+    </item>
+    
+    <item>
+      <title>[note] Reinforce</title>
+      <link>http://braindump.frege2godel.me/postss/20220214180348-note_reinforce/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220214180348-note_reinforce/</guid>
+      <description>Reinforce Env는 Deep Salsa와 동일하다. Agent의 model이 policy를 학습(softmax - crossentropy) epsilon을 사용하지 않는다. mote carlo방식의 응용 loss function Figure 1: cross entropy
+yi는 정답, Pi는 예측값 loss function: 정답(retrun값)X 예측값(model로 돌려나온 정책값) loss function example Figure 2: cross entropy
+핫인코딩되어 정답이 0,1,0으로 나왔을때, 모델에서 나온 정책의 예측이 위와 같다고 하자. cross entropy함수는 정답과 예측을 곱하는데 log를 취해서 곱한다. log를 우선 무시하고 두개의 값만 곱해서 예측1과 예측2의 값에 entropy를 취한 결과가 다음과 같았다고 하자.</description>
+    </item>
+    
+    <item>
+      <title>[org_mode] GTD 사용</title>
+      <link>http://braindump.frege2godel.me/postss/20220322152556-org_mode_agenda_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220322152556-org_mode_agenda_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>참고 http://members.optusnet.com.au/~charles57/GTD/gtd_workflow.html http://doc.norang.ca/org-mode.html#AgendaSetup https://isamert.net/2021/01/25/how-i-do-keep-my-days-organized-with-org-mode-and-emacs.html#fn.2
+workflow 매일 아침마다 myschedule.org파일에 mytodos라는 snippets을 복사한다. 그리고, org-capture로 study,english,udemy강좌,갑작스럽게 해야할 것들을 추가한다. 그리고 전체 todo의 priority와 tag를 설정한다. beorg앱에서 정해놓은 스케쥴대로 일한다. 저녁이되면, 자기전에 myschedule.org의 내용을 myschedule_history.org에 아카이빙한다. helpful packages org-fancy-priorities (use-package org-fancy-priorities :diminish :ensure t :hook (org-mode . org-fancy-priorities-mode) :config (setq org-fancy-priorities-list &amp;#39;(&amp;#34;🅰&amp;#34; &amp;#34;🅱&amp;#34; &amp;#34;🅲&amp;#34; &amp;#34;🅳&amp;#34; &amp;#34;🅴&amp;#34;))) Org agenda file </description>
+    </item>
+    
+    <item>
+      <title>[ppt_chapter 5] 그리드월드와 근사함수</title>
+      <link>http://braindump.frege2godel.me/postss/20220124173753-ppt_chapter5_%E1%84%80%E1%85%B3%E1%84%85%E1%85%B5%E1%84%83%E1%85%B3%E1%84%8B%E1%85%AF%E1%86%AF%E1%84%83%E1%85%B3%E1%84%8B%E1%85%AA_%E1%84%80%E1%85%B3%E1%86%AB%E1%84%89%E1%85%A1%E1%84%92%E1%85%A1%E1%86%B7%E1%84%89%E1%85%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220124173753-ppt_chapter5_%E1%84%80%E1%85%B3%E1%84%85%E1%85%B5%E1%84%83%E1%85%B3%E1%84%8B%E1%85%AF%E1%86%AF%E1%84%83%E1%85%B3%E1%84%8B%E1%85%AA_%E1%84%80%E1%85%B3%E1%86%AB%E1%84%89%E1%85%A1%E1%84%92%E1%85%A1%E1%86%B7%E1%84%89%E1%85%AE/</guid>
+      <description>5장 요약 근사 함수를 사용하는 이유 근사 함수를 사용하는 방법 Deep SARSA 구현 (케라스 사용) 몬테카를로, 살사, 큐러닝의 한계 DP의 한계 Figure 1: DP의 한계
+DP의 한계의 해결 환경에 대한 정보 -&amp;gt; SALSA, Q-learning으로 해결 계산 복잡도, 차원의 저주 -&amp;gt; 테이블 대신 근사함수로 해결 example Grid world는 상태 개수가 얼마 안되서 table로 가능 table로 불가능한 예 (책에 나온 예: 상태의 정의가 다름에 유의) Figure 2: grid world
+근사함수를 통한 가치함수의 매개 변수화 1 SALSA나 Q-Learning에선 qtable의 값을 update시키고 action을 결정했다.</description>
+    </item>
+    
+    <item>
+      <title>[ppt_chapter2] MDP와 벨만 방정식</title>
+      <link>http://braindump.frege2godel.me/postss/20211221092543-ppt_chapter2_mdp%E1%84%8B%E1%85%AA_%E1%84%87%E1%85%A6%E1%86%AF%E1%84%86%E1%85%A1%E1%86%AB_%E1%84%87%E1%85%A1%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%89%E1%85%B5%E1%86%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211221092543-ppt_chapter2_mdp%E1%84%8B%E1%85%AA_%E1%84%87%E1%85%A6%E1%86%AF%E1%84%86%E1%85%A1%E1%86%AB_%E1%84%87%E1%85%A1%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%89%E1%85%B5%E1%86%A8/</guid>
+      <description>2장 요약 Figure 1: agent와 environment
+agent가 환경과 상호작용하는 상황에서, 순차적 결정 문제가 발생한다. 이 상황을 수학적으로 정의한 것이 MDP. agent가 결정하는 원리는 크기 비교다. 예상되는 가치(보상)의 크기 비교를 통해서 (행동을) 결정을 하게 된다. 벨만 방정식은 가치(total discounted return의 기대값)를 재귀적으로 표현한것. MDP MDP의 구성요소 MDP 2 mdp의 구성요소들은 random하다. 그래서 확률변수로 표현한다. 확률변수는 사건을 입력으로 받아 수치를 return하는 function이다. 확률 변수를 사용하지 않으면 수치화가 불가능 하다. ex) 동전던지기 - 앞면이 나올때, 혹은 뒷면일때 기대값을 나타낼 수 없다.</description>
+    </item>
+    
+    <item>
+      <title>[ppt_chapter3] 그리드 월드와 다이내믹 프로그래밍</title>
+      <link>http://braindump.frege2godel.me/postss/20211221142247-ppt_chapter3_%E1%84%80%E1%85%B3%E1%84%85%E1%85%B5%E1%84%83%E1%85%B3_%E1%84%8B%E1%85%AF%E1%86%AF%E1%84%83%E1%85%B3%E1%84%8B%E1%85%AA_%E1%84%83%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%82%E1%85%A2%E1%84%86%E1%85%B5%E1%86%A8_%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211221142247-ppt_chapter3_%E1%84%80%E1%85%B3%E1%84%85%E1%85%B5%E1%84%83%E1%85%B3_%E1%84%8B%E1%85%AF%E1%86%AF%E1%84%83%E1%85%B3%E1%84%8B%E1%85%AA_%E1%84%83%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%82%E1%85%A2%E1%84%86%E1%85%B5%E1%86%A8_%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC/</guid>
+      <description>MDP 문제의 해결 DP로 문제를 해결한다는 것은 model based 방식이다. model(환경)에 대한 정보를 알때, 사용할 수 있다. 2장에서 본 벨만 기대 방정식을 그대로 푸는것과 동일하다. 다시 말해서, dp로 벨만 방정식을 풀기 위해선 환경과 return값을 알아야 하는데, 주어지거나 알고 있을때,사용할 수 있다. 다이내믹 프로그래밍(DP) 벨만 방정식은 재귀함수다. 재귀함수를 풀때, 중복이 되는 값을 memoization(캐시)에 넣고 재사용해서 계산복잡도를 줄일수 있는데, 이것을 DP라고 한다. 재귀함수나 dp나 모두 divide &amp;amp; conquer 방식이기 때문에 문제를 작은 문제로 쪼갠다.</description>
+    </item>
+    
+    <item>
+      <title>[ppt_chapter4] 그리드월드와 큐러닝</title>
+      <link>http://braindump.frege2godel.me/postss/20211221151807-ppt_chapter4_%E1%84%80%E1%85%B3%E1%84%85%E1%85%B5%E1%84%83%E1%85%B3%E1%84%8B%E1%85%AF%E1%86%AF%E1%84%83%E1%85%B3%E1%84%8B%E1%85%AA_%E1%84%8F%E1%85%B2%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211221151807-ppt_chapter4_%E1%84%80%E1%85%B3%E1%84%85%E1%85%B5%E1%84%83%E1%85%B3%E1%84%8B%E1%85%AF%E1%86%AF%E1%84%83%E1%85%B3%E1%84%8B%E1%85%AA_%E1%84%8F%E1%85%B2%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC/</guid>
+      <description>강화학습과 DP의 차이 강화학습은 환경 모델없이 학습이 가능하다. (model-free) DP는 환경모델이 필요하다. (model-based) 강화학습 기초 개념 예측(Prediction): 가치함수의 update(학습), ex) MC(Monte Carlo), TD(Temporal Difference) 제어(Control): 정책 update, ex) SARSA, Q-learning Monte Carlo 방식 원의 넓이를 구하는 유명한 문제: sampling을 사용해서 원의 넓이를 추정. Figure 1: monte carlo
+Monte Carlo 예측 벨만 기대방정식은 예측한 기대값을 계산하고 update하는 방식. MC는 실제 수행하고 받은 보상을 평균을 통해 값을 계산하고 update한다. 하나의 episode를 수행하면서 모든 state history를 기록한 후, 기록된 state의 가치를 update한다.</description>
+    </item>
+    
+    <item>
+      <title>[ppt] chapter5- DQN 소스 분석</title>
+      <link>http://braindump.frege2godel.me/postss/20220214181304-note_dqn_%E1%84%89%E1%85%A9%E1%84%89%E1%85%B3_%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220214181304-note_dqn_%E1%84%89%E1%85%A9%E1%84%89%E1%85%B3_%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8/</guid>
+      <description>DQN 소스 분석 off-policy의 장점을 가져옴. (q learning 방식) replay메모리를 사용해서 샘플을 저장했다가, 학습에 이용. 신경망이 2개다. model과 target model. Q-learning에 대해서 Salsa와 다르게 Q-learning은 behavior policy와 target policy가 다르다. Salsa는 한 step 이동한후에 update가 되지만, Q-learning은 update할때, 그 상태에서의 최대인 q를 찾아서 update했다. Salsa에서는 한 step이동한후 다음 q값이 장애물이 있다고 해도 update한다. 이것이 계속 학습될 경우 문제가 된다. Q-learning에서는 update할 다음 q값이 max q값이다. DQN loss function q learning에서 max q값이 DQN에서는 정답에 해당하고, target network가 이를 담당한다.</description>
+    </item>
+    
+    <item>
+      <title>[ppt] deep sarsa 소스 분석</title>
+      <link>http://braindump.frege2godel.me/postss/20220213160429-ppt_deep_salsa_%E1%84%89%E1%85%A9%E1%84%89%E1%85%B3_%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220213160429-ppt_deep_salsa_%E1%84%89%E1%85%A9%E1%84%89%E1%85%B3_%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8/</guid>
+      <description>Deep SARSA 소스 분석 Env + Agent 구조. + interaction(env+agent) Environment open AI gym과 비슷한 구조로 설계. Tcl/tk window program(tkinter) Environment 소스 알아야 할것 중요한 자료 구조 이해 rewards list와 state ps: state변수 naming문제, class를 사용하면서 type hint를 사용하지 않는 문제. (grid의 location을 나타내기도 하지만,agent의 network의 입력값 으로도 사용)
+Environment 소스 분석(rewards) Figure 1: rewards
+소스 분석 (line by line) 시작! Agent의 구조 Deep neural Network 사용 Qtable -&amp;gt; function(DNN) 데이터와 데이터가 주어지면, y= ax+b의 함수를 만들 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>[sass] 기초 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/sass_%E1%84%80%E1%85%B5%E1%84%8E%E1%85%A9_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/sass_%E1%84%80%E1%85%B5%E1%84%8E%E1%85%A9_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>sass to css .sass로 작성된 파일은 .css로 변환한다. browser는 sass를 이해 못하기 때문에 css로 publishing해야 한다. scss는 css와 유사한 .sass의 변종이다. scss가 css와 비슷하기 때문에 많은 사람들은 sass보다 scss를 사용한다.</description>
+    </item>
+    
+    <item>
+      <title>[udemy] Python</title>
+      <link>http://braindump.frege2godel.me/postss/20220323123331-udemy_python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220323123331-udemy_python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[udemy] web developer bootcamp</title>
+      <link>http://braindump.frege2godel.me/postss/20220321230028-udemy_web_developer_bootcamp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220321230028-udemy_web_developer_bootcamp/</guid>
+      <description>chapter1 chapter2 chapter3 chapter4 chapter5 chapter6 chapter7 chapter8 chapter9 chapter10 chapter11 chapter12 chapter13 chapter14 chapter15 chapter16 chapter17 chapter18 chapter19 chapter20 chapter21 chapter22 chapter23 chapter24 chapter25 chapter26 chapter27 chapter28 chapter29 chapter30 chapter31 chapter32 chapter33 chapter34 chapter35 chapter36 chapter37 chapter38 chapter39 chapter40 chapter41 chapter42 chapter43 chapter44 chapter45 chapter46 chapter47 chapter48 chapter49 chapter50 chapter51 chapter52 chapter53 chapter54 chapter55 chapter56 chapter57 chapter58 chapter59 chapter60 chapter61 </description>
+    </item>
+    
+    <item>
+      <title>[udemy]IOS_swift</title>
+      <link>http://braindump.frege2godel.me/postss/20220321225511-udemy_ios_swift/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220321225511-udemy_ios_swift/</guid>
+      <description>chapter 1 chapter 2 chapter 3 chapter 4 chapter 5 chapter 6 chapter 7 chapter 8 chapter 9 chapter 10 chapter 11 chapter 12 chapter 13 chapter 14 chapter 15 chapter 16 chapter 17 chapter 18 chapter 19 chapter 20 chapter 21 chapter 22 chapter 23 chapter 24 chapter 25 chapter 26 chapter 27 chapter 28 chapter 29 chapter 30 chapter 31 chapter 32 </description>
+    </item>
+    
+    <item>
+      <title>[web] hugo로 blog만들기 - goldmark md parser</title>
+      <link>http://braindump.frege2godel.me/postss/web_hugo%E1%84%85%E1%85%A9_blog%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%B5_goldmark_md_parser/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/web_hugo%E1%84%85%E1%85%A9_blog%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%B5_goldmark_md_parser/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>[webpage] readtheorg 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/20221015112336-webpage_readtheorg_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20221015112336-webpage_readtheorg_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>참고 별다른 설치가 필요없다. org에서 option을 사용해서 문서를 만들고 org export dispatcher에서 html로 출력하면 된다. https://github.com/fniessen/org-html-themes
+사용법 사용되는 option은 다음과 같다. #+TITLE: #+AUTHOR: Holy Frege #+DESCRIPTION: Org-HTML export made simple. #+KEYWORDS: org-mode, export, html, theme, style, css, js, bigblow #+LANGUAGE: en #+OPTIONS: H:4 toc:t num:2 ^:nil #+MACRO: color @@html:&amp;lt;font color=&amp;gt;&amp;lt;/font&amp;gt;@@ #+PROPERTY: header-args :padline no #+SETUPFILE: https://github.com/fniessen/org-html-themes/blob/master/org/theme-readtheorg.setup #+LATEX_HEADER: \usepackage{kotex} #+latex_header: \hypersetup{colorlinks=true} </description>
+    </item>
+    
+    <item>
+      <title>[논문구현]Markov Decision Policies for Dynamic Video Delivery in Wireless Caching Networks</title>
+      <link>http://braindump.frege2godel.me/postss/20220308194455-%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%E1%84%80%E1%85%AE%E1%84%92%E1%85%A7%E1%86%AB_markov_decision_policies_for_dynamic_video_delivery_in_wireless_caching_networks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220308194455-%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%E1%84%80%E1%85%AE%E1%84%92%E1%85%A7%E1%86%AB_markov_decision_policies_for_dynamic_video_delivery_in_wireless_caching_networks/</guid>
+      <description>Poisson Distribution 푸아송 분포 Poisson Point Process import numpy as np import scipy.stats import matplotlib.pyplot as plt #Simulation window parameters xMin=0;xMax=1; yMin=0;yMax=1; xDelta=xMax-xMin;yDelta=yMax-yMin; #rectangle dimensions areaTotal=xDelta*yDelta; #Point process parameters lambda0=100; #intensity (ie mean density) of the Poisson process #Simulate Poisson point process numbPoints = scipy.stats.poisson( lambda0*areaTotal ).rvs()#Poisson number of points xx = xDelta*scipy.stats.uniform.rvs(0,1,((numbPoints,1)))+xMin#x coordinates of Poisson points yy = yDelta*scipy.stats.uniform.rvs(0,1,((numbPoints,1)))+yMin#y coordinates of Poisson points #Plotting plt.scatter(xx,yy, edgecolor=&amp;#39;b&amp;#39;, facecolor=&amp;#39;none&amp;#39;, alpha=0.5 ) plt.</description>
+    </item>
+    
+    <item>
+      <title>[모두의딥러닝] chapter1-나의 첫 딥러닝</title>
+      <link>http://braindump.frege2godel.me/postss/20220228003324-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220228003324-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter1/</guid>
+      <description>나의 첫 딥러닝 (1) 딥러닝 작업 환경 만들기 Figure 1: keras and tensorflow install
+requirements python version: 3.7 tensorflow:2.0 keras:2.3 tensorflow, keras 설치 확인 Figure 2: checking keras and tensorflow
+(2) 미지의 일을 예측하는 원리 기존 환자의 데이터를 이용해 새로운 환자의 생사를 예측하는 프로그램을 짜봐! [내 생각] 내가 아무런 배경지식이 없는 상태에서 이 문제를 스스로 해결할 수 있을까? 누군가가 내게 이런 질문을 했을때, 어떤 데이터도 주어지지 않고, 문제만 주어졌을때 나는 어떤 생각으로 이 문제를 풀 것인가?</description>
+    </item>
+    
+    <item>
+      <title>[모두의딥러닝] chapter2-딥러닝을 위한 기초수학</title>
+      <link>http://braindump.frege2godel.me/postss/20220301220137-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter2_%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC%E1%84%8B%E1%85%B3%E1%86%AF_%E1%84%8B%E1%85%B1%E1%84%92%E1%85%A1%E1%86%AB_%E1%84%80%E1%85%B5%E1%84%8E%E1%85%A9%E1%84%89%E1%85%AE%E1%84%92%E1%85%A1%E1%86%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220301220137-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter2_%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC%E1%84%8B%E1%85%B3%E1%86%AF_%E1%84%8B%E1%85%B1%E1%84%92%E1%85%A1%E1%86%AB_%E1%84%80%E1%85%B5%E1%84%8E%E1%85%A9%E1%84%89%E1%85%AE%E1%84%92%E1%85%A1%E1%86%A8/</guid>
+      <description>(1) 딥러닝에 필요한 7개의 기초 수학 개념. 이 책에서 나오는 모든 개념에 사용되는 수학개념은 7가지 함수에서 벗어나지 않는다. 1차 함수, 2차 함수, 미분, 편미분, 지수함수, 시그모이드 함수, 로그 함수 7개의 함수가 딥러닝 어느 부분에 활용 되는지는 예상하면서 읽을 필요가 있다. (2) 1차 함수, 기울기와 y절편 [내생각]: chapter1에서 미래를 예측하는 방법에서, 환자 data의 feature가 좌표축을 나타내는 공간을 나타내고 data들은 그 공간에서 점으로 나타낼 수 있다. 그 점들을 분류하는 하나의 선 or 면을 만들 수 있는데, 그것을 기준으로 새로운 환자의 생존과 사망을 예측했다.</description>
+    </item>
+    
+    <item>
+      <title>[모두의딥러닝] chapter4 - 오차수정하기 경사하강법</title>
+      <link>http://braindump.frege2godel.me/postss/20220304111516-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter4_%E1%84%80%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220304111516-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter4_%E1%84%80%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>(1) 기울기와 오차의 관계 기울기에 따른 제곱오차의 합은, 오차그래프에서 점으로 나타낼 수 있다.
+chapter3에서 직선의 기울기와 오차의 관계를 알 수 있었다.
+절편과 오차의 관계도 동일하게 2차원 곡선으로 그려진다.
+이것은 직접 그려보면 알수 있다. 기울기가 아주 작을경우, 데이터와 거리가 멀어서 오차가 커진다. 기울기가 아주 클경우, 데이터와 거리가 멀어서 오차가 커진다. 적절한 기울기를 가질때만이 오차가 적은데, 이를 표시하면, 2차 함수가 된다. 절편도 마찬가지다.
+우리의 목표: 오차함수그래프에서 최저값을 찾는게 목표.
+(2) 경사 하강법의 개요 경사 하강법은 2차 함수에서 learning rate만큼 이동해서 최소값을 찾는 방식이다.</description>
+    </item>
+    
+    <item>
+      <title>[모두의딥러닝] chapter5 참/거짓 판단장치: 로지스틱 회귀</title>
+      <link>http://braindump.frege2godel.me/postss/20220305122044-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220305122044-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter5/</guid>
+      <description>ps: 책에서 다루는 logistic regression의 내용은 자세한 설명이 없어서, 책의 순서를 따르지 않았음.
+(1) Regression 개요 (1) data의 특징을 잘 나타내는 근사 함수를 선정. (2) 근사함수가 data를 fitting할 수 있도록, 오차함수 미분을 통해 parameter설정 (3) fitting된 함수로 예측 Linear regression (1) 직선의 방정식 선정 (2) 오차함수(MSE)에서 미분값의 경사하강을 통해 parameter 설정 (3) update된 직선의 방정식으로 예측 Logistic regression (1) sigmoid 선정 (2) 오차함수를 MSE로 나타내지 않는다. sigmoid 함수의 특성으로 오차함수를 정의.</description>
+    </item>
+    
+    <item>
+      <title>[사용법]plantUML</title>
+      <link>http://braindump.frege2godel.me/postss/20220413115413-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8_plantuml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220413115413-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8_plantuml/</guid>
+      <description>PlantUml에 관해 flowchart를 만들기 위한 tool로 draw.io, flowchart.fun과 같은 web tool이 있다. plantuml은 emacs에서 flow chart를 작성하게 해줄 수 있다고 한다. org에서 plantuml 설정 https://plantuml.com/emacs
+org-babel에 plantuml을 등록해야 한다. 그래야 org mode에서 plantuml code block을 해석한다.
+;; active Org-babel languages (org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;(;; other Babel languages (plantuml . t))) plantuml.jar파일을 다운로드 받은 후에 설정을 해줘야 한다. download: https://plantuml.com/download
+(setq org-plantuml-jar-path (expand-file-name &amp;#34;~/src/org/contrib/scripts/plantuml.jar&amp;#34;)) plant code block을 yasnippet에 등록한다.
+test를 해본다.
+napkin 설정 napkin은 python code를 plantuml로 보이게 해준다.</description>
+    </item>
+    
+    <item>
+      <title>[웹개발 beginner] chap01 화면만들기</title>
+      <link>http://braindump.frege2godel.me/postss/%E1%84%8B%E1%85%B0%E1%86%B8%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF_beginner_chap01_%E1%84%92%E1%85%AA%E1%84%86%E1%85%A7%E1%86%AB%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/%E1%84%8B%E1%85%B0%E1%86%B8%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF_beginner_chap01_%E1%84%92%E1%85%AA%E1%84%86%E1%85%A7%E1%86%AB%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%B5/</guid>
+      <description>실습게시판 list 만들기 table 만들기 list.html이란 파일을 만든다.
+&amp;lt;!doctype html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;/&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; head에는 css,js같은 내용이 들어가고, body에 page에 관한 내용이 들어간다. browser에서 보기위해서 emacs에서는 M-x imp-visit-file을 실행시키면 된다.
+table tag를 사용해서 게시판을 만든다. emmet을 사용해서 다음과 같이 입력한다.
+table&amp;gt;thead&amp;gt;tr&amp;gt;td
+이렇게 만들면 thead 아래 tr(table row)와 td(table data)를 넣겠다는건데, 즉 제목을 표시한다. html코드를 보면 다음과 같다.
+&amp;lt;!doctype html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;/&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;table&amp;gt; &amp;lt;thead&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;제목&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/thead&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; mdn 참고 table에 대한 정보를 알고 싶다고 한다면 mdn사이트를 추천한다.</description>
+    </item>
+    
+    <item>
+      <title>[정리] Reinforcement Learning </title>
+      <link>http://braindump.frege2godel.me/postss/20220217083520-%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5_reinforcement_learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220217083520-%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5_reinforcement_learning/</guid>
+      <description>Table of Contents 1 강화학습 요소에 대한 나의 생각 1.1 agent와 action 1.2 Goal 1.3 나침반의 동작원리 1.4 누적보상 1.5 최대 누적 보상 1 강화학습 요소에 대한 나의 생각 1.1 agent와 action 강화학습에서 agent는 의지가 없는 기계라고 보면 된다. agent가 action을 하는 데, 의지(will)를 가지고 하는 것이 아니다. agent는 기계라서 의지 자체가 없다. 예를 들어서, grid world에서 agent가 action을 취하는 것은, 나침반을 보고 행동을 취할 뿐이다. 여기서 나침반은 누적보상을 최대로하는 곳을 바늘로 가리킨다.</description>
+    </item>
+    
+    <item>
+      <title>[파이썬과 케라스로 배우는 강화학습] chapter2 정리</title>
+      <link>http://braindump.frege2godel.me/postss/20220222130129-%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8A%E1%85%A5%E1%86%AB%E1%84%80%E1%85%AA_%E1%84%8F%E1%85%A6%E1%84%85%E1%85%A1%E1%84%89%E1%85%B3%E1%84%85%E1%85%A9_%E1%84%87%E1%85%A2%E1%84%8B%E1%85%AE%E1%84%82%E1%85%B3%E1%86%AB_%E1%84%80%E1%85%A1%E1%86%BC%E1%84%92%E1%85%AA%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8_chapter2_%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220222130129-%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8A%E1%85%A5%E1%86%AB%E1%84%80%E1%85%AA_%E1%84%8F%E1%85%A6%E1%84%85%E1%85%A1%E1%84%89%E1%85%B3%E1%84%85%E1%85%A9_%E1%84%87%E1%85%A2%E1%84%8B%E1%85%AE%E1%84%82%E1%85%B3%E1%86%AB_%E1%84%80%E1%85%A1%E1%86%BC%E1%84%92%E1%85%AA%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8_chapter2_%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[확률분포분석] 1. 베르누이분포(Bernoulli distribution)</title>
+      <link>http://braindump.frege2godel.me/postss/20220310103917-%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8_poisson%E1%84%87%E1%85%AE%E1%86%AB%E1%84%91%E1%85%A9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220310103917-%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8_poisson%E1%84%87%E1%85%AE%E1%86%AB%E1%84%91%E1%85%A9/</guid>
+      <description>기본 개념 확률 분포를 알기위한 기본 개념 확률 분포는 알수 없는 것을 수치화한것이다. 어떤 방식으로 무엇을 수치화했는지는 나중에 얘기하겠지만, 확률분포는 수치로 표현된다. 그리고 확률 분포를 말하기위해선 시행, Random Variable,확률, 사건, outcome, 기대값,event와 같은 기본개념을 알아야 한다. 시행 먼저 &amp;lsquo;알수 없다는 것&amp;rsquo;을 얘기해보자. &amp;lsquo;알수 없는것&amp;rsquo;은 대개는 미래의 얘기다. 그러면 &amp;lsquo;무엇&amp;rsquo;을 알수 없다는 얘기인가? &amp;lsquo;무엇&amp;rsquo; 이라는것은 어떤 시행을 했을때의 &amp;lsquo;결과&amp;rsquo;를 의미한다. 주사위를 던졌을때, 무엇이 나올까(&amp;lsquo;결과&amp;rsquo;는 무엇인가)? 동전을 던졌을때 무엇이 나올까(&amp;lsquo;결과&amp;rsquo;는?)? 내일 토트넘과 첼시의 경기결과는 어떨까?</description>
+    </item>
+    
+    <item>
+      <title>[확률분포분석] Poisson Point Process</title>
+      <link>http://braindump.frege2godel.me/postss/20220310125348-%E1%84%92%E1%85%AA%E1%86%A8%E1%84%85%E1%85%B2%E1%86%AF%E1%84%87%E1%85%AE%E1%86%AB%E1%84%91%E1%85%A9%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8_poisson_point_process/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220310125348-%E1%84%92%E1%85%AA%E1%86%A8%E1%84%85%E1%85%B2%E1%86%AF%E1%84%87%E1%85%AE%E1%86%AB%E1%84%91%E1%85%A9%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8_poisson_point_process/</guid>
+      <description>여기에 설명이 잘되어 있다. https://gusals1620.tistory.com/4</description>
+    </item>
+    
+    <item>
+      <title>1. 관심 사항</title>
+      <link>http://braindump.frege2godel.me/postss/20211109165900-my_essay/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211109165900-my_essay/</guid>
+      <description>1 관심 사항 지금 현재 관심있는 것은 Marcov Process 같은 stochastic process의 적용과 reinforcement Learning에 관심이 있습니다. IT에서 다루는 Algorithms, Databases, Network, OS, Robot, Cloud Service와 같은 카테고리에서 확률적 방법론을 적용하는 것도 관심이 있지만, 일상생활에 연관해서 어떻게 적용할 것인가에도 관심이 있습니다. 우선 제가 stochastic process에 관심이 있는 이유는 확률이 매력적이기 때문입니다. 수학의 기초는 집합이라고 배웠습니다. 또한 Alonzo Church에 따르면, function은 church numeral로 encoding되어 number도 표현할 수 있기에 모든 계산의 기초가 된다고 알고 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>2. Research Ideas#1</title>
+      <link>http://braindump.frege2godel.me/postss/20211111102608-research_ideas_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211111102608-research_ideas_1/</guid>
+      <description>1 Research Ideas #1 1.1 Introduction and Research Background 대학원 때, colloquium에서 context-awareness에 대한 세미나를 들은 적이 있습니다. 세미나에서는 &amp;ldquo;모든 것이 thing&amp;quot;이라고 했습니다. 그리고 thing들은 환경에 영향을 받는다고 했습니다. 저는 thing에 대해 생각했습니다. thing은 properties와 behaviors로 구성된다. 그리고 환경도 하나의 thing이라고 생각한다면, thing의 properties와 behaviors는 다른 thing에서 영향을 주고 받을수 있다라고 생각했습니다. 예를 들어, 칼이라는 사물은 주방에선 요리용 도구지만, 칼이 어두운 골목길에선 흉기가 될 수 있는데, 이것은 환경(주방과 골목길이란 thing)이 칼의 기능을 결정하기 때문이다.</description>
+    </item>
+    
+    <item>
+      <title>3.교수님의 연구에 대해서</title>
+      <link>http://braindump.frege2godel.me/postss/20211111093157-research_ideas_3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211111093157-research_ideas_3/</guid>
+      <description>1 교수님의 Research Interests#1 Figure 1: video streaming and wireless caching
+1.1 Helper의 입장: 어떤 파일들을 캐싱할까? 언뜻 생각나는 것은 다음과 같다.
+용량이 큰 파일
+latency가 큰 파일
+edge단에서 주로 보는 video contents를 시간에 따라 통계화하고 확률화해서 빈도수가 높은 파일을 선택한다.
+=&amp;gt; cache에 저장되어야 하는 contents는 인기있는 video file로 제한되어 있다. 원격지에서 가져오는 거리비용을 단축하기 위해서 1.용량과 2.latency를 고려하기 보단 3.빈도를 더 고려해야 할듯하다. 즉 3번처럼 stochastic process를 이용하는 방법을 고려해야 한다.</description>
+    </item>
+    
+    <item>
+      <title>ajax test [rails6 api server]</title>
+      <link>http://braindump.frege2godel.me/postss/20211207091024-ajax_test_rails/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211207091024-ajax_test_rails/</guid>
+      <description>server처리 서버에서 json으로 보내는것을 확인해보자. client에서 db자료를 여러형태로 json을 요구할 수 있다. 월별자료, 일별자료, 종류별 자료&amp;hellip;그때마다 json으로 보낼껀데, server에선 여러 url을 만들어서 처리해야 한다. 그래서 이렇게 json만 주고 받게 server를 바꿀수 있는데, 그것을 api server로 받는다. web server는 요청에 의해서 html페이지를 전달 했다면, api서버는 요청에 json을 전달한다. REST API에서는 rest api server를 만들어야 한다. 여튼, 간단히 요청에 의해서 json을 전달하는 기능을 구현해 보자. api module controller만들기 rails g controller api::v1::Statistics (api모듈의 version1의 Statistics controller를 의미) api만을 처리할 controller를 만들기 위해서 module 처리를 하기로 한다.</description>
+    </item>
+    
+    <item>
+      <title>ajax 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/20211202110820-ajax_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211202110820-ajax_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>원리 ajax는 js code. 서버에서 ajax코드를 client에 보내서 client는 ajax로 server와 통신 옛날 방식 var ajax = new XMLHttpRequest(); ajax.onreadystatechange = function () { if (this.readyState == 4 &amp;amp;&amp;amp; this.status == 200) { console.log(ajax.responseText) } }; ajax.open (&amp;#34;GET&amp;#34;, &amp;#34;https://coddingapple1.github.io/price.json&amp;#34;, true) ajax.send(); 요즘 방식 fetch(&amp;#39;https://codingapple1.github.io/price.json&amp;#39;) // get요청을 날린다. .then (( response) =&amp;gt; { // then은 fetch이후에 실행 return reponse.json() }) .then( (response) =&amp;gt; { }) .catch(() =&amp;gt; { console.log(error) }) fetch는 server에 get요청을 보낸다.</description>
+    </item>
+    
+    <item>
+      <title>Algorithms</title>
+      <link>http://braindump.frege2godel.me/postss/20211026143558-algorithms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211026143558-algorithms/</guid>
+      <description>가장 기본적인 알고리즘(sorting) Selection Sort(pivot and swapping) 공부방법 Python, Java, C/C++ 등의 자신이 자신 있는 언어의 기본문법 공부 기초 알고리즘 문제 100제 풀기 코드업 문제 -&amp;gt; 코드포스, 백준 문제 순서로 풀기
+그리디 알고리즘 먼저 공부하고 관련된 문제 풀기 탐색(BFS, DFS) 공부하고 관련 문제 풀기 기본 동적 프로그래밍 공부하고 관련 문제 풀기 이후 시간이 있다면 그래프 이론, 중급이나 고급 동적프로그래밍, 문자열 풀기.
+시간 복잡도 10개수보다 적은 수만 본다면 O(log n)이다. 보통 binary search 문제의 입력으로 10개의 수가 주어질때, 10개의 수를 하나하나 모두 살펴본다면, O(n)이다.</description>
+    </item>
+    
+    <item>
+      <title>anki(flashcards) 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/20220911102723-anki_flashcards_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220911102723-anki_flashcards_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>참조 사이트 https://yiufung.net/post/anki-org/ https://rgoswami.me/posts/anki-decks-orgmode/ https://docs.ankiweb.net/studying.html
+Getting Started 개요 Anki는 flashcard의 한 종류. anki markup language로 card를 만든다. anki는 다양한 device에서 동작가능하고 multi-media 자료도 같이 사용할 수 있다. org-drill도 org flashcard지만, multimedia자료는 사용하지 못하고 ios에서도 사용하지 못한다. anki 알고리즘 key concepts cards question &amp;amp; answer 쌍을 card라고 한다. anki에서는 실제 card처럼 한면엔 질문, 뒷면엔 답을 가진 종이로 된 card와는 다르게, 질문과 답이 한 면에 있다고 보면 된다. 예를들어서,
+Q: Chemical symbol for oxygen?</description>
+    </item>
+    
+    <item>
+      <title>Artificial Intelligence</title>
+      <link>http://braindump.frege2godel.me/postss/20211025065029-artificial_intelligence/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211025065029-artificial_intelligence/</guid>
+      <description>what is A.I (Artificial Intelligence) Artificial intelligence is the simulation of human intelligence processes by machines. Artificial = the simulation Intelligence ?= brain? IQ? thinking? knowledge? reasoning? know? cognition? what? intelligence: the ability to apply knowledge to manipulate one&amp;rsquo;s environment or to think abstractly as measured by objective criteria - merriam-webster knowldege를 manipulate하는 ability. behavior로 명확히 알수 있다. ex) unintelligent: someone has used a lit match to see if there is any gas in a car’s gas tank.</description>
+    </item>
+    
+    <item>
+      <title>aws에서 ec2만들고 ssh작성</title>
+      <link>http://braindump.frege2godel.me/postss/20211207140145-aws%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5_ec2%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%A9_ssh%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211207140145-aws%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5_ec2%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%A9_ssh%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC/</guid>
+      <description>AWS에 로긴한다. ec2를 만든다. ec2를 만드는 것은 그대로 next, next해서 진행한다. key를 만드는 부분이 나올때, key를 생성한다. 그리고 그 key .pem으로 끝나는 그키..를 다운받아서, local의 .ssh/아래 붙여넣는다. ec2의 주소를 찾는다. instance에 보면 public ip4 주소가 있다. 접속해 보자. 접속방법은 다음과 같다. ssh -i ./ssh/&amp;lt;인증서.pem&amp;gt; ubuntu@ip주소 ec2의 instance들은 처음에 ubuntu 사용자가 있다. 그래서 ubuntu로 접속한다. root 비밀번호를 설정 sudo 작업을 해야 하기 때문에 sudo passwd root </description>
+    </item>
+    
+    <item>
+      <title>backup 완료 보고서</title>
+      <link>http://braindump.frege2godel.me/postss/20211129161242-backup%E1%84%87%E1%85%A9%E1%84%80%E1%85%A9%E1%84%89%E1%85%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211129161242-backup%E1%84%87%E1%85%A9%E1%84%80%E1%85%A9%E1%84%89%E1%85%A5/</guid>
+      <description>1 History 운영체제 변경: windows server -&amp;gt; ubuntu Xtrabackup util -&amp;gt; mysql dump로 변경 (mariadb에서 xtrabackup 사용안됨) 증분 백업 대신 full backup 사용해서 backup 테스트 성공 복원을 위해서, backup server에 mariadb 설치. full backup 복구 테스트 성공 2 backup 서버 id: root,holy pw: !123qwe 백업 폴더: mysql_backup/날짜별 폴더에 저장 3 backup 일정 매주 금요일 저녁에 full backup(자동) 폴더(날짜)/ 백업파일.sql 형식으로 backup 4 Restore 과정 증분 백업: 작은 size는 동작하나, 큰 size 복원시 에러 발생.</description>
+    </item>
+    
+    <item>
+      <title>beamer</title>
+      <link>http://braindump.frege2godel.me/postss/20211113220640-beamer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211113220640-beamer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>brainsdump 분석</title>
+      <link>http://braindump.frege2godel.me/postss/brainsdump_%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/brainsdump_%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>c3.js 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/20211208164545-c3_js_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211208164545-c3_js_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>참조 https://dgkim5360.tistory.com/entry/c3-js-cheat-sheet
+기초 c3의 chart는 generate함수로 생성된다. generate로 만든 chart를 html태그로 mapping하기 위해서 bindto를 사용한다. </description>
+    </item>
+    
+    <item>
+      <title>c3에서 pie chart json</title>
+      <link>http://braindump.frege2godel.me/postss/20211206175052-c3%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5_pie_chart_json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211206175052-c3%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5_pie_chart_json/</guid>
+      <description>참조:https://stackoverflow.com/questions/30886203/pie-chart-from-json-using-c3-js
+var jsonData = [ {name: &amp;lsquo;www.site1.com&amp;rsquo;, upload: 200}, {name: &amp;lsquo;www.site2.com&amp;rsquo;, upload: 100}, {name: &amp;lsquo;www.site3.com&amp;rsquo;, upload: 300}, {name: &amp;lsquo;www.site4.com&amp;rsquo;, upload: 400} ]
+var data = {}; var sites = []; jsonData.forEach(function(e) { sites.push(e.name); data[e.name] = e.upload; })
+chart = c3.generate({ data: { json: [ data ], keys: { value: sites, }, type:&amp;lsquo;pie&amp;rsquo; }, });
+ajax json examples 참조:https://social.msdn.microsoft.com/Forums/en-US/a1996367-5fc9-48ee-8db9-548ca9079ef2/c3-chart-with-json-dynamic-data?forum=asphtmlcssjavascript $.ajax({ type: &amp;ldquo;POST&amp;rdquo;, url: &amp;ldquo;additions.aspx/GetPiechartData&amp;rdquo;, data: &amp;ldquo;{}&amp;rdquo;, contentType: &amp;ldquo;application/json&amp;rdquo;, dataType: &amp;ldquo;json&amp;rdquo;, async: &amp;ldquo;true&amp;rdquo;, cache: &amp;ldquo;false&amp;rdquo;, success: function (result) { OnSuccess(result.</description>
+    </item>
+    
+    <item>
+      <title>capistrano 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/20211201143845-capistrano_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211201143845-capistrano_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>colab mount </title>
+      <link>http://braindump.frege2godel.me/postss/colab_mount/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/colab_mount/</guid>
+      <description>1 colab에서 google drive mount colab에서 google drive mount를 하면 google drive를 access할 수 있다. cell에서 google drive 경로를 그대로 가져와서 사용할 수 있다. 예를 들면,
+dataset = pd.readcsv(&amp;#39;google drive path&amp;#39;) 하지만, file choose browser를 사용할 순 없다. 아래 코드를 사용할 수 없다.
+from google.colab import files uploaded = files.upload() local file browser에서 google drive file을 선택하고자 한다면 finder에서 google drive를 연동하면 된다.
+2 mounting방법 Figure 1: folder 선택
+Figure 2: google drive선택</description>
+    </item>
+    
+    <item>
+      <title>collections of ideas</title>
+      <link>http://braindump.frege2godel.me/postss/20211115105400-collections_of_ideas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211115105400-collections_of_ideas/</guid>
+      <description>여행객들을 위한 서비스 gps모듈만 가지고 가면 자동으로 위치 tracking해주는 서비스: 지도에 자신이 배낭여행한 곳을 표시한다.
+rss 많은 개발자의 blog에는 rss feed를 제공해주지 않는다. rss feed를 만들어서 blog의 새로운 소식을 받아볼 수 있을까? next.js를 구현해 blog에서 feed를 생성할 수 있다고 하는데, 많은 개발자 blog에서는 그렇게 하지 않는듯하다. app으로 만들어보자. 즉 어떤 홈페이지에 변경사항을 내가 알순 없을까? 하는 아이디어다. 마치 애인의 차에 몰레 spy gps를 달아놔서 이동경로를 파악하는것처럼 web browser의 plugin을 사용해서 해당 page의 변경 정보를 noti받고 이를 app에서 정리해서 보여주는 그런거를 만들고 싶다.</description>
+    </item>
+    
+    <item>
+      <title>CSS</title>
+      <link>http://braindump.frege2godel.me/postss/20211113220723-css/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211113220723-css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>D3</title>
+      <link>http://braindump.frege2godel.me/postss/20211111131354-d3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211111131354-d3/</guid>
+      <description> Table of Contents 1 D3.js 1.1 d3를 사용하는데 있어서 필요한 것들 1 D3.js Graph나 chart를 위한 js library for svg.
+1.1 d3를 사용하는데 있어서 필요한 것들 d3 Graph를 그릴 수 있는 도화지 (html문서; especially SVG) 도화지에 그림을 그릴수 있는 도구(javascript) </description>
+    </item>
+    
+    <item>
+      <title>daily영어(1)-don&#39;t pet my puppy </title>
+      <link>http://braindump.frege2godel.me/postss/daily%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%8B%E1%85%A5_1_don_t_pet_my_puppy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/daily%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%8B%E1%85%A5_1_don_t_pet_my_puppy/</guid>
+      <description>1 Dear Annie audio-file
+1.1 1 내 강아지는 비글 라브라도 리트리버의 mix입니다. 1살이며, 강아지가 하는 모든 것을 합니다.
+My puppy, a beagle/Labrador mix, is 1 year old and does everything puppies do.
+1.2 2 그녀는 매력적입니다. 보는 사람들을 멈추게 만드는 매력이 있습니다. 그녀를 보면 내 마음이 녹아내립니다.
+She&amp;rsquo;s adorbs. She&amp;rsquo;s a traffic-stopper. My heart melts when I see her.
+1.3 3 하지만 그녀는 집 안에서 볼일을 보고, 모든 것을 깨물고, 끝없이 에너지를 뿜어내고 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>database</title>
+      <link>http://braindump.frege2godel.me/postss/20211112092700-database/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211112092700-database/</guid>
+      <description>index 설정에 대해서 참조: https://jojoldu.tistory.com/243
+column 개수: 3-4 where절의 조건절로 주로 사용되는 컬 cardinality가 높은것: id나 시간정보, 중복되는 값이 많은 것은 비추 여러개 column을 설정시 cardinality가 높은것부터 낮은 순으로 index column을 여러개 설정했다. 그렇다고 해서 index를 타는 것은 아니다. index의 첫번째 column을 where절로 조회할 때만이 탄다. 이게 이해가 잘 안간다. 다중 index와 단일 index의 차이 예를들어, 어떤 table에 name과 address항목에 index를 걸고 싶다고 하자. 하나의 index에 {name, address}를 거는 경우와 index{name}, index{address}의 두개의 index를 만들었을 때 어떤 차이가 있는 지 알고 싶다.</description>
+    </item>
+    
+    <item>
+      <title>db 백업(주기적 cron 백업)-회사</title>
+      <link>http://braindump.frege2godel.me/postss/20211126153256-db_%E1%84%87%E1%85%A2%E1%86%A8%E1%84%8B%E1%85%A5%E1%86%B8_%E1%84%8C%E1%85%AE%E1%84%80%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%A8_clon_%E1%84%87%E1%85%A2%E1%86%A8%E1%84%8B%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211126153256-db_%E1%84%87%E1%85%A2%E1%86%A8%E1%84%8B%E1%85%A5%E1%86%B8_%E1%84%8C%E1%85%AE%E1%84%80%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%A8_clon_%E1%84%87%E1%85%A2%E1%86%A8%E1%84%8B%E1%85%A5%E1%86%B8/</guid>
+      <description>Backup Program 작성 location: /home/holy/Public/db_backup.sh (소스코드) target: mysql_backup/날짜/시간별.sql smartwatercare라는 db만 백업한다. cron cron은 스케쥴 작업을 할 수 있는 daemon이다. crontab에 저장된 schedule을 실행한다. crontab /etc/crontab에서 스케쥴을 정한다. vi로 편집하거나 crontab -e로 입력한다. crontab -e 를 실행한다.
+* * * * echo &amp;ldquo;hello&amp;rdquo; &amp;gt;&amp;gt; test.txt =&amp;gt; 매분마다 실행. 3 * * * * echo &amp;ldquo;hello&amp;rdquo; &amp;gt;&amp;gt; test.txt =&amp;gt; 매일 1시 3분, 2시 3분에 실행 45 5 * * 5 /home/script/test.sh =&amp;gt; 매 금요일 5시 45분에 실행</description>
+    </item>
+    
+    <item>
+      <title>DB 속도 최적화 결과 보고서</title>
+      <link>http://braindump.frege2godel.me/postss/20211103103614-company/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211103103614-company/</guid>
+      <description>1 DB 속도 최적화 결과 보고서 &amp;lt;2021-11-18 Thu&amp;gt; 1.1 조건 동일한 조건에서 동일한 query를 날려서 테스트. table: water_meters query: select * from water_meters where getting_time &amp;gt; CURRENT_TIME; 1.2 결과 첨부된 video영상 참조 before 1310 rows 3분 31초 소요 after 1310 rows 0.012초 소요 </description>
+    </item>
+    
+    <item>
+      <title>dired_mode에 대해서</title>
+      <link>http://braindump.frege2godel.me/postss/20220212140845-dired_mode%E1%84%8B%E1%85%A6_%E1%84%83%E1%85%A2%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220212140845-dired_mode%E1%84%8B%E1%85%A6_%E1%84%83%E1%85%A2%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</guid>
+      <description>listing directory C-x d ( listing directory): shell에서 ls를 명령어하는 것과 같다. switching option은 -al이다. dired-listing-switches란 변수가 있는데, 이 변수에서 -al이 설정되어 있기 때문이다. 이것을 변경하기로 한다. dired mode에서 폴더,파일 순서대로 정렬하는 옵션을 추가한다. &amp;ndash;agho &amp;ndash;group-directories-first라는 것을 추가하면 된다. n,p: 파일을 위, 아래로 navigate한다. j: directory listing화면에 파일이 많을 경우 원하는 폴더나 파일로 가기위해서 n,p를 많이 사용하는데, j를 눌러서 원하는 문자를 입력하면 해당 폴더나 파일을 찾아준다. enter(return): j를 눌러서 원하는 폴더를 찾았다면 enter를 눌러서 안으로 들어간다.</description>
+    </item>
+    
+    <item>
+      <title>ec2 원격 연결법(RDP)</title>
+      <link>http://braindump.frege2godel.me/postss/20211207164840-ec2_vnc_%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%AF%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211207164840-ec2_vnc_%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%AF%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>기본 설치 프로그램 $ sudo apt update sudo apt-get install xrdp sudo apt-get install xfce4 sudo echo xfce4-session&amp;gt;~/.xsession sudo service xrdp restart login id설정 sudo passwd ubuntu
+3389 포트를 열어준다. </description>
+    </item>
+    
+    <item>
+      <title>editor가 가져야할 기능</title>
+      <link>http://braindump.frege2godel.me/postss/editor%E1%84%80%E1%85%A1_%E1%84%80%E1%85%A1%E1%84%8C%E1%85%A7%E1%84%8B%E1%85%A3%E1%84%92%E1%85%A1%E1%86%AF_%E1%84%80%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/editor%E1%84%80%E1%85%A1_%E1%84%80%E1%85%A1%E1%84%8C%E1%85%A7%E1%84%8B%E1%85%A3%E1%84%92%E1%85%A1%E1%86%AF_%E1%84%80%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC/</guid>
+      <description>line number를 표시 syntax highlighting mode에서 지원 tab indent 표 auto completion emmet(web) ac package linting-refactor project specific기능 projectile, grep </description>
+    </item>
+    
+    <item>
+      <title>elfeed 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/elfeed_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/elfeed_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>elfeed란 최신논문을 일찍 보려면 rss feed를 등록해서 확인하는데, 이때 사용하는 프로그램이다. 블로그 구독이라고 생각하면 된다.설치는 그냥 use-package elfeed로 설치한다. 그리고 M-x elfeed를 하면 실행이된다. 문서가 하나도 안보일텐데 설정을 해줘야 한다. init파일에 해도 된다. 아래처럼 해도 되고,
+(setq elfeed-feeds &amp;lsquo;(&amp;quot;https://feeds.maketecheasier.com/MakeTechEasier&amp;quot; &amp;ldquo;https://solar.lowtechmagazine.com/feeds/all-en.atom.xml&amp;rdquo; &amp;ldquo;https://old.reddit.com/r/f1technical.rss&amp;rdquo;))
+M-x elfeed-add-feed로 등록해서 사용해도 된다.</description>
+    </item>
+    
+    <item>
+      <title>elisp programming#1</title>
+      <link>http://braindump.frege2godel.me/postss/20220917114041-elisp_programming_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220917114041-elisp_programming_1/</guid>
+      <description>단축키로 emacs.org파일 열기. C-c r e를 누르면 emacs.org라는 파일이 buffer에 열리는 program을 만들고 싶다. 특정키를 눌렀을때 특정함수가 수행되게 할려면, keybinding과 함수를 만들수 있어야 한다. key binding에 대해서 key bindings emacs에서는 특정-key와 function을 묶음으로 가지고 있다. 이것을 map이라고 부른다. map에는 local-map, minor-mode-map, major-mode-map, global-map이 있다. 현재 buffer에서만 영향을 미치는 local-map,minor-map,major-map과 달리, global-map은 emacs전체에 영향을 미친다. 각각의 map은 layer로 되어 있다고 보면 된다. binding 확인하기 M-x describe-bindings를 하면, local, minor,major,global 순으로 binding이 나열되어있는것을 볼 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>emacs 화면녹화(screencast)</title>
+      <link>http://braindump.frege2godel.me/postss/emacs_%E1%84%92%E1%85%AA%E1%84%86%E1%85%A7%E1%86%AB%E1%84%82%E1%85%A9%E1%86%A8%E1%84%92%E1%85%AA/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/emacs_%E1%84%92%E1%85%AA%E1%84%86%E1%85%A7%E1%86%AB%E1%84%82%E1%85%A9%E1%86%A8%E1%84%92%E1%85%AA/</guid>
+      <description>gptchat이 알려준 방법 다음은 gif-screencast package를 사용하여 macOS에서 Emacs 화면을 GIF로 녹화하는 방법입니다. gif-screencast package를 설치합니다. use-package을 사용하여 설치할 수 있습니다. .emacs 파일에 다음과 같이 추가합니다.
+(use-package gif-screencast :ensure t :commands (gif-screencast-mode)) 사용방법 Emacs에서 gif-screencast-mode를 활성화합니다. M-x gif-screencast-mode 명령어를 실행합니다. commands는 해당 명령어를 실행해야 load가 됩니다. .emacs 파일에 다음과 같이 추가하면 자동으로 실행합니다.
+(add-hook &amp;#39;after-init-hook #&amp;#39;gif-screencast-mode) 녹화를 시작하려면 C-x C-g 키를 누릅니다. 녹화할 영역을 선택하고, Enter 키를 누릅니다. 녹화를 멈추려면 C-x C-g 키를 다시 누릅니다.</description>
+    </item>
+    
+    <item>
+      <title>emmet 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/emmet_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/emmet_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>emmet 사용법 </description>
+    </item>
+    
+    <item>
+      <title>english.org</title>
+      <link>http://braindump.frege2godel.me/postss/20220911130955-english_org/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220911130955-english_org/</guid>
+      <description>among other things drill the answer 특히, 무엇보다도 my example PDF Tools is, among other things, a replacement of DocView for PDF files. example Two friends are having coffee. (친구 둘이 커피를 마시고 있다.)
+Wendy: Why did you leave The Big Rabbit? It was the best rock band in town. 웬디: 왜 &amp;lsquo;빅 래빗&amp;rsquo; 밴드를 나왔어? 여기선 최고의 록 밴드였잖아.
+Don: Well my business has been getting more demanding and I was finding it difficult to spare the time.</description>
+    </item>
+    
+    <item>
+      <title>faker gem 사용법 [rails]</title>
+      <link>http://braindump.frege2godel.me/postss/20211209092803-faker_gem_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8_rails/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211209092803-faker_gem_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8_rails/</guid>
+      <description>faker: dummy data넣어주는 gem (1) rails g model table_name column1:type column2:type으로 model생성 1) rails g model Pressure dong:integer roomtype:string pressure:float temperature:float gettingtime:datetime 2) rails g model Watermeter dong:integer roomtype:string flowrate:float totalvolume:float gettingtime:datetime (2) rails db:migrate (3) gemfile에 gem &amp;lsquo;faker&amp;rsquo; 추가 gem &amp;#39;faker&amp;#39;, :git =&amp;gt; &amp;#39;https://github.com/faker-ruby/faker.git&amp;#39;, :branch =&amp;gt; &amp;#39;master&amp;#39; (4) bundle install (5) db/seed.rb 수정 seed는 db에 초기 데이터를 채워주는 역할을 한다. seed money 생각하면 된다. require faker는 faker의 random한 data를 넣어주겠다고 생각하고 faker를 load한다고 보면 된다.</description>
+    </item>
+    
+    <item>
+      <title>Federated Learning</title>
+      <link>http://braindump.frege2godel.me/postss/20211113224742-faderated_learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211113224742-faderated_learning/</guid>
+      <description>참고 : 소스 https://colab.research.google.com/github/tensorflow/federated/blob/main/docs/tutorials/tff_for_federated_learning_research_compression.ipynb
+텐서플로 api : https://www.tensorflow.org/federated 강의:https://www.youtube.com/watch?v=JBNas6Yd30A
+idea cach node에 저장할 때, corruption 되는경우, 어떻게 하는가? 완전 새롭게 다운되는가? package management system과 유사한점은 없는가? https://youtu.be/oPymb2-IXbg 참조</description>
+    </item>
+    
+    <item>
+      <title>font에 대해서</title>
+      <link>http://braindump.frege2godel.me/postss/font%E1%84%8B%E1%85%A6_%E1%84%83%E1%85%A2%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/font%E1%84%8B%E1%85%A6_%E1%84%83%E1%85%A2%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</guid>
+      <description>유명한 font inter font pretendard font firacode - my emacs font courier - 고정폭 글꼴의 대명사. 가변폭 고정폭 코딩은 고정폭을 사용한다.</description>
+    </item>
+    
+    <item>
+      <title>Gist</title>
+      <link>http://braindump.frege2godel.me/postss/gist/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/gist/</guid>
+      <description>emacs의 설정에 문제가 생겼거나 새로운 설정으로 할때 elpa를 지운다. init.el을 지운다. emacs를 실행 시킨다. emacs.org를 buffer에서 연다. tangle을 evaluate한다. =&amp;gt; emacs.org가 init.el을 만든다. 다시 emacs를 시작하면, init.el에서 package들을 elpa에 download한다. 내가 작성한 파일이거나, package manager에서 관리하지 않는 파일들은 lisp폴더에 저장하고 add-to-list로 load-path를 걸어둔다는 것을 잊지 말자. </description>
+    </item>
+    
+    <item>
+      <title>github 협업</title>
+      <link>http://braindump.frege2godel.me/postss/20220414224110-github_%E1%84%92%E1%85%A7%E1%86%B8%E1%84%8B%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220414224110-github_%E1%84%92%E1%85%A7%E1%86%B8%E1%84%8B%E1%85%A5%E1%86%B8/</guid>
+      <description>github 협업 참고자료 https://victorydntmd.tistory.com/91 https://proglish.tistory.com/80?category=887958 co-worker의 입장 host가 git repository를 만들고, co-worker에게 초대장을 보냈다고 가정한다. git clone으로 repo를 가져온다. branch를 만든다. git branch brchA or git branch hoyoul git checkout brchA로 branch로 옮긴 후, commit하고 작업을 하면 된다. 작업이 끝났으면, git checkout main한 후, git merge brchA로 merge한 후에 git push origin master를 하면 된다. </description>
+    </item>
+    
+    <item>
+      <title>HackerRank</title>
+      <link>http://braindump.frege2godel.me/postss/20211103091655-hackerrank/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211103091655-hackerrank/</guid>
+      <description>Algorithms은 테스트</description>
+    </item>
+    
+    <item>
+      <title>haskell 설치</title>
+      <link>http://braindump.frege2godel.me/postss/20220916111734-haskell_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220916111734-haskell_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5/</guid>
+      <description>system(mac) 에 haskell(ghci)설치 Haskell compiler ghci 설치 brew install ghci ghci 동작확인 an-macair:~ donaldsheng$ ghci GHCi, version 8.8.2: https://www.haskell.org/ghc/ :? for help Prelude&amp;gt; pi 3.141592653589793 Prelude&amp;gt; exp 1 2.718281828459045 Prelude&amp;gt; :q Leaving GHCi. Package Manager package manager는 외부의 package를 가져오는일을 하거나, 자체 package를 만들고 build tool을 제공한다. cabal 설치 (Haskell Package Manager) brew install cabal-install cabal update cabal test </description>
+    </item>
+    
+    <item>
+      <title>hugo tutorial</title>
+      <link>http://braindump.frege2godel.me/postss/hugo_tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/hugo_tutorial/</guid>
+      <description>Quick Start prerequisites hugo 설치 brew install hugo git 설치 create site hugo new site site명 git init Add content Configure the site publish the site </description>
+    </item>
+    
+    <item>
+      <title>impatient-mode 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/impatient_mode_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/impatient_mode_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>impatient mode 사용법 html 버퍼에서 M-x httpd-start를 실행시킨후에 브라우저를 열어 http://localhost:8080/imp/ 로 이동하면 html문서를 preview할 수 있다. html 편집과정이 그대로 반영된다. 이것은 M-x imp-visit-buffer를 실행하면 한큐에 httpd-start를 실행하고, browser까지 실행하게 된다.</description>
+    </item>
+    
+    <item>
+      <title>Inbox</title>
+      <link>http://braindump.frege2godel.me/postss/inbox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/inbox/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>inflearn_machine_learning</title>
+      <link>http://braindump.frege2godel.me/postss/20211101112510-inflearn_machine_learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211101112510-inflearn_machine_learning/</guid>
+      <description>1 python machine learning을 위한 s/w 설치 1.1 python and pip vs anaconda package 설치 프로그램 (영상에선 anaconda 추천) 내 경우, pyenv+ virtualenv를 사용할 예정 pyenv(python interpreter 설치, 설정) pyenv-virtualenv(가상환경의 설치,설정; 가상환경-package가 설치되는 공간) brew install pyenv brew install pyenv-virtualenv .zshrc추가 # pyenv command eval &amp;#34;$(pyenv init -)&amp;#34; # pyenv-virtualenv command eval &amp;#34;$(pyenv virtualenv-init -) python 설치할 버전 확인 pyenv install --list pyenv install --list | grep &amp;lt;version&amp;gt; python 설치 pyenv install &amp;lt;version&amp;gt; python 설정 pyenv global version 설치된 python version 확인 pyenv versions 가상환경 만들기 가상환경을 만들고 pyenv versions에서 가상환경을 확인할 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>ipad 코딩하기</title>
+      <link>http://braindump.frege2godel.me/postss/20220205180746-ipad_%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B5%E1%86%BC%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220205180746-ipad_%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B5%E1%86%BC%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/</guid>
+      <description>blink shell shell연결 ssh나 mosh를 사용할 수 있다. ssh보다 mobile에서 유용한 mosh를 사용한다. mosh는 ssh와 동일하다고 보면 된다. mosh는 인터넷이 끊어져도 session이 끊어지지 않는다. ssh나 mosh가 결할 서버가 필요하다. config key조합을 설정하기에 좋다. 서버 설정 google cloud platform을 사용한다. 구글에서 &amp;lsquo;구글 클라우드 플랫폼 무료등급&amp;rsquo;을 검색한다. </description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>http://braindump.frege2godel.me/postss/20211130171716-javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211130171716-javascript/</guid>
+      <description>Map 과 reduce 사용법 </description>
+    </item>
+    
+    <item>
+      <title>jupyter notebook 사용기</title>
+      <link>http://braindump.frege2godel.me/postss/20220210165229-jupyter_notebook_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220210165229-jupyter_notebook_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%80%E1%85%B5/</guid>
+      <description>ipython, jupyter,colab이란? ipython과 ipython notebook python이 개발된 이후에 ipython이란것도 비슷한 시기에 개발됨. os의 api를 interactive하게 REPL에서 사용할수 있게 만듬. ipython은 interactive python임. 일종의 REPL임. lisp의 그 REPL이 맞음. ipython이 실행하는 파일은 ipynb라는 확장명을 가짐. ipython은 ipython notebook이란 것도 같이 개발했는데, notebook은 web interface를 의미함. ipython notebook은 web api를 사용할 수 있음. ipython notebook은 server client 구조로 되어 있음. jupyter와 jupyter notebook jupyter와 jupyter notebook은 ipython이 python에 대한 interpreter만 사용하는 것에 문제가 있다고 생각함.</description>
+    </item>
+    
+    <item>
+      <title>latex</title>
+      <link>http://braindump.frege2godel.me/postss/20211107120318-latex/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211107120318-latex/</guid>
+      <description>ctan과 overleaf style 처리 방법 </description>
+    </item>
+    
+    <item>
+      <title>Latex</title>
+      <link>http://braindump.frege2godel.me/postss/20211024103032-latex/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211024103032-latex/</guid>
+      <description> Table of Contents 1 Latex 기본 사용법 :ID: EED6E7BC-3F63-46A0-82ED-2019738B0AFC
+1 Latex 기본 사용법 </description>
+    </item>
+    
+    <item>
+      <title>latex math symbols</title>
+      <link>http://braindump.frege2godel.me/postss/20211122104255-latex_math_symbols/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211122104255-latex_math_symbols/</guid>
+      <description>org에서 math symbol 사용하는 방법 latex fragment란? org mode에서 수식을 직접적으로 표현하는 방식은 없다. org-mode는 latex-mode에서 수식 표현법을 빌려와서 쓴다. latex mode에서 쓰이는 수식 표기법은 latex fragment라고 부르는데 다음과 같은 모양이다. \begin{equation} x=\sqrt{b} \end{equation} If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \]. latex fragment로 쓰여진 수식은 exports 될 때 수식으로 변환된다. html로 변환될 때는 mathjax가 변환을 하고, pdf는 dvisvgm이 image로 만들어 버린다.</description>
+    </item>
+    
+    <item>
+      <title>LeetCode</title>
+      <link>http://braindump.frege2godel.me/postss/20211103170740-leetcode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211103170740-leetcode/</guid>
+      <description>Table of Contents 1 시작 &amp;lt;2021-11-03 Wed&amp;gt; 1.1 Algorithm1 704. Binary search 1 시작 &amp;lt;2021-11-03 Wed&amp;gt; 1.1 Algorithm1 704. Binary search Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
+You must write an algorithm with O(log n) runtime complexity.
+Example 1:
+Input: nums = [-1,0,3,5,9,12], target = 9 Output: 4 Explanation: 9 exists in nums and its index is 4 Example 2:</description>
+    </item>
+    
+    <item>
+      <title>lsp treemacs에 관해</title>
+      <link>http://braindump.frege2godel.me/postss/20220423185156-lsp_treemacs%E1%84%8B%E1%85%A6_%E1%84%80%E1%85%AA%E1%86%AB%E1%84%92%E1%85%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220423185156-lsp_treemacs%E1%84%8B%E1%85%A6_%E1%84%80%E1%85%AA%E1%86%AB%E1%84%92%E1%85%A2/</guid>
+      <description>treemacs File을 관리할 수 있다. projectile과 연동해서 project를 관리할 수 있다. workspace 개념을 사용해서 관리한다. workspace and Projects workspace: the collections of projects의 name만 가지고 있다. project: project는 name과 location을 가지고 있다. workspace를 만들고, workspace에 project를 추가 삭제할 수 있다. 물론 workspace는 switch가 가능하다. 사용법 workspace 개념 treemacs는 workspace 개념을 사용해서 window에 보여준다는 점에서 file explorer와 다르다. treemacs를 실행하면 현재 사용하는 buffer가 포함된 project를 찾고, project가 포함된 workspace를 보여준다. 사용법 일반적인 사용법은 다음과 같다.</description>
+    </item>
+    
+    <item>
+      <title>lsp 설정과 사용법 (python 설정과 사용법 포함)</title>
+      <link>http://braindump.frege2godel.me/postss/20220108102959-lsp_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220108102959-lsp_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/</guid>
+      <description>lsp 설정 개념 lsp를 사용하는 이유는 coding할때 필요로 하는 정적분석기(문법을 검사하는 syntax checker, pep8 coding guideline검사)기능, autocomplete(사용자가 특정 keyword를 입력하면 자동완성하는 ex: company)기능, mouse hover시나, keyboard로 특정함수를 입력하면 document가 보이는 기능 ex: eldoc, jump to definition기능 ex:xref 등등을 지원해서 코딩을 emacs에서 편하게 해준다. 예전에는 이런것을 따로 따로 설치했는데, lsp를 사용하면서 공통적으로 사용한다. 예를 들어서, eldoc의 기능은 lsp-ui, xref기능은 lsp-ivy로 하고, debugging을 위해선 dap-mode를 지원한다. 이런것들은 모두 lsp mode, 즉 lsp client에서 설치하고 설정해야 한다.</description>
+    </item>
+    
+    <item>
+      <title>Macbook</title>
+      <link>http://braindump.frege2godel.me/postss/20211118155647-macbook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211118155647-macbook/</guid>
+      <description>필요한 sw skitch: 캡쳐및 간단한 수정 가능 IINA: 동영상 프로그램 Permute3 : video converter. 맥북 윈도우 원격접속 먼저 window에서 원격접속을 허용해야 한다. 내컴퓨터에서 오른쪽 버튼을 누르면, 원격접속 허용여부를 선택할 수 있다. 여기서 허용을 하고, macbook에서 Microsoft RDP를 설치한다. 그리고 연결하면 된다.</description>
+    </item>
+    
+    <item>
+      <title>magit 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/20220421194340-magit_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220421194340-magit_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>magit emacs가 인기 있는 것은 org모드와 magit때문이라는 얘기가 있다. 매우 편리하다고 한다. 난 글쎄&amp;hellip; installing magit 우선 기본 설정만 하자. (use-package magit :ensure t) 기본 명령어 (C-x g)magit status 가장 많이 쓰이는 기능 interface를 보여준다. 만일 현재 buffer가 git으로 관리하고 있다면, git status를 보여준다. git으로 관리되고 있지 않다면, git으로 관리되는 폴더를 찾는다. (q) exit status interface status interface를 나간다. </description>
+    </item>
+    
+    <item>
+      <title>make_homepage</title>
+      <link>http://braindump.frege2godel.me/postss/20211103095838-make_homepage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211103095838-make_homepage/</guid>
+      <description>:ID: CFE9D257-E3DC-4DE2-B838-AF03C4EDCC67
+logo만들기 </description>
+    </item>
+    
+    <item>
+      <title>make_homepage</title>
+      <link>http://braindump.frege2godel.me/postss/20211103100252-make_homepage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211103100252-make_homepage/</guid>
+      <description>참고 사이트 https://doubleloop.net/
+[1] absract design 개요 website를 만들때, 어떤식으로 설계를 해야될지 어떤 순서로 작업을 해야할 지 막막하다. 나는 web쪽에 경험이 있는것도 아니고, 그냥 기초적인 web지식만 있을 뿐이다. 어떤식으로 site를 hosting하고, 어떤 html을 만들고, 어떻게 css,js를 만들고, web framework을 쓸건지 말건지, 문서는 org모드와 연동할지 말지&amp;hellip;dynamic or static web site를 만들건지 고려되어야 할 사항이 많다. 우선 화면부터 설계하기로 했다. 화면을 설계하기 위해서 구체적인 html과 css,js를 기술하지도 않고, 단지 어떤식으로 할지 대략적으로 design하기로 했다.</description>
+    </item>
+    
+    <item>
+      <title>make_main_blog</title>
+      <link>http://braindump.frege2godel.me/postss/make_main_blog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/make_main_blog/</guid>
+      <description>make blog 시작 main blog를 만들기로 했다. holy2frege라는 github id를 만들었다. 2개의 repo를 만들었다. main-blog라는 repo와 holy2frege.github.io다. main-blog는 개발 repo고 holy2frege.github.io는 publishing repo다. emacs에서 org파일을 만들고, ox-publish를 사용하면, org파일을 html로 변환해 public폴더에 publishing한다. 따라서 2개의 repo가 필요하다.main-blog에는 org파일을 작성하는 개발 repo지만, publishing repo는 domain주소를 hosting하고 web service를 하기 때문에 github에서 몇가지 설정을 해준다. domain 주소를 설정해준다.
+github-&amp;gt;settings-&amp;gt; pages -&amp;gt; https://frege2godel.me/
+2개의 repo를 local에 설치하자. 먼저 main-blog라는 repo를 설치하기 위해서 MyProjects/main-blog라는 폴더를 만들고, github에서 지시하는 대로 첫번째 commit을 만들어서 push한다.</description>
+    </item>
+    
+    <item>
+      <title>mariadb</title>
+      <link>http://braindump.frege2godel.me/postss/20211112092713-mariadb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211112092713-mariadb/</guid>
+      <description>db 속도 처리 query cache indexing indexing은 별도의 table을 memory에 올려놓는 방식이다. indexing은 여러개의 column을 설정할 수 있다. 결합 인덱스라고 한다. column마다 우선 순위가 있다. 제일 위에 설정된 column이 primary key가 되는데, primary key로 where절에 기술할 때 indexing을 타게 된다. 그 다음 column들은 secondary key가 된다. 보통 where절과, =에 사용되는 column을 사용한다. indexing 사용법 querious를 사용해서 db에 접속한다. table을 선택하고 index를 본다. indexing을 설정한다. general log general log는 실행한 query를 확인할 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>Markov Decision Policies for Dynamic Video Delivery in Wireless Caching Networks</title>
+      <link>http://braindump.frege2godel.me/postss/20211113074512-%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB_markov_decision_policies_for_dynamic_video_delivery_in_wireless_caching_networks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211113074512-%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB_markov_decision_policies_for_dynamic_video_delivery_in_wireless_caching_networks/</guid>
+      <description>참고 논문 순서에 따라 요약하는 방식으로 작성했음. Introduction 최근 video demand service로 streaming data traffic이 급증하고 있다. 인기 있는 video가 network traffic을 유발. 해결 방법으로, wireless caching network에 대한 연구가 논의. dynamic video delivery 결정 문제 어떤 caching node가 사용자와 연결될 것인가? 기존 연구: 채널 세기 어느 정도 수준의 quality video를 보낼것인가? 기존연구: 네트웍 상황을 고려해서 고화질,저화질 보내질 chunk의 양은 어떻게 되는가? GOAL: 시간에 따른 quality가 최고가 되는것을 목표로 한다. 재생이 중지(delay) 되지 않는다는 constraints(조건)에서&amp;hellip; video quality와 chunk 네트웍 사정으로 low quality video를 전송할 수 밖에 없을때, 기존 연구에서는 사용자 qos를 고려하지 않음.</description>
+    </item>
+    
+    <item>
+      <title>Markov Decision Process</title>
+      <link>http://braindump.frege2godel.me/postss/20211113172327-markov_decision_process/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211113172327-markov_decision_process/</guid>
+      <description>참고:https://greentec.github.io/reinforcement-learning-first/
+Markov Property Markov Chains Markov Process Markov Reward Process Markov Decision Process </description>
+    </item>
+    
+    <item>
+      <title>menu만들기-hydra [emacs]</title>
+      <link>http://braindump.frege2godel.me/postss/menu%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%B5_hydra_emacs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/menu%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%B5_hydra_emacs/</guid>
+      <description>hydra emacs에서 menu를 만드는 방법은 여러가지가 있을 수 있다. 가장 쉬운 방법은 hydra package를 사용하는 것이다.
+기본적인 형태 (defhydra hydra-name (:color color-name) &amp;#34;Hydra prompt&amp;#34; (&amp;#34;key1&amp;#34; command1 &amp;#34;command1 description&amp;#34;) (&amp;#34;key2&amp;#34; command2 &amp;#34;command2 description&amp;#34;) ... ) 위와 같이 작성한다. hydra-name은 임의로 정하면 된다. &amp;ldquo;hydra prompt&amp;quot;와 key와 description이 menu에 보이게 된다.key를 누르면 command가 실행된다.
+example1 (defhydra my-menu (:color blue :columns 1) &amp;#34;My Menu&amp;#34; (&amp;#34;a&amp;#34; message &amp;#34;Action A&amp;#34;) (&amp;#34;q&amp;#34; nil &amp;#34;Quit&amp;#34;)) (global-set-key (kbd &amp;#34;C-c m&amp;#34;) &amp;#39;my-menu/body) C-c m을 누르면 a와 q가 보인다.</description>
+    </item>
+    
+    <item>
+      <title>Multi_Armed_bandit_problem</title>
+      <link>http://braindump.frege2godel.me/postss/20211113164604-multi_armed_bandit_problem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211113164604-multi_armed_bandit_problem/</guid>
+      <description>Table of Contents 1 참조 site 2 Multi_Armed_bandit_problem 3 exploration vs exploitation 4 multi-armed-bandit Scientific definition 5 ε-Greedy Algorithms 6 1 참조 site https://lilianweng.github.io/lil-log/tag/reinforcement-learning https://github.com/LeeHyeJin91/Multi-Armed-Bandit http://ailab.kaist.ac.kr/papers/pdfs/KCC20161.pdf https://wonwooddo.tistory.com/94?category=712065 https://brunch.co.kr/@chris-song/62 https://m.blog.naver.com/nilsine11202/221912267111 http://doc.mindscale.kr/km/data_mining/11.html https://assaeunji.github.io/bayesian/2021-01-30-mab/ https://wwiiiii.tistory.com/15 https://yamalab.tistory.com/135 https://jyoondev.tistory.com/134?category=826957 https://jhk0530.medium.com/multi-armed-bandit-6005743a4856
+2 Multi_Armed_bandit_problem etymology: slot machine을 one armed bandit으로 부른다. multi The multi-armed bandit problem is a popular model for studying exploration/exploitation trade-off in sequential decision problems.
+3 exploration vs exploitation 음식점 문제: exploration(새로운 음식점을 찾으러 돌아다님), exploitation(어느정도 잘하는 음식점을 알고 그 음식점만을 이용함)</description>
+    </item>
+    
+    <item>
+      <title>ninja build tool 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/ninja_build_tool_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/ninja_build_tool_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>build tool이란 소스파일과 같은 어떤 파일에 관해서 처리를 할려고한다. 예를 들면 소스파일 하나에 compile해서 실행파일을 만든다고 하자. 이런 경우는 간단하다. compiler를 사용하면 된다. compiler는 소스파일을 컴파일하고, 만일 import나 include가 있는 경우, 그 파일을 현재 code에 붙여넣는다. 그리고 해당하는 함수정의가 포함된 library는 이미 compile되어 있기 때문에 linking과정에서 합치는 과정을 거친다. 이렇게 해서 실행파일이 만들어진다. 소스 파일이 몇개 안될때는 컴파일러를 사람이 cli에서 실행시켜서 이런 과정이 진행된다고 보면 된다. 그런데, 소스파일이 100개 1000개 된다고 할때, 사람이 100번의 compiler를 실행시켜서 실행파일을 만든다는것은 손이 많이 간다.</description>
+    </item>
+    
+    <item>
+      <title>org export에 관해</title>
+      <link>http://braindump.frege2godel.me/postss/20220422134934-org_export%E1%84%8B%E1%85%A6_%E1%84%80%E1%85%AA%E1%86%AB%E1%84%92%E1%85%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220422134934-org_export%E1%84%8B%E1%85%A6_%E1%84%80%E1%85%AA%E1%86%AB%E1%84%92%E1%85%A2/</guid>
+      <description>기본사항 org로 작성한 문서를 print한다거나, web에 올리거나, 다른 사람과 공유하려고 한다면, 문제가 생긴다. org파일을 읽거나 볼 수 없기 때문이다. 그래서 org는 다양한 문서로 converting할 수 있다. 이렇게 다른 포맷으로 org를 변경시킬수 있는건 org문서를 변환시키는 library들이 있기 때문이다. 이것을 흔히 back-ends라고 부른다. org에 있는 backends는 다음과 같은것이 있다. 다양한 backends를 emacs에 설치하면 사용할 수 있다. 예를들어 python notebook으로 변환하는 backends도 설치할 수 있고, koma-letter라는 문서로 변환하는 backends도 설치만 하면 사용할 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>org 모드 사용법 및 utility</title>
+      <link>http://braindump.frege2godel.me/postss/20220428182744-org_%E1%84%86%E1%85%A9%E1%84%83%E1%85%B3_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8_%E1%84%86%E1%85%B5%E1%86%BE_utility/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220428182744-org_%E1%84%86%E1%85%A9%E1%84%83%E1%85%B3_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8_%E1%84%86%E1%85%B5%E1%86%BE_utility/</guid>
+      <description>code,bold,italic,strikethrough, verbatim 사용 wrap-region을 사용했다. emacs에 설정파일에 보면 다음과 같은 설정이 있다. (use-package wrap-region :ensure t :config (wrap-region-global-mode t) (wrap-region-add-wrapper &amp;#34;~&amp;#34; &amp;#34;~&amp;#34; nil &amp;#39;org-mode) ; code (wrap-region-add-wrapper &amp;#34;*&amp;#34; &amp;#34;*&amp;#34; nil &amp;#39;org-mode) ; bold (wrap-region-add-wrapper &amp;#34;/&amp;#34; &amp;#34;/&amp;#34; nil &amp;#39;org-mode) ; italic (wrap-region-add-wrapper &amp;#34;+&amp;#34; &amp;#34;+&amp;#34; nil &amp;#39;org-mode) ; strikethrough (wrap-region-add-wrapper &amp;#34;=&amp;#34; &amp;#34;=&amp;#34; nil &amp;#39;org-mode)) ; verbatim 만일 어떤 block에 strikethrough를 하고 싶으면, block을 설정하고 +를 입력하면 된다. 그러면, block앞과 뒤에 +가 붙여진다. 주의할점은 +가 옆의 글자와 붙어 있어야만 제대로 동작한다는 것이다.</description>
+    </item>
+    
+    <item>
+      <title>org_mode_reveal</title>
+      <link>http://braindump.frege2godel.me/postss/20211120074215-org_mode_reveal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211120074215-org_mode_reveal/</guid>
+      <description>reveal template #+AUTHOR: hoyoul park #+EMAIL: holy_frege@fastmail.com #+OPTIONS: toc:nil d:nil ^:nil num:nil #+REVEAL_INIT_OPTIONS: transition: &amp;#39;cube&amp;#39; default|cube|page|concave|zoom|linear|fade|none. #+REVEAL_THEME: moon black,white,league,beige,sky,night,serif,simple,solarized,blood,moon #+REVEAL_TITLE_SLIDE: &amp;lt;h2&amp;gt;%t &amp;lt;br&amp;gt; &amp;lt;h4&amp;gt;%a(%e) author,email은 기술하고, 아래 REVEAL_TITLE_SLIDE설정에서 사용한다. title 화면에서 보여준다. option에서 toc(table of contents)는 보여주지 않는다. d:nil은 org-roam의 경우 properties가 출력되는데, 즉 drawer를 보여줄지 말지를 결정한다. ^:nil로 한것은 _가 org export시에 subscript로 변환되는데 이것을 문자 그대로 사용하겠다는 뜻이다. num: nil은 각slide tile앞에 숫자가 numbering되는데, 그것을 막아준다. transition은 여러가지가 있는데 하나를 선택해서 사용하면 된다.</description>
+    </item>
+    
+    <item>
+      <title>org-drill(flashcards) 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/20220910122110-org_drill_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220910122110-org_drill_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>org-drill 설치 (use-package org-drill :ensure t :config (progn (setq org-drill-add-random-noise-to-intervals-p t) (setq org-drill-hint-separator &amp;#34;||&amp;#34;) (setq org-drill-left-cloze-delimiter &amp;#34;&amp;lt;[&amp;#34;) (setq org-drill-right-cloze-delimiter &amp;#34;]&amp;gt;&amp;#34;) (setq org-drill-learn-fraction 0.25))) org-drill 사용법 (1-1) orgmode의 파일을 만들어서 question과 answer를 기술한다.
+* question header :drill: what is your country? * the answer korea (1-2) org mode파일을 만들고, Cloze를 만든다.
+cloze는 문장내에서 기억될 것을 blank로 표시한다. blank로 기술하는 방법은 &amp;lt;[,]&amp;gt;과 같은 기호를 사용한다. hint를 기술할 수 있다. ||를 사용해서 cloze hint를 기술한다.</description>
+    </item>
+    
+    <item>
+      <title>org-gtd</title>
+      <link>http://braindump.frege2godel.me/postss/20211104164539-org_gtd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211104164539-org_gtd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>org-noter 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/20220911220251-org_noter_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220911220251-org_noter_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>org-noter란? 예전 책들은 interleaved edition이란게 있었다. 현재도 성경책중에 interleaved edition이 출판되기도 한다. 책의 한쪽면이 비워져 있어서 요약을 하거나, 메모를 하기에 적합하게 만든 책이다. Kant나 Newton같은 사람들은 이런 interleaved한 책으로 공부를 했다. org-noter는 interleaved한 책을 흉내낸 것이다. 물론 현재의 pdf문서나 전자책들에는 annotation이란 기능이 있어서 메모나 요약을 가능하게 해주지만, interleaved edition처럼 하나의 빈 note를 제공하는 것은 아니다. org-noter는 빈노트에 해당하는 org파일과 pdf같은 전자책과의 link를 통해서 interleaved한 효과를 준다. org-noter 설치 (use-package org-noter :after org :ensure t :config (setq org-noter-default-notes-file-names &amp;#39;(&amp;#34;notes.</description>
+    </item>
+    
+    <item>
+      <title>org-reveal-presentation</title>
+      <link>http://braindump.frege2godel.me/postss/20211119103531-org_reveal_presentation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211119103531-org_reveal_presentation/</guid>
+      <description>org reveal 사용법 설치 org 문서를 reveal로 볼려면 C-c C-e R R로 export해서 보면 된다. C-c C-e 했을 때 Reveal 메뉴가 안보이면 설치가 안된것이다. ox-reveal.el과 reveal.js가 있어야 한다. 자세한 설치과정은 다음사이트를 확인하자. https://github.com/hexmode/ox-reveal
+reveal.js 설치 2가지 방법이 있다. reveal.js를 시스템에 다운받는경우와 org mode에서 cdn을 사용하는 경우가 있다. 나는 cdn을 사용하기로 한다. org 문서 상단에 다음을 추가한다. snippet을 추가하자.
+ox-reveal.el 설치 위의 ox-reveal에서 git을 clone한 후 ox-reveal.el을 .emacs의 lisp폴더에 넣는다. lisp폴더는 내가 만든 폴더인데, emacs를 실행할때 load할수 있게 이미 다음과 같이 setting을 했다.</description>
+    </item>
+    
+    <item>
+      <title>org-roam</title>
+      <link>http://braindump.frege2godel.me/postss/20211016214740-org_roam/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211016214740-org_roam/</guid>
+      <description>org-roam이란? 여러개의 note를 link로 연결시켜서 관리한다. hierarchy하지 않다. html문서에서 다른 문서를 hyperlink로 연결하는 것과 비슷하다. org문서라는게 다른다. 여튼 문서와 문서를 연결하는 link가 핵심이다.
+설치 requirement
+c/c++ compiler (gcc or clang;맥은 builtin compiler가 있음.), sqlitedb(brew로 설치함)
+emacs settings(최종 설정)
+(use-package org-roam :ensure t :init (setq org-roam-v2-ack t) :custom (org-roam-directory &amp;#34;~/RoamNotes&amp;#34;) (org-roam-completion-everywhere t) (setq org-roam-dailies-capture-templates &amp;#39;((&amp;#34;d&amp;#34; &amp;#34;default&amp;#34; entry &amp;#34;* %&amp;lt;%I:%M %p&amp;gt;: %?&amp;#34; :if-new (file+head &amp;#34;%&amp;lt;%Y-%m-%d&amp;gt;.org&amp;#34; &amp;#34;#+title: %&amp;lt;%Y-%m-%d&amp;gt;\n&amp;#34;)))) :bind ((&amp;#34;C-c r l&amp;#34; . org-roam-buffer-toggle) (&amp;#34;C-c r f&amp;#34; .</description>
+    </item>
+    
+    <item>
+      <title>org-roam user manual</title>
+      <link>http://braindump.frege2godel.me/postss/org_roam_user_manual/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/org_roam_user_manual/</guid>
+      <description>Introduction Target Audience A Brief Introduction to the Zettelkasten Method Installation Getting Started Customizing Node Caching The Org-roam Buffer Node Properties property는 key:value쌍으로 된 single line이다. prperties와 end로 끝나는 special drawer에 기술된다. property는 문서와 headline에 기술된다. 이렇게 기술되면, 정렬,필터링,검색에 사용될 수 있다. property의 특정값을 이용해서 정렬(예를들면 deadline과 같은 시간)을 한다던가, todo를 통해서 미완성된 task를 filtering할 수도 있고, category property를 사용해서 검색할수도 있다.
+사용법은 다음과 같다.
+* Task
+:PROPERTIES:
+:PROPERTY_NAME: VALUE</description>
+    </item>
+    
+    <item>
+      <title>org-roam 노트 작성에 관해서</title>
+      <link>http://braindump.frege2godel.me/postss/20220423234359-org_roam_%E1%84%82%E1%85%A9%E1%84%90%E1%85%B3_%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC%E1%84%8B%E1%85%A6_%E1%84%80%E1%85%AA%E1%86%AB%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220423234359-org_roam_%E1%84%82%E1%85%A9%E1%84%90%E1%85%B3_%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC%E1%84%8B%E1%85%A6_%E1%84%80%E1%85%AA%E1%86%AB%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</guid>
+      <description>참고 https://blog.jethro.dev/posts/how_to_take_smart_notes_org/ https://hugocisneros.com/blog/my-org-roam-notes-workflow/ https://www.lucacambiaghi.com/posts/discovering-org-roam.html </description>
+    </item>
+    
+    <item>
+      <title>org-tree-slide presentation</title>
+      <link>http://braindump.frege2godel.me/postss/20220924083801-org_tree_slide_presentation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220924083801-org_tree_slide_presentation/</guid>
+      <description>org-tree-slide org 문서를 presentation하는 가장 간단한 방법이고 많이 쓰이는 방식이다. org 문서를 present하는 방식은 Epresent,S5,org-html5presentation,orgmode-slideshow, org-reveal등이 있다. setting </description>
+    </item>
+    
+    <item>
+      <title>ox-publish 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/ox_publish_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/ox_publish_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>ox-publish란? org-mode로 작성된 파일들을 다른 파일로 일괄 변환하는(publish)하는 package이다. org파일을 다른 파일로 변환할 때 org-backend가 사용된다. 디렉토리에 있는 것을 일괄적으로 변환하기 때문에 보통 정적 웹사이트 변환에 사용된다. ox-publish에서의 변환은 기존의 만들어진 backend 함수를 그대로 이용하기 때문에 불필요한 것들이 많이 만들어진다. 이것은 그럴수 밖에 없다. 예를 들어서, org를 html로 변환한다고 할때, org에는 없는 부분도 html문서에는 들어갈 수 밖에 없다. 왜냐면 backend를 가져다 쓰기 때문에 이미 정해진 rule에 의해서 사용하지 않아도 자동으로 삽입되는 것이다.</description>
+    </item>
+    
+    <item>
+      <title>pdftools사용(emacs)</title>
+      <link>http://braindump.frege2godel.me/postss/20220911130724-pdftools%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC_emacs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220911130724-pdftools%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC_emacs/</guid>
+      <description>pdf-tools란. emacs에서 pdf를 보거나 편집하기위한 tool. 기존 emacs에선 docview를 통해서 pdf파일을 볼 수 있었음. pdf-tools는 보는것 뿐만 아니라, 편집이 가능하다. annotation을 추가하거나, highlight, underline, isearch나 occur를 통해서 searching을 쉽게 한다. pdf-tools설치 pdf-tools를 사용하기 위해선, epdfinfo라는 server가 필요하다. epdfinfo라는 server는 prerequisite에 해당하는 poppler와 automake를 설치한 후 compile해야 한다. epdfinfo 설치 poppler설치 brew install poppler automake path설정 $ export PKG_CONFIG_PATH=&amp;#34;${PKG_CONFIG_PATH}:$(brew --prefix libffi)/lib/pkgconfig/:/usr/local/Cellar/zlib/1.2.8/lib/pkgconfig:/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig&amp;#34; (fish shell) export PKG_CONFIG_PATH=&amp;#34;$PKG_CONFIG_PATH:$(brew --prefix libffi)/lib/pkgconfig/:/usr/local/Cellar/zlib/1.2.8/lib/pkgconfig:/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig&amp;#34; emacs 설정 (use-package pdf-tools :ensure t :config (pdf-tools-install) ) pdf-tools 사용법 pdf를 buffer에서 연다.</description>
+    </item>
+    
+    <item>
+      <title>Probability</title>
+      <link>http://braindump.frege2godel.me/postss/20211105144430-probability/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211105144430-probability/</guid>
+      <description>수학 수학은 여러분야로 이루어졌다. 대수학, 기하학, 해석학 등등.. 여러 분야로 되어 있는 수학에서 중요한 도구가 있다. 그것은 function이다. 대수학의 방정식도 function으로 표현될 수 있고, 기하학의 경우도, 보면 삼각함수와 같은 함수로 표현된다. 또한 해석학에서 미적분도 function을 그 대상으로 한다. church numeral로 function 그 자체가 수가 되기도 한다. 어떻게 보면 수학은 function을 연구하는 학문이라고 봐도 될 정도다. 수학의 모든 분야가 function으로 표현되는 이유는, 수학에서 계산이란 function이기 때문이다. 계산을 하려면 function으로 표현되야 한다. ps: function은 집합끼리의 대응이고, 모든 수학의 토대는 set이다.</description>
+    </item>
+    
+    <item>
+      <title>Problem</title>
+      <link>http://braindump.frege2godel.me/postss/20211102105107-problem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211102105107-problem/</guid>
+      <description>Algorithms란건, problem을 푼다는 것이다. problem이 뭔지를 알아야 하고, 푼다는게 어떤 의미인지를 알아야 한다.
+1 Problem 1.1 문제 문제를 구성하는것은 unknown, data, condition이다. unknown을 찾는것이 문제를 해결하는것이다. unknown은 무한개의 known들 중에서 찾는것이다. 찾는다는 말이 핵심이다. 이미 주어지는 것들중에서 조건에 맞는것을 찾는것이 문제 해결이다. 전제조건으로 우리가 선택할 답들이 이미 있고, 선택할 답들을 condition을 통해 줄여나가서 답이라고 하는것을 찾는것이다. 없는것을 만들어내는게 아니라 이미 있는것에서 선택하는 것이 문제 해결이다.
+1.2 problem에 대해 떠오르는 생각&amp;amp; 하나의 값을 갖는 답, 여러개의 값을 갖는 답.</description>
+    </item>
+    
+    <item>
+      <title>program을 짠다는것에 대해서</title>
+      <link>http://braindump.frege2godel.me/postss/20220917085424-program%E1%84%8B%E1%85%B3%E1%86%AF_%E1%84%8D%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%E1%84%80%E1%85%A5%E1%86%BA%E1%84%8B%E1%85%A6_%E1%84%83%E1%85%A2%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220917085424-program%E1%84%8B%E1%85%B3%E1%86%AF_%E1%84%8D%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%E1%84%80%E1%85%A5%E1%86%BA%E1%84%8B%E1%85%A6_%E1%84%83%E1%85%A2%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</guid>
+      <description>programming? Programming(프로그래밍을 짠다는 것)은 여러 방법으로 설명할 수 있다. 여기선, 내가 이해하는 practical한 의미에서의 programming을 말할려고 한다. 나에게 있어 program은 함수다. 함수는 무엇인가? 함수는 2가지의 철학을 가지고 있다. 첫번째,함수라는 것은, 명령어라는 turing기반의 철학과, 두번째, 함수라는 것은, 5w1h같은 question에 대한 답을 만드는 proof기반(turing과 괴델)의 철학이다. 어떤 철학을 가지고 있던, 내가 이해하는 practical한 의미로 program은 function이다. 그리고 programming은 함수를 짜는 것이다. 다시 한번 강조하면, program은 function이다. programming의 철학 H/W 명령으로써의 program. program(function)과 관련한 2가지의 철학, 명령으로써의 function과, 질문으로써의 function에 대해 말하고자 한다.</description>
+    </item>
+    
+    <item>
+      <title>projectile 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/20220421160835-projectile_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220421160835-projectile_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>Projectile은 무엇이고 왜 사용? 참고 https://tuhdo.github.io/helm-projectile.html 위 사이트는 뽐뿌온다는 사이트인데, 별로&amp;hellip; projectile 무엇? emacs에서 program을 작성한다는 것은 project를 만든다고 생각하면 된다. 하나의 program은 하나의 project로 봐도 무방하며, 하나의 git repository로 봐도 무방하다. git을 clone해서 emacs에서 보면 하나의 projectile로 자동으로 관리된다. 만일 별도의 폴더를 만들고 projectile로 관리할 수도 있지만 권장되진 않는다. 따라서 무조건 git repository를 만들고 이를 local에 down받은후 emacs에서 열게 되면, projectile로 관리된다. git에서 repo를 만들고, 이를 다운 받아서 emacs에서 열면 projectile로 관리된다는 것을 알았다.</description>
+    </item>
+    
+    <item>
+      <title>pyenv-virtualenv 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/20211207111138-pyenv_virtualenv_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211207111138-pyenv_virtualenv_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>사용 이유 python project마다 요구하는 python interpreter와 library의 version이 제각각임. 그런데 system에 설치한 python interpreter와 library의 version은 정해져 있음. project를 실행하기 위해서 요구하는 사항에 맞추어 다시 python과 library를 시스템에 재설치를 해야함. 원리 pyenv -&amp;gt; version설치 -&amp;gt; 가상환경생성 -&amp;gt; 적용할 디렉토리에 반영 설치 방법 version 설치 (1) pyenv 설치
+(2) pyenv path 설정 (.zshrc)
+export PATH=&amp;#34;~/.pyenv/bin:$PATH&amp;#34; eval &amp;#34;$(pyenv init -)&amp;#34; eval &amp;#34;$(pyenv virtualenv-init -)&amp;#34; (3) python version 설치
+현재 설치되어 있는 버전 확인: pyenv versions 설치 가능한 버전 확인: pyenv install &amp;ndash;list 버전 설치: pyenv install &amp;lt;version&amp;gt; 버전 삭제: pyenv uninstall &amp;lt;version&amp;gt; 버전 선택(system에 적용): pyenv global version 버전 선택(폴더에 적용): pyenv local version version선택 대신 환경을 적용해도 된다.</description>
+    </item>
+    
+    <item>
+      <title>python algorith interview(3장)</title>
+      <link>http://braindump.frege2godel.me/postss/python_algorith_interview_2%E1%84%8C%E1%85%A1%E1%86%BC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/python_algorith_interview_2%E1%84%8C%E1%85%A1%E1%86%BC/</guid>
+      <description>indent 공백 4칸 =&amp;gt; pep8 pycharm 사용시 자동 naming convention snakecase사용 (ex:camelCase, snake_case) type hint python program 작성시 보통 typing을 명시하지 않는다. 하지만, 명시 할 수도 있다.
+def greeting(name: r) -&amp;gt; str: return &amp;#39;Hello &amp;#39; + name greeting(2) list comprehension list comprehension의 뜻 &amp;quot; 컴프리헨션은 능력, 이해력, 시험 등의 뜻도 있지만, 어떤 것을 잡아서 담아둔다는 뜻이 있습니다. 즉, 식으로 지정해서 생성된 것을 리스트로 잡아두는 것이 리스트 컴프리헨션입니다. &amp;quot; -python도장 site</description>
+    </item>
+    
+    <item>
+      <title>python algorith test python Algorithm interview (1day)</title>
+      <link>http://braindump.frege2godel.me/postss/python_algorith_test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/python_algorith_test/</guid>
+      <description>들어가며 개괄적 설명 2017년도에 카카오에서 코테로 사람을 뽑음. 왜 알고리즘이 필요한가?에 대해서 설명을 하는데, problem solving skill때문이라고 한다. 코딩문제를 기계적으로 풀기보단 왜? 이렇게 풀어야 하고 어떤 장점이 있는지를 이책에 담을려고 노력했다고 함.
+python cpython을 사용, cpython은 c로 만들어진 python, python을 설치하면 사용되는 interpreter가 cpython이라고 보면 됨. jython이란것도 있음. java로 만든 python.
+coding convention tools. 협업을 많이하는 python은 coding convention이 중요하다. 다음과 같은 tool이 있다.
+pep(Python Enhanced Properties)8 사용(style checker) - flake8 python으로 program을 작성할때의 규약(coding convention)이라고 보면 됨.</description>
+    </item>
+    
+    <item>
+      <title>python algorithm (4장)</title>
+      <link>http://braindump.frege2godel.me/postss/python_algorithm_4%E1%84%8C%E1%85%A1%E1%86%BC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/python_algorithm_4%E1%84%8C%E1%85%A1%E1%86%BC/</guid>
+      <description>big O 표기법 알고리즘을 수행할때 걸리는 시간을 &amp;ldquo;오래걸린다&amp;rdquo;, &amp;ldquo;금방 끝난다&amp;quot;로 나타낼 수 없다. 수행하는 함수에 대한 시간 복잡도는 보통 for-loop의 개수로 나타낸다. 그리고 최고차항만을 고려한다.
+for i in range(10): print(i) 10개의 data모두에 대해 10번의 연산이 일어난다. n개의 data에 대해서 n번의 연산이 수행. O(n)으로 나타낼수 있다.
+for i in range(10): print(i) print(i) 10개의 data에 2x10의 연산이 일어난다. n개의 data에 대해서 2n번의 연산이 수행된다. O(n)으로 나타낸다.
+Armortised 표기 각 문제를 n개로 쪼갰을때 각각의 문제에 대한 시간복잡도는 다를 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>python algorithm (5장)</title>
+      <link>http://braindump.frege2godel.me/postss/python_algorithm_5%E1%84%8C%E1%85%A1%E1%86%BC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/python_algorithm_5%E1%84%8C%E1%85%A1%E1%86%BC/</guid>
+      <description>list list는 동적 배열을 사용, array의 장점(속도)을 취할 수 있다. 책에서는 queue와 stack도 통합한 개념이라고 하는데, 굳이 그런식의 설명이 필요한지는 모르겠다. list는 동일한 datatype의 value를 사용하지 않는다. 이것이 흥미로운것은 data structure의 특징을 나타낼수 있는 method가 정해진다는 것이다. value에 dependent한 method는 list의 method가 될 수 없다. structure에 focus된 method만 사용된다.
+a = [] a.append(&amp;#34;hi&amp;#34;) a.append(3) print(a) list 생성 a = list() a = [] append a = [1,2,3] a.append(4) print(a) insert a = [1,2,3] a.</description>
+    </item>
+    
+    <item>
+      <title>python algorithm (6장)</title>
+      <link>http://braindump.frege2godel.me/postss/python_algorithm_6%E1%84%8C%E1%85%A1%E1%86%BC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/python_algorithm_6%E1%84%8C%E1%85%A1%E1%86%BC/</guid>
+      <description>유효한 palindrom 주어진 문자열이 palindrom인지 확인하라. 대소문자를 구분하지 않으며 영문자와 숫자만을 대상으로 한다.
+def palindrom(substr): if len(substr) == 1 or len(substr) == 0: print(&amp;#34;true&amp;#34;) return True else: start = substr[0] end = substr[len(substr)-1] if (start == end): print(substr) print(substr[1:len(substr)-1]) palindrom(substr[1:len(substr)-1]) else: print(&amp;#34;false&amp;#34;) return False print(palindrom(&amp;#34;abcdcba&amp;#34;)) </description>
+    </item>
+    
+    <item>
+      <title>python Algorithm interview (1day)</title>
+      <link>http://braindump.frege2godel.me/postss/python_%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B3%E1%86%B7_%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%87%E1%85%B2_1day/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/python_%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B3%E1%86%B7_%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%87%E1%85%B2_1day/</guid>
+      <description>들어가며 개괄적 설명 2017년도에 카카오에서 코테로 사람을 뽑음. 왜 알고리즘이 필요한가?에 대해서 설명을 하는데, problem solving skill때문이라고 한다. 코딩문제를 기계적으로 풀기보단 왜? 이렇게 풀어야 하고 어떤 장점이 있는지를 이책에 담을려고 노력했다고 함.
+python cpython을 사용, cpython은 c로 만들어진 python, python을 설치하면 사용되는 interpreter가 cpython이라고 보면 됨. jython이란것도 있음. java로 만든 python.
+coding convention tools. 협업을 많이하는 python은 coding convention이 중요하다. 다음과 같은 tool이 있다.
+pep(Python Enhanced Properties)8 사용(style checker) - flake8 python으로 program을 작성할때의 규약(coding convention)이라고 보면 됨.</description>
+    </item>
+    
+    <item>
+      <title>python Grammar</title>
+      <link>http://braindump.frege2godel.me/postss/20211103173112-python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211103173112-python/</guid>
+      <description>Generic과 type </description>
+    </item>
+    
+    <item>
+      <title>R 설치에 관해</title>
+      <link>http://braindump.frege2godel.me/postss/20220423172044-r_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%8B%E1%85%A6_%E1%84%80%E1%85%AA%E1%86%AB%E1%84%92%E1%85%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220423172044-r_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%8B%E1%85%A6_%E1%84%80%E1%85%AA%E1%86%AB%E1%84%92%E1%85%A2/</guid>
+      <description>Prerequisities Emacs와 R이 설치되어야 한다. ESS(Emacs Speaks Statistics)를 설치해야 한다. ESS를 사용하면, emacs에서 R을 사용할 수 있다. (use-package ess :ensure t :init (require &amp;#39;ess-site)) </description>
+    </item>
+    
+    <item>
+      <title>Rails (AWS) project를 처음 시작한다면? #1</title>
+      <link>http://braindump.frege2godel.me/postss/20211201102115-aws%E1%84%8B%E1%85%A6_rails%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211201102115-aws%E1%84%8B%E1%85%A6_rails%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Rails6에서 css,js 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/20211202154535-rails6%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5_css_js_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211202154535-rails6%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5_css_js_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>현재 상황 cdn으로 js와 css를 사용하는게 가장 안정적, webpacker로 c3와 d3 사용할려고 했더니 동작하지 않음. 서버에 c3 사용하기 빈 페이지를 만든다. 빈 페이지에 css,js 사용 준비 과정[webpacker] [바로 적용할려면, 이부분 pass] 준비과정은 webpacker가 동작할 설정이 되어 있는지 확인만 하는 것이다. 문제가 생기면 여기부터 check해야 한다. 여기는 직접적인 css,js사용법은 아니고 문제가 있는지 여부를 확인한다. webpacker 설정 확인 Figure 1: pack의 위치확인
+webpacker의 설정파일은 /app/confing/webpacker.yml에 기술되어 있다. webpacker가 packing할 css와 js의 위치와 compile후에 저장될 location을 확인한다.</description>
+    </item>
+    
+    <item>
+      <title>React</title>
+      <link>http://braindump.frege2godel.me/postss/20211111132213-react/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211111132213-react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recurrence</title>
+      <link>http://braindump.frege2godel.me/postss/20211030113958-recurrence/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211030113958-recurrence/</guid>
+      <description>1 infinitive representation in computer computer(programming)에선, 유한의 표현으로 무한을 나타내는 방법이 있다. 무한을 나타낸다는 것에는 무한번 실행(계산)할 수 있다는 뜻이 내포되어 있다. 무한을 유한을 나타내는 2가지 방법이 있다. recursive와 for-loop이다. recursive와 for-loop은 유한한 표현으로 무한을 나타내지만, 다르다.
+Recursive function def recursive_function(): print(&amp;#34;계산&amp;#34;) recursive_function() Figure 1: recursive
+For-loop for(;;){ print(&amp;#34;계산&amp;#34;) } Figure 2: for-loop
+계산을 무한번, 무한히 할 수 있다는 것이 for-loop과 recursive 방식의 공통점이다. 그런데, 계산이라는 것에는 data가 있어야 한다. 무한히 계산을 할때, data는 각각의 구조에서 어떻게 처리되며, 각각의 구조에 따른 data처리방식의 차이점은 어떤게 있는 지 알고 싶다.</description>
+    </item>
+    
+    <item>
+      <title>Research Ideas#2</title>
+      <link>http://braindump.frege2godel.me/postss/20211110172712-research_ideas_2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211110172712-research_ideas_2/</guid>
+      <description>1 Introduction and Research Background 저는 대학원때, Artificial Intelligence라는 과목에서 Prolog를 사용해서 programming을 한적이 있습니다. 그때, expert system과 logic에 대해서 배웠습니다. expert system은 inference rule과 fact를 사용해서 computation을 합니다. 인간과 같이 logical한 reasoning을 할 수 있습니다. 그런데 logical한 reasoning은 modus ponens와 같은 rule을 사용해서 결정적인(deterministic) decision을 내릴뿐입니다. 이것은 마치 function과 같아서 x라는 input에 y라는 결정된 값을 내립니다. 이런 방법이 실생활에서는 smart하지 않다는 생각이 들었습니다. 예를 들어서, 어떤 사람이 엘리베이터와 같은 밀실된 공간에서 갇혀있다고 가정합니다.</description>
+    </item>
+    
+    <item>
+      <title>REST_API</title>
+      <link>http://braindump.frege2godel.me/postss/20211103104950-rest_api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211103104950-rest_api/</guid>
+      <description>:ID: 24B6B6A8-2CEA-4396-A081-EDBDE778D537
+Algorithms test</description>
+    </item>
+    
+    <item>
+      <title>RestAPI SamsungBiotics 개발과정</title>
+      <link>http://braindump.frege2godel.me/postss/20211222151140-restapi_samsungbiotics_%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF%E1%84%80%E1%85%AA%E1%84%8C%E1%85%A5%E1%86%BC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211222151140-restapi_samsungbiotics_%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF%E1%84%80%E1%85%AA%E1%84%8C%E1%85%A5%E1%86%BC/</guid>
+      <description>삼성 biotics 계정 생성 주소: https://61.75.178.52:28088/web/dist/index.html 해당 사이트에 들어갈수 있게 회원가입을 해줘야 한다. id: pncltd@hanmail.net pw: pncltd755! Model 등록 model등록 model에서 등록을 누르고 아래와 같이 생성한다. Figure 1: biot2
+attribute등록 attribute에 해당하는 것들이 상당히 많은데, db값과 일치되어 있다. Figure 2: attr2
+Figure 3: attr3
+Figure 4: attr4
+Figure 5: attr5
+Figure 6: attr6
+thing정보 아래 thing management를 설정하면 자동으로 설정된다. Figure 7: thing
+thing management Figure 8: thing management
+rest api 처리 login (최초 1회 authtoken을 받아온다.</description>
+    </item>
+    
+    <item>
+      <title>server에서 보낸 json client ajax에서 처리법</title>
+      <link>http://braindump.frege2godel.me/postss/20211208173751-js%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5_json%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211208173751-js%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5_json%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>참조:https://stackoverflow.com/questions/46158726/c3-chart-with-json-data 참조:https://java119.tistory.com/54</description>
+    </item>
+    
+    <item>
+      <title>skewer-mode 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/skewer_mode_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/skewer_mode_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>skewer-mode 사용법 javascript의 변경사항을 web browser에서 실시간 변경사항을 볼수 있다. html buffer의 변경사항은 impatient-mode에서 볼수 있다.</description>
+    </item>
+    
+    <item>
+      <title>sop 준비</title>
+      <link>http://braindump.frege2godel.me/postss/20220818143434-sop_%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220818143434-sop_%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5/</guid>
+      <description>sop 직장생활에서 하는 코딩이 무의미한것으로 느껴짐.
+석사때, 배웠던 recursion을 통해서 proof. 내가 작성한 프로그램이 정확하다는것을 알 수 있음. 하지만, python, 기타 프로그램을 사용하는 환경에선 별다른 감흥을 느낄수 없었음.
+회사를 다니면서 느낀건, 태양광을 하면서 location과 일조량의 최적화된 문제를 풀기위해서 다양한 방법을 사용했지만, deep learing을 사용해서 해결할 수 있음을 알고 이를 공부하기 시작함.
+deep learning을 접하게 된 이유. 최적화 문제를 풀때,
+수도 사용량을 통해서 최적화 방식도 사용.
+몸무게를 줄이기 위해서 지금 다이어트중.</description>
+    </item>
+    
+    <item>
+      <title>TED_앨고어</title>
+      <link>http://braindump.frege2godel.me/postss/20220427203849-ted_%E1%84%8B%E1%85%A2%E1%86%AF%E1%84%80%E1%85%A9%E1%84%8B%E1%85%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220427203849-ted_%E1%84%8B%E1%85%A2%E1%86%AF%E1%84%80%E1%85%A9%E1%84%8B%E1%85%A5/</guid>
+      <description>자료 al gore
+script Thank you so much, Chris. 감사합니다, 크리스.
+And it&amp;rsquo;s truly a great honor to have the opportunity to come to this stage twice; 이곳에 두 번이나 설 기회를 얻게된 것을 큰 영광으로 생각합니다.
+I&amp;rsquo;m extremely grateful. 진심으로 감사드립니다.
+I have been blown away by this conference, 저는 TED에 큰 감명을 받았습니다.
+and I want to thank all of you for the many nice comments about what I had to say the other night.</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>http://braindump.frege2godel.me/postss/20211126094129-test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211126094129-test/</guid>
+      <description>Test [[20211113172327-markov_decision_process.md][Markov Decision Process] 처리와 테스트</description>
+    </item>
+    
+    <item>
+      <title>tex에 관해서</title>
+      <link>http://braindump.frege2godel.me/postss/20220913094900-tex%E1%84%8B%E1%85%A6_%E1%84%80%E1%85%AA%E1%86%AB%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220913094900-tex%E1%84%8B%E1%85%A6_%E1%84%80%E1%85%AA%E1%86%AB%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</guid>
+      <description>Tex와 tex의 종류들 tex란? tex: Donald Knuth에 의해 조판시스템으로 개발. tex의 처리과정(compile processing) tex,dvips,ps2pdf라는 tool을 가지고 있다. *.tex를 tex가 입력받아 dvi를 만들고, dvips를 통해서 ps파일을 만든다. ps파일을 ps2pdf라는 tool을 사용해서 pdf를 만들수도 있다. pdf를 만들기 위해선, ps를 거쳐야한다. tex의 최종 완성본은 dvi파일이다. 아도비의 ghost script viewer에서 볼수 있는 ps나, 아도비의 acrobat에서 볼수 있는 pdf는 dvi에서의 파일 변환이다. 다시 요약하면, tex파일을 dvi로 만드는게 tex엔진이다. latex란? L.B.Lamport에 의해서 개발. latex는 package library(macro package)로 봐도 된다.</description>
+    </item>
+    
+    <item>
+      <title>three.js 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/three_js_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/three_js_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tkinter에 대해서</title>
+      <link>http://braindump.frege2godel.me/postss/20220210201405-tkinter%E1%84%8B%E1%85%A6_%E1%84%83%E1%85%A2%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220210201405-tkinter%E1%84%8B%E1%85%A6_%E1%84%83%E1%85%A2%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</guid>
+      <description>tkinter Tcl/Tk interface를 말한다. Tcl은 Tool Command Language의 약자다. Tk는 tool kit의 약자다. Tcl/Tk는 GUI programing이 가능하게 window와 widget을 제공한다. GUI programming root window: GUI program은 윈도우가 반드시 하나 있어야 한다. root window는 tk()로 만들어진다. widget simple widget label container widget frame : window도 widget을 담을 수 있지만, widget을 담는 widget이 필오하다. Frame이라는 container다. layout manager event </description>
+    </item>
+    
+    <item>
+      <title>type_system</title>
+      <link>http://braindump.frege2godel.me/postss/20211104065203-type_system/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211104065203-type_system/</guid>
+      <description>type system type을 사용하는 이유 #+begin_note 정수 계산에 문자열이 들어가는 경우, compile시에 문제는 없으나 실행할 때 문제가 생긴다. type을 annotate하고 compile시에 검사를 하면, 미리 문제를 제거할 수 있다. compile때 type을 검사한다는게 특징이다.
+무엇을 type할 것인가? 보통은 parameter, function return값, class type, 변수 type등 data에 관련한 것들에 typing을 할 수 있다. data의 collection에 해당하는 것도 type의 대상이다. #+end_note
+programming Language에서 type type은 일종의 보호스킨과 같다. 맥북이나 핸드폰에 스킨을 붙이면 안전하듯이, program에 type system이 있다면, 안전한 동작이 compile시에 보장된다.</description>
+    </item>
+    
+    <item>
+      <title>unity</title>
+      <link>http://braindump.frege2godel.me/postss/20211028095617-unity/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211028095617-unity/</guid>
+      <description>설치 unityhub 다운 여기에서 unity hub를 다운받는다. unity 다운 unityhub는 여러개의 unity가 설치될 수 있는 hub다. unity를 설치해보자. unity version 선택 android, ios 추가 설치 unity 설치 진행 android, ios 관련 설치 ios 는 xcode가 필요. android는 android studio가 필요하다. xcode나 android studio가 없다면, 없는것을 설치한다. Project 실행 project 생성 Project 만들기 project를 만들수 없다. valid license가 없다는 에러가 나오면서 진행되지 않는다. License를 만든후 진행하면 만들어지는 것을 확인할 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>use-package 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/use_package_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/use_package_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>package란 library, module하고 같다고 보면된다. 함수나 class, macro 변수에대한 definition있는 파일로 보면된다.
+archives package들은 archives(melpa,elpa,github)에 저장되어 있다. archive는 melpa,elpa같이 emacs package저장소로 오랫동안 사용된 server도 있는 반면에 요즘은 github같은 곳도 package를 만들고 유지하기때문에 이런곳도 archive라고 볼 수 있다. github같은 archive에서 package를 가져오고 관리하기 위해서는 straight.el을 사용한다.
+package managing package manager는 여러가지 일을 하지만, brew install package처럼 설치하는게 주 업무다. 즉 설치하고 사용하는것이다.
+download: package를 다운로드한다. tar같은 압축파일로 보통 되어 있다. 보통 .</description>
+    </item>
+    
+    <item>
+      <title>using file from google drive on colab</title>
+      <link>http://braindump.frege2godel.me/postss/20211125225138-colab/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211125225138-colab/</guid>
+      <description>1 colab에서 google drive mount colab에서 google drive mount를 하면 google drive를 access할 수 있다. cell에서 google drive 경로를 그대로 가져와서 사용할 수 있다. 예를 들면,
+dataset = pd.readcsv(&amp;#39;google drive path&amp;#39;) 하지만, file choose browser를 사용할 순 없다. 아래 코드를 사용할 수 없다.
+from google.colab import files uploaded = files.upload() local file browser에서 google drive file을 선택하고자 한다면 finder에서 google drive를 연동하면 된다.
+2 google drive mounting 방법 Figure 1: folder 선택</description>
+    </item>
+    
+    <item>
+      <title>Value Iteration</title>
+      <link>http://braindump.frege2godel.me/postss/20211113172340-value_iteration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211113172340-value_iteration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web development for emacs</title>
+      <link>http://braindump.frege2godel.me/postss/web_development_for_emacs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/web_development_for_emacs/</guid>
+      <description>필요한 package emmet-mode: melpa web-mode: melpa js2-mode: melpa and elpa yasnippet: elpa or gnu html+ mode: built-in emacs skewer-mode: javascript viewer, html viewer는 좀 약하다. impatient-mode: html viewer </description>
+    </item>
+    
+    <item>
+      <title>web mode 사용법</title>
+      <link>http://braindump.frege2godel.me/postss/web_mode_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/web_mode_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</guid>
+      <description>web mode주요 기능 folded 기능 (C-c C-f) </description>
+    </item>
+    
+    <item>
+      <title>web programming</title>
+      <link>http://braindump.frege2godel.me/postss/web_programming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/web_programming/</guid>
+      <description>web programming이란. web programming을 공부하면서 왜 이런 개념이 만들어졌지, 왜 이렇게 사용하는지?라는 질문에 대한 해답은 역사를 통해서 쉽게 이해할 수 있다. 그래서 우리는 역사를 배우는 것이다.
+Abstract design web programming history 최초 [1989-90, Timothy Berners-Lee] 팀 버너스리가 생각한것은 scientific document의 공유였다.
+http통신은 문서를 주고 받는 protocol이다. server가 있고, server의 문서를 client가 요청해서 받는 구조다. 초창기에는 server가 가진 data를 어떻게 하면 대다수 client에게 전달할 것인가를 생각했기 때문에, 통신 protocol은 간단했다. server에 연결한다.</description>
+    </item>
+    
+    <item>
+      <title>나만의 폰트만들기</title>
+      <link>http://braindump.frege2godel.me/postss/20220905090154-%E1%84%82%E1%85%A1%E1%84%86%E1%85%A1%E1%86%AB%E1%84%8B%E1%85%B4_%E1%84%91%E1%85%A9%E1%86%AB%E1%84%90%E1%85%B3%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220905090154-%E1%84%82%E1%85%A1%E1%84%86%E1%85%A1%E1%86%AB%E1%84%8B%E1%85%B4_%E1%84%91%E1%85%A9%E1%86%AB%E1%84%90%E1%85%B3%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%B5/</guid>
+      <description>내가 원하는 폰트 글자가 백묵처럼 혹은 칠판처럼 solid하지 않고 글자에 불순물이 있는 형태. 글자들은 colorful 해야 한다. 녹색과 빨간색을 많이 쓴다. 영어로 된 글자를 쓸때는 작은사이즈로 표시한다.옆에는 동일한 크기지만 3/5크기정도 ex) 컬러(color) </description>
+    </item>
+    
+    <item>
+      <title>실시간 chart [rails]</title>
+      <link>http://braindump.frege2godel.me/postss/20211209202954-%E1%84%89%E1%85%B5%E1%86%AF%E1%84%89%E1%85%B5%E1%84%80%E1%85%A1%E1%86%AB_chart_rails/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20211209202954-%E1%84%89%E1%85%B5%E1%86%AF%E1%84%89%E1%85%B5%E1%84%80%E1%85%A1%E1%86%AB_chart_rails/</guid>
+      <description>참조 https://codepen.io/nagitch/pen/rNMrXNw
+참조 분석 실시간 그래프의 원리는 2가지로 나눠서 생각할 수 있다. [첫번째 단계: 초기화 단계] timeNow, timeTail 설정 초기화 단계는 timeNow와 timeTail이라는 변수를 초기화 한다. timeNow와 timeTail은 dayJS라는 js library를 사용해서 시간을 format화 한다. timeNow와 timeTail은 x축의 min값과 max값을 설정하는데 사용한다. [chartAxis (축)설정] timeseries종류로 x축을 설정한다. 축의 종류는 3가지가 있다. index와 category, 그리고 timeseries가 있다. 일반적으로 chart를 만들면, x축에 특정 data를 설정하지 않으면, index값이 자동으로 부여된다. random한 값이다. 그런데 category와 timeseries는 x축의 좌표가 시간이라던가, 특정 카테고리를 x축 값으로 사용한다.</description>
+    </item>
+    
+    <item>
+      <title>영어회화 공부에 대해서</title>
+      <link>http://braindump.frege2godel.me/postss/20220827084317-%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%8B%E1%85%A5%E1%84%92%E1%85%AC%E1%84%92%E1%85%AA_%E1%84%80%E1%85%A9%E1%86%BC%E1%84%87%E1%85%AE%E1%84%8B%E1%85%A6_%E1%84%83%E1%85%A2%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220827084317-%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%8B%E1%85%A5%E1%84%92%E1%85%AC%E1%84%92%E1%85%AA_%E1%84%80%E1%85%A9%E1%86%BC%E1%84%87%E1%85%AE%E1%84%8B%E1%85%A6_%E1%84%83%E1%85%A2%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</guid>
+      <description>영어를 말한다는건 어렵다. 영어로 말해봐라.라고 하면 어떤말을 해야할지 모른다고 한다. 머리에 생각이 떠오르지 않는다고 한다. 이건 당연한것이다. 영어로 말한다는 것은 영어로 생각한다는 것이다. 영어로 생각한다는 것은 한국사람이 영어를 배우지 않은 상태에선 알수 없다. 우리가 영어를 배운다는 것은 영어로 생각하는 법을 배우는 것이다. 영어로 생각하는 법을 배우면 영어로 말할 수 있다. 그러면 그 영어공부의 핵심인 영어로 생각한다는 것은 무엇이고 어떻게 배워야 할까? 영어로 생각하기는 외국인들의 말을 통해서 알수 있다. 그들이 말하는 순서와 방법이 영어로 생각한것을 말로 표현하는 것이기 때문에 영어로 생각한다는건 그 말의 순서와 방법을 배우는것이다.</description>
+    </item>
+    
+    <item>
+      <title>최적화문제</title>
+      <link>http://braindump.frege2godel.me/postss/%E1%84%8E%E1%85%AC%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%92%E1%85%AA%E1%84%86%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/%E1%84%8E%E1%85%AC%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%92%E1%85%AA%E1%84%86%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A6/</guid>
+      <description>최적화 문제의 개요 우리가 해결해야하는 문제들 중에 매우 어렵다라고 느끼는 문제들이 있다. 그런 문제들은 대부분 최적화 문제다. 예를 들어, 어떤 절벽에서 경비행기를 이륙시키고 싶다. 한마디로 간이 비행장을 만들고 싶다고 하자. 이런 문제를 마주할때, 생각할것(고려해야할 변수가)이 많다. 비행기 크기, 비행기 출력, 속도, 활주로 길이, 그날의 날씨, 바람, 온도, 등등&amp;hellip;이륙에 영향을 미치는 요소들, 조건들이 너무많다. 우리의 목적은 여러가지 조건에서 비행기를 띄우는게 목적이다. 목적을 이루기 위해서 고려해야할 변수가 너무 많다. 어떻게 하면 이런 변수를 잘 조합해서 비행기를 날수 있게 하는가?</description>
+    </item>
+    
+    <item>
+      <title>추천서 예시</title>
+      <link>http://braindump.frege2godel.me/postss/20220918135251-%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A5_%E1%84%8B%E1%85%A8%E1%84%89%E1%85%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220918135251-%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A5_%E1%84%8B%E1%85%A8%E1%84%89%E1%85%B5/</guid>
+      <description>“사토 군은 호기심이 많고 의문이 있으면 끈질기게 파고들었다. 특히 빛에 대한 집착이 대단해서 연구자로 적합하다고 생각했다”</description>
+    </item>
+    
+    <item>
+      <title>확률에 대해서</title>
+      <link>http://braindump.frege2godel.me/postss/20220120194655-%E1%84%92%E1%85%AA%E1%86%A8%E1%84%85%E1%85%B2%E1%86%AF%E1%84%8B%E1%85%A6_%E1%84%83%E1%85%A2%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/postss/20220120194655-%E1%84%92%E1%85%AA%E1%86%A8%E1%84%85%E1%85%B2%E1%86%AF%E1%84%8B%E1%85%A6_%E1%84%83%E1%85%A2%E1%84%92%E1%85%A2%E1%84%89%E1%85%A5/</guid>
+      <description>확률이란? 확률을 구하라는 질문을 들었을 때 무엇이 떠오르는가? 아니면 확률이 주어지면 무슨 생각이 드는가? 우리는 확률이란 단어를 접했을 때 무엇을, 무슨 생각을 떠올려야 하는가? 확률은 수학적인 용어다. 원래 일상생활에서 우리는 확률이란 단어를 사용하지 않았다. 우리는 가능성이란 단어로 말을한다. 좀 더 근원적으로 본다면, 확률을 말할려면 미래를 떠올려야 한다. 미래에 어떤일이 벌어질때의 가능성, 미래에 어떤일을 했을때의 가능성, 이런 가능성이다. 여기서 가능성이란 단어가 사용되는 어법을 살펴볼 필요가 있다. 어떤 행위를 하는 대상이 사람일 경우, 어떤 사람이, 혹은 내가 어떤 행위를 미래에 했을 때 어떤일이 일어날 가능성, 보통은 실험을 말한다.</description>
     </item>
     
   </channel>

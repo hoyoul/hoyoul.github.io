@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+  <head><title>elisp programming#1</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">elisp programming#1</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/postss/20220917114041-elisp_programming_1/" alt="elisp programming#1" class="permalink"><h1>elisp programming#1</h1></a>      
+	<h2 id="단축키로-emacs-dot-org파일-열기-dot">단축키로 emacs.org파일 열기.</h2>
+<ul>
+<li>C-c r e를 누르면 emacs.org라는 파일이 buffer에 열리는 program을 만들고 싶다.</li>
+<li>특정키를 눌렀을때 특정함수가 수행되게 할려면, keybinding과 함수를 만들수 있어야 한다.</li>
+</ul>
+<h3 id="key-binding에-대해서">key binding에 대해서</h3>
+<h4 id="key-bindings">key bindings</h4>
+<ul>
+<li>emacs에서는 특정-key와 function을 묶음으로 가지고 있다. 이것을 map이라고 부른다.</li>
+<li>map에는 local-map, minor-mode-map, major-mode-map, global-map이 있다.</li>
+<li>현재 buffer에서만 영향을 미치는 local-map,minor-map,major-map과
+달리, global-map은 emacs전체에 영향을 미친다. 각각의 map은 layer로
+되어 있다고 보면 된다.</li>
+</ul>
+<h4 id="binding-확인하기">binding 확인하기</h4>
+<ul>
+<li>M-x describe-bindings를 하면, local, minor,major,global 순으로
+binding이 나열되어있는것을 볼 수 있다.</li>
+</ul>
+<h4 id="binding-하는법">binding 하는법</h4>
+<ul>
+<li>[1] define-key
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>(define-key KEYMAP KEY DEF)
+</span></span></code></pre></div></li>
+<li>[2] local-set-key</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>(local-set-key KEY COMMAND)
+</span></span></code></pre></div><ul>
+<li>[3] global-set-key
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>(global-set-key KEY COMMAND)
+</span></span></code></pre></div></li>
+<li>[4] :bind in use-package</li>
+</ul>
+<h4 id="key-표현-방법">key 표현 방법</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>(kbd &#34;C-x C-b&#34;)
+</span></span></code></pre></div><h4 id="command에-대해서">command에 대해서</h4>
+<ul>
+<li>command는 interactive function을 의미한다. function에
+(interactive)가 있으면, 실행을 M-x function name으로 할수 있기
+때문에 command가 된다.</li>
+<li>예를 들면, 아래는 command이다.
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>(defun show-emacs-conf ()
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (find-file &#34;~/.emacs.d/emacs.org&#34;))
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="단축키로-emacs-dot-org파일-여는-program-작성">단축키로 emacs.org파일 여는 program 작성</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>(defun show-emacs-conf ()
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (find-file &#34;~/.emacs.d/emacs.org&#34;))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(global-set-key (kbd &#34;C-c r e&#34;) &#39;show-emacs-conf)
+</span></span></code></pre></div><h2 id="set-fontset-font">set-fontset-font</h2>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

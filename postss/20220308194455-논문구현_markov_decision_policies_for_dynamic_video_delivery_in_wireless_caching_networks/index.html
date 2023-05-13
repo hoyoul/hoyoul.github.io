@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head><title>[논문구현]Markov Decision Policies for Dynamic Video Delivery in Wireless Caching Networks</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">[논문구현]Markov Decision Policies for Dynamic Video Delivery in Wireless Caching Networks</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/postss/20220308194455-%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%E1%84%80%E1%85%AE%E1%84%92%E1%85%A7%E1%86%AB_markov_decision_policies_for_dynamic_video_delivery_in_wireless_caching_networks/" alt="[논문구현]Markov Decision Policies for Dynamic Video Delivery in Wireless Caching Networks" class="permalink"><h1>[논문구현]Markov Decision Policies for Dynamic Video Delivery in Wireless Caching Networks</h1></a>      
+	<h2 id="poisson-distribution-푸아송-분포">Poisson Distribution 푸아송 분포</h2>
+<h2 id="poisson-point-process">Poisson Point Process</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">scipy.stats</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">matplotlib.pyplot</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">plt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#Simulation window parameters</span>
+</span></span><span style="display:flex;"><span>xMin<span style="color:#666">=</span><span style="color:#40a070">0</span>;xMax<span style="color:#666">=</span><span style="color:#40a070">1</span>;
+</span></span><span style="display:flex;"><span>yMin<span style="color:#666">=</span><span style="color:#40a070">0</span>;yMax<span style="color:#666">=</span><span style="color:#40a070">1</span>;
+</span></span><span style="display:flex;"><span>xDelta<span style="color:#666">=</span>xMax<span style="color:#666">-</span>xMin;yDelta<span style="color:#666">=</span>yMax<span style="color:#666">-</span>yMin; <span style="color:#60a0b0;font-style:italic">#rectangle dimensions</span>
+</span></span><span style="display:flex;"><span>areaTotal<span style="color:#666">=</span>xDelta<span style="color:#666">*</span>yDelta;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#Point process parameters</span>
+</span></span><span style="display:flex;"><span>lambda0<span style="color:#666">=</span><span style="color:#40a070">100</span>; <span style="color:#60a0b0;font-style:italic">#intensity (ie mean density) of the Poisson process</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#Simulate Poisson point process</span>
+</span></span><span style="display:flex;"><span>numbPoints <span style="color:#666">=</span> scipy<span style="color:#666">.</span>stats<span style="color:#666">.</span>poisson( lambda0<span style="color:#666">*</span>areaTotal )<span style="color:#666">.</span>rvs()<span style="color:#60a0b0;font-style:italic">#Poisson number of points</span>
+</span></span><span style="display:flex;"><span>xx <span style="color:#666">=</span> xDelta<span style="color:#666">*</span>scipy<span style="color:#666">.</span>stats<span style="color:#666">.</span>uniform<span style="color:#666">.</span>rvs(<span style="color:#40a070">0</span>,<span style="color:#40a070">1</span>,((numbPoints,<span style="color:#40a070">1</span>)))<span style="color:#666">+</span>xMin<span style="color:#60a0b0;font-style:italic">#x coordinates of Poisson points</span>
+</span></span><span style="display:flex;"><span>yy <span style="color:#666">=</span> yDelta<span style="color:#666">*</span>scipy<span style="color:#666">.</span>stats<span style="color:#666">.</span>uniform<span style="color:#666">.</span>rvs(<span style="color:#40a070">0</span>,<span style="color:#40a070">1</span>,((numbPoints,<span style="color:#40a070">1</span>)))<span style="color:#666">+</span>yMin<span style="color:#60a0b0;font-style:italic">#y coordinates of Poisson points</span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#Plotting</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>scatter(xx,yy, edgecolor<span style="color:#666">=</span><span style="color:#4070a0">&#39;b&#39;</span>, facecolor<span style="color:#666">=</span><span style="color:#4070a0">&#39;none&#39;</span>, alpha<span style="color:#666">=</span><span style="color:#40a070">0.5</span> )
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>xlabel(<span style="color:#4070a0">&#34;x&#34;</span>); plt<span style="color:#666">.</span>ylabel(<span style="color:#4070a0">&#34;y&#34;</span>)
+</span></span></code></pre></div>      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

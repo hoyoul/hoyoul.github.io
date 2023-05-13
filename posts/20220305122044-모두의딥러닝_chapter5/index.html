@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+  <head><title>[모두의딥러닝] chapter5 참/거짓 판단장치: 로지스틱 회귀</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">[모두의딥러닝] chapter5 참/거짓 판단장치: 로지스틱 회귀</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/posts/20220305122044-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter5/" alt="[모두의딥러닝] chapter5 참/거짓 판단장치: 로지스틱 회귀" class="permalink"><h1>[모두의딥러닝] chapter5 참/거짓 판단장치: 로지스틱 회귀</h1></a>      
+	<p>ps: 책에서 다루는 logistic regression의 내용은 자세한 설명이 없어서, 책의 순서를 따르지 않았음.</p>
+<h2 id="1--regression">(1) Regression</h2>
+<h3 id="개요">개요</h3>
+<ul>
+<li>(1) data의 특징을 잘 나타내는 근사 함수를 선정.</li>
+<li>(2) 근사함수가 data를 fitting할 수 있도록, 오차함수 미분을 통해  parameter설정</li>
+<li>(3) fitting된 함수로 예측</li>
+</ul>
+<h3 id="linear-regression">Linear regression</h3>
+<ul>
+<li>(1) 직선의 방정식 선정</li>
+<li>(2) 오차함수(MSE)에서 미분값의 경사하강을 통해 parameter 설정</li>
+<li>(3) update된 직선의 방정식으로 예측</li>
+</ul>
+<h3 id="logistic-regression">Logistic regression</h3>
+<ul>
+<li>(1) sigmoid 선정</li>
+<li>(2) 오차함수를 MSE로 나타내지 않는다. sigmoid 함수의 특성으로 오차함수를 정의.</li>
+<li>(2-1) 정의된 오차함수의 경사하강을 통해서 parameter설정</li>
+<li>(3)  update된 sigmoid로 예측</li>
+</ul>
+<h4 id="logistic-regression은-mse를-사용할-수-없다-dot">Logistic regression은 MSE를 사용할 수 없다.</h4>
+<ul>
+<li>
+<p>오차제곱을 하게 되면, exponential이 non-linear하기 때문에 non-convex형태라서 최소값을 구할 수가 없다고 한다.</p>
+<img src="./img/everyone_deepLearning/chapter5/not_mse1.png" width="6 00px">
+</li>
+</ul>
+<h4 id="코드구현-이론과-다르다">코드구현 [이론과 다르다]</h4>
+<ul>
+<li>(1) sigmoid 선정</li>
+<li>(2) sigmoid를 보면, 직선의 방정식이 exponential에 x값으로 들어가 있다. (합성함수)</li>
+<li>(3) 오차함수는 실제값 - sigmoid값으로 설정</li>
+<li>(4) 오차함수의 값을 직선을 update하는데, 쓰임. 직선과
+sigmoid와의 관계는 Linear Regression에서 직선과 오차함수(2차함수)와 같은 관계.</li>
+</ul>
+<h4 id="내생각">[내생각]</h4>
+<ul>
+<li>data를 근사화한 함수를 통해서 예측하는 Linear Regression과 달리,
+Logistic Regression은 데이터 분류를 하는(grouping)하는 분류기에
+해당하는 직선을 만들어도 될듯한데&hellip; 왜 data와 근사화한
+S함수(sigmoid)를 사용했는지&hellip;잘 모르겠다.</li>
+</ul>
+<h2 id="2--logistic-regression예제">(2) Logistic Regression예제</h2>
+<h3 id="예제">예제</h3>
+<ul>
+<li>
+<p>chapter4의 예제를 변형 시켜서, 공부시간에 따른 합격여부를
+예측할려고 한다.</p>
+<img src="./img/everyone_deepLearning/chapter5/logistic1.png" width="600px">
+</li>
+<li>
+<p>그래프로 보면 다음과 같다.</p>
+<img src="./img/everyone_deepLearning/chapter5/logistic2.png" width="600px">
+</li>
+</ul>
+<h3 id="data에-근사한-함수">Data에 근사한 함수</h3>
+<ul>
+<li>
+<p>Linear regression에서는 데이터의 특징이 linear했기 때문에
+1차방정식으로 근사화해서 예측을 했는데, 이것은 데이터의 특징이
+s자 형태다. 그리고 주목해야 할것은 결과가 0 or 1이기 때문에
+직선의 방정식과 같은 어떤 함수로 근사화할 필요가 있다.</p>
+<img src="./img/everyone_deepLearning/chapter5/logistic3.png" width="600px">
+</li>
+</ul>
+<h2 id="3--sigmoid함수">(3) sigmoid함수</h2>
+<ul>
+<li>
+<p>[내생각] regression은 data를 함수로 근사화하는 것을 말하는 것
+같다. Linear Regression은 data를 직선으로 근사화했고, 결과가 0 or
+1이 나오는 경우는 함수로 근사화하기가 힘들줄 알았는데, sigmoid라는
+함수가 S자 형태로 되어 있으면서 0과 1사이의 결과를 갖기 때문에
+regression이 가능한거 같다. 물론, 위에서 내가 말했듯이, 반드시
+S자형태가 아닐수도 있지만, S자형태라고 하자.  그래서 logistic
+regression으로 부른다. 그리고 강화학습에서 sigmoid를 activate
+function으로 사용했는데, 이유는 확률을 표현할 수 있어서라고
+했는데, 이 chapter에서는 이 부분은 다루지 않는다.</p>
+</li>
+<li>
+<p>sigmoid함수가 S자의 모양을 갖는데, 수식을 보면, sigmoid함수의
+parameter도 a,b로 이루어져 있다. 1차방정식에서 기울기와 절편과
+비슷하게 동작한다.</p>
+<img src="./img/everyone_deepLearning/chapter5/sigmoid.png" width="400px">
+</li>
+<li>
+<p>기울기와 절편의 모양</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">matplotlib.pyplot</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">plt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">sigmoid</span>(x):
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">1</span><span style="color:#666">/</span>(<span style="color:#40a070">1</span><span style="color:#666">+</span>np<span style="color:#666">.</span>exp(<span style="color:#666">-</span>x))
+</span></span><span style="display:flex;"><span>x <span style="color:#666">=</span> np<span style="color:#666">.</span>arange(<span style="color:#666">-</span><span style="color:#40a070">5.0</span>, <span style="color:#40a070">5.0</span>, <span style="color:#40a070">0.1</span>)
+</span></span><span style="display:flex;"><span>y1 <span style="color:#666">=</span> sigmoid(<span style="color:#40a070">0.5</span><span style="color:#666">*</span>x)
+</span></span><span style="display:flex;"><span>y2 <span style="color:#666">=</span> sigmoid(x)
+</span></span><span style="display:flex;"><span>y3 <span style="color:#666">=</span> sigmoid(<span style="color:#40a070">2</span><span style="color:#666">*</span>x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>plot(x, y1, <span style="color:#4070a0">&#39;r&#39;</span>, linestyle<span style="color:#666">=</span><span style="color:#4070a0">&#39;--&#39;</span>) <span style="color:#60a0b0;font-style:italic"># W의 값이 0.5일때</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>plot(x, y2, <span style="color:#4070a0">&#39;g&#39;</span>) <span style="color:#60a0b0;font-style:italic"># W의 값이 1일때</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>plot(x, y3, <span style="color:#4070a0">&#39;b&#39;</span>, linestyle<span style="color:#666">=</span><span style="color:#4070a0">&#39;--&#39;</span>) <span style="color:#60a0b0;font-style:italic"># W의 값이 2일때</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>plot([<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>],[<span style="color:#40a070">1.0</span>,<span style="color:#40a070">0.0</span>], <span style="color:#4070a0">&#39;:&#39;</span>) <span style="color:#60a0b0;font-style:italic"># 가운데 점선 추가</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>title(<span style="color:#4070a0">&#39;Sigmoid Function&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>show()
+</span></span></code></pre></div><img src="./img/everyone_deepLearning/chapter5/sigmoid2.png" width="600px">
+</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">matplotlib.pyplot</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">plt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">sigmoid</span>(x):
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">1</span><span style="color:#666">/</span>(<span style="color:#40a070">1</span><span style="color:#666">+</span>np<span style="color:#666">.</span>exp(<span style="color:#666">-</span>x))
+</span></span><span style="display:flex;"><span>x <span style="color:#666">=</span> np<span style="color:#666">.</span>arange(<span style="color:#666">-</span><span style="color:#40a070">5.0</span>, <span style="color:#40a070">5.0</span>, <span style="color:#40a070">0.1</span>)
+</span></span><span style="display:flex;"><span>y1 <span style="color:#666">=</span> sigmoid(x<span style="color:#666">+</span><span style="color:#40a070">0.5</span>)
+</span></span><span style="display:flex;"><span>y2 <span style="color:#666">=</span> sigmoid(x<span style="color:#666">+</span><span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>y3 <span style="color:#666">=</span> sigmoid(x<span style="color:#666">+</span><span style="color:#40a070">1.5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>plot(x, y1, <span style="color:#4070a0">&#39;r&#39;</span>, linestyle<span style="color:#666">=</span><span style="color:#4070a0">&#39;--&#39;</span>) <span style="color:#60a0b0;font-style:italic"># x + 0.5</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>plot(x, y2, <span style="color:#4070a0">&#39;g&#39;</span>) <span style="color:#60a0b0;font-style:italic"># x + 1</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>plot(x, y3, <span style="color:#4070a0">&#39;b&#39;</span>, linestyle<span style="color:#666">=</span><span style="color:#4070a0">&#39;--&#39;</span>) <span style="color:#60a0b0;font-style:italic"># x + 1.5</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>plot([<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>],[<span style="color:#40a070">1.0</span>,<span style="color:#40a070">0.0</span>], <span style="color:#4070a0">&#39;:&#39;</span>) <span style="color:#60a0b0;font-style:italic"># 가운데 점선 추가</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>title(<span style="color:#4070a0">&#39;Sigmoid Function&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>show()
+</span></span></code></pre></div><img src="./img/everyone_deepLearning/chapter5/sigmoid3.png" width="600px">
+<h3 id="기울기에-따른-오차함수">기울기에 따른 오차함수</h3>
+<ul>
+<li>
+<p>기울기에 따라서 오차함수를 찍어보면, 다음과 같다. 2차함수의
+모양은 아니다. 즉 convex형태가 아니다. Linear Regression에선
+오차함수가 convex의 형태라서 최소값을 구하기 위해서 미분값이
+필요했다. 왜냐면 방향을 모르기때문에 미분값이 필요했고, 어느정도
+이동하는지는 learning rate로 조절했다. 두개의 값으로 경사
+하강법으로 최소값을 구했다.그런데 Logistic Regression에서는
+미분값이 필요없다. 왜냐면 오차를 줄이는 방향이 이미 정해졌기
+때문이다. 따라서  learning rate 크기만큼 오차값을 계속 빼주는
+방식으로 update(경사 하강)를 하면된다.</p>
+<img src="./img/everyone_deepLearning/chapter5/loss.png" width="600px">
+</li>
+</ul>
+<h3 id="절편에-따른-오차함수">절편에 따른 오차함수</h3>
+<ul>
+<li>
+<p>절편에 따라 오차함수를 찍어보면 다음과 같다. 2차 함수의 모양을
+가지고 있다. convex형태라서 최소값을 구할 수 있다.</p>
+<img src="./img/everyone_deepLearning/chapter5/loss2.png" width="600px">
+</li>
+</ul>
+<h2 id="4--오차-공식">(4) 오차 공식</h2>
+<ul>
+<li>
+<p>책에서 나온 오차함수와 수식은 다음과 같다.</p>
+<img src="./img/everyone_deepLearning/chapter5/lossfunction.png" width="400px">
+</li>
+</ul>
+<img src="./img/everyone_deepLearning/chapter5/lossfunction2.png" width="400px">
+<ul>
+<li>MSE를 사용하지 못하기 때문에, Log함수로 오차 함수를 정의하고  update를 한다.</li>
+</ul>
+<h2 id="5--코드에서-사용하는-update-방식">(5) 코드에서 사용하는 update 방식</h2>
+<ul>
+<li>
+<p>2차함수의 편미분값으로 오차함수의 값을 줄이는 방향을 알수 있었고,
+learning rate로 크기를 정해서 직선의 방정식을 update했다.</p>
+</li>
+<li>
+<p>Linear Regression에서는 데이터를 근사화한 직선의 방정식을
+update하기 위해서 연관함수인 오차함수(2차함수)를 사용했다. 즉
+오차함수의 값을 줄이는 방향으로 직선을 update했다.</p>
+</li>
+<li>
+<p>Logistic Regression도 비슷하다. Logistic Regression에선 근사화
+함수가 sigmoid함수고 연관함수는 sigmoid의 입력함수인 직선의
+방정식이라고 볼 수 있다. 직선의 방정식을 update하면, sigmoid함수가
+update된다.</p>
+<img src="./img/everyone_deepLearning/chapter5/lossfunction3.png" width="600px">
+</li>
+<li>
+<p>update 방식은 다음과 같다.</p>
+<img src="./img/everyone_deepLearning/chapter5/lossfunction4.png" width="400px">
+</li>
+</ul>
+<h2 id="6--코딩으로-하는-확인하는-로지스틱-회귀">(6) 코딩으로 하는 확인하는 로지스틱 회귀</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">matplotlib.pyplot</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">plt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#공부시간 X와 성적 Y의 리스트를 만듭니다.</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#666">=</span> [[<span style="color:#40a070">2</span>, <span style="color:#40a070">0</span>], [<span style="color:#40a070">4</span>, <span style="color:#40a070">0</span>], [<span style="color:#40a070">6</span>, <span style="color:#40a070">0</span>], [<span style="color:#40a070">8</span>, <span style="color:#40a070">1</span>], [<span style="color:#40a070">10</span>, <span style="color:#40a070">1</span>], [<span style="color:#40a070">12</span>, <span style="color:#40a070">1</span>], [<span style="color:#40a070">14</span>, <span style="color:#40a070">1</span>]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x_data <span style="color:#666">=</span> [i[<span style="color:#40a070">0</span>] <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> data]
+</span></span><span style="display:flex;"><span>y_data <span style="color:#666">=</span> [i[<span style="color:#40a070">1</span>] <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> data]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#그래프로 나타내 봅니다.</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>scatter(x_data, y_data)
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>xlim(<span style="color:#40a070">0</span>, <span style="color:#40a070">15</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>ylim(<span style="color:#666">-</span><span style="color:#40a070">.1</span>, <span style="color:#40a070">1.1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># 기울기 a와 절편 b의 값을 초기화 합니다.</span>
+</span></span><span style="display:flex;"><span>a <span style="color:#666">=</span> <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#666">=</span> <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#학습률을 정합니다.</span>
+</span></span><span style="display:flex;"><span>lr <span style="color:#666">=</span> <span style="color:#40a070">0.05</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#시그모이드 함수를 정의합니다.</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">sigmoid</span>(x):
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">1</span> <span style="color:#666">/</span> (<span style="color:#40a070">1</span> <span style="color:#666">+</span> np<span style="color:#666">.</span>e <span style="color:#666">**</span> (<span style="color:#666">-</span>x))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">#경사 하강법을 실행합니다.</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#40a070">2001</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">for</span> x_data, y_data <span style="color:#007020;font-weight:bold">in</span> data:
+</span></span><span style="display:flex;"><span>	a_diff <span style="color:#666">=</span> x_data<span style="color:#666">*</span>(sigmoid(a<span style="color:#666">*</span>x_data <span style="color:#666">+</span> b) <span style="color:#666">-</span> y_data)
+</span></span><span style="display:flex;"><span>	b_diff <span style="color:#666">=</span> sigmoid(a<span style="color:#666">*</span>x_data <span style="color:#666">+</span> b) <span style="color:#666">-</span> y_data
+</span></span><span style="display:flex;"><span>	a <span style="color:#666">=</span> a <span style="color:#666">-</span> lr <span style="color:#666">*</span> a_diff
+</span></span><span style="display:flex;"><span>	b <span style="color:#666">=</span> b <span style="color:#666">-</span> lr <span style="color:#666">*</span> b_diff
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">if</span> i <span style="color:#666">%</span> <span style="color:#40a070">1000</span> <span style="color:#666">==</span> <span style="color:#40a070">0</span>:    <span style="color:#60a0b0;font-style:italic"># 1000번 반복될 때마다 각 x_data값에 대한 현재의 a값, b값을 출력합니다.</span>
+</span></span><span style="display:flex;"><span>	    <span style="color:#007020">print</span>(<span style="color:#4070a0">&#34;epoch=%.f, 기울기=</span><span style="color:#70a0d0">%.04f</span><span style="color:#4070a0">, 절편=</span><span style="color:#70a0d0">%.04f</span><span style="color:#4070a0">&#34;</span> <span style="color:#666">%</span> (i, a, b))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># 앞서 구한 기울기와 절편을 이용해 그래프를 그려 봅니다.</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>scatter(x_data, y_data)
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>xlim(<span style="color:#40a070">0</span>, <span style="color:#40a070">15</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>ylim(<span style="color:#666">-</span><span style="color:#40a070">.1</span>, <span style="color:#40a070">1.1</span>)
+</span></span><span style="display:flex;"><span>x_range <span style="color:#666">=</span> (np<span style="color:#666">.</span>arange(<span style="color:#40a070">0</span>, <span style="color:#40a070">15</span>, <span style="color:#40a070">0.1</span>)) <span style="color:#60a0b0;font-style:italic">#그래프로 나타낼 x값의 범위를 정합니다.</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>plot(np<span style="color:#666">.</span>arange(<span style="color:#40a070">0</span>, <span style="color:#40a070">15</span>, <span style="color:#40a070">0.1</span>), np<span style="color:#666">.</span>array([sigmoid(a<span style="color:#666">*</span>x <span style="color:#666">+</span> b) <span style="color:#007020;font-weight:bold">for</span> x <span style="color:#007020;font-weight:bold">in</span> x_range]))
+</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>show()
+</span></span></code></pre></div><h2 id="7--로지스틱-회귀에서-퍼셉트론으로">(7) 로지스틱 회귀에서 퍼셉트론으로</h2>
+<ul>
+<li>
+<p>sigmoid function을 사용하는 logistic regression은 perceptron과 거의 같다.</p>
+</li>
+<li>
+<p>sigmoid function의 입력으로 사용되는 직선의 방정식에서 다변수
+형태로 변경 되었다고 보면 된다.</p>
+<img src="./img/everyone_deepLearning/chapter5/perceptron.png" width="600px">
+</li>
+</ul>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

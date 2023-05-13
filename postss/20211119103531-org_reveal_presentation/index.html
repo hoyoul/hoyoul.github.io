@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+  <head><title>org-reveal-presentation</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">org-reveal-presentation</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/postss/20211119103531-org_reveal_presentation/" alt="org-reveal-presentation" class="permalink"><h1>org-reveal-presentation</h1></a>      
+	<h2 id="org-reveal-사용법">org reveal 사용법</h2>
+<h3 id="설치">설치</h3>
+<p>org 문서를 reveal로 볼려면 C-c C-e R R로 export해서 보면 된다. C-c
+C-e 했을 때 Reveal 메뉴가 안보이면 설치가 안된것이다. ox-reveal.el과
+reveal.js가 있어야 한다. 자세한 설치과정은 다음사이트를 확인하자.
+<a href="https://github.com/hexmode/ox-reveal">https://github.com/hexmode/ox-reveal</a></p>
+<h3 id="reveal-dot-js-설치">reveal.js 설치</h3>
+<p>2가지 방법이 있다. reveal.js를 시스템에 다운받는경우와 org mode에서
+cdn을 사용하는 경우가 있다. 나는 cdn을 사용하기로 한다. org 문서
+상단에 다음을 추가한다. snippet을 추가하자.</p>
+<div class="important">
+</div>
+<h3 id="ox-reveal-dot-el-설치">ox-reveal.el 설치</h3>
+<p>위의 ox-reveal에서 git을 clone한 후 ox-reveal.el을 .emacs의
+lisp폴더에 넣는다. lisp폴더는 내가 만든 폴더인데, emacs를 실행할때
+load할수 있게 이미 다음과 같이 setting을 했다.</p>
+<div class="important">
+<p>(add-to-list &rsquo;load-path &ldquo;<em>Users/holy</em>.emacs.d/lisp/&rdquo;)</p>
+</div>
+<p>lisp폴더에 넣은후에 require로 load하면 된다.</p>
+<div class="important">
+<p>(require &lsquo;ox-reveal)</p>
+</div>
+<h2 id="chrome-browser에서-presentation시-전체화면">chrome browser에서 presentation시 전체화면</h2>
+<p>f를 누르면 된다.</p>
+<h2 id="reveal의-구조">reveal의 구조</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;div class=&#34;reveal&#34;&gt;
+</span></span><span style="display:flex;"><span>  &lt;div class=&#34;slides&#34;&gt;
+</span></span><span style="display:flex;"><span>    &lt;section&gt;Horizontal Slide&lt;/section&gt;
+</span></span><span style="display:flex;"><span>    &lt;section&gt;
+</span></span><span style="display:flex;"><span>      &lt;section&gt;Vertical Slide 1&lt;/section&gt;
+</span></span><span style="display:flex;"><span>      &lt;section&gt;Vertical Slide 2&lt;/section&gt;
+</span></span><span style="display:flex;"><span>    &lt;/section&gt;
+</span></span><span style="display:flex;"><span>  &lt;/div&gt;
+</span></span><span style="display:flex;"><span>&lt;/div&gt;
+</span></span></code></pre></div><p>slides라는 class아래에 section이 있는데, 우리가 흔히 말하는 슬라이드는 reveal에선 slides아래에 있는  section을 의미한다. section안에 또 다른 section이 있을 수 있는데, vertical 슬라이드가 만들어진다. vertical 슬라이드 안에 level2의 section이 별도의 슬라이드로 들어가는 형태가 된다. 즉 level1의 section은 하나의 슬라이드가 되고, level2의 section은 vertical 슬라이드가 된다. 이것을 기준으로 css를 customize할 수 있다. org mode에서의 mapping관계를 사용해서 설정할 수 있다.</p>
+<h2 id="org-mappings">org mappings</h2>
+<h2 id="font-size">font size</h2>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">#+REVEAL_EXTRA_CSS: ./modifications.css
+</code></pre><h2 id="test-slide1-h1">test slide1 h1</h2>
+<p>inside test</p>
+<h3 id="test-slide-h2">test slide h2</h3>
+<p>inside test2</p>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

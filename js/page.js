@@ -1,189 +1,89 @@
 let rendered_pages = [];
 
-// const element = document.querySelector(".container");
-// element.addEventListener("scroll", onScrollWidthChanged);
-
-// function onScrollWidthChanged(event) {
-//     const scrollWidth = event.target.scrollWidth;
-//     alert("scrollWidth changed to " + scrollWidth);
-// }
-// const container = document.querySelector('container');
-
-// container.addEventListener('click', function(event) {
-// if (event.target.classList.contains('collapsed-title')) {
-//       const children = Array.from(event.target.parentNode.children);
-//       const index = children.indexOf(event.target);
-//       alert(`Clicked on child ${index + 1}`);
-//     }    
-// });
-
-document.addEventListener('click', (event) => {
-    if (event.target.classList.contains('collapsed-title')) {
-	const title = event.target.innerText;
-	unfoldHead(title);
-  }
-});
-
-function unfoldHead(title){
-    const pages = document.querySelectorAll('.page');
-    for (let i = 0; i < pages.length; i++) {
-	const h1Elements = pages[i].querySelectorAll('h1');
-	for (let j = 0; j < h1Elements.length; j++) {
-	    if (h1Elements[j].innerText === title) {
-		pages[i].classList.remove("collapsed");
-	    }
-	}
-    }
-}
-
-function computeLayout(){
-    let pages = document.querySelectorAll('.page');
-    for (i=0; i< pages.length; i++){
-	if (i < pages.length - 3){
-	    pages[i].classList.add("collapsed");
-	}
-    }
-}
-
-function updateCollapsedState(col) {
-    
-    let container = document.querySelector('.container');    
-    let pages = document.querySelectorAll('.page');
-    let scroll_width = container.scrollWidth;
-
-
-    for (let i = 0; i < pages.length; i++) {
-	let normal_page_width = (i+1)* (pages[i].offsetWidth);
-	let normal_page_left = i* (pages[i].offsetWidth);	
-	let page_left = pages[i].offsetLeft;
-	// alert(i + "page/" + (pages.length-1) +
-	//       " [normal_page_width]: " + normal_page_width
-	//       + " [scroll_width]: " + scroll_width);
-	if ( normal_page_left < page_left) {
-		pages[i].classList.add("collapsed");
-	}else{
-	    pages[i].classList.remove("collapsed");
-	}
-	// if (normal_page_left < (page_left ) ) {
-	//     pages[i].classList.add("collapsing");
-	// } else {
-	//     pages[i].classList.remove("collapsing");
-	// }
-    }
-    
-    // for (let i = 0; i < pages.length; i++) {
-    // 	let normal_page_left = i* (pages[i].offsetWidth);
-    // 	let page_left = pages[i].offsetLeft;
-
-    // 	alert(i +"번째 page의 " + "normal_page_left: " + normal_page_left + "page_left: " + page_left);
-    // 	// alert("column is :" + (column));
-    // 	// alert("last is : " + (last_page));
-    // 	if((page_left - normal_page_left) > 4 ){
-    // 	    pages[i].classList.add("collapsed");
-
-    // 	}
-    // }
-}
-
-
-function unStackPages(column) {
-  let container = document.querySelector(".container");
-  let children = Array.prototype.slice.call(container.children);
-
-    numberOfRemove = children.length - column;
-    for (let i = 0; i < numberOfRemove; i++) {
-	container.removeChild(container.lastChild);
-  }
-  rendered_pages = rendered_pages.slice(0, column);
-}
-
-function updateBreadCrums() {
-  links = Array.prototype.slice.call(document.querySelectorAll("a"));
+function updateBreadCrumbs() {
+  Links = Array.prototype.slice.call(document.querySelectorAll("a"));
   links.forEach(function (e) {
       if (rendered_pages.indexOf(e.getAttribute("href")) > -1) {
-	  if (e.getAttribute("href") != "/")
+	  if (e.getAttribute("href") != "/"){
+	      alert(e);
 	      e.classList.add("active");
-      } else {
+	  }
+      }
+      else {
 	  e.classList.remove("active");
       }
   });
 }
 
-function renderPageWhenClick(href, column){
-    column = Number(column) || rendered_pages.length;
+function unstackPages(clicked_page_column,last_child,href){
+    let container = document.querySelector(".container");
+    total_remove_child = last_child - clicked_page_column;
+    for (let i = 0; i < total_remove_child; i++) {
+	container.removeChild(container.lastChild);
+    }
+    rendered_pages = rendered_pages.slice(0, clicked_page_column+1);
+
+}
+// 모든 page는 0부터 시작, href를 인자로 받는 이유는
+// rendered_pages관리를 위해서, unstack을 renderPage에서 호출하기
+// 때문이다. unstack을 fetch에서 수행하면 UI가 흔들림.
+function renderPage(page,clicked_page_column,href){
+    container = document.querySelector(".container");
+    children = Array.prototype.slice.call(container.children);
+    // the_number_of_last_child = children.length;
+    last_child_page = children.length-1;
+    if (clicked_page_column < last_child_page)
+	unstackPages(clicked_page_column,last_child_page,href);
+
+    rendered_pages.push(href);
+    updateBreadCrumbs();            
+    
+    container.appendChild(page);
+    page.scrollIntoView({behavior: "smooth"});		
+    addHandlerLinksFromPage(page,clicked_page_column+1);
+}
+
+function fetchPage(href,clicked_page_column){
 
     const request = new Request(href);
     fetch(request)
 	.then((response) => response.text())
 	.then((text) => {
-	    let container = document.querySelector(".container");
 	    let fragment = document.createElement("template");
 	    fragment.innerHTML = text;
-	    let element = fragment.content.querySelector(".page");
-	    let children = Array.prototype.slice.call(container.children);
-	    let last_child = children.length;
-
-	    if(column != last_child){
-		unStackPages(column);
-		container.appendChild(element);
-		// container.classList.add("nooverflow");
-		
-	    }else{
-		
-		container.appendChild(element);
-		computeLayout();
-		// updateCollapsedState(column);
-		element.scrollIntoView({behavior: "smooth"});		
-	    }
-	    // const pages = container.querySelectorAll('.page');
-	    setTimeout(
-		function(element,column){
-		    element.dataset.column = column + 1;
-		    rendered_pages.push(href);	    
-		    addLinksToHandlerFromPage(element,element.dataset.column);
-		    updateBreadCrums();	    	    		    
-		    // element.scrollIntoView({behavior: "smooth"});
-	
-		    // updateCollapsedState(column);	    		    
-		}.bind(null,element,column),
-		10
-	    );
+	    let page = fragment.content.querySelector(".page");
+	    renderPage(page,clicked_page_column,href);
 	});
-
 }
 
-function addLinksToHandlerFromPage(page,column) {
+function addHandlerLinksFromPage(page,clicked_page_column) {
     links = Array.prototype.slice.call(page.querySelectorAll("a"));
-    links.forEach(function (element) {
-	var rawHref = element.getAttribute("href");
-	if (rawHref)
+    links.forEach(function (atag) {
+	var HrefValue = atag.getAttribute("href");
+	if (HrefValue)
  	{
 	    if (!(
-		rawHref.indexOf("http://") === 0 ||
-		rawHref.indexOf("https://") === 0 ||
-		rawHref.indexOf("mailto:") === 0 ||
-		rawHref.indexOf("#") === 0 ||
-		rawHref.includes(".pdf") ||
-		rawHref.includes(".svg")
+		HrefValue.indexOf("http://") === 0 ||
+		HrefValue.indexOf("https://") === 0 ||
+		HrefValue.indexOf("mailto:") === 0 ||
+		HrefValue.indexOf("#") === 0 ||
+		HrefValue.includes(".pdf") ||
+		HrefValue.includes(".svg")
 	    ))
 	    {
-		element.addEventListener("click", function (e) {
+		atag.addEventListener("click", function (e) {
 		    if (!e.ctrlKey && !e.metaKey) {
 			e.preventDefault();
-			renderPageWhenClick(element.getAttribute("href"),page.dataset.column)
+			fetchPage(HrefValue,clicked_page_column);
 		    }
 		});
-	    // updateBreadCrums();	    	    
 	    }
 	}});
 };
+
 window.onload = function () {
-    rendered_pages.push(window.location.pathname);
-    container = document.querySelector(".container");
-    // alert("container's scroll width: " + container.scrollWidth);
+    rendered_pages.push(window.location.pathname);    
     page = document.querySelector(".page");
-    page.dataset.column = rendered_pages.length;
-    column = page.dataset.column;
-    // updateCollapsedState();	        
-    addLinksToHandlerFromPage(page,column);
+    clicked_page_column =0;
+    addHandlerLinksFromPage(page,clicked_page_column);
 };

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+  <head><title>LeetCode</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">LeetCode</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/postss/20211103170740-leetcode/" alt="LeetCode" class="permalink"><h1>LeetCode</h1></a>      
+	<div class="ox-hugo-toc toc has-section-numbers">
+<div class="heading">Table of Contents</div>
+<ul>
+<li><span class="section-num">1</span> <a href="#%EC%8B%9C%EC%9E%91">시작 <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-11-03 Wed&gt;</span></span></a>
+<ul>
+<li><span class="section-num">1.1</span> <a href="#algorithm1">Algorithm1</a>
+<ul>
+<li><a href="#704-dot-binary-search">704. Binary search</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!--endtoc-->
+<h2 id="시작"><span class="section-num">1</span> 시작 <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-11-03 Wed&gt;</span></span></h2>
+<h3 id="algorithm1"><span class="section-num">1.1</span> Algorithm1</h3>
+<h4 id="704-dot-binary-search">704. Binary search</h4>
+<div class="note">
+<p>Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.</p>
+<p>You must write an algorithm with O(log n) runtime complexity.</p>
+<p>Example 1:</p>
+<p>Input: nums = [-1,0,3,5,9,12], target = 9
+Output: 4
+Explanation: 9 exists in nums and its index is 4
+Example 2:</p>
+<p>Input: nums = [-1,0,3,5,9,12], target = 2
+Output: -1
+Explanation: 2 does not exist in nums so return -1</p>
+<p>Constraints:</p>
+<p>1 &lt;= nums.length &lt;= 104
+-104 &lt; nums[i], target &lt; 104
+All the integers in nums are unique.
+nums is sorted in ascending order.</p>
+</div>
+<div class="tip">
+<p>오름차순으로 정렬된 nums라는 배열에서 target값을 찾아서 index를 return한다. 만일 없다면 -1을 return한다. O(log n)이 나오도록 해야 한다.</p>
+</div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">class</span> <span style="color:#0e84b5;font-weight:bold">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">search</span>(self, nums: List[<span style="color:#007020">int</span>], target: <span style="color:#007020">int</span>) <span style="color:#666">-&gt;</span> <span style="color:#007020">int</span>:
+</span></span></code></pre></div><div class="important">
+<p>파이썬 code를  사용하는데, class와 type system을 사용한다. 이 부분은 정리할 필요가 있다.</p>
+</div>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

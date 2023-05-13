@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Recurrence</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">Recurrence</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/posts/20211030113958-recurrence/" alt="Recurrence" class="permalink"><h1>Recurrence</h1></a>      
+	<h2 id="infinitive-representation-in-computer"><span class="section-num">1</span> infinitive representation in computer</h2>
+<p>computer(programming)에선,  유한의 표현으로 무한을 나타내는 방법이 있다. 무한을 나타낸다는 것에는 무한번 실행(계산)할 수 있다는 뜻이 내포되어 있다. 무한을 유한을 나타내는 2가지 방법이 있다. recursive와 for-loop이다. recursive와 for-loop은 유한한 표현으로 무한을 나타내지만, 다르다.</p>
+<ul>
+<li>Recursive function</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">recursive_function</span>():
+</span></span><span style="display:flex;"><span>      <span style="color:#007020">print</span>(<span style="color:#4070a0">&#34;계산&#34;</span>)
+</span></span><span style="display:flex;"><span>      recursive_function()
+</span></span></code></pre></div><p><a id="figure--"></a></p>
+<figure><img src="./img/recursive.png"
+         alt="Figure 1: recursive" width="150px," height="500px"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>recursive</p>
+        </figcaption>
+</figure>
+
+<ul>
+<li>For-loop</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">for</span><span style="color:#666">(;;){</span>
+</span></span><span style="display:flex;"><span>   print<span style="color:#666">(</span><span style="color:#4070a0">&#34;계산&#34;</span><span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#666">}</span>
+</span></span></code></pre></div><p><a id="figure--"></a></p>
+<figure><img src="./img/for-loop.png"
+         alt="Figure 2: for-loop" width="800px"/><figcaption>
+            <p><span class="figure-number">Figure 2: </span>for-loop</p>
+        </figcaption>
+</figure>
+
+<p>계산을 무한번, 무한히 할 수 있다는 것이 for-loop과 recursive 방식의 공통점이다. 그런데, 계산이라는 것에는 data가 있어야 한다. 무한히 계산을 할때, data는 각각의 구조에서 어떻게 처리되며, 각각의 구조에 따른 data처리방식의 차이점은 어떤게 있는 지 알고 싶다.</p>
+<h2 id="무한의-계산-구조와-data"><span class="section-num">2</span> 무한의 계산 구조와  data</h2>
+<p>recursive function과 for loop는 무한한 계산을 할 수 있는 계산 구조다. 이 계산 구조에 data를 연결시킬수 있다. data가 무한하다면, 무한한 계산을 하는 program을 작성하는 것이고,  유한한 data, 무한히 큰 유한한 data라면 유한한 계산을 하는 프로그램을 작성할 수 있다.  보통은 data는 유한하기 때문에 무한의 계산구조는 유한한 계산구조가 된다. 이것은 유한한 data가 무한한 계산구조의 종료시점을 결정한다고 볼 수 있다.</p>
+<h2 id="recursive-function과-for-loop--while-loop"><span class="section-num">3</span> recursive function과 for-loop(while loop)</h2>
+<p>케이크가 있다고 하자. 케이크의 딸기가 있는 조각을 먹고 싶다고
+하자. 조각은 몇개가 있는지 모른다. 하지만 케이크가 조각들로 이루어져
+있고, 한조각에 딸기가 있는 것만은 확실하다. 이것을 program으로 짜는
+방식은 2가지가 있다. for-loop은 무한에 가까운 케이크 조각을 다
+자르고 하나 하나 꺼낸다. 꺼낸 조각을 함수에 준다. 그리고 그 함수는
+딸기가 있는지 확인한다. 반면에 recursive function은 조각을 받지
+않는다. 케익 전체를 받는다. 주어진 케익에 딸기가 있는지
+확인한다. 그런데 조각으로 되어있지 않으면 함수는 딸기가 어떤 조각에
+있는지 모른다. 따라서 먼저 조각인지 여부를 따지고 조각이 아니면
+케익을 반을 잘라서 다시 자기자신을 호출한다. 딸기여부를 확인할때까지
+계속 케익을 조각내서 자기자신을 호출한다. 조각인걸 확인하고,딸기
+여부를 확인했을때 없다면, 자기자신을 호출한 윗 함수에
+알려준다. 윗함수는 계속 보고받고, 체크하지 않은 함수를 수행한다.</p>
+<p>recursive 함수는 hierarchical한 구조를 갖는다. 마치 행정부의 구조와
+비슷하다. for-loop은 무한의 가까운 데이터를 처리할때, 하나하나
+세면서 맞는지 안맞는지를 확인한다면, recursive구조는 전체 data를
+한번에 받아와서 처리할 수 없다면 쪼개고, 쪼갠것을 처리할 수 없다면
+계속 쪼갠다. 처리할 수 있을때까지 쪼갠다. 처리가 되면 그때 보고를
+한다. for-loop에서의 함수는 하나의 데이터조각을 입력받아 맞는지
+안맞는지만 확인하면 되기 때문에, 함수 형태로 안되어도
+상관없다. 어차피 주어진 한 조각뿐이기 때문이다. 그리고 맞다고
+확인되면 작업을 중지한다. 반면에 recursive function의 구조는
+데이터를 전체를 입력으로 받기 때문에 함수에선 데이터를 쪼개는 작업도
+한다. 데이터를 쪼개서 자기분신에게 전달하는 방식이기 때문에 함수
+형태가 되어야 한다. 분신들이 계속해서 작은 분신들을 만들어서
+처리하다가, 원하는 데이터를 찾았다고 하면, 더이상 분신을 만드는
+작업을 하지 않고 위에 보고하고 자신은 없어진다.</p>
+<p>쪼개는 것에대해서 살펴볼 필요가 있다. recursive function은
+입력데이터를 쪼개서 분신한테 준다고 했다. 어떻게 쪼개느냐는 분신할때
+입력으로 전달될때 이루어진다. 케익을 받아서 분신한테 n-1개를 주개
+되면, 분신은 또 자신의 분신한테 n-1을 계속준다. 이건 for-loop맹키로
+케익조각 하나를 꺼내서 처리하는 방식과 똑같다. for-loop이
+1,2,3,4&hellip;n의 순서로 케익조각을 처리한다고 하면, n, n-1,
+n-2,n-3,&hellip;1의 순서로 케익조각을 처리하는 것과 같다. n번째 조각을
+자기가 처리하고, 나머지 케익의 n-1크기를 분신한테
+주는것이다. recursive function은 케익의 절반으로 나눠서 처리할 수도
+있다. 케익의 절반을 나누고, 절반, 절반씩 자기자신을 호출하는
+방식이다. recursive function은 케익을 조각내는 방식을 함수에서
+선택할 수 있다. divide conquer는 recursive function에서 사용되는
+방식이다.</p>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

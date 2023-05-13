@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+  <head><title>mariadb</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">mariadb</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/postss/20211112092713-mariadb/" alt="mariadb" class="permalink"><h1>mariadb</h1></a>      
+	<h2 id="db-속도-처리">db 속도 처리</h2>
+<h3 id="query-cache">query cache</h3>
+<h3 id="indexing">indexing</h3>
+<div class="note">
+<ul>
+<li>indexing은 별도의 table을 memory에 올려놓는 방식이다.</li>
+<li>indexing은 여러개의 column을 설정할 수 있다. 결합 인덱스라고 한다. column마다 우선 순위가 있다. <strong>제일 위에 설정된 column이 primary key가</strong> 되는데, primary key로 where절에 기술할 때 indexing을 타게 된다. 그 다음 column들은 secondary key가 된다.</li>
+<li>보통 where절과, =에 사용되는 column을 사용한다.</li>
+</ul>
+</div>
+<h3 id="indexing-사용법">indexing 사용법</h3>
+<ol>
+<li>querious를 사용해서 db에 접속한다.</li>
+<li>table을 선택하고 index를 본다.</li>
+</ol>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/dbindex2.png" width="400px" height="300px"/>
+</figure>
+
+<ol>
+<li>indexing을 설정한다.</li>
+</ol>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/dbindex1.png" width="400px" height="300px"/>
+</figure>
+
+<h2 id="general-log">general log</h2>
+<ul>
+<li>general log는 실행한 query를 확인할 수 있다.</li>
+<li>설정 여부 확인</li>
+</ul>
+<p><a id="figure--general log"></a></p>
+<figure><img src="./img/db1.png"
+         alt="Figure 1: db log" width="800px"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>db log</p>
+        </figcaption>
+</figure>
+
+<ul>
+<li>
+<p>general log 설정 및 저장파일 지정</p>
+<div class="note">
+<p>set GLOBAL general_log=&lsquo;ON&rsquo;;
+set GLOBAL general_log_file=&rsquo;/data/general.log&rsquo;;</p>
+</div>
+<ol>
+<li>
+<p>general_log 설정: off -&gt; on, 제대로 된다.</p>
+</li>
+<li>
+<p>general_log_file 설정: 저장하고자 하는 파일을 미리 만들어 놔야 한다고 한다. 그래도 자꾸 에러가 발생한다는 것이다. 그래서 directory,파일의 권한도 777로 했고, ownership도 chown -R mysql:mysql 을 통해서 group과 소유자를 변경했다. 그런후 set GLOBAL general_log_file = &rsquo; &lsquo;을 통해서 설정을 했다. 그러나 에러가 난다. 그래서 원래 general log파일을 그대로 사용하기로 한다.</p>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/general_log.png"
+                 alt="Figure 2: general log" width="800px"/><figcaption>
+                    <p><span class="figure-number">Figure 2: </span>general log</p>
+                </figcaption>
+        </figure>
+
+</li>
+</ol>
+</li>
+<li>
+<p>my.cnf에 저장
+db를 껐다 켜도 그 설정이 유지되게 하려면,</p>
+</li>
+</ul>
+<h2 id="ec2-access-log">ec2 access log</h2>
+<div class="note">
+<p>접속로그 : /var/log/auth.log에 보면 접속 여부를 확인할 수 있다.
+예를 들어서 sudo cat auth.log | grep ssh하면 ssh접속 여부를 알 수 있다.</p>
+</div>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/autlog.png"
+         alt="Figure 3: auth log" width="800px"/><figcaption>
+            <p><span class="figure-number">Figure 3: </span>auth log</p>
+        </figcaption>
+</figure>
+
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+  <head><title>[모두의딥러닝] chapter3 - 선형 회귀</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">[모두의딥러닝] chapter3 - 선형 회귀</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/postss/20220302184909-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter3/" alt="[모두의딥러닝] chapter3 - 선형 회귀" class="permalink"><h1>[모두의딥러닝] chapter3 - 선형 회귀</h1></a>      
+	<h2 id="linear-regression--선형회귀"><span class="section-num">1</span> Linear Regression (선형회귀)</h2>
+<h3 id="1--선형-회귀의-정의"><span class="section-num">1.1</span> (1) 선형 회귀의 정의</h3>
+<ul>
+<li>Linear Regresssion(책에서 정의): 가장 훌륭한 예측선 긋기</li>
+<li>학생들의 중간고사 성적이 다 다르다. -&gt; 학생들의 중간고사 성적이 [
+] 에 따라 다르다.</li>
+<li>윗 문장에서 독립변수에 의해 종속변수가 결정되는 관계를 볼 수 있다.</li>
+<li><input disabled="" type="checkbox"> 안에 공부시간, 시험당일 컨디션, 사교육비 지출액.</li>
+<li>Simple Linear Regression: 하나의 독립변수로 종속변수가 설명될때.</li>
+<li>Multiple Linear Regression: 여러개의 독립변수로 종속변수가 설명.</li>
+</ul>
+<h3 id="2--가장-훌륭한-예측선이란"><span class="section-num">1.2</span> (2) 가장 훌륭한 예측선이란?</h3>
+<ul>
+<li>Simple Linear Regression의 예: 학생들의 중간고사 성적이 [공부
+시간] 에 따라 다르다.</li>
+<li>[내생각] chapter1에서 궁금한 것이 있었다. 환자의 상태인 17개의
+feature 결과값(class)에 맞춰서 deep learning을 구성했다. 그 때,
+이상하게 생각했던것은 17개 각각이 어떻게 선정되었는가? 어떤
+기준이 있는가?  환자의 결과와 환자의 상태를 나타내는 17개 feature
+각각이 결과값과 어떤 의존관계가 밝혀졌기 때문에 feature로
+한것인지, 아니면 의존 관계와 관계없이 feature로 사용한건지
+궁금했었다. 위에서 말한 독립변수와 종속변수의 관계가 있었기
+때문에 feature로 사용된 것인가? 아니면, 그 feature라는 게 환자의
+결과에 영향이 있을 거 같다는 막연한 믿음이나 확신으로 feature로
+정했는지 궁금했다.  Simple Linear Regression에선 예제로 학생들의
+중간고사 성적이 공부시간에 따라 다르다는 것으로 정는데, 이유는
+공부시간과 중간고사 성적 사이에 독립변수와 종속변수의 관계가 있기
+때문이다. 독립변수와 종속변수의 관계가 있다는것은, 그 식이
+1차방정식(linear equation)같은 식으로 표현되어서 x에 어떤값을
+넣으면 y값이 나오는 직선과 같은 관계를 갖는다는 것이다. 따라서,
+공부시간과 성적이 linear한 관계를 갖고 있다면, 공부시간을 넣으면
+어느정도의 성적이 나올것인지 예측할 수 있다는 것이다. 따라서,
+우리는 예측선을 찾아야 한다. 예측선중 가장 훌륭한 예측선을 찾아야
+한다.</li>
+</ul>
+<!--listend-->
+<ul>
+<li>
+<p>중간고사 성적과 공부시간의 data</p>
+<img src="./img/everyone_deepLearning/chapter3/linear_regression1.png" width="800px">
+</li>
+<li>
+<p>중간고사 성적과 공부시간의 graph</p>
+<img src="./img/everyone_deepLearning/chapter3/linear_regression2.png" width="450px">
+</li>
+<li>
+<p>Goal: 어떤 학생의 공부시간으로 성적을 예측할 수 있겠는가? 우리는
+공부시간과 성적이 독립변수와 종속변수의 관계가 linear하다고
+생각한다. 따라서 Linear regression방법을 사용한다.</p>
+</li>
+<li>
+<p>[내생각]: chapter1에서 폐암환자의 생존여부를 예측하는 문제와 지금
+chapter3에서 공부시간과 성적을 예측하는 문제는
+다르다. chapter1에서는 17개의 feature를 deep neural network의
+입력으로 넣고, 생존여부가 결과값으로 나왔다. training시에 어떤
+polynomial curve를 만들어서 분류하는지, 혹은 linear equation,
+quadratic equation인지 모른다. 그냥 블랙 박스였다. 그런데
+여기서는 데이터를 통해서 직선의 방정식을 만드는 방법을 보여준다.</p>
+<img src="./img/everyone_deepLearning/chapter3/my_thought1.png" width="400px">
+</li>
+<li>
+<p>Simple Linear regression에서 찾는 직선</p>
+<img src="./img/everyone_deepLearning/chapter3/goal.png" width="400px">
+</li>
+<li>
+<p>이 직선을 찾는다는 것은 기울기와 절편을 찾는다는 얘기다.</p>
+</li>
+</ul>
+<h3 id="3--최소-제곱법--the-method-of-least-square--의-수식-유도"><span class="section-num">1.3</span> (3) 최소 제곱법 (the method of least square) 의 수식 유도</h3>
+<ul>
+<li>
+<p>[내생각] 직선의 방정식에서 2개의 data만 있어도, 두개의 점을 잇는
+직선의 기울기와 절편을 찾을수 있다. 3개의 data가 있다면? 직선을
+찾을 수 있을까? 찾을 수 없다. 이것은 독립변수와 종속변수에
+사용되는 data들이 법칙에 맞게 나오지 않기 때문이다. 즉, data를
+그래프로 그렸을 때, data는 직선의 형태가 나오지 않는다. 따라서,
+데이터로 직선을 만들수도 없다. 근사화한 직선을 만들어서, 모든
+data가 오차는 있지만, 그럭저럭 만족하는 직선을 구해야 한다.어떻게
+만들것인가? 오차를 정의해서 이를 이용해 직선을 구한다.즉, 직선과
+데이터의 차를 제곱한 오차함수를 만드는데, 이 오차함수는 기울기와
+절편에 관한 2차함수로 데이터와 직선간의 거리차가 최소화되는
+직선을 말한다. 이것을 편미분해서 기울기와 절편을 구하는데, 이
+방식이 최소 제곱법이다. 그런데 책에는 최소제곱법의 공식유도과정은
+나와 있지 않다.</p>
+</li>
+<li>
+<p>[참고] 이 책에선 공식만 있을 뿐 공식 유도과정은 빠져있기 때문에
+유도 과정을 살펴보자.</p>
+<img src="./img/everyone_deepLearning/chapter3/ls_1.png" width="600px">
+<img src="./img/everyone_deepLearning/chapter3/ls_2.png" width="600px">
+<img src="./img/everyone_deepLearning/chapter3/ls_3.png" width="600px">
+<img src="./img/everyone_deepLearning/chapter3/ls_4.png" width="600px">
+</li>
+<li>
+<p>[요약]</p>
+<p>(1) 최적의 직선을 찾기위해서 직선과 데이터의 오차함수를
+구한다.</p>
+<p>(2) 오차함수는 기울기와 절편이 포함된 2차함수로 나타낼 수
+있다.</p>
+<p>(3) 2차함수의 최소값에서의 기울기와 절편을 구한다.</p>
+<p>(4) 구해진 직선의 방정식은 오차가 가장 적은 최적의 직선이다.</p>
+<br>
+</li>
+</ul>
+<h3 id="4--최소-제곱법--the-method-of-least-square--사용"><span class="section-num">1.4</span> (4) 최소 제곱법 (the method of least square) 사용</h3>
+<ul>
+<li>
+<p>feature가 1개인 경우 최소제곱법 사용, feature가 여러개일 경우
+경사하강법을 사용.</p>
+</li>
+<li>
+<p>최소제곱법의 공식은 다음과 같다.</p>
+</li>
+<li>
+<p>기울기</p>
+<img src="./img/everyone_deepLearning/chapter3/least_square.png" width="500px">
+</li>
+<li>
+<p>y절편</p>
+<img src="./img/everyone_deepLearning/chapter3/least_square2.png" width="500px">
+</li>
+<li>
+<p>기울기값</p>
+<img src="./img/everyone_deepLearning/chapter3/avalue.png" width="1500px">
+</li>
+<li>
+<p>y절편값</p>
+<img src="./img/everyone_deepLearning/chapter3/bvalue.png" width="1500px">
+</li>
+<li>
+<p>직선의 방정식</p>
+<img src="./img/everyone_deepLearning/chapter3/result_expression.png" width="1200px">
+</li>
+<li>
+<p>직선의 방정식을 사용해서 예측</p>
+<img src="./img/everyone_deepLearning/chapter3/result_table.png" width="1200px">
+</li>
+<li>
+<p>직선과 data의 그래프</p>
+</li>
+</ul>
+<img src="./img/everyone_deepLearning/chapter3/graph1.png" width="400px">
+<img src="./img/everyone_deepLearning/chapter3/graph2.png" width="400px">
+<h3 id="5--코딩으로-확인하는-최소-제곱"><span class="section-num">1.5</span> (5) 코딩으로 확인하는 최소 제곱</h3>
+<ul>
+<li>x: 공부시간, y:점수</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#666">=</span> [<span style="color:#40a070">2</span>,<span style="color:#40a070">4</span>,<span style="color:#40a070">6</span>,<span style="color:#40a070">8</span>]
+</span></span><span style="display:flex;"><span>y <span style="color:#666">=</span> [<span style="color:#40a070">81</span>,<span style="color:#40a070">93</span>,<span style="color:#40a070">91</span>,<span style="color:#40a070">97</span>]
+</span></span></code></pre></div><ul>
+<li>
+<p>기울기를 구해보자.</p>
+<img src="./img/everyone_deepLearning/chapter3/least_square.png" width="500px">
+</li>
+<li>
+<p>분모와 분자에 들어가는 x평균과 y평균부터 구한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>mx <span style="color:#666">=</span> np<span style="color:#666">.</span>mean(x)
+</span></span><span style="display:flex;"><span>my <span style="color:#666">=</span> np<span style="color:#666">.</span>mean(y)
+</span></span></code></pre></div></li>
+<li>
+<p>분모를 구한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>divisor <span style="color:#666">=</span> <span style="color:#007020">sum</span>([(i<span style="color:#666">-</span>mx)<span style="color:#666">**</span><span style="color:#40a070">2</span> <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> x])
+</span></span></code></pre></div></li>
+<li>
+<p>분자를 구한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">top</span>(x,mx,y,my):
+</span></span><span style="display:flex;"><span>    d <span style="color:#666">=</span> <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#007020">len</span>(x)):
+</span></span><span style="display:flex;"><span>	d <span style="color:#666">+=</span>(x[i] <span style="color:#666">-</span>mx) <span style="color:#666">*</span> (y[i] <span style="color:#666">-</span>my)
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> d
+</span></span><span style="display:flex;"><span>dividend <span style="color:#666">=</span> top(x,mx,y,my)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="color:#4070a0">&#34;분모:&#34;</span>, divisor)
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="color:#4070a0">&#34;분자:&#34;</span>, dividend)
+</span></span></code></pre></div></li>
+<li>
+<p>기울기를 구한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#666">=</span> dividend <span style="color:#666">/</span> divisor
+</span></span></code></pre></div></li>
+<li>
+<p>절편을 구한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>b <span style="color:#666">=</span> my <span style="color:#666">-</span> (mx <span style="color:#666">*</span> a)
+</span></span></code></pre></div></li>
+<li>
+<p>출력</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="color:#4070a0">&#34;기울기 a =&#34;</span>,a)
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="color:#4070a0">&#34;절편 b =&#34;</span>,b)
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="6--평균-제곱-오차"><span class="section-num">1.6</span> (6) 평균 제곱 오차</h3>
+<ul>
+<li>최소 제곱 오차는  여러개의 입력을 처리할 수 없다.</li>
+<li>여러개의 입력을 처리할 때는, 임의의 선을 그리고 update하는 방식을 사용한다.</li>
+<li>오차 평가 알고리즘으로 평균 제곱 오차(Mean Squared Error)가 사용된다.</li>
+</ul>
+<h3 id="7--잘못-그은-선-바로잡기"><span class="section-num">1.7</span> (7) 잘못 그은 선 바로잡기</h3>
+<ul>
+<li>&ldquo;일단 그리고 조금씩 수정해 나가기 방식&rdquo;</li>
+<li>일반적 원리: 가설을 하나 세우고, 이값이 주어진 요건을 충족하는지 판단하여 조금씩 변화를 주고, 이 변화가 긍정적이면, 오차가 최소가 될 때 까지 이과정을 반복.</li>
+<li>일단 선을 그린다. 그려진 선에  조금씩 변화를 주어 다른 선을 그린다. 나중에 그린선이 먼저 그린 선보다 더 좋은지 나쁜지를 판단한다. 각 선의 오차를 계산할 수 있어야 하고, 오차가 작은쪽으로 바꾸는 알고리즘이 필요하다.</li>
+<li>평균 제곱 오차를 사용해 보자.</li>
+</ul>
+<h4 id="0-data를-그려보자-dot">[0] Data를 그려보자.</h4>
+<img src="./img/everyone_deepLearning/chapter3/mse1.png" width="400px">
+<h4 id="1-일단-선을-그린다-dot">[1] 일단 선을 그린다.</h4>
+<ul>
+<li>
+<p>기울기:3, 절편:76으로 y=3x +76의 선을 그린다.</p>
+<img src="./img/everyone_deepLearning/chapter3/mse2.png" width="400px">
+</li>
+</ul>
+<h4 id="2-오차를-확인한다-dot">[2] 오차를 확인한다.</h4>
+<ul>
+<li>
+<p>선과 data사이의 오차를 확인한다.</p>
+<img src="./img/everyone_deepLearning/chapter3/mse3_1.png" width="400px">
+</li>
+<li>
+<p>[참고] 기울기가 크게 잡았을 때 오차</p>
+<img src="./img/everyone_deepLearning/chapter3/mse3_2.png" width="400px">
+</li>
+<li>
+<p>[참고] 기울기를 작게 잡았을 때 오차</p>
+<img src="./img/everyone_deepLearning/chapter3/mse3_3.png" width="400px">
+</li>
+<li>
+<p>오차 값의 계산: 예측값(직선값) - 실제 값</p>
+<img src="./img/everyone_deepLearning/chapter3/mse4.png" width="400px">
+</li>
+</ul>
+<h4 id="3-오차-제곱의-합">[3] 오차 제곱의 합</h4>
+<ul>
+<li>
+<p>오차의 합을 구할 때, 오차를 그대로 더하면 안된다. 오차에는 부호가 있다. +1만큼의 오차와 -1만큼의 오차를 더하면 오차가 없는것으로 나온다.</p>
+</li>
+<li>
+<p>그래서 오차의 제곱을 합한다.</p>
+<img src="./img/everyone_deepLearning/chapter3/mse5.png" width="800px">
+</li>
+</ul>
+<h4 id="4-mse--mean-sqaured-error--를-구한다-dot">[4] MSE(Mean Sqaured Error)를 구한다.</h4>
+<ul>
+<li>
+<p>[3]에서 구한 오차 제곱의 합에서, 평균을 구한다.</p>
+<img src="./img/everyone_deepLearning/chapter3/mse6.png" width="800px">
+</li>
+<li>
+<p>[내생각] 최소제곱법처럼 오차제곱의 합을 그대로 사용해도 될텐데, 평균을 내서 사용하는 이유는 모르겠다. 책에도 설명은 되어 있지 않았다. 인터넷에서 찾아봤을때는, 제곱의 값을 다 더하게 되면 너무 큰값이 나오기 때문에 1/n을 해준거라고 한다. 그렇다면, 기본 원리는 최소제곱법이나 오차제곱이나 동일하다고 생각된다.</p>
+</li>
+</ul>
+<h3 id="8--코딩으로-확인하는-평균-제곱-오차"><span class="section-num">1.8</span> (8) 코딩으로 확인하는 평균 제곱 오차</h3>
+<ul>
+<li>직선의 parameter를 list로 설정한다. 매번 update를 할 것이다.
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+</span></span><span style="display:flex;"><span>fake_a_b <span style="color:#666">=</span> [<span style="color:#40a070">3</span>,<span style="color:#40a070">76</span>]
+</span></span></code></pre></div></li>
+<li>data를 만든다. python grammar에서 흥미로운 list comprehension이 사용되었다.</li>
+<li>[ ( 변수를 활용한 값 ) for ( 사용할 변수 이름 ) in ( 순회할 수 있는 값 )]
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data <span style="color:#666">=</span> [[<span style="color:#40a070">2</span>,<span style="color:#40a070">81</span>],[<span style="color:#40a070">4</span>,<span style="color:#40a070">93</span>],[<span style="color:#40a070">6</span>,<span style="color:#40a070">91</span>],[<span style="color:#40a070">8</span>,<span style="color:#40a070">97</span>]]
+</span></span><span style="display:flex;"><span>x<span style="color:#666">=</span> [ i[<span style="color:#40a070">0</span>] <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> data ]
+</span></span><span style="display:flex;"><span>y<span style="color:#666">=</span> [ i[<span style="color:#40a070">1</span>] <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> data ]
+</span></span></code></pre></div></li>
+<li>predict란 이름의 직선의 방정식을 만든다.
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">predict</span>(x):
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> fake_a_b[<span style="color:#40a070">0</span>]<span style="color:#666">*</span>x <span style="color:#666">+</span> fake_a_b[<span style="color:#40a070">1</span>]
+</span></span></code></pre></div></li>
+<li>평균제곱오차1: list를 입력으로 받아서 평균을 구한다. (책에 있는
+code는 동작되지 않음, 오타)
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">mse</span>(y, y_hat):
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> ((y <span style="color:#666">-</span> y_hat)<span style="color:#666">**</span><span style="color:#40a070">2</span>)<span style="color:#666">.</span>mean()
+</span></span></code></pre></div></li>
+<li>평균제곱오차2
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">mse_val</span>(y, predict_result):
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> mse(np<span style="color:#666">.</span>array(y), np<span style="color:#666">.</span>array(predict_result))
+</span></span></code></pre></div></li>
+<li>계산값 출력
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>predict_result <span style="color:#666">=</span> [ ]
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#007020">len</span>(x)):
+</span></span><span style="display:flex;"><span>   predict_result<span style="color:#666">.</span>append(predict(x[i]))
+</span></span><span style="display:flex;"><span>   <span style="color:#007020">print</span>(<span style="color:#4070a0">&#34;공부한 시간 = %.f, 실제 점수 = %.f, 예측 점수 = %.f&#34;</span> <span style="color:#666">%</span>(x[i], y[i], predict(x[i])))
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="color:#4070a0">&#34;mse 최종값:&#34;</span> <span style="color:#666">+</span> <span style="color:#007020">str</span>(mse_val(y, predict_result)))
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="9--chapter3-정리"><span class="section-num">1.9</span> (9) chapter3 정리</h3>
+<ul>
+<li>임의의 직선을 그리고, 직선과 data의 MSE를 구한다.</li>
+<li>MSE를 구한다는 것은, 오차값을 의미하고, 우리의 목적은 이 MSE값을
+줄이는 방향으로 직선의 기울기와 절편을 update할 것이다.</li>
+</ul>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

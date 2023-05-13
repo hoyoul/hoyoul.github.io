@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+  <head><title>[모두의딥러닝] chapter7 다층 퍼셉트론</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">[모두의딥러닝] chapter7 다층 퍼셉트론</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/posts/20220306201445-%E1%84%86%E1%85%A9%E1%84%83%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC_chapter7/" alt="[모두의딥러닝] chapter7 다층 퍼셉트론" class="permalink"><h1>[모두의딥러닝] chapter7 다층 퍼셉트론</h1></a>      
+	<h2 id="1--다층-퍼셉트론">(1) 다층 퍼셉트론</h2>
+<h3 id="xor문제의-해결-실마리">xor문제의 해결 실마리</h3>
+<ul>
+<li>
+<p>&ldquo;성냥개비 6개로 정삼각형 4개 만드는 문제&rdquo;</p>
+</li>
+<li>
+<p>XOR문제 해결의 실마리: 2차원 평면이 아닌, 3차원 공간에서 해결</p>
+<img src="./img/everyone_deepLearning/chapter7/mlp_intro1.png" width="600px">
+<img src="./img/everyone_deepLearning/chapter7/mlp_intro2.png" width="300px">
+</li>
+<li>
+<p>XOR문제, 종이를 접어서 해결, 좌표평면 자체에 변화를 주는 방식</p>
+<img src="./img/everyone_deepLearning/chapter7/mlp_intro3.png" width="600px">
+</li>
+</ul>
+<h3 id="hidden-layer">hidden layer</h3>
+<ul>
+<li>
+<p>종이를 접어서 좌표평면을 변경하는것을 Hidden layer를 추가해서 해결.</p>
+<img src="./img/everyone_deepLearning/chapter7/mlp_intro4.png" width="600px">
+</li>
+<li>
+<p>아래 보면, 은닉층에서 평면을 왜곡해서 직선으로 분류하는것을 볼 수 있다.</p>
+<img src="./img/everyone_deepLearning/chapter7/mlp_intro5.png" width="600px">
+</li>
+</ul>
+<h2 id="2--다층-퍼셉트론의-설계">(2) 다층 퍼셉트론의 설계</h2>
+<h3 id="다층-퍼셉트론의-구조">다층 퍼셉트론의 구조</h3>
+<img src="./img/everyone_deepLearning/chapter7/mlp1.png" width="600px">
+<h3 id="수식-진행-과정">수식 진행 과정</h3>
+<ul>
+<li>x1,x2는  node1과 node2의 입력이 된다. 이것을 수식으로 다음과 같이 표현한다.</li>
+</ul>
+<img src="./img/everyone_deepLearning/chapter7/mlp_math1.png" width="600px">
+<ul>
+<li>node1과 node2는 yout의 입력이 된다.이것은 다음과 같이 표현한다.</li>
+</ul>
+<img src="./img/everyone_deepLearning/chapter7/mlp_math2.png" width="450px">
+<ul>
+<li>각 layer에서 기울기와 bias는 행렬과 벡터로 표현할 수 있다.</li>
+</ul>
+<img src="./img/everyone_deepLearning/chapter7/mlp_math3.png" width="600px">
+<h2 id="3--xor-문제의-해결">(3) XOR 문제의 해결</h2>
+<ul>
+<li>
+<p>XOR문제가 해결되는지 w와 b를 설정하고 실데이터를 입력해서 확인해 볼 수 있다.</p>
+</li>
+<li>
+<p>W행렬과 B벡터를 다음과 같이 설정한다.</p>
+<img src="./img/everyone_deepLearning/chapter7/mlp_math4.png" width="600px">
+</li>
+<li>
+<p>x1과 x2입력에 위에 수식을 적용했을때, 원하는 xor값이 나오는지 확인할 수 있다.</p>
+<img src="./img/everyone_deepLearning/chapter7/mlp_math5.png" width="800px">
+</li>
+</ul>
+<h2 id="4--코딩으로-xor문제-해결">(4) 코딩으로 XOR문제 해결</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># 가중치와 바이어스</span>
+</span></span><span style="display:flex;"><span>w11 <span style="color:#666">=</span> np<span style="color:#666">.</span>array([<span style="color:#666">-</span><span style="color:#40a070">2</span>, <span style="color:#666">-</span><span style="color:#40a070">2</span>])
+</span></span><span style="display:flex;"><span>w12 <span style="color:#666">=</span> np<span style="color:#666">.</span>array([<span style="color:#40a070">2</span>, <span style="color:#40a070">2</span>])
+</span></span><span style="display:flex;"><span>w2 <span style="color:#666">=</span> np<span style="color:#666">.</span>array([<span style="color:#40a070">1</span>, <span style="color:#40a070">1</span>])
+</span></span><span style="display:flex;"><span>b1 <span style="color:#666">=</span> <span style="color:#40a070">3</span>
+</span></span><span style="display:flex;"><span>b2 <span style="color:#666">=</span> <span style="color:#666">-</span><span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span>b3 <span style="color:#666">=</span> <span style="color:#666">-</span><span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># 퍼셉트론</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">MLP</span>(x, w, b):
+</span></span><span style="display:flex;"><span>    y <span style="color:#666">=</span> np<span style="color:#666">.</span>sum(w <span style="color:#666">*</span> x) <span style="color:#666">+</span> b
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">if</span> y <span style="color:#666">&lt;=</span> <span style="color:#40a070">0</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> <span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># NAND 게이트</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">NAND</span>(x1,x2):
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> MLP(np<span style="color:#666">.</span>array([x1, x2]), w11, b1)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># OR 게이트</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">OR</span>(x1,x2):
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> MLP(np<span style="color:#666">.</span>array([x1, x2]), w12, b2)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># AND 게이트</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">AND</span>(x1,x2):
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> MLP(np<span style="color:#666">.</span>array([x1, x2]), w2, b3)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># XOR 게이트</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">XOR</span>(x1,x2):
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">return</span> AND(NAND(x1, x2),OR(x1,x2))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># x1, x2 값을 번갈아 대입해 가며 최종값 출력</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> __name__ <span style="color:#666">==</span> <span style="color:#4070a0">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">for</span> x <span style="color:#007020;font-weight:bold">in</span> [(<span style="color:#40a070">0</span>, <span style="color:#40a070">0</span>), (<span style="color:#40a070">1</span>, <span style="color:#40a070">0</span>), (<span style="color:#40a070">0</span>, <span style="color:#40a070">1</span>), (<span style="color:#40a070">1</span>, <span style="color:#40a070">1</span>)]:
+</span></span><span style="display:flex;"><span>	y <span style="color:#666">=</span> XOR(x[<span style="color:#40a070">0</span>], x[<span style="color:#40a070">1</span>])
+</span></span><span style="display:flex;"><span>	<span style="color:#007020">print</span>(<span style="color:#4070a0">&#34;입력 값: &#34;</span> <span style="color:#666">+</span> <span style="color:#007020">str</span>(x) <span style="color:#666">+</span> <span style="color:#4070a0">&#34; 출력 값: &#34;</span> <span style="color:#666">+</span> <span style="color:#007020">str</span>(y))
+</span></span></code></pre></div>      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Algorithms</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">Algorithms</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/postss/20211026143558-algorithms/" alt="Algorithms" class="permalink"><h1>Algorithms</h1></a>      
+	<h2 id="가장-기본적인-알고리즘--sorting">가장 기본적인 알고리즘(sorting)</h2>
+<h3 id="selection-sort--pivot-and-swapping">Selection Sort(pivot and swapping)</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><h2 id="공부방법">공부방법</h2>
+<ol>
+<li>Python, Java, C/C++ 등의 자신이 자신 있는 언어의 기본문법 공부</li>
+<li>기초 알고리즘 문제 100제 풀기</li>
+</ol>
+<p>코드업 문제 -&gt; 코드포스, 백준 문제 순서로 풀기</p>
+<ol>
+<li>그리디 알고리즘 먼저 공부하고 관련된 문제 풀기</li>
+<li>탐색(BFS, DFS) 공부하고 관련 문제 풀기</li>
+<li>기본 동적 프로그래밍 공부하고 관련 문제 풀기</li>
+</ol>
+<p>이후 시간이 있다면 그래프 이론, 중급이나 고급 동적프로그래밍, 문자열 풀기.</p>
+<h2 id="시간-복잡도">시간 복잡도</h2>
+<ul>
+<li>10개수보다 적은 수만 본다면 O(log n)이다. 보통 binary search</li>
+<li>문제의 입력으로 10개의 수가 주어질때, 10개의 수를 하나하나 모두 살펴본다면, O(n)이다.</li>
+<li>문제의 입력으로 10개의 수가 주어지고 10개의 수를 하나하나 살펴볼때, 각 살펴보는 수마다 10개의 수를 또 살펴본다면, O(n^2)이 된다.</li>
+<li>위의 경우에서 각수에 대해서 3번 10개의 수를 살펴보는 과정을 한다면, O(n^3)이 된다.</li>
+<li>위의 경우에서 각수에 대해서 10번 10개의 수를 살펴보는 과정을 한다면 O(n^n)이 된다. (np문제)</li>
+</ul>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

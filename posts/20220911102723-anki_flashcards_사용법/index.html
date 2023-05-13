@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+  <head><title>anki(flashcards) 사용법</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">anki(flashcards) 사용법</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/posts/20220911102723-anki_flashcards_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/" alt="anki(flashcards) 사용법" class="permalink"><h1>anki(flashcards) 사용법</h1></a>      
+	<h2 id="참조-사이트">참조 사이트</h2>
+<p><a href="https://yiufung.net/post/anki-org/">https://yiufung.net/post/anki-org/</a>
+<a href="https://rgoswami.me/posts/anki-decks-orgmode/">https://rgoswami.me/posts/anki-decks-orgmode/</a>
+<a href="https://docs.ankiweb.net/studying.html">https://docs.ankiweb.net/studying.html</a></p>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="개요">개요</h3>
+<ul>
+<li>Anki는 flashcard의 한 종류.</li>
+<li>anki markup language로 card를 만든다.</li>
+<li>anki는 다양한 device에서 동작가능하고 multi-media 자료도 같이
+사용할 수 있다. org-drill도 org flashcard지만, multimedia자료는
+사용하지 못하고 ios에서도 사용하지 못한다.</li>
+</ul>
+<h3 id="anki-알고리즘">anki 알고리즘</h3>
+<h3 id="key-concepts">key concepts</h3>
+<h4 id="cards">cards</h4>
+<p>question &amp; answer 쌍을 card라고 한다. anki에서는 실제 card처럼
+한면엔 질문, 뒷면엔 답을 가진 종이로 된 card와는 다르게, 질문과
+답이 한 면에 있다고 보면 된다. 예를들어서,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Q: Chemical symbol for oxygen?
+</span></span></code></pre></div><p>여기서 show answer 버튼을 누르면,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Q: Chemical symbol for oxygen?
+</span></span><span style="display:flex;"><span>A: O
+</span></span></code></pre></div><p>질문과 정답을 함께 볼 수 있다.</p>
+<h4 id="decks">Decks</h4>
+<p>Deck은 card들의 group을 말한다. Deck은 collection of cards이지만,
+각각의 Deck은 자신만의 설정이 있다. 매일 card한장씩을 보여준다거나,
+card를 보여주고 어느정도 기다릴지를 설정하는건 Deck의
+설정이다. Deck은 다른 Deck들을 포함할 수 있다. tree모양으로 Deck을
+가질수 있다. 예를 들어, Chinese::Hanja라는 Deck을 선택하면,
+Hanja라는 Deck의 card들이 보여지고, Chinese는 Hanja를 포함한 모든
+Deck의 card들이 보여지게 된다. 어떤 Deck을 다른 Deck에 포함시킬
+때는 drag &amp; drop으로 포함시킬 수도 있지만, :: 을 붙여도
+된다. deck에는 subdecks, superdecks 혹은 parentdecks라는 용어가
+있는데, deck안에 포함된 deck의 관계를 말해줄때 사용한다.</p>
+<p>anki는 &lsquo;default&rsquo;라고 부르는 deck이 기본적으로 있다. anki는 default
+deck이 card가 없다면 안보이게 한다.</p>
+<p>Deck은 category별로 만드는 걸 추천하는데, 나중에 이것에 대해
+설명한다고 한다.</p>
+<h4 id="notes-and-fields">Notes &amp; Fields</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>개요</p>
+<p>Anki에서 card를 만드는 것은 anki가 만든다. Anki를 만드는 사용자는
+note를 만든다. 여기서는 일반적인 paper card와 anki에서 card의
+차이점과 note의 특징을 말한다.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>anki의 카드</p>
+<p>france단어책에서 단어를 공부한다고하자. 그러면 우리는 flashcard를
+다음과 같이 2장 만들것이다. 한장은 test용, 즉 Bonjour라는 단어를
+알고 있는지, 다른 한장은 producing용, 즉 hello라는 단어를
+프랑스어로 bonjour라고 말할 수 있는지 test하기 위해서 card를
+만들것이다. 그리고 지금 공부하는 france단어책의 page도 정보로
+주었다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Q: Bonjour
+</span></span><span style="display:flex;"><span>A: Hello
+</span></span><span style="display:flex;"><span>  Page #12
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Q: Hello
+</span></span><span style="display:flex;"><span>A: Bonjour
+</span></span><span style="display:flex;"><span>  Page #12
+</span></span></code></pre></div><p>이렇게 2장의 카드를 만드는게 자연스러워 보인다. anki는 이 방법을
+사용하지 않는다. anki에서 사용자들은 1장의 note만 만든다. 다음과
+같다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>French: Bonjour
+</span></span><span style="display:flex;"><span>English: Hello
+</span></span><span style="display:flex;"><span>Page: 12
+</span></span></code></pre></div><p>note에는 French,English,Page라는 field로 구성되어 있는데, 이런
+정보만 기술한다. field로 구성된 note를 보면 여러개의 질문을 할수
+있다. 이말은 여러개의 card를 만들어낼 수 있다는 말이다. french를
+물어볼 수도 있고, english를 물어볼 수도 있고, Bonjour가 적힌
+page를 물어볼수도 있고, 12 page에 French 단어를 물어볼 수도
+있다. french를 물어보고 답으로 12page라는 부가정보를 알려주는
+card도 만들수 있다. 이런 card들을 anki가 만들어낸다. anki는 note를
+보고 card를 만들어 낼 수 있는데 이렇게 하기 위해선 template이
+필요하다. 그게 card type이다. 위에서 Q: A: 로 구성된 카드를 볼 수
+있는데, 이것도 note라고 볼 수 있다.</p>
+</li>
+</ul>
+<h4 id="card-types">card types</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>개념</p>
+<p>anki는 note를 보고 여러개의 card를 만들어낼 수 있다고 했다. 우리는
+anki에게 blueprint를 제공해야 한다. 그래야 note를 보고 어떤것을
+물어보고 어떤것을 답변할지를 card에 작성할 수 있기
+때문이다. blueprint를 card type이라고 부른다. 즉 어떤 종류의
+card로 만들지를 설정한다고 보면 된다. 우리가 해야 하는건 card
+type, template을 만드는 것이다.</p>
+<p>위에서 우리는 2개의 card를 만들려고 했지만 한개의 note만
+만들었었다. 한개의 note로 부터 2개의 card를 만들기 위해서 2개의
+template이 필요하다.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>첫번째 template</p>
+<p>첫번째 card는 french단어를 물어보는 card다. 이 card를 만드는
+대신에 note를 만들었고, note에 대한 template, 즉 card type을
+만들어서 아래 card를 만들어보자.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Q: Bonjour
+</span></span><span style="display:flex;"><span>A: Hello
+</span></span><span style="display:flex;"><span>   Page #12
+</span></span></code></pre></div><p>card type은 다음과 같다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Q: {{French}}
+</span></span><span style="display:flex;"><span>A: {{English}}&lt;br&gt;
+</span></span><span style="display:flex;"><span>   Page #{{Page}}
+</span></span></code></pre></div><p>French field를 물어보고, English Fields와 Page를 답변으로 보여주는
+card template(type)이다.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>두번째 template</p>
+<p>이번에는 영어를 물어보고 french로 답변하는 card다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Q: Hello
+</span></span><span style="display:flex;"><span>A: Bonjour
+</span></span><span style="display:flex;"><span>   Page #12
+</span></span></code></pre></div><p>이것을 만들기 위해선 다음과 같은 template을 작성한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Q: {{English}}
+</span></span><span style="display:flex;"><span>A: {{French}}&lt;br&gt;
+</span></span><span style="display:flex;"><span>   Page #{{Page}}
+</span></span></code></pre></div></li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>요약</p>
+<p>note와 card type을 사용하면 작성해야할 card의 수를 대폭 줄일 수
+있다. 예를들어 1000개의 단어를 공부하기 위해선, french로 물어보는
+1000개 카드 + 영어로 물어보는 1000개 카드 = 2000개의 카드가
+필요하다. 그런데 note와 template을 사용하면, 1000개의 note + 2개의
+template = 1002개만 작성하면 된다.</p>
+</li>
+</ul>
+<h4 id="note-type">note type</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>개념</p>
+<p>사용자는 flashcard를 만들기 위해서 note를 만들면, anki가 card
+type에 맞춰 card를 만들어낸다.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>checking duplicate on anki</p>
+<p>anki는 중복을 check한다. check의 기준은 note다. 같은 note로 부터
+만들어진 card에 중복이 있다면, 중복되었다고 message를 낸다.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>standard note type</p>
+<p>collection을 만들면, 자동으로 anki는 standard note type중 하나를
+collection에 추가한다. Standard note type은 다음과 같은 것들이 있다.</p>
+<ul>
+<li>basic note: &lsquo;Front&rsquo;,&lsquo;Back&rsquo; fields가 있고 하나의 card를 만들어
+낸다. front를 물어보고, Back의 text를 보여준다. 가장 기본적인
+형태다. 이것만 사용해도 문제가 없다. 대부분의 플래시카드는
+이런형태다.</li>
+<li>basic note(optional reversed card): &lsquo;Front&rsquo;,&lsquo;Back&rsquo;, &lsquo;Add
+Reverse&rsquo; 3개의 fields가 있다. Front text를 물어보고 Back을
+보여주는 card와 Back을 물어보고 Front를 보여주는 2개의 card를
+만들어낸다.</li>
+<li>Cloze: cloze는 시험문제의 빈칸이란 뜻이다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="collection">collection</h4>
+<p>anki app에 저장된 cards, notes, decks, note types등을 말한다.</p>
+<h4 id="shared-decks">shared Decks</h4>
+<p>다른 사람이 만든 deck을 가져다가 공부하는게 anki app을 가장 쉽게
+이용하는 것이다. 공유된 deck은 아래와 같이 접근할 수 있다.</p>
+<p><a id="figure--shared deck"></a></p>
+<figure><img src="./img/anki/shared1.png"
+         alt="Figure 1: shared deck" width="400px"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>shared deck</p>
+        </figcaption>
+</figure>
+
+<p>원하는 deck을 download받고 double click하거나, import하면 된다.</p>
+<h2 id="studying">Studying</h2>
+<h3 id="decks">Decks</h3>
+<h4 id="deck-list-화면">Deck list 화면</h4>
+<p>anki app을 시작하면 나오는 화면은 deck list화면이다. deck이
+나열되어 있고, deck의 구조를 볼 수 있다. subdeck도 알 수
+있다. 또한 deck이 가지고 있는 카드의 현황을 column을 통해
+알려준다.</p>
+<p><a id="figure--deck list화면"></a></p>
+<figure><img src="./img/anki/decklist.png"
+         alt="Figure 2: deck list화면" width="400px"/><figcaption>
+            <p><span class="figure-number">Figure 2: </span>deck list화면</p>
+        </figcaption>
+</figure>
+
+<p>Deck에는 3개의 column이 있다. new,learn,due가 있다. new는 그날
+공부해야할 카드의 숫자다. anki는 매일 공부할 카드의 숫자를
+설정하고 있다. learn과 due는 평가 유무를 알려준다. learn은 공부를
+끝내서 평가를 한 카드의 수, due는 아직 한번도 공부하지 않아 평가를
+하지않은 카드의 수를 뜻한다.</p>
+<h4 id="current-deck-화면">current deck 화면</h4>
+<p>deck을 선택하면, current deck화면이 나온다.</p>
+<p><a id="figure--current deck"></a></p>
+<figure><img src="./img/anki/currentdeck.png"
+         alt="Figure 3: current deck" width="400px"/><figcaption>
+            <p><span class="figure-number">Figure 3: </span>current deck</p>
+        </figcaption>
+</figure>
+
+<p>이 화면에서 공부를 시작할 수 있다. 여기에는 new, learning, to
+review라는 정보가 있다. 이 정보는 위의 new,learn, due와 동일한 의미다.</p>
+<h2 id="anki-in-org">anki in org</h2>
+<h3 id="org-to-anki">org to anki</h3>
+<ul>
+<li>org문서를 anki에서 사용하기. 변환기가 필요하다. org to anki markup language.</li>
+<li>anki editor(org to anki markup plugin) 설정.
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>(use-package anki-editor
+</span></span><span style="display:flex;"><span>  :after org-noter
+</span></span><span style="display:flex;"><span>  :config
+</span></span><span style="display:flex;"><span>  (setq anki-editor-create-decks &#39;t))
+</span></span></code></pre></div></li>
+</ul>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

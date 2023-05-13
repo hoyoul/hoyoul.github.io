@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+  <head><title>[note] Deep Sarsa 소스분석</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">[note] Deep Sarsa 소스분석</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/postss/20220214163629-note_deep_sarsa_%E1%84%89%E1%85%A9%E1%84%89%E1%85%B3%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8/" alt="[note] Deep Sarsa 소스분석" class="permalink"><h1>[note] Deep Sarsa 소스분석</h1></a>      
+	<h2 id="deep-sarsa-소스-분석">Deep SARSA 소스 분석</h2>
+<ul>
+<li>Env + Agent 구조. + interaction(env+agent)</li>
+</ul>
+<h3 id="environment">Environment</h3>
+<ul>
+<li>open AI gym과 비슷한 구조로 설계.</li>
+<li>Tcl/tk window program(tkinter)</li>
+</ul>
+<h4 id="environment-소스-알아야-할것">Environment 소스 알아야 할것</h4>
+<ul>
+<li>중요한 자료 구조 이해  rewards list와 state</li>
+<li>ps: state변수 naming문제, class를 사용하면서 type hint를 사용하지 않는 문제.</li>
+</ul>
+<p>(grid의 location을 나타내기도 하지만,agent의 network의 입력값 으로도 사용)</p>
+<h4 id="environment-소스-분석--rewards">Environment 소스 분석(rewards)</h4>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/ppt_rl/rewards.png"
+         alt="Figure 1: rewards"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>rewards</p>
+        </figcaption>
+</figure>
+
+<ul>
+<li>소스 분석 (line by line) 시작!
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">tkinter</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">tk</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">PIL</span> <span style="color:#007020;font-weight:bold">import</span> ImageTk, Image
+</span></span><span style="display:flex;"><span>PhotoImage <span style="color:#666">=</span> ImageTk<span style="color:#666">.</span>PhotoImage
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>UNIT <span style="color:#666">=</span> <span style="color:#40a070">50</span>
+</span></span><span style="display:flex;"><span>HEIGHT <span style="color:#666">=</span> <span style="color:#40a070">5</span>
+</span></span><span style="display:flex;"><span>WIDTH <span style="color:#666">=</span> <span style="color:#40a070">5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># np.random.seed(1)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">class</span> <span style="color:#0e84b5;font-weight:bold">Env</span>(tk<span style="color:#666">.</span>Tk):
+</span></span><span style="display:flex;"><span>    <span style="color:#4070a0">&#34;&#34;&#34;This is a class.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> __init__(self, render_speed<span style="color:#666">=</span><span style="color:#40a070">0.01</span>):
+</span></span><span style="display:flex;"><span>	<span style="color:#4070a0">&#34;&#34;&#34;Docstring.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020">super</span>(Env, self)<span style="color:#666">.</span>__init__()
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>render_speed <span style="color:#666">=</span> render_speed
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>title(<span style="color:#4070a0">&#34;Deep SARSA&#34;</span>)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>geometry(<span style="color:#4070a0">&#39;</span><span style="color:#70a0d0">{0}</span><span style="color:#4070a0">x</span><span style="color:#70a0d0">{1}</span><span style="color:#4070a0">&#39;</span><span style="color:#666">.</span>format(HEIGHT <span style="color:#666">*</span> UNIT, HEIGHT <span style="color:#666">*</span> UNIT))
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>shapes <span style="color:#666">=</span> self<span style="color:#666">.</span>load_images()
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>canvas <span style="color:#666">=</span> self<span style="color:#666">.</span>_build_canvas()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># 장애물 설정</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>set_reward([<span style="color:#40a070">0</span>, <span style="color:#40a070">1</span>], <span style="color:#666">-</span><span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>set_reward([<span style="color:#40a070">1</span>, <span style="color:#40a070">2</span>], <span style="color:#666">-</span><span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>set_reward([<span style="color:#40a070">2</span>, <span style="color:#40a070">3</span>], <span style="color:#666">-</span><span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># 목표위치 설정</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>set_reward([<span style="color:#40a070">4</span>, <span style="color:#40a070">4</span>], <span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>mainloop()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">_build_canvas</span>(self):
+</span></span><span style="display:flex;"><span>	canvas <span style="color:#666">=</span> tk<span style="color:#666">.</span>Canvas(self, bg<span style="color:#666">=</span><span style="color:#4070a0">&#39;white&#39;</span>,
+</span></span><span style="display:flex;"><span>			   height<span style="color:#666">=</span>HEIGHT<span style="color:#666">*</span>UNIT,
+</span></span><span style="display:flex;"><span>			   width<span style="color:#666">=</span>WIDTH <span style="color:#666">*</span> UNIT)
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">for</span> c <span style="color:#007020;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#40a070">0</span>, WIDTH <span style="color:#666">*</span> UNIT, UNIT):
+</span></span><span style="display:flex;"><span>	    x0, y0, x1, y1 <span style="color:#666">=</span> c, <span style="color:#40a070">0</span>, c, HEIGHT <span style="color:#666">*</span> UNIT
+</span></span><span style="display:flex;"><span>	    canvas<span style="color:#666">.</span>create_line(x0, y0, x1, y1)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">for</span> r <span style="color:#007020;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#40a070">0</span>, HEIGHT <span style="color:#666">*</span> UNIT, UNIT):
+</span></span><span style="display:flex;"><span>	    x0, y0, x1, y1 <span style="color:#666">=</span> <span style="color:#40a070">0</span>, r, HEIGHT <span style="color:#666">*</span> UNIT, r
+</span></span><span style="display:flex;"><span>	    canvas<span style="color:#666">.</span>create_line(x0, y0, x1, y1)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>rewards <span style="color:#666">=</span> []
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>goal <span style="color:#666">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	x, y <span style="color:#666">=</span> UNIT<span style="color:#666">/</span><span style="color:#40a070">2</span>, UNIT<span style="color:#666">/</span><span style="color:#40a070">2</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>rectangle <span style="color:#666">=</span> canvas<span style="color:#666">.</span>create_image(x, y, image<span style="color:#666">=</span>self<span style="color:#666">.</span>shapes[<span style="color:#40a070">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	canvas<span style="color:#666">.</span>pack()
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> canvas
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">load_images</span>(self):
+</span></span><span style="display:flex;"><span>	<span style="color:#4070a0">&#34;&#34;&#34;load_images is a function.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>	rectangle <span style="color:#666">=</span> PhotoImage(
+</span></span><span style="display:flex;"><span>	    Image<span style="color:#666">.</span>open(<span style="color:#4070a0">&#34;./img/rectangle.png&#34;</span>)<span style="color:#666">.</span>resize((<span style="color:#40a070">30</span>, <span style="color:#40a070">30</span>)))
+</span></span><span style="display:flex;"><span>	triangle <span style="color:#666">=</span> PhotoImage(
+</span></span><span style="display:flex;"><span>	    Image<span style="color:#666">.</span>open(<span style="color:#4070a0">&#34;./img/triangle.png&#34;</span>)<span style="color:#666">.</span>resize((<span style="color:#40a070">30</span>, <span style="color:#40a070">30</span>)))
+</span></span><span style="display:flex;"><span>	circle <span style="color:#666">=</span> PhotoImage(
+</span></span><span style="display:flex;"><span>	    Image<span style="color:#666">.</span>open(<span style="color:#4070a0">&#34;./img/circle.png&#34;</span>)<span style="color:#666">.</span>resize((<span style="color:#40a070">30</span>, <span style="color:#40a070">30</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> rectangle, triangle, circle
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">set_reward</span>(self, state, reward):
+</span></span><span style="display:flex;"><span>	<span style="color:#4070a0">&#34;&#34;&#34;이 함수는 DNN의 입력벡터를 처리하고, 입력벡터에 해당하는 도형을 그린다.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>	state <span style="color:#666">=</span> [<span style="color:#007020">int</span>(state[<span style="color:#40a070">0</span>]), <span style="color:#007020">int</span>(state[<span style="color:#40a070">1</span>])]
+</span></span><span style="display:flex;"><span>	x <span style="color:#666">=</span> <span style="color:#007020">int</span>(state[<span style="color:#40a070">0</span>])
+</span></span><span style="display:flex;"><span>	y <span style="color:#666">=</span> <span style="color:#007020">int</span>(state[<span style="color:#40a070">1</span>])
+</span></span><span style="display:flex;"><span>	temp <span style="color:#666">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># 보상이 1인 경우(goal), 원을 캔바스에 그린다.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">if</span> reward <span style="color:#666">&gt;</span> <span style="color:#40a070">0</span>:
+</span></span><span style="display:flex;"><span>	    temp[<span style="color:#4070a0">&#39;reward&#39;</span>] <span style="color:#666">=</span> reward
+</span></span><span style="display:flex;"><span>	    temp[<span style="color:#4070a0">&#39;figure&#39;</span>] <span style="color:#666">=</span> self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>create_image((UNIT <span style="color:#666">*</span> x) <span style="color:#666">+</span> UNIT <span style="color:#666">/</span> <span style="color:#40a070">2</span>,
+</span></span><span style="display:flex;"><span>						      (UNIT <span style="color:#666">*</span> y) <span style="color:#666">+</span> UNIT <span style="color:#666">/</span> <span style="color:#40a070">2</span>,
+</span></span><span style="display:flex;"><span>						      image<span style="color:#666">=</span>self<span style="color:#666">.</span>shapes[<span style="color:#40a070">2</span>])
+</span></span><span style="display:flex;"><span>	    self<span style="color:#666">.</span>goal<span style="color:#666">.</span>append(temp[<span style="color:#4070a0">&#39;figure&#39;</span>])
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># 보상이 -1인 경우, 삼각형을 캔바스에 그린다.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">elif</span> reward <span style="color:#666">&lt;</span> <span style="color:#40a070">0</span>:
+</span></span><span style="display:flex;"><span>	    temp[<span style="color:#4070a0">&#39;direction&#39;</span>] <span style="color:#666">=</span> <span style="color:#666">-</span><span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span>	    temp[<span style="color:#4070a0">&#39;reward&#39;</span>] <span style="color:#666">=</span> reward
+</span></span><span style="display:flex;"><span>	    temp[<span style="color:#4070a0">&#39;figure&#39;</span>] <span style="color:#666">=</span> self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>create_image((UNIT <span style="color:#666">*</span> x) <span style="color:#666">+</span> UNIT <span style="color:#666">/</span> <span style="color:#40a070">2</span>,
+</span></span><span style="display:flex;"><span>						      (UNIT <span style="color:#666">*</span> y) <span style="color:#666">+</span> UNIT <span style="color:#666">/</span> <span style="color:#40a070">2</span>,
+</span></span><span style="display:flex;"><span>						      image<span style="color:#666">=</span>self<span style="color:#666">.</span>shapes[<span style="color:#40a070">1</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	temp[<span style="color:#4070a0">&#39;coords&#39;</span>] <span style="color:#666">=</span> self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>coords(temp[<span style="color:#4070a0">&#39;figure&#39;</span>])
+</span></span><span style="display:flex;"><span>	temp[<span style="color:#4070a0">&#39;state&#39;</span>] <span style="color:#666">=</span> state
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>rewards<span style="color:#666">.</span>append(temp)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> __name__ <span style="color:#666">==</span> <span style="color:#4070a0">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    env <span style="color:#666">=</span> Env()
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="agent의-구조">Agent의 구조</h3>
+<h3 id="deep-neural-network-사용">Deep neural Network 사용</h3>
+<ul>
+<li>Qtable -&gt; function(DNN)</li>
+<li>데이터와 데이터가 주어지면, y= ax+b의 함수를 만들 수 있다.( 데이터와 데이터의 종속관계)</li>
+</ul>
+<h3 id="dnn의-구조">DNN의 구조</h3>
+<ul>
+<li>model -&gt; loss function -&gt; optimization 구조.</li>
+</ul>
+<h3 id="dnn의-구조--model">DNN의 구조 (model)</h3>
+<ul>
+<li>input layer-&gt; hidden layer -&gt; output layer -&gt; activate function(linear or non linear)</li>
+</ul>
+<h3 id="dnn의-구조--loss-function">DNN의 구조(loss function)</h3>
+<ul>
+<li>loss function에는 정답과 예측이 필요</li>
+<li>SARSA의 review가 필요</li>
+</ul>
+<h3 id="sarsa의-review">SARSA의 review</h3>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/ppt_rl/qtable.png" width="400px"/>
+</figure>
+
+<p>agent가 처음 그리드 월드에 왔을때를 가정한다.
+모두 예측값만 가지고 있다.
+S0에서 S1으로 이동 했더니 장애물(-5)이 있었다.</p>
+<p>그러면, Q(S0, -&gt; )의 값은 0값이 아닌것을 알았기 때문에 update되어야 한다.
+Q(S0, -&gt;) = Q(S0, -&gt;) + ( -5 r(Q(S1,-&gt;)) 로 update하면
+Q(S0, -&gt; ) = -5가 된다.</p>
+<p>여기서 loss function을 만들 수 있다.
+Q(S0, -&gt; )는 예측한것이고, 실제 이동하니 장애물이 있었다. 따라서 장애물의 보상을 포함하고 있는 (-5 + r(Q(S1, -&gt;))이 정답이라고 볼수 있다. Q(s1, -&gt;)의 값은 0인데, 0가 아니여도 상관없다. 어차피 예측값이 중요한게 아니라, 보상값이 영향을 미치기 때문이다.</p>
+<h3 id="전체-소스">전체 소스</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">time</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">tkinter</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">tk</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">PIL</span> <span style="color:#007020;font-weight:bold">import</span> ImageTk, Image
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PhotoImage <span style="color:#666">=</span> ImageTk<span style="color:#666">.</span>PhotoImage
+</span></span><span style="display:flex;"><span>UNIT <span style="color:#666">=</span> <span style="color:#40a070">50</span>  <span style="color:#60a0b0;font-style:italic"># 픽셀 수</span>
+</span></span><span style="display:flex;"><span>HEIGHT <span style="color:#666">=</span> <span style="color:#40a070">5</span>  <span style="color:#60a0b0;font-style:italic"># 그리드 세로</span>
+</span></span><span style="display:flex;"><span>WIDTH <span style="color:#666">=</span> <span style="color:#40a070">5</span>  <span style="color:#60a0b0;font-style:italic"># 그리드 가로</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>np<span style="color:#666">.</span>random<span style="color:#666">.</span>seed(<span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">class</span> <span style="color:#0e84b5;font-weight:bold">Env</span>(tk<span style="color:#666">.</span>Tk):
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> __init__(self, render_speed<span style="color:#666">=</span><span style="color:#40a070">0.01</span>):
+</span></span><span style="display:flex;"><span>	<span style="color:#007020">super</span>(Env, self)<span style="color:#666">.</span>__init__()
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>render_speed<span style="color:#666">=</span>render_speed
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>action_space <span style="color:#666">=</span> [<span style="color:#4070a0">&#39;u&#39;</span>, <span style="color:#4070a0">&#39;d&#39;</span>, <span style="color:#4070a0">&#39;l&#39;</span>, <span style="color:#4070a0">&#39;r&#39;</span>]
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>action_size <span style="color:#666">=</span> <span style="color:#007020">len</span>(self<span style="color:#666">.</span>action_space)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>title(<span style="color:#4070a0">&#39;DeepSARSA&#39;</span>)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>geometry(<span style="color:#4070a0">&#39;</span><span style="color:#70a0d0">{0}</span><span style="color:#4070a0">x</span><span style="color:#70a0d0">{1}</span><span style="color:#4070a0">&#39;</span><span style="color:#666">.</span>format(HEIGHT <span style="color:#666">*</span> UNIT, HEIGHT <span style="color:#666">*</span> UNIT))
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>shapes <span style="color:#666">=</span> self<span style="color:#666">.</span>load_images()
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>canvas <span style="color:#666">=</span> self<span style="color:#666">.</span>_build_canvas()
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>counter <span style="color:#666">=</span> <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>rewards <span style="color:#666">=</span> []
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>goal <span style="color:#666">=</span> []
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># 장애물 설정</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>set_reward([<span style="color:#40a070">0</span>, <span style="color:#40a070">1</span>], <span style="color:#666">-</span><span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>set_reward([<span style="color:#40a070">1</span>, <span style="color:#40a070">2</span>], <span style="color:#666">-</span><span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>set_reward([<span style="color:#40a070">2</span>, <span style="color:#40a070">3</span>], <span style="color:#666">-</span><span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># 목표 지점 설정</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>set_reward([<span style="color:#40a070">4</span>, <span style="color:#40a070">4</span>], <span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">_build_canvas</span>(self):
+</span></span><span style="display:flex;"><span>	canvas <span style="color:#666">=</span> tk<span style="color:#666">.</span>Canvas(self, bg<span style="color:#666">=</span><span style="color:#4070a0">&#39;white&#39;</span>,
+</span></span><span style="display:flex;"><span>			   height<span style="color:#666">=</span>HEIGHT <span style="color:#666">*</span> UNIT,
+</span></span><span style="display:flex;"><span>			   width<span style="color:#666">=</span>WIDTH <span style="color:#666">*</span> UNIT)
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># 그리드 생성</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">for</span> c <span style="color:#007020;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#40a070">0</span>, WIDTH <span style="color:#666">*</span> UNIT, UNIT):  <span style="color:#60a0b0;font-style:italic"># 0~400 by 80</span>
+</span></span><span style="display:flex;"><span>	    x0, y0, x1, y1 <span style="color:#666">=</span> c, <span style="color:#40a070">0</span>, c, HEIGHT <span style="color:#666">*</span> UNIT
+</span></span><span style="display:flex;"><span>	    canvas<span style="color:#666">.</span>create_line(x0, y0, x1, y1)
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">for</span> r <span style="color:#007020;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#40a070">0</span>, HEIGHT <span style="color:#666">*</span> UNIT, UNIT):  <span style="color:#60a0b0;font-style:italic"># 0~400 by 80</span>
+</span></span><span style="display:flex;"><span>	    x0, y0, x1, y1 <span style="color:#666">=</span> <span style="color:#40a070">0</span>, r, HEIGHT <span style="color:#666">*</span> UNIT, r
+</span></span><span style="display:flex;"><span>	    canvas<span style="color:#666">.</span>create_line(x0, y0, x1, y1)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>rewards <span style="color:#666">=</span> []
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>goal <span style="color:#666">=</span> []
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># 캔버스에 이미지 추가</span>
+</span></span><span style="display:flex;"><span>	x, y <span style="color:#666">=</span> UNIT<span style="color:#666">/</span><span style="color:#40a070">2</span>, UNIT<span style="color:#666">/</span><span style="color:#40a070">2</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>rectangle <span style="color:#666">=</span> canvas<span style="color:#666">.</span>create_image(x, y, image<span style="color:#666">=</span>self<span style="color:#666">.</span>shapes[<span style="color:#40a070">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	canvas<span style="color:#666">.</span>pack()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> canvas
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">load_images</span>(self):
+</span></span><span style="display:flex;"><span>	rectangle <span style="color:#666">=</span> PhotoImage(
+</span></span><span style="display:flex;"><span>	    Image<span style="color:#666">.</span>open(<span style="color:#4070a0">&#34;../img/rectangle.png&#34;</span>)<span style="color:#666">.</span>resize((<span style="color:#40a070">30</span>, <span style="color:#40a070">30</span>)))
+</span></span><span style="display:flex;"><span>	triangle <span style="color:#666">=</span> PhotoImage(
+</span></span><span style="display:flex;"><span>	    Image<span style="color:#666">.</span>open(<span style="color:#4070a0">&#34;../img/triangle.png&#34;</span>)<span style="color:#666">.</span>resize((<span style="color:#40a070">30</span>, <span style="color:#40a070">30</span>)))
+</span></span><span style="display:flex;"><span>	circle <span style="color:#666">=</span> PhotoImage(
+</span></span><span style="display:flex;"><span>	    Image<span style="color:#666">.</span>open(<span style="color:#4070a0">&#34;../img/circle.png&#34;</span>)<span style="color:#666">.</span>resize((<span style="color:#40a070">30</span>, <span style="color:#40a070">30</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> rectangle, triangle, circle
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">reset_reward</span>(self):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">for</span> reward <span style="color:#007020;font-weight:bold">in</span> self<span style="color:#666">.</span>rewards:
+</span></span><span style="display:flex;"><span>	    self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>delete(reward[<span style="color:#4070a0">&#39;figure&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>rewards<span style="color:#666">.</span>clear()
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>goal<span style="color:#666">.</span>clear()
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>set_reward([<span style="color:#40a070">0</span>, <span style="color:#40a070">1</span>], <span style="color:#666">-</span><span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>set_reward([<span style="color:#40a070">1</span>, <span style="color:#40a070">2</span>], <span style="color:#666">-</span><span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>set_reward([<span style="color:#40a070">2</span>, <span style="color:#40a070">3</span>], <span style="color:#666">-</span><span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># #goal</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>set_reward([<span style="color:#40a070">4</span>, <span style="color:#40a070">4</span>], <span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">set_reward</span>(self, state, reward):
+</span></span><span style="display:flex;"><span>	state <span style="color:#666">=</span> [<span style="color:#007020">int</span>(state[<span style="color:#40a070">0</span>]), <span style="color:#007020">int</span>(state[<span style="color:#40a070">1</span>])]
+</span></span><span style="display:flex;"><span>	x <span style="color:#666">=</span> <span style="color:#007020">int</span>(state[<span style="color:#40a070">0</span>])
+</span></span><span style="display:flex;"><span>	y <span style="color:#666">=</span> <span style="color:#007020">int</span>(state[<span style="color:#40a070">1</span>])
+</span></span><span style="display:flex;"><span>	temp <span style="color:#666">=</span> {}
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">if</span> reward <span style="color:#666">&gt;</span> <span style="color:#40a070">0</span>:
+</span></span><span style="display:flex;"><span>	    temp[<span style="color:#4070a0">&#39;reward&#39;</span>] <span style="color:#666">=</span> reward
+</span></span><span style="display:flex;"><span>	    temp[<span style="color:#4070a0">&#39;figure&#39;</span>] <span style="color:#666">=</span> self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>create_image((UNIT <span style="color:#666">*</span> x) <span style="color:#666">+</span> UNIT <span style="color:#666">/</span> <span style="color:#40a070">2</span>,
+</span></span><span style="display:flex;"><span>						       (UNIT <span style="color:#666">*</span> y) <span style="color:#666">+</span> UNIT <span style="color:#666">/</span> <span style="color:#40a070">2</span>,
+</span></span><span style="display:flex;"><span>						       image<span style="color:#666">=</span>self<span style="color:#666">.</span>shapes[<span style="color:#40a070">2</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	    self<span style="color:#666">.</span>goal<span style="color:#666">.</span>append(temp[<span style="color:#4070a0">&#39;figure&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">elif</span> reward <span style="color:#666">&lt;</span> <span style="color:#40a070">0</span>:
+</span></span><span style="display:flex;"><span>	    temp[<span style="color:#4070a0">&#39;direction&#39;</span>] <span style="color:#666">=</span> <span style="color:#666">-</span><span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span>	    temp[<span style="color:#4070a0">&#39;reward&#39;</span>] <span style="color:#666">=</span> reward
+</span></span><span style="display:flex;"><span>	    temp[<span style="color:#4070a0">&#39;figure&#39;</span>] <span style="color:#666">=</span> self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>create_image((UNIT <span style="color:#666">*</span> x) <span style="color:#666">+</span> UNIT <span style="color:#666">/</span> <span style="color:#40a070">2</span>,
+</span></span><span style="display:flex;"><span>						      (UNIT <span style="color:#666">*</span> y) <span style="color:#666">+</span> UNIT <span style="color:#666">/</span> <span style="color:#40a070">2</span>,
+</span></span><span style="display:flex;"><span>						      image<span style="color:#666">=</span>self<span style="color:#666">.</span>shapes[<span style="color:#40a070">1</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	temp[<span style="color:#4070a0">&#39;coords&#39;</span>] <span style="color:#666">=</span> self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>coords(temp[<span style="color:#4070a0">&#39;figure&#39;</span>])
+</span></span><span style="display:flex;"><span>	temp[<span style="color:#4070a0">&#39;state&#39;</span>] <span style="color:#666">=</span> state
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>rewards<span style="color:#666">.</span>append(temp)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic"># new methods</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">check_if_reward</span>(self, state):
+</span></span><span style="display:flex;"><span>	check_list <span style="color:#666">=</span> <span style="color:#007020">dict</span>()
+</span></span><span style="display:flex;"><span>	check_list[<span style="color:#4070a0">&#39;if_goal&#39;</span>] <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>	rewards <span style="color:#666">=</span> <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">for</span> reward <span style="color:#007020;font-weight:bold">in</span> self<span style="color:#666">.</span>rewards:
+</span></span><span style="display:flex;"><span>	    <span style="color:#007020;font-weight:bold">if</span> reward[<span style="color:#4070a0">&#39;state&#39;</span>] <span style="color:#666">==</span> state:
+</span></span><span style="display:flex;"><span>		rewards <span style="color:#666">+=</span> reward[<span style="color:#4070a0">&#39;reward&#39;</span>]
+</span></span><span style="display:flex;"><span>		<span style="color:#007020;font-weight:bold">if</span> reward[<span style="color:#4070a0">&#39;reward&#39;</span>] <span style="color:#666">==</span> <span style="color:#40a070">1</span>:
+</span></span><span style="display:flex;"><span>		    check_list[<span style="color:#4070a0">&#39;if_goal&#39;</span>] <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	check_list[<span style="color:#4070a0">&#39;rewards&#39;</span>] <span style="color:#666">=</span> rewards
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> check_list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">coords_to_state</span>(self, coords):
+</span></span><span style="display:flex;"><span>	x <span style="color:#666">=</span> <span style="color:#007020">int</span>((coords[<span style="color:#40a070">0</span>] <span style="color:#666">-</span> UNIT <span style="color:#666">/</span> <span style="color:#40a070">2</span>) <span style="color:#666">/</span> UNIT)
+</span></span><span style="display:flex;"><span>	y <span style="color:#666">=</span> <span style="color:#007020">int</span>((coords[<span style="color:#40a070">1</span>] <span style="color:#666">-</span> UNIT <span style="color:#666">/</span> <span style="color:#40a070">2</span>) <span style="color:#666">/</span> UNIT)
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> [x, y]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">reset</span>(self):
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>update()
+</span></span><span style="display:flex;"><span>	time<span style="color:#666">.</span>sleep(<span style="color:#40a070">0.5</span>)
+</span></span><span style="display:flex;"><span>	x, y <span style="color:#666">=</span> self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>coords(self<span style="color:#666">.</span>rectangle)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>move(self<span style="color:#666">.</span>rectangle, UNIT <span style="color:#666">/</span> <span style="color:#40a070">2</span> <span style="color:#666">-</span> x, UNIT <span style="color:#666">/</span> <span style="color:#40a070">2</span> <span style="color:#666">-</span> y)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>reset_reward()
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> self<span style="color:#666">.</span>get_state()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">step</span>(self, action):
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>counter <span style="color:#666">+=</span> <span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>render()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">if</span> self<span style="color:#666">.</span>counter <span style="color:#666">%</span> <span style="color:#40a070">2</span> <span style="color:#666">==</span> <span style="color:#40a070">1</span>:
+</span></span><span style="display:flex;"><span>	    self<span style="color:#666">.</span>rewards <span style="color:#666">=</span> self<span style="color:#666">.</span>move_rewards()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	next_coords <span style="color:#666">=</span> self<span style="color:#666">.</span>move(self<span style="color:#666">.</span>rectangle, action)
+</span></span><span style="display:flex;"><span>	check <span style="color:#666">=</span> self<span style="color:#666">.</span>check_if_reward(self<span style="color:#666">.</span>coords_to_state(next_coords))
+</span></span><span style="display:flex;"><span>	done <span style="color:#666">=</span> check[<span style="color:#4070a0">&#39;if_goal&#39;</span>]
+</span></span><span style="display:flex;"><span>	reward <span style="color:#666">=</span> check[<span style="color:#4070a0">&#39;rewards&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>tag_raise(self<span style="color:#666">.</span>rectangle)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	s_ <span style="color:#666">=</span> self<span style="color:#666">.</span>get_state()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> s_, reward, done
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">get_state</span>(self):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	location <span style="color:#666">=</span> self<span style="color:#666">.</span>coords_to_state(self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>coords(self<span style="color:#666">.</span>rectangle))
+</span></span><span style="display:flex;"><span>	agent_x <span style="color:#666">=</span> location[<span style="color:#40a070">0</span>]
+</span></span><span style="display:flex;"><span>	agent_y <span style="color:#666">=</span> location[<span style="color:#40a070">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	states <span style="color:#666">=</span> <span style="color:#007020">list</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">for</span> reward <span style="color:#007020;font-weight:bold">in</span> self<span style="color:#666">.</span>rewards:
+</span></span><span style="display:flex;"><span>	    reward_location <span style="color:#666">=</span> reward[<span style="color:#4070a0">&#39;state&#39;</span>]
+</span></span><span style="display:flex;"><span>	    states<span style="color:#666">.</span>append(reward_location[<span style="color:#40a070">0</span>] <span style="color:#666">-</span> agent_x)
+</span></span><span style="display:flex;"><span>	    states<span style="color:#666">.</span>append(reward_location[<span style="color:#40a070">1</span>] <span style="color:#666">-</span> agent_y)
+</span></span><span style="display:flex;"><span>	    <span style="color:#007020;font-weight:bold">if</span> reward[<span style="color:#4070a0">&#39;reward&#39;</span>] <span style="color:#666">&lt;</span> <span style="color:#40a070">0</span>:
+</span></span><span style="display:flex;"><span>		states<span style="color:#666">.</span>append(<span style="color:#666">-</span><span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>		states<span style="color:#666">.</span>append(reward[<span style="color:#4070a0">&#39;direction&#39;</span>])
+</span></span><span style="display:flex;"><span>	    <span style="color:#007020;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>		states<span style="color:#666">.</span>append(<span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> states
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">move_rewards</span>(self):
+</span></span><span style="display:flex;"><span>	new_rewards <span style="color:#666">=</span> []
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">for</span> temp <span style="color:#007020;font-weight:bold">in</span> self<span style="color:#666">.</span>rewards:
+</span></span><span style="display:flex;"><span>	    <span style="color:#007020;font-weight:bold">if</span> temp[<span style="color:#4070a0">&#39;reward&#39;</span>] <span style="color:#666">==</span> <span style="color:#40a070">1</span>:
+</span></span><span style="display:flex;"><span>		new_rewards<span style="color:#666">.</span>append(temp)
+</span></span><span style="display:flex;"><span>		<span style="color:#007020;font-weight:bold">continue</span>
+</span></span><span style="display:flex;"><span>	    temp[<span style="color:#4070a0">&#39;coords&#39;</span>] <span style="color:#666">=</span> self<span style="color:#666">.</span>move_const(temp)
+</span></span><span style="display:flex;"><span>	    temp[<span style="color:#4070a0">&#39;state&#39;</span>] <span style="color:#666">=</span> self<span style="color:#666">.</span>coords_to_state(temp[<span style="color:#4070a0">&#39;coords&#39;</span>])
+</span></span><span style="display:flex;"><span>	    new_rewards<span style="color:#666">.</span>append(temp)
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> new_rewards
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">move_const</span>(self, target):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	s <span style="color:#666">=</span> self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>coords(target[<span style="color:#4070a0">&#39;figure&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	base_action <span style="color:#666">=</span> np<span style="color:#666">.</span>array([<span style="color:#40a070">0</span>, <span style="color:#40a070">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">if</span> s[<span style="color:#40a070">0</span>] <span style="color:#666">==</span> (WIDTH <span style="color:#666">-</span> <span style="color:#40a070">1</span>) <span style="color:#666">*</span> UNIT <span style="color:#666">+</span> UNIT <span style="color:#666">/</span> <span style="color:#40a070">2</span>:
+</span></span><span style="display:flex;"><span>	    target[<span style="color:#4070a0">&#39;direction&#39;</span>] <span style="color:#666">=</span> <span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">elif</span> s[<span style="color:#40a070">0</span>] <span style="color:#666">==</span> UNIT <span style="color:#666">/</span> <span style="color:#40a070">2</span>:
+</span></span><span style="display:flex;"><span>	    target[<span style="color:#4070a0">&#39;direction&#39;</span>] <span style="color:#666">=</span> <span style="color:#666">-</span><span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">if</span> target[<span style="color:#4070a0">&#39;direction&#39;</span>] <span style="color:#666">==</span> <span style="color:#666">-</span><span style="color:#40a070">1</span>:
+</span></span><span style="display:flex;"><span>	    base_action[<span style="color:#40a070">0</span>] <span style="color:#666">+=</span> UNIT
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">elif</span> target[<span style="color:#4070a0">&#39;direction&#39;</span>] <span style="color:#666">==</span> <span style="color:#40a070">1</span>:
+</span></span><span style="display:flex;"><span>	    base_action[<span style="color:#40a070">0</span>] <span style="color:#666">-=</span> UNIT
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">if</span> (target[<span style="color:#4070a0">&#39;figure&#39;</span>] <span style="color:#007020;font-weight:bold">is</span> <span style="color:#007020;font-weight:bold">not</span> self<span style="color:#666">.</span>rectangle
+</span></span><span style="display:flex;"><span>	   <span style="color:#007020;font-weight:bold">and</span> s <span style="color:#666">==</span> [(WIDTH <span style="color:#666">-</span> <span style="color:#40a070">1</span>) <span style="color:#666">*</span> UNIT, (HEIGHT <span style="color:#666">-</span> <span style="color:#40a070">1</span>) <span style="color:#666">*</span> UNIT]):
+</span></span><span style="display:flex;"><span>	    base_action <span style="color:#666">=</span> np<span style="color:#666">.</span>array([<span style="color:#40a070">0</span>, <span style="color:#40a070">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>move(target[<span style="color:#4070a0">&#39;figure&#39;</span>], base_action[<span style="color:#40a070">0</span>], base_action[<span style="color:#40a070">1</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	s_ <span style="color:#666">=</span> self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>coords(target[<span style="color:#4070a0">&#39;figure&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> s_
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">move</span>(self, target, action):
+</span></span><span style="display:flex;"><span>	s <span style="color:#666">=</span> self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>coords(target)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	base_action <span style="color:#666">=</span> np<span style="color:#666">.</span>array([<span style="color:#40a070">0</span>, <span style="color:#40a070">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">if</span> action <span style="color:#666">==</span> <span style="color:#40a070">0</span>:  <span style="color:#60a0b0;font-style:italic"># 상</span>
+</span></span><span style="display:flex;"><span>	    <span style="color:#007020;font-weight:bold">if</span> s[<span style="color:#40a070">1</span>] <span style="color:#666">&gt;</span> UNIT:
+</span></span><span style="display:flex;"><span>		base_action[<span style="color:#40a070">1</span>] <span style="color:#666">-=</span> UNIT
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">elif</span> action <span style="color:#666">==</span> <span style="color:#40a070">1</span>:  <span style="color:#60a0b0;font-style:italic"># 하</span>
+</span></span><span style="display:flex;"><span>	    <span style="color:#007020;font-weight:bold">if</span> s[<span style="color:#40a070">1</span>] <span style="color:#666">&lt;</span> (HEIGHT <span style="color:#666">-</span> <span style="color:#40a070">1</span>) <span style="color:#666">*</span> UNIT:
+</span></span><span style="display:flex;"><span>		base_action[<span style="color:#40a070">1</span>] <span style="color:#666">+=</span> UNIT
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">elif</span> action <span style="color:#666">==</span> <span style="color:#40a070">2</span>:  <span style="color:#60a0b0;font-style:italic"># 우</span>
+</span></span><span style="display:flex;"><span>	    <span style="color:#007020;font-weight:bold">if</span> s[<span style="color:#40a070">0</span>] <span style="color:#666">&lt;</span> (WIDTH <span style="color:#666">-</span> <span style="color:#40a070">1</span>) <span style="color:#666">*</span> UNIT:
+</span></span><span style="display:flex;"><span>		base_action[<span style="color:#40a070">0</span>] <span style="color:#666">+=</span> UNIT
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">elif</span> action <span style="color:#666">==</span> <span style="color:#40a070">3</span>:  <span style="color:#60a0b0;font-style:italic"># 좌</span>
+</span></span><span style="display:flex;"><span>	    <span style="color:#007020;font-weight:bold">if</span> s[<span style="color:#40a070">0</span>] <span style="color:#666">&gt;</span> UNIT:
+</span></span><span style="display:flex;"><span>		base_action[<span style="color:#40a070">0</span>] <span style="color:#666">-=</span> UNIT
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>move(target, base_action[<span style="color:#40a070">0</span>], base_action[<span style="color:#40a070">1</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	s_ <span style="color:#666">=</span> self<span style="color:#666">.</span>canvas<span style="color:#666">.</span>coords(target)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> s_
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">render</span>(self):
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># 게임 속도 조정</span>
+</span></span><span style="display:flex;"><span>	time<span style="color:#666">.</span>sleep(self<span style="color:#666">.</span>render_speed)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>update()
+</span></span></code></pre></div><h3 id="train-dot-py">train.py</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">copy</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pylab</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">random</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">environment</span> <span style="color:#007020;font-weight:bold">import</span> Env
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">tensorflow</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">tf</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">tensorflow.keras.layers</span> <span style="color:#007020;font-weight:bold">import</span> Dense
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">tensorflow.keras.optimizers</span> <span style="color:#007020;font-weight:bold">import</span> Adam
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># 딥살사 인공신경망</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">class</span> <span style="color:#0e84b5;font-weight:bold">DeepSARSA</span>(tf<span style="color:#666">.</span>keras<span style="color:#666">.</span>Model):
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> __init__(self, action_size):
+</span></span><span style="display:flex;"><span>	<span style="color:#007020">super</span>(DeepSARSA, self)<span style="color:#666">.</span>__init__()
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>fc1 <span style="color:#666">=</span> Dense(<span style="color:#40a070">30</span>, activation<span style="color:#666">=</span><span style="color:#4070a0">&#39;relu&#39;</span>)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>fc2 <span style="color:#666">=</span> Dense(<span style="color:#40a070">30</span>, activation<span style="color:#666">=</span><span style="color:#4070a0">&#39;relu&#39;</span>)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>fc_out <span style="color:#666">=</span> Dense(action_size)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">call</span>(self, x):
+</span></span><span style="display:flex;"><span>	x <span style="color:#666">=</span> self<span style="color:#666">.</span>fc1(x)
+</span></span><span style="display:flex;"><span>	x <span style="color:#666">=</span> self<span style="color:#666">.</span>fc2(x)
+</span></span><span style="display:flex;"><span>	q <span style="color:#666">=</span> self<span style="color:#666">.</span>fc_out(x)
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">return</span> q
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># 그리드월드 예제에서의 딥살사 에이전트</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">class</span> <span style="color:#0e84b5;font-weight:bold">DeepSARSAgent</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> __init__(self, state_size, action_size):
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># 상태의 크기와 행동의 크기 정의</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>state_size <span style="color:#666">=</span> state_size
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>action_size <span style="color:#666">=</span> action_size
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># 딥살사 하이퍼 파라메터</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>discount_factor <span style="color:#666">=</span> <span style="color:#40a070">0.99</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>learning_rate <span style="color:#666">=</span> <span style="color:#40a070">0.001</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>epsilon <span style="color:#666">=</span> <span style="color:#40a070">1.</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>epsilon_decay <span style="color:#666">=</span> <span style="color:#40a070">.9999</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>epsilon_min <span style="color:#666">=</span> <span style="color:#40a070">0.01</span>
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>model <span style="color:#666">=</span> DeepSARSA(self<span style="color:#666">.</span>action_size)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>optimizer <span style="color:#666">=</span> Adam(lr<span style="color:#666">=</span>self<span style="color:#666">.</span>learning_rate)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic"># 입실론 탐욕 정책으로 행동 선택</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">get_action</span>(self, state):
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">if</span> np<span style="color:#666">.</span>random<span style="color:#666">.</span>rand() <span style="color:#666">&lt;=</span> self<span style="color:#666">.</span>epsilon:
+</span></span><span style="display:flex;"><span>	    <span style="color:#007020;font-weight:bold">return</span> random<span style="color:#666">.</span>randrange(self<span style="color:#666">.</span>action_size)
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>	    q_values <span style="color:#666">=</span> self<span style="color:#666">.</span>model(state)
+</span></span><span style="display:flex;"><span>	    <span style="color:#007020;font-weight:bold">return</span> np<span style="color:#666">.</span>argmax(q_values[<span style="color:#40a070">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic"># &lt;s, a, r, s&#39;, a&#39;&gt;의 샘플로부터 모델 업데이트</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">train_model</span>(self, state, action, reward, next_state, next_action, done):
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">if</span> self<span style="color:#666">.</span>epsilon <span style="color:#666">&gt;</span> self<span style="color:#666">.</span>epsilon_min:
+</span></span><span style="display:flex;"><span>	    self<span style="color:#666">.</span>epsilon <span style="color:#666">*=</span> self<span style="color:#666">.</span>epsilon_decay
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># 학습 파라메터</span>
+</span></span><span style="display:flex;"><span>	model_params <span style="color:#666">=</span> self<span style="color:#666">.</span>model<span style="color:#666">.</span>trainable_variables
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">with</span> tf<span style="color:#666">.</span>GradientTape() <span style="color:#007020;font-weight:bold">as</span> tape:
+</span></span><span style="display:flex;"><span>	    tape<span style="color:#666">.</span>watch(model_params)
+</span></span><span style="display:flex;"><span>	    predict <span style="color:#666">=</span> self<span style="color:#666">.</span>model(state)[<span style="color:#40a070">0</span>]
+</span></span><span style="display:flex;"><span>	    one_hot_action <span style="color:#666">=</span> tf<span style="color:#666">.</span>one_hot([action], self<span style="color:#666">.</span>action_size)
+</span></span><span style="display:flex;"><span>	    predict <span style="color:#666">=</span> tf<span style="color:#666">.</span>reduce_sum(one_hot_action <span style="color:#666">*</span> predict, axis<span style="color:#666">=</span><span style="color:#40a070">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	    <span style="color:#60a0b0;font-style:italic"># done = True 일 경우 에피소드가 끝나서 다음 상태가 없음</span>
+</span></span><span style="display:flex;"><span>	    next_q <span style="color:#666">=</span> self<span style="color:#666">.</span>model(next_state)[<span style="color:#40a070">0</span>][next_action]
+</span></span><span style="display:flex;"><span>	    target <span style="color:#666">=</span> reward <span style="color:#666">+</span> (<span style="color:#40a070">1</span> <span style="color:#666">-</span> done) <span style="color:#666">*</span> self<span style="color:#666">.</span>discount_factor <span style="color:#666">*</span> next_q
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	    <span style="color:#60a0b0;font-style:italic"># MSE 오류 함수 계산</span>
+</span></span><span style="display:flex;"><span>	    loss <span style="color:#666">=</span> tf<span style="color:#666">.</span>reduce_mean(tf<span style="color:#666">.</span>square(target <span style="color:#666">-</span> predict))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># 오류함수를 줄이는 방향으로 모델 업데이트</span>
+</span></span><span style="display:flex;"><span>	grads <span style="color:#666">=</span> tape<span style="color:#666">.</span>gradient(loss, model_params)
+</span></span><span style="display:flex;"><span>	self<span style="color:#666">.</span>optimizer<span style="color:#666">.</span>apply_gradients(<span style="color:#007020">zip</span>(grads, model_params))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">if</span> __name__ <span style="color:#666">==</span> <span style="color:#4070a0">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#60a0b0;font-style:italic"># 환경과 에이전트 생성</span>
+</span></span><span style="display:flex;"><span>    env <span style="color:#666">=</span> Env(render_speed<span style="color:#666">=</span><span style="color:#40a070">0.01</span>)
+</span></span><span style="display:flex;"><span>    state_size <span style="color:#666">=</span> <span style="color:#40a070">15</span>
+</span></span><span style="display:flex;"><span>    action_space <span style="color:#666">=</span> [<span style="color:#40a070">0</span>, <span style="color:#40a070">1</span>, <span style="color:#40a070">2</span>, <span style="color:#40a070">3</span>, <span style="color:#40a070">4</span>]
+</span></span><span style="display:flex;"><span>    action_size <span style="color:#666">=</span> <span style="color:#007020">len</span>(action_space)
+</span></span><span style="display:flex;"><span>    agent <span style="color:#666">=</span> DeepSARSAgent(state_size, action_size)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    scores, episodes <span style="color:#666">=</span> [], []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    EPISODES <span style="color:#666">=</span> <span style="color:#40a070">1000</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#007020;font-weight:bold">for</span> e <span style="color:#007020;font-weight:bold">in</span> <span style="color:#007020">range</span>(EPISODES):
+</span></span><span style="display:flex;"><span>	done <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>	score <span style="color:#666">=</span> <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># env 초기화</span>
+</span></span><span style="display:flex;"><span>	state <span style="color:#666">=</span> env<span style="color:#666">.</span>reset()
+</span></span><span style="display:flex;"><span>	state <span style="color:#666">=</span> np<span style="color:#666">.</span>reshape(state, [<span style="color:#40a070">1</span>, state_size])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">while</span> <span style="color:#007020;font-weight:bold">not</span> done:
+</span></span><span style="display:flex;"><span>	    <span style="color:#60a0b0;font-style:italic"># 현재 상태에 대한 행동 선택</span>
+</span></span><span style="display:flex;"><span>	    action <span style="color:#666">=</span> agent<span style="color:#666">.</span>get_action(state)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	    <span style="color:#60a0b0;font-style:italic"># 선택한 행동으로 환경에서 한 타임스텝 진행 후 샘플 수집</span>
+</span></span><span style="display:flex;"><span>	    next_state, reward, done <span style="color:#666">=</span> env<span style="color:#666">.</span>step(action)
+</span></span><span style="display:flex;"><span>	    next_state <span style="color:#666">=</span> np<span style="color:#666">.</span>reshape(next_state, [<span style="color:#40a070">1</span>, state_size])
+</span></span><span style="display:flex;"><span>	    next_action <span style="color:#666">=</span> agent<span style="color:#666">.</span>get_action(next_state)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	    <span style="color:#60a0b0;font-style:italic"># 샘플로 모델 학습</span>
+</span></span><span style="display:flex;"><span>	    agent<span style="color:#666">.</span>train_model(state, action, reward, next_state,
+</span></span><span style="display:flex;"><span>				next_action, done)
+</span></span><span style="display:flex;"><span>	    score <span style="color:#666">+=</span> reward
+</span></span><span style="display:flex;"><span>	    state <span style="color:#666">=</span> next_state
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	    <span style="color:#007020;font-weight:bold">if</span> done:
+</span></span><span style="display:flex;"><span>		<span style="color:#60a0b0;font-style:italic"># 에피소드마다 학습 결과 출력</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#007020">print</span>(<span style="color:#4070a0">&#34;episode: </span><span style="color:#70a0d0">{:3d}</span><span style="color:#4070a0"> | score: </span><span style="color:#70a0d0">{:3d}</span><span style="color:#4070a0"> | epsilon: </span><span style="color:#70a0d0">{:.3f}</span><span style="color:#4070a0">&#34;</span><span style="color:#666">.</span>format(
+</span></span><span style="display:flex;"><span>		      e, score, agent<span style="color:#666">.</span>epsilon))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		scores<span style="color:#666">.</span>append(score)
+</span></span><span style="display:flex;"><span>		episodes<span style="color:#666">.</span>append(e)
+</span></span><span style="display:flex;"><span>		pylab<span style="color:#666">.</span>plot(episodes, scores, <span style="color:#4070a0">&#39;b&#39;</span>)
+</span></span><span style="display:flex;"><span>		pylab<span style="color:#666">.</span>xlabel(<span style="color:#4070a0">&#34;episode&#34;</span>)
+</span></span><span style="display:flex;"><span>		pylab<span style="color:#666">.</span>ylabel(<span style="color:#4070a0">&#34;score&#34;</span>)
+</span></span><span style="display:flex;"><span>		pylab<span style="color:#666">.</span>savefig(<span style="color:#4070a0">&#34;./save_graph/graph.png&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#60a0b0;font-style:italic"># 100 에피소드마다 모델 저장</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#007020;font-weight:bold">if</span> e <span style="color:#666">%</span> <span style="color:#40a070">100</span> <span style="color:#666">==</span> <span style="color:#40a070">0</span>:
+</span></span><span style="display:flex;"><span>	    agent<span style="color:#666">.</span>model<span style="color:#666">.</span>save_weights(<span style="color:#4070a0">&#39;save_model/model&#39;</span>, save_format<span style="color:#666">=</span><span style="color:#4070a0">&#39;tf&#39;</span>)
+</span></span></code></pre></div>      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

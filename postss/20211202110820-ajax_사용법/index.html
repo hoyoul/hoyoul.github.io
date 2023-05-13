@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+  <head><title>ajax 사용법</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">ajax 사용법</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/postss/20211202110820-ajax_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/" alt="ajax 사용법" class="permalink"><h1>ajax 사용법</h1></a>      
+	<h2 id="원리">원리</h2>
+<ul>
+<li>ajax는 js code.</li>
+<li>서버에서 ajax코드를 client에 보내서 client는 ajax로 server와 통신</li>
+</ul>
+<h2 id="옛날-방식">옛날 방식</h2>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">var ajax = new XMLHttpRequest();
+      ajax.onreadystatechange = function () {
+	   if (this.readyState == 4 &amp;&amp; this.status == 200) {
+		console.log(ajax.responseText)
+	  }
+};
+ajax.open (&#34;GET&#34;, &#34;https://coddingapple1.github.io/price.json&#34;, true)
+ajax.send();
+</code></pre><h2 id="요즘-방식">요즘 방식</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>fetch(&#39;https://codingapple1.github.io/price.json&#39;) // get요청을 날린다.
+</span></span><span style="display:flex;"><span>.then (( response) =&gt; {                  // then은 fetch이후에 실행
+</span></span><span style="display:flex;"><span>        return reponse.json()
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>.then( (response) =&gt; {
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>.catch(() =&gt; {
+</span></span><span style="display:flex;"><span>   console.log(error)
+</span></span><span style="display:flex;"><span>   })
+</span></span></code></pre></div><ul>
+<li>fetch는 server에 get요청을 보낸다. 요청에 대해서 제대로 응답을 받을 수도 있고, 에러가 날수도 있다.</li>
+<li>fetch결과에 대해서 .then에서 처리한다.</li>
+<li>동기식이라면, fetch결과가 끝날때까지 기다린후 then이하를 순차적으로 실행할 것이다.</li>
+<li>비동기식이라서 .then에 있는것은 모두 callback함수로 되어 있다.</li>
+<li>.then에 있는 callback 함수는 등록만 되어 있다가, fetch결과에 따라 callback함수가 호출되는 형식이다.</li>
+<li>.catch는 에러처리다. 그런데 이렇게 쓰면 제대로 에러 캐치를 못한다. 개선된 방식이 있다.
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>fetch(&#39;https://codingapple1.github.io/price.json&#39;) // get요청을 날린다.
+</span></span><span style="display:flex;"><span>.then (( response) =&gt; {                  // then은 fetch이후에 실행
+</span></span><span style="display:flex;"><span>        if (!response.ok) {
+</span></span><span style="display:flex;"><span>            throw new Error(&#39;400 아니면 500 에러남&#39;)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    return reponse.json()
+</span></span><span style="display:flex;"><span> })
+</span></span><span style="display:flex;"><span>.then( (결과) =&gt; {
+</span></span><span style="display:flex;"><span>   console.log(결과)
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>.catch(() =&gt; {
+</span></span><span style="display:flex;"><span>   console.log(error)
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="주기적-ajax-호출">주기적 ajax 호출</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>var set_delay = 5000,
+</span></span><span style="display:flex;"><span>    callout = function () {
+</span></span><span style="display:flex;"><span>        $.ajax({
+</span></span><span style="display:flex;"><span>            /* blah */
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        .done(function (response) {
+</span></span><span style="display:flex;"><span>            // update the page
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        .always(function () {
+</span></span><span style="display:flex;"><span>            setTimeout(callout, set_delay);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// initial call
+</span></span><span style="display:flex;"><span>callout();
+</span></span></code></pre></div>      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

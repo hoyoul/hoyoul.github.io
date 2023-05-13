@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+  <head><title>ox-publish 사용법</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">ox-publish 사용법</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/posts/ox_publish_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/" alt="ox-publish 사용법" class="permalink"><h1>ox-publish 사용법</h1></a>      
+	<h2 id="ox-publish란">ox-publish란?</h2>
+<p>org-mode로 작성된 파일들을 다른 파일로 일괄 변환하는(publish)하는
+package이다. org파일을 다른 파일로 변환할 때 org-backend가
+사용된다. 디렉토리에 있는 것을 일괄적으로 변환하기 때문에 보통 정적
+웹사이트 변환에 사용된다. ox-publish에서의 변환은 기존의 만들어진
+backend 함수를 그대로 이용하기 때문에 불필요한 것들이 많이
+만들어진다. 이것은 그럴수 밖에 없다. 예를 들어서, org를 html로
+변환한다고 할때, org에는 없는 부분도 html문서에는 들어갈 수 밖에
+없다. 왜냐면 backend를 가져다 쓰기 때문에 이미 정해진 rule에 의해서
+사용하지 않아도 자동으로 삽입되는 것이다. 실제 org문서는 10 line에
+불과하더라도, html은 100 line이 될 수도 있는 것이다. 이것은 내가 정한
+backend가 아니라 이미 만들어진 html backend를 사용하기
+때문이다. 여기서는 backend를 만들지 않을 것이다. 이미 만들어진
+backend를 사용하는 법을 살펴본다.</p>
+<h2 id="ox-publish를-사용한-정적-웹사이트-변환예제">ox-publish를 사용한 정적 웹사이트 변환예제</h2>
+<h3 id="project기술">project기술</h3>
+<p>org-mode파일들을 html파일로 변환할때는 org파일들의 위치와 변환될
+html이 위치할 곳, 그리고 html으로 변경시 사용될 함수를 기술한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">;; Define the publishing project</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#007020">setq</span> <span style="color:#bb60d5">org-publish-project-alist</span>
+</span></span><span style="display:flex;"><span>      (<span style="color:#06287e">list</span>
+</span></span><span style="display:flex;"><span>       (<span style="color:#06287e">list</span> <span style="color:#4070a0">&#34;my-org-site&#34;</span>
+</span></span><span style="display:flex;"><span>	     <span style="color:#007020">:recursive</span> <span style="color:#60add5">t</span>
+</span></span><span style="display:flex;"><span>	     <span style="color:#007020">:base-directory</span> <span style="color:#4070a0">&#34;./content&#34;</span>
+</span></span><span style="display:flex;"><span>	     <span style="color:#007020">:publishing-directory</span> <span style="color:#4070a0">&#34;./public&#34;</span>
+</span></span><span style="display:flex;"><span>	     <span style="color:#007020">:publishing-function</span> <span style="color:#517918">&#39;org-html-publish-to-html</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">;; Generate the site output</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#bb60d5">org-publish-all</span> <span style="color:#60add5">t</span>)
+</span></span></code></pre></div><p>보통은 이런 식으로 사용한다. org-publish-project-alist는 우리가 변환할
+source에 해당하는 org file들과 target에 해당하는 html파일들, 그리고
+변환함수를 project로 기술한다. my-org-site라는 project name을 기술하고
+source, target, function을 기술한다. 변환하는 함수는 backend라고도
+부른다.</p>
+<h3 id="shell에서-실행">shell에서 실행</h3>
+<p>project를 기술했는데, 이것을 지금 사용하는 emacs에서 실행하지
+않는다. 독립적으로 실행한다. 그래서 위에서 설정한 project는
+build-site.el이란 파일에 기술한다. 다음과 같이 기술하자.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">;; Load the publishing system</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#007020">require</span> <span style="color:#517918">&#39;ox-publish</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#007020">setq</span> <span style="color:#bb60d5">org-publish-project-alist</span>
+</span></span><span style="display:flex;"><span>      (<span style="color:#06287e">list</span>
+</span></span><span style="display:flex;"><span>       (<span style="color:#06287e">list</span> <span style="color:#4070a0">&#34;my-org-site&#34;</span>
+</span></span><span style="display:flex;"><span>	     <span style="color:#007020">:recursive</span> <span style="color:#60add5">t</span>
+</span></span><span style="display:flex;"><span>	     <span style="color:#007020">:base-directory</span> <span style="color:#4070a0">&#34;./content&#34;</span>
+</span></span><span style="display:flex;"><span>	     <span style="color:#007020">:publishing-directory</span> <span style="color:#4070a0">&#34;./public&#34;</span>
+</span></span><span style="display:flex;"><span>	     <span style="color:#007020">:publishing-function</span> <span style="color:#517918">&#39;org-html-publish-to-html</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">;; Generate the site output</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#bb60d5">org-publish-all</span> <span style="color:#60add5">t</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#06287e">message</span> <span style="color:#4070a0">&#34;Build complete!&#34;</span>)
+</span></span></code></pre></div><p>그리고 build.sh라는 shell script를 만든다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#007020">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#007020"></span>emacs -Q --script build-site.el
+</span></span></code></pre></div><p>그리고 chmod +x build.sh로 실행할수 있게 한다.</p>
+<h3 id="가상-web-서버">가상 web 서버</h3>
+<p>web server는 특정 폴더를 가지고 있다. public폴더인데, 여기에는
+html,css,js가 있다. 그리고 이 파일들을 client의 URL 요청에 응답을
+한다. web server를 구축하지 않아도 emacs에서 가상 웹서버를 만들 수
+있다. simple-httpd라는 패키지가 그런 역할을 한다. M-x
+httpd-serve-directory를 실행하면 public폴더를 선택한다. 그러면 web
+server처럼 url을 입력하면 entry point에 해당하는 public의
+index.html,css,js를 다운 받게 된다.</p>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

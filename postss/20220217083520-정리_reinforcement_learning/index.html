@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+  <head><title>[정리] Reinforcement Learning </title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">[정리] Reinforcement Learning </h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/postss/20220217083520-%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5_reinforcement_learning/" alt="[정리] Reinforcement Learning " class="permalink"><h1>[정리] Reinforcement Learning </h1></a>      
+	<div class="ox-hugo-toc toc has-section-numbers">
+<div class="heading">Table of Contents</div>
+<ul>
+<li><span class="section-num">1</span> <a href="#%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EC%9A%94%EC%86%8C%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%98%EC%9D%98-%EC%83%9D%EA%B0%81">강화학습 요소에 대한 나의 생각</a>
+<ul>
+<li><span class="section-num">1.1</span> <a href="#agent%EC%99%80-action">agent와 action</a></li>
+<li><span class="section-num">1.2</span> <a href="#goal">Goal</a></li>
+<li><span class="section-num">1.3</span> <a href="#%EB%82%98%EC%B9%A8%EB%B0%98%EC%9D%98-%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC">나침반의 동작원리</a></li>
+<li><span class="section-num">1.4</span> <a href="#%EB%88%84%EC%A0%81%EB%B3%B4%EC%83%81">누적보상</a></li>
+<li><span class="section-num">1.5</span> <a href="#%EC%B5%9C%EB%8C%80-%EB%88%84%EC%A0%81-%EB%B3%B4%EC%83%81">최대 누적 보상</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<!--endtoc-->
+<h2 id="강화학습-요소에-대한-나의-생각"><span class="section-num">1</span> 강화학습 요소에 대한 나의 생각</h2>
+<h3 id="agent와-action"><span class="section-num">1.1</span> agent와 action</h3>
+<ul>
+<li>강화학습에서 agent는 의지가 없는 기계라고 보면 된다. agent가
+action을 하는 데, 의지(will)를 가지고 하는 것이 아니다. agent는
+기계라서 의지 자체가 없다. 예를 들어서, grid world에서 agent가
+action을 취하는 것은, 나침반을 보고 행동을 취할 뿐이다. 여기서
+나침반은 누적보상을 최대로하는 곳을 바늘로 가리킨다. 그런데
+동작이 제대로 되지 않는 나침반이다. agent는 매순간 잘 동작되지
+않는, 그러나 누적보상을 최대로 하는 나침반의 바늘이 가리키는
+action에 따라 행동한다.  착각하지 말아야 할 것은, Agent를 의지가
+있는 사람처럼 이해하고, 그 사람이 action을 선택한다고 이해하면
+안된다. agent는 사람이 아니다. 그리고 agent는 action을 선택하지
+않는다. action의 집합에서 action을 고르는게 아니다. 그냥
+나침반에서 action이 주어질 뿐이다. 그리고 주어진 action을 실행할
+뿐이다.</li>
+</ul>
+<h3 id="goal"><span class="section-num">1.2</span> Goal</h3>
+<ul>
+<li>나침반은 지멋대로 동작한다. 우리는 이 나침반을 고쳐서 잘 동작하는
+스마트한 나침반으로 만들고 싶어한다. 나침반의 동작원리는 현재
+상태를 입력으로 받아서, 누적보상이 최대가 되는곳을 가리키는
+action을 return하는 함수를 만든다고 봐도 된다. 그런데 여기서
+누적보상이 최대가 된다고 하는것이 이해가 어렵고, 나침반이 보통
+나침반이 아니라는 것이다. 매 t마다, 나침반은 action을
+나타낸다. 그게 진짜 누적보상이 최대가 되는 action을 가리키는지는
+확신은 안든다. 처음에는 동작이 잘 안되는 나침반이기
+때문이다. 여튼 agent는 나침반의 action을 취한다. 시간 t에서의
+상태에서 action을 받은 환경은, 내부적으로 어떤 원리인지는
+모르지만, 상태가 변한다. 이 상태는 고스란히 agent에게
+전달된다. 환경이 agent의 action을 받아서 상태가 변하는 것을
+관찰하면, 상태확률 변수로 나타낼 수 있다. 여튼 환경이 랜덤하게
+agent에게 상태를 준다고 보면 된다. 환경은 보상값이라는 것도
+준다. 그런데 보상이란것도 랜덤하다. 환경이 알아서 준다. 예를
+들어서, agent가 grid world에 있다고 하자. 시간 t에서의 상태에서
+agent는 나침반의 바늘을 보고 오른쪽으로 이동했다고 하자. 오른쪽
+칸으로 이동 될 수도 있고, 그렇지 않을 수도 있다. 그리고 함정이
+있어서 보상이 -10이 될 수도 있고, 선물상자를 받아서 +10이 될 수도
+있다. 이런 상태에서 다시 또 agent는 나침반에 나타난 action으로
+보고 행동하고, 그에따라 환경은 상태와 보상을 준다. 이런 과정이
+끊임없이 된다고 할때, 누적보상이 계산이 가능한 것인가? 그리고
+나침반의 동작원리가 누적보상이 최대가 되는 위치를 모든 상태에따라
+가지고 있다는 건데, 그것이 가능한가?</li>
+</ul>
+<h3 id="나침반의-동작원리"><span class="section-num">1.3</span> 나침반의 동작원리</h3>
+<ul>
+<li>나침반은 상태를 주면 누적보상이 최대가 되는 action을
+나타낸다. 그런데 도데체 누적보상을 어떻게 알수 있는가? 그리고
+최대 누적보상이란 무엇인가?란 의문이 든다.</li>
+</ul>
+<h3 id="누적보상"><span class="section-num">1.4</span> 누적보상</h3>
+<ul>
+<li>
+<p>누적보상이란 용어는 와 닿지가 않는다.  왜냐면, 누적보상이란
+단어에는 과거로부터 현재까지의 보상의 합을 의미한다. 즉 과거
+보상들의 합이다. 그런데 위에서 말하는 누적보상은, 과거가 아닌,
+미래까지의 보상의 합을 말한다.  미래의 누적보상?? 와 닿지가
+않는다.</p>
+</li>
+<li>
+<p>과거로의 누적보상을 좀 더 살펴보자.  과거에서 현재까지 누적보상을
+구하라고 한다면, 과거 특정 시점부터 현재까지의 상태를 알고 있고,
+각 상태별 보상을 안다면, 그냥 과거로부터 지금까지 보상을 합하면
+된다. 어렵지 않아 보이고, 또 와닿는다.</p>
+</li>
+<li>
+<p>미래의 누적보상?? 이 와 닿지가 않는 이유는 미래라서 와
+닿지 않는게 아니라, route가 여러개 이기 때문에 와닿지가 않는
+것이다. 과거의 누적보상은 한개의 route만 갖는다. 반대로 미래의
+누적보상은 여러개의 route를 갖는다.</p>
+</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/reinforcement/cumreward2.png"/>
+</figure>
+
+<ul>
+<li>만일 미래의 보상 route가 과거처럼 하나의 route만 갖는다면, 과거와
+미래는 별차이가 없을것이다. 또한 과거의 누적보상을 구하는것과
+큰차이가 없다. 그냥 더하면 되기 때문이다. 다음 그림을 보자.</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/reinforcement/reward1.png"/>
+</figure>
+
+<ul>
+<li>위의 그림처럼 하나의 route를 갖는다면 과거, 미래의 차이가 아니라,
+그냥 동일하게 처리해도 되지만, 그렇게 할수 없는 것은 미래의 경우,
+윗처럼 어떤 route를 갖게 될것인지 알수 가 없기 때문이다. 어떤
+route를 갖느냐에 따라 보상의 합은 달라질것이기 때문이다.물론
+미래의 route는 과거가 되는 순간 하나의 route만을 갖게 되겠지만,
+우리는 어떤 route가 될지 알수 없다. 이런 문제를 해결하기 위해서
+확률변수를 사용한다. 우리가 과거의 누적보상을 쉼게 구할 수
+있었던것은 하나의 route로 되어 있었기 때문에 그냥 보상을
+합했다. 그럼 미래의 route도 하나로 한다면?물론 여러개가 될 수
+있지만, 그런 가능성을 인정하고 하나의 route로 나타내면 간단하지
+않을까? 그렇게 하는 방식이 확률변수를 사용하는 방식이다.</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/reinforcement/reward2.png" width="400px"/>
+</figure>
+
+<p>과거의 보상의 합은 스칼라의 합이다. 하지만, 미래의 경우는 여러가지
+경우가 있기 때문에 확률변수를 사용해서 표현한다. 확률변수로
+표현하면, 시각화된 모양은 아래와 같이 하나의 route가 그려진다고
+봐도 된다. 확률변수를 사용하면서 여러 경우의 수가 하나의 값으로
+된것이다. 이렇게 되면 과거의 보상의 합을 구하는 것과 미래의 보상의
+합을 구하는것과 그리 다르지 않다. 그런데 지금까지 설명과는 좀
+배치될 수도 있지만, 착각하지 말아야 할께 있다. 과거의 보상은
+결정되었기 때문에 스칼라로 표시했지만, 고정된 보상값이 아니라는
+것이다. 매번 할때마다 달라지는 값이 보상값이다. 내가 t-2시점에서는
+3의 보상을 받았다고 해도, 다음번에 할때는 2의 보상도 받을 수 있고
+0의 보상도 받을수 있고, 랜덤한 보상값을 받을 수 있는데, 이것은 마치
+위 그림에서 현재시간 t에서 미래의 보상이 여러개가 될 수 있는것과
+똑같은 모습이였다는 것이다. 그래서 어떻게 보면, 과거나 미래나 모두
+확률변수로 그 값을 표현할 수 있다가 오히려 정확한 설명인것 같다.</p>
+<h3 id="최대-누적-보상"><span class="section-num">1.5</span> 최대 누적 보상</h3>
+<ul>
+<li>위와 같이 확률변수로 미래를 하나의 route로 만들어서 누적보상을
+구할수 있게 했다. 그런데, 근본적인 문제는 확률변수의 값은 알수
+없다는 것이다. 이것은 미래는 여러개의 경로를 가질수 있다는 사실
+때문이다. 확률변수로 표현되어 하나의 값을 갖고 그 값을 더하면
+누적보상이라고 단순화 해서 말할 수 있지만, 확률변수의 값은 늘
+변한다. 그래서 누적보상은 달라질 수 있는 것이다. 여기서 최대
+누적보상이라는 개념이 이해 될 수 있다. 이것은 어떻게 보면 빨간색,
+노란색, 녹색으로 된 경로, 그 밖에도 많은 경로가 있겠지만(모든
+경로를 표현할 수 있다면), 그 중 가장 큰 누적보상을 갖는 경로를
+선택하는것과 같다.</li>
+</ul>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

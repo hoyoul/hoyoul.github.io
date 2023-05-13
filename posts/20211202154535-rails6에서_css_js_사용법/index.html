@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Rails6에서 css,js 사용법</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">Rails6에서 css,js 사용법</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/posts/20211202154535-rails6%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5_css_js_%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/" alt="Rails6에서 css,js 사용법" class="permalink"><h1>Rails6에서 css,js 사용법</h1></a>      
+	<h2 id="현재-상황">현재 상황</h2>
+<ul>
+<li>cdn으로 js와 css를 사용하는게 가장 안정적,</li>
+<li>webpacker로 c3와 d3 사용할려고 했더니 동작하지 않음.</li>
+</ul>
+<h2 id="서버에-c3-사용하기">서버에 c3 사용하기</h2>
+<ul>
+<li>빈 페이지를 만든다.</li>
+<li>빈 페이지에</li>
+</ul>
+<h2 id="css-js-사용-준비-과정-webpacker">css,js 사용 준비 과정[webpacker]</h2>
+<ul>
+<li>[바로 적용할려면, 이부분 pass]</li>
+<li>준비과정은 webpacker가 동작할 설정이 되어 있는지 확인만 하는 것이다. 문제가 생기면 여기부터 check해야 한다. 여기는 직접적인 css,js사용법은 아니고 문제가 있는지 여부를 확인한다.</li>
+</ul>
+<h3 id="webpacker-설정-확인">webpacker 설정 확인</h3>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/rails_js1.png"
+         alt="Figure 1: pack의 위치확인"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>pack의 위치확인</p>
+        </figcaption>
+</figure>
+
+<ol>
+<li>webpacker의 설정파일은 /app/confing/webpacker.yml에 기술되어 있다. webpacker가 packing할 css와 js의 위치와 compile후에 저장될 location을 확인한다. 해당 폴더에 css와 js가 저장되어야 webpacker가 compile될 수 있다. css와 js를 작성한다면 해당 폴더에 source를 저장한다.</li>
+</ol>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/webpacker1.png" width="400px" height="300px"/>
+</figure>
+
+<h4 id="test-해당-경로에-간단한-css-js파일을-작성하고-webpacker가-compile해서-해당-target위치로-가는지-확인해보자-dot">[test] 해당 경로에 간단한 css,js파일을 작성하고 webpacker가 compile해서 해당 target위치로 가는지 확인해보자.</h4>
+<ul>
+<li>rails new WebpackTest</li>
+<li>rails generate scaffold Post name:string title:string content:text</li>
+<li>post.html.erb에서 canvas tag를 만든다.</li>
+<li>만들 javascript의 위치를 기술한다.
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;canvas id=&#34;myCanvas&#34; width=&#34;400&#34; height=&#34;400&#34; style=&#34;border:1px solid grey&#34;&gt;&lt;/canvas&gt;
+</span></span><span style="display:flex;"><span>&lt;%= javascript_pack_tag &#39;post_index&#39; %&gt;
+</span></span></code></pre></div></li>
+<li>webpacker.yml에 기술된 pack의 위치는 app/javascript/packs를 확인하고 거기에 post_index.js를 만든다.
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>const canvas = document.getElementById(&#34;myCanvas&#34;);
+</span></span><span style="display:flex;"><span>const ctx = canvas.getContext(&#34;2d&#34;);
+</span></span><span style="display:flex;"><span>canvas.height = canvas.width;
+</span></span><span style="display:flex;"><span>ctx.transform(1, 0, 0, -1, 0, canvas.height)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>const xArray = [50,60,70,80,90,100,110,120,130,140,150];
+</span></span><span style="display:flex;"><span>const yArray = [7,8,8,9,9,9,10,11,14,14,15];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ctx.fillStyle = &#34;red&#34;;
+</span></span><span style="display:flex;"><span>for (let i = 0; i &lt; xArray.length-1; i++) {
+</span></span><span style="display:flex;"><span>  let x = xArray[i]*400/150;
+</span></span><span style="display:flex;"><span>  let y = yArray[i]*400/15;
+</span></span><span style="display:flex;"><span>  ctx.beginPath();
+</span></span><span style="display:flex;"><span>  ctx.ellipse(x, y, 3, 3, 0, 0, Math.PI * 2);
+</span></span><span style="display:flex;"><span>  ctx.fill();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>rails db:migrate</li>
+<li>rails assets:clobber</li>
+<li>rails webpacker:compile  ;; compile을 하면 config/webpacker.yml에 기술된  public/packs에 해당 js가 포함된다. 확인해보자.</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/pack1.png"/>
+</figure>
+
+<ul>
+<li>
+<p>rails s로 서버를 띄운다.</p>
+</li>
+<li>
+<p>rails s 후 127.0.0.1:3000/posts에서 확인</p>
+<div class="important">
+<p>webpacker의 설정대로 source와 target에 맞추어 compiel되고 출력되었음을 알 수 있다. local에선 rails webpacker:compile로 명시적으로 compile을 한다. server에선, cap production deploy를 하면 webpacker compile을 똑같이 하게 된다.</p>
+</div>
+</li>
+</ul>
+<h3 id="배포시-nginx-경로-확인">배포시 nginx 경로 확인</h3>
+<ol>
+<li>cap production deploy하면, capistrano가  server에 접속해서 webpacker를 사용해서 compile하고 위의 webpacker.yml에 명시된 위치로 최종 compile된  pack을 놓게 된다. 하지만, 이것은 nginx에서 해당 pack위치를 명시해주어야 한다. webpacker.yml에 기술된 최종 결과물의 위치는 public/pack/이다. nginx에서 해당 asset을 가리키고 있어야 한다.</li>
+</ol>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/nginx1.png"/>
+</figure>
+
+<h2 id="css-js-사용-설치과정-webpacker">css,js 사용 설치과정[webpacker]</h2>
+<ul>
+<li>[외부 package 사용하지 않는다면 이부분 pass]</li>
+<li>외부 package를 설치하는 방식은 2가지가 있다. cdn으로 설치하던가, 아니면, webpacker 사용을 염두에 두고 yarn으로 설치할 수 있다.</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/rails_js2.png"/>
+</figure>
+
+<ul>
+<li>설치는 그렇게 어렵지 않다.</li>
+</ul>
+<h2 id="yarn으로-설치된-css-js-load-webpacker">yarn으로 설치된 css,js load [webpacker]</h2>
+<ul>
+<li>[외부 package 사용하지 않거나 cdn 사용한다면 이부분 pass]</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/rails_js3.png" width="400px" height="300px"/>
+</figure>
+
+<ul>
+<li>
+<p>yarn으로 설치된 package를 pack file에 import하는 과정이 필요하다. packs폴더에 있는 file들을 pack file이라고 한다.</p>
+</li>
+<li>
+<p>packs폴더에 보면, 기본적으로  application.js란 파일이 있는데, 이것은 전체 page에 다 적용된다.</p>
+</li>
+<li>
+<p>만일 특정 controller에 속하는 page에만 js나 css를 적용시키고 싶을때도 있을 것이다. 그런데 controller에 해당하는 page template이 없다. 그래서 controller에 대한것은 처리하지 않는다. 그래서 위 그림처럼 yarn으로 설치한 모든 module은 application.js에서 import하고 개별 page에서는 사용만 하는 방식을 사용하기로 한다.</p>
+</li>
+<li>
+<p>[요약]</p>
+<div class="important">
+<ul>
+<li>모든 외부 module(yarn으로 설치)들은 application.scss와 application.js에서 import해서 사용하기로 한다. 이렇게 되면 client가 매 page를 다운로드할 때 application.js에 import된 module을 다운받을 수도 있다.</li>
+<li>개별 page에서는 별도의 import문 없이 그대로 작성하면된다.</li>
+</ul>
+</div>
+</li>
+</ul>
+<h3 id="application-dot-js에서-import하는-방법">application.js에서 import하는 방법</h3>
+<ul>
+<li>
+<p>내가 생각한 방법은 cdn에서 사용하는 js이름을 node_modules폴더에서 찾아서 application.js에 import하는 방식이였다.</p>
+<p>예를 들면, 아래에서 c3와 d3를 yarn으로 설치한 이후에, import는 cdn에서 load하는것과 유사하게 할것이다. 아래는 cdn에서 load하는 방식이다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;head&gt;
+</span></span><span style="display:flex;"><span>  &lt;script src=&#34;https://unpkg.com/d3@5.12.0/dist/d3.min.js&#34;&gt;&lt;/script&gt;
+</span></span><span style="display:flex;"><span>  &lt;link href=&#34;https://unpkg.com/c3@0.7.11/c3.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+</span></span><span style="display:flex;"><span>  &lt;script src=&#34;https://unpkg.com/c3@0.7.11/c3.min.js&#34;&gt;&lt;/script&gt;
+</span></span><span style="display:flex;"><span>&lt;/head&gt;
+</span></span></code></pre></div></li>
+</ul>
+<p>위와 같이 d3는 5.12.0 version, c3는 0.7.11을 yarn으로 설치하고, 위와같이 d3 이후에 c3를 import하고 test할 것이다.</p>
+<h3 id="todo-test--c3-dot-js-package사용예">☛ TODO Test (C3.js package사용예)</h3>
+<div class="important">
+<p>c3.js는 d3의 version에 dependent하다. 지금 d3의 version은 7.0이지만, c3는  d3 5.0에 의존적이다. 따라서 설치할 때는 5.0을 설치해야 한다. 또한 c3를 설치한다고 해서 d3가 자동으로 설치되거나 하는 것은 아니다. 그래서 c3설치후 d3를 설치해야 한다.</p>
+</div>
+<ul>
+<li>rails new ChartTest</li>
+<li>rails generate scaffold Post name:string title:string content:text</li>
+<li>yarn add <a href="mailto:d3@5.12.0">d3@5.12.0</a></li>
+<li>yarn add <a href="mailto:c3@0.7.11">c3@0.7.11</a></li>
+<li>application.js에 d3와 c3를 import한다.
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>import &#39;d3/dist/d3.min.js&#39;
+</span></span><span style="display:flex;"><span>import &#39;c3/c3.min.js&#39;
+</span></span></code></pre></div></li>
+<li>chartsimulation.js를 /pack폴더안에 만든다.</li>
+<li>posts.html.erb에서 javascript_pack_tag로 chartsimulation.js를 include한다.</li>
+<li>rails assets:clobber</li>
+<li>rails webpacker:compile</li>
+<li>rails s</li>
+</ul>
+<h3 id="d41d8c"></h3>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+  <head><title>[essay- MDP_0] 미래를 예측하는 방법(Markov Property)</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">[essay- MDP_0] 미래를 예측하는 방법(Markov Property)</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/postss/20220222192111-essay_markov_chain_and_property/" alt="[essay- MDP_0] 미래를 예측하는 방법(Markov Property)" class="permalink"><h1>[essay- MDP_0] 미래를 예측하는 방법(Markov Property)</h1></a>      
+	<p>ps: 확률 부분도 참고.</p>
+<h2 id="미래의-예측과-확률">미래의 예측과 확률</h2>
+<ul>
+<li>우리가 미래를 알 수 있을까? 점쟁이처럼 미래를 맞출수 있을까?
+현재까지 모든 과학적 방법에서 점쟁이처럼 미래를 맞추기란 쉽지
+않다. 우리는 미래를 예측할 수 있다. 예측이라는 것은 미래에 나타날
+경우의 수 중 하나를 말하고 그것의 가능성을 확률로 말한다. 그러면
+그 경우의 수를 어떻게 알 수 있는가? 직관적으로 알수도 있고, 과거를
+통해서 알 수도 있다. 예를 들어, 내일 첼시와 토트넘 경기의 승자를
+예측할 수 있는가?라는 질문에서 우리는 경우의 수는 알 수
+있다. 이기거나 지거나 직관적으로 알수 있다. 그러면 그것의 확률은?
+과거의 정보를 통계를 통해서 알 수 도 있고 믿음을 통해서 알 수
+있다. 즉 빈도주의방식과 베이지안 방식이 있다. 빈도주의 방식은
+과거의 데이터를 통해서 확률값을 구한다. 그 결과 토트넘이
+100경기에서 60경기를 이겨서 60%의 확률로 이길것이다. 첼시가 40%로
+이길 것이다. 이렇게 확률을 구하고 우리는 미래를 예측할 수 있다.
+또다른 예를 살펴보자. 우리는 세렝게티 초원에 갔다. 연구의 일환으로
+사자의 행동을 알고 싶다. 그런데 사자의 행동을 직관적으로 알기는
+힘들다. 우리는 사자의 행동이 몇가지가 있는지 조차 모르기
+때문이다. 우리는 관찰을 통해서 사자의 행동을 알수 있다. 관찰을
+통해서 사자는 자거나, 사냥을 하거나, 무리끼리 장난을 하거나,
+이동하는게 행동패턴임을 알 수 있었다. 그러면 우리는 각각의 행동이
+미래에 나타날 경우의 수라는 것은 알수 있다. 그러면 확률은 알 수
+있을까? 마찬가지로 빈도주의자의 방식으로, 베이지안의 방식으로
+확률을 따져볼 수 있다. 사자의 행동을 살펴보니 1000번의 행동중에
+자는 행동은 500번으로 50%의 확률을 가지고 있고, 사냥은 200번해서
+20%의 확률을 가지고, 장난은 300번으로 30%의 확률을 가지고 있다고
+알수 있었다. 그래서 우리는 사자의 다음 행동은 잘것이다.라고
+예측한다.</li>
+</ul>
+<h2 id="시간의-도입--markov-chain-markov-process-stochastic-process">시간의 도입 (Markov Chain, Markov Process, Stochastic Process)</h2>
+<ul>
+<li>
+<p>미래를 예측할때, 우리는 경우의 수와, 경우의 수 각각에 대한 확률로
+미래를 예측한다고 했다. 미래를 예측할때, 시간을 도입하면, 독특한
+특징을 발견 할 수 있다. 위에서 2가지의 예를 들었었는데, 첼시와
+토트넘의 경기를 예측할때, 시간을 도입하자. 즉 매번 연속적으로
+10번의 게임을 한다고 할때 우리의 예측은 토트넘이 6번 첼시가
+4번이라고 예측할 수 있다. 그러면 연속으로 10번하되 매번 예측을
+한다면? 첫번째 경기는 토트넘이 이길거라고 예측한다. 왜냐? 과거의
+확률이 높기 때문이다. 두번째 경기의 예측도 마찬가지다. 세번째
+경기의 예측도 마찬가지다. 우리는 매번 경기를 한 후에 확률을
+update해도 토트넘이 이길 확률이 첼시보다 높기 때문에 우리는 매번
+똑같은 예측을 할뿐이다. 그런데 만일 직전 경기에서 토트넘이
+이겼다면, 다음경기에는 첼시가 이긴다는 어떤 연관 관계가 있다면,
+우리는 다음 경기의 예측을 더 정확하게 하지 않을까?  하지만, 이
+연관관계는 없다. 이런 연관관계를 Markov Property라고 한다. 시간에
+따라 예측을 할때, 현재의 상태(결과)가 미래에 영향을 주는
+연관관계가 있을때, Markov property를 가지고 있고, Markov chain으로
+나타낼 수 있다. 그러나 첼시와 토트넘의 승패는 마치 매번 주사위를
+던지는 것과 같아서, 이전의 경기와의 연관성이 전혀 없다고 볼 수
+있다. 이런 경우는 통계를 통해서 경기를 예측할 수 밖에 없다.</p>
+<p>사자의 경우를 보자. 사자의 경우 확률을 따져보니 자는게 40%, 사냥이
+20%, 장난이 20%, 이동이 20%였다. 우리는 통계와 확률을 통해서
+사자의 다음행동은 잘 확률이 높다라고 말한다. 이제 시간을
+도입하자. 연속으로 10번의 행동을 예측을 해보자. 첫번째 행동에 대한
+예측은 자는것이다. 과거를 볼때, 사자의 행동은 4가지 중 가장높은
+확률이 자는행동이기 때문에 잔다고 예측할 수 있다. 두번째 행동을
+예측해보자. 마찬가지로 자는 행동이 높기 때문에 잔다고 예측할 수
+있다. 세번째도 네번째도&hellip;그런데 좀 더 살펴 보면, 사자의 다음
+행동은 이전행동과 어떤 연관관계가 있음을 알 수 있다. 예를 들어,
+사냥한 후에는 잘 확률이 90%이고 이동할 확률이 5%였다. 장난하거나
+다시 사냥하는 확률은 2.5%에 불과 했다. 또한 자고난 후에는 80%으로
+사냥을 하거나, 20%는 이동을 한다. 우리의 예측은 사자의 행동을
+통계적으로 과거의 모든 행동패턴을 통계내서 예측하는 것보다 이전의
+상태에서 예측되는 행동이 더 정확해 보인다. 즉 이런경우는 markov
+property를 가지고 있다고 말할 수 있고, Markov chain으로 나타낼 수
+있다.또 다른 예를 보자.</p>
+</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/essay/Markov_chain/markov_chain.jpeg" width="400px"/>
+</figure>
+
+<p>어떤 공통점을 찾을 수 있지 않은가? 앞으로 미래에 해야할 행동이나
+예측은 과거로 부터 쭉 데이터를 통계내서 예측이나 예상을 하는 것이
+아니고 현재 주어진 상태에서 예상을 하는게 더 정확해 보인다는
+것이다.</p>
+<p>또 다른 예를 들어보면, 오목이나 바둑같은 게임을 보면
+된다. 이런 게임에서 다음 행동을 예측하는 것은 이전의 행동에 의해
+미래의 경우의 수가 미리 정해져 있다고 보면 된다. 시간에 따라 매번
+상태가 바뀌고, 그 상태에서 경우의 수가 바뀌던 확률이 바뀌는 이런
+것을 Stochastic process, random process, Markov process라고
+부른다. 이런예가 의외로 굉장히 많다. 예를 들어, 화투를 친다고
+하자. 내가 가진 화투패 7장에서 한장을 선택한다. 다음에 어떤 화투장을
+선택할것인가? 6장에서 한장을 선택하게 된다. 매번 가지고 있는
+화투장(상태)에 따라서 선택할 경우의 수도 달라지고 확률도
+달라진다. 즉 현재 상태에 따라 선택이 정해진다. 그런데, 주사위
+던지기를 보자. 주사위를 던지는데, 이전에 3이 나왔다고 해서, 다음번에
+1이나 2가 나올 확률은 70%인가? 아니다. 바로 직전 값이 무엇이였는지와
+상관없이 1,2가 나올 확률은 1/3의 확률을 가질뿐이다. 이것은 주사위의
+과거의 통계를 취합한 결과와 같다. 사자의 경우와는 너무
+다르다. 사자의 경우는 직전에 잠을 잤다면 사냥할 확률이 80%이지만,
+통계에 의하면 40%로 잘 확률이 높기때문에 다시 잔다고 예측할
+것이다. 매번 시간에 따라 다음 예상이 바껴진다. 매번 확률값이
+변경된다. 이런경우를 markov property가 있다고 한다. 요약하면 미래를
+예측하는데 있어서, 과거의 모든 데이터를 통계내서 미래를 예측하는
+주사위같은 것도 있고, 사자나 게임과 같은 것들은 과거의 통계는 오히려
+불확실하고 현재 상태에 따라 미래를 예측하는게 더 정확하다는 것을 알
+수 있다. 우리는 여기서 주사위와 같은 통계적 예측이 아닌, 사자의
+행동패턴이나 게임이 가지고 있는 미래 예측방법에 대해 관심이
+있다. 이것에 대한 학문적 용어를 분석해 볼 필요가 있다.</p>
+<h2 id="markov-property">Markov property</h2>
+<h3 id="조사">조사</h3>
+<ul>
+<li>In probability theory and statistics, the term Markov property refers to the memoryless property of a stochastic process. - wikipedia<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> Markov property는 stochastic process의 memoryless 속성을 가리킨다고 한다. 그럼 stochastic process가 뭔지 알아야 하지 않나?</li>
+<li>The Markov property means that evolution of the Markov process in the future depends only on the present state and does not depend on past history. <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+</ul>
+<h3 id="결론">결론</h3>
+<ul>
+<li>Markov Property는 미래의 상태는 현재에 의존하고 과거의 통계를 따르지 않는다고 이해하면 될것 같다. 사자의 미래 상태는 사자의 현재상태에 의존하는것과 같다. 이런경우 Markov Property가 있다고 보면 된다. 주사위는 3이 나왔다고 미래에 1이 더 많이 나오지 않기 때문에 Markov property가 없다고 보면된다.</li>
+</ul>
+<h2 id="stochastics-process">stochastics process</h2>
+<ul>
+<li>In probability theory and related fields, a stochastic (<em>stoʊˈkæstɪk</em>) or random process is a mathematical object usually defined as a family of random variables.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> 여기서의 정의만 가지고서는 정확하게 어떤것이 stochastic process인지 모르겠다. random variable에 대해서도 조사할 필요가 있을 뿐이다. 여기서는 간단하게 Markov Process라는것은 stochastic process의 일종이라는 것만 확인한다.</li>
+</ul>
+<h2 id="random-variable">Random variable</h2>
+<ul>
+<li>A random variable (also called random quantity, aleatory variable, or stochastic variable) is a mathematical formalization of a quantity or object which depends on random events.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> random events에 의존적인 quantiy라고 하는데, 어렵다.</li>
+</ul>
+<h2 id="markov-chain">Markov chain</h2>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://en.wikipedia.org/wiki/Markov_property">https://en.wikipedia.org/wiki/Markov_property</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://www.sciencedirect.com/topics/engineering/markov-property">https://www.sciencedirect.com/topics/engineering/markov-property</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://en.wikipedia.org/wiki/Stochastic_process">https://en.wikipedia.org/wiki/Stochastic_process</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://en.wikipedia.org/wiki/Random_variable">https://en.wikipedia.org/wiki/Random_variable</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>

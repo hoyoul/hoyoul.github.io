@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+  <head><title>2. Research Ideas#1</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+    <small>G.frege를 너무 사랑하는 holy가...</small>  
+</header>
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">2. Research Ideas#1</h1>    
+      <div class="content">
+	<a href="http://braindump.frege2godel.me/postss/20211111102608-research_ideas_1/" alt="2. Research Ideas#1" class="permalink"><h1>2. Research Ideas#1</h1></a>      
+	<h2 id="research-ideas-1"><span class="section-num">1</span> Research Ideas #1</h2>
+<h3 id="introduction-and-research-background"><span class="section-num">1.1</span> Introduction and Research Background</h3>
+<p>대학원 때, colloquium에서 context-awareness에 대한 세미나를 들은 적이 있습니다.  세미나에서는 &ldquo;모든 것이 thing&quot;이라고 했습니다. 그리고  thing들은 환경에 영향을 받는다고 했습니다. 저는 thing에 대해 생각했습니다. thing은  properties와 behaviors로 구성된다. 그리고 환경도 하나의 thing이라고 생각한다면, thing의  properties와 behaviors는 다른 thing에서 영향을 주고 받을수 있다라고 생각했습니다. 예를 들어,  칼이라는 사물은 주방에선 요리용 도구지만, 칼이 어두운 골목길에선 흉기가 될 수 있는데, 이것은 환경(주방과 골목길이란 thing)이 칼의 기능을 결정하기 때문이다.라고 생각했습니다.</p>
+<p>그 이후 LG에서 Controlling Devices using gestures라는 특허를 썼는데, 그 특허의 아이디어는 위 생각과 별반 차이점이 없었습니다. 인간이란 thing이 있고, 그 thing의  behavior인 gestures가  핸드폰이라는 또 다른  thing에 영향을 준다. 영향을 준다는 것은 바꿔말해 정보를 전달할 수 있다.</p>
+<p>LG를 나온 후에 저는 환경이 thing에 영향을 주는것을 좀 연구한 후  창업을 할려고 했습니다. 예를 들면, 그때 당시 사업화 아이디어는 다음과 같았습니다.</p>
+<ul>
+<li>나이트클럽이나, 특정 location에 가면 키가 커지는 신발(GPS이용)</li>
+<li>새벽에 우범지역으로 지정된 영역에  가면 손목시계(watch)의 strap이 형광색으로 변하는 기능.</li>
+</ul>
+<p>위 아이디어는 thing과 환경(thing) 과의 관계를 나타내지만, 좀 더 살펴보면, 무언가를 결정을 하는데 있어서 환경이라는 정보만으로는 완전하지 않다는 것을 알게 되었습니다. 예를 들어서, 칼이 주방용도구인지, 흉기인지를 결정하는 데 있어서, 골목길과 주방이라는 정보만으로는 너무 제한적입니다. 요리사가 요리하다가 칼을 든채 골목길에서 담배를 필수도 있는 것입니다. 골목길만의 정보로는 무언가를 결정하는데 부족하다. 더 많은 정보가 필요하다. 예를 들면, 칼을들고 있는 사람의 복장은 어떠한가?, 근처에 음식점이 있는가?하는 정보가 있다면 결정을 내리는데 있어서 도움이 될것이다. 라고 판단했습니다. 즉 여러 개의 정보가 있을때, 중요한 정보와 그렇지 않은 정보를 구분하는 방법이 필요했습니다.</p>
+<h3 id="research-question-and-idea"><span class="section-num">1.2</span> Research Question and Idea</h3>
+<p>그래서 제가 궁금하고 research 주제로 삼고 싶은것은 다음과 같습니다.
+Thing간의 관계를 바탕으로 어떤 결정이나 판단을 내리는데 필요한 정보들은 하나가 아닌 여러개가 될수 있다. 또한 같은 정보라고 할 지라도, 다른 정보의 영향을 받아서 더 중요할 수 있다. 그러면 어떻게 할 것인가? 예를 들어서, 제가 navigation에서 주유소라는 목적지를 검색하면, navigation은  리터당 휘발유값이 최저인 주소를 알려줄 수도 있지만, 자동차가 기름이 별로 없다는 또 다른 thing의 정보가 있다면, 최저가 휘발유를 제공하는 주유소 정보 보다 최단 거리의 주유소 정보가 더 가치있을 것입니다. 또한 &ldquo;기름이 없다&quot;라는  정보는 다른 결정을 내리게 할 수 있을 것입니다. 이런 정보들을 수치화 한다면 어떻게 할 것인가?   그리고 수치화 된 정보를 나타내는데 information theory에서 나오는 entropy를 사용할 수 있겠는가? 하는 것입니다.</p>
+<p>또한 이런 연구가 MARL(Multi-Agent-Reinforcement Learning)의 분산형 훈련(Fully Decentralized)에서 agent간의 통신이나, Faderated Learning에 어떻게 응용될 수 있을지 살펴보고 싶습니다.</p>
+<h2 id="논문-조사"><span class="section-num">2</span> 논문 조사</h2>
+<p>제가 준비가 없었습니다. 어떤 주제에 대해서 얘기하기 앞서,  사전에 논문 조사와 최근의 연구동향에 대한 분석이 있었어야 함에도 준비하지 못했습니다.</p>
+      
+      </div>
+        
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+
+  </div>
+</div>  
+
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+</body>
+</html>
