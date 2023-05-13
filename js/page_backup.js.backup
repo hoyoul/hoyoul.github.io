@@ -45,6 +45,7 @@ document.addEventListener('click', (event) => {
   }
 });
 
+
 function unfoldHead(title){
     const pages = document.querySelectorAll('.page');
     for (let i = 0; i < pages.length; i++) {

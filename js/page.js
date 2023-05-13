@@ -1,23 +1,55 @@
 let rendered_pages = [];
 
+// collaping header click시 unfold
+document.addEventListener('click', (event) => {
+    if (event.target.classList.contains('collapsed-title')) {
+	const title = event.target.innerText;
+	unfoldHead(title);
+  }
+});
+
+function unfoldHead(title){
+    const pages = document.querySelectorAll('.page');
+    for (let i = 0; i < pages.length; i++) {
+	const h1Elements = pages[i].querySelectorAll('h1');
+	for (let j = 0; j < h1Elements.length; j++) {
+	    if (h1Elements[j].innerText === title) {
+		pages[i].classList.remove("collapsed");
+	    }
+	}
+    }
+}
+
+// scroll 화면에 3개 이상의 page가 있을때 앞에 page들을 collapsing
+function computeLayout(){
+    let pages = document.querySelectorAll('.page');
+    for (i=0; i< pages.length; i++){
+	if (i < pages.length - 3){
+	    pages[i].classList.add("collapsed");
+	}
+    }
+}
+
+
+// rendered_pages를 유지하는 이유는 visited link를 위해서임.
 function updateBreadCrumbs() {
-  Links = Array.prototype.slice.call(document.querySelectorAll("a"));
-  links.forEach(function (e) {
+    links = Array.prototype.slice.call(document.querySelectorAll("a"));
+    links.forEach(function (e) {
       if (rendered_pages.indexOf(e.getAttribute("href")) > -1) {
 	  if (e.getAttribute("href") != "/"){
-	      alert(e);
 	      e.classList.add("active");
 	  }
       }
       else {
 	  e.classList.remove("active");
-      }
-  });
+      }	
+    });
 }
 
 function unstackPages(clicked_page_column,last_child,href){
     let container = document.querySelector(".container");
     total_remove_child = last_child - clicked_page_column;
+
     for (let i = 0; i < total_remove_child; i++) {
 	container.removeChild(container.lastChild);
     }
@@ -39,7 +71,8 @@ function renderPage(page,clicked_page_column,href){
     updateBreadCrumbs();            
     
     container.appendChild(page);
-    page.scrollIntoView({behavior: "smooth"});		
+    computeLayout();    
+    // page.scrollIntoView({behavior: "smooth"});		
     addHandlerLinksFromPage(page,clicked_page_column+1);
 }
 
