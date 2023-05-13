@@ -108,7 +108,7 @@ header small{
     display: flex;
     direction: row;
     overflow-x: scroll;
-    
+    transition: all 1.0s ease;    
 }
 
 .page{
@@ -124,9 +124,9 @@ header small{
 
     opacity: 0;
     animation-name: fade-in;
-    animation-duration: 1.0s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
-    transition: all 1.0s ease;
+    /* transition: all 1.0s ease; */
 }
 
 
