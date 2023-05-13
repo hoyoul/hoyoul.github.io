@@ -12,7 +12,8 @@
       <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
       
       <guid>http://braindump.frege2godel.me/posts/howtoprogram/</guid>
-      <description>programming? Programming(프로그래밍을 짠다는 것)은 여러 방법으로 설명할 수 있다. 여기선, 내가 이해하는 practical한 의미에서의 programming을 말할려고 한다. 나에게 있어 program은 함수다. 함수는 무엇인가? 함수는 2가지의 철학을 가지고 있다. 첫번째,함수라는 것은, 명령어라는 turing기반의 철학과, 두번째, 함수라는 것은, 5w1h같은 question에 대한 답을 만드는 proof기반(turing과 괴델)의 철학이다. 어떤 철학을 가지고 있던, 내가 이해하는 practical한 의미로 program은 function이다. 그리고 programming은 함수를 짜는 것이다. 다시 한번 강조하면, program은 function이다. programming의 철학 H/W 명령으로써의 program. program(function)과 관련한 2가지의 철학, 명령으로써의 function과, 질문으로써의 function에 대해 말하고자 한다.</description>
+      <description>골드마크 참조
+programming? Programming(프로그래밍을 짠다는 것)은 여러 방법으로 설명할 수 있다. 여기선, 내가 이해하는 practical한 의미에서의 programming을 말할려고 한다. 나에게 있어 program은 함수다. 함수는 무엇인가? 함수는 2가지의 철학을 가지고 있다. 첫번째,함수라는 것은, 명령어라는 turing기반의 철학과, 두번째, 함수라는 것은, 5w1h같은 question에 대한 답을 만드는 proof기반(turing과 괴델)의 철학이다. 어떤 철학을 가지고 있던, 내가 이해하는 practical한 의미로 program은 function이다. 그리고 programming은 함수를 짜는 것이다. 다시 한번 강조하면, program은 function이다. programming의 철학 H/W 명령으로써의 program.</description>
     </item>
     
     <item>

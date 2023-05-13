@@ -65,16 +65,12 @@ header {
     align-items: center;
     background: #fff;
     border-bottom: 1px #432 solid;
-    /* padding: 8px 20px; */
 }
-
 header img{
     width:: 30px;
     height: 30px;
     padding-top: 10px;
     padding-left: 10px;
-    /* width: 35px; */
-    /* height: 35px; */
 }
 header h3{
     margin-left: 10px;
@@ -100,34 +96,34 @@ header small{
     font-size: 0.6em;
 }
 
+
 .container{
     width:100%;
     height: calc(100% - 51px);
-    /* border: #823 solid; */
 
     display: flex;
     direction: row;
     overflow-x: scroll;
-
 }
 
 .page{
-    /* display: inline-block; */
     position:sticky;
     width: 620px;
     min-width: 600px;
-    /* max-width: 620px; */
+
     border-left:1px #eacc724f solid;
-    /* border-right:1px #eacc724f solid;     */
+
     box-shadow: 3px 3px 2px 1px #eacc724f;
     background-color: #fff;
     overflow-y: auto;
 
-    transition: min-width 0.3s ease-out;    
+    transition: min-width 0.3s ease-out;
+    
     opacity: 0;
     animation-name: fade-in;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
+    
     transition: all 0.6s ease;
 }
 
@@ -143,109 +139,47 @@ header small{
   }
 }
 
-
 .page .collapsed-title {
     display:none;
-
-    /* transition: background-color 2s;     */
-    
 }
 
 /* collapsing이 되면 수행되는 것들 */
 .page.collapsed{
     width: 40px;
-    min-width: 0px;
-    /* opacity:0;     */
-    /* display: none; */
-
+    min-width:40px;
 }
 .page.collapsed .collapsed-title {
-
-    /* position: absolute; */
-
     writing-mode: vertical-lr;
     display:block;
     height: 100%;
     background-color:#eefdff ;    
     font-size: 20px;
-    margin: 0 0 0;
-    padding-top: 20px;    
+    margin-left: 0px;
+    padding-top: 20px;
     line-height: 40px;
     white-space: nowrap;
     cursor: pointer;    
-    /* font-weight: 600; */
-    /* background-color:#fff ; */
-    
-    /* opacity: 1; */
-    /* margin-top: 0px; */
-
 }
 .page.collapsed .collapsed-title:hover {
     /* transition: background-color: #ccc 0.2s; */
 }
 .page.collapsed .content, .page.collapsed .bl-section {
     display: none;
-    /* width: 0px; */
-    /* opacity:0; */
-    /* display: none; */
-    /* transition: all 3.6s ease; */
-
-
 }
-
-/* .page.collapsing .collapsed-title{ */
-/*     display: block; */
-/*     opacity: 0; */
-
-/* } */
-/* .page.collapsing .content, .page.collapsing .bl-section{ */
-/*     opacity: 0; */
-/* } */
-
-.pagenil{
-    display: none;
-}
-
-
-/* .page .collapsed-title { */
-/*     display: none; */
-/*     /\* position: absolute; *\/ */
-/*     /\* writing-mode: vertical-lr; *\/ */
-/*     /\* font-size: 20px; *\/ */
-/*     /\* margin: 16px 0 0; *\/ */
-/*     /\* line-height: 42px; *\/ */
-/*     /\* white-space: nowrap; *\/ */
-/*     /\* font-weight: 400 *\/ */
-/* } */
-/* .collapsed{ */
-/*     display: block; */
-/*     position: absolute; */
-/*     writing-mode: vertical-lr; */
-/*     font-size: 20px; */
-/*     margin: 16px 0 0; */
-/*     line-height: 42px; */
-/*     white-space: nowrap; */
-/*     font-weight: 400 */
-/* } */
 .page:nth-child(1){
     left:0px;
-
 }
 .page:nth-child(2){
     left: 40px;
-
 }
 .page:nth-child(3){
     left:80px;
-
 }
 .page:nth-child(4){
     left:120px;
-
 }
 .page:nth-child(5){
     left:160px;
-
 }
 .page:nth-child(6){
     left:200px;
