@@ -12,8 +12,16 @@
       <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
       
       <guid>http://braindump.frege2godel.me/posts/howtoprogram/</guid>
-      <description>골드마크 참조
-programming? Programming(프로그래밍을 짠다는 것)은 여러 방법으로 설명할 수 있다. 여기선, 내가 이해하는 practical한 의미에서의 programming을 말할려고 한다. 나에게 있어 program은 함수다. 함수는 무엇인가? 함수는 2가지의 철학을 가지고 있다. 첫번째,함수라는 것은, 명령어라는 turing기반의 철학과, 두번째, 함수라는 것은, 5w1h같은 question에 대한 답을 만드는 proof기반(turing과 괴델)의 철학이다. 어떤 철학을 가지고 있던, 내가 이해하는 practical한 의미로 program은 function이다. 그리고 programming은 함수를 짜는 것이다. 다시 한번 강조하면, program은 function이다. programming의 철학 H/W 명령으로써의 program.</description>
+      <description>골드마크 참조 programming? Programming(프로그래밍을 짠다는 것)은 여러 방법으로 설명할 수 있다. 여기선, 내가 이해하는 practical한 의미에서의 programming을 말할려고 한다. 나에게 있어 program은 함수다. 함수는 무엇인가? 함수는 2가지의 철학을 가지고 있다. 첫번째,함수라는 것은, 명령어라는 turing기반의 철학과, 두번째, 함수라는 것은, 5w1h같은 question에 대한 답을 만드는 proof기반(turing과 괴델)의 철학이다. 어떤 철학을 가지고 있던, 내가 이해하는 practical한 의미로 program은 function이다. 그리고 programming은 함수를 짜는 것이다. 다시 한번 강조하면, program은 function이다. programming의 철학 H/W 명령으로써의 program.</description>
+    </item>
+    
+    <item>
+      <title>link test</title>
+      <link>http://braindump.frege2godel.me/posts/test_link/</link>
+      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/posts/test_link/</guid>
+      <description>link test 네이버 test</description>
     </item>
     
     <item>
@@ -22,8 +30,7 @@ programming? Programming(프로그래밍을 짠다는 것)은 여러 방법으�
       <pubDate>Sun, 06 Mar 2022 00:00:00 +0900</pubDate>
       
       <guid>http://braindump.frege2godel.me/posts/perceptron/</guid>
-      <description>test
-(1) Perceptron Figure 1: perceptron
+      <description>test (1) Perceptron Figure 1: perceptron
 Perceptron의 구조는 뉴런이란 구조와 비슷하지만, chapter5에서 봤던 sigmoid함수의 구조와 비슷하다. sigmoid함수를 보면, exponential의 인자로 직선의 방정식이 들어가는 합성함수의 구조였다. 마찬가지로 Perceptron도 비슷한 구조로 되어 있다. 직선의 방정식이 a에서 w로 변경되고, 개수가 늘어난 차이만 있다. Perceptron은 Logistic Regression의 확장판으로 보면 된다. (2)가중치, 가중합, 바이어스, 활성화 함수 용어에 대한 정리가 필요하다. 가중치(weight): sigmoid의 입력으로 들어가는 직선의 방정식의 기울기로 보면 된다. bias: sigmoid함수의 입력으로 들어가는 직선의 방정식의 절편으로 보면 된다.</description>
     </item>
     
