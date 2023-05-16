@@ -11,41 +11,22 @@ document.addEventListener('click', (event) => {
 });
 
 window.addEventListener("popstate", function (event) {
-    // alert("popstate event");
     var goalUrl = window.location.href;
-    // const cquery = new URLSearchParams(url);
-    // const dquery = new URLSearchParams(previousUrl);
     var goal_url = new URI(goalUrl);
     var g_searchParams = goal_url.search(true);
     var goalValues = g_searchParams.stackedPages;
     var goalParamsArray = goalValues.split(",");
-    // alert("goal 배열 길이: " + goalParamsArray.length);
-    // for(i=0;i<goalParamsArray.length;i++){
-    // 	alert(goalParamsArray[i]);
-    // }
-
-    // alert("rendered_pages: " + rendered_pages);
-    // alert("rendered_pages 배열 길이: " + rendered_pages.length);
-    // for(i=0;i<rendered_pages.length;i++){
-    // 	alert(rendered_pages[i]);
-    // }
 
     if(rendered_pages.length > goalParamsArray.length){
-	// alert("back 버튼 눌렀을때");
 	s = rendered_pages.pop();
-	// alert(s + "제거");
 	
 	let container = document.querySelector(".container");
 	container.removeChild(container.lastChild);	
-	// children = Array.prototype.slice.call(container.children);
 	
     }else if(rendered_pages.length < goalParamsArray.length){
-	// alert("이전 page가 더 많을때");
 	s = goalParamsArray.pop();
 	fetchPage(s,rendered_pages.length);
     }else{
-	// alert("replace");
-	// rendered_pages.pop();
 	s = goalParamsArray.pop();	
 	let container = document.querySelector(".container");
 	container.removeChild(container.lastChild);		
@@ -53,34 +34,7 @@ window.addEventListener("popstate", function (event) {
     }
     
     updateCollapsedState();
-    
-    // for (var key in c_searchParams) {
-    // 	if (c_searchParams.hasOwnProperty(key)) {
-    // 	    var value = c_searchParams[key];
-    // 	    alert("current Parameter: " + key + ", Value: " + value);
-    // 	}
-    // }
-    // for (var key in h_searchParams) {
-    // 	if (h_searchParams.hasOwnProperty(key)) {
-    // 	    var value = h_searchParams[key];
-    // 	    alert("stack Parameter: " + key + ", Value: " + value);
-    // 	}
-    // }
 
-
-    // if(event.state){
-	// len = event.state.pages.length;
-	// unstackPages(0, len,event.state.pages[0]);
-	// for(i=1;i<len;i++){
-	//     alert(event.state.pages[i]);
-	//     fetch(event.state.pages[i],i-1);
-	// }
-	// uri = URI(event.state.page);
-	
-	// alert("꺼낸 url: " + uri);
-	// window.location = uri;
-	// window.location = window.location; // this reloads the page.	
-    // }
 });
 
 function createURL(href){
@@ -99,17 +53,10 @@ function pushURLHistoryStack(uri){
 function pushPageToHistoryStack(href){
 
     rendered_pages.push(href);
-    // old_pages = rendered_pages.slice(0, column+1);
-    // state = { pages: old_pages, column: column };
-    // window.history.pushState(state, "", href);
     const query = new URLSearchParams(window.location.search);
     v= rendered_pages.slice(0, rendered_pages.length)
-    // alert('rendered_page값: ' +v);
     query.set("stackedPages", v);
     const uri = window.location.origin + window.location.pathname + '?' + query.toString();
-    // uri.setQuery("stackPages", href);
-    // alert("생성한 uri: " + uri);
-    // alert('history: ' + uri);
     state = { page: uri };
     window.history.pushState(state, "", uri);
 }
@@ -158,7 +105,6 @@ function attachCollapsingHeader(){
     }
 }
 
-
 // rendered_pages를 유지하는 이유는 visited link를 위해서임.
 function updateBreadCrumbs() {
     links = Array.prototype.slice.call(document.querySelectorAll("a"));
@@ -180,10 +126,7 @@ function removePages(page_column,last_child,href){
 
     for (let i = 0; i < total_remove_child; i++) {
 	container.removeChild(container.lastChild);
-	// container.lastChild.classList.remove("page");
-	// container.lastChild.classList.add("pagenil");	
     }
-    // rendered_pages = rendered_pages.slice(0, page_column+1);
     rendered_pages.pop();
 
 }
