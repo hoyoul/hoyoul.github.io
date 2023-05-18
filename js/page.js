@@ -27,6 +27,7 @@ window.addEventListener("popstate", function (event) {
 	s = goalParamsArray.pop();
 	fetchPage(s,rendered_pages.length);
     }else{
+	alert("handler 새로고침");
 	s = goalParamsArray.pop();	
 	let container = document.querySelector(".container");
 	container.removeChild(container.lastChild);		
@@ -126,8 +127,9 @@ function removePages(page_column,last_child,href){
 
     for (let i = 0; i < total_remove_child; i++) {
 	container.removeChild(container.lastChild);
+	rendered_pages.pop();	
     }
-    rendered_pages.pop();
+    // rendered_pages.pop();
 
 }
 function sortingPages(){
@@ -230,7 +232,7 @@ window.onload = function () {
     const stackedPages = query.get('stackedPages');
 
     if (stackedPages) {
-	// alert("새로고침");
+	alert("onload 새로고침");
 	restore_url = true;
 
 	// alert('rendered_pages: ' +rendered_pages);
