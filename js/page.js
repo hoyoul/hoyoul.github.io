@@ -1,13 +1,47 @@
 let rendered_pages = [];
 // restore_url = false;
 // collaping header click시 unfold
+// var collapsedTitle = document.querySelector(".permalink");
+// if(collapsedTitle){
+//     alert('permalink: ' +collapsedTitle.innerText);
+// }else{
+//     alert("collapsed title");
+//     collapsedTitle.addEventListener('click', titleClickHandler);
+// }
+// function titleClickHandler(event) {
+//     alert("clickeed");
+//     const title = event.target.innerText;
+//     unfoldHead(title);
+// }
+
 document.addEventListener('click', (event) => {
-    if (event.target.classList.contains('collapsed-title')) {
+    parent = event.target.parentElement;
+    if(event.target.className == 'collapsed-title'){
 	const title = event.target.innerText;
-	unfoldHead(title);
+	unfoldHead(title);	
+	alert("collapsed button click");
     }
-    
+    if(parent.getAttribute("data-singlepage")=='yes')
+    {
+
+	// page = document.querySelector(".page");
+	// page.classList.add("opacity");
+	// page.classList.remove("page");
+	// page.classList.add("newPage");
+	// var firstChild = page.querySelector('.content').firstElementChild;
+	// if (firstChild.tagName === 'A') {
+	//     firstChild.removeAttribute('href');
+	//     firstChild.onclick = function(event) {
+	// 	event.preventDefault();
+	//     };
+	// }	    
+    }	
+    if(event.target.role == 'switch'){
+	alert("switch change");
+    }
 });
+
+
 
 window.addEventListener("popstate", function (event) {
     // alert("popstate handler:  " + event.state.page);
@@ -233,6 +267,7 @@ function renderPage(page,page_column,href){
 	    // replace_flag = true;
 	    rendered_pages.push(href);	    
 	    pushPageToHistoryStack(replace_flag);
+	    updateBreadCrumbs();	    
 	    // checkStackHistory();	    
 	    // alert("현재 rendered_pages: " + rendered_pages);
 	    // alert("완료")	    
@@ -250,6 +285,7 @@ function renderPage(page,page_column,href){
 	    // checkStackHistory();
 	    replace_flag = true; 
 	    pushPageToHistoryStack(replace_flag);
+	    updateBreadCrumbs()
 	    // checkStackHistory();
 	    // alert("현재 rendered_pages: " + rendered_pages);	    
 	    // alert("완료")
@@ -322,7 +358,6 @@ window.onload = function () {
     const stackedPages = query.get('stackedPages');
     var currentState = history.state;
     history.replaceState(currentState, null, null);
-    
     if (stackedPages) {
 	// alert("onload 새로고침-stack");
 	// restore_url = true;
@@ -357,21 +392,22 @@ window.onload = function () {
 	page.dataset.column = 0;
 	rendered_pages.push(window.location.pathname);
 	// alert("rendered_pages" + rendered_pages);	
-	pushPageToHistoryStack(false);
+
 	// checkStackHistory();
 	if(title.innerText == 'Root Page'){
 	    // alert("this is root page");
+	    pushPageToHistoryStack(false);	    
 	    addHandlerLinksFromPage(page,page.dataset.column);
 	}else{
-	    page.classList.remove("page");
+	    // page.classList.remove("page");
 	    page.classList.add("newPage");
-	    var firstChild = page.querySelector('.content').firstElementChild;
-	    if (firstChild.tagName === 'A') {
-		firstChild.removeAttribute('href');
-		firstChild.onclick = function(event) {
-		    event.preventDefault();
-		};
-	    }	    
+	    // var firstChild = page.querySelector('.content').firstElementChild;
+	    // if (firstChild.tagName === 'A') {
+	    // 	firstChild.removeAttribute('href');
+	    // 	firstChild.onclick = function(event) {
+	    // 	    event.preventDefault();
+	    // 	};
+	    // }	    
 	}
     }
 };

@@ -183,28 +183,32 @@ lable span .changed{
     direction: row;
     overflow-x: scroll;
 }
-.newPage{
+.page.newPage{
     width: 100%;
-    align-items: center;
+    /* align-items: center; */
     /* border-left:1px #eacc724f solid; */
     /* box-shadow: 3px 3px 2px 1px #eacc724f; */
-    background-color: #efe;
-    overflow-y: auto;
-    
+    /* background-color: #efe; */
+    /* overflow-y: auto; */
+    transition: none;
 }
-.newPage .collapsed-title {
+.page.newPage .collapsed-title {
     display:none;
 }
 
-.newPage .content{
+.page.newPage .content{
+    width: 80%;
     margin-top: 30px;
     padding-left: 150px;
 }
 
-
-.newPage .bl-section{
+.page.newPage .bl-section{
     margin-top: 30px;
     padding-left: 150px;
+}
+.page.opacity{
+    display:none;
+    opacity: 0;
 }
 
 .page{
@@ -224,8 +228,6 @@ lable span .changed{
     animation-name: fade-in;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
-    
-
 }
 
 @keyframes fade-in {
