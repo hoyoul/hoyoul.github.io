@@ -1,0 +1,200 @@
+/******************************/
+/* org 요소들 */
+/******************************/
+/* .underline { */
+/*   text-decoration: solid underline purple 2px; */
+/* } */
+
+/* code{ */
+/*     font-family: monospace; */
+/*     background: rgba(128, 139, 93, .25); */
+/*     color: rgba(0, 0, 0, 0.75); */
+/*     padding: 1px 3px; */
+/*     font-size: 1.2em; */
+/* } */
+/* #head1{ */
+/*       border: 1px solid #ccc; */
+/*       padding: 10px; */
+/*       border-radius: 5px; */
+/*       margin: 20px; */
+/*       display: inline-block; */
+/*       background-color: #f2f2f2; */
+/* } */
+/* #head2{ */
+    
+/* } */
+/* #head3{ */
+    
+/* } */
+/* #priority-a::before { */
+/*   content: "A"; */
+/*   display: flex; */
+/*   justify-content: center; */
+/*   align-items: center; */
+/*   width: 30px; */
+/*   height: 30px; */
+/*   border-radius: 50%; */
+/*   background-color: #000; */
+/*   color: #fff; */
+/*   font-size: 16px; */
+/*   font-weight: bold; */
+/* } */
+/* .tip ::before{ */
+/*     font-family: "Font Awesome"; */
+/*     content: "\f135"; /\* 원하는 아이콘 코드 *\/     */
+/*     height: 30px; */
+/*     background-color: #1abc9c; */
+/*     color: #fff; */
+/*     font-weight: bold; */
+/*     padding: 6px 12px; */
+/*     margin-bottom: 0px; */
+
+/* } */
+/* .tip ::after{ */
+    
+/* } */
+/* .tip p ::before { */
+/*   content: "TIP"; */
+/* } */
+/* .tip p{ */
+/*     margin-top: 0px; */
+/*     padding:12px; */
+/*     background-color: #dbfaf4; */
+
+/* } */
+
+/* .org-todo.todo.TODO { */
+/*     background-color: #f29f97; */
+/*     padding: 0px 4px; */
+/*     color: #fff; */
+/* } */
+/* .org-todo.todo.REVIEW { */
+/*     background-color: #2d32; */
+/*     padding: 0px 4px; */
+/*     color: #fff; */
+/* } */
+/* .org-todo.todo.BLOCKED { */
+/*     background-color: #f513; */
+/*     padding: 0px 4px; */
+/*     color: #fff; */
+/* } */
+/* .org-todo.todo.DOING { */
+/*     background-color: #6ab0de; */
+/*     padding: 0px 4px; */
+/*     color: #fff; */
+/* } */
+/* .org-todo.done.DONE { */
+/*     background-color: #12b58d; */
+/*     padding: 0px 4px; */
+/*     color: #fff; */
+/* } */
+
+/* .note{ */
+/*   width:50%; */
+/*   margin:20px auto; */
+/*   padding:30px; */
+/*   position:relative; */
+/*   border-radius:5px; */
+/*   box-shadow:0 0 15px 5px #ccc; */
+/* }     */
+
+/* .tip{ */
+/*   width:50%; */
+/*   margin:20px auto; */
+/*   padding:30px; */
+/*   position:relative; */
+/*   border-radius:5px; */
+/*   box-shadow:0 0 15px 5px #ccc; */
+/* }     */
+
+/* @mixin alert($name,$bgColor){ */
+/*  $accentColor:darken($bgColor,50); */
+/*  .#{$name}{ */
+/*     background-color:#{$bgColor}; */
+/*     border-left:5px solid $accentColor; */
+/*    } */
+/* } */
+/* @include alert(note,#ebebeb); */
+/* @include alert(tip,#a8f0c6); */
+
+
+
+/* #priority-a { */
+/*   display: flex; */
+/*   align-items: center; */
+/* } */
+
+/* #priority-a::before { */
+/*   content: "A"; */
+/*   width: 30px; */
+/*   height: 30px; */
+/*   border-radius: 50%; */
+/*   background-color: #12b58d; */
+/*   color: #fff; */
+/*   font-size: 16px; */
+/*   font-weight: bold; */
+/*   text-align: center; */
+/*   line-height: 30px; */
+/*   margin-right: 10px; */
+/* } */
+/* #priority-b { */
+/*   display: flex; */
+/*   align-items: center; */
+/* } */
+
+/* #priority-b::before { */
+/*   content: "B"; */
+/*   width: 30px; */
+/*   height: 30px; */
+/*   border-radius: 50%; */
+/*   background-color: #6ab0de; */
+/*   color: #fff; */
+/*   font-size: 16px; */
+/*   font-weight: bold; */
+/*   text-align: center; */
+/*   line-height: 30px; */
+/*   margin-right: 10px; */
+/* } */
+
+/* #priority-c { */
+/*   display: flex; */
+/*   align-items: center; */
+/* } */
+
+/* #priority-c::before { */
+/*   content: "C"; */
+/*   width: 30px; */
+/*   height: 30px; */
+/*   border-radius: 50%; */
+/*   background-color: #f29f97; */
+/*   color: #fff; */
+/*   font-size: 16px; */
+/*   font-weight: bold; */
+/*   text-align: center; */
+/*   line-height: 30px; */
+/*   margin-right: 10px; */
+/* } */
+
+/* #blue-block{ */
+/*     font-family: "Font Awesome"; */
+/*     content: "\f005"; /\* 원하는 아이콘 코드 *\/ */
+/*     background-color: #5571C0; */
+/*     margin: 0; */
+/* } */
+/* .blueblock p{ */
+/*     margin:0; */
+/*     background-color: #5591C0; */
+/* } */
+/* .greenblock{ */
+/*     background-color: #A5CF5B; */
+/* } */
+/* figure{ */
+/*     text-align: center; */
+/* } */
+/* figure figcaption{ */
+/*     text-align: center; */
+/*     font-style: italic; */
+/*     font-size: 0.8em; */
+/*     margin-top: 3px; */
+/*     margin-bottom: 10px; */
+/* } */

@@ -16,12 +16,31 @@
     </item>
     
     <item>
-      <title>link test</title>
+      <title>link test title</title>
       <link>http://braindump.frege2godel.me/posts/test_link/</link>
       <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
       
       <guid>http://braindump.frege2godel.me/posts/test_link/</guid>
-      <description>link test 네이버 test</description>
+      <description>link test head 네이버 test</description>
+    </item>
+    
+    <item>
+      <title>org mode test</title>
+      <link>http://braindump.frege2godel.me/posts/orgmodetest/</link>
+      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/posts/orgmodetest/</guid>
+      <description>org에서 사용되는 요소들
+text표현 bold(*) Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.
+strikethrough(+) Etiam laoreet quam sed arcu.
+italic(/) Etiam vel neque nec dui dignissim bibendum.
+underline(_) Praesent fermentum tempor tellus.
+verbatim(=) Nulla posuere.
+minus(-) Fusce -sagittis- libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.
+head1 head1 text
+head2 head2 text
+head3 head3 text
+list ordered list list1 list2 list3 unordered list ulist1 ulist2 ulist3 source emacs lisp this is lisp code block python code import numpy as np import matplotlib.</description>
     </item>
     
     <item>
@@ -41,6 +60,18 @@ Perceptron의 구조는 뉴런이란 구조와 비슷하지만, chapter5에서 �
       
       <guid>http://braindump.frege2godel.me/posts/goldmark/</guid>
       <description> </description>
+    </item>
+    
+    <item>
+      <title>denver org file</title>
+      <link>http://braindump.frege2godel.me/posts/denver_org_example/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://braindump.frege2godel.me/posts/denver_org_example/</guid>
+      <description>org를 html로 변환시, css처리를 해줘야 한다. org로 작성한 문서가 md로 변경되고 md에서 html로 변환되기 때문에, 그리고 ox-hugo를 사용하기 때문에 css는 별도 처리를 해줘야 한다.
+This is the example org-mode file used for the Denver Emacs org-mode introduction talk. Everything in this talk should work without any custom settings or installation with a reasonably recent Emacs version.
+Let&amp;rsquo;s start with a headline, this is kind of like Markdown&amp;rsquo;s # character:
+This is an example headline Text can be put into the headline.</description>
     </item>
     
   </channel>

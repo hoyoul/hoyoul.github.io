@@ -1,6 +1,5 @@
 let rendered_pages = [];
-restore_url = false;
-
+// restore_url = false;
 // collaping header click시 unfold
 document.addEventListener('click', (event) => {
     if (event.target.classList.contains('collapsed-title')) {
@@ -11,7 +10,9 @@ document.addEventListener('click', (event) => {
 });
 
 window.addEventListener("popstate", function (event) {
-    var goalUrl = window.location.href;
+    // alert("popstate handler:  " + event.state.page);
+
+    var goalUrl = event.state.page;
     var goal_url = new URI(goalUrl);
     var g_searchParams = goal_url.search(true);
     var goalValues = g_searchParams.stackedPages;
@@ -19,47 +20,56 @@ window.addEventListener("popstate", function (event) {
 
     if(rendered_pages.length > goalParamsArray.length){
 	s = rendered_pages.pop();
-	
 	let container = document.querySelector(".container");
-	container.removeChild(container.lastChild);	
-	
+	container.removeChild(container.lastChild);
     }else if(rendered_pages.length < goalParamsArray.length){
-	s = goalParamsArray.pop();
-	fetchPage(s,rendered_pages.length);
+	goalpage = goalParamsArray.pop();
+	fetchPage(goalpage,rendered_pages.length);
     }else{
-	alert("handler 새로고침");
-	s = goalParamsArray.pop();	
+	// alert("[handler] replace");
+	r=rendered_pages.pop();	
+	goalpage = goalParamsArray.pop();	
 	let container = document.querySelector(".container");
 	container.removeChild(container.lastChild);		
-	fetchPage(s,rendered_pages.length);	
+	fetchPage(goalpage,rendered_pages.length);	
     }
     
     updateCollapsedState();
 
 });
 
-function createURL(href){
-    rendered_pages.push(href);
+// function createURL(href){
+//     rendered_pages.push(href);
+//     const query = new URLSearchParams(window.location.search);
+//     v= rendered_pages.slice(1, rendered_pages.length)
+//     query.set("stackedPages", v);
+//     const uri = window.location.origin + window.location.pathname + '?' + query.toString();
+
+// }
+// function pushURLHistoryStack(uri){
+//     state = { page: uri };
+//     window.history.pushState(state, "", uri);
+// }
+
+function pushPageToHistoryStack(flag){
     const query = new URLSearchParams(window.location.search);
-    v= rendered_pages.slice(1, rendered_pages.length)
-    query.set("stackedPages", v);
-    const uri = window.location.origin + window.location.pathname + '?' + query.toString();
-
-}
-function pushURLHistoryStack(uri){
-    state = { page: uri };
-    window.history.pushState(state, "", uri);
-}
-
-function pushPageToHistoryStack(href){
-
-    rendered_pages.push(href);
-    const query = new URLSearchParams(window.location.search);
+    // alert("query: " + query);
     v= rendered_pages.slice(0, rendered_pages.length)
     query.set("stackedPages", v);
     const uri = window.location.origin + window.location.pathname + '?' + query.toString();
+
     state = { page: uri };
-    window.history.pushState(state, "", uri);
+    if(flag){
+	// alert("[replace stack]: " + uri);	
+	window.history.replaceState(state, "", uri);	
+    }
+    else{
+	// alert("[push stack]: " + uri);		
+	window.history.pushState(state, "", uri);
+    }
+}
+function updateHistoryStack(){
+    
 }
 
 function unfoldHead(title){
@@ -121,16 +131,15 @@ function updateBreadCrumbs() {
     });
 }
 
-function removePages(page_column,last_child,href){
+function removePages(start_column,last_column){
     let container = document.querySelector(".container");
-    total_remove_child = last_child - page_column;
+    delete_pages = last_column - start_column;
 
-    for (let i = 0; i < total_remove_child; i++) {
+    // alert('delete_pages: ' + delete_pages)
+    for (let i = 0; i < delete_pages; i++) {
 	container.removeChild(container.lastChild);
 	rendered_pages.pop();	
     }
-    // rendered_pages.pop();
-
 }
 function sortingPages(){
     // alert("sorting pages");
@@ -149,6 +158,49 @@ function sortingPages(){
         container.appendChild(page);
     });    
 }
+ // data-column값에 맞춰 page를 삽입한다.
+function insertPage(page, href){
+    container = document.querySelector(".container");
+    children_array = Array.prototype.slice.call(container.children);    
+    children = container.querySelectorAll(".page");
+
+    var columnValue = page.dataset.column;
+    var insertIndex = 0;
+    
+    for (var i = 0; i < children_array.length; i++) {
+	var currentColumnValue = parseInt(children[i].getAttribute("data-column"));
+	if (columnValue < currentColumnValue) {
+	    break;
+	}
+	insertIndex++;
+    }
+    
+    if (insertIndex === children_array.length) {
+	container.appendChild(page);
+	rendered_pages.push(href);
+    } else {
+	var nextSibling = children_array[insertIndex];
+	container.insertBefore(page, nextSibling);
+	rendered_pages.splice(insertIndex,0,href);
+    }    
+}
+function checkStackHistory(){
+    var historyLength = history.length;
+    var historyEntries = [];
+
+    for (var i = 0; i < historyLength; i++) {
+	historyEntries.push(history.state);
+	// historyEntries.push(history[i].url);	
+	// history.go(-1); // 이전 항목으로 이동하여 historyEntries에 저장
+    }
+
+    for (var j = historyLength - 1; j >= 0; j--) {
+	// history.go(1); // 다시 원래 위치로 이동
+    }
+
+    // alert("History Stack 개수: " + historyLength + "\n\n" + "History Entries:\n" + JSON.stringify(historyEntries));
+    
+}
 // 모든 page는 0부터 시작, href를 인자로 받는 이유는
 // rendered_pages관리를 위해서, unstack을 renderPage에서 호출하기
 // 때문이다. unstack을 fetch에서 수행하면 UI가 흔들림.
@@ -156,37 +208,75 @@ function renderPage(page,page_column,href){
     container = document.querySelector(".container");
     page_column = Number(page_column);
     new_page_column = page_column + 1;
-    page.dataset.column = new_page_column;            
-    // 새로고침시 처리
-    if(restore_url){
-	// alert("새로고침 render pages");
-	target_column = '[data-column="' + new_page_column +'"]';
-	const targetElement = container.querySelector(target_column);
-	if (targetElement){
-	    // alert("container에 column이 있습니다");
+    page.dataset.column = new_page_column;
+    replace_flag = false;
+    target_column = '[data-column="' + new_page_column +'"]';
+    const targetElement = container.querySelector(target_column);
+    if (targetElement){
+	// alert("새로고침 or 중간 page에서 render page 호출");
+	// alert("붙일  page의 위치(data-column): " + new_page_column);
+	
+	var targetTitle = targetElement.querySelector(".collapsed-title");
+	var targetText = targetTitle.textContent;
+	// alert("이미 있는 targettext: " + targetText);
+
+	var pageTitle = page.querySelector(".collapsed-title");
+	var pageText = pageTitle.textContent;
+	// alert("붙일 pagetext: "+pageText);	
+	
+	if(pageText == targetText){
+	    // alert("똑같습니다. replace가 필요없습니다.");
+	    // alert("새로고침했기 때문에 rendered_page는 []이고 history update,link처리가 안되어 있어서 처리가 필요합니다.");
+
+	    addHandlerLinksFromPage(targetElement,new_page_column);
+	    // checkHistory();
+	    // replace_flag = true;
+	    rendered_pages.push(href);	    
+	    pushPageToHistoryStack(replace_flag);
+	    // checkStackHistory();	    
+	    // alert("현재 rendered_pages: " + rendered_pages);
+	    // alert("완료")	    
 	}
 	else{
-	    // alert("container에 해당 column이 없습니다"+ target_column);
-	    container.appendChild(page);
-	}	
-	sortingPages();
+	    // alert("replace가 필요합니다.");
+	    // alert("이미 있는 page를 삭제합니다.");
+	    children = Array.prototype.slice.call(container.children);	    
+	    removePages(page_column,children.length-1);	    
+	    // alert("새로운 page 붙입니다..");
+	    insertPage(page,href);
+	    // alert("새로운 page를 붙였기 때문에 link처리가 필요합니다.");
+	    addHandlerLinksFromPage(page,new_page_column);	
+	    // alert("rendered_page,history update가 필요합니다.");
+	    // checkStackHistory();
+	    replace_flag = true; 
+	    pushPageToHistoryStack(replace_flag);
+	    // checkStackHistory();
+	    // alert("현재 rendered_pages: " + rendered_pages);	    
+	    // alert("완료")
+	}
+
+	// alert("자식의 수: " + children.length +"rendered Pages: " + rendered_pages);
+	// container.removeChild(targetElement);
+	// rendered_pages.pop();
+	// children = Array.prototype.slice.call(container.children);
+	// alert("삭제후");
+	// alert("자식의 수: " + children.length +"rendered Pages: " + rendered_pages);
+
+	// removePages(page_column,children.length-1);
+	// insertPage(page);	
+	// replace_flag =true;
+	// pushPageToHistoryStack(href,replace_flag);		
+    }else{
+	// alert("정상적인 page 붙이기");
+	insertPage(page,href);
+	pushPageToHistoryStack(replace_flag);
+	// checkStackHistory();
 	updateCollapsedState();
 	addHandlerLinksFromPage(page,new_page_column);	
-    }
-    else{
-	children = Array.prototype.slice.call(container.children);
-	last_child_page = children.length-1;
-	if (page_column < last_child_page){    
-	    removePages(page_column,last_child_page,href);	
-	}
-	container.appendChild(page);	
-	pushPageToHistoryStack(href);
 	updateBreadCrumbs();
-	// page.scrollIntoview({behavior: "smooth"});
-	// attachCollapsingHeader()
-	updateCollapsedState();	
-	addHandlerLinksFromPage(page,new_page_column);
     }
+    
+
 }
 
 function fetchPage(href,page_column){
@@ -230,34 +320,52 @@ function addHandlerLinksFromPage(page,page_column) {
 window.onload = function () {
     const query = new URLSearchParams(window.location.search);
     const stackedPages = query.get('stackedPages');
-
+    var currentState = history.state;
+    history.replaceState(currentState, null, null);
+    
     if (stackedPages) {
-	alert("onload 새로고침");
-	restore_url = true;
-
+	// alert("onload 새로고침-stack");
+	// restore_url = true;
+	// history.replaceState(null, null, location.href);
+	// history.pushState(null, null, location.href);
 	// alert('rendered_pages: ' +rendered_pages);
 	const stacks = stackedPages.split(',');
 	if (!Array.isArray(stacks)) 
 	    stacks = [stacks];
-	// alert(stacks);
+	// alert("onload 붙일 page 개수: " + stacks.length);
 	for (let i = 0; i < stacks.length; i++) {
 	    // alert("복구페이지: " + stacks[i] + '복구 위치: ' + i);
-	    rendered_pages.push(stacks[i]);
+	    // rendered_pages.push(stacks[i]);
 	    if(i ==0){
+		// alert("onload 0번째 page처리");
 		page = document.querySelector(".page");
 		page.dataset.column = 0;
 		fetchPage(stacks[i], -1);		
 	    }else{
+		// alert("onload " + i + " 번째 page 처리 ");
 		fetchPage(stacks[i], i-1);
 	    }
 	}
     }
     else{
-	restore_url = false;
+	// alert("onload 새로고침-normal")
+	// restore_url = false;
 	// rendered_pages.push(window.location.pathname);    
 	page = document.querySelector(".page");
+	title = page.querySelector(".collapsed-title");
+	// alert(title.innerText);
 	page.dataset.column = 0;
-	pushPageToHistoryStack(window.location.pathname);
-	addHandlerLinksFromPage(page,page.dataset.column);
+	rendered_pages.push(window.location.pathname);
+	// alert("rendered_pages" + rendered_pages);	
+	pushPageToHistoryStack(false);
+	// checkStackHistory();
+	if(title.innerText == 'Root Page'){
+	    alert("this is root page");
+	    addHandlerLinksFromPage(page,page.dataset.column);
+	}else{
+	    page.classList.remove("page");
+	    page.classList.add("newPage");
+	}
     }
 };
+
