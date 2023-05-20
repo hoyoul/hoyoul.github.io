@@ -15,6 +15,7 @@ let rendered_pages = [];
 // }
 
 document.addEventListener('click', (event) => {
+    var container = document.querySelector(".container");
     parent = event.target.parentElement;
     if(event.target.className == 'collapsed-title'){
 	const title = event.target.innerText;
@@ -37,7 +38,28 @@ document.addEventListener('click', (event) => {
 	// }	    
     }	
     if(event.target.role == 'switch'){
-	alert("switch change");
+	if(event.target.checked)
+	{
+	    alert("switch on");
+	}
+	else
+	{
+	    alert("switch off");
+	    container.innerHTML = ''; // 기존 컨테이너 내용물 제거
+
+            // D3 관련 차트 그리기
+            // 아래는 D3의 예시 코드이며 원하는 차트로 대체해야 합니다.
+            var svg = d3.select('#container')
+		.append('svg')
+		.attr('width', '100%')
+		.attr('height', '100%');
+            svg.append('rect')
+		.attr('x', 50)
+		.attr('y', 50)
+		.attr('width', 200)
+		.attr('height', 100)
+		.attr('fill', 'steelblue');	    
+	}
     }
 });
 
