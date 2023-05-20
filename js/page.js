@@ -1,4 +1,5 @@
 let rendered_pages = [];
+var savedContent = '';
 // restore_url = false;
 // collaping header click시 unfold
 // var collapsedTitle = document.querySelector(".permalink");
@@ -38,32 +39,246 @@ document.addEventListener('click', (event) => {
 	// }	    
     }	
     if(event.target.role == 'switch'){
-	if(event.target.checked)
+
+	if(!event.target.checked)
 	{
-	    alert("switch on");
+	    alert("switch off");
+	    container.innerHTML = savedContent;
 	}
 	else
 	{
-	    alert("switch off");
+	    savedContent=container.innerHTML;
+	    alert("switch on");
 	    container.innerHTML = ''; // 기존 컨테이너 내용물 제거
 
-            // D3 관련 차트 그리기
-            // 아래는 D3의 예시 코드이며 원하는 차트로 대체해야 합니다.
-            var svg = d3.select('#container')
-		.append('svg')
-		.attr('width', '100%')
-		.attr('height', '100%');
-            svg.append('rect')
-		.attr('x', 50)
-		.attr('y', 50)
-		.attr('width', 200)
-		.attr('height', 100)
-		.attr('fill', 'steelblue');	    
+	    drawRect();
+	    // drawVisual();
 	}
     }
 });
 
+function drawRect()
+{
 
+    var svg = d3.select('.container')
+	.append('svg')
+	.attr('width', '100%')
+	.attr('height', '100%');
+    svg.append('rect')
+	.attr('x', 50)
+	.attr('y', 50)
+	.attr('width', 200)
+	.attr('height', 100)
+	.attr('fill', 'steelblue');
+}
+function drawVisual()
+{
+    //document.getElementById('myMSG').innerHTML = "last name"+localStorage.lastname;
+    /*var getArr = [];
+    getArr = JSON.parse(localStorage.getItem('storeArray'));
+    document.getElementById('myMSG').innerHTML = getArr[1].parentURL;*/
+
+
+    var w = 1024, h = 768;
+
+    // var w=window.innerWidth
+    // || document.documentElement.clientWidth
+    // || document.body.clientWidth;
+
+    // var h=window.innerHeight
+    // || document.documentElement.clientHeight
+    // || document.body.clientHeight;
+    //var w = 1024, h = 768;
+
+    //var vis = d3.select("#tab_5_contents").append("svg:svg").attr("width", w).attr("height", h);
+    var vis = d3.select(".container").append("svg:svg").attr("width", w).attr("height", h);
+
+            var QueuedORG = [];
+            //QueuedORG = JSON.parse(localStorage.getItem('storeArray'));
+            QueuedORG.push({url: "Root", parentURL: "Root", used:0});
+            QueuedORG.push({url: "a", parentURL: "Root", used:0});
+            QueuedORG.push({url: "b", parentURL: "Root", used:0});
+            QueuedORG.push({url: "c", parentURL: "Root", used:0});
+            QueuedORG.push({url: "d", parentURL: "Root", used:0});
+            QueuedORG.push({url: "e", parentURL: "a", used:0});
+            QueuedORG.push({url: "f", parentURL: "a", used:0});
+            QueuedORG.push({url: "g", parentURL: "a", used:0});
+            QueuedORG.push({url: "h", parentURL: "a", used:0});
+            QueuedORG.push({url: "p", parentURL: "b", used:0});
+            QueuedORG.push({url: "q", parentURL: "b", used:0});
+            QueuedORG.push({url: "r", parentURL: "b", used:0});
+            QueuedORG.push({url: "x", parentURL: "c", used:0});
+            QueuedORG.push({url: "y", parentURL: "x", used:0});
+            QueuedORG.push({url: "y", parentURL: "c", used:0});
+            QueuedORG.push({url: "x", parentURL: "a"});
+            QueuedORG.push({url: "y", parentURL: "b"});
+
+
+            var nodes = [];
+
+            var labelAnchors = [];
+            var labelAnchorLinks = [];
+            var links = [];
+
+            for(var i = 0; i < QueuedORG.length; i++) 
+            {
+                var nodeExists = 0;
+
+                //check to see if a node for the current url has already been created. If yes, do not create a new node
+                for(var j = 0; j < nodes.length; j++)  
+                {
+                    if(QueuedORG[i].url == nodes[j].label)
+                        nodeExists = 1;
+
+                }
+
+                if (nodeExists == 0)
+                {
+                    var urlLabel = QueuedORG[i].url;
+                    //remove 'http://' part
+                    /*urlLabel = urlLabel.split("http://")[1];
+                    if(urlLabel.match("www"))
+                    urlLabel = urlLabel.split("www.")[1];
+                    var rest = urlLabel.split("\.")[1];
+                    urlLabel = urlLabel.split("\.")[0];*/
+
+                    var node = {
+                        label : QueuedORG[i].url,
+                        category : QueuedORG[i].category
+                    };
+                    nodes.push(node);
+                    labelAnchors.push({
+                        node : node
+                    });
+                    labelAnchors.push({
+                        node : node
+                    });
+                }
+            };
+
+            for(var i=0;i<nodes.length; i++)
+            {
+                console.log("node i:"+i+nodes[i]+"\n");
+                console.log("labelAnchor i:"+i+labelAnchors[i]+"\n");
+            }
+
+            //To create links for connecting nodes
+            for(var i = 0; i < QueuedORG.length; i++) 
+            {
+                var srcIndx = 0, tgtIndx = 0;
+                for(var j = 0; j < nodes.length; j++)
+                {
+                    if( QueuedORG[i].url == nodes[j].label ) //to find the node number for the current url
+                    {
+                        srcIndx = j;
+                    }
+
+                    if( QueuedORG[i].parentURL == nodes[j].label ) //to find the node number for the parent url
+                    {
+                        tgtIndx = j;
+                    }
+                }
+                //console.log("src:"+srcIndx+" tgt:"+tgtIndx);
+
+                //connecting the current url's node to the parent url's node
+                links.push({
+                    source : srcIndx,
+                    target : tgtIndx,
+                    weight : 1,
+                });
+
+                labelAnchorLinks.push({
+                    source : srcIndx * 2,
+                    target : srcIndx * 2 + 1,
+                    weight : 1
+                });
+            };
+
+            var force = d3.layout.force().size([w, h]).nodes(nodes).links(links).gravity(1).charge(-10000).linkStrength(function(x) {
+                return x.weight * 10                                            // charge is for inter-node repel, link distance is node-node distance 
+            });
+            force.linkDistance(function(d) {
+                return d.weight * 100;
+            });
+
+            force.start();
+
+            var force2 = d3.layout.force().nodes(labelAnchors).links(labelAnchorLinks).gravity(0).linkStrength(10).charge(-500).size([w, h]);   //charge is for inter-label repel, link distance is node-label distance
+            force2.linkDistance(function(d) {
+                return d.weight * 10;
+            });
+
+            force2.start();
+
+            var link = vis.selectAll("line.link").data(links).enter().append("svg:line").attr("class", "link").style("stroke", "#CCC");
+
+            var colors = {"1": "black", "2": "blue", "3": "red"};           // 1=root node 2=blog nodes 3=.org nodes
+            var shape = {"1": "diamond", "2": "cross", "3": "circle"};
+
+            var node = vis.selectAll("g.node").data(force.nodes()).enter().append("path").attr("class", "node").call(force.drag);
+        //node.append("circle").attr("r", 5).style("stroke", "#FFF").style("stroke-width", 3).attr("class", function(d) {return "node category"+d.category});
+
+            node.attr("d", d3.svg.symbol().type(function(d) {return shape[d.category];})).style("stroke", "#FFF").style("fill", function(d){ return colors[d.category];});
+
+            var anchorLink = vis.selectAll("line.anchorLink").data(labelAnchorLinks)//.enter().append("svg:line").attr("class", "anchorLink").style("stroke", "#999");
+
+            var anchorNode = vis.selectAll("g.anchorNode").data(force2.nodes()).enter().append("svg:g").attr("class", "anchorNode");
+            anchorNode.append("svg:circle").attr("r", 0).style("fill", "#FFF");
+            anchorNode.append("svg:text").text(function(d, i) {
+                return i % 2 == 0 ? "" : d.node.label
+            }).style("fill", "#555").style("font-family", "Arial").style("font-size", 12);
+
+            var updateLink = function() {
+                this.attr("x1", function(d) {
+                    return d.source.x;
+                }).attr("y1", function(d) {
+                    return d.source.y;
+                }).attr("x2", function(d) {
+                    return d.target.x;
+                }).attr("y2", function(d) {
+                    return d.target.y;
+                });
+            }
+
+            var updateNode = function() {
+                this.attr("transform", function(d) {
+                    return "translate(" + d.x + "," + d.y + ")";
+                });
+
+            }
+
+            force.on("tick", function() {
+
+                force2.start();
+
+                node.call(updateNode);
+
+                anchorNode.each(function(d, i) {
+                    if(i % 2 == 0) {
+                        d.x = d.node.x;
+                        d.y = d.node.y;
+                    } else {
+                        var b = this.childNodes[1].getBBox();
+
+                        var diffX = d.x - d.node.x;
+                        var diffY = d.y - d.node.y;
+
+                        var dist = Math.sqrt(diffX * diffX + diffY * diffY);
+
+                        var shiftX = b.width * (diffX - dist) / (dist * 2);
+                        shiftX = Math.max(-b.width, Math.min(0, shiftX));
+                        var shiftY = 5;
+                        this.childNodes[1].setAttribute("transform", "translate(" + shiftX + "," + shiftY + ")");
+                    }
+                });
+
+                anchorNode.call(updateNode);
+
+        link.call(updateLink);
+        anchorLink.call(updateLink);
+
+    });
+}
 
 window.addEventListener("popstate", function (event) {
     // alert("popstate handler:  " + event.state.page);
