@@ -184,13 +184,29 @@ lable span .changed{
     overflow-x: scroll;
 }
 .newPage{
-    width: 100%
+    width: 100%;
+    align-items: center;
     /* border-left:1px #eacc724f solid; */
     /* box-shadow: 3px 3px 2px 1px #eacc724f; */
-    background-color: #eee;
+    background-color: #efe;
     overflow-y: auto;
     
 }
+.newPage .collapsed-title {
+    display:none;
+}
+
+.newPage .content{
+    margin-top: 30px;
+    padding-left: 150px;
+}
+
+
+.newPage .bl-section{
+    margin-top: 30px;
+    padding-left: 150px;
+}
+
 .page{
     position:sticky;
     width: 620px;

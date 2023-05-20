@@ -360,11 +360,18 @@ window.onload = function () {
 	pushPageToHistoryStack(false);
 	// checkStackHistory();
 	if(title.innerText == 'Root Page'){
-	    alert("this is root page");
+	    // alert("this is root page");
 	    addHandlerLinksFromPage(page,page.dataset.column);
 	}else{
 	    page.classList.remove("page");
 	    page.classList.add("newPage");
+	    var firstChild = page.querySelector('.content').firstElementChild;
+	    if (firstChild.tagName === 'A') {
+		firstChild.removeAttribute('href');
+		firstChild.onclick = function(event) {
+		    event.preventDefault();
+		};
+	    }	    
 	}
     }
 };
