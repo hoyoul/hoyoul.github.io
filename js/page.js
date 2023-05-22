@@ -23,21 +23,11 @@ document.addEventListener('click', (event) => {
 	unfoldHead(title);	
 	alert("collapsed button click");
     }
+    // single page mode
     if(parent.getAttribute("data-singlepage")=='yes')
     {
-
-	// page = document.querySelector(".page");
-	// page.classList.add("opacity");
-	// page.classList.remove("page");
-	// page.classList.add("newPage");
-	// var firstChild = page.querySelector('.content').firstElementChild;
-	// if (firstChild.tagName === 'A') {
-	//     firstChild.removeAttribute('href');
-	//     firstChild.onclick = function(event) {
-	// 	event.preventDefault();
-	//     };
-	// }	    
-    }	
+    }
+    // d3 mode
     if(event.target.role == 'switch'){
 
 	if(!event.target.checked)
