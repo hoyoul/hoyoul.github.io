@@ -21,7 +21,7 @@ document.addEventListener('click', (event) => {
     if(event.target.className == 'collapsed-title'){
 	const title = event.target.innerText;
 	unfoldHead(title);	
-	alert("collapsed button click");
+	// alert("collapsed button click");
     }
     // single page mode
     if(parent.getAttribute("data-singlepage")=='yes')
@@ -32,13 +32,16 @@ document.addEventListener('click', (event) => {
 
 	if(!event.target.checked)
 	{
-	    alert("switch off");
+	    // alert("switch off");
 	    container.innerHTML = savedContent;
 	}
 	else
 	{
 	    savedContent=container.innerHTML;
-	    alert("switch on");
+	    // alert("switch on");
+	    header = document.getElementByTag("header");
+	    swithcheader = header.getElementByTag("span");
+	    alert(swithcheader);
 	    container.innerHTML = ''; // 기존 컨테이너 내용물 제거
 
 	    drawRect();
