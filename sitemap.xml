@@ -2,48 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://braindump.frege2godel.me/search/</loc>
+    <lastmod>2023-05-24T23:48:45+09:00</lastmod>
+  </url><url>
     <loc>http://braindump.frege2godel.me/</loc>
     <lastmod>2023-05-03T03:58:02+09:00</lastmod>
   </url><url>
     <loc>http://braindump.frege2godel.me/posts/howtoprogram/</loc>
     <lastmod>2023-04-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://braindump.frege2godel.me/postss/howtoprogram/</loc>
-    <lastmod>2023-04-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://braindump.frege2godel.me/posts/test_link/</loc>
-    <lastmod>2023-04-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://braindump.frege2godel.me/postss/test_link/</loc>
     <lastmod>2023-04-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://braindump.frege2godel.me/posts/orgmodetest/</loc>
     <lastmod>2023-04-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://braindump.frege2godel.me/postss/orgmodetest/</loc>
-    <lastmod>2023-04-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://braindump.frege2godel.me/posts/</loc>
-    <lastmod>2023-04-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://braindump.frege2godel.me/postss/</loc>
     <lastmod>2023-04-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://braindump.frege2godel.me/posts/perceptron/</loc>
     <lastmod>2022-03-06T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>http://braindump.frege2godel.me/postss/perceptron/</loc>
-    <lastmod>2022-03-06T00:00:00+09:00</lastmod>
-  </url><url>
     <loc>http://braindump.frege2godel.me/posts/goldmark/</loc>
-  </url><url>
-    <loc>http://braindump.frege2godel.me/postss/goldmark/</loc>
   </url><url>
     <loc>http://braindump.frege2godel.me/categories/</loc>
   </url><url>
     <loc>http://braindump.frege2godel.me/posts/denver_org_example/</loc>
-  </url><url>
-    <loc>http://braindump.frege2godel.me/postss/denver_org_example/</loc>
   </url><url>
     <loc>http://braindump.frege2godel.me/tags/</loc>
   </url>

@@ -23,25 +23,41 @@ document.addEventListener('click', (event) => {
 	unfoldHead(title);	
 	// alert("collapsed button click");
     }
-    // single page mode
+    // execute search when search button click
+    if(event.target.value == 'search'){
+	var query = document.getElementById('search-input');
+	var queryValue = query.value.trim(); // 검색어 입력값 가져오기	
+	if(queryValue !==""){
+	    // alert("contents exists");
+	    container.innerHTML = ''; // 기존 컨테이너 내용물 제거	    
+	    searchQuery(queryValue);
+	}else{
+	    // alert("no contents");
+	}
+    }
+
+    
+    // single page mode when clicking page title
     if(parent.getAttribute("data-singlepage")=='yes')
     {
     }
-    // d3 mode
+    // d3 mode when clicking d3 switch
     if(event.target.role == 'switch'){
 
 	if(!event.target.checked)
 	{
+	    header = document.getElementsByTagName("header");
+	    swithcheader = header.item(0).getElementsByTagName("span");
+	    swithcheader.item(3).innerText = "d3 off"	    
 	    // alert("switch off");
 	    container.innerHTML = savedContent;
 	}
 	else
 	{
-	    savedContent=container.innerHTML;
-	    // alert("switch on");
-	    header = document.getElementByTag("header");
-	    swithcheader = header.getElementByTag("span");
-	    alert(swithcheader);
+	    header = document.getElementsByTagName("header");
+	    swithcheader = header.item(0).getElementsByTagName("span");
+	    swithcheader.item(3).innerText = "d3 on"
+	    savedContent=container.innerHTML;	    
 	    container.innerHTML = ''; // 기존 컨테이너 내용물 제거
 
 	    drawRect();
@@ -618,7 +634,7 @@ window.onload = function () {
 	// rendered_pages.push(window.location.pathname);    
 	page = document.querySelector(".page");
 	title = page.querySelector(".collapsed-title");
-	// alert(title.innerText);
+	// alert("title: " + title.innerText);
 	page.dataset.column = 0;
 	rendered_pages.push(window.location.pathname);
 	// alert("rendered_pages" + rendered_pages);	

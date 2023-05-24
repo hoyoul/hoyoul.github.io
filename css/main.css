@@ -122,6 +122,7 @@ header >label span{
     font-size: 1em;
     color:gray;
     border-bottom-style: dotted;
+
 }
 header > lable span .changed{
     color: green;
@@ -201,6 +202,10 @@ header form label{
     display: flex;
     direction: row;
     overflow-x: scroll;
+}
+/* search page */
+.page.wide{
+    width: 100%;
 }
 .page.newPage{
     width: 100%;
