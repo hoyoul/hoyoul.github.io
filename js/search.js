@@ -15,11 +15,6 @@ function displayResults(results, store) {
   }
 }
 
-function trimmerEnKo(token){
-    return token
-	.replace(/^[^\w가-힣]+/, '')
-	.replace(/[^\w가-힣]+$/, '');
-};
 // Get the query parameter(s)
 const params = new URLSearchParams(window.location.search);
 const query = params.get("query");
@@ -28,27 +23,8 @@ const query = params.get("query");
 if (query) {
   // Retain the search input in the form when displaying results
     document.getElementById("search-input").setAttribute("value", query);
-
-    // // Korean tokenizer
-    // var koTokenizer = function (obj) {
-    // 	if (!arguments.length || obj === null || obj === undefined)
-    // 	    return [];
-    // 	if (Array.isArray(obj))
-    // 	    return obj.map(function (t) { return t.toLowerCase(); });
-    // 	return obj.toString().trim().toLowerCase().split(/[\s\-]+/);
-    // };
-
-    // // Korean stemmer
-    // var koStemmer = function (token) {
-    // 	return token.update(function () {
-    // 	    this.pipeline.reset();
-    // 	    this.pipeline.add(lunr.trimmer, lunr.stopWordFilter, lunr.stemmer);
-    // 	});
-    // };    
-
-    
     var idx = lunr(function () {
-	
+	this.use(lunr.ko);
 	this.ref("id");
 	this.field("title", {
 	    boost: 15,
