@@ -329,3 +329,28 @@ header form label{
     padding:32px;
 }
 
+.container.d3{
+    background-color: #242730;
+}
+/* d3 graph */
+.node {
+    fill: #ff665c;
+    stroke: #fff;
+    stroke-width: 2px;
+}
+.node.active {
+    fill: purple;
+}
+.node.notselected{
+    fill: #333;
+}
+.link {
+    stroke: #999;
+    stroke-opacity: 0.6;
+}
+.label {
+    font-size: 12px;
+    fill: white;
+    pointer-events: none;
+    display: none;
+}

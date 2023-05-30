@@ -18,7 +18,7 @@
 </head>
   <body><header>
   <a href="/" id="logo">
-    <img src="http://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <img src="https://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
     <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
   </a>
   <small>G.frege를 너무 사랑하는 holy가...</small>
@@ -26,9 +26,10 @@
     <label>
       <input role="switch" type="checkbox" id="switch"/>
       <span>d3 off  [test]</span>
-    </label><form id="search" method="get">
+    </label><form id="search"
+	  action='https://braindump.frege2godel.me/search/' method="get">  
   <input type="text" id="search-input" name="query"
-	 placeholder="미완성">
+	 placeholder="미완성" autocomplete="on">
   <input type="submit" value="search">
 </form>
 
@@ -39,7 +40,7 @@
   <div class="page">
     <h1 class="collapsed-title">denver org file</h1>    
       <div class="content">
-	<a href="http://braindump.frege2godel.me/postss/denver_org_example/" alt="denver org file" class="permalink" data-singlepage="yes" ><h1>denver org file</h1></a>      
+	<a href="https://braindump.frege2godel.me/postss/denver_org_example/" alt="denver org file" class="permalink" data-singlepage="yes" ><h1>denver org file</h1></a>      
 	<p>org를 html로 변환시, css처리를 해줘야 한다. org로 작성한 문서가 md로
 변경되고 md에서 html로 변환되기 때문에, 그리고 ox-hugo를 사용하기
 때문에 css는 별도 처리를 해줘야 한다.</p>
@@ -292,59 +293,5 @@ more detail at a later time:</p>
 <script src="/js/page.js" type="text/javascript"></script>
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
-<script>
-window.store = {
-      
-    "http:\/\/braindump.frege2godel.me\/posts\/howtoprogram\/": {
-        "title": "how to program",
-        "tags": [],
-        "content": "골드마크 참조 programming? Programming(프로그래밍을 짠다는 것)은 여러 방법으로 설명할 수 있다. 여기선, 내가 이해하는 practical한 의미에서의 programming을 말할려고 한다. 나에게 있어 program은 함수다. 함수는 무엇인가? 함수는 2가지의 철학을 가지고 있다. 첫번째,함수라는 것은, 명령어라는 turing기반의 철학과, 두번째, 함수라는 것은, 5w1h같은 question에 대한 답을 만드는 proof기반(turing과 괴델)의 철학이다. 어떤 철학을 가지고 있던, 내가 이해하는 practical한 의미로 program은 function이다. 그리고 programming은 함수를 짜는 것이다. 다시 한번 강조하면, program은 function이다. programming의 철학 H/W 명령으로써의 program. program(function)과 관련한 2가지의 철학, 명령으로써의 function과, 질문으로써의 function에 대해 말하고자 한다. 사람은 program(function)을 만든다. 그리고 만든 program(function)은 computer가 실행한다. computer는 H/W로 만들어져 있다. cpu와 메모리 그리고 여러 I/O장치로 이루어져 있다. computer가 가진 H/W를 이용하는 명령의 철학으로 program을 이해할수 있다. 예를 들어,화면에 출력해라. 디스크에서 데이터를 읽어라. wifi로 인터넷을 통해 data를 전달해라. 이렇게 hw를 이용하는게 program이라고 생각하는 것이다. 두 숫자의 합을 구해라. 이 같은 문제도 H/W를 사용한다는 철학에서는 메모리에서 가져온 데이터를 cpu에서 더한 후 메모리에 써라와 같이 일련의 hw명령어들의 순차적 수행으로 생각할 수 있다. 컴퓨터에게 hw적인 명령을 지시하는것을 나열한게 program이다. program을 만들고 컴퓨터에게 주면, 컴퓨터는 hw를 사용할 뿐이다. 질문으로써의 program. H/W를 조작하는 명령으로써의 program이 아닌, 질문으로써의 program은 다르다. H/W적인 명령이 아닌, 수학과 논리학적인 질문과 답을 program으로 작성하고 computer에게 던져주면 computer가 그것에 대한 응답을 할 뿐이다. 예를 들어서 두수의 합을 구하는 program을 보자. sum(3,4) defun sum(X,Y) (+ X Y) 명령어로써의 위 프로그램을 이해할 수도 있다. 3과 4를 더해라는 명령이고, 그값을 더하기 위해서 cpu의 +기능을 사용해서 2개의 수를 더하라라는 명령의 형태로 이해한다. 하지만, 질문으로써 프로그램은 동일한 프로그램도 다르게 해석한다. sum(3,4)는 y = sum(3,4)의 형태의 질문으로 이해한다. 즉, 3과 4를 더하면 어떤값인가? 즉 y값은 무엇인가? 란 질문이다. 그리고 그것에 대한 답도 만든다. 답을 만들때는 변수를 사용해서 일반화를 한다. 비슷한 어떤 질문도 해결할수 있는 답을 만든다. 이것은 proof와 같다. 여튼 H/W명령으로써의 program이라고 이해하지 않는다. 그리고 답안 작성 방법도 다르다. H/W 명령으로 답안 작성은 여러 명령을 순차적으로 나열한다. 그런데 질문과 이 질문의 답으로써의 program은 다르다. 질문과 질문의 답으로써의 program은 어떤 질문에도 그 답을 말할 수 있는 일반화를 해야 한다. 그래서 변수를 사용한 일반화를 한다. 또한 proof와 마찬가지로 그 답이 참임을 증명해야 한다. 이것은 program이라는것이 레고의 기초 블럭들로 만들어진 구조물이고, 각각의 구조물을 분해하면 기초블럭들로 만들어졌음을 보여줘야 한다. 그래야 이 program은 옳은, 문제가 없는 program으로 판단할 수 있기 때문이다. axiom에 기반한 program이기 때문이다. 그래서 recursion방식을 많이 사용한다. recursion으로 만들어진 복잡한 구조물(무한도 포함)도 궁극엔 기초블럭으로 이루어졌다는 것을 보여주기 쉽기 때문이다. ", 
-        "url": "http:\/\/braindump.frege2godel.me\/posts\/howtoprogram\/"
-    },
-       
-    "http:\/\/braindump.frege2godel.me\/posts\/test_link\/": {
-        "title": "link test title",
-        "tags": [],
-        "content": "link test head 네이버 test\n", 
-        "url": "http:\/\/braindump.frege2godel.me\/posts\/test_link\/"
-    },
-       
-    "http:\/\/braindump.frege2godel.me\/posts\/orgmodetest\/": {
-        "title": "org mode test",
-        "tags": [],
-        "content": "org에서 사용되는 요소들\ntext표현 bold(*) Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.\nstrikethrough(+) Etiam laoreet quam sed arcu.\nitalic(/) Etiam vel neque nec dui dignissim bibendum.\nunderline(_) Praesent fermentum tempor tellus.\nverbatim(=) Nulla posuere.\nminus(-) Fusce -sagittis- libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.\nhead1 head1 text\nhead2 head2 text\nhead3 head3 text\nlist ordered list list1 list2 list3 unordered list ulist1 ulist2 ulist3 source emacs lisp this is lisp code block python code import numpy as np import matplotlib.pyplot as plt random_points = np.random.randint(0, 10, (100, 2)) plt.scatter(random_points[:, 0], random_points[:, 1]) plt.savefig(f) return f image Figure 1: this is image caption\n나머지들 this is tip\nthis is test\nthis is right\nthis is note\nthis is quote\nthis is verse\nthis is center\nthis is caution\nthis is example this is warning\nthis is attention\nthis is important\nTODO this is todo\u0026lt;2023-05-19 Fri\u0026gt; DOING this is doing \u0026lt;2023-05-18 Thu\u0026gt;\nREVIEW this is review BLOCKED this is blocked DONE this is done tables Name Phone Age Peter 1234 17 Anna 4321 25 tags tagtest priority A priority B priority C checkbox TODO Organize party [2/4] [-] call people [1/3] Peter Sarah Sam order food think about what music to play talk to the neighbors source code \u0026lt;!doctype html\u0026gt; \u0026lt;html lang=\u0026#34;en\u0026#34;\u0026gt; \u0026lt;head\u0026gt; \u0026lt;meta charset=\u0026#34;UTF-8\u0026#34;/\u0026gt; \u0026lt;title\u0026gt;Document\u0026lt;/title\u0026gt; \u0026lt;/head\u0026gt; \u0026lt;body\u0026gt;\u0026lt;/body\u0026gt; \u0026lt;/html\u0026gt; fieldset document summary date: author: content: blue block Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere. Donec vitae dolor. Nullam tristique diam non turpis. Cras placerat accumsan nulla. Nullam rutrum. Nam vestibulum accumsan nisl.\ngreen block IMPORTANT\n", 
-        "url": "http:\/\/braindump.frege2godel.me\/posts\/orgmodetest\/"
-    },
-       
-    "http:\/\/braindump.frege2godel.me\/posts\/perceptron\/": {
-        "title": "[모두의딥러닝] chapter6 퍼셉트론",
-        "tags": [],
-        "content": "test (1) Perceptron Figure 1: perceptron\nPerceptron의 구조는 뉴런이란 구조와 비슷하지만, chapter5에서 봤던 sigmoid함수의 구조와 비슷하다. sigmoid함수를 보면, exponential의 인자로 직선의 방정식이 들어가는 합성함수의 구조였다. 마찬가지로 Perceptron도 비슷한 구조로 되어 있다. 직선의 방정식이 a에서 w로 변경되고, 개수가 늘어난 차이만 있다. Perceptron은 Logistic Regression의 확장판으로 보면 된다. (2)가중치, 가중합, 바이어스, 활성화 함수 용어에 대한 정리가 필요하다. 가중치(weight): sigmoid의 입력으로 들어가는 직선의 방정식의 기울기로 보면 된다. bias: sigmoid함수의 입력으로 들어가는 직선의 방정식의 절편으로 보면 된다. 가중합(weight sum): 가중치합을 통해서, 직선의 방정식이 만들어진다. 활성화 함수(activate function): Logical Regression을 보면 sigmoid함수는 직선의 방정식의 scala값이 입력으로 들어가서 0~1사이의 값을 출력한다. sigmoid를 다른 함수로도 변경이 가능하다. (3) XOR문제 Linear Regression이나 Logistic Regression은 모두 선긋기 문제다.\nPerceptron은 Logistic Regression의 확장판이라서 선을 긋는다.\n이런 Perceptron이 해결할 수 없는 문제가 있다.\n위 표를 그래프로 나타내면 다음과 같다.\nXOR을 분류하는 선을 그을수가 없다. (Multi-Layer Perceptron이 해결)\n", 
-        "url": "http:\/\/braindump.frege2godel.me\/posts\/perceptron\/"
-    },
-       
-    "http:\/\/braindump.frege2godel.me\/posts\/goldmark\/": {
-        "title": "[web] hugo로 blog만들기 - goldmark md parser",
-        "tags": [],
-        "content": " ", 
-        "url": "http:\/\/braindump.frege2godel.me\/posts\/goldmark\/"
-    },
-       
-    "http:\/\/braindump.frege2godel.me\/posts\/denver_org_example\/": {
-        "title": "denver org file",
-        "tags": [],
-        "content": "org를 html로 변환시, css처리를 해줘야 한다. org로 작성한 문서가 md로 변경되고 md에서 html로 변환되기 때문에, 그리고 ox-hugo를 사용하기 때문에 css는 별도 처리를 해줘야 한다.\nThis is the example org-mode file used for the Denver Emacs org-mode introduction talk. Everything in this talk should work without any custom settings or installation with a reasonably recent Emacs version.\nLet\u0026rsquo;s start with a headline, this is kind of like Markdown\u0026rsquo;s # character:\nThis is an example headline Text can be put into the headline. You can create another headline at the same level with another * character\nAnother headline Nesting headlines is as easy as adding another start\nNested headline Another nested headline Deeper Another headline Deeper\u0026hellip;\nDeeper\u0026hellip;.. Basic markup You can really go as deep as you want. This is the general building block for org-mode navigation.\nNext, let\u0026rsquo;s talk about some markup\nunderscores let you underline things stars add emphasis slashes are italics pluses are strikethrough equal signs are verbatim text tildes can also be used You can generate lists with the - character (seen above), or create numbered ones:\nNumber one thing Number two thing Number three Showing and hiding headlines You can hide the contents of a headline by putting the point (cursor) or it and hitting TAB.\nYou can also toggle hiding and showing of all headlines with SHIFT-TAB.\nTables Auto expanding tables are one of the coolest features of org-mode, because tables in Markdown just plain suck. In order to create a new table, you can start typing it manually, or press C-c |, which will prompt for the table\u0026rsquo;s dimensions.\nFirst Name Last Name Years using Emacs Lee Hinman 5 Mike Hunsinger 2 Daniel Glauser 4 Really-long-first-name-guy long-last-name-pers 1 Org-mode links :PROPERTIES:\u0026hellip;\nIn an org-mode file, you can press C-c l to store a pointer to wherever you are in the file. Then, with (or without) text highlighted hit C-C C-l to make it into a link. The example file for Magit If you don\u0026rsquo;t want to store a pointer (ie, link to a website or something), you can just hit C-c C-l and type or paste the link. To manually create a link, do something like:\nThe Denver Emacs Meetup Group\nWritequit site\nGoogle\u0026rsquo;s web site\n(ignore the *_SRC blocks for now, we\u0026rsquo;ll get there)\n[[http://google.com/][Google]] You can link to files, images, websites, emails, irc, and all kinds of things.\nVarious things you can add in headers One of the most common uses for org-mode is a sort of \u0026ldquo;task list\u0026rdquo; or TODO list. Org-mode supports this by allowing markers in the headline for the state of a task. Let\u0026rsquo;s look at an example:\nTODO This is a task that needs doing TODO Another todo task sub task one sub task two sub task three Learn about org-mode TODO learn todos TODO learn other stuff You can toggle each task in a list with the C-c C-c keyboard shortcut.\nDONE I\u0026rsquo;ve already finished this one You can change the status of a task by hitting C-c t in the body of a task anywhere, which will prompt for the state to put it in.\nYou can create as many of these as you\u0026rsquo;d like, for example (from my own config, use what works best for you, configuring them is a little out of scope right here) here\u0026rsquo;s what I use:\nTODO something that needs doing DONE something that\u0026rsquo;s already done INPROGRESS something I\u0026rsquo;m currently doing WAITING waiting for someone else before doing anything NEEDSREVIEW there\u0026rsquo;s a PR for this, it needs someone to look at it HOLD this is in permanent hold until further notice CANCELLED I don\u0026rsquo;t need this any more SOMEDAY I\u0026rsquo;d like to do this someday in the waaaaay off future A lot of people just use \u0026ldquo;TODO\u0026rdquo; and \u0026ldquo;DONE\u0026rdquo; though.\nAdding tags and priorities You can add tags by putting them surrounded in \u0026ldquo;:\u0026rdquo; in the headline. Additionally, priorities\nHeadline with a tag org Another tagged headline turingdenver Headline with multiple tags orgemacs Tags are just another way of organizing things.\nImportant task Medium task Non-important task Again you can configure these, or just use the 3 built in ones.\nTODO [1/3] Task with sub headlines TODO Finish thing TODO Finish that other thing DONE Done with a thing [33%] Task with sub headlines (percent cookie) TODO Finish thing TODO Finish that other thing DONE Done with a thing The TODO-planner payoff :PROPERTIES:\u0026hellip; So TODOs are all well and good, but what is a really neat feature is when you can easily capture new TODOs and display them easily.\nIn order to do this, let\u0026rsquo;s configure a couple of Emacs options in your emacs init:\n(require \u0026#39;org) ;; Setup C-c c to capture new TODOs (global-set-key (kbd \u0026#34;C-c c\u0026#34;) \u0026#39;org-capture) ;; Setup a key bind for the agenda (global-set-key (kbd \u0026#34;C-c a\u0026#34;) \u0026#39;org-agenda) ;; Set up agenda to know about our file, you can use a list of files or ;; directories here (setq org-agenda-files \u0026#39;(\u0026#34;~/todo.org\u0026#34;)) ;; A new template (setq org-capture-templates \u0026#39;((\u0026#34;t\u0026#34; \u0026#34;Todo\u0026#34; entry (file \u0026#34;~/todo.org\u0026#34;) \u0026#34;* TODO %?\\n%U\\n\u0026#34;))) Now, hit C-c c to bring up the capture template list, then t to capture a new TODO item.\nOnce you\u0026rsquo;ve captured a few TODOs, you can try out the agenda by hitting C-c a, which will prompt for what agenda you\u0026rsquo;d like to see, for now hit t to see the TODO list agenda.\nExporting an org-mode buffer Org has a lot of export options, they are all contained behind a C-c C-e export backend, exporting to HTML, markdown, plain text, pdf, etc.\nShow off other features of org-mode if we have more time Maybe not in excruciating detail, but we can show off the power and cover it in more detail at a later time:\nrefiling (org-refile) source code blocks org-babel clocking in/out table formulas custom agenda views capturing notes (not just TODOs) publishing projects remotely via TRAMP \\(a + b\\)\n(defun my/function () \u0026#34;docstring\u0026#34; (interactive) (progn (+ 1 1) (message \u0026#34;Hi\u0026#34;))) echo $data \u0026gt; /tmp/foo for i in `cat /tmp/foo`; do echo $i done echo \u0026#34;hi\u0026#34; # do some things echo \u0026#34;stuff\u0026#34; echo \u0026#34;more stuff\u0026#34; echo \u0026lt;\u0026lt;hi\u0026gt;\u0026gt; To enter and edit a block of text, use C-c C-'\n", 
-        "url": "http:\/\/braindump.frege2godel.me\/posts\/denver_org_example\/"
-    },
-    
- }
-</script>
-
-
-
-<script src="/js/lunr.min.js" type="text/javascript" charset="utf-8"></script>
-
-
-<script src="/js/search.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

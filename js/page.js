@@ -50,6 +50,7 @@ document.addEventListener('click', (event) => {
 	    swithcheader = header.item(0).getElementsByTagName("span");
 	    swithcheader.item(3).innerText = "d3 off"	    
 	    // alert("switch off");
+	    container.classList.remove("d3");	    
 	    container.innerHTML = savedContent;
 	}
 	else
@@ -59,12 +60,107 @@ document.addEventListener('click', (event) => {
 	    swithcheader.item(3).innerText = "d3 on"
 	    savedContent=container.innerHTML;	    
 	    container.innerHTML = ''; // 기존 컨테이너 내용물 제거
-
-	    drawRect();
+	    container.classList.add("d3");
+	    // drawRect();
+	    drawGraph();
 	    // drawVisual();
 	}
     }
 });
+
+function drawGraph(){
+          // 그래프 데이터
+      const nodes = [
+        { id: 0, label: "Node 0" },
+        { id: 1, label: "Node 1" },
+        { id: 2, label: "Node 2" },
+        { id: 3, label: "Node 3" },
+        { id: 4, label: "Node 4" }
+      ];
+
+      const links = [
+        { source: 0, target: 1 }
+      ];
+
+      // Force Directed 그래프 생성
+    var svg = d3.select('.container')
+	.append('svg')
+	.attr('width', '100%')
+	.attr('height', '100%');    
+
+      const simulation = d3.forceSimulation(nodes)
+        .force("link", d3.forceLink(links).id(d => d.id))
+        .force("charge", d3.forceManyBody())
+        .force("center", d3.forceCenter(400, 300))
+        .on("tick", ticked);
+
+      const link = svg.selectAll(".link")
+        .data(links)
+        .enter().append("line")
+        .attr("class", "link");
+
+      const node = svg.selectAll(".node")
+        .data(nodes)
+        .enter().append("circle")
+        .attr("class", "node")
+        .attr("r", 10)
+        .call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended))
+        .on("mouseover", handleMouseOver)
+        .on("mouseout", handleMouseOut);
+
+      const label = svg.selectAll(".label")
+        .data(nodes)
+        .enter().append("text")
+        .attr("class", "label")
+        .text(d => d.label);
+
+      node.append("title")
+        .text(d => d.label);
+
+    function ticked() {
+	link.attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x)
+            .attr("y2", d => d.target.y);
+
+	node.attr("cx", d => d.x)
+            .attr("cy", d => d.y);
+
+	label.attr("x", d => d.x + 12)
+            .attr("y", d => d.y - 12);
+    }
+    function handleMouseOver(d) {
+	d3.selectAll(".node").transition().duration(400).style("opacity",0.2);
+	d3.select(this).transition().duration(400).style("fill", "yellow");
+            <!-- label.style("display", "none"); -->
+            <!-- d3.select(this.parentNode).select(".label").style("display", "block"); -->
+    }
+
+    function handleMouseOut(d) {
+	d3.selectAll(".node").transition().duration(400).style("opacity",0.9).style("fill","#ff665c");
+	    <!-- node.classed("inactive", false); -->
+
+	    <!--   d3.select(this).classed("active", false); -->
+            <!-- label.style("display", "none"); -->
+    }
+
+    function dragstarted(event, d) {
+	if (!event.active) simulation.alphaTarget(0.3).restart();
+	d.fx = d.x;
+	d.fy = d.y;
+    }
+
+    function dragged(event, d) {
+	d.fx = event.x;
+	d.fy = event.y;
+    }
+
+    function dragended(event, d) {
+	if (!event.active) simulation.alphaTarget(0);
+	d.fx = null;
+	d.fy = null;
+    }    
+}
 
 function drawRect()
 {
