@@ -69,7 +69,10 @@ document.addEventListener('click', (event) => {
 });
 
 function drawGraph(){
-          // 그래프 데이터
+    // width, height
+    const width = 800;
+    const height = 400;
+    // 그래프 데이터
       const nodes = [
         { id: 0, label: "Node 0" },
         { id: 1, label: "Node 1" },
@@ -88,18 +91,25 @@ function drawGraph(){
 	.attr('width', '100%')
 	.attr('height', '100%');    
 
-      const simulation = d3.forceSimulation(nodes)
-        .force("link", d3.forceLink(links).id(d => d.id))
-        .force("charge", d3.forceManyBody())
-        .force("center", d3.forceCenter(400, 300))
-        .on("tick", ticked);
-
-      const link = svg.selectAll(".link")
+    const zoom = d3.zoom()
+	  .scaleExtent([0.1, 10]) // 줌 범위 설정
+	  .on("zoom", zoomed); // 줌 이벤트 핸들러 설정
+    svg.call(zoom);
+    
+    const simulation = d3.forceSimulation(nodes)
+          .force("link", d3.forceLink(links).id(d => d.id).strength(0.5))
+          .force("charge", d3.forceManyBody().strength(-50))
+          .force("center", d3.forceCenter(width, height))
+          .on("tick", ticked);
+    
+    var link = svg.append("g")
+	.selectAll("line")
         .data(links)
         .enter().append("line")
         .attr("class", "link");
 
-      const node = svg.selectAll(".node")
+    var node = svg.append("g")
+	.selectAll("circle")
         .data(nodes)
         .enter().append("circle")
         .attr("class", "node")
@@ -108,14 +118,15 @@ function drawGraph(){
         .on("mouseover", handleMouseOver)
         .on("mouseout", handleMouseOut);
 
-      const label = svg.selectAll(".label")
+    var labels = svg.append("g")
+	.selectAll("text")
         .data(nodes)
         .enter().append("text")
         .attr("class", "label")
         .text(d => d.label);
 
-      node.append("title")
-        .text(d => d.label);
+    // node.append("title")
+    //     .text(d => d.label);
 
     function ticked() {
 	link.attr("x1", d => d.source.x)
@@ -126,22 +137,26 @@ function drawGraph(){
 	node.attr("cx", d => d.x)
             .attr("cy", d => d.y);
 
-	label.attr("x", d => d.x + 12)
+	labels.attr("x", d => d.x + 12)
             .attr("y", d => d.y - 12);
     }
+
+    // 줌 이벤트 핸들러
+    function zoomed(event) {
+	link.attr("transform", event.transform); // 그래프를 변환(transform)
+	node.attr("transform", event.transform); // 그래프를 변환(transform)
+	labels.attr("transform", event.transform); // 그래프를 변환(transform)		
+    }
+
+    
     function handleMouseOver(d) {
-	d3.selectAll(".node").transition().duration(400).style("opacity",0.2);
+	d3.selectAll(".node").transition().duration(400).style("opacity",0.4);
 	d3.select(this).transition().duration(400).style("fill", "yellow");
-            <!-- label.style("display", "none"); -->
-            <!-- d3.select(this.parentNode).select(".label").style("display", "block"); -->
     }
 
     function handleMouseOut(d) {
-	d3.selectAll(".node").transition().duration(400).style("opacity",0.9).style("fill","#ff665c");
-	    <!-- node.classed("inactive", false); -->
-
-	    <!--   d3.select(this).classed("active", false); -->
-            <!-- label.style("display", "none"); -->
+	d3.selectAll(".node").transition().duration(400).style("opacity",0.8).style("fill","#ff665c");
+       
     }
 
     function dragstarted(event, d) {
@@ -159,6 +174,7 @@ function drawGraph(){
 	if (!event.active) simulation.alphaTarget(0);
 	d.fx = null;
 	d.fy = null;
+
     }    
 }
 
@@ -169,6 +185,7 @@ function drawRect()
 	.append('svg')
 	.attr('width', '100%')
 	.attr('height', '100%');
+    
     svg.append('rect')
 	.attr('x', 50)
 	.attr('y', 50)

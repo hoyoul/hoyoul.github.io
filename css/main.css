@@ -352,5 +352,5 @@ header form label{
     font-size: 12px;
     fill: white;
     pointer-events: none;
-    display: none;
+    display: block;
 }
