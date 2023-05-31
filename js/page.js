@@ -36,7 +36,6 @@ document.addEventListener('click', (event) => {
 	}
     }
 
-    
     // single page mode when clicking page title
     if(parent.getAttribute("data-singlepage")=='yes')
     {
@@ -57,11 +56,12 @@ document.addEventListener('click', (event) => {
 	{
 	    header = document.getElementsByTagName("header");
 	    swithcheader = header.item(0).getElementsByTagName("span");
-	    swithcheader.item(3).innerText = "d3 on"
+	    swithcheader.item(3).innerText = "d3 on "
 	    savedContent=container.innerHTML;	    
 	    container.innerHTML = ''; // 기존 컨테이너 내용물 제거
 	    container.classList.add("d3");
 	    // drawRect();
+	    // alert("backlinks: " + backlinks);
 	    drawGraph();
 	    // drawVisual();
 	}
@@ -115,7 +115,8 @@ function drawGraph(){
         .attr("class", "node")
         .attr("r", 10)
         .call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended))
-        .on("mouseover", handleMouseOver)
+	.on("click", nodeClicked)           // 클릭 이벤트 핸들러 설정        
+        .on("mouseover", handleMouseOver)    // hover event handler
         .on("mouseout", handleMouseOut);
 
     var labels = svg.append("g")
@@ -141,6 +142,10 @@ function drawGraph(){
             .attr("y", d => d.y - 12);
     }
 
+    function nodeClicked(event, d) {
+	alert("Clicked node:", d);
+    }
+    
     // 줌 이벤트 핸들러
     function zoomed(event) {
 	link.attr("transform", event.transform); // 그래프를 변환(transform)
