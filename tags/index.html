@@ -45,6 +45,184 @@
     </div>
   </div>
 </div>
+<script>
+ graph_objects = []; 
+
+ 
+     
+     graph_node_object = {
+        
+     "label": "how to program",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/howtoprogram\/",
+     "id": "howtoprogram",
+     
+         
+     
+         
+     
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+     "backlinks": ["perceptron"]
+   }
+ sessionStorage.setItem("howtoprogram",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "link test title",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/test_link\/",
+     "id": "test_link",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("test_link",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "org mode test",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/orgmodetest\/",
+     "id": "orgmodetest",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("orgmodetest",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[모두의딥러닝] chapter6 퍼셉트론",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/perceptron\/",
+     "id": "perceptron",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("perceptron",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[web] hugo로 blog만들기 - goldmark md parser",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/goldmark\/",
+     "id": "goldmark",
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["howtoprogram"]
+   }
+ sessionStorage.setItem("goldmark",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "denver org file",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/denver_org_example\/",
+     "id": "denver_org_example",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("denver_org_example",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+
+ 
+ function getNode(filename){
+   var storedObject = JSON.parse(sessionStorage.getItem(filename));
+   alert("label: " + storedObject.node_label);
+   alert("url: " + storedObject.node_url);
+   alert("backlinks: " + storedObject.backlinks);   
+ }
+ 
+ function getLinks(){
+   links = []
+   for (i = 0; i< graph_objects.length; i++)
+   {
+     let link_object;
+     gno = graph_objects[i];
+     blinks = gno.backlinks;
+     for(j=0;j< blinks.length;j++){
+       link_object = { source:gno.id, target:blinks[j]}
+       links.push(link_object);
+     }
+   }
+   return links;
+ }
+
+</script>
+
 <script src="/js/URI.js" type="text/javascript"></script>
 <script src="/js/page.js" type="text/javascript"></script>
 

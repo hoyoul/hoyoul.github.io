@@ -62,6 +62,8 @@ document.addEventListener('click', (event) => {
 	    container.classList.add("d3");
 	    // drawRect();
 	    // alert("backlinks: " + backlinks);
+	    // getNode("perceptron");
+	    // nodes = getFullNodes();	    
 	    drawGraph();
 	    // drawVisual();
 	}
@@ -73,17 +75,18 @@ function drawGraph(){
     const width = 800;
     const height = 400;
     // 그래프 데이터
-      const nodes = [
-        { id: 0, label: "Node 0" },
-        { id: 1, label: "Node 1" },
-        { id: 2, label: "Node 2" },
-        { id: 3, label: "Node 3" },
-        { id: 4, label: "Node 4" }
-      ];
-
-      const links = [
-        { source: 0, target: 1 }
-      ];
+    // const nodes = [
+    //     { id: 0, label: "Node 0" },
+    //     { id: 1, label: "Node 1" },
+    //     { id: 2, label: "Node 2" },
+    //     { id: 3, label: "Node 3" },
+    //     { id: 4, label: "Node 4" }
+    // ];
+    const nodes = graph_objects;
+    // const links = [
+    //     { source: 0, target: 1 }
+    // ];
+    const links = getLinks();
 
       // Force Directed 그래프 생성
     var svg = d3.select('.container')
