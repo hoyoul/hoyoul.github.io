@@ -145,8 +145,11 @@ function drawGraph(){
             .attr("y", d => d.y - 12);
     }
 
+    //d3 graph node clicked
     function nodeClicked(event, d) {
-	alert("Clicked node:", d);
+	// alert("Clicked node:", d);
+	// alert("Clicked node url:", d.url);
+	location.replace(d.url);
     }
     
     // 줌 이벤트 핸들러
