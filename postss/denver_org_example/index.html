@@ -14,6 +14,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/orgmode.css">
+<link rel="stylesheet" href="/css/chroma.css">
 
 </head>
   <body><header>
@@ -140,8 +141,8 @@ something like:</p>
 <p>Writequit site</p>
 <p>Google&rsquo;s web site</p>
 <p>(ignore the *_SRC blocks for now, we&rsquo;ll get there)</p>
-<pre tabindex="0"><code class="language-fundamental" data-lang="fundamental">[[http://google.com/][Google]]
-</code></pre><p>You can link to files, images, websites, emails, irc, and all kinds of things.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[[http://google.com/][Google]]
+</span></span></code></pre></div><p>You can link to files, images, websites, emails, irc, and all kinds of things.</p>
 <h2 id="various-things-you-can-add-in-headers">Various things you can add in headers</h2>
 <p>One of the most common uses for org-mode is a sort of &ldquo;task list&rdquo; or TODO list.
 Org-mode supports this by allowing markers in the headline for the state of a
@@ -214,18 +215,18 @@ Additionally, priorities</p>
 So TODOs are all well and good, but what is a really neat feature is when you
 can easily capture new TODOs and display them easily.</p>
 <p>In order to do this, let&rsquo;s configure a couple of Emacs options in your emacs init:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#007020">require</span> <span style="color:#517918">&#39;org</span>)
-</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">;; Setup C-c c to capture new TODOs</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#bb60d5">global-set-key</span> (<span style="color:#bb60d5">kbd</span> <span style="color:#4070a0">&#34;C-c c&#34;</span>) <span style="color:#517918">&#39;org-capture</span>)
-</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">;; Setup a key bind for the agenda</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#bb60d5">global-set-key</span> (<span style="color:#bb60d5">kbd</span> <span style="color:#4070a0">&#34;C-c a&#34;</span>) <span style="color:#517918">&#39;org-agenda</span>)
-</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">;; Set up agenda to know about our file, you can use a list of files or</span>
-</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">;; directories here</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#007020">setq</span> <span style="color:#bb60d5">org-agenda-files</span> <span style="color:#666">&#39;</span>(<span style="color:#4070a0">&#34;~/todo.org&#34;</span>))
-</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">;; A new template</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#007020">setq</span> <span style="color:#bb60d5">org-capture-templates</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#666">&#39;</span>((<span style="color:#4070a0">&#34;t&#34;</span> <span style="color:#4070a0">&#34;Todo&#34;</span> <span style="color:#bb60d5">entry</span> (<span style="color:#bb60d5">file</span> <span style="color:#4070a0">&#34;~/todo.org&#34;</span>)
-</span></span><span style="display:flex;"><span>	 <span style="color:#4070a0">&#34;* TODO %?\n%U\n&#34;</span>)))
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;org</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; Setup C-c c to capture new TODOs</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-c c&#34;</span><span class="p">)</span> <span class="ss">&#39;org-capture</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; Setup a key bind for the agenda</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-c a&#34;</span><span class="p">)</span> <span class="ss">&#39;org-agenda</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; Set up agenda to know about our file, you can use a list of files or</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; directories here</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">org-agenda-files</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;~/todo.org&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; A new template</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">org-capture-templates</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&#39;</span><span class="p">((</span><span class="s">&#34;t&#34;</span> <span class="s">&#34;Todo&#34;</span> <span class="nv">entry</span> <span class="p">(</span><span class="nv">file</span> <span class="s">&#34;~/todo.org&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	 <span class="s">&#34;* TODO %?\n%U\n&#34;</span><span class="p">)))</span>
 </span></span></code></pre></div><p>Now, hit <code>C-c c</code> to bring up the capture template list, then <code>t</code> to capture a
 new TODO item.</p>
 <p>Once you&rsquo;ve captured a few TODOs, you can try out the agenda by hitting <code>C-c a</code>,
@@ -250,22 +251,22 @@ more detail at a later time:</p>
 <div class="LaTeX">
 <p>\(a + b\)</p>
 </div>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#007020">defun</span> <span style="color:#bb60d5">my/function</span> ()
-</span></span><span style="display:flex;"><span>  <span style="color:#4070a0">&#34;docstring&#34;</span>
-</span></span><span style="display:flex;"><span>  (<span style="color:#007020">interactive</span>)
-</span></span><span style="display:flex;"><span>  (<span style="color:#007020">progn</span>
-</span></span><span style="display:flex;"><span>    (<span style="color:#06287e">+</span> <span style="color:#40a070">1</span> <span style="color:#40a070">1</span>)
-</span></span><span style="display:flex;"><span>    (<span style="color:#06287e">message</span> <span style="color:#4070a0">&#34;Hi&#34;</span>)))
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#007020">echo</span> <span style="color:#bb60d5">$data</span> &gt; /tmp/foo
-</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">for</span> i in <span style="color:#4070a0">`</span>cat /tmp/foo<span style="color:#4070a0">`</span>; <span style="color:#007020;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#007020">echo</span> <span style="color:#bb60d5">$i</span>
-</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">done</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">my/function</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;docstring&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">progn</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">+</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Hi&#34;</span><span class="p">)))</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$data</span> &gt; /tmp/foo
+</span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="sb">`</span>cat /tmp/foo<span class="sb">`</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="nv">$i</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
 </span></span></code></pre></div><p><a id="code-snippet--say-hi"></a></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#007020">echo</span> <span style="color:#4070a0">&#34;hi&#34;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic"># do some things</span>
-</span></span><span style="display:flex;"><span><span style="color:#007020">echo</span> <span style="color:#4070a0">&#34;stuff&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#007020">echo</span> <span style="color:#4070a0">&#34;more stuff&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#007020">echo</span> &lt;&lt;hi&gt;&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;hi&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># do some things</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;stuff&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;more stuff&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> &lt;&lt;hi&gt;&gt;
 </span></span></code></pre></div><p>To enter and edit a block of text, use <code>C-c C-'</code></p>
       
       </div>

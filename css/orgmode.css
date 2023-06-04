@@ -1,9 +1,15 @@
 /******************************/
 /* org 요소들 */
 /******************************/
-/* .underline { */
-/*   text-decoration: solid underline purple 2px; */
+/* h1{ */
+/*   text-decoration: green wavy underline  2px;     */
 /* } */
+/* h2,h3{ */
+/*   text-decoration: cyan dotted underline  2px;         */
+/* } */
+.underline {
+  text-decoration: solid underline purple 2px;
+}
 
 /* code{ */
 /*     font-family: monospace; */
@@ -12,101 +18,281 @@
 /*     padding: 1px 3px; */
 /*     font-size: 1.2em; */
 /* } */
-/* #head1{ */
-/*       border: 1px solid #ccc; */
-/*       padding: 10px; */
-/*       border-radius: 5px; */
-/*       margin: 20px; */
-/*       display: inline-block; */
-/*       background-color: #f2f2f2; */
-/* } */
-/* #head2{ */
+#head1{
+    text-decoration: underline wavy red;    
+}
+#head2{
+    text-decoration: underline dotted red;    
+}
+#head3{
     
-/* } */
-/* #head3{ */
-    
-/* } */
-/* #priority-a::before { */
-/*   content: "A"; */
-/*   display: flex; */
-/*   justify-content: center; */
-/*   align-items: center; */
-/*   width: 30px; */
-/*   height: 30px; */
-/*   border-radius: 50%; */
-/*   background-color: #000; */
-/*   color: #fff; */
-/*   font-size: 16px; */
-/*   font-weight: bold; */
-/* } */
-/* .tip ::before{ */
-/*     font-family: "Font Awesome"; */
-/*     content: "\f135"; /\* 원하는 아이콘 코드 *\/     */
-/*     height: 30px; */
-/*     background-color: #1abc9c; */
-/*     color: #fff; */
-/*     font-weight: bold; */
-/*     padding: 6px 12px; */
-/*     margin-bottom: 0px; */
+}
 
-/* } */
-/* .tip ::after{ */
-    
-/* } */
-/* .tip p ::before { */
-/*   content: "TIP"; */
-/* } */
-/* .tip p{ */
-/*     margin-top: 0px; */
-/*     padding:12px; */
-/*     background-color: #dbfaf4; */
+#priority-a::before {
+  content: "A";
+  width: 80px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 20%;
+  
+  background-color: red;
+  color: #fff;
+  font-weight: bold;
+}
+#priority-b::before {
+  content: "B";
+  width: 80px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 20%;
+  
+  background-color: green;
+  color: #fff;
+  font-weight: bold;
+}
+#priority-c::before {
+  content: "C";
+  width: 80px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 20%;
+  
+  background-color: blueviolet;
+  color: #fff;
+  font-weight: bold;
+}
 
-/* } */
+.org-todo.todo{
+    padding: 0px 4px;
+    margin-left: 15px;
+    color: #fff;
+    border-radius: 10%;        
+}
+.org-todo.todo.TODO {
+    background-color: red;
+}
+.org-todo.todo.REVIEW {
+    background-color: orange;
+}
+.org-todo.todo.BLOCKED {
+    background-color: green;
+}
+.org-todo.todo.DOING {
+    background-color: purple;
+}
+.org-todo.done.DONE {
+    background-color: blue;
+    padding: 0px 4px;
+    color: #fff;
+    border-radius: 10%;
+    margin-left: 15px;
+}
 
-/* .org-todo.todo.TODO { */
-/*     background-color: #f29f97; */
-/*     padding: 0px 4px; */
-/*     color: #fff; */
-/* } */
-/* .org-todo.todo.REVIEW { */
-/*     background-color: #2d32; */
-/*     padding: 0px 4px; */
-/*     color: #fff; */
-/* } */
-/* .org-todo.todo.BLOCKED { */
-/*     background-color: #f513; */
-/*     padding: 0px 4px; */
-/*     color: #fff; */
-/* } */
-/* .org-todo.todo.DOING { */
-/*     background-color: #6ab0de; */
-/*     padding: 0px 4px; */
-/*     color: #fff; */
-/* } */
-/* .org-todo.done.DONE { */
-/*     background-color: #12b58d; */
-/*     padding: 0px 4px; */
-/*     color: #fff; */
-/* } */
+/* note */
+div.note
+{
+     -moz-border-radius: 6px;
+     -webkit-border-radius: 6px;
+     /* background-color: #f0f7fb; */
+     background-color: #FFFFFE;
+     /* border: solid 1px #3498db; */
+     border: solid 1px #B2BEB5;
+     border-radius: 6px;
+     line-height: 18px;
+     /* mc-auto-number-format: '{b}Note: {/b}'; */
+     overflow: hidden;
+     padding: 12px;
+     opacity: 0.8;     
+}
+ 
+.note:before {
+  content: "Note!";
+  display: block;
+  font-weight: bold;
+  color: red;
+  background-color: #ffdddd;
+  border-left: 6px solid #f44336;
+  padding: 10px;
+}
+.note p{
+    line-height: 28px;
+}
+/* tip */
+div.tip
+{
+     -moz-border-radius: 6px;
+     -webkit-border-radius: 6px;
+     /* background-color: #f0f7fb; */
+     background-color: #FFFFFE;
+     /* border: solid 1px #3498db; */
+     border: solid 1px #B2BEB5;
+     border-radius: 6px;
+     line-height: 18px;
+     /* mc-auto-number-format: '{b}Note: {/b}'; */
+     overflow: hidden;
+     padding: 12px;
+     opacity: 0.8;     
+}
+ 
+.tip:before {
+  content: "Tip!";
+  display: block;
+  font-weight: bold;
+  color: orange;
+  background-color: #ffdddd;
+  border-left: 6px solid #f44336;
+  padding: 10px;
+}
+.tip p{
+    line-height: 28px;
+}
+/* important */
+div.important
+{
+     -moz-border-radius: 6px;
+     -webkit-border-radius: 6px;
+     /* background-color: #f0f7fb; */
+     background-color: #FFFFFE;
+     /* border: solid 1px #3498db; */
+     border: solid 1px #B2BEB5;
+     border-radius: 6px;
+     line-height: 18px;
+     /* mc-auto-number-format: '{b}Note: {/b}'; */
+     overflow: hidden;
+     padding: 12px;
+     opacity: 0.8;     
+}
+ 
+.important:before {
+  content: "Important!";
+  display: block;
+  font-weight: bold;
+  color: green;
+  background-color: #ffdddd;
+  border-left: 6px solid #f44336;
+  padding: 10px;
+}
+.important p{
+    line-height: 28px;
+}
+/* warning*/
+div.warning
+{
+     -moz-border-radius: 6px;
+     -webkit-border-radius: 6px;
+     /* background-color: #f0f7fb; */
+     background-color: #FFFFFE;
+     /* border: solid 1px #3498db; */
+     border: solid 1px #B2BEB5;
+     border-radius: 6px;
+     line-height: 18px;
+     /* mc-auto-number-format: '{b}Note: {/b}'; */
+     overflow: hidden;
+     padding: 12px;
+     opacity: 0.8;     
+}
+ 
+.warning:before {
+  content: "Warning!";
+  display: block;
+  font-weight: bold;
+  color: purple;
+  background-color: #ffdddd;
+  border-left: 6px solid #f44336;
+  padding: 10px;
+}
+.warning p{
+    line-height: 28px;
+}
 
-/* .note{ */
-/*   width:50%; */
-/*   margin:20px auto; */
-/*   padding:30px; */
-/*   position:relative; */
-/*   border-radius:5px; */
-/*   box-shadow:0 0 15px 5px #ccc; */
-/* }     */
+/* attention */
+div.attention
+{
+     -moz-border-radius: 6px;
+     -webkit-border-radius: 6px;
+     /* background-color: #f0f7fb; */
+     background-color: #FFFFFE;
+     /* border: solid 1px #3498db; */
+     border: solid 1px #B2BEB5;
+     border-radius: 6px;
+     line-height: 18px;
+     /* mc-auto-number-format: '{b}Note: {/b}'; */
+     overflow: hidden;
+     padding: 12px;
+     opacity: 0.8;     
+}
+ 
+.attention:before {
+  content: "Attention!";
+  display: block;
+  font-weight: bold;
+  color: blue;
+  background-color: #ffdddd;
+  border-left: 6px solid orange;
+  padding: 10px;
+}
 
-/* .tip{ */
-/*   width:50%; */
-/*   margin:20px auto; */
-/*   padding:30px; */
-/*   position:relative; */
-/*   border-radius:5px; */
-/*   box-shadow:0 0 15px 5px #ccc; */
-/* }     */
-
+.attention p{
+    line-height: 28px;
+}
+/* example*/
+div.example
+{
+     -moz-border-radius: 6px;
+     -webkit-border-radius: 6px;
+     /* background-color: #f0f7fb; */
+     background-color: #FFFFFE;
+     /* border: solid 1px #3498db; */
+     border: solid 1px #B2BEB5;
+     border-radius: 6px;
+     line-height: 18px;
+     /* mc-auto-number-format: '{b}Note: {/b}'; */
+     overflow: hidden;
+     padding: 12px;
+     opacity: 0.8;     
+}
+ 
+.example:before {
+  content: "Example!";
+  display: block;
+  font-weight: bold;
+  color: red;
+  background-color: #ffdddd;
+  border-left: 6px solid orange;
+  padding: 10px;
+}
+.example p{
+    line-height: 28px;
+}
+/* verse */
+div.verse
+{
+     -moz-border-radius: 6px;
+     -webkit-border-radius: 6px;
+     /* background-color: #f0f7fb; */
+     background-color: #FFFFFE;
+     /* border: solid 1px #3498db; */
+     border: solid 1px #B2BEB5;
+     border-radius: 6px;
+     line-height: 18px;
+     /* mc-auto-number-format: '{b}Note: {/b}'; */
+     overflow: hidden;
+     padding: 12px;
+     opacity: 0.8;     
+}
+ 
+.verse:before {
+  content: "Verse!";
+  display: block;
+  font-weight: bold;
+  color: orange;
+  background-color: #ffdddd;
+  border-left: 6px solid orange;
+  padding: 10px;
+}
+.verse p{
+    line-height: 28px;
+}
 /* @mixin alert($name,$bgColor){ */
 /*  $accentColor:darken($bgColor,50); */
 /*  .#{$name}{ */

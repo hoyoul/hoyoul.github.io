@@ -1,4 +1,11 @@
 @import url("https://rsms.me/inter/inter.css");
+::-moz-selection{
+    background: #ffff00
+}
+
+::selection{
+    background: #ffff00      
+}
 
 html,body {
     font-family:  -apple-system,Inter, sans-serif;    
@@ -206,6 +213,7 @@ header form label{
 /* search page */
 .page.wide{
     width: 100%;
+    line-height: 2em;
 }
 .page.newPage{
     width: 100%;
@@ -239,6 +247,7 @@ header form label{
     position:sticky;
     width: 620px;
     min-width: 600px;
+    line-height: 1.58em;    
 
     border-left:1px #eacc724f solid;
 

@@ -14,6 +14,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/orgmode.css">
+<link rel="stylesheet" href="/css/chroma.css">
 
 </head>
   <body><header>
@@ -75,17 +76,19 @@
 <li>ulist3</li>
 </ul>
 <h2 id="source">source</h2>
-<h3 id="emacs-lisp">emacs lisp</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#bb60d5">this</span> <span style="color:#bb60d5">is</span> <span style="color:#bb60d5">lisp</span> <span style="color:#bb60d5">code</span> <span style="color:#007020">block</span>
+<h3 id="text">text</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">mov R9, R3
+</span></span></code></pre></div><h3 id="emacs-lisp">emacs lisp</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="nv">this</span> <span class="nv">is</span> <span class="nv">lisp</span> <span class="nv">code</span> <span class="nb">block</span>
 </span></span></code></pre></div><h3 id="python-code">python code</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
-</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">matplotlib.pyplot</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">plt</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>random_points <span style="color:#666">=</span> np<span style="color:#666">.</span>random<span style="color:#666">.</span>randint(<span style="color:#40a070">0</span>, <span style="color:#40a070">10</span>, (<span style="color:#40a070">100</span>, <span style="color:#40a070">2</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>scatter(random_points[:, <span style="color:#40a070">0</span>], random_points[:, <span style="color:#40a070">1</span>])
-</span></span><span style="display:flex;"><span>plt<span style="color:#666">.</span>savefig(f)
-</span></span><span style="display:flex;"><span><span style="color:#007020;font-weight:bold">return</span> f
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">random_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">random_points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">random_points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="n">f</span>
 </span></span></code></pre></div><h2 id="image">image</h2>
 <p><a id="figure--this is image name"></a></p>
 <figure><img src="./img/agent.png"
@@ -105,7 +108,18 @@
 <p>this is right</p>
 </div>
 <div class="note">
-<p>this is note</p>
+<p>Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.
+Etiam vel tortor sodales tellus ultricies commodo.  Suspendisse
+potenti.  Aenean in sem ac leo mollis blandit.  Donec neque quam,
+dignissim in, mollis nec, sagittis eu, wisi.  Phasellus lacus.  Etiam
+laoreet quam sed arcu.  Phasellus at dui in ligula mollis ultricies.
+Integer placerat tristique nisl.  Praesent augue.  Fusce commodo.
+Vestibulum convallis, lorem a tempus semper, dui dui euismod elit,
+vitae placerat urna tortor vitae lacus.  Nullam libero mauris,
+consequat quis, varius et, dictum id, arcu.  Mauris mollis tincidunt
+felis.  Aliquam feugiat tellus ut neque.  Nulla facilisis, risus a
+rhoncus fermentum, tellus tellus lacinia purus, et dictum nunc justo
+sit amet elit.</p>
 </div>
 <blockquote>
 <p>this is quote</p>
@@ -120,7 +134,7 @@
 <div class="caution">
 <p>this is caution</p>
 </div>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>this is example
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">this is example
 </span></span></code></pre></div><div class="warning">
 <p>this is warning</p>
 </div>
@@ -177,14 +191,12 @@
 <li><input checked="" disabled="" type="checkbox"> talk to the neighbors</li>
 </ul>
 <h2 id="source-code">source code</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#007020">&lt;!doctype html&gt;</span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#062873;font-weight:bold">html</span> <span style="color:#4070a0">lang</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;en&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#062873;font-weight:bold">head</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#062873;font-weight:bold">meta</span> <span style="color:#4070a0">charset</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;UTF-8&#34;</span>/&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#062873;font-weight:bold">title</span>&gt;Document&lt;/<span style="color:#062873;font-weight:bold">title</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#062873;font-weight:bold">head</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#062873;font-weight:bold">body</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">body</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#062873;font-weight:bold">html</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;&lt;</span><span class="nt">code</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;lang-py&#39;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    a = 3
+</span></span><span class="line"><span class="cl">    b = 4
+</span></span><span class="line"><span class="cl">    if 0 <span class="ni">&amp;lt;</span>= (a + b) <span class="ni">&amp;lt;</span>= 10:
+</span></span><span class="line"><span class="cl">    print(&#34;이것은 예제다...&#34;)
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h2 id="fieldset">fieldset</h2>
 <fieldset>
   <legend><i class="far fa-star"></i> document summary </legend>
