@@ -14,14 +14,6 @@ var savedContent = '';
 //     const title = event.target.innerText;
 //     unfoldHead(title);
 // }
-function loadScript(url, callback) {
-  const script = document.createElement('script');
-  script.src = url;
-
-  script.onload = callback;
-
-  document.head.appendChild(script);
-}
 
 document.addEventListener('click', (event) => {
     var container = document.querySelector(".container");
@@ -689,6 +681,11 @@ function renderPage(page,page_column,href){
 	addHandlerLinksFromPage(page,new_page_column);	
 	updateBreadCrumbs();
     }
+    //page를 붙이는과정을 끝내고 마지막으로 수식 rendering을 해준다.
+    if (window.MathJax) {
+	window.MathJax.typeset();
+    }
+
 }
 
 function fetchPage(href,page_column){
@@ -698,15 +695,11 @@ function fetchPage(href,page_column){
 	.then((text) => {
 	    let fragment = document.createElement("template");
 	    fragment.innerHTML = text;
-            if (window.MathJax) {
-		window.MathJax.typeset();
-            }
-	    loadScript('https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.5.0/math.min.js', function() {
-		// mathjs가 로드된 후에 실행할 코드 작성
-		let page = math.evaluate(fragment.content.querySelector(".page"));
-		renderPage(page,page_column,href);		
-	    });
 	    
+        
+
+	    let page = fragment.content.querySelector(".page");
+	    renderPage(page,page_column,href);		
 	    // let page = fragment.content.querySelector(".page");
 	    // renderPage(page,page_column,href);
 	});
