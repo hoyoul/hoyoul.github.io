@@ -236,7 +236,7 @@ header form label{
 
 .page.newPage .bl-section{
     margin-top: 30px;
-    padding-left: 150px;
+    /* padding-left: 150px; */
 }
 .page.opacity{
     display:none;
@@ -362,4 +362,27 @@ header form label{
     fill: white;
     pointer-events: none;
     display: block;
+}
+fieldset{
+    background-color: ivory;
+    border-radius: 10px;
+    opacity: 80%;
+}
+fieldset legend{
+    font-weight: 600;
+}
+fieldset .li{
+    margin:0px 0px 5px 0px;
+}
+fieldset strong{
+    margin-right: 25px;
+}
+.bl-section h4{
+    margin-top: 5px;
+    margin-left: 30px;
+    margin-bottom: 0px;
+    text-decoration-color: #21f;
+}
+.bl-section .backlinks ul{
+    margin-top: 5px;
 }

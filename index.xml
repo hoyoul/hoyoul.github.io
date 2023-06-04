@@ -7,6 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[web] hugo로 blog만들기 - goldmark md parser</title>
+      <link>https://braindump.frege2godel.me/posts/goldmark/</link>
+      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/goldmark/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
       <title>how to program</title>
       <link>https://braindump.frege2godel.me/posts/howtoprogram/</link>
       <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
@@ -98,15 +107,6 @@ Perceptron의 구조는 뉴런이란 구조와 비슷하지만, chapter5에서 �
       <guid>https://braindump.frege2godel.me/postss/perceptron/</guid>
       <description>test (1) Perceptron Figure 1: perceptron
 Perceptron의 구조는 뉴런이란 구조와 비슷하지만, chapter5에서 봤던 sigmoid함수의 구조와 비슷하다. sigmoid함수를 보면, exponential의 인자로 직선의 방정식이 들어가는 합성함수의 구조였다. 마찬가지로 Perceptron도 비슷한 구조로 되어 있다. 직선의 방정식이 a에서 w로 변경되고, 개수가 늘어난 차이만 있다. Perceptron은 Logistic Regression의 확장판으로 보면 된다. (2)가중치, 가중합, 바이어스, 활성화 함수 용어에 대한 정리가 필요하다. 가중치(weight): sigmoid의 입력으로 들어가는 직선의 방정식의 기울기로 보면 된다. bias: sigmoid함수의 입력으로 들어가는 직선의 방정식의 절편으로 보면 된다.</description>
-    </item>
-    
-    <item>
-      <title>[web] hugo로 blog만들기 - goldmark md parser</title>
-      <link>https://braindump.frege2godel.me/posts/goldmark/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/posts/goldmark/</guid>
-      <description> </description>
     </item>
     
     <item>
