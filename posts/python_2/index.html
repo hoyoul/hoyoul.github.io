@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+  <head><title>python_2</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/orgmode.css">
+<link rel="stylesheet" href="/css/chroma.css">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="https://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+  <small>G.frege를 너무 사랑하는 holy가...</small>
+  <div class="vertical_dotted_line"></div>
+    <label>
+      <input role="switch" type="checkbox" id="switch"/>
+      <span>d3 off</span>
+    </label><form id="search"
+	  action='https://braindump.frege2godel.me/search/' method="get">  
+  <input type="text" id="search-input" name="query"
+	 placeholder="" autocomplete="on">
+  <input type="submit" value="search">
+</form>
+
+</header>
+   
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">python_2</h1>    
+      <div class="content">
+	<a href="https://braindump.frege2godel.me/posts/python_2/" alt="python_2" class="permalink" data-singlepage="yes" ><h1>python_2</h1></a>
+	<fieldset>
+	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
+	  <ol class="li"><strong>Title: </strong> python_2 </ol>
+	  <ol class="li"><strong>date: </strong> 2023 6.4 </ol>
+	  <ol class="li"><strong>content: </strong>python 2장 요약정리 </ol>
+	    
+  
+    
+     
+    
+     
+  
+
+  
+	  
+	</fieldset>
+	<h2 id="lecture2-variable-and-operator">[lecture2] variable &amp; operator</h2>
+<h3 id="변수와-assignment">변수와 assignment</h3>
+<ul>
+<li>변수는 lisp에선 symbol이라고 부르고, 모든 symbol은 동일한 형태의
+structure를 가졌다. symbol의 이름은 unique했다. symbol의 이름은
+address였기 때문이다. 하지만, python에서 변수는 type이 가리키는
+structure를 갖는다. 모두 동일한 모양이 아니다. 변수의 이름은
+unique한건 마찬가지 인 듯 하다. address이기 때문이다.</li>
+</ul>
+<h4 id="변수와-assignment의-예-1">변수와 assignment의 예 1</h4>
+<ul>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">15</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>interpreter가 이것을 어떻게 해석할까?</p>
+<ul>
+<li>
+<p>(1) 과정</p>
+</li>
+<li>
+<p>lvalue인 a를 보고 symbol table에서 찾는다. 없다면 a라는 이름을
+새로 만든다.</p>
+</li>
+<li>
+<p>rvalue인 15를 본다.</p>
+</li>
+<li>
+<p>=(assignment)를 실행한다. rvalue의 type이 int라는 것을 알고
+int객체를 만든다.</p>
+</li>
+<li>
+<p>int객체의 value에 15를 집어넣는다.</p>
+</li>
+<li>
+<p>int객체의 name에 a를 집어넣는다.</p>
+<ul>
+<li>이렇게 해서 하나의 객체를 만들었다.</li>
+</ul>
+</li>
+<li>
+<p>(2) 과정</p>
+</li>
+<li>
+<p>lvalue인 b를 보고 symbol table에서 찾는다. 없다면 b라는 이름을
+만든다.</p>
+</li>
+<li>
+<p>rvalue인 a를 보고 symbol table에서 찾아서 a를 꺼낸다. 없으면
+error가 발생된다.</p>
+</li>
+<li>
+<p>=(assignment)를 실행한다. int객체를 만들고, value로는 a값을
+, name이 b인 객체를 만든다.</p>
+</li>
+<li>
+<p>python interpreter가 객체의 value를 꺼낸다. 즉 eval한다.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>즉 assignment의 역할이 무엇일까?</p>
+<ol>
+<li>객체를 만드는 것이 아닌가? 즉 interpreter는 = 을 보고,
+rvalue와 lvalue를 보고 객체를 만들어야 한다는 걸 안다. 그러나
+무조건 객체를 만드는 것은 아니다. lvalue를 보고, 해당 symbol이
+symbol table에 있는지 여부를 확인한다. 없다면 객체를 만들려고
+한다. 만일 있다면, immutable인지 mutable인지 확인한다. 만일
+mutable이라면, 새로운 객체를 만들지 않고
+update한다. immutable이라면, 새로운 객체를 만든다. 이제 rvalue
+살펴본다. rvalue의 type을 확인하고 그 type에 맞는 객체를
+만든다. 위의 예를 보면, a = 15에서 a가 symbol table에 없기
+때문에, 객체를 생성해야 한다고 본다. 그리고 rvalue를 보고 int
+type임을 알수 있기 때문에 int객체를 만드는 것이다. 객체를
+만든후 name과 value에 값을 assign한다. 그리고 만든 객체의
+value는 rvalue인 15를 가리고 name은 lvalue인 a를
+가리킨다.</li>
+</ol>
+</li>
+</ul>
+<h4 id="변수와-assignment의-예2">변수와 assignment의 예2</h4>
+<ul>
+<li>example2
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">a = b = 2
+</span></span></code></pre></div></li>
+<li>뒤에서부터 처리한다. 즉 name이 b, value가 2인 int객체를
+만든다. 그 다음 name이 2 value가 b를 가리키는 또 다른 int 객체를
+만든다.</li>
+</ul>
+<h4 id="literal-object에-대해서">literal object에 대해서</h4>
+<ul>
+<li>
+<p>3이나 5와같은 값도 객체다 literal object이다. 예를 들어서,
+아래와 같은 것이 가능하다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4.0.real or (4).real
+</span></span></code></pre></div><p>4.0은 float객체가 만들어진 후 real이란 float의 method가
+수행되는 것이다.</p>
+</li>
+<li>
+<p>나는 lisp의 symbol과 비슷하다는 가정아래 해석한다.</p>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/python/symbol1.png"
+             alt="Figure 1: lisp의 symbol1" width="500px"/><figcaption>
+                <p><span class="figure-number">Figure 1: </span>lisp의 symbol1</p>
+            </figcaption>
+    </figure>
+
+</li>
+<li>
+<p>literal 객체의 assignment는 새로운 객체를 생성하고 객체의
+value가 literal object를 가리키는게 아니라 value의 값으로
+들어가는거 같다. 예를 들면 a =3의 경우, 새로운 객체가 만들어지고
+객체의 value로 3이란 객체를 가리키는게 아니라 3값이 직접 새로운
+객체의 value가 되는 것 같다.</p>
+</li>
+</ul>
+<h3 id="name--변수--와-assignment의-특징">name(변수)와 assignment의 특징</h3>
+<ul>
+<li>숫자로 변수명을 시작할 수 없다.</li>
+<li>대소문자를 구별한다.</li>
+</ul>
+<h4 id="assignment의-특징">assignment의 특징</h4>
+<ul>
+<li>assignment는 return값이 없다. 그래서 함수형 언어에서는 권장하지
+않는다. 예를 들어,</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nv">a</span> <span class="nf">=</span> <span class="mi">2</span><span class="p">)</span> <span class="nv">==</span> <span class="mi">2</span>
+</span></span></code></pre></div><p>이것은 syntax error를 발생한다. a와 2를 갖는 객체를 만들지만, 그
+객체를 return하지 않기 때문에 비교할 수 없다. 그런데, python에선,
+객체를 return하게 할 수도 있다. 아래를 보자.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(a := 2) == 2
+</span></span></code></pre></div><p>이것은 어떻게 해석할 것인가? name이 a이고 value가 2인 객체를
+return한다. ==은 rvalue, lvalue의 객체의 value를 비교한다.</p>
+<h3 id="primitive-data-types">primitive data types</h3>
+<ul>
+<li>data type을 알아야 하는 이유는 한 가지다. 객체를 만들때, data
+type에 맞는 객체를 만들기 때문이다. 그리고 type에서 제공하는
+method와 member variable을 사용할 수 있기 때문이다.</li>
+</ul>
+<h4 id="numerals">numerals</h4>
+<ul>
+<li>int,float,complex</li>
+<li>double은 없다. float가 double과 같다고 보면 된다.</li>
+<li>example
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">float: 1.7, -5.7, 4.67e-3, 3e5
+</span></span><span class="line"><span class="cl">complex: 1+8j, 1.6+8j
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="string">string</h4>
+<ul>
+<li>string</li>
+<li>char type은 없다.</li>
+<li>example
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&#39;text&#39;, &#34;한글&#34;
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="boolean">boolean</h4>
+<ul>
+<li>bool</li>
+<li>example
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">True, False
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="none">None</h4>
+<ul>
+<li>일종의 null,</li>
+<li>example
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">None
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="연산자--operator">연산자 (operator)</h3>
+<ul>
+<li>python이 객체 지향적 언어라고 하는데, 객체의 method를 사용하는게
+아니라, 객체와 객체 사이에 operator를 넣어서 연산하는게 이상해
+보일 수 있다. 그러나, operator는 method로 변환이 된다. 다음을
+참조 하자.
+참조:<a href="https://www.pythonmorsels.com/everything-is-an-object/#manually-calling-dunder-methods" target="_blank">https://www.pythonmorsels.com/everything-is-an-object/#manually-calling-dunder-methods
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+
+즉, 연산자는 어떻게 보면, 모든 객체에 내장된 멤버 함수로 봐도
+된다. Object 객체의 멤버 함수로 보는게 더 정확할 듯 하다.</li>
+</ul>
+<h4 id="연산자의-종류">연산자의 종류</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>arithematic operator</p>
+<ul>
+<li>
+<ul>
+<li>(덧셈), - (뻴셈) , *(곱셈) , **(거듭제곱), /(몫) , //(몫,정수),
+%(나머지)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>bit operator</p>
+<ul>
+<li>~(NOT): 이게 좀 계산법이 황당한데, 우선, 2진수로
+변환한다. 그리고 앞에 0을 붙인다. 양수이니까, 예를 들어,
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">5 =&gt; 101 =&gt; 0101
+</span></span></code></pre></div>그리고, ~연산을 적용한다. ~연산은 1010이다. 이게 답이다. 그런데,
+여기서 1을 빼주고 1의 보수를 취해서 값을 도출한다. 즉 1010에서
+1을 빼서 1001이 되고, 여기서 1의 보수를 취해 0110이 나오는데,
+원래 msb가 1이였기 때문에 -6값이 되는 것이다.</li>
+<li>| (OR): 2진수로 변환한 후 or연산을 하면 된다.</li>
+<li>&amp; (AND): 2진수로 변환한 후 and연산을 한다.</li>
+<li>^ (XOR): 같으면 0, 다르면 1로 계산한다.</li>
+<li>&lt;&lt;, &gt;&gt; : shift연산은 곱셈과 나눗셈이 된다.</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>축약 가능</p>
+<ul>
+<li>example
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(1) a = a + 1  =&gt;  (2) a += 1
+</span></span></code></pre></div></li>
+<li>두 식은 약간 다른 의미를 갖는다고 한다. in-place하고 out-place의
+개념을 설명한다. 둘다 assignment문이라서 object를 만들거라고
+생각하지만, (1)은 out-place라서 새로운 객체를 만들지만, (2)는
+in-place라서 기존 객체의 값을 update 시도를 먼저 하고 안될 경우
+새로운 객체를 만든다고 한다.</li>
+<li>bit 연산자도 축약에 사용할 수 있다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">a = 7 (1) a = a ^ 4  (2) a ^= 4
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>비교 연산자</p>
+<ul>
+<li>x &lt; y</li>
+<li>x &gt; y</li>
+<li>x &lt;= y</li>
+<li>x &gt;= y</li>
+<li>x == y : x,y value가 같다.</li>
+<li>x is y : x,y 주소가 같다.</li>
+<li>x != y : x, y value가 다르다.</li>
+<li>x is not y: x,y 주소가 다르다.</li>
+<li>x in X : x가 X에 포함된다.</li>
+<li>x not in X : x가 X에 포함되지 않는다.</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>boolean operator</p>
+<ul>
+<li>operand가 boolean type일때 수행한다. bit operator는 operand가
+arithematic이다.
+<ul>
+<li>not</li>
+<li>AND</li>
+<li>OR</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>operator priority</p>
+<ul>
+<li>기본적으로 산술연산자 &gt; bit연산자 &gt; 비교연산자 &gt; 논리연산자의 순이다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="mutable-vs-immutable">mutable vs immutable</h4>
+<ul>
+<li>primitive data type은 값을 변경할 수 없는 immutable이다.</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>example1</p>
+<ul>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(1) a = 10
+</span></span><span class="line"><span class="cl">(2) b = a
+</span></span><span class="line"><span class="cl">(3) a += 1
+</span></span><span class="line"><span class="cl">(4) a, b, a is b
+</span></span></code></pre></div><ol>
+<li>python interpreter는 a = 10을 본다. 우선, lvalue인 a에 대해서
+symbol table에서 확인한다. 없다. 그리고 rvalue를 본다. int
+type이란 것을 알기에 int객체를 만들고, name과 value를
+설정한다.</li>
+<li>python interpreter는 b = a를 본다. lvalue인 b가 symbol table에
+있는지 확인한다. 없다. rvalue인 a를 본다. symbol table에
+있다. 해당 객체의 type정보만 가지고 온다. int다. 이제 객체를
+만든다. b라는 이름과 a라는 값을 갖는 객체를 만들었다.</li>
+<li>python interpreter는 a += 1을 본다. lvalue인 a를 symbol
+table에서 찾는다. a는 10의 값을 가지고 있는 immutable한
+객체다. rvalue를 본다. a가 가진 값과 1을 더해 11이란 값을
+만든다. 이제 객체를 만들어야 하는데, lvalue가 immutable하기
+때문에 update할 수 없다. 새로운 객체를 만든다.a라는 새로운
+객체를 만든다. 그러면 기존 a객체가 갱신된다.</li>
+<li>여기서 확인해야 할 것은 b의 value다. b의 value는 a인것인가?
+아니면, a가 가진 값인가? 지금 봤을때는 a가 가진 address인거
+같다. 그래서 (3)까지 출력했을 때, a값은 새로운 객체의 11값을
+가지고, b의 경우는 옛날 객체인 a의 값인 10을 갖는다. 새로운
+a객체를 가르키지 않는다. 그리고 a is b는 false다. is라는
+함수는 a와 b의 값을 가져오기 때문이다.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>example2</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(1) a = [1,2,3]
+</span></span><span class="line"><span class="cl">(2) b = a
+</span></span><span class="line"><span class="cl">(3) a += [4]
+</span></span><span class="line"><span class="cl">(4) a, b, a is b
+</span></span></code></pre></div><ol>
+<li>python interpreter는 a = [1,2,3]을 본다. lvalue를 보고 symbol
+table에서 a를 찾는다. a는 없다. rvalue를
+본다. [1,2,3]이다. eval할 필요가 없다. 이제 객체를 만든다,
+name,value를 연결한다.</li>
+<li>python interpreter는 b = a를 본다. lvalue의 b를 symbol
+table에서 찾는다. 없다. rvalue의 a의 type을
+확인한다. list다. list객체를 만들고,이름과 value를
+연결한다. 여기서 list객체를 만드는지는 잘 모르겠다.</li>
+<li>python interpreter는 a += [4]를 본다. lvalue인 a를
+본다. symbol table에 있다. type을 보니 list다. 즉
+mutable하다. rvalue를 본다.a +[4]를 계산하자. a의 value인
+[1,2,3]의 append를 사용해서 [4]를 추가한다. [1,2,3,4]의 값이
+나왔다. 이제 여기서 객체를 만드는것이 아닌 a객체의 value를
+update한다.</li>
+<li>a의 값은 [1,2,3,4]이고, b도 [1,2,3,4]이다. a is b는 True가
+된다.</li>
+</ol>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>example3</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">a = [1,2,3,4]
+</span></span><span class="line"><span class="cl">b = a
+</span></span><span class="line"><span class="cl">a = a + [5]
+</span></span><span class="line"><span class="cl">a,b, a si b
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="in-place-operator에-대해서">In-place operator에 대해서</h3>
+<ul>
+<li>a +=1과 a= a+1의 차이: assignment와 operator의 차이
+<ul>
+<li>
+<p>python에서 모든 것은 객체다. 그리고 모든 function은 어떤 객체의
+method다. 그런데, 위에서 봤던 operator들은 method의 모양을 하고
+있지 않다. 그럼 operator라는 것은 무엇인가? 본질은
+method다. 즉, member method이다. 이것은 <a href="https://www.pythonmorsels.com/everything-is-an-object/" target="_blank">여기
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+에서 확인할
+수있다. 이제 a += 1과 a = a+1에 대해 말해보자. a += 1에서 +=는
+operator임을 알수 있다. member function, 즉 method라는것은 해당
+객체의 값을 변경, update를 한다. 그런데 a 객체는
+immutable이다. integer literal이기 때문에 값을 변경하지
+못한다. 그래서 새로운 객체를 만들어낸다. 만일 a가 list와 같은
+mutable한 객체라면, 그 값은 변경이 될 것이다. 그리고 a = a +
+1의 경우는 assignment다. 즉, 새로운 객체를 만들어 내는 것이다.</p>
+</li>
+<li>
+<p>examples</p>
+<ul>
+<li>
+<p>example1</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>example2</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>example2</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>example2</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="과-is">== 과 is</h3>
+<ul>
+<li>
+<p>==는 값을 비교, is는 객체의 이름(주소)를 비교</p>
+</li>
+<li>
+<p>example1</p>
+<ul>
+<li>아래는 False가 나와야 정답인데, 이상하게 True가 나온다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">13453436</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="mi">13453436</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>아래는 True가 나온다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">13453436</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="mi">13453436</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>example2</p>
+<ul>
+<li>이것도 제대로된 결과가 나오지 않는다. True,True,False,True가
+정답이라고 한다. print(b is &rsquo;long-long-text&rsquo;) 이 왜 false가
+나오는지 모르겠다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;text&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;long-long-text&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="s1">&#39;text&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="s1">&#39;text&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="ow">is</span> <span class="s1">&#39;long-long-text&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="s1">&#39;long-long-text&#39;</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>example3</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>example4</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="dynamic-typing">Dynamic typing</h3>
+<ul>
+<li>type을 명시하지 않고, assign할 때, rvalue를 보고 type이 정해진다.</li>
+</ul>
+<h3 id="implicit-type-conversion">implicit type conversion</h3>
+<ul>
+<li>
+<p>bool -&gt; int -&gt; float -&gt; complex bool type은 int type으로
+conversion이 가능하고, int는 float로 conversion이 가능하다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mf">1.5</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>python interpreter가 a = True를 보고, Boolean 객체를 만들고,
+객체에 a라는 이름과 True라는 값을 맵핑한다.</p>
+</li>
+<li>
+<p>python이 a = a + 2를 본다. lvalue인 a를 symbol table에서
+찾는다. 있다. rvalue를 계산한다. a의 value는 True이고, 2라는 값이
+넘어온다. 이때 boolean객체의 overriding된 + method가 True와 2라는
+값을 더해서 어떤일을 하는지는 정확히 모르겠다. 여튼 더하면 3이란
+값이 계산되고, assign을 적용해서, int객체를 만들고 a의 이름과
+3이란 값을 갖게 된다.</p>
+</li>
+<li>
+<p>python interpreter가 a = a + 1.5를 보고 위의 과정과 비슷한 과정을
+거치게 된다.</p>
+</li>
+<li>
+<p>example2
+형변환이 안된다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">+</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">+</span> <span class="s1">&#39;text&#39;</span>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="explicit-type-conversion">explicit type conversion</h4>
+<ul>
+<li>complex를 float로, float를 int로, int를 str로 형변환을 할수
+있다. 이것은 강제 형변환을 해야 한다.</li>
+<li>example
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">12345</span>
+</span></span><span class="line"><span class="cl"><span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">complex</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">bool</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>bool의 경우는 none,[],{} 등은 false값을 갖는다.</li>
+<li>형변환의 또다른 예
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">75.75</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mf">75.75</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;True&#39;</span><span class="p">))</span>
+</span></span></code></pre></div></li>
+<li>소수점 처리 방식
+<ul>
+<li>소수점 버림: int(75.75)</li>
+<li>소수점 반올림: round(75.75), object의 method.</li>
+<li>소수점 올림: math.ceil</li>
+</ul>
+</li>
+</ul>
+<h3 id="type-checking">type checking</h3>
+<ul>
+<li>type이라는 method를 사용한다. 아무래도 object의 method인거 같다.</li>
+<li>isinstance는 predicate이다.</li>
+<li>example</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">123</span>
+</span></span><span class="line"><span class="cl"><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="nb">float</span><span class="p">)</span>
+</span></span></code></pre></div>      
+      </div>
+
+  </div>
+</div>  
+<script>
+ graph_objects = []; 
+
+ 
+     
+     graph_node_object = {
+        
+     "label": "linear_algebra1",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
+     "id": "linear_algebra1",
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("linear_algebra1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "python_2",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/python_2\/",
+     "id": "python_2",
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("python_2",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+
+ 
+ function getNode(filename){
+   var storedObject = JSON.parse(sessionStorage.getItem(filename));
+   alert("label: " + storedObject.node_label);
+   alert("url: " + storedObject.node_url);
+   alert("backlinks: " + storedObject.backlinks);   
+ }
+ 
+ function getLinks(){
+   links = []
+   for (i = 0; i< graph_objects.length; i++)
+   {
+     let link_object;
+     gno = graph_objects[i];
+     blinks = gno.backlinks;
+     for(j=0;j< blinks.length;j++){
+       link_object = { source:gno.id, target:blinks[j]}
+       links.push(link_object);
+     }
+   }
+   return links;
+ }
+
+</script>
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+</body>
+</html>

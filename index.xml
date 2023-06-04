@@ -7,139 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[web] hugo로 blog만들기 - goldmark md parser</title>
-      <link>https://braindump.frege2godel.me/posts/goldmark/</link>
-      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+      <title>linear_algebra1</title>
+      <link>https://braindump.frege2godel.me/posts/linear_algebra1/</link>
+      <pubDate>Sun, 04 Jun 2023 00:00:00 +0900</pubDate>
       
-      <guid>https://braindump.frege2godel.me/posts/goldmark/</guid>
-      <description> </description>
+      <guid>https://braindump.frege2godel.me/posts/linear_algebra1/</guid>
+      <description>linear algebra에 대한 생각 인과 관계(causation)와 상관관계(correlation) 어떤 변수와 다른 어떤 변수와의 연관성이 있을때 relation이 있다고 한다. 예를 들어, x가 증가하면 y도 증가한다던지 혹은 x가 증가하면 y가 감소한다. x가 감소하면 y는 증가한다. 등등. 이런 관계를 영어로는 좀 더 명확하게 표현할 수 있는것 같다. 예를 들면, describe variables in terms of one another. 여튼 이런 관계는 수학적으로 표현할 수 있다. 인문학 분야에서도 이런 관계를 표현하는데, 좀 다르다. 인간관계, 상관관계와 같이 구분해서 표현하는데, 이것은 관계를 어떻게 해석하느냐의 문제다.</description>
     </item>
     
     <item>
-      <title>how to program</title>
-      <link>https://braindump.frege2godel.me/posts/howtoprogram/</link>
-      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+      <title>python_2</title>
+      <link>https://braindump.frege2godel.me/posts/python_2/</link>
+      <pubDate>Sun, 04 Jun 2023 00:00:00 +0900</pubDate>
       
-      <guid>https://braindump.frege2godel.me/posts/howtoprogram/</guid>
-      <description>골드마크 참조 programming? Programming(프로그래밍을 짠다는 것)은 여러 방법으로 설명할 수 있다. 여기선, 내가 이해하는 practical한 의미에서의 programming을 말할려고 한다. 나에게 있어 program은 함수다. 함수는 무엇인가? 함수는 2가지의 철학을 가지고 있다. 첫번째,함수라는 것은, 명령어라는 turing기반의 철학과, 두번째, 함수라는 것은, 5w1h같은 question에 대한 답을 만드는 proof기반(turing과 괴델)의 철학이다. 어떤 철학을 가지고 있던, 내가 이해하는 practical한 의미로 program은 function이다. 그리고 programming은 함수를 짜는 것이다. 다시 한번 강조하면, program은 function이다. programming의 철학 H/W 명령으로써의 program.</description>
-    </item>
-    
-    <item>
-      <title>how to program</title>
-      <link>https://braindump.frege2godel.me/postss/howtoprogram/</link>
-      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/postss/howtoprogram/</guid>
-      <description>골드마크 참조 programming? Programming(프로그래밍을 짠다는 것)은 여러 방법으로 설명할 수 있다. 여기선, 내가 이해하는 practical한 의미에서의 programming을 말할려고 한다. 나에게 있어 program은 함수다. 함수는 무엇인가? 함수는 2가지의 철학을 가지고 있다. 첫번째,함수라는 것은, 명령어라는 turing기반의 철학과, 두번째, 함수라는 것은, 5w1h같은 question에 대한 답을 만드는 proof기반(turing과 괴델)의 철학이다. 어떤 철학을 가지고 있던, 내가 이해하는 practical한 의미로 program은 function이다. 그리고 programming은 함수를 짜는 것이다. 다시 한번 강조하면, program은 function이다. programming의 철학 H/W 명령으로써의 program.</description>
-    </item>
-    
-    <item>
-      <title>link test title</title>
-      <link>https://braindump.frege2godel.me/posts/test_link/</link>
-      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/posts/test_link/</guid>
-      <description>link test head 네이버 test</description>
-    </item>
-    
-    <item>
-      <title>link test title</title>
-      <link>https://braindump.frege2godel.me/postss/test_link/</link>
-      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/postss/test_link/</guid>
-      <description>link test head 네이버 test</description>
-    </item>
-    
-    <item>
-      <title>org mode test</title>
-      <link>https://braindump.frege2godel.me/posts/orgmodetest/</link>
-      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/posts/orgmodetest/</guid>
-      <description>org에서 사용되는 요소들
-text표현 bold(*) Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.
-strikethrough(+) Etiam laoreet quam sed arcu.
-italic(/) Etiam vel neque nec dui dignissim bibendum.
-underline(_) Praesent fermentum tempor tellus.
-verbatim(=) Nulla posuere.
-minus(-) Fusce -sagittis- libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.
-head1 head1 text
-head2 head2 text
-head3 head3 text
-list ordered list list1 list2 list3 unordered list ulist1 ulist2 ulist3 source text mov R9, R3 emacs lisp this is lisp code block python code import numpy as np import matplotlib.</description>
-    </item>
-    
-    <item>
-      <title>org mode test</title>
-      <link>https://braindump.frege2godel.me/postss/orgmodetest/</link>
-      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/postss/orgmodetest/</guid>
-      <description>org에서 사용되는 요소들
-text표현 bold(*) Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.
-strikethrough(+) Etiam laoreet quam sed arcu.
-italic(/) Etiam vel neque nec dui dignissim bibendum.
-underline(_) Praesent fermentum tempor tellus.
-verbatim(=) Nulla posuere.
-minus(-) Fusce -sagittis- libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.
-head1 head1 text
-head2 head2 text
-head3 head3 text
-list ordered list list1 list2 list3 unordered list ulist1 ulist2 ulist3 source emacs lisp this is lisp code block python code import numpy as np import matplotlib.</description>
-    </item>
-    
-    <item>
-      <title>[모두의딥러닝] chapter6 퍼셉트론</title>
-      <link>https://braindump.frege2godel.me/posts/perceptron/</link>
-      <pubDate>Sun, 06 Mar 2022 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/posts/perceptron/</guid>
-      <description>test (1) Perceptron Figure 1: perceptron
-Perceptron의 구조는 뉴런이란 구조와 비슷하지만, chapter5에서 봤던 sigmoid함수의 구조와 비슷하다. sigmoid함수를 보면, exponential의 인자로 직선의 방정식이 들어가는 합성함수의 구조였다. 마찬가지로 Perceptron도 비슷한 구조로 되어 있다. 직선의 방정식이 a에서 w로 변경되고, 개수가 늘어난 차이만 있다. Perceptron은 Logistic Regression의 확장판으로 보면 된다. (2)가중치, 가중합, 바이어스, 활성화 함수 용어에 대한 정리가 필요하다. 가중치(weight): sigmoid의 입력으로 들어가는 직선의 방정식의 기울기로 보면 된다. bias: sigmoid함수의 입력으로 들어가는 직선의 방정식의 절편으로 보면 된다.</description>
-    </item>
-    
-    <item>
-      <title>[모두의딥러닝] chapter6 퍼셉트론</title>
-      <link>https://braindump.frege2godel.me/postss/perceptron/</link>
-      <pubDate>Sun, 06 Mar 2022 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/postss/perceptron/</guid>
-      <description>test (1) Perceptron Figure 1: perceptron
-Perceptron의 구조는 뉴런이란 구조와 비슷하지만, chapter5에서 봤던 sigmoid함수의 구조와 비슷하다. sigmoid함수를 보면, exponential의 인자로 직선의 방정식이 들어가는 합성함수의 구조였다. 마찬가지로 Perceptron도 비슷한 구조로 되어 있다. 직선의 방정식이 a에서 w로 변경되고, 개수가 늘어난 차이만 있다. Perceptron은 Logistic Regression의 확장판으로 보면 된다. (2)가중치, 가중합, 바이어스, 활성화 함수 용어에 대한 정리가 필요하다. 가중치(weight): sigmoid의 입력으로 들어가는 직선의 방정식의 기울기로 보면 된다. bias: sigmoid함수의 입력으로 들어가는 직선의 방정식의 절편으로 보면 된다.</description>
-    </item>
-    
-    <item>
-      <title>[web] hugo로 blog만들기 - goldmark md parser</title>
-      <link>https://braindump.frege2godel.me/postss/goldmark/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/postss/goldmark/</guid>
-      <description> </description>
-    </item>
-    
-    <item>
-      <title>denver org file</title>
-      <link>https://braindump.frege2godel.me/posts/denver_org_example/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/posts/denver_org_example/</guid>
-      <description>org를 html로 변환시, css처리를 해줘야 한다. org로 작성한 문서가 md로 변경되고 md에서 html로 변환되기 때문에, 그리고 ox-hugo를 사용하기 때문에 css는 별도 처리를 해줘야 한다.
-This is the example org-mode file used for the Denver Emacs org-mode introduction talk. Everything in this talk should work without any custom settings or installation with a reasonably recent Emacs version.
-Let&amp;rsquo;s start with a headline, this is kind of like Markdown&amp;rsquo;s # character:
-This is an example headline Text can be put into the headline.</description>
-    </item>
-    
-    <item>
-      <title>denver org file</title>
-      <link>https://braindump.frege2godel.me/postss/denver_org_example/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/postss/denver_org_example/</guid>
-      <description>org를 html로 변환시, css처리를 해줘야 한다. org로 작성한 문서가 md로 변경되고 md에서 html로 변환되기 때문에, 그리고 ox-hugo를 사용하기 때문에 css는 별도 처리를 해줘야 한다.
-This is the example org-mode file used for the Denver Emacs org-mode introduction talk. Everything in this talk should work without any custom settings or installation with a reasonably recent Emacs version.
-Let&amp;rsquo;s start with a headline, this is kind of like Markdown&amp;rsquo;s # character:
-This is an example headline Text can be put into the headline.</description>
+      <guid>https://braindump.frege2godel.me/posts/python_2/</guid>
+      <description>[lecture2] variable &amp;amp; operator 변수와 assignment 변수는 lisp에선 symbol이라고 부르고, 모든 symbol은 동일한 형태의 structure를 가졌다. symbol의 이름은 unique했다. symbol의 이름은 address였기 때문이다. 하지만, python에서 변수는 type이 가리키는 structure를 갖는다. 모두 동일한 모양이 아니다. 변수의 이름은 unique한건 마찬가지 인 듯 하다. address이기 때문이다. 변수와 assignment의 예 1 example
+(1) a = 15 (2) b = a (3) b print(b) interpreter가 이것을 어떻게 해석할까?
+(1) 과정
+lvalue인 a를 보고 symbol table에서 찾는다.</description>
     </item>
     
   </channel>
