@@ -2,13 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://braindump.frege2godel.me/posts/linear_algebra1/</loc>
-    <lastmod>2023-06-04T00:00:00+09:00</lastmod>
+    <loc>https://braindump.frege2godel.me/posts/folding_test/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/folding_test2/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/lecture10-string/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/lecture11-io/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/lecture12-setting-exception-logging/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/lecture13-web/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/lecture3_data-structure/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/lecture4_condition-and-loop/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/lecture5_function/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/lecture6-pythonic-programming/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/lecture7_object-oriented-programming/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/lecture8-module-and-package/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/lecture9-advanced-data-structure/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/webcrawler1/</loc>
+    <lastmod>2023-06-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/lecture2_variable_and_operator/</loc>
     <lastmod>2023-06-04T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://braindump.frege2godel.me/posts/python_2/</loc>
+    <loc>https://braindump.frege2godel.me/posts/linear_algebra1/</loc>
     <lastmod>2023-06-04T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/search/</loc>

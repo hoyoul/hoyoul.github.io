@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html>
+  <head><title>lecture6-pythonic programming</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/orgmode.css">
+<link rel="stylesheet" href="/css/chroma.css">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="https://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+  <small>G.frege를 너무 사랑하는 holy가...</small>
+  <div class="vertical_dotted_line"></div>
+    <label>
+      <input role="switch" type="checkbox" id="switch"/>
+      <span>d3 off</span>
+    </label><form id="search"
+	  action='https://braindump.frege2godel.me/search/' method="get">  
+  <input type="text" id="search-input" name="query"
+	 placeholder="" autocomplete="on">
+  <input type="submit" value="search">
+</form>
+
+</header>
+   
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">lecture6-pythonic programming</h1>    
+      <div class="content">
+	<a href="https://braindump.frege2godel.me/posts/lecture6-pythonic-programming/" alt="lecture6-pythonic programming" class="permalink" data-singlepage="yes" ><h1>lecture6-pythonic programming</h1></a>
+	<fieldset>
+	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
+	  <ol class="li"><strong>Title: </strong> lecture6-pythonic programming </ol>
+	  <ol class="li"><strong>date: </strong> 2023 6.5 </ol>
+	  <ol class="li"><strong>content: </strong>pythonic한 programming </ol>
+	    
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+	  
+	</fieldset>
+	<h2 id="pythonic-programming">Pythonic Programming</h2>
+<h3 id="for-in-iterator-loop-iterator-generator">for-in-iterator-loop, iterator,generator</h3>
+<h4 id="in-predicate">in predicate</h4>
+<ul>
+<li>
+<p>&lsquo;in&rsquo; keywords를 사용하는 건 2가지가 있다. predicate으로 in과
+for-in-loop에서 사용이 있다.</p>
+</li>
+<li>
+<p>내가 보기에 &lsquo;in&rsquo;은 rvalue와 lvaue를 취하는 &lsquo;=&lsquo;과 비슷하다. 즉 rvalue와 lvalue를 보고 동작이 결정된다.</p>
+</li>
+<li>
+<p>&lsquo;in&rsquo;의 rvalue는 iterable객체가 와야 한다. lvaue는 name이 오거나,값이 와야 한다.</p>
+</li>
+<li>
+<p>rvalue test</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">fruits</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;banana&#34;</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>in 뒤에 나오는 rvalue는 iterable 객체여야 한다. 아니면, error.</li>
+</ul>
+</li>
+<li>
+<p>test2</p>
+<ul>
+<li>rvalue의 처리 : in 뒤에 객체가 iterable하다면, __self__로
+객체를 얻어와서 __next__를 호출하면 값이 return된다.</li>
+<li>in은 lvalue도 처리한다. 만일 lvalue를 처리하지 않고 rvalue만
+처리한다면? 즉 rvalue의 값만 return한다면?
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># fruits = [&#34;apple&#34;,&#34;orange&#34;]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;banana&#34;</span> <span class="s2">&#34;apple&#34;</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>위의 예처럼 rvalue만 처리하는건 위의 경우 처럼, 값만 2개 있는
+꼴이다. 즉 lvalue를 처리해야 한다. lvalue가 값인경우 비교해서
+true 면 종료된다. 만일 false면 계속 next를 호출해서
+비교한다. 즉 rvalue로 return한값과 lvalue값에 is함수를 적용하는
+것과 같다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;banana&#34;</span><span class="p">,</span> <span class="s2">&#34;apple&#34;</span><span class="p">,</span> <span class="s2">&#34;orange&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span> <span class="s2">&#34;apple&#34;</span> <span class="ow">in</span> <span class="n">fruits</span> <span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h4 id="for-in-loop">for-in-loop</h4>
+<ul>
+<li>위에서 봤듯이 in keyword는 rvalue에 해당하는 값을 return후
+lvalue와 true가 나올때까지 비교한다. 만일 lvalue가 name이고
+for가 있다면, 값을 비교하지 않고 binding을 한다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;banana&#34;</span><span class="p">,</span><span class="s2">&#34;apple&#34;</span><span class="p">,</span><span class="s2">&#34;orange&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="range">range</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>range개념</p>
+<ul>
+<li>range는 generator다. 즉 함수내부에 yield라는 keyword가 있다.
+그리고 function객체다. range라는 generator를 설명하기 앞서
+iterator에 대한 간략한 소개가 필요하다. iterator는 객체에
+__iter__와 __next__가 구현되어 있고, 내부적으로 cur이란 변수를
+갖는다. in keyword에 의해 next함수고 호출되고 next함수는 cur이
+가리키는 값을 return한다. 그러면, for는 return한 값을
+binding한다. generator도 마찬가지다. in 에 의해서 yield까지
+수행하고 값을 return한다. 다음 수행될 주소를 cur에 가지고
+있다. iterator와 generator 모두 start,cur,end라는 변수를 가지고
+있다는 게 공통점이다.</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>range 사용법</p>
+<ul>
+<li>range(5)
+<ul>
+<li>start:0, end:5로 counting된다.</li>
+</ul>
+</li>
+<li>range(1,3)
+<ul>
+<li>start:1, end:3으로 counting된다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="iterator와-generator객체의-출력">iterator와 generator객체의 출력</h4>
+<ul>
+<li>iterator객체와 generator객체를 출력하기위해서 print문을 사용할
+경우, 객체임을 출력하지 , 객체가 가진 내용을 출력하지 않는다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">gen1</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">gen1</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>이럴 때는 list객체로 만들면 출력이 된다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">gen1</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">gen1</span><span class="p">))</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="comprehension과-generator">Comprehension과 Generator</h3>
+<ul>
+<li>
+<p>list나 dictionary같은 것을 만드는 이유는 data의 저장과 사용하기
+위해 만든다. 거기에 들어가는 data들은 직접 작성될 수도 있고,
+code로 만들 수도 있으며, 외부로 부터 가져올 수도 있다(network,
+file, etc). 여기서는 외부 data는 신경쓰지 않기로 한다.</p>
+</li>
+<li>
+<p>우리가 직접 list 데이터를 쓰는건 작은 데이터일 경우, 문제가 되지
+않는다. 큰 data일 경우 for-loop을 이용해서 data를 생성해서 list에
+저장하는 방식을 쓰거나, 방식은 같지만 list comprehension으로 많은
+data를 만들수가 있다. 하지만 for-loop, list-comprehension은 모두
+유한의 자료를 대상으로 한다는 것이다. 무한한 자료의 처리는 할수
+없다. 무한한 자료의 처리는 실시간 data를 필요하는 경우에는,
+generator가 필요하다. Generator를 사용하는 이유는 무한의 data를
+만들어 낼 수 있다는 데 있다. 예를들어서 경비행기 simulator를
+만든다고 하자. 우리는 매번, 온도 습도 고도와 같은 정보를
+실시간으로 입력받아야 한다. simulator에서 그런 data가 미리
+준비되어 있다고 할지라도, 그 data들은 유한하다. 유한한 data를
+나타내기 위해서 list를 직접작성하던, 직접작성하는게 노가다라서
+list comprehension을 사용하던 유한의 data밖에 만들어낼
+뿐이다. 언젠간 끝이 있다. 실제와 같은 simulator에서는 유한하지
+않는 무한한 data가 제공되어야 한다. 그것은 generator로 만들어질
+수 밖에 없다. 하지만, 우리가 지금 말할려는 것은
+compreshension이다. list를 직접사용하는게 아닌 코드를 이용해서 긴
+list를 만드는 방법에 대한 얘기다. 아래처럼 수동으로 작성하는게
+아닌 code를 사용하는 방식이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[1,1,2,3,5.....]
+</span></span></code></pre></div><p>그런데, code를 사용해서 list data를 만들때, 가장 먼저 떠오르는
+것은 for-loop으로 만들 것이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div><p>그런데, for-loop으로 data를 만드는 방식 말고, 더 간단한 문법으로
+만드는 방식을 제공한다. 그것을 comprehension이다. 위의 for-loop를
+comprehension으로 표현하면 아래와 같다. for-loop와 달리,
+list안에다 직접 데이터를 쓴다는 느낌이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div><p>그래서, 문법도 보면 [ ]가 나오고, 꺽쇠 안에 처음에 표현될 data의
+형태가 나온다. 아래와 같은 방식이다.</p>
+<ol>
+<li>우리가 원하는 data가 어떤형태인가? list면 <input disabled="" type="checkbox"> , dictionary면 { }</li>
+<li>원소는 어떤 형태인가? 정수이고 짝수다. 2*i 형태</li>
+<li>원소는 몇개인가? 10개, range를 사용하자. for i in range(10)</li>
+<li>최종적으로 [ 2*i for i in range(10)]</li>
+</ol>
+</li>
+</ul>
+<h4 id="comprehension-examples">comprehension examples</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>Comprehension example 1</p>
+<ul>
+<li>
+<p>10개의 data를 갖는 dictionary를 만들고 싶다. 아래와 같은 형태로.</p>
+</li>
+<li>
+<p>{&lsquo;0&rsquo;: 0, &lsquo;1&rsquo;: 1, &lsquo;2&rsquo;: 2, &lsquo;3&rsquo;: 3, &lsquo;4&rsquo;: 4, &lsquo;5&rsquo;: 5, &lsquo;6&rsquo;: 6, &lsquo;7&rsquo;: 7,
+&lsquo;8&rsquo;: 8, &lsquo;9&rsquo;: 9}</p>
+</li>
+<li>
+<p>10개의 data가 필요하니까 range(10)을 사용하고, for in을 사용해서
+index를 가져와서 dictionary에 하나씩 하나씩 쓴다.</p>
+</li>
+<li>
+<p>이런 dictionary를 하나하나 쓰긴 그렇다. 이 경우 dictionary
+comprehension을 사용한다.</p>
+</li>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>dictionary에 이런 data를 만들기 위해서, dictionary
+comprehension을 사용하자.</p>
+</li>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">):</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
+</span></span></code></pre></div><ul>
+<li>위에서 보다시피, dictionary에 들어갈 형태는 &lsquo;index&rsquo;:index
+형태다. 즉 key:value의 형태다. dictionary안에서 str(i):i로
+만들고, 루프-for i in range(10)를 사용하면 된다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>Comprehension example 2</p>
+<ul>
+<li>
+<p>이번에 만들 list는 10개의 data를 갖는데, 10이하의 정수가
+random하게 배열된 list다.</p>
+</li>
+<li>
+<p>이런 걸 만들기 위해서, 어떻게 할 수 있을까? 아래에서는 set객체를
+만들고, set객체에 add로 집어넣었다. 그런데 결과값은
+random하다. 이건 좀 신기하다.</p>
+</li>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>이제 dictionary comprehension으로 이런 dictionary를 만들려고
+한다. 어떻게 해야 할까?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>여기서도 만들려고 하는 list item의 형태를 본다. string타입의
+item이다. 그런데 {}이기 때문에 dictionary아니면 set이다. item이
+key:value형태가 아니다. 따라서, 이것은 set이라는 것을 알수 있다.</li>
+<li>for i in range(10) 이렇게 하면 set comprehension이 만들어졌다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>comprehension example 3</p>
+<ul>
+<li>
+<p>example1</p>
+<ul>
+<li>comprehension의 구조를 보면, for문 다음에 if문이 나올 수
+있다. for문 다음에 for문이 나올 수도 있다. 해석은
+순차적이다. 아래를 보면, for에서 binding된 i를 if를 거쳐서
+item으로 만든다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">evens</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">evens</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98]
+</span></span></code></pre></div><ul>
+<li>50개의 정수를 원소로 갖는 list다.</li>
+<li>각각의 원소는 2의 배수 형태다.</li>
+<li>어떻게 만들 것인가?</li>
+<li>range(n)에 대해서 정확히 알아야할 듯 하다. range는 개수를
+입력으로 받는다. 시작은 0부터 한다.</li>
+<li>아래와 같이 만들면 된다. 위에 처럼 복잡하게 만들 필요는 없는 듯
+하다.</li>
+<li>위에서 눈여겨 봐야 할 것은 for i in range(100) 다음의 if문이 나온다는 것이다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">2</span><span class="o">*</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>example2</p>
+<ul>
+<li>이것은 for문 다음에 for문이 나오는 형태다. 이중 for문으로
+보면 된다. 3중 for문, 4중 for문도 만들 수가 있다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>10개의 tuple을 원소를 갖는 list다.</li>
+<li>tuple의 첫번째 원소는 규칙을 가지고 있다. 반면에 두번째 원소는
+규칙을 모르겠다.</li>
+<li>test
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>example3</p>
+<ul>
+<li>아래 구조는 다차원 배열을 만드는 것이라고 한다.</li>
+<li>동작 원리를 보면, 가장 밖에 있는 for i in range(5)가 돌면서
+내부의 list를 만들게 된다. 내부의 for-loop은 []가 없다면 내부
+for-loop 다음에 옆에 for-loop이 실행 되었을것이다. 하지만 [
+]때문에 외부 for문에 따라 내부 for문이 도는 형태가 된 것이다.</li>
+<li>결과적으로 정수 값을 갖는 2차원 table을 만든다.</li>
+<li>identity matrix를 만든다고 한다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">eye</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">eye</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">eye</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span><span class="n">j</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">eye</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h3 id="generator">Generator</h3>
+<h4 id="generator의-개념">Generator의 개념</h4>
+<ul>
+<li>range가 가장 대표적인 예, range는 숫자를 생성하고, 요청이 있으면
+숫자를 return하고 새로운 수를 만든다. list를 만들지
+않는다. 따라서 메모리 효율적이다.</li>
+<li>function에 yield가 있다면, generator이다.</li>
+<li>generator를 이해하기 위해선, iterator와 for in loop의 동작 방식을
+살펴볼 필요가 있다.</li>
+</ul>
+<h4 id="for-in-loop와-iterator">for in loop와 iterator</h4>
+<ul>
+<li>for in loop에 대해서 알 필요가 있다.</li>
+<li>for in loop를 알려면 iterator에 대한 이해가 필요하다.</li>
+<li>for in loop의 구조는 다음과 같다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">for index in iterator
+</span></span></code></pre></div></li>
+<li>iterator는 객체다. python의 모든것이 객체라서 iterator가
+객체라고 말하는것은 좀 불 성실해 보인다. 좀 더 자세하게 말하자면
+__iter__라는 dunder method와 __next__를 구현하고 있는 객체라고
+말하는게 좀 더 정확할 것이다. list, tuple, dictionary, set과
+같은 collection type의 class는 2개의 method가 구현되어 있다. 이
+메소드가 어떤 역할을 하는지 살펴보자.</li>
+<li>for i in iterator라는 구문이 있다고 하자. python interpreter는
+iterator의 _<em>iter__라는 메소드를 호출해서 self객체를
+얻는다. 그다음 self._<em>next</em></em>()를 통해서 iterator가 가진 원소를
+꺼내온다. 그리고 i와 binding을 한다. loop를 돈 다음에,
+iterator의 __next__메소드를 호출해서 다음 원소의 값을
+가져온다. 단지 __next__메소드를 호출한다고 다음값을 가져오는가?
+그렇게 말하면 너무 무성의하다. iterator객체들은 내부적으로
+cur이라는 변수를 유지하고 있다. 일종의 pointer인데, 현재
+참조하는 data를 가리킨다. __next__를 호출할 때마다 다음 데이터를
+return하는 구조다. stop이라는 마지막을 나타내는 pointer를 next가
+가리키면 exception이 나고 for-loop은 끝나게 된다.</li>
+</ul>
+<h4 id="generator에-대한-생각-dot">Generator에 대한 생각.</h4>
+<ul>
+<li>for in loop와 iterator에 대한 개념이 생겼으니, Generator에
+대해서 알아보자.  Generator는 yield가 있는 함수라고
+한다. yield가 뭔지도 알아야 한다. 여튼&hellip;</li>
+<li>iterator가 있어야 할 곳에 Generator가 있을 수 있다고
+한다. Generator에는 iter,next같은 함수가 구현되어 있지
+않다. iterator라고 부르는 객체들은 data를 가지고 있는
+collection객체 였다면, Generator는 function객체다. Generator는
+객체가 가진 data를 return하는게 아닌 말그대로 data를 만들어서
+return한다. 그렇게 하기 위해선 명령어의 주소를 가지고 있고, 다음
+명령어를 실행하는 방식이다. iterator와 비교하면, iterator는 cur이라는 pointer로
+다음에 return할 data를 가리킨다면, Generator는 다음에 수행할
+statement를 yield로 가리키고 있다고 보면 된다. for loop의
+동작방식은 __iter__로 객체를 얻어와서 self.__next__를
+호출한다. 이것이 generator에게 다르게 적용되진 않는다. 즉,
+__iter__를 호출하면 function객체가 return되고, __next__메소드가
+호출되면, yield가 가진 다음 명령어부터 실행된다. 계속 수행되다가
+yield를 만나면 어떤 data를 return할 것이다. 그러면 index와
+binding해서 for-loop의 body를 수행한다.</li>
+<li>example
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">my_range2</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">my_range2</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">my_range</span><span class="p">(</span><span class="n">stop</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">       <span class="k">yield</span> <span class="n">number</span>
+</span></span><span class="line"><span class="cl">       <span class="n">number</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">my_range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>Generator는 lisp에서도 macro로 존재하는 기능이다.</li>
+<li>동작과정을 살펴 보면, 제일 먼저, python interpreter는
+my_range라는 function 객체를 만든다.</li>
+<li>for-in-loop에서 my_range라는 객체를 __iter__로 얻고, 5를
+stack에 저장후, __next__를 실행시킨다. generator(function
+object)의 __next__는 수행할 명령어의 주소를 cur에 가지고
+있는데, cur은 __init__을 가리키고 있다. 처음 호출이기
+때문이다. __init__에선, function객체는 argument binding을
+한다. stack에서 5라는 값을 my_range객체의 argument stop과
+binding한다. stop은 일종의 멤버변수다.따라서 함수 호출 후
+body를 수행할 때 stop이 binding된다. 쭈욱 body를 실행한다.</li>
+<li>while에 진입한 이후에 yield를 만난다. yield는 다음 명령어의
+주소를 cur과 같은 변수에 저장한다. 다음 __next__호출시 cur에
+저장된 명령어를 수행하기 때문이다. 그리고 yield는 값을
+return한다.</li>
+<li>주의해야 할것은 yield는 값을 return할 뿐이지, 함수의 종료를
+뜻하지는 않는다. 만일 return문이 있다면, return문을 만나면
+함수는 종료를 하게 된다.</li>
+</ul>
+<h4 id="특이한-generator">특이한 generator</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">even_generator</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">even_generator</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>even_generator는 언뜻보기에 tuple comprehension처럼
+보인다. tuple안에 comprehension이 들어가 있기 때문이다. 그러나
+tuple comprehension은 존재하지 않는다. dictionary와 set, list는
+comprehension이 있어도, tuple comprehension은 존재 하지
+않는다. 저것은 comprehension을 generator로 만든것으로 보면
+된다. Generator이기 때문에 for-loop으로 출력해보면 위와 같은
+결과가 나온다. 근데, tuple comprehension, 즉 tuple형태로 된
+generator에서 ()를 제거해도 문제가 없다고 한다. tuple은 ()가 생략
+가능하기 때문이다.</li>
+</ul>
+<h3 id="built-in-functions">Built-in Functions</h3>
+<h4 id="sum--iterable">sum([iterable])</h4>
+<ul>
+<li>iterable의 합을 구한다. generator도 iterator로 간주한다.</li>
+<li>example
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="any--iterable--all--iterable">any([iterable]), all([iterable])</h4>
+<ul>
+<li>any는 하나라도 참이면 참, all은 모두가 true여야 True다.</li>
+<li>example
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">any_value</span> <span class="o">=</span> <span class="nb">any</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">all_value</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">any_value</span><span class="p">,</span><span class="n">all_value</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="max--iterable-min-iterable">max([iterable], min([iterable])</h4>
+<ul>
+<li>max는 주어진 iterable에서 최대값을 return한다.</li>
+<li>min은 주어진 iterable에서 최소값을 return한다.</li>
+<li>iterable대신 generator도 쓸수 있는가? 유한 generator는
+된다. 무한 generator는 가능한가?
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">((</span><span class="n">i</span> <span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))))</span>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="zip--iterable-iterable-dot-dot-dot">zip([iterable],[iterable],&hellip;)</h4>
+<ul>
+<li>
+<p>zip은 seq를 인자로 받아서 sequence를 column별로 묶는다고 보면된다.</p>
+</li>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">seq1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">seq2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">seq3</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">,</span><span class="n">seq3</span><span class="p">)))</span>
+</span></span></code></pre></div><ul>
+<li>각각의 sequence의 첫번째 원소를 묶어서 tuple을 만든다. 두번째
+원소들을 모아서 두번째 요소를 만든다. 두번 째 요소도
+tuple형태다.</li>
+<li>3개씩 3개가 만들어진다. 그런데 seq1의 4는 짝이 없다. 이런
+경우, 그냥 버린다.</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>zip 사용법 예제</p>
+<ul>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">array</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">array</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>row와 col출력을 하는 예제다. row는 이해가 되지만, column이
+이해가 안간다.</p>
+</li>
+<li>
+<p>column을 나타내기 위해서 생각나는 방식은 아래와 같은 방식 일
+것이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">array</span><span class="p">[</span><span class="mi">2</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>그런데 이것은 [[1,2,3],[4,5,6],[7,8,9]]라는 list를
+unpacking해서 array[0],array[1],array[2]로 만든것과
+같다. 이것을 다시 packing하면,*array로 나타낼 수 있다.</p>
+</li>
+<li>
+<p>zip함수의 흥미로운 부분이 있다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">seq2 = zip(*seq1)이라고 하면, seq1 = zip(*seq2)와 같다.
+</span></span></code></pre></div></li>
+<li>
+<p>근데 윗 부분은 좀더 예제라던가 동작방식을 살펴봐야 할 듯 하다.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="enumerate">Enumerate</h4>
+<ul>
+<li>
+<p>iterable을 for문으로 돌릴때, index가 필요한 경우가 있을 수
+있다. 어떤 list의 값과 index를 사용해야 한다면, 다음과 같이
+코드를 짤 것이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">seq</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;this&#34;</span><span class="p">,</span> <span class="s2">&#34;is&#34;</span><span class="p">,</span> <span class="s2">&#34;sentence&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span></code></pre></div></li>
+<li>
+<p>enumerate를 이용한다면 더 간단하게 짤 수 있다.</p>
+</li>
+<li>
+<p>example1</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">seq</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;this&#34;</span><span class="p">,</span> <span class="s2">&#34;is&#34;</span><span class="p">,</span> <span class="s2">&#34;sentence&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>example2</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">seq1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;this&#34;</span><span class="p">,</span> <span class="s2">&#34;sentence&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">seq2</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>generator객체나 enumerate객체는 출력되지 않는다. 출력을 하기
+위해선 list를 사용한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;This&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;sentence&#39;</span><span class="p">])))</span>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="lambda-function">lambda function</h4>
+<ul>
+<li>
+<p>lambda function은 이름이 없는 함수</p>
+</li>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</span></span></code></pre></div><ul>
+<li>이것을 lambda expression으로 바꾸면,</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">add</span> <span class="o">=</span>  <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">:</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</span></span></code></pre></div></li>
+<li>
+<p>lambda [param1],[param2]&hellip;[expression]형태로 만든다.</p>
+</li>
+</ul>
+<h4 id="map--function-iterable">map ([function],[iterable])</h4>
+<ul>
+<li>각 요소에 function함수를 적용하여 반환
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">seq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">seq</span><span class="p">)))</span>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="filter--function-iterable">filter ([function], [iterable])</h4>
+<ul>
+<li>각 요소에 predicate을 적용하여 참이 나오는것만 반환</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">seq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="n">seq</span><span class="p">)))</span>
+</span></span></code></pre></div>      
+      </div>
+
+  </div>
+</div>  
+<script>
+ graph_objects = []; 
+
+ 
+     
+     graph_node_object = {
+        
+     "label": "folding test1",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
+     "id": "folding_test",
+     
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["folding_test2"]
+   }
+ sessionStorage.setItem("folding_test",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "folding test2",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
+     "id": "folding_test2",
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["folding_test"]
+   }
+ sessionStorage.setItem("folding_test2",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture10-String",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture10-string\/",
+     "id": "lecture10-String",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture11-IO",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
+     "id": "lecture11-IO",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture11-IO",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture12-setting-exception-logging",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture12-setting-exception-logging\/",
+     "id": "lecture12-setting-exception-logging",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture13-web",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
+     "id": "lecture13-web",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture13-web",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture3 data structures",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture3_data-structure\/",
+     "id": "lecture3_data-structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture4_condition-and-loop",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
+     "id": "lecture4_condition-and-loop",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture4_condition-and-loop",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture5_function",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture5_function\/",
+     "id": "lecture5_function",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture6-pythonic programming",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
+     "id": "lecture6-Pythonic-Programming",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture6-Pythonic-Programming",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture7_Object-Oriented-Programming",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture7_object-oriented-programming\/",
+     "id": "lecture7_Object-Oriented-Programming",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture8-module-and-package",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
+     "id": "lecture8-module-and-package",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture8-module-and-package",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture9-Advanced-Data-Structure",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture9-advanced-data-structure\/",
+     "id": "lecture9-Advanced-Data-Structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "web scraping1",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
+     "id": "webcrawler1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("webcrawler1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture2_variable_and_operator",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture2_variable_and_operator\/",
+     "id": "lecture2_variable_and_operator",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "linear_algebra1",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
+     "id": "linear_algebra1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("linear_algebra1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+
+ 
+ function getNode(filename){
+   var storedObject = JSON.parse(sessionStorage.getItem(filename));
+   alert("label: " + storedObject.node_label);
+   alert("url: " + storedObject.node_url);
+   alert("backlinks: " + storedObject.backlinks);   
+ }
+ 
+ function getLinks(){
+   links = []
+   for (i = 0; i< graph_objects.length; i++)
+   {
+     let link_object;
+     gno = graph_objects[i];
+     blinks = gno.backlinks;
+     for(j=0;j< blinks.length;j++){
+       link_object = { source:gno.id, target:blinks[j]}
+       links.push(link_object);
+     }
+   }
+   return links;
+ }
+
+</script>
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+</body>
+</html>

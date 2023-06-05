@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><title>Posts</title>
+  <head><title>lecture13-web</title>
 
 
 <meta charset="utf-8">
@@ -40,48 +40,102 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">List Page</h1>            
+    <h1 class="collapsed-title">lecture13-web</h1>    
       <div class="content">
-      <a href="https://braindump.frege2godel.me/posts/" alt="list" class="permalink"><h1>List pages</h1></a>     
-      <p>Here are all 16 notes that exist at the moment:</p> 
-      <ul>
-	
-	<li><a href="/posts/folding_test/">folding test1</a></li>
-	
-	<li><a href="/posts/folding_test2/">folding test2</a></li>
-	
-	<li><a href="/posts/lecture10-string/">lecture10-String</a></li>
-	
-	<li><a href="/posts/lecture11-io/">lecture11-IO</a></li>
-	
-	<li><a href="/posts/lecture12-setting-exception-logging/">lecture12-setting-exception-logging</a></li>
-	
-	<li><a href="/posts/lecture13-web/">lecture13-web</a></li>
-	
-	<li><a href="/posts/lecture3_data-structure/">lecture3 data structures</a></li>
-	
-	<li><a href="/posts/lecture4_condition-and-loop/">lecture4_condition-and-loop</a></li>
-	
-	<li><a href="/posts/lecture5_function/">lecture5_function</a></li>
-	
-	<li><a href="/posts/lecture6-pythonic-programming/">lecture6-pythonic programming</a></li>
-	
-	<li><a href="/posts/lecture7_object-oriented-programming/">lecture7_Object-Oriented-Programming</a></li>
-	
-	<li><a href="/posts/lecture8-module-and-package/">lecture8-module-and-package</a></li>
-	
-	<li><a href="/posts/lecture9-advanced-data-structure/">lecture9-Advanced-Data-Structure</a></li>
-	
-	<li><a href="/posts/webcrawler1/">web scraping1</a></li>
-	
-	<li><a href="/posts/lecture2_variable_and_operator/">lecture2_variable_and_operator</a></li>
-	
-	<li><a href="/posts/linear_algebra1/">linear_algebra1</a></li>
-	
-      </ul>
+	<a href="https://braindump.frege2godel.me/posts/lecture13-web/" alt="lecture13-web" class="permalink" data-singlepage="yes" ><h1>lecture13-web</h1></a>
+	<fieldset>
+	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
+	  <ol class="li"><strong>Title: </strong> lecture13-web </ol>
+	  <ol class="li"><strong>date: </strong> 2023 6.5 </ol>
+	  <ol class="li"><strong>content: </strong>python web 사용 </ol>
+	    
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+	  
+	</fieldset>
+	<h2 id="web-crawling">web crawling</h2>
+<h3 id="web-crawling-개요">web crawling 개요</h3>
+<p>우리가 browser로 보는 화면은 html문서를 formatting한 것이다. web
+문서인 html문서를 browser가 우리 컴퓨터에 down받고 down받은
+html문서를 formatting해서 보여주는 것이다. browser가 html문서를
+down받아서 보여주는 것처럼, python에서 html문서를 down받아서 분석할
+필요가 있다. 이것을 web crawling이라고 한다. python에서 html문서를
+가져오기 위해서는 requests라는 사용자 library를 사용해야 한다.</p>
+<h3 id="requests">Requests</h3>
+<h4 id="설치">설치</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">conda install requests
+</span></span></code></pre></div><h4 id="requests-사용법-예시">requests 사용법 예시</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://www.naver.com&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span></span></code></pre></div><p>request.get으로 html문서와 여러 응답결과를 객체로 만들어
+return한다. return한 객체에 html문서가 있다. 문서는 text라는
+변수가 가리킨다.</p>
+<h4 id="crawling-예시">Crawling 예시</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">URL</span> <span class="o">=</span> <span class="s2">&#34;https://sports.news.naver.com/index&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;html.parser&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">headline</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;ul&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span> <span class="p">:</span> <span class="s2">&#34;today_list&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">headline</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;strong&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="s2">&#34;title&#34;</span><span class="p">}):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+</span></span></code></pre></div><p>간단한 web scrawl의 경우 beautifulsoup으로 해도 되지만, 복잡한
+구조의 html문서의 web crawling은 scrapy패키지를 사용한다.</p>
+<h2 id="강의-끝">강의 끝</h2>
+<p>강의에서 미흡된 부분은 아래와 같다.</p>
+<ul>
+<li>Multi thread</li>
+<li>Networking</li>
+</ul>
+      
       </div>
-    </div>
-</div>
+
+  </div>
+</div>  
 <script>
  graph_objects = []; 
 

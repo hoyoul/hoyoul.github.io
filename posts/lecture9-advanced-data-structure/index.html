@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html>
+  <head><title>lecture9-Advanced-Data-Structure</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/orgmode.css">
+<link rel="stylesheet" href="/css/chroma.css">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="https://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+  <small>G.frege를 너무 사랑하는 holy가...</small>
+  <div class="vertical_dotted_line"></div>
+    <label>
+      <input role="switch" type="checkbox" id="switch"/>
+      <span>d3 off</span>
+    </label><form id="search"
+	  action='https://braindump.frege2godel.me/search/' method="get">  
+  <input type="text" id="search-input" name="query"
+	 placeholder="" autocomplete="on">
+  <input type="submit" value="search">
+</form>
+
+</header>
+   
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">lecture9-Advanced-Data-Structure</h1>    
+      <div class="content">
+	<a href="https://braindump.frege2godel.me/posts/lecture9-advanced-data-structure/" alt="lecture9-Advanced-Data-Structure" class="permalink" data-singlepage="yes" ><h1>lecture9-Advanced-Data-Structure</h1></a>
+	<fieldset>
+	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
+	  <ol class="li"><strong>Title: </strong> lecture9-Advanced-Data-Structure </ol>
+	  <ol class="li"><strong>date: </strong> 2023 6.5 </ol>
+	  <ol class="li"><strong>content: </strong>python에서 자주 사용하는 data structure. </ol>
+	    
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+	  
+	</fieldset>
+	<h2 id="stack">Stack</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+</span></span></code></pre></div><ul>
+<li>stack은 FILO(First In First Out)</li>
+<li>python에서 stack은 list를 사용하면 된다.</li>
+<li>list에서 제공하는 append와 pop을 사용한다.</li>
+<li>list의 시작주소와 마지막 노드 주소를 가지고 있기 때문에 삽입과
+삭제는 O(1)이 걸린다.</li>
+</ul>
+<h2 id="queue">Queue</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+</span></span></code></pre></div><ul>
+<li>Queue는 FIFO이다. python에선 list의 내장함수를 이용해서 사용할 수
+있다.</li>
+<li>insert()로 0번 position에 입력하면 값들이 계속 shift된다.</li>
+<li>pop()은 마지막 position에서 값을 꺼낸다.</li>
+<li>강사는 queue를 list를 사용하면, insert와 pop시 속도가 O(n)이
+된다고 한다. python의 list는 dynamic array라고 한다. 근데 또 끝에
+있는것을 pop()할때 O(n)이라고 하는데, 그러면 list 맞는거 같은데&hellip;</li>
+<li>내 생각에 list로 구현된 queue의 경우, pop()은 O(n)이
+맞는듯하다. 왜냐하면 deque를 설명할 때, tail의 위치를 유지하고
+있어서 pop()을 할때 O(1)이 걸린다는 얘길한다.</li>
+<li>강사는 linked list를 사용해서 queue를 만들어야 한다고 한다.</li>
+</ul>
+<h2 id="deque">deque</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+</span></span><span class="line"><span class="cl"><span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">queue</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>    <span class="c1">#왼쪽 삽입</span>
+</span></span><span class="line"><span class="cl"><span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>             <span class="c1">#오른쪽 삭제</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>        <span class="c1">#오른쪽 삽입</span>
+</span></span><span class="line"><span class="cl"><span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>         <span class="c1">#왼쪽 삭제</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">deque</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">queue</span><span class="p">)))</span>     <span class="c1">#deque 뒤집기 O(n)</span>
+</span></span></code></pre></div><ul>
+<li>deque는 linked list로 이루어진 double queue라고 한다.</li>
+<li>stack은 삽입과 삭제가 한방향에서만 일어난다.</li>
+<li>queue라는 것은, 삽입과 삭제가 서로 다른방향에서 일어난다.</li>
+<li>dequeue는 양방향에서 삽입과 삭제가 일어날 수 있다.</li>
+</ul>
+<h2 id="priority-queue--heapq">priority queue(heapq)</h2>
+<h3 id="priority-queue의-장점">priority queue의 장점</h3>
+<p>priority queue는 매우 자주 사용되는 자료 구조라고 한다. queue에
+입력된 data중에서 최소,최대값을 빠르게 구하고 싶다면, priority
+queue를 사용해야 한다고 한다. min/max함수를 써서 주어진 collection의
+최소, 최대를 찾을수도 있다. 하지만, O(n)의 속도가 걸린다고
+한다. 내부가 정렬되어 있다면, binary search로 O(log n)이
+걸릴것이다. 그럼 삽입할때 마다, 정렬을 해줘야지 search시에 O(log
+n)을 유지하는데, 정렬을 하는데에 O(NlogN)이 걸리기 때문에 그닥
+효율적이지 못하다고 한다. priorty queue를 사용하면, 이것을
+해결한다고 하는데, 뭔말 하는지 모르겠다. priority queue는 python에서
+heapq라고 한다.</p>
+<h3 id="heapq-사용법">heapq 사용법</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">heapq</span>
+</span></span><span class="line"><span class="cl"><span class="n">queue</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">heapq</span><span class="o">.</span><span class="n">heapify</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>     <span class="c1">#초기화, tree로 변경 O(N log N)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">item</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">queue</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">item</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappushpop</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">queue</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span></code></pre></div><p>heap이란 자료구조 별도로 있다. max heap과 min heap이 있는데, max
+heap은 부모 노드값이 자식보다 큰 tree를 말하고, min heap은 부모
+노드값이 자식보다 작은 tree를 말한다. python의 heapq는 min
+heap이다. 내부적으로 완전 이진 tree를 사용하고 있다. 사용하고 있는
+tree와 배열간에는 다음과 같은 관계가 있다고 한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">heap[k] &lt;= heap[2*k+1] and heap[k] &lt;= heap[2* k+2]
+</span></span></code></pre></div><h2 id="defaultdict">Defaultdict</h2>
+<h3 id="개요">개요</h3>
+<p>dictionary는 기본적으로 없는 key로 접근했을 때 key error를 발생한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;first&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span> <span class="n">d</span><span class="p">[</span><span class="s2">&#34;second&#34;</span><span class="p">])</span>
+</span></span></code></pre></div><p>이것을 방지하기 위해서, key가 없을 때, default값을 반환하는 get()를
+제공한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;first&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;second&#34;</span><span class="p">,</span> <span class="s2">&#34;없어요&#34;</span><span class="p">))</span>
+</span></span></code></pre></div><p>defaultdict()는 위에 get()가 사용하는 방식처럼 미리 default값을
+dictionary에 정의한 것이다. 그래서 key가 없더라도 에러를 출력하지
+않고 기본값을 출력한다.</p>
+<h3 id="사용예">사용예</h3>
+<p>defaultdict가 어떨때 사용하면 좋은지에 대해서 강사는 예를
+든다. 만일 우리가 어떤 text북에서 나오는 모든 글자를 counting하고
+싶다고 하자. 어떻게 programming할 것인가?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">text</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Donec hendrerit tempor tellus.  Donec pretium posuere tellus.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Cum sociis natoque penatibus et magnis dis parturient montes,
+</span></span></span><span class="line"><span class="cl"><span class="s2">nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam
+</span></span></span><span class="line"><span class="cl"><span class="s2">tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam
+</span></span></span><span class="line"><span class="cl"><span class="s2">rutrum.  Nam vestibulum accumsan nisl.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">characters</span> <span class="o">=</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">count</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">count</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="n">characters</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">characters</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
+</span></span></code></pre></div><p>program을 작성하기 위해서, 입력은 무엇인지, 입력에 대해 어떤 처리를
+해야 하고, 그 처리 결과를 어떻게 할지를 생각해야 한다. 입력은
+text문자열이다. text문자열을 어떻게 처리할 것인가? text문자열을
+하나씩 꺼낼것이다. text문자열은 유한개이다. 따라서 for loop을
+사용할 것이다. text문자입력에서 하나씩 꺼낸 문자를 어떻게 처리 할
+것인가? 그 문자를 counting해야 한다. 어떻게 counting할 것인가?
+dictionary를 사용해서, 해당 문자와 counting을 저장하고
+싶다. 해당문자와 그 문자의 occurs를 같이 저장해야겠다는 idea를
+도출하는게 중요하다. 문자와 occurs를 쌍으로 저장하려면 tuple도
+있고, dictionary도 있다. tuple을 사용하려면, list같은 data
+structure가 또 필요하다. 그래서 dictionary를
+사용하겠다. dictionary는 쌍으로된 많은 data를 저장할 수 있기
+때문이다. text에서 문자 하나를 꺼내서 dictionary에 있는지 없는지를
+검사한다. 만일 있다면, occurs를 증가시킨다. 없다면 dictionary의
+key로 등록하고 occurs를 1로 counting한다. 그런데 위의 코드는 내
+생각과 다르다. 위의 코드에선, key에 해당하는 문자가 있는지 없는지
+검사하지 않는다. 무조건 key에 해당하는 값을 return하거나, 없으면
+None값을 key로 return하는 dictionary의 get이란 함수를
+사용한다. get이란 함수의 좋은점은 2가지가 있다. key가 없으면 에러를
+내지않고 임의의값으로 key를 등록한다.  key가 있는지 없는지 확인할
+필요가 없다. 없으면 default 값으로 key를 등록하기 때문이다. 그리고
+if문을 사용해서 none으로 등록된 key를 제대로 된 alphabet으로 하고
+occurs를 등록한다. 이렇게만 해도 충분해 보인다. 하지만, 강사는
+defaultdict가 이것을 훨씬 편하게 해준다고 한다.</p>
+<h3 id="defaultdic의-사용">defaultdic의 사용</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">text</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Donec hendrerit tempor tellus.  Donec pretium posuere tellus.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Cum sociis natoque penatibus et magnis dis parturient montes,
+</span></span></span><span class="line"><span class="cl"><span class="s2">nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam
+</span></span></span><span class="line"><span class="cl"><span class="s2">tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam
+</span></span></span><span class="line"><span class="cl"><span class="s2">rutrum.  Nam vestibulum accumsan nisl.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">characters</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># characters = defaultdict(lambda: 0)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">characters</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
+</span></span></code></pre></div><p>defaultdict을 사용하면, 매우 간단해지는 것을 볼수 있다. 즉
+text로부터 꺼낸 알파벳에 대한 key값이 모두 dictionary에 들어있다고
+생각하게끔 만든다. 즉 모든 알파벳에 대한 key와 value가 이미
+dictionary에 있기 때문에 해줘야 할 것은 text에서 뽑은 key를 갖는
+요소에 +1만 해주면 된다. 위에서 살펴봤던 get을 사용하는 경우나,
+내가 생각했던 방식보다 훨씬 간단한것을 알 수 있다.</p>
+<p>여기서 defaultdict를 생성할때, int를 주면 int()를 해서 모든 값이
+0으로 채워진다고 한다. 그런데 특정값을 생성할 수 있는 lambda를
+사용해도 된다. lambda로 0을 만들수도 있고, 특정 계산이 들어갈 수도
+있다. 그리고 for-loop에서 꺼낸 알파벳을 key값으로 해서 value를
+저장하는데, key가 없다면 key를 생성하는 부분은 내부적으로 구현되서
+감춰져 있다. 강사는 dictionary를 사용할 일이 있을때, defaultdic을
+사용하는것도 좋지만 counter를 사용하면 더 깔끔하게 코딩할 수 있고
+pythonic하다고 한다.</p>
+<h2 id="counter">Counter</h2>
+<h3 id="개요">개요</h3>
+<p>Counter는 defaultdic과는 달리 세는데 최적화된 class라고
+한다. defaultdict를 다시 한번 살펴보자.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">text</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Donec hendrerit tempor tellus.  Donec pretium posuere tellus.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Cum sociis natoque penatibus et magnis dis parturient montes,
+</span></span></span><span class="line"><span class="cl"><span class="s2">nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam
+</span></span></span><span class="line"><span class="cl"><span class="s2">tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam
+</span></span></span><span class="line"><span class="cl"><span class="s2">rutrum.  Nam vestibulum accumsan nisl.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">characters</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># characters = defaultdict(lambda: 0)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">characters</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
+</span></span></code></pre></div><p>이것을 counter를 사용하면 다음과 같이 된다고 한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">text</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Donec hendrerit tempor tellus.  Donec pretium posuere tellus.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Cum sociis natoque penatibus et magnis dis parturient montes,
+</span></span></span><span class="line"><span class="cl"><span class="s2">nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam
+</span></span></span><span class="line"><span class="cl"><span class="s2">tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam
+</span></span></span><span class="line"><span class="cl"><span class="s2">rutrum.  Nam vestibulum accumsan nisl.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">characters</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
+</span></span></code></pre></div><p>Counter안의 표현법은 list comprehension과 비슷하다. 간단하게
+counter의 기본 동작을 확인하는 code를 짜보자.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">Counter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]))</span>
+</span></span></code></pre></div><p>Counter에 [1,2,1,2,3]이라는 list를 넣어주면, list의 item을
+key값으로 하고, 해당 key의 occurs를 value로 하는 dictionary가
+내부적으로 생성된것을 볼 수 있다. 즉 우리가 원래 하려고 했던 작업인
+text로 부터 알파벳들이 몇번씩 occurs되는지를 Counter를 사용하면
+매우 간단하게 할수 있겠다는 생각이 든다. 즉 list를 넣어주면
+counting값을 갖는 dictionary를 자동으로 만들어주니까, 우리가 해야할
+것은 text를 Counter에 넣어만 줘도 되는거 아닌가? 물론 text는
+string이고 list가 아니라는 차이는 있다. 한번 해보자.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">text</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Donec hendrerit tempor tellus.  Donec pretium posuere tellus.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
+</span></span></span><span class="line"><span class="cl"><span class="s2">Cum sociis natoque penatibus et magnis dis parturient montes,
+</span></span></span><span class="line"><span class="cl"><span class="s2">nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam
+</span></span></span><span class="line"><span class="cl"><span class="s2">tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam
+</span></span></span><span class="line"><span class="cl"><span class="s2">rutrum.  Nam vestibulum accumsan nisl.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</span></span></code></pre></div><p>문제없이 된다. 그런데, 왜 강사는 string을 list comprehension을
+사용해서 list로 만들었는지는 이해가 안간다. 다만, list
+comprehension을 넣을수 있다. 이것을 알려주려 했을지도 모르겠다. 또다른 예를 보여준다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">Counter</span><span class="p">([</span><span class="s2">&#34;test&#34;</span><span class="p">,</span><span class="s2">&#34;test&#34;</span><span class="p">,</span> <span class="s2">&#34;text&#34;</span><span class="p">]))</span>
+</span></span></code></pre></div><p>여기서 궁금한점, string을 사용해서 단어를 세는 program을 Counter로
+작성하는것이 가능할까? 하는것이다.</p>
+<h3 id="counter에-대한-분석">counter에 대한 분석</h3>
+<h4 id="counter는-dictionary">counter는 dictionary</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">({</span><span class="s2">&#34;korean&#34;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&#34;English&#34;</span><span class="p">:</span><span class="mi">3</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s2">&#34;korean&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">elements</span><span class="p">()))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># d = {&#39;a&#39;:3,&#39;b&#39;:2}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># print(list(d.elements()))</span>
+</span></span></code></pre></div><p>Counter는 내부적으로 dictionary를 이용한다. 따라서 dictionary로
+봐도 된다. 그리고 list만 인자로 넣는것이 아닌 dictionary를 인자로
+넣어도 아무 문제 없다. list의 경우 내부적으로는 list를
+counting해서 dictionary를 다시 만든다. dictionary는 그대로 가져다
+쓴다. 여기서 특이한 method가 있다. elements라는
+method이다. 일반적인 dictionary에는 존재하지 않는다. counting은
+list를 dictionary형태로 바꿀때 counting value를 사용했다. 이를
+elements()로 list로 변환할 때는 counting을 했던것을 다시
+바꿔준다.</p>
+<h4 id="counter는-집합-연산-지원">counter는 집합 연산 지원</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;a =&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;b =&#34;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a+b =&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a&amp;b =&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a|b =&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">|</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a-b =&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># a = {&#39;a&#39;:3,&#39;b&#39;:5}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># b = {&#39;c&#39;:5, &#39;b&#39;:2}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># print(a+b)</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>a+b</p>
+<p>a와 b가 counter객체일때 두 객체의 합은 무엇일까?
+dictionary에선 +연산자를 지원하지 않는다. counter는 내부적으로
+key에대한 counter를 가지고 있기 때문에, key가 같다면,
+counter수를 증가시켜준다.</p>
+</li>
+<li>
+<p>a&amp;b</p>
+<p>a&amp;b도 예측하기 어렵다. 우선 두 counter객체가 가진, key가 양
+객체에 모두 존재해야 한다. value에 해당하는 occurs는 작은값을
+가지게된다. 그게 공통적으로 갖게 되는 값이기 때문이다. 예를
+들어, a객체에 2:1, b객체에 2:4가 있다면, a&amp;b로 얻는 것은 2:1이
+된다.</p>
+</li>
+<li>
+<p>a|b</p>
+<p>이것도 key와 value를 모두 따져야한다. key의 경우, a객체와
+b객체에서 한번이라도 나온것은 다 포함된다. value의 경우, 계산은
+하지 않는다. 둘중 큰값을 선택한다. 예를들어서, a객체에 2:1이
+있고, b객체에 2:3이 있다면 a|b로 얻는것은 2:3이다.</p>
+</li>
+<li>
+<p>a - b</p>
+<p>이것은 a객체가 가진 item에서 b객체의 item을 빼준다. 여기서
+고려해야 하는것은 a객체에도 있고, b객체에도 있는
+item이다. b객체에만 있는것은 고려대상이 아니다. a객체에만
+있다면, -해야할 께 없기때문에 고려대상이 아니다. 즉 공통으로
+있는 item에서 계산이 일어난다. 예를 들어 a객체에 2:3이 있고,
+b객체에 2:1이 있다면, a-b에는 2:2가 들어가게 된다.</p>
+</li>
+</ul>
+<h2 id="named-tuple">Named Tuple</h2>
+<h3 id="개요-named-tuple이-나온-배경">개요: named tuple이 나온 배경</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Coords3D</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">_z</span> <span class="o">=</span> <span class="n">z</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@property</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@property</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@property</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">z</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z</span>
+</span></span></code></pre></div><p>named tuple이란건 data만을 담기 위한 class라고 한다. 위의 예를
+보면, class를 만들었다. 이 class에는 x,y,z값을 저장하고 별다른
+method가 없다. 즉 하나의 instance는 하나의 3d 좌표값만을 갖는
+class다. 한번 생성된 3d값은 수정은 안되고, @property를 통해서
+각각의 값을 꺼내서 보거나, 사용할 수 는 있지만, 새 값을 넣는건
+안된다. 아래 property를 사용하는 예다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">coord = Coords3D(1,2,3)
+</span></span><span class="line"><span class="cl">print(coord.x)
+</span></span><span class="line"><span class="cl">print(coord.y)
+</span></span><span class="line"><span class="cl">print(coord.z)
+</span></span></code></pre></div><p>이런 class를 만들 수도 있지, 난 대수롭지 않다고 생각한다. 그런데,
+이런 간단한 구조인데 굳이 class를 만들 필요가 있냐?라는 사람들이
+있다고 한다. 그사람들이 말하는 것은 data만 저장하는 값인데, 값을
+꺼내기 위해서 @property를 사용한 getter함수를 모두 작성해야 하고,
+같은형태의 많은 data값을 저장하는 것도 아니기 때문에 굳이 이렇게
+만들어서 써야하느냐는 사람들이 있다. 그런 사람들은 3d좌표값을
+나타낸다면, tuple을 사용하면 되지.라고 말한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">coords3d</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">coords3d</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">coords3d</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">coords3d</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</span></span></code></pre></div><p>위와 같이 tuple을 사용하면, class를 사용한 것과 별차이
+없다. class를 사용했을때는 x,y,z와 같이 좌표값을 인식할 수 있는
+변수를 사용했기때문에 coords.x, coords.y, coords.z 처럼 가독성은 더
+좋지만, 기능은 별다른 점이 없기 때문이다.</p>
+<h3 id="named-tuple의-사용">named tuple의 사용</h3>
+<p>위의 tuple을 사용하면, index로 접근하기 때문에 가독성이
+안좋았다. 이 단점을 없애기 위해서 named tuple이란 자료구조를
+사용한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Coords3D</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&#34;Coords3D&#34;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">point</span> <span class="o">=</span> <span class="n">Coords3D</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="n">z</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">point</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">point</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># point[1] += 1     error 발생</span>
+</span></span></code></pre></div><p>namedtuple은 이름이 암시하듯 tuple의 item에 이름 붙이기가
+가능하다. 이것의 생성방식이 좀 특이한데, 다음을 보자.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Coords3D = namedtuple(&#34;Coords3D&#34;, [&#39;x&#39;,&#39;y&#39;,&#39;z&#39;])
+</span></span></code></pre></div><p>첫번째 인자로 type(class) 이름이 들어간다. 그리고 두번째 인자로
+item의 이름이다. type이름이 들어간다는것은 우리가 class로
+coords3d라는 class를 만들었듯이, namedtuple도 내부적으로 class를
+만든다는 것을 의미한다. 이렇게 만들어진 type의 instance를 만들어사
+사용한다. 이것의 장점은 여러종류의 tuple을 만들고, class 이름도
+마음대로 정할수 있다는 것이다. 사용법을 살펴보자.</p>
+<p>만들어진 Coord3D instance인 point는 name으로도 접근 가능하고
+indexing으로도 가능하다. 한가지 특이한것은 point객체는 tuple이기
+때문에 point라는 tuple이 가진 내용을 unpacking해서 보여줄 수 있다는
+것이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">print(*point)
+</span></span></code></pre></div><p>tuple은 immutable하기 때문에 값을 변경시키는 += 연산자는 에러를
+발생한다.</p>
+<h3 id="dataclass의-사용">Dataclass의 사용</h3>
+<h4 id="개요">개요</h4>
+<p>위에서 data만을 저장하는 경우가 있었다. 예를들면, 3d좌표값 같은
+경우가 있었다. 3개의 좌표값을 갖는 data structure를 위해서,
+처음에는 class를 만들었다. class를 사용하기엔 너무 거창해서, 그냥
+tuple을 사용하려 했으나 가독성이 안좋아서 namedtuple을 배웠고 이를
+사용할 수도 있었다. 근데 처음에 정의한 class처럼 비슷한 용도로
+사용할 수 있는 dataclass라는게 있다고 한다.</p>
+<h4 id="사용법">사용법</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Coords3D</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="p">:</span> <span class="nb">float</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span><span class="p">:</span> <span class="nb">float</span>
+</span></span><span class="line"><span class="cl">    <span class="n">z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">norm</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">.5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">point</span> <span class="o">=</span> <span class="n">Coords3D</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="n">z</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">norm</span><span class="p">())</span>
+</span></span></code></pre></div><p>Data만을 저장하기 위해서 우리가 만들었던 class를 다시 한번 보자.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Coords3D</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">_z</span> <span class="o">=</span> <span class="n">z</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@property</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@property</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@property</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">z</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z</span>
+</span></span></code></pre></div><p>@dataclass라는게 class에 붙게되면, 형식이 좀 다르다. 일반적인
+class를 작성할때는 <strong>init</strong>()도 정의해야 했고, 값을 꺼낼수 있도록
+@property라는 decorator를 구현해야 했다. 그런데, @dataclass는 이
+과정을 다 없앴다. 즉 class의 내부변수 x,y,z만 정의하면
+된다. 나머지 instance.x, instance.y, instance.z로 해서 값을
+접근하게 해주는 @property로 함수를 정의하는것은 해주지 않아도
+된다. dataclass로 만들어진 instance는 instance를 출력할 수 있는
+<strong>str</strong>()가 재정의되어 있는듯하다. 그래서 print()로 출력할때 나름
+이쁘게 보여진다고 한다. 그런데 그냥 객체의 요소를 보여줄 뿐
+예쁘다는 생각은 들지 않았다.</p>
+      
+      </div>
+
+  </div>
+</div>  
+<script>
+ graph_objects = []; 
+
+ 
+     
+     graph_node_object = {
+        
+     "label": "folding test1",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
+     "id": "folding_test",
+     
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["folding_test2"]
+   }
+ sessionStorage.setItem("folding_test",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "folding test2",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
+     "id": "folding_test2",
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["folding_test"]
+   }
+ sessionStorage.setItem("folding_test2",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture10-String",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture10-string\/",
+     "id": "lecture10-String",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture11-IO",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
+     "id": "lecture11-IO",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture11-IO",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture12-setting-exception-logging",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture12-setting-exception-logging\/",
+     "id": "lecture12-setting-exception-logging",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture13-web",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
+     "id": "lecture13-web",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture13-web",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture3 data structures",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture3_data-structure\/",
+     "id": "lecture3_data-structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture4_condition-and-loop",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
+     "id": "lecture4_condition-and-loop",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture4_condition-and-loop",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture5_function",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture5_function\/",
+     "id": "lecture5_function",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture6-pythonic programming",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
+     "id": "lecture6-Pythonic-Programming",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture6-Pythonic-Programming",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture7_Object-Oriented-Programming",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture7_object-oriented-programming\/",
+     "id": "lecture7_Object-Oriented-Programming",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture8-module-and-package",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
+     "id": "lecture8-module-and-package",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture8-module-and-package",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture9-Advanced-Data-Structure",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture9-advanced-data-structure\/",
+     "id": "lecture9-Advanced-Data-Structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "web scraping1",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
+     "id": "webcrawler1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("webcrawler1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture2_variable_and_operator",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture2_variable_and_operator\/",
+     "id": "lecture2_variable_and_operator",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "linear_algebra1",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
+     "id": "linear_algebra1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("linear_algebra1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+
+ 
+ function getNode(filename){
+   var storedObject = JSON.parse(sessionStorage.getItem(filename));
+   alert("label: " + storedObject.node_label);
+   alert("url: " + storedObject.node_url);
+   alert("backlinks: " + storedObject.backlinks);   
+ }
+ 
+ function getLinks(){
+   links = []
+   for (i = 0; i< graph_objects.length; i++)
+   {
+     let link_object;
+     gno = graph_objects[i];
+     blinks = gno.backlinks;
+     for(j=0;j< blinks.length;j++){
+       link_object = { source:gno.id, target:blinks[j]}
+       links.push(link_object);
+     }
+   }
+   return links;
+ }
+
+</script>
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+</body>
+</html>

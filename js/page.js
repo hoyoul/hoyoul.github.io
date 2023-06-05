@@ -1,19 +1,5 @@
 let rendered_pages = [];
 var savedContent = '';
-// restore_url = false;
-// collaping header click시 unfold
-// var collapsedTitle = document.querySelector(".permalink");
-// if(collapsedTitle){
-//     alert('permalink: ' +collapsedTitle.innerText);
-// }else{
-//     alert("collapsed title");
-//     collapsedTitle.addEventListener('click', titleClickHandler);
-// }
-// function titleClickHandler(event) {
-//     alert("clickeed");
-//     const title = event.target.innerText;
-//     unfoldHead(title);
-// }
 
 document.addEventListener('click', (event) => {
     var container = document.querySelector(".container");

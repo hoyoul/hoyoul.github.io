@@ -7,24 +7,167 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>folding test1</title>
+      <link>https://braindump.frege2godel.me/posts/folding_test/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/folding_test/</guid>
+      <description>folding test 아래를 누르세요. folding test2 </description>
+    </item>
+    
+    <item>
+      <title>folding test2</title>
+      <link>https://braindump.frege2godel.me/posts/folding_test2/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/folding_test2/</guid>
+      <description>folding test 아래를 누르세요. folding test1 </description>
+    </item>
+    
+    <item>
+      <title>lecture10-String</title>
+      <link>https://braindump.frege2godel.me/posts/lecture10-string/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/lecture10-string/</guid>
+      <description>String의 기본 자연어 처리에 있어서 문자열은 매우 중요하다. regular expression이 매우 많이 쓰인다.
+string의 특징 immutable 이다. 표기법: &amp;lsquo;&amp;rsquo;&amp;rsquo;, &amp;ldquo;&amp;rdquo;&amp;quot;, &amp;ldquo;, &amp;lsquo;를 사용해서 string literal을 표시 가능 여러줄의 string literal은 &amp;ldquo;&amp;rdquo;&amp;rdquo;,&amp;lsquo;&amp;lsquo;&amp;lsquo;을 사용하자. tuple과 string은 둘다 배열이다. 그래서 둘다 immutable하고, indexing이 가능하며, slicing이 가능하다. 이것들이 배열의 특징이기 때문이다. in과 not in이 가능하다. 예를 들어보자. print(&amp;#39;a&amp;#39; in &amp;#39;abc&amp;#39;) print(&amp;#39;asdf&amp;#39; in &amp;#39;asdf_asdf&amp;#39;) python에선 character set으로 unicode로 처리한다. 즉 모든 글자는 4byte를 사용한다. escape문자 escape문자란?</description>
+    </item>
+    
+    <item>
+      <title>lecture11-IO</title>
+      <link>https://braindump.frege2godel.me/posts/lecture11-io/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/lecture11-io/</guid>
+      <description>standard Input/output 개요 input과 output의 의미 program이 하는 일은 대부분 변수나 객체 생성, for-loop, if로 이루어져 있다. 변수나 객체를 생성하는 것은, cpu와 memory간의 작업이다. 변수나 객체를 생성하는 명령어를 cpu가 실행해서, data memory에 data를 쓰는 작업이다. for loop도 code memory에 놓여 있는 code의 address를 cpu가 address를 계산하는 cpu와 memory의 계산 작업이다. if는 code or data가 놓여진 memory의 값을 가져와서 cpu의 alu가 비교하는 cpu와 memory의 계산작업이다. 결국 모든 program은 cpu와 memory사이의 통신과 계산으로 이루어져 있다.</description>
+    </item>
+    
+    <item>
+      <title>lecture12-setting-exception-logging</title>
+      <link>https://braindump.frege2godel.me/posts/lecture12-setting-exception-logging/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/lecture12-setting-exception-logging/</guid>
+      <description>Command Line Argument 개요 python을 실행할때, gpu개수, epoch같은 변수들을 program이 동작할때 cmd line interface에서 argument에서 전달받겠다, 입력받겠다고 처리할 수 있다. program안에서 상수값으로 처리하는게 아니라, program을 실행할 때, 해당 값을 설정해서 실행하는 것이다.
+(1) python main.py (2) python main.py arguments (3) python main.py --options 12345 위와같이 program을 실행할 때, 아래와 같이 하면 command line argument를 건네 받을 수 있다.
+import system print(sys.argv) 각각의 결과는 아래와 같다.
+(1) python main.py =&amp;gt; [&amp;#39;main.py&amp;#39;] (2) python main.</description>
+    </item>
+    
+    <item>
+      <title>lecture13-web</title>
+      <link>https://braindump.frege2godel.me/posts/lecture13-web/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/lecture13-web/</guid>
+      <description>web crawling web crawling 개요 우리가 browser로 보는 화면은 html문서를 formatting한 것이다. web 문서인 html문서를 browser가 우리 컴퓨터에 down받고 down받은 html문서를 formatting해서 보여주는 것이다. browser가 html문서를 down받아서 보여주는 것처럼, python에서 html문서를 down받아서 분석할 필요가 있다. 이것을 web crawling이라고 한다. python에서 html문서를 가져오기 위해서는 requests라는 사용자 library를 사용해야 한다.
+Requests 설치 conda install requests requests 사용법 예시 import requests URL = &amp;#39;https://www.naver.com&amp;#39; response = requests.get(URL) print(response.status_code) print(response.text) request.get으로 html문서와 여러 응답결과를 객체로 만들어 return한다.</description>
+    </item>
+    
+    <item>
+      <title>lecture3 data structures</title>
+      <link>https://braindump.frege2godel.me/posts/lecture3_data-structure/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/lecture3_data-structure/</guid>
+      <description>Data Structure List list의 특징 대괄호로 만들어진다. 아무 type의 객체를 가리킬수 있다. list가 con cell로 이루어져있고 car, cdr이 모두 pointer라서 어떤 type의 객체를 가리키는건 너무 자연스럽다. 길이가 정해져 있지 않다. seq = [12345,101, &amp;#34;Text&amp;#34;, None, True] print(seq) list index &amp;amp; slicing indexing
+index로 개별 원소를 접근한다. 이 부분이 좀 특이하다. lisp에서 개별 원소에 접근할 때는, linked list이기 때문에 car과 cdr을 사용해서 access했기 때문에, 마치 배열처럼 index로 접근한다는건 좀 특이하다. 배열이 index로 접근할 수 있는건 각각의 원소가 위치한 메모리 공간이 붙어있기 때문에, index로 해당 원소의 메모리 공간을 지정할 수 있기 때문이다.</description>
+    </item>
+    
+    <item>
+      <title>lecture4_condition-and-loop</title>
+      <link>https://braindump.frege2godel.me/posts/lecture4_condition-and-loop/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/lecture4_condition-and-loop/</guid>
+      <description>Condition &amp;amp; Loop 조건문은 if else, 반복문은 while-for 들여 쓰기: space 4칸, tab을 써도 된다. Conditional Statement if문 사용법1 - if,elif,else 사용법 if를 사용해서 원하는 조건을 만족하면 수행하게 한다.
+example 1
+score = 80 if score &amp;gt; 60: print (&amp;#34;Over 60&amp;#34;) if score &amp;gt; 70: print(&amp;#34;Over 70&amp;#34;) if score &amp;gt; 80: print(&amp;#34;Over 80&amp;#34;) 위에서 보듯이 조건에 맞으면, 출력을 한다. example 2
+example1에서 보면, 3가지 case가 있다. 이 중에 맞는 경우가 2가지가 있다.</description>
+    </item>
+    
+    <item>
+      <title>lecture5_function</title>
+      <link>https://braindump.frege2godel.me/posts/lecture5_function/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/lecture5_function/</guid>
+      <description>function python에서 모든것은 객체다. function은 method이면서 객체다. function이 method인건, 내부인자로 self를 넣을 수 있다는것만 봐도 객체의 method다. object의 method다. function 그자체는 symbol object의 구조를 갖기 때문에 또한 객체다. 내가 봤을 때는 lisp의 symbol structure를 그대로 가져온 듯하다. lisp에서 function은 symbol structure에 저장된다. 마치 symbol을 object로 말한다는 느낌이다. 참조:https://medium.com/swlh/everything-is-an-object-in-python-learn-to-use-functions-as-objects-ace7f30e283e 변수의 경우, assignment(=) operator로 객체를 만들었다면, function의 경우 def란 keyword로 function객체를 만드는 거 같다. 함수가 호출된다는 것은 이미 function객체가 어딘가에 만들어져 있다는 것이다.</description>
+    </item>
+    
+    <item>
+      <title>lecture6-pythonic programming</title>
+      <link>https://braindump.frege2godel.me/posts/lecture6-pythonic-programming/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/lecture6-pythonic-programming/</guid>
+      <description>Pythonic Programming for-in-iterator-loop, iterator,generator in predicate &amp;lsquo;in&amp;rsquo; keywords를 사용하는 건 2가지가 있다. predicate으로 in과 for-in-loop에서 사용이 있다.
+내가 보기에 &amp;lsquo;in&amp;rsquo;은 rvalue와 lvaue를 취하는 &amp;lsquo;=&amp;lsquo;과 비슷하다. 즉 rvalue와 lvalue를 보고 동작이 결정된다.
+&amp;lsquo;in&amp;rsquo;의 rvalue는 iterable객체가 와야 한다. lvaue는 name이 오거나,값이 와야 한다.
+rvalue test
+fruits = 3 print(&amp;#34;banana&amp;#34; in fruits) in 뒤에 나오는 rvalue는 iterable 객체여야 한다. 아니면, error. test2
+rvalue의 처리 : in 뒤에 객체가 iterable하다면, __self__로 객체를 얻어와서 __next__를 호출하면 값이 return된다.</description>
+    </item>
+    
+    <item>
+      <title>lecture7_Object-Oriented-Programming</title>
+      <link>https://braindump.frege2godel.me/posts/lecture7_object-oriented-programming/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/lecture7_object-oriented-programming/</guid>
+      <description>OOP programming class 기본 class 선언 예시 example
+class Courier(object): # (object)는 생략가능 NATIONALITY = &amp;#39;KOR&amp;#39; # 클래스 속성 def __init__(self, name: str, address: str): # 생성자 self.name = name # attribute 초기화 self.address = address elf.parcels = [] def assign(self, parcel: str) -&amp;gt; None: self.parcels.append(parcel) def deliver(self) -&amp;gt; None: for parcel in self.parcels: print(parcel, &amp;#34;배달중&amp;#34;) class 특징들 class이름은 대문자. 상속은()를 사용한다. class attribute는 전역적으로 선언 class의 member attribtue는 init에서 self로 초기화.</description>
+    </item>
+    
+    <item>
+      <title>lecture8-module-and-package</title>
+      <link>https://braindump.frege2godel.me/posts/lecture8-module-and-package/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/lecture8-module-and-package/</guid>
+      <description>module import 사용법 module은 .py로 끝나는 파일 한개를 의미한다. python으로 작성된 모든 file들은 python module이라고 부를 수 있다. import구문으로 module을 불러올 수 있다. 예를 들어보자. 내가 작업하고 있는 file에서 functions.py라는 파일에 있는 qr()를 사용하고 싶다면, 우선 import로 가져와야 한다. 가져온다기 보단, 실행한다고 말을 해도 된다. 오히려 그게 직관적이다. 여튼 가져오던 실행하던 문맥에 맞게 이해하면 된다.
+import functions print(functions.qr()) import로 가져온 file의 함수를 사용하기 위해선, 모듈명.함수명()으로 사용한다. import로 가져온 함수다라는 꼬리표를 달아두는 것이다.</description>
+    </item>
+    
+    <item>
+      <title>lecture9-Advanced-Data-Structure</title>
+      <link>https://braindump.frege2godel.me/posts/lecture9-advanced-data-structure/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/lecture9-advanced-data-structure/</guid>
+      <description>Stack a = [1,10] a.append(4) a.append(20) print(a.pop()) print(a.pop()) stack은 FILO(First In First Out) python에서 stack은 list를 사용하면 된다. list에서 제공하는 append와 pop을 사용한다. list의 시작주소와 마지막 노드 주소를 가지고 있기 때문에 삽입과 삭제는 O(1)이 걸린다. Queue a = [1,0] a.insert(0,20) a.insert(0,15) print(a) print(a.pop()) Queue는 FIFO이다. python에선 list의 내장함수를 이용해서 사용할 수 있다. insert()로 0번 position에 입력하면 값들이 계속 shift된다. pop()은 마지막 position에서 값을 꺼낸다. 강사는 queue를 list를 사용하면, insert와 pop시 속도가 O(n)이 된다고 한다.</description>
+    </item>
+    
+    <item>
+      <title>web scraping1</title>
+      <link>https://braindump.frege2godel.me/posts/webcrawler1/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/webcrawler1/</guid>
+      <description>개요 Figure 1: web scraping book
+집에 돌아다니는 읽어보지 않은 책이 있다. 라이언 미첼이라는 사람이 쓴 건데, web scraping 그리고 web crawling에 관한 책이다. 한번 읽어 보고 정리하기로 한다.</description>
+    </item>
+    
+    <item>
+      <title>lecture2_variable_and_operator</title>
+      <link>https://braindump.frege2godel.me/posts/lecture2_variable_and_operator/</link>
+      <pubDate>Sun, 04 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/lecture2_variable_and_operator/</guid>
+      <description>[lecture2] variable &amp;amp; operator 변수와 assignment 변수는 lisp에선 symbol이라고 부르고, 모든 symbol은 동일한 형태의 structure를 가졌다. symbol의 이름은 unique했다. symbol의 이름은 address였기 때문이다. 하지만, python에서 변수는 type이 가리키는 structure를 갖는다. 모두 동일한 모양이 아니다. 변수의 이름은 unique한건 마찬가지 인 듯 하다. address이기 때문이다. 변수와 assignment의 예 1 example
+(1) a = 15 (2) b = a (3) b print(b) interpreter가 이것을 어떻게 해석할까?
+(1) 과정
+lvalue인 a를 보고 symbol table에서 찾는다.</description>
+    </item>
+    
+    <item>
       <title>linear_algebra1</title>
       <link>https://braindump.frege2godel.me/posts/linear_algebra1/</link>
       <pubDate>Sun, 04 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/linear_algebra1/</guid>
       <description>linear algebra에 대한 생각 인과 관계(causation)와 상관관계(correlation) 어떤 변수와 다른 어떤 변수와의 연관성이 있을때 relation이 있다고 한다. 예를 들어, x가 증가하면 y도 증가한다던지 혹은 x가 증가하면 y가 감소한다. x가 감소하면 y는 증가한다. 등등. 이런 관계를 영어로는 좀 더 명확하게 표현할 수 있는것 같다. 예를 들면, describe variables in terms of one another. 여튼 이런 관계는 수학적으로 표현할 수 있다. 인문학 분야에서도 이런 관계를 표현하는데, 좀 다르다. 인간관계, 상관관계와 같이 구분해서 표현하는데, 이것은 관계를 어떻게 해석하느냐의 문제다.</description>
-    </item>
-    
-    <item>
-      <title>python_2</title>
-      <link>https://braindump.frege2godel.me/posts/python_2/</link>
-      <pubDate>Sun, 04 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/posts/python_2/</guid>
-      <description>[lecture2] variable &amp;amp; operator 변수와 assignment 변수는 lisp에선 symbol이라고 부르고, 모든 symbol은 동일한 형태의 structure를 가졌다. symbol의 이름은 unique했다. symbol의 이름은 address였기 때문이다. 하지만, python에서 변수는 type이 가리키는 structure를 갖는다. 모두 동일한 모양이 아니다. 변수의 이름은 unique한건 마찬가지 인 듯 하다. address이기 때문이다. 변수와 assignment의 예 1 example
-(1) a = 15 (2) b = a (3) b print(b) interpreter가 이것을 어떻게 해석할까?
-(1) 과정
-lvalue인 a를 보고 symbol table에서 찾는다.</description>
     </item>
     
   </channel>

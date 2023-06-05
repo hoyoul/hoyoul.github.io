@@ -337,6 +337,12 @@ header form label{
 .page > .content{
     padding:32px;
 }
+.page > .content h2{
+    text-decoration: underline wavy red;    
+}
+.page > .content h3{
+    text-decoration: underline dotted red;    
+}
 
 .container.d3{
     background-color: #242730;

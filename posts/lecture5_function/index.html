@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html>
+  <head><title>lecture5_function</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/orgmode.css">
+<link rel="stylesheet" href="/css/chroma.css">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="https://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+  <small>G.frege를 너무 사랑하는 holy가...</small>
+  <div class="vertical_dotted_line"></div>
+    <label>
+      <input role="switch" type="checkbox" id="switch"/>
+      <span>d3 off</span>
+    </label><form id="search"
+	  action='https://braindump.frege2godel.me/search/' method="get">  
+  <input type="text" id="search-input" name="query"
+	 placeholder="" autocomplete="on">
+  <input type="submit" value="search">
+</form>
+
+</header>
+   
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">lecture5_function</h1>    
+      <div class="content">
+	<a href="https://braindump.frege2godel.me/posts/lecture5_function/" alt="lecture5_function" class="permalink" data-singlepage="yes" ><h1>lecture5_function</h1></a>
+	<fieldset>
+	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
+	  <ol class="li"><strong>Title: </strong> lecture5_function </ol>
+	  <ol class="li"><strong>date: </strong> 2023 6.5 </ol>
+	  <ol class="li"><strong>content: </strong>python의 function에 관한 내용 </ol>
+	    
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+	  
+	</fieldset>
+	<h2 id="function">function</h2>
+<ul>
+<li>python에서 모든것은 객체다. function은 method이면서
+객체다. function이 method인건, 내부인자로 self를 넣을 수 있다는것만
+봐도 객체의 method다. object의 method다. function 그자체는 symbol
+object의 구조를 갖기 때문에 또한 객체다.</li>
+<li>내가 봤을 때는 lisp의 symbol structure를 그대로 가져온
+듯하다. lisp에서 function은 symbol structure에 저장된다. 마치
+symbol을 object로 말한다는 느낌이다.</li>
+<li>참조:<a href="https://medium.com/swlh/everything-is-an-object-in-python-learn-to-use-functions-as-objects-ace7f30e283e" target="_blank">https://medium.com/swlh/everything-is-an-object-in-python-learn-to-use-functions-as-objects-ace7f30e283e
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+</li>
+<li>변수의 경우, assignment(=) operator로 객체를 만들었다면, function의
+경우 def란 keyword로 function객체를 만드는 거 같다.</li>
+<li>함수가 호출된다는 것은 이미 function객체가 어딘가에 만들어져 있다는 것이다.</li>
+<li>함수 호출시 값을 전달할때 값을 stack에 넣고, function definition의
+argument와 binding될 꺼 같은데, function definition의 argument는
+global,nonlocal로 선언되었는지, 아니면 그냥 local 변수인지
+모르겠다.</li>
+<li>python interpreter는 def를 보면, name,body에 해당하는 function값을
+객체로 만든다. 호출할때 만드는게 아니라, def를 보고 만들거나, 이미
+만들어져 있다. 만들어진 객체들은 symbol table(name space)에
+저장된다. 혹은 저장되어 있다.</li>
+<li>def로 함수를 정의할때 함수의 인자들은 body에 있는 local 변수로 보면된다.</li>
+<li>함수 호출이 일어나면, stack에 parameter를 넣어두고, body를
+실행하는데, 이때, argument를 하나씩 binding시키면서 처리가 된다.</li>
+</ul>
+<h3 id="function의-기본구조">function의 기본구조</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">def name(arg1,arg2...):
+</span></span><span class="line"><span class="cl">   statement1
+</span></span><span class="line"><span class="cl">   statement2
+</span></span><span class="line"><span class="cl">   return [value]
+</span></span></code></pre></div><ul>
+<li>
+<p>return값이 없는 경우 None값이 return된다.</p>
+</li>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">rectangle_area</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl"><span class="n">row</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">col</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">rectangle_area</span><span class="p">(</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">rectangle_area</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mf">1.5</span><span class="p">))</span>
+</span></span></code></pre></div><ul>
+<li>여기서 눈 여겨 봐야 할 것은 x,y는 동적 typing이 된다는
+사실이다. 함수가 호출되서 객체가 만들어 질때, x,y에 해당하는
+값들이 eval되어 전달 된다. 첫번째는 10,100이 전달되고, 두번째는
+20,1.5가 전달된다. 전달 되면 binding이 된다.즉 assignment가
+실행되는데, assignment는 rvalue에 해당하는 값(여기선,10 or 100)의
+type을 가져온다. 즉 int를 가져오기 때문에, 만들어지는 객체는
+int객체가 만들어지고, 그들의 이름은 x,y가 되는 것이다. 따라서
+return값도 int가 된다. 두 번째 함수에서는 float가 된다. 동적
+typing에 따라서 만들어지는 객체 type이 결정되는 과정을 알 필요가
+있어서 적었다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="call-by-reference-구조의-문제점-dot">call by reference 구조의 문제점.</h3>
+<ul>
+<li>
+<p>함수를 호출할때, 인자 전달을 할때 주소를 전달할 때, call by
+reference라고 한다. 값을 전달하면 call by value.</p>
+</li>
+<li>
+<p>python에서 call by reference 사용예라고 보여준다. 그런데 난 이 설명이 잘못되었다고 생각한다.</p>
+</li>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">seq2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seq2</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">seq1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">function</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span>
+</span></span></code></pre></div><ol>
+<li>seq1은 [1,2,3,4,5]와 binding되어 있다. 즉 seq1의 이름을 갖고, list [1,2,3,4,5]값을 갖는 객체다.</li>
+<li>함수 호출을 하면 argument와 binding을 한다. binding하면, seq2의
+이름을 갖고 list [1,2,3,4,5]의 값을 갖는 객체가 만들어진다.</li>
+<li>여기서 seq2에대한 operator(+=)연산을 한다. operator는 해당
+객체의 값을 update한다. 따라서 seq2의 값인 [1,2,3,4,5]를
+[1,2,3,4,5,1]로 update한다.</li>
+</ol>
+</li>
+<li>
+<p>여기서 중요한것은, seq1의 값은 list 객체이고, seq2의 값도
+list객체를 값으로 갖는다. seq2에서 list객체의 값을 update했기
+때문에 seq1이 참조로 하는 list는 변경되게 된다.</p>
+</li>
+<li>
+<p>그리고 call by reference는 function에서 수정한 값이 function밖의
+값에 영향을 미치는 side-effect가 존재한다. 따라서 권장되지 않는
+방식이라고 한다. 그리고 그것의 해결법을 강사는 제시한다.</p>
+</li>
+</ul>
+<h3 id="call-by-reference-문제의-해결-dot">call by reference 문제의 해결.</h3>
+<ul>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">seq2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seq2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">seq2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seq2</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">seq1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">function</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>강사가 제시하는 해결책은 list객체를 전달해서 seq2객체가
+만들어지고, 내부에서 수정할 수 없게 새로운 객체를 만들어
+사용하자.인데, 내 경우 seq += [1]이라는게 기본적으로 객체의
+값을 udpate하는 operator이기 때문에, assignment로 만들면 새로운
+객체가 생성될 것이기 때문에 굳이 list()으로 새로운 객체를 만들
+필요가 없다는 생각이다.</p>
+</li>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">seq2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seq2</span> <span class="o">=</span> <span class="n">seq2</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">seq1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">function</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[1, 2, 3, 4, 5]
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="variable-scope">variable scope</h3>
+<h4 id="variable-scope의-예">variable scope의 예</h4>
+<ul>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">var1</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">var2</span> <span class="o">=</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">var2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">var2</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">var1</span> <span class="o">+</span> <span class="n">var2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">function</span><span class="p">(</span><span class="n">var2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">var2</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>여기에서 function안에 있는 var1과 var2를 보면 외부에 있는 var1을
+참조한다. 이것은 lisp과는 다르다. lisp에서는 전역변수를 참조하지
+못한다. scope를 벗어나기 때문이다. 그러나, python은 여타 다른
+언어와 비슷하게 참조가 가능하다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="variable-scope예2">variable scope예2</h4>
+<ul>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">var1</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">var2</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">function</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">       <span class="n">var3</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">print</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span><span class="n">var2</span><span class="p">,</span><span class="n">var3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">function</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span><span class="n">var2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">var1</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>여기서 매우 재밌는 형태의 함수가 사용된다. 즉 함수 안에 함수가
+있다. 여기서 global 변수라는 것은 다른 file에서 접근해서
+사용할 수 있다고 한다.</li>
+<li>반면에 local에 있는 변수들은 local scope 밖에서 참조는 불가능하다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="global과-nonlocal의-사용">global과 nonlocal의 사용</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>global</p>
+<ul>
+<li>
+<p>python의 scope와 관련한 keyword중에 global이란게 있다. 이것은 말
+그대로,local변수를 전역변수로 만들겠다는 의미다.</p>
+</li>
+<li>
+<p>그런데, 다른 쓰임이 한개 더 있다. example2에서 설명한다.</p>
+</li>
+<li>
+<p>example1</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span><span class="mi">3</span>
+</span></span><span class="line"><span class="cl">    <span class="n">b</span> <span class="o">=</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">test</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>위에서 보면 a를 global로 선언했다. 이말은 local에 정의된 a라는
+변수는 global변수로 만들겠다?라는 의미다.</li>
+<li>따라서, a =3은 local에서도 접근 가능하고, print(a)에서도 접근 가능하다.</li>
+</ul>
+</li>
+<li>
+<p>example2</p>
+<ul>
+<li>또 다른 예를 들어 보자.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">    <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>그냥 정상적인 코드다.</p>
+</li>
+<li>
+<p>하지만, 우리가 다른의도를 가지고 있다면? 즉, test안의
+local변수 a를 생성해서 쓰고싶은게 아니라, global변수 a의 값을
+변경하고 싶을때 어떻게 할 것인가? 그런데 a =1 이라고 생성된
+객체는 immutable하기 때문에 test()내에서 변경자체가 안되는데
+무슨 소리야라고 할 수 있다. 하지만, global로 선언하면 비슷한
+효과를 낼 수 있다. 비슷한 효과라기 보단, 내 생각엔 global로
+선언한다는 의미가, a =3이라는 문장에서 객체를 만들면,
+global에서도 a라는 새로운 객체가 만들어진다고 생각한다. 그래서
+이전에 a=1로 생성한 객체는 접근할 수가 없다. 새롭게 a라는
+이름을 가진 객체를 만들었기 때문이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">    <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>결론적으로 local scope내에서 global로 선언하면 local scope
+외부에서 참조할 수 있다.라고 보면된다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>nonlocal</p>
+<ul>
+<li>
+<p>nonlocal도 local변수를 local scope외부에서 만들겠다는
+의미다. global하고 비슷하다. 다만, global은 top-level의 전역
+scope를 갖게 한다면, non-local은 local scope의 바로 바깥 outer
+scope를 의미한다.</p>
+</li>
+<li>
+<p>이것을 설명하기위해 예를 든다면, 중첩 function을 사용해야 한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">var</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">var</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">function1</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">       <span class="k">global</span> <span class="n">var</span>
+</span></span><span class="line"><span class="cl">       <span class="n">var</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">function2</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">       <span class="k">nonlocal</span> <span class="n">var</span>
+</span></span><span class="line"><span class="cl">       <span class="n">var</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">function1</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">function2</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><ul>
+<li>여기에서 global과 nonlocal이 같이 쓰였다.</li>
+<li>function1이 호출되면, var변수는 global에서 생성된다.</li>
+<li>function2가 호출되면, var변수는 바로 바깥쪽 scope에서 생성된다.</li>
+<li>전체 과정을 살펴보자.
+<ol>
+<li>전역변수 var은 1값을 갖는다.</li>
+<li>main()가 호출된다.</li>
+<li>local변수 10값을 갖는 var이 만들어진다.</li>
+<li>function1()이 호출된다.</li>
+<li>local과 global에 var변수를 생성한다 값은 11을 갖는다. main의 local변수인 var은 읽기만 할뿐이다.</li>
+<li>function2()를 호출한다.</li>
+<li>function2의 nonlocal은 main에 있는 var값과 동일한 이름의 var변수를 만든다. 그 값은 11이된다.</li>
+<li>print(var)은 (7)에의해 11값을 출력한다.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="variable-capture">variable capture</h4>
+<ul>
+<li>
+<p>우선 용어의 의미는 잘 모르겠다. 예제를 보자.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">var</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">function</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">var</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">function</span><span class="p">()</span>
+</span></span></code></pre></div><ul>
+<li>여기서 var +=1은 2가되고, function에선 var값을 출력한다. 강사는
+말한다. 이것은 pure function이 아니라고, function의 연산은
+주어진 argument를 계산하고 return해야 하는데, 외부에서 변경될
+수 있는 변수가 함수를 control하고 있다는 것이다. 이것은
+전역변수에 의해 control되는 function도 동일한 의미를
+갖는다.그래서 pure function이 아니다.</li>
+<li>함수형언어에서 variable capture라는 용어가 있다고 한다.</li>
+<li>환경이라는 말과, closure라는 말이 나온다. 정확히는 모르겠다.</li>
+<li>이런형태의 코드는 피하라고 한다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="closure">closure</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>closure example1</p>
+<ul>
+<li>
+<p>강사가 closure를 설명하면서 환경얘기를 많이 하는데 뭔소린지
+모르겠다. 예제를 보자.</p>
+</li>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">number</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">print_closure_factory</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">print_closure</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">print_closure</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">print_5</span> <span class="o">=</span> <span class="n">print_closure_factory</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">print_10</span> <span class="o">=</span> <span class="n">print_closure_factory</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">number</span> <span class="o">+=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">print_5</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">print_10</span><span class="p">()</span>
+</span></span></code></pre></div><ul>
+<li>python에서는 function은 객체이기 때문에,
+print_closure_factory라는 객체안에 print_closure라는 객체가
+선언된걸로 밖에 안보인다.</li>
+<li>그냥 print_closure_factory(number)를 호출하면 함수가
+return값으로 나온다는 것밖에 모르겠다.</li>
+<li>왜냐면 여기서 이렇게 복잡하게 짤 필요가 없기 때문이다. 그냥
+argument를 갖고, return값을 갖는 하나의 함수를 만들어서
+사용하면 된다. 굳이 이렇게 짤 필요가 없다.</li>
+<li>이것은 예제가 잘못된거 같다. 굳이 closure로 설명할 필요가 없다.</li>
+<li>closure를 보면 lazy evaluation이 생각난다.</li>
+<li>함수 내부의 함수로 정의되며, return이 함수인경우 return되는
+함수는 바로 evaluation되지 않는다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>closure example2</p>
+<ul>
+<li>example</li>
+</ul>
+ <!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="n">var</span> <span class="o">+</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="n">var</span> <span class="o">*</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">factory</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">     <span class="k">def</span> <span class="nf">closure</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	     <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;test&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	 <span class="k">return</span> <span class="n">var</span>
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="n">closure</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">factory</span><span class="p">(</span><span class="n">add</span><span class="p">,</span><span class="mi">4</span><span class="p">)(</span><span class="mi">10</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">factory</span><span class="p">(</span><span class="n">multiply</span><span class="p">,</span> <span class="mi">4</span><span class="p">)(</span><span class="mi">3</span><span class="p">))</span>
+</span></span></code></pre></div><ul>
+<li>closure는 함수를 입력받고, 함수를 출력하는 함수를 뜻하는 것 같다.</li>
+<li>factory를 보면 인자가 2개다. 함수와, 그 함수를 몇번
+수행하겠다는 횟수를 입력받는다.</li>
+<li>factory의 return값은 함수다. 어떤 함수냐 하면, 반복하는 함수다.</li>
+<li>반복하는 함수를 return하는데, 함수명과 반복횟수는 argument로
+되어 있고 argument를 이용해서 return하는 함수를 만든다.</li>
+<li>실제 실행은 return 받은 함수에 인자를 전달하면 실행이 되게
+했다.</li>
+<li>return 되는 함수의 모양은 인자로 받는 함수와 모양이
+비슷하다. argument의 개수가 같다.</li>
+<li>여기서 또 한가지 눈에 띄는 부분은 var =
+function(var)이다. 이게 재귀적인 모습이라고 한다. add,4를
+인자로 건네주면 add(add(add(add(var))))과 같은 모양이라고
+한다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="decorator">Decorator</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>Decorator의 개념</p>
+<ul>
+<li>
+<p>함수를 입력으로 받아서 함수를 return하는데, 같은 이름의 함수로 return하는 함수를
+받을때 decorator를 사용한다.</p>
+</li>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">print_closure_factory</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">print_closure</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Input:&#34;</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="n">out</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Output:&#34;</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">print_closure</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">var</span> <span class="o">+</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">print_add</span> <span class="o">=</span> <span class="n">print_closure_factory</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">print_add</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span></code></pre></div><ol>
+<li>print_closure_factory(add)를 호출한다.</li>
+<li>전달되는 add는 function 객체다.</li>
+<li>함수가 호출되면서 binding이 일어난다. function은 add라는
+function object와 binding된다.</li>
+<li>body의 function은 add로 바꿔준다.</li>
+<li>add로 변경한 print_closure function 객체를 return한다.</li>
+<li>print_add(10)을 계산한다.</li>
+</ol>
+</li>
+<li>
+<p>이것은 decorator를 사용하지 않았다.</p>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>decorator 사용 예</p>
+<ul>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">print_decorator</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">print_closure</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Input:&#34;</span><span class="p">,</span><span class="n">var</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="n">out</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Output:&#34;</span><span class="p">,</span><span class="n">out</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">print_closure</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@print_decorator</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">var</span> <span class="o">+</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>우선 @print_decorator라는건 위의 function를 인자로 받아
+function을 return하는 함수를 사용하겠다는 뜻이다.</li>
+<li>두번째로 @print_decorator 아래는 add라는 함수와 add(10)이라는
+문장이 있다.</li>
+<li>add함수는 인자로 들어가고, return값은 add라는 이름으로
+받겠다는 뜻이다. 그리고 10 값을 주어 출력하겠다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>Decorator의 또다른 예</p>
+<ul>
+<li>
+<p>Decorator에 argument를 사용하는 경우. decorator라는것은 함수를
+입력받아 함수를 return하는 것을 간략화 한것이다.</p>
+</li>
+<li>
+<p>decorator를 선언하고 아래의 인자를 전달해서 closure를
+return받아야 하는데, 그전에 먼저 decorator함수를 wrapping할 수
+있다고 한다.</p>
+</li>
+<li>
+<p>즉 먼저 decorator(인자)를 수행하면, 인자값이 해당 closure에
+적용된다. 이렇게 적용한 후, 다시 아래의 인자를 적용해서 함수를
+return받는다.</p>
+</li>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">times_decorator_factory</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">times_decorator</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">       <span class="k">def</span> <span class="nf">closure</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	  <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">		<span class="n">var</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	 <span class="k">return</span> <span class="n">var</span>
+</span></span><span class="line"><span class="cl">       <span class="k">return</span> <span class="n">closure</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">times_decorator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@times_decorator_factory</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>구조가 복잡한데, 우선 @times_decorator_factory(5)를 실행하면,
+times가 5로 바뀌고, times_decorator가 return받는다. return
+받은 times_decorator는 또다른 decorator다. 즉 def
+times_decorator(function)이 된다.</p>
+</li>
+<li>
+<p>이 상태에서 아래에 있는 add함수가 인자로 decorator에
+넘겨진다. function이라는 argument가 add로 replace되면서
+closure를 return 받는다. return 받은 함수는 동일한 이름인
+add를 갖는다.</p>
+</li>
+<li>
+<p>decorator를 사용하면 동일한 이름의 함수를 return 받는다.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>decorator의 주의 사항</p>
+<ul>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">print_decorator</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">print_closure</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Input:&#34;</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="n">out</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Output:&#34;</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">print_closure</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@print_decorator</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">var</span> <span class="o">+</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>decorator를 사용하면 동일한 이름으로 넘겨받은 함수객체를
+사용할 수 있다고 했다.</li>
+<li>하지만, 넘겨받은 함수객체는 function name을 가진 객체다.</li>
+<li>add.__name__은 넘겨받은 객체의 이름이다. 그렇다면 add는
+무엇인가?</li>
+<li>add가 넘겨받은 함수객체와 binding이 되었다면, add.__name__은
+add가 되어야 하는게 맞을 것이다.</li>
+<li>그런데 어떤 과정으로 이것이 이렇게 되었는지는 모르겠다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>appropriate Decorating</p>
+<ul>
+<li>
+<p>위의 예에서 function 객체의 이름이 add가 아니고 return받은
+function객체의 이름이였다. 이것을 수정하려는 것 같다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">print_decorator</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">print_closure</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Input: &#34;</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="n">out</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Output:&#34;</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">print_closure</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@print_decorator</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">var</span> <span class="o">+</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>여기서 @wraps(function)라는 함수를 사용해서 입력받은 함수의
+이름을 꺼내서 함수 객체를 만들때 이름으로 넣는것 같다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="recursive-function">Recursive function</h2>
+<h3 id="factorial-example">factorial example</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">       <span class="k">return</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</span></span></code></pre></div><h2 id="function의-parameter">function의 parameter</h2>
+<h3 id="parameter-사용법1">parameter 사용법1</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">   <span class="nb">print</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">function</span><span class="p">(</span><span class="n">var2</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">var1</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="parameter-사용법2">parameter 사용법2</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span> <span class="o">=</span> <span class="mi">20</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">   <span class="nb">print</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">function</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">function</span><span class="p">(</span><span class="n">var2</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">var1</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="parameter-사용법3">parameter 사용법3</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">var3</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">   <span class="nb">print</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span><span class="n">var3</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>위의 예는 잘못된 case다. var2=20으로 default값이 있는경우 뒤에
+옮겨야 한다.</li>
+</ul>
+<h3 id="variable-length-parameter">variable Length Parameter</h3>
+<ul>
+<li>
+<p>인자의 개수가 많을 경우 남는 인자를 packing해서 사용할 수 있다.</p>
+</li>
+<li>
+<p>가변인자라고 하는데, 가변인자는 맨마지막에 한개만 위치 가능하다.</p>
+</li>
+<li>
+<p>반드시 *args라고 할 필요는 없다. *a로 해도 상관없다.</p>
+</li>
+<li>
+<p>넘겨받는 값이 몇개인지 알수 없기 때문에, stack에 있는 값들을
+pointer로 전달하겠다는 뜻이다. 이렇게 하면 stack에 있는 나머지
+값들이 tuple형태로(참고로 tuple은 array다.) 함수에 전달된다.</p>
+</li>
+<li>
+<p>kwargs라는 keyword argument하고 햇갈리면 안된다. *args는 stack에
+올라온 값만 있는 argument를 pointer로 전달 받는다. 만일 stack에
+keyword가 있는경우는 전달 받지 못한다.</p>
+</li>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">add_all</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">sum</span> <span class="o">+=</span> <span class="n">elem</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="nb">sum</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">add_all</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</span></span></code></pre></div><ul>
+<li>함수 호출시 전달되는 (1,2,3,4,5)라는 parameter는 stack에
+저장된다. 그리고 함수의 body에 대한 처리가 시작된다.  함수
+정의시 지정한 argument들은 local변수이다. 표기만 ()안에
+표기했을뿐 실제는 local변수와 똑같다. 따라서 stack과 body에
+있는 local변수의 binding이 제일 먼저 실행된다. a =1, b=2,
+args=(3,4,5)이렇게 처리가 된다. args는 packing된 tuple이기
+때문에 unpacking을 해줘야 한다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="keyword-variable-length-parameter">keyword variable length parameter</h3>
+<ul>
+<li>명시적으로 지정된 parameter가 남는다면, 키워드 가변인자</li>
+<li>**(Double asterisk)를 사용하여 남는 keyword변수를 packing할 수 있다.</li>
+<li>example1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">print_args</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">print_args</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">var1</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">var2</span><span class="o">=</span><span class="mi">200</span><span class="p">))</span>
+</span></span></code></pre></div></li>
+<li>example2
+<ul>
+<li>parameter에는 순서가 있다.</li>
+<li>일반인자 -&gt; 기본값인자 -&gt; 가변인자 -&gt; 키워드 가변인자</li>
+<li>가변인자가 tuple로 packing되었다면, keyword가변인자는
+dictionary로 packing이 된다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span><span class="n">var2</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">var3</span> <span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h3 id="parameter-unpacking">parameter unpacking</h3>
+<ul>
+<li>
+<p>example1</p>
+<ul>
+<li>function의 argument에 *가 있으면, 함수호출시 전달되는
+parameter를 packing해서 받는다면, 함수 호출시 인자가 *가 있는
+경우 unpacking해서 stack에 넣어야 한다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">l</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>example2</p>
+<ul>
+<li>dictionary를 인자로 packing해서 호출한다. packing해서
+호출하는게 엄청 자주 쓰인다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span><span class="n">var2</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span><span class="n">var2</span><span class="p">,</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;var1&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;var2&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;var3&#39;</span><span class="p">:</span><span class="mi">30</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">function</span><span class="p">(</span><span class="o">**</span><span class="n">d</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="typing-hints">typing hints</h3>
+<ul>
+<li>
+<p>type을 명시하지 않는다면, 가독성이 떨어진다.</p>
+</li>
+<li>
+<p>function의 인자와 return값에 대한 type을 명시할 수 있다.</p>
+</li>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">multiply_text</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">text</span> <span class="o">*</span> <span class="n">n</span>
+</span></span></code></pre></div></li>
+<li>
+<p>example</p>
+<ul>
+<li>variable에도 type을 달 수 있다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span><span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span><span class="s2">&#34;a&#34;</span>
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="function에-대해서--내생각">function에 대해서 (내생각)</h2>
+<p>가끔 보면, len()같은 경우 어디선 len()가 function으로 define되어
+있다고 생각할 텐데, method로 정의 되어 있을 수 있다는 것을 알아야
+한다. __로 시작하는 dunder method의 경우 객체.method로 접근이
+안된다. 왜냐면 __로 이름이 시작되면 mangling된다. mangling된다는
+것은 이름이 변경된다는 것이다. __라는 이름으로 access할 수
+없다. 이런 dunder method는 사용법도 다르다. 예를 들어, <strong>a</strong>()는
+method가 어떤 class에 정의되어 있다면, a(객체) 이런 식으로
+사용된다. 따라서 모양만 보곤, a라는 function이 어딘가에 정의되어
+있다고 생각하겠지만, 인자로 들어가는 객체 class에 __a라는 dunder
+method일 확률이 높다. 내생각에 python에서 모든 function은 특정
+class의 method일거 같다는 생각이다.</p>
+<h2 id="우리가-function을-사용하는-이유">우리가 function을 사용하는 이유</h2>
+<p>우리가 programming을 작성하다보면, 대부분의 작업이 유한개의 data
+sequence를 입력을 받고, 입력받은 data를 for-loop과 if를 사용해서
+다른 형태의 data sequence로 만든다던가, 값을 출력하는 일이다. 이것을
+python에서는 내장 method나 외부 library의 method들이 내부적으로 이런
+일을 한다. function은 일반화 한단 말을 많이 한다. 일반화 한다는 것은
+여러개의 data에 모두 통용되는 계산이기 때문에, 보통은 많은 data를
+처리할수 있는 기능이 있다. 그래서 for-loop를 내부적으로
+처리한다. 내가 하고 싶은 말은 function이나 method를 작성할때도
+고려해야 하지만, 사용할때, 내가 사용하는 함수가 내부적으로 data
+sequence를 입력받고 for-loop과 if를 처리한다는 것을 염두에 두어야
+한다. 외장 function이나 우리가 가져다 쓰는 function들은 대부분
+우리가 for-loop if로 처리해야 할것을 미리 해둬서 그냥 가져다 쓰기만
+하게 만든 것이기 때문이다. 우리가 for-loop과 if를 사용할 일이
+있다면, function을 찾아보고 사용하면 된다.</p>
+      
+      </div>
+
+  </div>
+</div>  
+<script>
+ graph_objects = []; 
+
+ 
+     
+     graph_node_object = {
+        
+     "label": "folding test1",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
+     "id": "folding_test",
+     
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["folding_test2"]
+   }
+ sessionStorage.setItem("folding_test",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "folding test2",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
+     "id": "folding_test2",
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["folding_test"]
+   }
+ sessionStorage.setItem("folding_test2",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture10-String",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture10-string\/",
+     "id": "lecture10-String",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture11-IO",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
+     "id": "lecture11-IO",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture11-IO",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture12-setting-exception-logging",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture12-setting-exception-logging\/",
+     "id": "lecture12-setting-exception-logging",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture13-web",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
+     "id": "lecture13-web",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture13-web",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture3 data structures",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture3_data-structure\/",
+     "id": "lecture3_data-structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture4_condition-and-loop",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
+     "id": "lecture4_condition-and-loop",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture4_condition-and-loop",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture5_function",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture5_function\/",
+     "id": "lecture5_function",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture6-pythonic programming",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
+     "id": "lecture6-Pythonic-Programming",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture6-Pythonic-Programming",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture7_Object-Oriented-Programming",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture7_object-oriented-programming\/",
+     "id": "lecture7_Object-Oriented-Programming",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture8-module-and-package",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
+     "id": "lecture8-module-and-package",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture8-module-and-package",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture9-Advanced-Data-Structure",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture9-advanced-data-structure\/",
+     "id": "lecture9-Advanced-Data-Structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "web scraping1",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
+     "id": "webcrawler1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("webcrawler1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture2_variable_and_operator",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture2_variable_and_operator\/",
+     "id": "lecture2_variable_and_operator",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "linear_algebra1",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
+     "id": "linear_algebra1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("linear_algebra1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+
+ 
+ function getNode(filename){
+   var storedObject = JSON.parse(sessionStorage.getItem(filename));
+   alert("label: " + storedObject.node_label);
+   alert("url: " + storedObject.node_url);
+   alert("backlinks: " + storedObject.backlinks);   
+ }
+ 
+ function getLinks(){
+   links = []
+   for (i = 0; i< graph_objects.length; i++)
+   {
+     let link_object;
+     gno = graph_objects[i];
+     blinks = gno.backlinks;
+     for(j=0;j< blinks.length;j++){
+       link_object = { source:gno.id, target:blinks[j]}
+       links.push(link_object);
+     }
+   }
+   return links;
+ }
+
+</script>
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+</body>
+</html>

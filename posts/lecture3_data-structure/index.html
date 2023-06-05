@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html>
+  <head><title>lecture3 data structures</title>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./img/favicon.ico" type="image/x-icon">    
+
+
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/orgmode.css">
+<link rel="stylesheet" href="/css/chroma.css">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+  <body><header>
+  <a href="/" id="logo">
+    <img src="https://braindump.frege2godel.me/img/mylogo.png" alt="holy frege">
+    <h3><span>H</span>oly <span>F</span>rege's <span id="note">notes</span></h3>
+  </a>
+  <small>G.frege를 너무 사랑하는 holy가...</small>
+  <div class="vertical_dotted_line"></div>
+    <label>
+      <input role="switch" type="checkbox" id="switch"/>
+      <span>d3 off</span>
+    </label><form id="search"
+	  action='https://braindump.frege2godel.me/search/' method="get">  
+  <input type="text" id="search-input" name="query"
+	 placeholder="" autocomplete="on">
+  <input type="submit" value="search">
+</form>
+
+</header>
+   
+
+<div class="container">
+  <div class="page">
+    <h1 class="collapsed-title">lecture3 data structures</h1>    
+      <div class="content">
+	<a href="https://braindump.frege2godel.me/posts/lecture3_data-structure/" alt="lecture3 data structures" class="permalink" data-singlepage="yes" ><h1>lecture3 data structures</h1></a>
+	<fieldset>
+	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
+	  <ol class="li"><strong>Title: </strong> lecture3 data structures </ol>
+	  <ol class="li"><strong>date: </strong> 2023 6.5 </ol>
+	  <ol class="li"><strong>content: </strong>python data structure에 관한 강의 요약 </ol>
+	    
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+	  
+	</fieldset>
+	<h2 id="data-structure">Data Structure</h2>
+<h3 id="list">List</h3>
+<h4 id="list의-특징">list의 특징</h4>
+<ul>
+<li>대괄호로 만들어진다.</li>
+<li>아무 type의 객체를 가리킬수 있다.</li>
+<li>list가 con cell로 이루어져있고 car, cdr이 모두 pointer라서 어떤
+type의 객체를 가리키는건 너무 자연스럽다.</li>
+<li>길이가 정해져 있지 않다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">seq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12345</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span> <span class="s2">&#34;Text&#34;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="list-index-and-slicing">list index &amp; slicing</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>indexing</p>
+<ul>
+<li>index로 개별 원소를 접근한다. 이 부분이 좀 특이하다. lisp에서
+개별 원소에 접근할 때는, linked list이기 때문에 car과 cdr을
+사용해서 access했기 때문에, 마치 배열처럼 index로 접근한다는건
+좀 특이하다. 배열이 index로 접근할 수 있는건 각각의 원소가
+위치한 메모리 공간이 붙어있기 때문에, index로 해당 원소의 메모리
+공간을 지정할 수 있기 때문이다. 그런데, list는 그렇지가
+않다. index를 지정해도, index만큼 포인터를 이동해야만 하기
+때문이다. 예를 들어, list의 2번째 원소에 접근하는것은 car(car
+a)을 의미한다. 즉 a[2] =&gt; car(car a)를 변환될 듯하다.</li>
+<li>음수도 indexing이 가능하다.</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>slicing</p>
+<ul>
+<li>사용법: seq[start: end: step:]</li>
+<li>default값은 생략 가능하다. start: end: 가 0이거나, step:이 1인
+경우 생략 가능하다.</li>
+<li>example
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">seq</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">seq</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="mi">3</span><span class="p">:])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">seq</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="mi">9</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="mi">9</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span>
+</span></span></code></pre></div></li>
+<li>seq[:3]은 index가 0,1,2를 의미한다. 3은 포함하지 않는다.</li>
+<li>seq[3:]은 index가 3,4,5&hellip;9까지를 의미한다.</li>
+<li>seq[3:-1]은 index가 3,4,5&hellip;8까지를 의미한다.</li>
+<li>seq[::2]는 step만 지정하는 것도 가능하다.</li>
+<li>seq[9:2:-1]는 9부터 시작해서 2로 간다. 9보다 작은것으로 갈려면
+step을 -값으로 해주어야 한다.</li>
+<li>seq[9:2:1]은 9부터 시작해서 2로 가는데, 1씩 더해서 간다. 이런
+경우, []를 얻는다.</li>
+<li>lisp의 list와는 다른 list원소 접근법이다. index로 접근하는것은
+직관적이긴 하다. function과 같이 쓰일때 강력한 성능을 보일지는
+모르겠다.</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>List operators</p>
+<ul>
+<li>
+<p>append(+)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>list는 mutable객체라서 a = a + b를 해도 새로운 객체가 만들어지진 않을 듯하다.</li>
+</ul>
+</li>
+<li>
+<p>원소 값 바꾸기</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;something&#39;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>multiply(*)</p>
+<ul>
+<li>list에 곱하기도 연산이 가능하다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>in 연산자.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="ow">in</span> <span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>len(): 길이 구하는 operator</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">seq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">))</span>
+</span></span></code></pre></div></li>
+<li>
+<p>append(): 원소를 추가한다. 뒤에 추가된다.</p>
+</li>
+<li>
+<p>extend(): list를 추가한다. 뒤에 추가된다.</p>
+</li>
+<li>
+<p>insert(index,value): index에 value를 추가한다.</p>
+</li>
+<li>
+<p>del: list의 element를 삭제한다. method나 operator형태가 아니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>remove(value): list의 method. list의 특정 값을 삭제한다. 하나만
+삭제한다. 동일한 값이 또 있어도 삭제하지 않는다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s2">&#34;sth&#34;</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span> <span class="s2">&#34;sth&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&#34;sth&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h4 id="python은-모든것이-object이고-모든-function은-method다-dot">python은 모든것이 object이고, 모든 function은 method다.</h4>
+<ul>
+<li>강사는 내장함수와 메소드를 나누어 설명한다. 또한 예약어를 말하기도 한다.</li>
+<li>나는 내장함수도 method라고 생각한다. 그런데, fluent python이란
+책에서는 len은 method가 아니라고 한다. 예약어는 ()를 사용하지 않는다.</li>
+<li>내장함수(built-in function)
+<ul>
+<li>len()</li>
+<li>sum()</li>
+<li>range()</li>
+</ul>
+</li>
+<li>method
+<ul>
+<li>.append()</li>
+<li>.insert()</li>
+</ul>
+</li>
+<li>예약어
+<ul>
+<li>del</li>
+<li>assert</li>
+</ul>
+</li>
+<li>강사는 예약어, 내장함수, method, 내부 library, third-party의
+순서로 원하는 기능을 구현한 함수를 찾으라고 한다.</li>
+</ul>
+<h4 id="list의-time-complexity">list의 time complexity</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>big-Out 표기법</p>
+<ul>
+<li>big-O는 함수는 아니고, 표기법이 함수 형태일 뿐이다.</li>
+<li>나는 big-O의 O가 out(결과)를 나타낸다고 생각한다. 입력
+argument의 개수를 I로 표시하기로 했다.</li>
+<li>I(N) = O(1) : n개의 입력이 있다면, 1번의 computation이 일어날때
+이렇게 표기한다. 이 말은 무한의 데이터가 있어도, 1번만 혹은
+10번만 computation하면 된다는 말이다. 즉 input의 개수와 상관이
+없다. O에 N이 포함이 안되었다는건 관련이 없다는것이다. 무한대의
+입력이 있으나, 없으나 상관이 없다.</li>
+<li>I(N) = O(logN) : n개의 입력이 있다면, logN번의 computation이
+일어날때 이렇게 표기한다. ex) 16개의 입력이 있다면, 4번만 계산하면 된다.</li>
+<li>I(N) = O(N): n개의 입력이 있다면, n번의 computation이 일어난다.</li>
+<li>I(N) = O(NlogN): n개의 입력이 있다면, NlogN의 computation이 일어난다.</li>
+<li>I(N) = O(N^2): 보통 double loop</li>
+<li>I(N) = O(N^n):</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>list의 operator와 big-O 표현법</p>
+<ul>
+<li>index: l[i] =&gt; O(1)
+<ul>
+<li>index는 list의 원소를 꺼낼때, O(1)이 걸린다. 즉 한번에
+데이터를 꺼낼수 있다는 말이다. linked list나 lisp을 사용하는
+입장에선 조금 이해가 안 갈 수가 있다. 100개의 item으로 구성된
+list에서 하나의 원소를 꺼낼때, list의 첫번째 원소가 원하는
+값이면 1번의 계산, 최악의 경우 마지막 원소와 일치한다면
+100번의 이동이 필요하다. 따라서 O(N)을 예상한다. 그런데
+python에선 O(1), 마치 array와 같은 속도를 보인다고 하니까
+놀랠 수 밖에 없다. array가 O(1)의 속도를 갖는 것은 address와
+index를 더해서 특정 메모리공간을 지정할 수 있기 때문이다. 즉
+한번의 덧셈만 하면 된다. 그런데 linked list에서는 그렇지
+않다. 매번 list item을 거쳐가야 한다. 어떻게 O(1)이
+나오는지는 모르겠다. python에서 list는 동적배열(dynamic
+array)라서 가능하다고 하는데, 아직 설명이 없다.</li>
+<li>참고로 list operator의 입력으로는 list가 들어간다고 생각하면 된다.</li>
+</ul>
+</li>
+<li>store: l[i] =&gt; O(1)
+<ul>
+<li>store도 array처럼 현재 address + index로 특정 메모리 공간을
+한번에 지정이 가능하기 때문에 O(1)이다.</li>
+</ul>
+</li>
+<li>len: len(i) =&gt; O(1)
+<ul>
+<li>왜 length가 O(1)인지 모르겠음.</li>
+</ul>
+</li>
+<li>append: l.append(5) =&gt; O(1)
+<ul>
+<li>append는 list의 마지막에 추가하는것이기 때문에 list객체가
+1000개의 item이 있던, 10000개가 있던간에 O(1)이 될 것이다.</li>
+</ul>
+</li>
+<li>pop: l.pop(n) =&gt; O(1)
+<ul>
+<li>pop 함수는 n번째 요소를 제거한다. 그리고 꺼낸 요소를
+반환한다. array라면, index와 address를 사용해서 item의 위치를
+지정할 수 있기 때문에 한번의 연산으로 해결될 수 있을껄로
+보인다.</li>
+</ul>
+</li>
+<li>clear: l.clear() =&gt; O(1)
+<ul>
+<li>list의 clear()는 모든 요소가 제거된다. 그런데 왜 O(1)이
+걸릴까? list 객체가 가진 value에 list가 pointer로 연결되어
+있다면 그 Value값을 0로 만들면 되는 것이기 때문이지 않을까?</li>
+</ul>
+</li>
+<li>insert: l.insert(n,v) =&gt; O(N)
+<ul>
+<li>list의 특정 index에 특정값을 입력하는것은 최선의 경우는
+마지막원소 끝에 insert하면 하나의 list cell을 추가 하기
+때문에 1번의 계산이면 된다. 최악의 경우, 첫번째 item에
+삽입하면, 그 뒤의 요소들을 하나씩 뒤로 이동 시켜야 하기
+때문에 O(N)이 된다.</li>
+</ul>
+</li>
+<li>delete: l.delete(n) =&gt; O(N)
+<ul>
+<li>delete도 list의 특정 item을 삭제하고, list의 item별로 위치
+재조정을 하기 때문에 O(N)이 걸린다.</li>
+</ul>
+</li>
+<li>remove: l.remove(value) =&gt; O(N)
+<ul>
+<li>remove함수는 value를 list에서 찾아서 삭제한다. 최악의 경우
+list 마지막 item에 원하는것이 있을 수 있다. 이 경우
+마지막까지 원소를 비교해야 하기 때문에 O(N)이 걸릴 수 있다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="동적-배열에-대해서">동적 배열에 대해서</h4>
+<ul>
+<li>list를 array로 만든다. linked list가 아닌, array다. array가 가진
+특징인 fixed된 array와 다르게 dynamic array는 특정길이의 array가
+할당되지만 할당된 크기를 넘어가면 자동으로 array가 늘어나는
+방식이다. 이것은 lisp의 vector와 비슷할 것이라고 생각된다.</li>
+</ul>
+<h3 id="tuple">Tuple</h3>
+<h4 id="tuple의-특징">tuple의 특징</h4>
+<ul>
+<li>
+<p>tuple의 모양: ()를 사용한다. ,로 사용해도 된다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>tuple은 immutable하다.</p>
+<ul>
+<li>
+<p>assign이 불가능하다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># t[3] = 8 ;; 실행되지 않는다. immutable하기 때문이다. immutable은 update가 안된다.</span>
+</span></span></code></pre></div></li>
+<li>
+<p>assign이 가능할 수도 있다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>함수 return값으로 사용된다. 아래와 같이 여러 값을 return할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">return</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span>
+</span></span></code></pre></div></li>
+<li>
+<p>하나의 요소를 가진 tuple</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># tuple이 아니다. int다.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span> <span class="nb">type</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>   <span class="c1"># tuple이다.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+</span></span></code></pre></div></li>
+<li>
+<p>string은 immutable하다는 면에서 tuple로 봐도 된다.</p>
+</li>
+</ul>
+<h4 id="packing과-unpacking">packing과 unpacking</h4>
+<ul>
+<li>
+<p>packing: 여러 데이터를 묶기, unpacking: 여러 데이터를 풀기</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span>   <span class="p">;;</span> <span class="n">packing</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span> <span class="o">=</span><span class="n">t</span>    <span class="p">;;</span> <span class="n">unpacking</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>unpacking의 관습: _를 사용해서 필요없는값은 사용하지 않는다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="s2">&#34;holy&#34;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="n">name</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">t</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>unpacking과 packing은 list에서도 가능하다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;holy&#34;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">name</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">t</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>특이한 unpacking: *를 사용해서 나머지 해당 요소들을 list로 묶는다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span><span class="n">t</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="dictionary">dictionary</h3>
+<h4 id="dictionary의-특징">dictionary의 특징</h4>
+<ul>
+<li>
+<p>{}을 사용한다.</p>
+</li>
+<li>
+<p>dictionary는 사전형태다. 즉 key를 사용해서 빠르게 찾는게
+가능하다.</p>
+</li>
+<li>
+<p>dictionary는 mutable하다.</p>
+</li>
+<li>
+<p>요소는 key: value로 되어있다.</p>
+</li>
+<li>
+<p>key는 immutable하다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{key1: value1, key2:value2, key3:value3}
+</span></span></code></pre></div></li>
+<li>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;something&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">2.5</span><span class="p">):</span> <span class="mf">1.5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mf">2.5</span><span class="p">])</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>위의 예에서 (1,2.5)라는 key가 있고, 이 key값에 접근할 때,
+dictionary[1,2.5]라는 표기를 눈여겨 볼 필요가 있다. 왜냐하면,
+key가 tuple이기 때문에 ()없이 사용할 수 있다.</p>
+</li>
+<li>
+<p>만일 a[1,2,3], dict[a,[1,2],3:5] 이런식의 표현법을 보면 key가
+tuple이라고 생각하면 된다.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>comma(,)에 대해서</p>
+<ul>
+<li>dictionary를 만들때나 list, tuple의 마지막 원소 다음에 ,를
+입력해도 아무 문제 없다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="dictionary-기본-동작">dictionary 기본 동작</h4>
+<ul>
+<li>
+<p>dictionary의 생성</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>dictionary의 삽입</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;list&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>동일한 key값을 갖는 item은 생성 불가능, overwrite된다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;updated value&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>dictionary item제거: del을 사용한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;value1&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;value2&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>len으로 크기 확인</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">len</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>dictionary의 변환</p>
+<ul>
+<li>dictionary을 list로 변환할 수 있다. 이 때 items()라는 method를
+사용한다.</li>
+<li>key와 value는 tuple형태로 list의 item으로 들어가게 된다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&#34;한국어&#34;</span><span class="p">:</span> <span class="mi">0</span> <span class="p">,</span> <span class="s2">&#34;영어&#34;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;중국어&#34;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>key만 list로 만들 수 있다. 이 때 keys()라는 method를 사용한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&#34;한국어&#34;</span><span class="p">:</span> <span class="mi">0</span> <span class="p">,</span> <span class="s2">&#34;영어&#34;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;중국어&#34;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</span></span></code></pre></div></li>
+<li>
+<p>value로만 list를 만들 수 있다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&#34;한국어&#34;</span><span class="p">:</span> <span class="mi">0</span> <span class="p">,</span> <span class="s2">&#34;영어&#34;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;중국어&#34;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</span></span></code></pre></div></li>
+<li>
+<p>in을 사용하는 경우</p>
+<ul>
+<li>어떤 collection의 특정 요소가 있는지 없는지 확인할때나,
+loop를 돌릴때 in keyword를 사용한다. dictionary와 in과는
+어떤 관계가 있을까? in의 뒤에는 보통 list가 있어야
+한다. in뒤에 dictionary를 직접 사용하지는 않는다. 따라서
+dictionary를 list형태로 바꿔야 한다. 그래서 keys(),
+values(), items()라는 메소드가 존재하는 것이다. dictionary를
+list로 변환후 in을 사용해서 특정값의 존재 여부를 확인할 수
+있다. 여기서 2가지를 더 말하고 싶다. 첫번째로
+dictionary라는게 어차피 key를 통해서 값을 꺼내면 되는건데,
+굳이 in을 써서 값을 확인하기 위해 list로 변환해야 하는가?
+하는 의문이 들수 있다. key를 알고 있다면, 별문제 없지만,
+key를 잘못썼거나, key를 모를때는 dictionary에서 key list를
+뽑아서 in을 사용해서 check하는것은 그리 나빠보이지
+않는다. 두번째로 in이라는건 이렇게 있는지 없는지 여부의 기본
+기능보다 for-loop에서 많이 쓰인다. dictionary를 for-loop에서
+사용한다고 했을때, in을 사용한다. 따라서 dictionary를
+list형태로 바꿀 필요가 있다. 즉 dictionary와 in을 같이
+사용한다는 것은 list로 변환해서 사용한다는 것을 의미한다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&#34;한국어&#34;</span><span class="p">:</span> <span class="mi">0</span> <span class="p">,</span> <span class="s2">&#34;영어&#34;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;중국어&#34;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;한국어&#34;</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</span></span></code></pre></div><h4 id="dictionary의-time-complexity">dictionary의 time complexity</h4>
+<ul>
+<li>dictionary는 key마다 index값이 있다. index가 있다는 말은
+address로 접근 한다는 뜻이다. 따라서 value에 접근하는 time
+complexity는 O(1)이다. 이것을 hash구조라고 한다.</li>
+<li>index: d[k] =&gt; O(1)
+<ul>
+<li>key로 값을 가져오는것은 dictionary의 크기가 엄청 커도 1번의
+computation으로 가능하다.</li>
+</ul>
+</li>
+<li>store: d[k] = v =&gt; O(1)</li>
+<li>length: len[d] =&gt; O(1)</li>
+<li>delete: del d[k] =&gt; O(1)</li>
+<li>clear: d.clear =&gt; O(1)
+<ul>
+<li>d = {} or d= dict()와 같다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="set">Set</h3>
+<h4 id="set-개념">set 개념</h4>
+<ul>
+<li>
+<p>dictionary의 key만 모여 있는 형태.</p>
+</li>
+<li>
+<p>set을 만들때, list를 사용한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>set에 원소 추가</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>set 원소 삭제(remove)</p>
+<ul>
+<li>set 원소에 해당하는 값이 있다면 삭제 없다면 error가 생긴다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>set 원소 삭제(discard)</p>
+<ul>
+<li>remove는 값이 없다면 error가 생긴다. discard는 에러가 생기지 않는다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="mi">44</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>update 메소드</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">33</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="set-operator">set operator</h4>
+<ul>
+<li>
+<p>수학적 집합 연산자 존재.</p>
+</li>
+<li>
+<p>교집합(&amp;)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">s2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">s1</span> <span class="o">&amp;</span> <span class="n">s2</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>합집합(|)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">s2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">s1</span> <span class="o">|</span> <span class="n">s2</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>차집합(-)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">s2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>배타적 합집합(^)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">s2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">s1</span> <span class="o">^</span> <span class="n">s2</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>frozen set( immutable)</p>
+<ul>
+<li>set은 mutable하다. 반면 frozen set은 immutable하기 때문에
+dictionary key값으로 사용할 수 있다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+      
+      </div>
+
+  </div>
+</div>  
+<script>
+ graph_objects = []; 
+
+ 
+     
+     graph_node_object = {
+        
+     "label": "folding test1",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
+     "id": "folding_test",
+     
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["folding_test2"]
+   }
+ sessionStorage.setItem("folding_test",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "folding test2",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
+     "id": "folding_test2",
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["folding_test"]
+   }
+ sessionStorage.setItem("folding_test2",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture10-String",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture10-string\/",
+     "id": "lecture10-String",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture11-IO",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
+     "id": "lecture11-IO",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture11-IO",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture12-setting-exception-logging",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture12-setting-exception-logging\/",
+     "id": "lecture12-setting-exception-logging",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture13-web",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
+     "id": "lecture13-web",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture13-web",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture3 data structures",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture3_data-structure\/",
+     "id": "lecture3_data-structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture4_condition-and-loop",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
+     "id": "lecture4_condition-and-loop",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture4_condition-and-loop",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture5_function",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture5_function\/",
+     "id": "lecture5_function",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture6-pythonic programming",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
+     "id": "lecture6-Pythonic-Programming",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture6-Pythonic-Programming",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture7_Object-Oriented-Programming",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture7_object-oriented-programming\/",
+     "id": "lecture7_Object-Oriented-Programming",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture8-module-and-package",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
+     "id": "lecture8-module-and-package",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture8-module-and-package",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture9-Advanced-Data-Structure",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture9-advanced-data-structure\/",
+     "id": "lecture9-Advanced-Data-Structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "web scraping1",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
+     "id": "webcrawler1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("webcrawler1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "lecture2_variable_and_operator",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture2_variable_and_operator\/",
+     "id": "lecture2_variable_and_operator",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "linear_algebra1",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
+     "id": "linear_algebra1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("linear_algebra1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+
+ 
+ function getNode(filename){
+   var storedObject = JSON.parse(sessionStorage.getItem(filename));
+   alert("label: " + storedObject.node_label);
+   alert("url: " + storedObject.node_url);
+   alert("backlinks: " + storedObject.backlinks);   
+ }
+ 
+ function getLinks(){
+   links = []
+   for (i = 0; i< graph_objects.length; i++)
+   {
+     let link_object;
+     gno = graph_objects[i];
+     blinks = gno.backlinks;
+     for(j=0;j< blinks.length;j++){
+       link_object = { source:gno.id, target:blinks[j]}
+       links.push(link_object);
+     }
+   }
+   return links;
+ }
+
+</script>
+<script src="/js/URI.js" type="text/javascript"></script>
+<script src="/js/page.js" type="text/javascript"></script>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+</body>
+</html>
