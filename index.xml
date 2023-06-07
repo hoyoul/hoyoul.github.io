@@ -7,6 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>python_summary1</title>
+      <link>https://braindump.frege2godel.me/posts/python_summary1/</link>
+      <pubDate>Wed, 07 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/python_summary1/</guid>
+      <description>python이란? python은 함수형언어가 아니라, 객체 지향 언어 다. python은 모든 것을 객체로 바라본다. 따라서 우리도, python 코드의 모든것을 객체로 생각하고, 객체로 해석해야 한다.
+python의 개발 환경 python을 사용하려면 setting이 필요하다. computer에 전원을 넣고 바로 python 코드를 작성하고 실행하는 그림을 상상하지 말자. 코딩하는 방법은 여러가지다. 코딩할 수 있는 다양한 editor가 존재하고, 그 많은 editor에서 선택을 해야한다. 나는 emacs를 선택했다. emacs를 선택해서 끝나는게 아니다. 다양한 방법이 존재한다. elpy를 사용해서 코딩할수도 있고, lsp로 코딩할수도 있고, jupyter notebook으로 코딩할수도 있고, google colab과 연결해서 사용할 수도 있다.</description>
+    </item>
+    
+    <item>
       <title>test_page1</title>
       <link>https://braindump.frege2godel.me/posts/test_page1/</link>
       <pubDate>Wed, 07 Jun 2023 00:00:00 +0900</pubDate>
