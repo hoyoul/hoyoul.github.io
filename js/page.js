@@ -675,15 +675,12 @@ function renderPage(page,page_column,href){
 }
 
 function fetchPage(href,page_column){
-    const request = new Request(encodeURIComponent(href));
+    const request = new Request(href);
     fetch(request)
 	.then((response) => response.text())
 	.then((text) => {
 	    let fragment = document.createElement("template");
 	    fragment.innerHTML = text;
-	    
-        
-
 	    let page = fragment.content.querySelector(".page");
 	    renderPage(page,page_column,href);		
 	    // let page = fragment.content.querySelector(".page");
