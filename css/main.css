@@ -273,7 +273,20 @@ header form label{
     transform: translateY(0);
   }
 }
+/* verbatim의 처리, verbatim은 code tag로 변환된다. */
+p code{
+    font-family: monospace;
+    background-color: rgba(221,221,221,.95);
+    color:rgba(15,35,85,1.0);
+    font-weight: 700;
+    border-radius: 3px;
+    padding: 4px 4px 4px 4px;
+}
 
+
+pre code{
+    
+}
 .page .collapsed-title {
     display:none;
 }
@@ -338,15 +351,20 @@ header form label{
     padding:32px;
 }
 .page > .content h2{
-    text-decoration: underline wavy red;    
+    text-decoration: underline wavy red;
+    text-underline-position: under;
+    padding-bottom: 10px;
 }
 .page > .content h3{
-    text-decoration: underline dotted red;    
+    text-decoration: underline dotted red;
+    text-underline-position: under;
+    padding-bottom: 5px;    
 }
 
 .container.d3{
     background-color: #242730;
 }
+
 /* d3 graph */
 .node {
     fill: #ff665c;

@@ -7,6 +7,41 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[emacs] jupyter notebook 설정</title>
+      <link>https://braindump.frege2godel.me/posts/emacs_jupyter_notebook_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/</link>
+      <pubDate>Tue, 06 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/emacs_jupyter_notebook_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/</guid>
+      <description>python, ipython, jupyter notebook, google colab이란? python의 동작방식 python은 REPL(Read Evaluate Print Loop)로 동작한다. shell에서 입력받은 code가 입력이 되고, 입력된 code가 python interpreter에 전해져서 실행되고 실행된 결과가 shell에 전달되는 동작 구조로 이루어져 있다. 그림으로 보면 다음과 같다.
+Figure 1: python 동작구조
+shell과 python은 local system에서 수행된다.
+ipython과 ipython notebook python이 개발된 이후에 ipython이란것도 비슷한 시기에 개발되었다. ipython이 기존 python과 차별화하는 2가지 특징이 있는데, 하나는 code를 cell단위로 입력할 수 있고, server client구조를 가질 수 있다는 것이다.</description>
+    </item>
+    
+    <item>
+      <title>[정리]python 기초1</title>
+      <link>https://braindump.frege2godel.me/posts/%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5_python_%E1%84%80%E1%85%B5%E1%84%8E%E1%85%A91/</link>
+      <pubDate>Tue, 06 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5_python_%E1%84%80%E1%85%B5%E1%84%8E%E1%85%A91/</guid>
+      <description>python이란? python은 함수형언어가 아니라, 객체 지향 언어 다. python은 모든 것을 객체로 바라본다. 따라서 우리도, python 코드의 모든것을 객체로 생각하고, 객체로 해석해야 한다.
+python의 개발 환경 python을 사용하려면 setting이 필요하다. computer에 전원을 넣고 바로 python 코드를 작성하고 실행하는 그림을 상상하지 말자. 코딩하는 방법은 여러가지다. 코딩할 수 있는 다양한 editor가 존재하고, 그 많은 editor에서 선택을 해야한다. 나는 emacs를 선택했다. emacs를 선택해서 끝나는게 아니다. 다양한 방법이 존재한다. elpy를 사용해서 코딩할수도 있고, lsp로 코딩할수도 있고, jupyter notebook으로 코딩할수도 있고, google colab과 연결해서 사용할 수도 있다.</description>
+    </item>
+    
+    <item>
+      <title>daily영어(1)-don&#39;t pet my puppy</title>
+      <link>https://braindump.frege2godel.me/posts/english1/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/english1/</guid>
+      <description>Dear Annie audio-file 1 내 강아지는 비글 라브라도 리트리버의 mix입니다. 1살이며, 강아지가 하는 모든 것을 합니다.
+My puppy, a beagle/Labrador mix, is 1 year old and does everything puppies do.
+2 그녀는 매력적입니다. 보는 사람들을 멈추게 만드는 매력이 있습니다. 그녀를 보면 내 마음이 녹아내립니다.
+She&amp;rsquo;s adorbs. She&amp;rsquo;s a traffic-stopper. My heart melts when I see her.
+3 하지만 그녀는 집 안에서 볼일을 보고, 모든 것을 깨물고, 끝없이 에너지를 뿜어내고 있습니다. 강아지는 아직 훈련 중이며 적어도 1년 이상은 훈련을 받을 것입니다.</description>
+    </item>
+    
+    <item>
       <title>folding test1</title>
       <link>https://braindump.frege2godel.me/posts/folding_test/</link>
       <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
