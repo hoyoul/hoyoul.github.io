@@ -5,7 +5,16 @@
     <link>https://braindump.frege2godel.me/posts/</link>
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 06 Jun 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Jun 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>test_page1</title>
+      <link>https://braindump.frege2godel.me/posts/test_page1/</link>
+      <pubDate>Wed, 07 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/test_page1/</guid>
+      <description>test this is test</description>
+    </item>
+    
     <item>
       <title>[emacs] jupyter notebook settings</title>
       <link>https://braindump.frege2godel.me/posts/emacs_jupyter_notebook_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/</link>
@@ -203,15 +212,6 @@ lvalue인 a를 보고 symbol table에서 찾는다.</description>
       
       <guid>https://braindump.frege2godel.me/posts/linear_algebra1/</guid>
       <description>linear algebra에 대한 생각 인과 관계(causation)와 상관관계(correlation) 어떤 변수와 다른 어떤 변수와의 연관성이 있을때 relation이 있다고 한다. 예를 들어, x가 증가하면 y도 증가한다던지 혹은 x가 증가하면 y가 감소한다. x가 감소하면 y는 증가한다. 등등. 이런 관계를 영어로는 좀 더 명확하게 표현할 수 있는것 같다. 예를 들면, describe variables in terms of one another. 여튼 이런 관계는 수학적으로 표현할 수 있다. 인문학 분야에서도 이런 관계를 표현하는데, 좀 다르다. 인간관계, 상관관계와 같이 구분해서 표현하는데, 이것은 관계를 어떻게 해석하느냐의 문제다.</description>
-    </item>
-    
-    <item>
-      <title>test_page1</title>
-      <link>https://braindump.frege2godel.me/posts/test_page1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/posts/test_page1/</guid>
-      <description>test this is test</description>
     </item>
     
   </channel>
