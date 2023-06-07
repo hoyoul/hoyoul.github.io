@@ -92,8 +92,6 @@
      
     
      
-    
-     
   
 
   
@@ -106,7 +104,15 @@ hugo를 사용해서 md파일을 html로 만들게 된다. md파일을 전처리
 과정에서 title이름의 폴더를 만들고 index.html을 만들게 된다. 따라서
 title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.</p>
 <h2 id="hugo의-문제">hugo의 문제</h2>
-<p>development환경에서는</p>
+<p>한글 폴더가 있다는게 development환경에서는 문제가 되지 않는다. 그런데
+production환경에서는 한글폴더를 읽지 못하는 문제가 있다. config.toml에
+다음과 같이 설정을 했지만, 해결하지 못했다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">languageCode = &#34;ko&#34;
+</span></span><span class="line"><span class="cl">hasCJKLanguage = true
+</span></span></code></pre></div><h2 id="해결책">해결책</h2>
+<p>그럼 어떻게 할것인가? 그냥 org-roam에서 title을 작성할때, 영어로
+쓰자. 고칠려고 애는 쓸만큼 썼다. 5시간동안 했는데 해결책을
+못찾았다. 너무 시간을 쏟을 필요가 없다.</p>
       
       </div>
 
@@ -122,8 +128,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      "label": "hugo korean encoding problem",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/hugo_korean_encoding_problem\/",
      "id": "hugo_korean_encoding_problem",
-     
-         
      
          
      
@@ -221,8 +225,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      
          
      
-         
-     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary1",JSON.stringify(graph_node_object)); 
@@ -277,8 +279,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      
          
      
-         
-     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -288,66 +288,8 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      graph_node_object = {
         
      "label": "[emacs] jupyter notebook settings",
-     "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_notebook_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC\/",
-     "id": "emacs_jupyter_notebook_설정",
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-     "backlinks": []
-   }
- sessionStorage.setItem("emacs_jupyter_notebook_설정",JSON.stringify(graph_node_object)); 
- graph_objects.push(graph_node_object);
- 
-     
-     graph_node_object = {
-        
-     "label": "[정리]python 기초1",
-     "url": "https:\/\/braindump.frege2godel.me\/posts\/%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5_python_%E1%84%80%E1%85%B5%E1%84%8E%E1%85%A91\/",
-     "id": "정리_python_기초1",
-     
-         
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
+     "id": "emacs_jupyter_noteboo_settings",
      
          
      
@@ -393,7 +335,7 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      
      "backlinks": []
    }
- sessionStorage.setItem("정리_python_기초1",JSON.stringify(graph_node_object)); 
+ sessionStorage.setItem("emacs_jupyter_noteboo_settings",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
  
      
@@ -402,8 +344,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      "label": "daily영어(1)-don\u0027t pet my puppy",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/english1\/",
      "id": "english1",
-     
-         
      
          
      
@@ -472,8 +412,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
          
      
          
-     
-         
               
          
      
@@ -516,8 +454,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
-     
-         
      
          
      
@@ -617,8 +553,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      
          
      
-         
-     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -630,8 +564,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
-     
-         
      
          
      
@@ -729,8 +661,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      
          
      
-         
-     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -742,8 +672,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
-     
-         
      
          
      
@@ -841,8 +769,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      
          
      
-         
-     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -854,8 +780,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
-     
-         
      
          
      
@@ -953,8 +877,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      
          
      
-         
-     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -966,8 +888,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
-     
-         
      
          
      
@@ -1065,8 +985,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      
          
      
-         
-     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -1078,8 +996,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
-     
-         
      
          
      
@@ -1177,8 +1093,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      
          
      
-         
-     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -1190,8 +1104,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
-     
-         
      
          
      
@@ -1289,8 +1201,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      
          
      
-         
-     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -1302,8 +1212,6 @@ title을 한글로 만들면, public폴더에는 한글 폴더가 있게 된다.
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
-     
-         
      
          
      

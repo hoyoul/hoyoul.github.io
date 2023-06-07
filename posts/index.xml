@@ -36,20 +36,11 @@
     
     <item>
       <title>[emacs] jupyter notebook settings</title>
-      <link>https://braindump.frege2godel.me/posts/emacs_jupyter_notebook_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/</link>
+      <link>https://braindump.frege2godel.me/posts/emacs_jupyter_noteboo_settings/</link>
       <pubDate>Tue, 06 Jun 2023 00:00:00 +0900</pubDate>
       
-      <guid>https://braindump.frege2godel.me/posts/emacs_jupyter_notebook_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/</guid>
+      <guid>https://braindump.frege2godel.me/posts/emacs_jupyter_noteboo_settings/</guid>
       <description>python, ipython, jupyter notebook, google colab이란? python의 동작방식 python은 REPL(Read Evaluate Print Loop)로 동작한다. shell에서 입력받은 code가 입력이 되고, 입력된</description>
-    </item>
-    
-    <item>
-      <title>[정리]python 기초1</title>
-      <link>https://braindump.frege2godel.me/posts/%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5_python_%E1%84%80%E1%85%B5%E1%84%8E%E1%85%A91/</link>
-      <pubDate>Tue, 06 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/posts/%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5_python_%E1%84%80%E1%85%B5%E1%84%8E%E1%85%A91/</guid>
-      <description>python이란? python은 함수형언어가 아니라, 객체 지향 언어 다. python은 모든 것을 객체로 바라본다. 따라서 우리도, python 코드의 모든것을 객체</description>
     </item>
     
     <item>
