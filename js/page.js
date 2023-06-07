@@ -675,7 +675,7 @@ function renderPage(page,page_column,href){
 }
 
 function fetchPage(href,page_column){
-    const request = new Request(href);
+    const request = new Request(encodeURIComponent(href));
     fetch(request)
 	.then((response) => response.text())
 	.then((text) => {
@@ -688,6 +688,9 @@ function fetchPage(href,page_column){
 	    renderPage(page,page_column,href);		
 	    // let page = fragment.content.querySelector(".page");
 	    // renderPage(page,page_column,href);
+	})
+	.catch(error => {
+	    console.error('Error:', error);
 	});
 }
 
