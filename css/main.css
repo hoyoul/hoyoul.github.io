@@ -56,7 +56,10 @@ p {
     /* margin-top: 10px; */
     /* margin-bottom: 10px;     */
 }
-
+figure {
+    margin-left: 0px;
+    width:100%;
+}
 a {
     text-decoration: none;
     cursor: e-resize;    

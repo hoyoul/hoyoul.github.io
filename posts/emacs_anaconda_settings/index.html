@@ -138,17 +138,18 @@ package들을 묶은 환경이 필요하다. project기준으로 봐야
 
 <h4 id="가상환경-만들기">가상환경 만들기</h4>
 <p>가상환경을 만들려면, shell에서 conda명령어를 이용한다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">conda create -n [가상환경이름]
-</span></span><span class="line"><span class="cl">conda create -n [가상환경이름] python=3.7
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ conda create -n [가상환경이름]
+</span></span><span class="line"><span class="cl">$ conda create -n [가상환경이름] python=3.7
 </span></span></code></pre></div><h4 id="가상환경-선택하기--활성화하기-비활성화하기">가상환경 선택하기(활성화하기,비활성화하기)</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">conda activate [가상환경이름]
-</span></span><span class="line"><span class="cl">conda deactivate
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ conda activate [가상환경이름]
+</span></span><span class="line"><span class="cl">$ conda deactivate
 </span></span></code></pre></div><h4 id="가상환경-정보보기">가상환경 정보보기</h4>
 <p>현재 선택된 가상환경 목록 보기</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"></code></pre></div><h4 id="가상환경-목록보기">가상환경 목록보기</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">conda info --envs
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="nv">$</span> <span class="nv">conda</span> <span class="nv">info</span>
+</span></span></code></pre></div><h4 id="가상환경-목록보기">가상환경 목록보기</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ conda info --envs
 </span></span></code></pre></div><h4 id="가상환경-삭제하기">가상환경 삭제하기</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">conda remove --name [가상환경이름]
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ conda remove --name [가상환경이름]
 </span></span></code></pre></div><h2 id="anaconda-emacs-설정">anaconda emacs 설정</h2>
 <h3 id="anaconda-mode-setting">anaconda mode setting</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">anaconda-mode</span>
