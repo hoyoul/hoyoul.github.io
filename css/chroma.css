@@ -1,12 +1,13 @@
 /* Background */ .chroma {
     color: #a3a3a3;
     background-color: #1f2022;
-    padding-top:20px;
-    padding-bottom:20px;
+    padding-top:10px;
+    padding-bottom:10px;
     padding-left:25px;
     border-radius:15px;
     font-size: 15px;
     font-weight: 400;
+    width:90%;
 }
 /* Other */ .chroma .x { color: #a3a3a3 }
 /* Error */ .chroma .err { color: #f2241f }

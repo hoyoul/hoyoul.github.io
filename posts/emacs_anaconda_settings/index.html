@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
-	<meta name="generator" content="Hugo 0.110.0"><title>Hey</title>
+  <head><title>[emacs] anaconda settings</title>
 
 
 <meta charset="utf-8">
@@ -41,31 +40,162 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">Root Page</h1>        
-    <div class="content">
-      <h1> Hey </h1>
-      <p>I am <a href="https://frege2godel.me" target="_blank">holy frege
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-. My real name is Hoyoul Park and from Korea. I had a time when I really liked the German mathematician G. Frege, so I combined my English name &lsquo;holy&rsquo; with &lsquo;Frege&rsquo;. This braindump displays my org files written in Emacs, where I jot down my thoughts whenever they come to mind, in a web format. The technologies used here include the ninja tool and makefile for incremental build, and an elisp code for converting org to HTML, although it has many limitations, so I used ox-hugo. In other words, the conversion process used was org -&gt; md -&gt; html. The search feature uses local storage and indexing in the browser to perform searches on the notes. The graph is a force-directed graph using d3. There are many things to be modified and improved, but it is designed for personal use and viewing on a PC, so it may be inconvenient on a mobile device. It is not difficult to implement responsive web design, but I chose not to use it. For inquiries or suggestions regarding the source code, please contact the email address below. By the way, I also have a GitHub address</p>
-<ul>
-<li>GitHub: <a href="https://github.com/hoyoul/holy-brain" target="_blank">holy-brain
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-</li>
-<li>My Email: <a href="mailto:hoyoul.park@gamil.com">hoyoul.park@gmail.com</a>
-</li>
-<li>My Personal Homepage: <a href="https://frege2godel.me" target="_blank">holy-homepage
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-</li>
-</ul>
-<p>!Please Check out the <a href="/posts/index.html">Index</a>
- with all notes.</p>
-      
+    <h1 class="collapsed-title">[emacs] anaconda settings</h1>    
+      <div class="content">
+	<a href="https://braindump.frege2godel.me/posts/emacs_anaconda_settings/" alt="[emacs] anaconda settings" class="permalink" data-singlepage="yes" ><h1>[emacs] anaconda settings</h1></a>
+	<fieldset>
+	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
+	  <ol class="li"><strong>Title: </strong> [emacs] anaconda settings </ol>
+	  <ol class="li"><strong>date: </strong> 2023 6.7 </ol>
+	  <ol class="li"><strong>content: </strong>emacs에서 anaconda를 사용하는 방법 </ol>
+	    
+  
+    
+     
+    
+     
+    
+     
+    
+     
+        
+    
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+  <div class="bl-section">
+    <hr/>
+    <h4> (back links) </h4>
+    <div class="backlinks">
+       <ul>
+       
+         <li><a href="/posts/python_summary1/">python_summary1</a></li>
+       
+      </ul>
     </div>
   </div>
-</div>
+
+	  
+	</fieldset>
+	<h2 id="system-설정">system 설정</h2>
+<p>emacs에서 anaconda를 사용하기 위해선, mac에 anaconda를 설치한다.
+<a href="https://www.anaconda.com/" target="_blank">여기(from here)
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+에서 다운받아서 설치하면 된다.</p>
+<h3 id="virtual-environment">virtual environment</h3>
+<h4 id="개요">개요</h4>
+<p>시스템에 하나의 python만 있으면 불편하다. 하나의 python에 여러
+package들이 설치된 후 project를 만들게 되는데, 매번 새로운 project를
+만들때마다 project에 맞는 package를 설치해야 하는데, 기존 설치된
+package때문에 충돌도 일어날 수 있다. 따라서 project에 필요한 python과
+package들을 묶은 환경이 필요하다. project기준으로 봐야
+한다. 기본적으로 anaconda을 설치하면 default 환경은 base다.</p>
+<p><a id="figure--기본환경"></a></p>
+<figure><img src="/img/python/anaconda1.png"
+         alt="Figure 1: 기본환경" width="500px"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>기본환경</p>
+        </figcaption>
+</figure>
+
+<h4 id="가상환경-만들기">가상환경 만들기</h4>
+<p>가상환경을 만들려면, shell에서 conda명령어를 이용한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">conda create -n [가상환경이름]
+</span></span><span class="line"><span class="cl">conda create -n [가상환경이름] python=3.7
+</span></span></code></pre></div><h4 id="가상환경-선택하기--활성화하기-비활성화하기">가상환경 선택하기(활성화하기,비활성화하기)</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">conda activate [가상환경이름]
+</span></span><span class="line"><span class="cl">conda deactivate
+</span></span></code></pre></div><h4 id="가상환경-정보보기">가상환경 정보보기</h4>
+<p>현재 선택된 가상환경 목록 보기</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"></code></pre></div><h4 id="가상환경-목록보기">가상환경 목록보기</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">conda info --envs
+</span></span></code></pre></div><h4 id="가상환경-삭제하기">가상환경 삭제하기</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">conda remove --name [가상환경이름]
+</span></span></code></pre></div><h2 id="anaconda-emacs-설정">anaconda emacs 설정</h2>
+<h3 id="anaconda-mode-setting">anaconda mode setting</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">anaconda-mode</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:ensure</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span></code></pre></div><h3 id="create-new-dot-py-file">create new .py file</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">C-x C-f
+</span></span><span class="line"><span class="cl">HolaWorld.py RET
+</span></span></code></pre></div><h3 id="add-the-code">Add the code</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">print (&#34;Hola World from Emacs&#34;)
+</span></span></code></pre></div><h3 id="running-it">running it</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">C-c C-p
+</span></span><span class="line"><span class="cl">C-c C-c
+</span></span></code></pre></div><p>output</p>
+<p><a id="figure--anaconda2"></a></p>
+<figure><img src="/img/python/anaconda2.png"
+         alt="Figure 2: anaconda2" width="500px"/><figcaption>
+            <p><span class="figure-number">Figure 2: </span>anaconda2</p>
+        </figcaption>
+</figure>
+
+<h2 id="conda-emacs설정">conda emacs설정</h2>
+<h3 id="conda-mode-setting">conda mode setting</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">conda</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:ensure</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:init</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq</span> <span class="nv">conda-anaconda-home</span> <span class="s">&#34;/Users/holy/opt/anaconda3&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq</span> <span class="nv">conda-env-home-directory</span> <span class="s">&#34;/Users/holy/opt/anaconda3/envs&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:config</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">conda-env-autoactivate-mode</span> <span class="no">t</span><span class="p">))</span>
+</span></span></code></pre></div><h3 id="check-env-list">check env list</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">M-x conda-env-list RET
+</span></span></code></pre></div><h3 id="activate-env">activate env</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">M-x conda-activate RET
+</span></span></code></pre></div><h2 id="company-설정">company 설정</h2>
+<p>complete anything. 자동완성 기능</p>
+<h3 id="company-setting">company setting</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">company-anaconda</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:ensure</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:config</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">eval-after-load</span> <span class="s">&#34;company&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&#39;</span><span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;company-backends</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">company-anaconda</span> <span class="nb">:with</span> <span class="nv">company-capf</span><span class="p">))))</span>
+</span></span></code></pre></div>      
+      </div>
+
+  </div>
+</div>  
 <script>
  graph_objects = []; 
 

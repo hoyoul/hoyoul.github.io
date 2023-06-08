@@ -351,14 +351,25 @@ pre code{
     padding:32px;
 }
 .page > .content h2{
-    text-decoration: underline wavy red;
+    background-color: #cfc;
+    width:95%;
+    text-decoration: underline solid #8f9;
+    text-underline-offset: 4px;
+    text-decoration-thickness:5px;    
     text-underline-position: under;
     padding-bottom: 10px;
+    padding-top: 8px;    
 }
 .page > .content h3{
-    text-decoration: underline dotted red;
+    background-color: #fcc;
+    width:95%;
+    opacity: 0.8;
+    text-decoration: underline dashed #f89;
     text-underline-position: under;
-    padding-bottom: 5px;    
+    text-underline-offset: 3px;
+    text-decoration-thickness:3px;        
+    padding-bottom: 5px;
+    padding-top: 5px;        
 }
 
 .container.d3{
@@ -391,6 +402,7 @@ fieldset{
     background-color: ivory;
     border-radius: 10px;
     opacity: 80%;
+    width:90%;
 }
 fieldset legend{
     font-weight: 600;

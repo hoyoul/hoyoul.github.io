@@ -6,7 +6,25 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Wed, 07 Jun 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Jun 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[emacs] python lsp setting</title>
+      <link>https://braindump.frege2godel.me/posts/emacs_python_lsp_setting/</link>
+      <pubDate>Thu, 08 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/emacs_python_lsp_setting/</guid>
+      <description>DOING pyright 설정 create env $ conda create -n pyright python=3.11 RET activate env $ conda activate pyright install pyright on pyright env $ conda install -c conda-forge pyright RET</description>
+    </item>
+    
+    <item>
+      <title>[emacs] anaconda settings</title>
+      <link>https://braindump.frege2godel.me/posts/emacs_anaconda_settings/</link>
+      <pubDate>Wed, 07 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/emacs_anaconda_settings/</guid>
+      <description>system 설정 emacs에서 anaconda를 사용하기 위해선, mac에 anaconda를 설치한다. 여기(from here) 에서 다운받아서 설치하면 된다. virtual environment 개</description>
+    </item>
+    
     <item>
       <title>hugo korean encoding problem</title>
       <link>https://braindump.frege2godel.me/posts/hugo_korean_encoding_problem/</link>

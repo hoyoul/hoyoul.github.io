@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
-	<meta name="generator" content="Hugo 0.110.0"><title>Hey</title>
+  <head><title>[emacs] python lsp setting</title>
 
 
 <meta charset="utf-8">
@@ -41,31 +40,79 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">Root Page</h1>        
-    <div class="content">
-      <h1> Hey </h1>
-      <p>I am <a href="https://frege2godel.me" target="_blank">holy frege
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-. My real name is Hoyoul Park and from Korea. I had a time when I really liked the German mathematician G. Frege, so I combined my English name &lsquo;holy&rsquo; with &lsquo;Frege&rsquo;. This braindump displays my org files written in Emacs, where I jot down my thoughts whenever they come to mind, in a web format. The technologies used here include the ninja tool and makefile for incremental build, and an elisp code for converting org to HTML, although it has many limitations, so I used ox-hugo. In other words, the conversion process used was org -&gt; md -&gt; html. The search feature uses local storage and indexing in the browser to perform searches on the notes. The graph is a force-directed graph using d3. There are many things to be modified and improved, but it is designed for personal use and viewing on a PC, so it may be inconvenient on a mobile device. It is not difficult to implement responsive web design, but I chose not to use it. For inquiries or suggestions regarding the source code, please contact the email address below. By the way, I also have a GitHub address</p>
-<ul>
-<li>GitHub: <a href="https://github.com/hoyoul/holy-brain" target="_blank">holy-brain
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-</li>
-<li>My Email: <a href="mailto:hoyoul.park@gamil.com">hoyoul.park@gmail.com</a>
-</li>
-<li>My Personal Homepage: <a href="https://frege2godel.me" target="_blank">holy-homepage
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-</li>
-</ul>
-<p>!Please Check out the <a href="/posts/index.html">Index</a>
- with all notes.</p>
-      
-    </div>
+    <h1 class="collapsed-title">[emacs] python lsp setting</h1>    
+      <div class="content">
+	<a href="https://braindump.frege2godel.me/posts/emacs_python_lsp_setting/" alt="[emacs] python lsp setting" class="permalink" data-singlepage="yes" ><h1>[emacs] python lsp setting</h1></a>
+	<fieldset>
+	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
+	  <ol class="li"><strong>Title: </strong> [emacs] python lsp setting </ol>
+	  <ol class="li"><strong>date: </strong> 2023 6.8 </ol>
+	  <ol class="li"><strong>content: </strong>python lsp setting을 하려 한다. eglot(client), pyright(server)를 이용한다. </ol>
+	    
+  
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+  
+
+  
+	  
+	</fieldset>
+	<h2 id="pyright-설정"><span class="org-todo todo DOING">DOING</span> pyright 설정</h2>
+<h3 id="create-env">create env</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ conda create -n pyright python=3.11 RET
+</span></span></code></pre></div><h3 id="activate-env">activate env</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ conda activate pyright
+</span></span></code></pre></div><h3 id="install-pyright-on-pyright-env">install pyright on pyright env</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ conda install -c conda-forge pyright RET
+</span></span></code></pre></div>      
+      </div>
+
   </div>
-</div>
+</div>  
 <script>
  graph_objects = []; 
 
