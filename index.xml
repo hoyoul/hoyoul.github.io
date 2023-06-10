@@ -13,7 +13,7 @@
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/emacs_org_babel_python/</guid>
-      <description>setting emacs init file (org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((python . t))) default usage 다음과 같이 src code block을 만든다. 코드를 입력한다. #+BEGIN_SRC python a = 3 #+END_SRC a=3 그리고 C-c c 를 눌러서 실행한다. 그러면 None이라는 결과가</description>
+      <description>setting emacs init file (org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((python . t))) default usage 다음과 같이 src code block을 만든다. 코드를 입력한다. #+BEGIN_SRC python a = 3 #+END_SRC 그리고 C-c c 를 눌러서 실행한다. 그러면 None이라는 결과가 나</description>
     </item>
     
     <item>

@@ -273,25 +273,29 @@ div.verse
      -moz-border-radius: 6px;
      -webkit-border-radius: 6px;
      /* background-color: #f0f7fb; */
-     background-color: #FFFFFE;
+     background-color: #FFFFEE;
      /* border: solid 1px #3498db; */
-     border: solid 1px #B2BEB5;
+     border: solid 2px #B2BEB5;
      border-radius: 6px;
      line-height: 18px;
      /* mc-auto-number-format: '{b}Note: {/b}'; */
      overflow: hidden;
-     padding: 12px;
-     opacity: 0.8;     
+     /* padding: 12px; */
+     padding-left:20px;
+     opacity: 0.8;
+     font-family: monospace;
+     font-size: 15px;
+     font-weight: 500;
 }
  
 .verse:before {
-  content: "Verse!";
-  display: block;
-  font-weight: bold;
-  color: orange;
-  background-color: #ffdddd;
-  border-left: 6px solid orange;
-  padding: 10px;
+  /* content: "Verse!"; */
+  /* display: block; */
+  /* font-weight: bold; */
+  /* color: orange; */
+  /* background-color: #ffdddd; */
+  /* border-left: 6px solid orange; */
+  /* padding: 10px; */
 }
 .verse p{
     line-height: 28px;
