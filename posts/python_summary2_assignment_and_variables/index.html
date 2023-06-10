@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><title>lecture2_variable_and_operator</title>
+  <head><title>python_summary2-assignment and variables</title>
 
 
 <meta charset="utf-8">
@@ -40,14 +40,14 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">lecture2_variable_and_operator</h1>    
+    <h1 class="collapsed-title">python_summary2-assignment and variables</h1>    
       <div class="content">
-	<a href="https://braindump.frege2godel.me/posts/lecture2_variable_and_operator/" alt="lecture2_variable_and_operator" class="permalink" data-singlepage="yes" ><h1>lecture2_variable_and_operator</h1></a>
+	<a href="https://braindump.frege2godel.me/posts/python_summary2_assignment_and_variables/" alt="python_summary2-assignment and variables" class="permalink" data-singlepage="yes" ><h1>python_summary2-assignment and variables</h1></a>
 	<fieldset>
 	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
-	  <ol class="li"><strong>Title: </strong> lecture2_variable_and_operator </ol>
-	  <ol class="li"><strong>date: </strong> 2023 6.4 </ol>
-	  <ol class="li"><strong>content: </strong>python 2장 요약정리 </ol>
+	  <ol class="li"><strong>Title: </strong> python_summary2-assignment and variables </ol>
+	  <ol class="li"><strong>date: </strong> 2023 6.8 </ol>
+	  <ol class="li"><strong>content: </strong>python의 기초개념중 제일 중요한 assignment와 name을 다룬다. lisp관점에서 다루기 때문에 엉뚱하게 들릴 수 있다. </ol>
 	    
   
     
@@ -106,263 +106,337 @@
 	  
 	</fieldset>
 	<h2 id="lecture2-variable-and-operator">[lecture2] variable &amp; operator</h2>
-<h3 id="변수와-assignment">변수와 assignment</h3>
-<ul>
-<li>변수는 lisp에선 symbol이라고 부르고, 모든 symbol은 동일한 형태의
-structure를 가졌다. symbol의 이름은 unique했다. symbol의 이름은
-address였기 때문이다. 하지만, python에서 변수는 type이 가리키는
-structure를 갖는다. 모두 동일한 모양이 아니다. 변수의 이름은
-unique한건 마찬가지 인 듯 하다. address이기 때문이다.</li>
-</ul>
-<h4 id="변수와-assignment의-예-1">변수와 assignment의 예 1</h4>
-<ul>
-<li>
-<p>example</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">15</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">b</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</span></span></code></pre></div></li>
-<li>
-<p>interpreter가 이것을 어떻게 해석할까?</p>
-<ul>
-<li>
-<p>(1) 과정</p>
-</li>
-<li>
-<p>lvalue인 a를 보고 symbol table에서 찾는다. 없다면 a라는 이름을
-새로 만든다.</p>
-</li>
-<li>
-<p>rvalue인 15를 본다.</p>
-</li>
-<li>
-<p>=(assignment)를 실행한다. rvalue의 type이 int라는 것을 알고
-int객체를 만든다.</p>
-</li>
-<li>
-<p>int객체의 value에 15를 집어넣는다.</p>
-</li>
-<li>
-<p>int객체의 name에 a를 집어넣는다.</p>
-<ul>
-<li>이렇게 해서 하나의 객체를 만들었다.</li>
-</ul>
-</li>
-<li>
-<p>(2) 과정</p>
-</li>
-<li>
-<p>lvalue인 b를 보고 symbol table에서 찾는다. 없다면 b라는 이름을
-만든다.</p>
-</li>
-<li>
-<p>rvalue인 a를 보고 symbol table에서 찾아서 a를 꺼낸다. 없으면
-error가 발생된다.</p>
-</li>
-<li>
-<p>=(assignment)를 실행한다. int객체를 만들고, value로는 a값을
-, name이 b인 객체를 만든다.</p>
-</li>
-<li>
-<p>python interpreter가 객체의 value를 꺼낸다. 즉 eval한다.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>즉 assignment의 역할이 무엇일까?</p>
-<ol>
-<li>객체를 만드는 것이 아닌가? 즉 interpreter는 = 을 보고,
-rvalue와 lvalue를 보고 객체를 만들어야 한다는 걸 안다. 그러나
-무조건 객체를 만드는 것은 아니다. lvalue를 보고, 해당 symbol이
-symbol table에 있는지 여부를 확인한다. 없다면 객체를 만들려고
-한다. 만일 있다면, immutable인지 mutable인지 확인한다. 만일
-mutable이라면, 새로운 객체를 만들지 않고
-update한다. immutable이라면, 새로운 객체를 만든다. 이제 rvalue
-살펴본다. rvalue의 type을 확인하고 그 type에 맞는 객체를
-만든다. 위의 예를 보면, a = 15에서 a가 symbol table에 없기
-때문에, 객체를 생성해야 한다고 본다. 그리고 rvalue를 보고 int
-type임을 알수 있기 때문에 int객체를 만드는 것이다. 객체를
-만든후 name과 value에 값을 assign한다. 그리고 만든 객체의
-value는 rvalue인 15를 가리고 name은 lvalue인 a를
-가리킨다.</li>
-</ol>
-</li>
-</ul>
-<h4 id="변수와-assignment의-예2">변수와 assignment의 예2</h4>
-<ul>
-<li>example2
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">a = b = 2
-</span></span></code></pre></div></li>
-<li>뒤에서부터 처리한다. 즉 name이 b, value가 2인 int객체를
-만든다. 그 다음 name이 2 value가 b를 가리키는 또 다른 int 객체를
-만든다.</li>
-</ul>
-<h4 id="literal-object에-대해서">literal object에 대해서</h4>
-<ul>
-<li>
-<p>3이나 5와같은 값도 객체다 literal object이다. 예를 들어서,
-아래와 같은 것이 가능하다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4.0.real or (4).real
-</span></span></code></pre></div><p>4.0은 float객체가 만들어진 후 real이란 float의 method가
-수행되는 것이다.</p>
-</li>
-<li>
-<p>나는 lisp의 symbol과 비슷하다는 가정아래 해석한다.</p>
-<p><a id="figure--"></a></p>
-<figure><img src="./img/python/symbol1.png"
-             alt="Figure 1: lisp의 symbol1" width="500px"/><figcaption>
-                <p><span class="figure-number">Figure 1: </span>lisp의 symbol1</p>
-            </figcaption>
-    </figure>
+<h3 id="변수-개념">변수 개념</h3>
+<p>python에서의 변수를 lisp에선 symbol이라고 부르고, 일상생활에서는
+name이라고 말한다. 일상생활에서 name은 중요하지 않다. 본질이
+중요하다. 어떻게 부르던 본질은 변하지 않기 때문이다. 그러나, logic과
+computer science는 말장난이기 때문에 name은 그 무엇보다도
+중요하다. 그래서 변수, symbol, reference 등등 다양하게 부른다. 다르게
+부르는 이유는 다르기때문이다. 언어가 다르고 쓰임새가 다르다. 하지만,
+여기서 우리가 알아야 하는것은 name이 본질을 가리키는 것이 아니라,
+가리키는것 자체가 본질이라는 것이다. logic과 cs에서는
+그렇다. symbol이던 변수던 모든것을 가리킬수 있다. 그것이 class가
+되었던, macro가 되었던, primitive datatype이 되었던, function이 되었던
+method가 되었던 모든것을 가리킨다. 이것이 본질이다. first order
+logic의 Frege가 말한 concept라는것은 어떻게 보면 가리키는 것이
+본질이라는 것을 말하는지도 모르겠다.</p>
+<p>python의 변수를 다루기 전에 lisp에서 변수에 해당하는 symbol을
+살펴보자.  lisp에서 모든 symbol은 동일한 형태의 structure를
+갖는다. 그림을 보자.</p>
+<p><a id="figure--the structure of symbol"></a></p>
+<figure><img src="/img/python/symbol2.png"
+         alt="Figure 1: the structure of symbol" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>the structure of symbol</p>
+        </figcaption>
+</figure>
 
-</li>
-<li>
-<p>literal 객체의 assignment는 새로운 객체를 생성하고 객체의
-value가 literal object를 가리키는게 아니라 value의 값으로
-들어가는거 같다. 예를 들면 a =3의 경우, 새로운 객체가 만들어지고
-객체의 value로 3이란 객체를 가리키는게 아니라 3값이 직접 새로운
-객체의 value가 되는 것 같다.</p>
-</li>
-</ul>
-<h3 id="name--변수--와-assignment의-특징">name(변수)와 assignment의 특징</h3>
+<p>symbol의 이름은 unique하다. python에서 변수는 type이라는 structure를
+갖는다. type은 class이기 때문에 동일한 모양이 아니다. 변수의 이름은
+unique한건 마찬가지다. python도 그림으로 표시하면 대략 이런 그림이
+아닐까 한다.</p>
+<p><a id="figure--python symbol"></a></p>
+<figure><img src="/img/python/python_symbol1.png"
+         alt="Figure 2: python symbol" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 2: </span>python symbol</p>
+        </figcaption>
+</figure>
+
+<p>lisp은 gentle common lisp책을 참조했지만, python은 내 뇌피셜이다.</p>
+<p>여튼 python의 변수나 lisp의 symbol이나, <code>&quot;이름으로 모든것을 가리킬수 있다는게 중요하다.&quot;</code> 이름으로 객체도, class도 function도 method도
+모든 것을 가리킬수 있다. 그게 본질이다. 여튼 그러면 어떻게 이름과
+구조를 만들어서 가리킬 수 있는가? assignment가 그런 역할을 한다.</p>
+<h3 id="assignment">assignment</h3>
+<p>assignment를 나타내는 문자가 있다. = 이라는 문자다. 그리고 사용법은
+다음과 같다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">lvalue(symbol) = rvalue
+</span></span></code></pre></div><p>interpreter는 =이라는 문자를 보고 여러 과정을 통해서 이름과 구조를
+만든다. python은 type이라는 구조를 갖는데, 그 구조라는게 결국 객체를
+뜻하는 것이 아닌가? 대부분은 그렇다. 그러면 assignment는 객체를 만들고
+이름필드에 lvalue를 넣는 것인가? 하지만 assignment가 무조건 객체를
+만드는 것은 아니다. lvalue를 보고, 해당 symbol이 symbol table에 있는지
+여부를 먼저 확인한다. 없다면 새로운 객체를 만들고, 만일 있다면,
+symbol이 가리키는 객체를 가져와서 immutable인지 mutable인지
+확인한다. mutable이라면, rvalue값을 update할 것이다. immutable이라면,
+새로운 객체를 만든다.</p>
+<p>새로운 객체를 만들어야 하는 상황은 lvalue가 symbol table에 없는 경우,
+있어도 immutable이라서 만들어야 하는경우가 있다. 여기까지는 lvalue값에
+따른 처리다. lvalue에 따라 새로운 객체를 만들어야 한다. 그래서 rvalue
+살펴본다. rvalue의 type을 확인한다. type을 가져온 후 그 type에 맞는
+객체를 만든다. 이런 과정을 예제로 구체적으로 확인해 보자.</p>
+<h3 id="변수와-assignment의-예-1">변수와 assignment의 예 1</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(1) a = 15
+</span></span><span class="line"><span class="cl">(2) b = a
+</span></span><span class="line"><span class="cl">(3) b
+</span></span><span class="line"><span class="cl">print(b)
+</span></span></code></pre></div><p>python interpreter가 위의 sentence들을 어떻게 해석할 것인가?</p>
 <ul>
-<li>숫자로 변수명을 시작할 수 없다.</li>
-<li>대소문자를 구별한다.</li>
+<li>(1) 과정: interpreter는 lvalue를 보고 symbol table에서 찾는다. a라는
+이름은 symbol table에 없다. 그 다음 =(assignment)를 실행한다. a
+symbol이 symbol table에 없기 때문에 assignment는 객체를 만들기
+위해서 rvalue를 확인한다. rvalue는 literal 15이다. 그리고 15는 int
+type이다. int type의 class를 가져와서 객체로 만든다. int 객체의
+value에는 15를 넣고 name에는 a를 넣는다. 따라서 symbol table의 a는
+int 객체를 가리킨다.</li>
+<li>(2)과정: interpreter는 lvalue를 확인한다. b라는 symbol은 symbol
+table에 없다. 따라서 객체를 만들기 위해서, assignment는 rvalue를
+확인한다. rvalue는 symbol table에 있다. assignment는 rvalue값 a를
+가져온다. a의 type에 맞는 객체를 생성하고, value에 a값을 넣고 b를
+name에 넣는다.</li>
+<li>(3)과정: interpreter가 b를 보면, symbol table에서 찾는다. symbol
+table에 b라는 symbol이 있기 때문에 값을 evaluate한다.</li>
 </ul>
-<h4 id="assignment의-특징">assignment의 특징</h4>
+<h3 id="변수와-assignment의-예2">변수와 assignment의 예2</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">a = b = 2
+</span></span></code></pre></div><p>뒤에서부터 처리한다. 즉 b라는 symbol을 symbol table에서 찾는다. 없다면
+rvalue값을 보고 객체를 만드는데, literal값 2이기 때문에 int객체를
+만든다. 그 다음 a=b를 처리한다. a가 symbol table에 없기 때문에 symbol
+table에 a라는 symbol을 등록하고, rvalue를 살핀다. rvalue b는 symbol
+table에 있기 때문에, 그 값을 꺼내올 수 있다. b의 값은 2이기 때문에 int
+객체를 만들고 그 객체에 2를 넣는다. 그림으로 보면 다음과 같다.</p>
+<p><a id="figure--symbol"></a></p>
+<figure><img src="/img/python/symbol3.png"
+         alt="Figure 3: symbol" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 3: </span>symbol</p>
+        </figcaption>
+</figure>
+
+<h3 id="literal-object에-대해서">literal object에 대해서</h3>
+<p>3이나 5와 같은 값도 객체다. literal value가 아니라 literal
+object이다. 그렇기 때문에 아래와 같은 것이 가능하다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4.0.real or (4).real
+</span></span></code></pre></div><p>4.0은 float객체고 real이란 float의 method다. ruby에서도 이렇게 하지만,
+기존언어에서는 보기 힘들다.</p>
+<h3 id="return하는-assignment">return하는 assignment</h3>
+<h4 id="90fbf1">:=</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(1) print((a = 2) == 2)
+</span></span><span class="line"><span class="cl">(2) print((a := 2) == 2)
+</span></span></code></pre></div><p>함수형 언어는 모든 것이 함수다. 그리고 함수형 언어에서 모든 함수는
+return값이 존재한다. python은 oop언어이지만, 함수형 언어를
+지향한다. 그래서 많은 요소에 함수형언어의 특징을 가져온다. python에서
+assignment는 symbol을 만들고 객체를 만들지만, return값이
+없다. assignment는 함수가 아니고 python 또한 oop언어이기 때문에
+이상해보이지 않는다. 그런데 python은 함수형언어처럼 assigment도 함수
+처럼 처리한 대체 assignment를 지원한다. (1)의 경우에는 에러가 나지만,
+(2)의 경우는 에러가 나지 않는다. (2)도 assignment다. 하지만
+함수다. a라는 symbol을 만들고 2라는 값을 갖는 int객체를 만들고
+return을 한다. 따라서 (2)는 True를 evaluate한다.</p>
+<h3 id="primitive-data-types">primitive data types</h3>
+<p>data type을 알아야 하는 이유는 한 가지다. assignment로 객체를 만들때,
+data type을 가져와서 객체를 만들기 때문이다. lisp의 경우 symbol과
+symbol이 가리키는 객체는 universal한 하나의 structure지만, type이 있는
+언어들은 assignment로 symbol과 type에 기반한 객체를 만들기
+때문이다. 또한 type이 좋은 이유는 type에 이미 사용할 수 있는 method와
+member variable이 pre-define되어 있다는 것이다.</p>
+<h4 id="python-numerals">python numerals</h4>
 <ul>
-<li>assignment는 return값이 없다. 그래서 함수형 언어에서는 권장하지
-않는다. 예를 들어,</li>
+<li>type: int,float,complex</li>
+<li>double은 없다. float가 double과 같다고 보면 된다.</li>
 </ul>
 <!--listend-->
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nv">a</span> <span class="nf">=</span> <span class="mi">2</span><span class="p">)</span> <span class="nv">==</span> <span class="mi">2</span>
-</span></span></code></pre></div><p>이것은 syntax error를 발생한다. a와 2를 갖는 객체를 만들지만, 그
-객체를 return하지 않기 때문에 비교할 수 없다. 그런데, python에선,
-객체를 return하게 할 수도 있다. 아래를 보자.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(a := 2) == 2
-</span></span></code></pre></div><p>이것은 어떻게 해석할 것인가? name이 a이고 value가 2인 객체를
-return한다. ==은 rvalue, lvalue의 객체의 value를 비교한다.</p>
-<h3 id="primitive-data-types">primitive data types</h3>
-<ul>
-<li>data type을 알아야 하는 이유는 한 가지다. 객체를 만들때, data
-type에 맞는 객체를 만들기 때문이다. 그리고 type에서 제공하는
-method와 member variable을 사용할 수 있기 때문이다.</li>
-</ul>
-<h4 id="numerals">numerals</h4>
-<ul>
-<li>int,float,complex</li>
-<li>double은 없다. float가 double과 같다고 보면 된다.</li>
-<li>example
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">float: 1.7, -5.7, 4.67e-3, 3e5
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">int: 1,2,3
+</span></span><span class="line"><span class="cl">float: 1.7, -5.7, 4.67e-3, 3e5
 </span></span><span class="line"><span class="cl">complex: 1+8j, 1.6+8j
-</span></span></code></pre></div></li>
-</ul>
+</span></span></code></pre></div><p>literal object는 바로 만들수 있다. 하지만 symbol이 없기때문에 참조할
+수 없다.</p>
 <h4 id="string">string</h4>
-<ul>
-<li>string</li>
-<li>char type은 없다.</li>
-<li>example
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&#39;text&#39;, &#34;한글&#34;
-</span></span></code></pre></div></li>
-</ul>
+<p>python에는 char type이 없다. 문자들은 string type을 갖는다.</p>
 <h4 id="boolean">boolean</h4>
-<ul>
-<li>bool</li>
-<li>example
+<p>boolean literal object는 True,False인데 대문자를 사용한다는것에 유의하자.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">True, False
-</span></span></code></pre></div></li>
-</ul>
-<h4 id="none">None</h4>
-<ul>
-<li>일종의 null,</li>
-<li>example
+</span></span></code></pre></div><h4 id="none">None</h4>
+<p>다른 언어에는 없는 None이라는 객체가 있다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">None
-</span></span></code></pre></div></li>
-</ul>
-<h3 id="연산자--operator">연산자 (operator)</h3>
-<ul>
-<li>python이 객체 지향적 언어라고 하는데, 객체의 method를 사용하는게
-아니라, 객체와 객체 사이에 operator를 넣어서 연산하는게 이상해
-보일 수 있다. 그러나, operator는 method로 변환이 된다. 다음을
-참조 하자.
-참조:<a href="https://www.pythonmorsels.com/everything-is-an-object/#manually-calling-dunder-methods" target="_blank">https://www.pythonmorsels.com/everything-is-an-object/#manually-calling-dunder-methods
+</span></span></code></pre></div><h3 id="연산자--operator">연산자 (operator)</h3>
+<p>python의 모든 것은 객체라고 했다. operator도 객체일까? +,-,/ 같은 것을
+보면 함수같다. 그런데 oop언어에 함수는 없다. method만 있을뿐이다. 그럼
+method일까? 사용법을 보면 method형태가 아니다.  method라면
+객체.method형태로 사용할 것이다. 그럼 객체일까? 객체라면 +.abs()같은
+method를 호출할수 있어야 하는데, 그런 것을 본적이 없다. operator는
+과연 무엇일까? 내가 알고 있는 python의 모든 것은 객체란 말은
+틀린것일까? 한가지 추론을 해본다. <code>연산자는 최상위 class인 Object의 method가 아닐까?</code></p>
+<p>python에서는 class선언 없이 코딩을 하곤한다. 예를 들어서, 아래 코드만
+봐도, print()를 바로 호출한다. entry point가 없다. oop의 경우, 대표격
+언어인 java를 보자. java에서는 class를 만들고 class에 public static
+void main()를 entry point로 해서 코드를 작성한다. c언어도 void
+main()로 entry point를 만들고 그 안에서 코딩을 한다. 그런데 entry
+point가 없다는게 신기하다. python이 oop언어라면, 아마도 print(3+4)를
+둘러싸는 class가 있고, 그 class내의 entry point()가 있지 않을까 하고
+생각한다. 다만 생략된 거 아닐까? 좀 찾아봤더니,
+그렇다. 생략되었다. 아래의 print함수를 실행 시킬때는 python
+temp.py처럼 파일명으로 실행되고, python은 main라는 이름을 python에게
+전달한다. 전달된 이름은 &lsquo;<span class="underline"><span class="underline">name</span></span>&lsquo;이라는 private member변수를
+세팅한다. 그리고 temp.py내에서는 if <span class="underline"><span class="underline">name</span></span> == main 아래에
+print(3+4)가 있는 것이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="p">);</span>
+</span></span></code></pre></div><p>위의 코드는 아래 코드처럼 되어 있는 것이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"> <span class="k">class</span> <span class="nc">temp</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;main&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>그런데 이것과 연산자와 무슨 상관이 있는가?라고 말할 수 있다. print()에
+보면 3+4에 + operator가 쓰였다. 이것이 어떤 syntax에러도 없이 수행되는
+이유는, 숨겨져 있는 temp라는 class가 있고, 이 class는 Object라는
+최상위 class를 상속받는다. 즉 +라는 operator는 Object class에서 정의된
+method이기 때문에, 사용할 수 있는 것이다. 그래서 <code>&quot;내 생각은 + operator는 최상위 class Object의 method다.&quot;</code></p>
+<p><code>그런데 위의 추론도 문제가 있다.</code> + operator가 Object의 method이고
+숨겨져 있는 temp라는 class가 Object를 상속하기 때문에 + method를
+사용할 수 있다. 그런데 method의 인자가 3,4이다. 어떤 method가 이렇게
+중위표기법으로 구현되는가? <code>method의 중위 표기법 이상하지 않은가?</code>
+temp가 Object를 상속받기 때문에 + method를 사용한다기 보다, 3이라는
+literal 객체가 Object를 상속받기때문에 + method를 사용할 수 있었고,
+원래 표기법은 3.+(4)인데 저렇게 쓴게 아닐까? 지금까지는 100% 정확하게
+operator가 무엇인지는 모르겠다. python에서는 모든게 객체라고 했는데,
+operator처럼 그 존재가 정확히 모르는것 중에 built-in function이란게
+있다. <code>built-in function도 Object의 method인가?</code></p>
+<div class="important">
+<p>gpt chat에 물어보면 operator와 built-in function은 python
+interpreter에 의해 제공되는 pre-builtin된 함수라고 한다. python
+interpreter는 python언어로만 작성되지 않았다. cpython이라고 해서
+내부는 c,c++로 된 함수와 변수를 사용해서 만들어진다. python의
+operator와 built-in function들(id,hash같은 함수), primitive data
+type은 c,c++에서 정의된것을 wrapping해서 사용된다. python의 모든것은
+객체라고 말할때, 이말은 python으로 만들어지는 모든게 객체일뿐
+interpreter에 미리 정의된것은 객체가 아닐 수 있는 것이다.</p>
+</div>
+<p>참고로 위에서
+__name__은 object의 private field고, underbar가 한개인 것은 protected
+field이다. 그리고 python의 모든것이 객체라고 했는데, 참고자료가 있어서
+attach했다.
+(참조:<a href="https://www.pythonmorsels.com/everything-is-an-object/#manually-calling-dunder-methods" target="_blank">https://www.pythonmorsels.com/everything-is-an-object/#manually-calling-dunder-methods
 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
 </a>
-
-즉, 연산자는 어떻게 보면, 모든 객체에 내장된 멤버 함수로 봐도
-된다. Object 객체의 멤버 함수로 보는게 더 정확할 듯 하다.</li>
-</ul>
+),</p>
 <h4 id="연산자의-종류">연산자의 종류</h4>
 <!--list-separator-->
 <ul>
 <li>
 <p>arithematic operator</p>
+ <div class="attention">
 <ul>
-<li>
-<ul>
-<li>(덧셈), - (뻴셈) , *(곱셈) , **(거듭제곱), /(몫) , //(몫,정수),
-%(나머지)</li>
+<li>+(덧셈)</li>
+<li>-(뻴셈)</li>
+<li>*(곱셈)</li>
+<li>**(거듭제곱)</li>
+<li>/(몫)</li>
+<li>//(몫,정수),</li>
+<li>%(나머지)</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<!--list-separator-->
-<ul>
-<li>
-<p>bit operator</p>
-<ul>
-<li>~(NOT): 이게 좀 계산법이 황당한데, 우선, 2진수로
-변환한다. 그리고 앞에 0을 붙인다. 양수이니까, 예를 들어,
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">5 =&gt; 101 =&gt; 0101
-</span></span></code></pre></div>그리고, ~연산을 적용한다. ~연산은 1010이다. 이게 답이다. 그런데,
-여기서 1을 빼주고 1의 보수를 취해서 값을 도출한다. 즉 1010에서
-1을 빼서 1001이 되고, 여기서 1의 보수를 취해 0110이 나오는데,
-원래 msb가 1이였기 때문에 -6값이 되는 것이다.</li>
-<li>| (OR): 2진수로 변환한 후 or연산을 하면 된다.</li>
-<li>&amp; (AND): 2진수로 변환한 후 and연산을 한다.</li>
-<li>^ (XOR): 같으면 0, 다르면 1로 계산한다.</li>
-<li>&lt;&lt;, &gt;&gt; : shift연산은 곱셈과 나눗셈이 된다.</li>
-</ul>
+ </div>
 </li>
 </ul>
 <!--list-separator-->
 <ul>
 <li>
-<p>축약 가능</p>
+<p>bit operator (비트 연산자)</p>
+ <div class="attention">
 <ul>
-<li>example
+<li>&amp; (AND)</li>
+<li>| (OR)</li>
+<li>~(NOT)</li>
+<li>^ (XOR)</li>
+<li>&lt;&lt;, &gt;&gt;(SHIFT)</li>
+</ul>
+ </div>
+<p>있다, 없다, 맞다, 틀리다의 정보는 bit로 나타낼 수 있다. 이런 정보는
+bit 1개로 되어 있지 않다. byte,kbyte,극단적으로 GByte까지 엄청난
+정보를 표현할 수 있다. 예를 들어서, 만명의 사람들을 일렬로 나열해서
+코에 점이 있다 없다를 bit로 나타냈다고 하자.그리고 A라고
+하자. 여기에는 사람을 나타내는 index정보와 점이 있다, 없다를 나타내는
+정보를 표현한다. 동일한 만명인 사람들에게서 한국사람이냐 아니냐로
+정보를 bit로 나타내고 B라고 하자. 한국사람이며 코에 점이 있는 사람을
+알려면 and연산을 하면된다. 간단히 계산할 수 있다. 이것이 연산자의
+힘이다. 한국사람이거나 코에 점이 있는 사람을 알고 싶다. 이것을 일일이
+사람들을 확인할 필요가 없다. or연산을 하면 된다. 코에 점이 있는
+사람들을 A라고 표시했는데, ~A라고 하면, 콤에 점이 없는 사람들을
+표현할 수 있다. 몇명 인지는 1의 수를 세면 된다. XOR은 한국사람이면서
+코에 점이 없거나, 코에 점이 있으면서 한국사람이 아닌 사람을 1로
+표시한다. Nand, Nor도 상황에 맞게 사용할 수 있다. and or not xor은
+있다,없다, 맞다,틀리다로 나타내는 명제를 수천개 수만개가 있어도
+나열한 후 계산하면 된다. 근데, 실수로 수만개의 data의 이런 정보를
+mega byte로 나타냈다고 하자. 그런데, 갑자기 한개의 bit를 추가해야
+한다면? A에서 한칸 shift하면 된다. shift라는 것은 데이터의 삽입을
+하기 위해서 사용된 연산인데, 10진수의 계산을 2진수로 변환후
+shift연산을 하면 곱셈과 나눗셈을 기계적으로 더빠르게 할 수
+있다. 그래서 shift는 원래의 의도인 data로서의 비트가 아니라 기계적
+계산을 위한 연산자로 볼 수 있다. and or not같은 logical operator를
+predicate logic에 한정지어서 말했는데, 실은 first order logic
+참,거짓,있냐? 없냐의 명제가 아닌 first order statement를 계산할 수
+있긴 하다. 물론, programmming language자체가 first order logic이고,
+세상의 모든 knowledge는 first order logic으로 처리할 수 있기 때문에,
+logical operator는 중요하긴 하다. 얘기가 옆길로 빠져서&hellip;쓸데 없는
+소리를 많이 했다.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>연산자 축약</p>
+<p>아래는 연산자 축약이라고 부르는데, 연산자 축약이란 말도 첨들어보지만,
+코드는 익숙하기 때문에 용어는 그냥 넘어가자. 여튼 (1)하고 (2)가 같다는
+것은 누구나 알 수 있다. (1)을 (2)로도 변환할 수 있고 (2)를 (1)로도
+변환할수 있다고 알고 있다. 그런데 두 개의 연산은 내부에서는 다르게
+동작한다고 한다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(1) a = a + 1  =&gt;  (2) a += 1
-</span></span></code></pre></div></li>
-<li>두 식은 약간 다른 의미를 갖는다고 한다. in-place하고 out-place의
-개념을 설명한다. 둘다 assignment문이라서 object를 만들거라고
-생각하지만, (1)은 out-place라서 새로운 객체를 만들지만, (2)는
-in-place라서 기존 객체의 값을 update 시도를 먼저 하고 안될 경우
-새로운 객체를 만든다고 한다.</li>
-<li>bit 연산자도 축약에 사용할 수 있다.
+</span></span></code></pre></div><p>(1)의 경우는 out-place로 a라는 새로운 symbol과 무조건 새로운 객체를
+만든다. 반면에 (2)는 in-place라고 해서 새로운 객체를 무조건 만들지는
+않고 update할수 있는 객체라면 update를 하고 아니면 안한다고
+한다. 이것은 mutable과 immutable하고도 연관이 있는듯 하다. python은
+oop언어라서 모든게 객체다. 그중 primitive data type이라는게 있는데,
+primitive data type으로 만든 객체는 immutable하다. 즉 수정이
+안된다. update가 안된다는 말이다. (1)번이야 무조건 객체를 만드니
+객체를 새로 생성할지 안할지 고민할 필요가 없지만, (2)의 경우는
+mutable과 immutable을 따지기 때문에 알 필요가 있다. a += 1에서 +=을
+하나의 operator로 보자. lvalue에 해당하는 a를 symbol table에서
+찾는다. 만일 a=3이라는 식이 위에 있어서 a가 3이라는 int 객체를
+가리키고 있는 상황이라고 하자. 여기서 symbol table에서 찾은 lvalue a는
+int type의 객체(value 3을 가진)를 가리킨다. primitive type이다. 따라서
+update는 불가능하고 새로운 객체를 만들기 위해서 rvalue를
+본다. rvalue의 값을 보고 새로운 int객체를 만들게 된다. 결론적으로
+(1),(2)는 모두 새로운 객체를 생성하고 symbol이 가리키는
+모습이다. 그런데, 지금까지 설명한 게 맞는지 안맞는지를 확인할 수는
+없을까?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;adfd&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">x</span><span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="n">foo</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Hello, world!&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;test&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">foo</span><span class="p">()</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;test&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">None
+</span></span></code></pre></div><p>참고로 비트 연산자들도 연산자 축약을 사용할 수 있다. 아래는
+xor연산자를 보여준다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">a = 7 (1) a = a ^ 4  (2) a ^= 4
 </span></span></code></pre></div></li>
-</ul>
-</li>
 </ul>
 <!--list-separator-->
 <ul>
 <li>
 <p>비교 연산자</p>
-<ul>
-<li>x &lt; y</li>
-<li>x &gt; y</li>
-<li>x &lt;= y</li>
-<li>x &gt;= y</li>
-<li>x == y : x,y value가 같다.</li>
-<li>x is y : x,y 주소가 같다.</li>
-<li>x != y : x, y value가 다르다.</li>
-<li>x is not y: x,y 주소가 다르다.</li>
-<li>x in X : x가 X에 포함된다.</li>
-<li>x not in X : x가 X에 포함되지 않는다.</li>
-</ul>
-</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(1) x &lt; y
+</span></span><span class="line"><span class="cl">(2) x &gt; y
+</span></span><span class="line"><span class="cl">(3) x &lt;= y
+</span></span><span class="line"><span class="cl">(4) x &gt;= y
+</span></span><span class="line"><span class="cl">(5) x == y : x,y value가 같다.
+</span></span><span class="line"><span class="cl">(6) x is y : x,y 주소가 같다.
+</span></span><span class="line"><span class="cl">(7) x != y : x, y value가 다르다.
+</span></span><span class="line"><span class="cl">(8) x is not y: x,y 주소가 다르다.
+</span></span><span class="line"><span class="cl">(9) x in X : x가 X에 포함된다.
+</span></span><span class="line"><span class="cl">(10) x not in X : x가 X에 포함되지 않는다.
+</span></span></code></pre></div></li>
 </ul>
 <!--list-separator-->
 <ul>

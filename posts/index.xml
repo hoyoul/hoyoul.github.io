@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Thu, 08 Jun 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Jun 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[emacs] org-babel -python</title>
+      <link>https://braindump.frege2godel.me/posts/emacs_org_babel_python/</link>
+      <pubDate>Sat, 10 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/emacs_org_babel_python/</guid>
+      <description>setting emacs init file (org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((python . t))) default usage 다음과 같이 src code block을 만든다. 코드를 입력한다. #+BEGIN_SRC python a = 3 #+END_SRC a=3 그리고 C-c c 를 눌러서 실행한다. 그러면 None이라는 결과가</description>
+    </item>
+    
     <item>
       <title>[emacs] python lsp setting</title>
       <link>https://braindump.frege2godel.me/posts/emacs_python_lsp_setting/</link>
@@ -14,6 +23,15 @@
       
       <guid>https://braindump.frege2godel.me/posts/emacs_python_lsp_setting/</guid>
       <description>DOING pyright 설정 create env $ conda create -n pyright python=3.11 RET activate env $ conda activate pyright install pyright on pyright env $ conda install -c conda-forge pyright RET</description>
+    </item>
+    
+    <item>
+      <title>python_summary2-assignment and variables</title>
+      <link>https://braindump.frege2godel.me/posts/python_summary2_assignment_and_variables/</link>
+      <pubDate>Thu, 08 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/python_summary2_assignment_and_variables/</guid>
+      <description>[lecture2] variable &amp;amp; operator 변수 개념 python에서의 변수를 lisp에선 symbol이라고 부르고, 일상생활에서는 name이라고 말한다. 일상생활에서 name은 중요</description>
     </item>
     
     <item>

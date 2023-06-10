@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><title>web scraping1</title>
+  <head><title>[emacs] org-babel -python</title>
 
 
 <meta charset="utf-8">
@@ -40,14 +40,14 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">web scraping1</h1>    
+    <h1 class="collapsed-title">[emacs] org-babel -python</h1>    
       <div class="content">
-	<a href="https://braindump.frege2godel.me/posts/webcrawler1/" alt="web scraping1" class="permalink" data-singlepage="yes" ><h1>web scraping1</h1></a>
+	<a href="https://braindump.frege2godel.me/posts/emacs_org_babel_python/" alt="[emacs] org-babel -python" class="permalink" data-singlepage="yes" ><h1>[emacs] org-babel -python</h1></a>
 	<fieldset>
 	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
-	  <ol class="li"><strong>Title: </strong> web scraping1 </ol>
-	  <ol class="li"><strong>date: </strong> 2023 6.5 </ol>
-	  <ol class="li"><strong>content: </strong>&lt;web scraping </ol>
+	  <ol class="li"><strong>Title: </strong> [emacs] org-babel -python </ol>
+	  <ol class="li"><strong>date: </strong> 2023 6.10 </ol>
+	  <ol class="li"><strong>content: </strong>org-babel로 org문서에 code를 넣고 실행할 수 있다. literal programming이라고 하는데, python을 사용할때 setting과 사용법을 알아보자. </ol>
 	    
   
     
@@ -105,17 +105,29 @@
   
 	  
 	</fieldset>
-	<h2 id="개요">개요</h2>
-<p><a id="figure--web scraping book"></a></p>
-<figure><img src="./img/webscrapingbook.png"
-         alt="Figure 1: web scraping book" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 1: </span>web scraping book</p>
-        </figcaption>
-</figure>
-
-<p>집에 돌아다니는 읽어보지 않은 책이 있다. 라이언 미첼이라는 사람이 쓴
-건데, web scraping 그리고 web crawling에 관한 책이다. 한번 읽어 보고
-정리하기로 한다.</p>
+	<h2 id="setting-emacs-init-file">setting emacs init file</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nv">org-babel-do-load-languages</span>
+</span></span><span class="line"><span class="cl"> <span class="ss">&#39;org-babel-load-languages</span>
+</span></span><span class="line"><span class="cl"> <span class="o">&#39;</span><span class="p">((</span><span class="nv">python</span> <span class="o">.</span> <span class="no">t</span><span class="p">)))</span>
+</span></span></code></pre></div><h2 id="default-usage">default usage</h2>
+<p>다음과 같이 src code block을 만든다. 코드를 입력한다.</p>
+<div class="verse">
+<p>#+BEGIN_SRC python<br>
+a = 3<br>
+#+END_SRC<br></p>
+</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span><span class="o">=</span><span class="mi">3</span>
+</span></span></code></pre></div><p>그리고 <code>C-c c</code> 를 눌러서 실행한다. 그러면 None이라는 결과가
+나온다. code block은 함수와 같다. 위 함수를 실행해도 결과는
+None이다. a값을 출력하려면 어떻게 해야 할까?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span><span class="o">=</span><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="n">a</span>
+</span></span></code></pre></div><p>return을 사용해서 return하면 된다. 그러면 다음 예를 보자.</p>
+<blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></div></blockquote>
+<p>결과는 a값이 나올까? 나오지 않는다.</p>
       
       </div>
 
