@@ -2,10 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://braindump.frege2godel.me/posts/emacs_org_babel_python/</loc>
-    <lastmod>2023-06-10T00:00:00+09:00</lastmod>
+    <loc>https://braindump.frege2godel.me/posts/emacs_org_to_ipython_notebook/</loc>
+    <lastmod>2023-06-15T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/kaggle_courses_intro_arithmetic_and_variable/</loc>
+    <lastmod>2023-06-15T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/kaggle_courses_python_hello_python/</loc>
+    <lastmod>2023-06-15T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/kaggle_beginning/</loc>
+    <lastmod>2023-06-15T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/leetcode_beginning/</loc>
+    <lastmod>2023-06-15T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/</loc>
+    <lastmod>2023-06-15T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/leetcode_1480_running_sum_of_1d_array/</loc>
+    <lastmod>2023-06-14T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/linear_algebra_1_linear_algebra_introduction/</loc>
+    <lastmod>2023-06-14T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/linear_algebra_2_linear_independence/</loc>
+    <lastmod>2023-06-14T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/python_summary3_about_class/</loc>
+    <lastmod>2023-06-14T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/python_summary5_loop/</loc>
+    <lastmod>2023-06-14T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/python_summary0_about_python/</loc>
+    <lastmod>2023-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/sop_idea1/</loc>
+    <lastmod>2023-06-11T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/emacs_org_babel_python/</loc>
     <lastmod>2023-06-10T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/emacs_python_lsp_setting/</loc>
@@ -86,7 +122,13 @@
     <loc>https://braindump.frege2godel.me/</loc>
     <lastmod>2023-05-03T03:58:02+09:00</lastmod>
   </url><url>
+    <loc>https://braindump.frege2godel.me/posts/leetcode_1672_richest_customer_wealth/</loc>
+  </url><url>
     <loc>https://braindump.frege2godel.me/categories/</loc>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/example/</loc>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/python_summary4_data_structures/</loc>
   </url><url>
     <loc>https://braindump.frege2godel.me/tags/</loc>
   </url>

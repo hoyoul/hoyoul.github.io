@@ -52,6 +52,18 @@
   
     
      
+        
+    
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
     
      
     
@@ -102,6 +114,26 @@
      
     
      
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
   
 
   
@@ -111,7 +143,9 @@
     <div class="backlinks">
        <ul>
        
-         <li><a href="/posts/python_summary1/">python_summary1</a></li>
+         <li><a href="/posts/emacs_org_to_ipython_notebook/">[emacs] org to ipython notebook</a></li>
+       
+         <li><a href="/posts/python_summary0_about_python/">python_summary0-About Python</a></li>
        
       </ul>
     </div>
@@ -121,10 +155,10 @@
 	</fieldset>
 	<h2 id="python-ipython-jupyter-notebook-google-colab이란">python, ipython, jupyter notebook, google colab이란?</h2>
 <h3 id="python의-동작방식">python의 동작방식</h3>
-<p>python은 REPL(Read Evaluate Print Loop)로 동작한다. shell에서 입력받은
-code가 입력이 되고, 입력된 code가 python interpreter에 전해져서
-실행되고 실행된 결과가 shell에 전달되는 동작 구조로 이루어져
-있다. 그림으로 보면 다음과 같다.</p>
+<p>python은 interpreter와 compiler 두가지 모드가 있다. interpreter는
+REPL(Read Evaluate Print Loop)로 동작한다. shell에서 typing한 code가
+interpreter의 입력이 되고, 입력된 code는 실행되서 결과를 다시 shell로
+보낸다.</p>
 <p><a id="figure--python 동작구조"></a></p>
 <figure><img src="/img/jupyter/python_working.png"
          alt="Figure 1: python 동작구조" width="600px"/><figcaption>
@@ -135,12 +169,26 @@ code가 입력이 되고, 입력된 code가 python interpreter에 전해져서
 <p>shell과 python은 local system에서 수행된다.</p>
 <h3 id="ipython과-ipython-notebook">ipython과 ipython notebook</h3>
 <p>python이 개발된 이후에 ipython이란것도 비슷한 시기에 개발되었다.
-ipython이 기존 python과 차별화하는 2가지 특징이 있는데, 하나는 code를
-cell단위로 입력할 수 있고, server client구조를 가질 수 있다는
-것이다. Read는 notebook의 코드조각(cell)형태다. cell에 입력한 input이
-ipython에 전달되는데 ipython은 local에 있을 수도 원격에 있을 수도
-있다. 이러한 개념을 그대로 가져다 사용한게 jupyter와 google
-colab이다.</p>
+ipython은 interactire python이라는 뜻인데, interactive는 주고
+받는다는 뜻이다. code를 python한테 주면 실행하고 그 결과를 다시 받는
+구조는 python의 interpreter의 동작방식과 다르지 않다. 차이가 있다면
+socket을 사용해서 원격에 있는 python interpreter와 주고 받을 수
+있다는 것이다. 그리고 입력방식도 차이가 있다. shell에서 입력받는
+code가 아니라, cell이라는 단위로 입력 받는다. 이렇게 한 이유는
+literate programming을 하기 위해서이다. literate programming은
+org모드에서 code-babel을 생각하면 된다. 그래서 notebook파일을
+제공한다. notebook 파일은 json구조로 되어 있어서, web page처럼
+browser에서 읽을 수 있다. code가 입력되는 cell과 text를 입력하는
+cell이 web page에 있다고 봐도 된다. org 파일의 웹버전 같은 느낌이다.</p>
+<p>여튼 요약하면 browser에서 notebook을 열고 notebook에 code를
+cell단위로 입력하고 원격에 있는 server에 연결해서 python을 실행시키는
+구조다. jupyter나 google colab이나 동일한 방식이다. colab은 server가
+google cloud에 있다. gpu가 있는 compute engine을 사용할 수
+있다. client는 local의 browser이지만, notebook은 google drive에 있는
+notebook을 사용한다. 반면 jupyter는 open source이고 범용적이라서
+default로 local의 server와 local의 file system에 notebook을
+사용한다. client로 browser를 이용하는건 동일하다.</p>
+<p>아래는 좀더 jupyter와 colab에 대해 적었는데, 동어반복 수준이다.</p>
 <h3 id="jupyter와-jupyter-notebook">jupyter와 jupyter notebook</h3>
 <p>jupyter는 project이름이다. jupyter라는 project가 뭔지는 jupyter
 홈페이지에 나와 있다.</p>
@@ -279,37 +327,7 @@ project설정화면은 hang on상태다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">M-x ein:notebooklist-login
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">url: https://colab.research.google.com
-</span></span></code></pre></div><h2 id="ox-ipynb사용">ox-ipynb사용</h2>
-<p>ein을 사용하면 emacs에서 notebook파일을 처리할 수 있다. notebook파일을
-다뤄야 하는 이유는 gpu를 사용하는 colab이 notebook만을 처리하기
-때문이다.  big data처리를 하거나 deep learning을 하는 python
-프로그램은 gpu를 사용한다. 따라서 gpu서버에서 프로그램을 돌리기 원하는
-emacs 사용자들은 ein의 도움을 받아서 emacs에서 notebook문서를 만들고
-사용하는게 당연해 보인다.emacs에서 notebook을 만들고 gpu가 있는
-colab에서 실행! 매우 당연해 보인다.  그런데 emacs에서는 notebook파일을
-자주 사용하지 않는다. 불편하다. emacs 문서 작성의 키 바인딩은
-org파일을 능숙하게 사용할 수 있게 되어 있다. notebook과 비슷한
-구조이기도 한 org파일을 그대로 사용할 수 없을까? 이런 아이디어로
-만들어진게 ox-ipynb다. org로 코드를 작성하고, 원격에 있는 gpu가 있는
-server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이다.</p>
-<h4 id="설정">설정</h4>
-<ol>
-<li>jkitchin이 만든것을 lisp폴더에 다운 <a href="https://github.com/jkitchin/ox-ipynb" target="_blank">https://github.com/jkitchin/ox-ipynb
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-</li>
-<li>emacs에 설정
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;load-path</span> <span class="s">&#34;/Users/holy/.emacs.d/lisp/ox-ipynb&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;ox-ipynb</span><span class="p">)</span>
-</span></span></code></pre></div></li>
-<li>export dispatcher에서 확인 (org-&gt;notebook)</li>
-</ol>
-<h4 id="사용법">사용법</h4>
-<p>org와 ipynb 사용예제가 다운 받은 ox-ipynb에 있다. example.org와
-변환된 example.ipynb가 sample로 있다.</p>
-<h4 id="문제점">문제점</h4>
-<p>org모드에서 사용되는 image가 ipynb로 변환될때, image size가 조절되지 않는다.</p>
-      
+</span></span></code></pre></div>      
       </div>
 
   </div>
@@ -321,9 +339,1145 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      
      graph_node_object = {
         
+     "label": "[emacs] org to ipython notebook",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_org_to_ipython_notebook\/",
+     "id": "emacs_org_to_ipython_notebook",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[kaggle-courses-intro] Arithmetic and Variable",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
+     "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("kaggle_courses_intro_arithmetic_and_variable",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[kaggle-courses-python] hello python",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_python_hello_python\/",
+     "id": "kaggle_courses_python_hello_python",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[kaggle] beginning",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
+     "id": "kaggle_beginning",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("kaggle_beginning",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[leetcode] beginning",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_beginning\/",
+     "id": "leetcode_beginning",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[leetcode] 1480 running sum of 1d array",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
+     "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["leetcode_beginning"]
+   }
+ sessionStorage.setItem("leetcode_1480_running_sum_of_1d_array",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[linear algebra-1] linear algebra introduction",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_1_linear_algebra_introduction\/",
+     "id": "linear_algebra_1_linear_algebra_introduction",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[linear algebra-2] linear independence",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
+     "id": "linear_algebra_2_linear_independence",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("linear_algebra_2_linear_independence",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "python_summary3 about class",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary3_about_class\/",
+     "id": "python_summary3_about_class",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "python_summary5 loop",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
+     "id": "python_summary5_loop",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("python_summary5_loop",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "python_summary0-About Python",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary0_about_python\/",
+     "id": "python_summary0_about_python",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "sop idea1",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
+     "id": "sop_idea1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("sop_idea1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[emacs] org-babel -python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_org_babel_python\/",
      "id": "emacs_org_babel_python",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -398,6 +1552,16 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
          
      
@@ -439,7 +1603,27 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      
          
      
-     "backlinks": ["python_summary1"]
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["python_summary0_about_python"]
    }
  sessionStorage.setItem("emacs_python_lsp_setting",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
@@ -472,46 +1656,10 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
          
      
          
-     
+              
          
      
          
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-     "backlinks": []
-   }
- sessionStorage.setItem("python_summary2_assignment_and_variables",JSON.stringify(graph_node_object)); 
- graph_objects.push(graph_node_object);
- 
-     
-     graph_node_object = {
-        
-     "label": "[emacs] anaconda settings",
-     "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
-     "id": "emacs_anaconda_settings",
      
          
      
@@ -565,7 +1713,107 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      
          
      
-     "backlinks": ["python_summary1"]
+         
+     
+         
+     
+         
+     
+     "backlinks": ["python_summary0_about_python","python_summary1"]
+   }
+ sessionStorage.setItem("python_summary2_assignment_and_variables",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[emacs] anaconda settings",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
+     "id": "emacs_anaconda_settings",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["python_summary0_about_python"]
    }
  sessionStorage.setItem("emacs_anaconda_settings",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
@@ -627,6 +1875,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -635,9 +1913,39 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      
      graph_node_object = {
         
-     "label": "python_summary1",
+     "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -751,6 +2059,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -762,6 +2100,18 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -815,7 +2165,27 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      
          
      
-     "backlinks": ["python_summary1"]
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["emacs_org_to_ipython_notebook","python_summary0_about_python"]
    }
  sessionStorage.setItem("emacs_jupyter_noteboo_settings",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
@@ -826,6 +2196,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      "label": "daily영어(1)-don\u0027t pet my puppy",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/english1\/",
      "id": "english1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -910,7 +2310,37 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
+         
+     
+         
+     
          
      
          
@@ -972,7 +2402,37 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
+         
+     
+         
+     
          
      
          
@@ -1016,6 +2476,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      "label": "lecture10-String",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture10-string\/",
      "id": "lecture10-String",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1129,6 +2619,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture11-IO",JSON.stringify(graph_node_object)); 
@@ -1140,6 +2660,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      "label": "lecture12-setting-exception-logging",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture12-setting-exception-logging\/",
      "id": "lecture12-setting-exception-logging",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1253,6 +2803,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture13-web",JSON.stringify(graph_node_object)); 
@@ -1264,6 +2844,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      "label": "lecture3 data structures",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture3_data-structure\/",
      "id": "lecture3_data-structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1377,6 +2987,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture4_condition-and-loop",JSON.stringify(graph_node_object)); 
@@ -1388,6 +3028,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      "label": "lecture5_function",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture5_function\/",
      "id": "lecture5_function",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1501,6 +3171,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture6-Pythonic-Programming",JSON.stringify(graph_node_object)); 
@@ -1512,6 +3212,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      "label": "lecture7_Object-Oriented-Programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture7_object-oriented-programming\/",
      "id": "lecture7_Object-Oriented-Programming",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1625,6 +3355,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture8-module-and-package",JSON.stringify(graph_node_object)); 
@@ -1636,6 +3396,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      "label": "lecture9-Advanced-Data-Structure",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture9-advanced-data-structure\/",
      "id": "lecture9-Advanced-Data-Structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1749,6 +3539,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("webcrawler1",JSON.stringify(graph_node_object)); 
@@ -1760,6 +3580,36 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      "label": "lecture2_variable_and_operator",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture2_variable_and_operator\/",
      "id": "lecture2_variable_and_operator",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1873,9 +3723,319 @@ server(colab)에서 실행하기 위해서 notebook으로 변환하자는 것이
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[leetcode] 1672 Richest Customer Wealth",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
+     "id": "leetcode_1672_richest_customer_wealth",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["leetcode_beginning"]
+   }
+ sessionStorage.setItem("leetcode_1672_richest_customer_wealth",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "Example of org to ipynb",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/example\/",
+     "id": "example",
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["emacs_org_to_ipython_notebook"]
+   }
+ sessionStorage.setItem("example",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "python_summary4_data structures",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary4_data_structures\/",
+     "id": "python_summary4_data_structures",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("python_summary4_data_structures",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
  
 
