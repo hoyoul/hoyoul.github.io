@@ -130,6 +130,16 @@
      
     
      
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
   
 
   
@@ -145,17 +155,36 @@ data로 변환하고 그 대량의 data를 함수를 사용해서 간단히
 해결했다. 인간이 하면 오랜 시간이 걸릴 수 있는 데이터 처리를 너무나도
 간단하게 해결했다. <a href="/posts/python_summary2_assignment_and_variables/">여기에서 bit operator에 예제</a>
 를 살펴봐라.</p>
-<p>절차지향 언어와 함수형 언어는 모두 함수의 강력한 힘을 사용한다.
-인간이 하지 못하는 대용량의 데이터 처리와 많은 계산들을 가능하게
-해준다. 절차지향언어와 functional language로 나누어진건 절차지향의
-언어는 속도를 위해서 computer라는 전자기 device에 맞춰서 만들어졌고,
-functional language는 인간의 생각, 수학적 방식을 그대로 사용하게
-만들어졌다. focus하는 대상이 다른것이다.</p>
+<p>절차지향 언어와 함수형 언어는 수학처럼 모두 함수의 강력한 힘을
+사용한다. 그리고 현실세계의 문제를 풀기 위해서, 문제의 data를
+primitive data로 나타낸다. 수학과 비슷하다. 문제에 사용되는 data를
+수로 나타내서 인간이 하지 못하는 대용량의 데이터 처리와 많은 계산들을
+가능하게 해준거처럼 primitive data로 표현해서 계산을 한다. 예를
+들어서, 한반 학생들의 몸무게를 다 더한다고 할때, 언어별로 data를
+어떻게 표현하는지 보자. oop에서는 학생들을 객체로 simulate한다. 반면
+절차지향언어와 functional language는 학생의 몸무게를 그냥 숫자로
+나타내면 되는 것이다. 수학도 마찬가지다. 숫자만 보면 이것이 학생의
+몸무게를 나타내는지, 무엇을 나타내는지 잘 모른다. 그러나 계산은
+간단하다. 그러면 절차지향언어와 functional language로 무엇을 기준으로
+나누어진건가? 절차지향의 언어는 속도를 위해서 computer라는 전자기
+device에 맞춰서 만들어졌고, functional language는 인간의 생각, 수학적
+방식을 그대로 사용하게 만들어졌다. focus하는 대상이 다른것이다.</p>
 <h3 id="객체지향-언어">객체지향 언어</h3>
-<p>그런데 현실세계의 data를 단순한 programming 내의 data로 변환할 수
-있다라고 간단히 얘기하기엔 현실 세계의 data는 매우 복잡하다. 단순한
-숫자,문자,비트로 표현하기에는 한계가 있다. 그래서 현실의 data와
-비슷하게 structure이라는 구조화된 data가 나왔고, 여기서 진화해서
+<p>위에서 설명이 있긴 한데, programming은 현실세계의 문제를 해결하기
+위해서, data를 언어내에서 표현해야 하는데, 숫자나 primitive data로
+간략하게 나타냈었다. 기존의 수학이나 절차형,functional language에서
+숫자나 primitive data로 나타냈는데, 그것은 많은것을 생략한
+형태다. 하지만 현실세계의 data를 단순한 programming 내의 숫자나
+primitive data로 나타내는건, 단순화해서 계산을 쉽게 하기 위함이다.
+그런데 현실 세계의 문제를 너무 쉽게 얘기하는건 아닐까? 현실 세계의
+data는 매우 복잡하다. 단순한 숫자,문자,비트로 표현하기에는 한계가
+있다. 계산만 생각해서 단순하게 표현하지 않고 현실의 data와 비슷하게
+simulate하려는 시도가 일어났다. 왜냐면 program이 계산만을
+programming이 하는게 아니기 때문이다. 시스템을 만들때도 programming이
+사용된다. 은행시스템, 기업의 인사관리 시스템&hellip;이와 같은 경우는
+대용량의 data처리뿐만 아니라 어떤 구조를 표현하고 구조간의 관계를
+나타내야한다. 따라서 현실 세계의 data를 구체적으로 simulate할 필요가
+있다. 그래서 structure이라는 구조화된 data가 나왔고, 여기서 진화해서
 구조화된 data를 처리하는, 즉, 구조에 맞춰 처리하는 method가
 생겼다. 이런 형태는 class형태로 만들어진다. class를 사용하는
 programming언어를 oop라고 했다. oop에선 세상의 모든것은 객체로 표현될
@@ -164,7 +193,8 @@ programming언어를 oop라고 했다. oop에선 세상의 모든것은 객체�
 세상의 모든 문제를 해결하는데 programming언어를 사용할 수 있다는
 것이다. 세상의 모든 문제는 대용량의 data를 어떻게 처리하느냐?만 있는
 것이 아니다. 인간이 어려워 하는 대용량 데이터의 계산 문제뿐 아니라
-모든 형태의 문제를 simulation해서 해결하는데 사용 될 수 있다는 것이다.</p>
+모든 형태의 문제를 현실과 똑같이 simulation해서 현실 문제를 해결하는데
+사용 될 수 있다는 것이다.</p>
 <h2 id="python이란">python이란?</h2>
 <p>python은 함수형언어가 아니라, <code>객체 지향 언어</code> 다. python은 모든 것을
 객체로 바라본다. 따라서 우리도, python 코드의 모든것을 객체로
@@ -218,9 +248,635 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
      graph_node_object = {
         
+     "label": "[leetcode] 1672 Richest Customer Wealth",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
+     "id": "leetcode_1672_richest_customer_wealth",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["leetcode_beginning"]
+   }
+ sessionStorage.setItem("leetcode_1672_richest_customer_wealth",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "python_summary6 function",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary6_function\/",
+     "id": "python_summary6_function",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "python_summary7 big data and python",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary7_big_data_and_python\/",
+     "id": "python_summary7_big_data_and_python",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("python_summary7_big_data_and_python",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[github] multi account github problem",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/github_multi_account_github_problem\/",
+     "id": "github_multi_account_github_problem",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("github_multi_account_github_problem",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[website] about my brain blog and homepage",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/website_about_my_brain_blog_and_homepage\/",
+     "id": "website_about_my_brain_blog_and_homepage",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[website] make main homepage",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
+     "id": "website_make_main_homepage",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["website_about_my_brain_blog_and_homepage"]
+   }
+ sessionStorage.setItem("website_make_main_homepage",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[emacs] org to ipython notebook",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_org_to_ipython_notebook\/",
      "id": "emacs_org_to_ipython_notebook",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -394,6 +1050,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_intro_arithmetic_and_variable",JSON.stringify(graph_node_object)); 
@@ -405,6 +1071,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "[kaggle-courses-python] hello python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_python_hello_python\/",
      "id": "kaggle_courses_python_hello_python",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -578,6 +1254,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_beginning",JSON.stringify(graph_node_object)); 
@@ -589,6 +1275,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "[leetcode] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_beginning\/",
      "id": "leetcode_beginning",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -691,9 +1387,19 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
          
      
          
-              
+     
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -775,6 +1481,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "[linear algebra-1] linear algebra introduction",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_1_linear_algebra_introduction\/",
      "id": "linear_algebra_1_linear_algebra_introduction",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -948,6 +1664,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_2_linear_independence",JSON.stringify(graph_node_object)); 
@@ -959,6 +1685,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "python_summary3 about class",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary3_about_class\/",
      "id": "python_summary3_about_class",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1132,6 +1868,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary5_loop",JSON.stringify(graph_node_object)); 
@@ -1143,6 +1889,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "python_summary0-About Python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary0_about_python\/",
      "id": "python_summary0_about_python",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1316,6 +2072,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sop_idea1",JSON.stringify(graph_node_object)); 
@@ -1327,6 +2093,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "[emacs] org-babel -python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_org_babel_python\/",
      "id": "emacs_org_babel_python",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1441,9 +2217,19 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
          
      
          
-              
+     
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -1535,6 +2321,18 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
          
      
@@ -1552,8 +2350,6 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
               
-         
-     
          
      
          
@@ -1631,9 +2427,19 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
          
      
          
-              
+     
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -1703,6 +2509,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "hugo korean encoding problem",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/hugo_korean_encoding_problem\/",
      "id": "hugo_korean_encoding_problem",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1876,6 +2692,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary1",JSON.stringify(graph_node_object)); 
@@ -1887,6 +2713,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "test_page1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/test_page1\/",
      "id": "test_page1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1981,6 +2817,18 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "id": "emacs_jupyter_noteboo_settings",
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
          
      
@@ -2004,8 +2852,6 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
               
-         
-     
          
      
          
@@ -2156,6 +3002,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -2213,9 +3069,19 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
          
      
          
-              
+     
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -2305,9 +3171,19 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
          
      
          
-              
+     
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -2355,6 +3231,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "lecture10-String",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture10-string\/",
      "id": "lecture10-String",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -2528,6 +3414,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture11-IO",JSON.stringify(graph_node_object)); 
@@ -2539,6 +3435,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "lecture12-setting-exception-logging",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture12-setting-exception-logging\/",
      "id": "lecture12-setting-exception-logging",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -2712,6 +3618,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture13-web",JSON.stringify(graph_node_object)); 
@@ -2723,6 +3639,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "lecture3 data structures",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture3_data-structure\/",
      "id": "lecture3_data-structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -2896,6 +3822,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture4_condition-and-loop",JSON.stringify(graph_node_object)); 
@@ -2907,6 +3843,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "lecture5_function",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture5_function\/",
      "id": "lecture5_function",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3080,6 +4026,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture6-Pythonic-Programming",JSON.stringify(graph_node_object)); 
@@ -3091,6 +4047,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "lecture7_Object-Oriented-Programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture7_object-oriented-programming\/",
      "id": "lecture7_Object-Oriented-Programming",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3264,6 +4230,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture8-module-and-package",JSON.stringify(graph_node_object)); 
@@ -3275,6 +4251,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "lecture9-Advanced-Data-Structure",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture9-advanced-data-structure\/",
      "id": "lecture9-Advanced-Data-Structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3448,6 +4434,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("webcrawler1",JSON.stringify(graph_node_object)); 
@@ -3459,6 +4455,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "lecture2_variable_and_operator",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture2_variable_and_operator\/",
      "id": "lecture2_variable_and_operator",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3632,103 +4638,19 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra1",JSON.stringify(graph_node_object)); 
- graph_objects.push(graph_node_object);
- 
-     
-     graph_node_object = {
-        
-     "label": "[leetcode] 1672 Richest Customer Wealth",
-     "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
-     "id": "leetcode_1672_richest_customer_wealth",
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-     "backlinks": ["leetcode_beginning"]
-   }
- sessionStorage.setItem("leetcode_1672_richest_customer_wealth",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
  
      
@@ -3739,9 +4661,19 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "id": "example",
      
          
-              
+     
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -3831,6 +4763,16 @@ simulate해야 한다. 그래서 oop로 짜야 한다. coding test에서 다루�
      "label": "python_summary4_data structures",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary4_data_structures\/",
      "id": "python_summary4_data_structures",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      

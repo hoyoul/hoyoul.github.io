@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><title>Example of org to ipynb</title>
+  <head><title>python_summary7 big data and python</title>
 
 
 <meta charset="utf-8">
@@ -40,14 +40,14 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">Example of org to ipynb</h1>    
+    <h1 class="collapsed-title">python_summary7 big data and python</h1>    
       <div class="content">
-	<a href="https://braindump.frege2godel.me/posts/example/" alt="Example of org to ipynb" class="permalink" data-singlepage="yes" ><h1>Example of org to ipynb</h1></a>
+	<a href="https://braindump.frege2godel.me/posts/python_summary7_big_data_and_python/" alt="python_summary7 big data and python" class="permalink" data-singlepage="yes" ><h1>python_summary7 big data and python</h1></a>
 	<fieldset>
 	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
-	  <ol class="li"><strong>Title: </strong> Example of org to ipynb </ol>
-	  <ol class="li"><strong>date: </strong> 0001 1.1 </ol>
-	  <ol class="li"><strong>content: </strong> </ol>
+	  <ol class="li"><strong>Title: </strong> python_summary7 big data and python </ol>
+	  <ol class="li"><strong>date: </strong> 2023 6.17 </ol>
+	  <ol class="li"><strong>content: </strong>python은 big data, 즉 대용량의 data를 처리하는 기능이 있다. 그 기능들중 일부는 아주 오래전부터 사용하던 것도 있고 아닌것도 있다. </ol>
 	    
   
     
@@ -64,8 +64,6 @@
      
     
      
-        
-    
     
      
     
@@ -145,111 +143,121 @@
   
 
   
-  <div class="bl-section">
-    <hr/>
-    <h4> (back links) </h4>
-    <div class="backlinks">
-       <ul>
-       
-         <li><a href="/posts/emacs_org_to_ipython_notebook/">[emacs] org to ipython notebook</a></li>
-       
-      </ul>
-    </div>
-  </div>
-
 	  
 	</fieldset>
-	<h2 id="introduction">Introduction</h2>
-<p>I wrote this module to allow me to write lecture notes in org-mode, but export them to ipython notebooks for my students. It also makes it easier to share my work with people who don&rsquo;t use org-mode (although it is a one-way conversion of org to ipynb).</p>
-<p>To use this, you have to require the ox-ipynb library. Then you can export this file with the key sequence <code>C-c C-e n o</code> to create the ipynb and open it.</p>
-<p>In the following sections I will demonstrate a few features.</p>
-<h3 id="org-mode-markup">Org-mode markup</h3>
-<p>You should get all the regular markup:</p>
-<ul>
-<li><strong>bold text</strong></li>
-<li><em>italics</em></li>
-<li><span class="underline">underlined</span></li>
-<li><del>strikethrough</del></li>
-<li><code>verbatim</code></li>
-<li><code>code</code></li>
-<li>superscripts, e.g. H^+</li>
-<li>subscripts, e.g. CH<sub>4</sub></li>
-<li>hyperlinks: <a href="http://github.com/jkitchin/ox-ipynb" target="_blank">http://github.com/jkitchin/ox-ipynb
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-</li>
-</ul>
-<h3 id="embed-equations">Embed equations</h3>
-<p>You can use LaTeX equations like: \(\int_0^1 \sin x dx\).</p>
-<h3 id="embed-code-and-results">Embed code and results</h3>
-<p>Note that code blocks must be either &ldquo;ipython&rdquo; or &ldquo;R&rdquo;, and the first
-one determines the language used for all of the code blocks.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-</span></span></code></pre></div><p>Here we force a new cell to be created with the <code>ipynb-newcell</code> directive.
-#+ipynb-newcell</p>
-<p>This text should be in its own cell.</p>
-<h3 id="embed-tables">Embed tables</h3>
-<p>You can create tables and they render nicely in the notebook. Note that you probably should not use the tables as data sources to code blocks because the ipython notebook does not support that.</p>
-<div class="table-caption">
-  <span class="table-number">Table 1:</span>
-  A table of numbers.
-</div>
-<table>
-<thead>
-<tr>
-<th>x</th>
-<th>y</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>2</td>
-<td>4</td>
-</tr>
-<tr>
-<td>3</td>
-<td>9</td>
-</tr>
-</tbody>
-</table>
-<h3 id="use-ipython-magic-to-get-inline-figures">Use ipython magic to get inline figures</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</span></span></code></pre></div><h3 id="store-metadata-in-the-ipynb">Store metadata in the ipynb</h3>
-<p>The directive <code>ox-ipynb-keyword-metadata</code> lists file variables that should be saved as metadata in the ipynb.</p>
-<p>We can set values as file variables like this:</p>
-<figure><img src="./screenshots/date-05-08-2017-time-08-55-41.png"/>
+	<h2 id="대용량-data의-처리">대용량 data의 처리</h2>
+<p>대용량 data의 처리에서 <code>대용량 data는 string이나 array, list</code> 같은
+data collection에 있는 data를 말한다. <code>처리는 검색과 변환</code>
+이다. 처리하는 방식은 for-loop와 while과 같은 전통적 방식과 functional
+language에서 사용하는 방식으로 나누어 질 수 있다. 전통적방식은 기계식
+방법이다. 절차형방식의 programming에서 건너온 개념이라서 몇가지
+functional language와 다른 특징이 있다. 첫번째 machine에 해당하는
+함수가 입력과 출력이 없어도 된다. functional language의 machine인
+function은 입력과 출력이 필수다. 반면 전통적 방식 중 for-loop은 입력은
+주어지지만 출력은 없어도 된다. 따라서 list comprehension으로 출력을
+list로 만들어주는 방식으로 python에서는 개선했다. 그리고 while의 경우
+입력과 출력이 없어도 된다. 그리고 for-loop은 데이터의 개수는
+대용량이지만, machine은 1개다. 그래서 데이터가 10개라면 10번 machine을
+켜서 순차적으로 실행한다. while은 조건이 True면 무한정 기계를
+돌린다. 그런데 공통점은 하나의 machine이 한번 수행하는 것이다. 반면에
+functional language에서 처리하는 방식들은 machine을 한개만 사용하지
+않는다. 그래서 전동적 방식은 하나의 processor만 이용하지만,
+processor가 여러개인 경우, functional language에서 사용하는 방식은
+여러개의 machine을 동시에 수행할 수 있다.그렇기 때문에 매우
+효율적이다.</p>
+<h2 id="for-loop">for-loop</h2>
+<p>대용량의 data를 처리하는데 가장 오래된 것은 for-loop이다. for-loop은
+데이터를 하나하나 꺼내는 부분과, 데이터를 처리하는 함수가 합쳐진
+structure다. 아주 오래전 부터 대용량의 데이터를 처리하는
+방식이다. for-loop에서 한개의 data 입력을 받아서 한개의 data 출력을
+return하는 function을 보면 누군가는 이렇게 질문할 수 있을꺼
+같다. array나 list를 함수의 입력으로 주면 되지 않나? 그런데 함수가
+입력만 array나 list로 받을뿐 처리는 함수내부에서 for-loop를 돌려서
+처리한다. 데이터의 처리라는것은 입력받은 data를 다른 data의 형태로
+변환하는것을 의미한다. 기본적인 함수는 하나의 data(datum)를 받고
+하나의 data를 return하는 것이다. primitive data가 있는 것처럼
+primitive data를 처리하는 primitive function이 있는데 예를들면, and,
+or, not, +, -,/ 같은 것들이 있다. 이 함수들이 2개의 인자를 갖는다고
+생각할 수 있겠지만, 1개의 인자를 갖는 함수라고 본다. 그림으로 보면
+다음과 같다.</p>
+<p><a id="figure--for-loop"></a></p>
+<figure><img src="/img/python/forloop1.png"
+         alt="Figure 1: for-loop" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>for-loop</p>
+        </figcaption>
 </figure>
 
-<p>On export, you can see these are stored in the metadata as:</p>
-<figure><img src="./screenshots/date-05-08-2017-time-08-56-35.png"/>
+<p>list나 array같은 대용량의 data를 처리하는 가장 오래된 방법이다. 대용량
+데이터에서 순차적으로 data를 꺼낸다. 꺼낸 데이터를 머신에 넣고 결과를
+만든다. machine은 하나만 쓴다. 이게 일반적인 for-loop
+machine이다. for-loop의 block이 machine에 해당하는 함수다. 일반적인
+사용법은 아래와 같다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">9
+</span></span><span class="line"><span class="cl">8
+</span></span><span class="line"><span class="cl">7
+</span></span><span class="line"><span class="cl">6
+</span></span><span class="line"><span class="cl">5
+</span></span><span class="line"><span class="cl">4
+</span></span><span class="line"><span class="cl">3
+</span></span><span class="line"><span class="cl">2
+</span></span><span class="line"><span class="cl">1
+</span></span></code></pre></div><p>continue를 사용해서 filtering효과를 낼수 있다. 즉 데이터에서 홀수만
+출력하고 짝수는 출력하지 않는다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">9
+</span></span><span class="line"><span class="cl">7
+</span></span><span class="line"><span class="cl">5
+</span></span><span class="line"><span class="cl">3
+</span></span><span class="line"><span class="cl">1
+</span></span></code></pre></div><p>break를 사용해서 machine을 중간에 멈출 수도 있다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">9
+</span></span><span class="line"><span class="cl">8
+</span></span></code></pre></div><h2 id="while">while</h2>
+<p>대용량 data를 처리할 때, 전통적인 방식인 for-loop와 더불어 while이
+있다. while은 함수라는 machine을 사용하지만, 그 machine이 반드시
+입력과 출력이 있어야 한다는 보장을 하지 않는다.</p>
+<h2 id="list-comprehension">list comprehension</h2>
+<p>for-loop을 개량한 방식이다. for-loop이 한개의 machine을 통해서 나온
+결과를 별도의 list나 array에 집어넣어야 한다. 이런 불편함을 없앤게
+list-comprehension이다. 이미 list안에서 for-loop을 실행하기 때문에
+결과를 위한 별도의 list나 array를 만들지 않아도 된다. list
+comprehension의 모양은 다음과 같다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">newlist = [expression for item in iterable if condition == True]
+</span></span></code></pre></div><p>expression은 결과가 오고, 그다음 for와 if가 온다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">temp</span> <span class="o">=</span> <span class="p">[</span><span class="n">results</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="map-and-filter">map &amp; filter</h2>
+<p>functional language에선 for-loop을 사용하지 않았다. list나 array같은
+대용량 data를 machine 하나만 사용해서 순차적으로 처리하는 방식이
+비효율적이기 때문이다. 데이터 개수만큼 machine을 만들어서 동시에
+처리한다. 이게 더 효율적이고 빠르다. machine을 data 갯수만큼 만들기
+위해서 lambda function을 사용한다. 그러면 한방에 계산할 수 있다.</p>
+<p>filter는 if문을 사용해서
+filtering효과를 줄 수 있다. 동작방식을 그림으로 보면 다음과 같다.</p>
+<p><a id="figure--map & filter"></a></p>
+<figure><img src="/img/python/map.png"
+         alt="Figure 2: map &amp;amp; filter" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 2: </span>map &amp; filter</p>
+        </figcaption>
 </figure>
 
-<p>These will show as bullets at the top of the ipynb. These are machine readable, so you can access them with any tool that can read json. You can use this to store author names, document id&rsquo;s, etc.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;example.ipynb&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">d</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;org&#39;</span><span class="p">])</span>
-</span></span></code></pre></div><h3 id="use-html-for-fancy-markup">Use HTML for fancy markup</h3>
-<p>You can use html tags directly in the org file. Here are two examples.</p>
-<p>&lt;div class=&ldquo;alert alert-warning&rdquo;&gt;
-&lt;font color=&ldquo;blue&rdquo;&gt;This text will show up as blue.&lt;/font&gt;
-You can use an alert to highlight something you want to stand out.
-&lt;/div&gt;</p>
+<h2 id="reduce">reduce</h2>
+<p>map&amp; filter처럼 여러개의 machine을 사용한다. machine이 한개의 입력만</p>
+<h2 id="recursion">recursion</h2>
+<h2 id="regular-expression">regular expression</h2>
       
       </div>
 

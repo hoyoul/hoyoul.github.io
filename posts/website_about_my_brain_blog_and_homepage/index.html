@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><title>Example of org to ipynb</title>
+  <head><title>[website] about my brain blog and homepage</title>
 
 
 <meta charset="utf-8">
@@ -40,14 +40,14 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">Example of org to ipynb</h1>    
+    <h1 class="collapsed-title">[website] about my brain blog and homepage</h1>    
       <div class="content">
-	<a href="https://braindump.frege2godel.me/posts/example/" alt="Example of org to ipynb" class="permalink" data-singlepage="yes" ><h1>Example of org to ipynb</h1></a>
+	<a href="https://braindump.frege2godel.me/posts/website_about_my_brain_blog_and_homepage/" alt="[website] about my brain blog and homepage" class="permalink" data-singlepage="yes" ><h1>[website] about my brain blog and homepage</h1></a>
 	<fieldset>
 	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
-	  <ol class="li"><strong>Title: </strong> Example of org to ipynb </ol>
-	  <ol class="li"><strong>date: </strong> 0001 1.1 </ol>
-	  <ol class="li"><strong>content: </strong> </ol>
+	  <ol class="li"><strong>Title: </strong> [website] about my brain blog and homepage </ol>
+	  <ol class="li"><strong>date: </strong> 2023 6.16 </ol>
+	  <ol class="li"><strong>content: </strong>homepage와 brain이란 blog를 만들었다. 이것의 사용법을 적어보려한다. 왜냐면 둘다 org파일들로 부터 page들을 만드는 복잡한 처리과정이라서 시간이 지나면 까먹을 수 있기 때문이다. </ol>
 	    
   
     
@@ -64,8 +64,6 @@
      
     
      
-        
-    
     
      
     
@@ -145,111 +143,50 @@
   
 
   
-  <div class="bl-section">
-    <hr/>
-    <h4> (back links) </h4>
-    <div class="backlinks">
-       <ul>
-       
-         <li><a href="/posts/emacs_org_to_ipython_notebook/">[emacs] org to ipython notebook</a></li>
-       
-      </ul>
-    </div>
-  </div>
-
 	  
 	</fieldset>
-	<h2 id="introduction">Introduction</h2>
-<p>I wrote this module to allow me to write lecture notes in org-mode, but export them to ipython notebooks for my students. It also makes it easier to share my work with people who don&rsquo;t use org-mode (although it is a one-way conversion of org to ipynb).</p>
-<p>To use this, you have to require the ox-ipynb library. Then you can export this file with the key sequence <code>C-c C-e n o</code> to create the ipynb and open it.</p>
-<p>In the following sections I will demonstrate a few features.</p>
-<h3 id="org-mode-markup">Org-mode markup</h3>
-<p>You should get all the regular markup:</p>
+	<h2 id="my-homepage">My homepage</h2>
 <ul>
-<li><strong>bold text</strong></li>
-<li><em>italics</em></li>
-<li><span class="underline">underlined</span></li>
-<li><del>strikethrough</del></li>
-<li><code>verbatim</code></li>
-<li><code>code</code></li>
-<li>superscripts, e.g. H^+</li>
-<li>subscripts, e.g. CH<sub>4</sub></li>
-<li>hyperlinks: <a href="http://github.com/jkitchin/ox-ipynb" target="_blank">http://github.com/jkitchin/ox-ipynb
+<li>참조: <a href="/posts/website_make_main_homepage/">from here</a>
+ (만들당시 기록한 note)</li>
+<li>주소: <a href="https://frege2godel.me/" target="_blank">https://frege2godel.me/
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+</li>
+<li>github id: holy2frege</li>
+<li>github repo(dev,publish): main-blog,holy2frege.github.io</li>
+</ul>
+<h3 id="사용법">사용법</h3>
+<h4 id="clone">clone</h4>
+<p>local에 repo가 clone되어 있지 않다면 clone부터 한다.</p>
+<p><a id="figure--main page"></a></p>
+<figure><img src="/img/blog_homepage/mainblog1.png"
+         alt="Figure 1: main page" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>main page</p>
+        </figcaption>
+</figure>
+
+<h4 id="article-수정">article 수정</h4>
+<p>main page는 만드는데 하루 or 이틀 정도 걸렸는데, 그만큼 page만 만든
+것이다. 그래서 간단하다. org 폴더에 가면 index.org파일 하나밖에 없다.
+2nd-level의 headline에 보면 &lsquo;CUSTOM_ID: page&rsquo;가 보일텐데, 그
+headline이 articles를 모아놓은 page라고 보면 된다. 거기서 원하는
+page를 생성하거나 수정하면 된다.</p>
+<h4 id="m-x-org-publish-all">m-x org-publish-all</h4>
+<p>emacs의 설정파일에는 위 명령어를 수행하는 code가 이미 있다. html변환과
+css,js를 처리를 구현하고 있다. 따라서 수행하면 public/index.html이
+만들어진다.</p>
+<h4 id="git-반영">git 반영</h4>
+<p>dev repo와 publish repo인 main-blog, main-blog/public에서 git 반영을
+한다. 만일 안될때는 multi-account github problem이다.</p>
+<h2 id="my-brain-blog">My brain blog</h2>
+<ul>
+<li>주소: <a href="https://braindump.frege2godel.me/?stackedPages=%2F" target="_blank">https://braindump.frege2godel.me/?stackedPages=%2F
 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
 </a>
 </li>
 </ul>
-<h3 id="embed-equations">Embed equations</h3>
-<p>You can use LaTeX equations like: \(\int_0^1 \sin x dx\).</p>
-<h3 id="embed-code-and-results">Embed code and results</h3>
-<p>Note that code blocks must be either &ldquo;ipython&rdquo; or &ldquo;R&rdquo;, and the first
-one determines the language used for all of the code blocks.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-</span></span></code></pre></div><p>Here we force a new cell to be created with the <code>ipynb-newcell</code> directive.
-#+ipynb-newcell</p>
-<p>This text should be in its own cell.</p>
-<h3 id="embed-tables">Embed tables</h3>
-<p>You can create tables and they render nicely in the notebook. Note that you probably should not use the tables as data sources to code blocks because the ipython notebook does not support that.</p>
-<div class="table-caption">
-  <span class="table-number">Table 1:</span>
-  A table of numbers.
-</div>
-<table>
-<thead>
-<tr>
-<th>x</th>
-<th>y</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>2</td>
-<td>4</td>
-</tr>
-<tr>
-<td>3</td>
-<td>9</td>
-</tr>
-</tbody>
-</table>
-<h3 id="use-ipython-magic-to-get-inline-figures">Use ipython magic to get inline figures</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</span></span></code></pre></div><h3 id="store-metadata-in-the-ipynb">Store metadata in the ipynb</h3>
-<p>The directive <code>ox-ipynb-keyword-metadata</code> lists file variables that should be saved as metadata in the ipynb.</p>
-<p>We can set values as file variables like this:</p>
-<figure><img src="./screenshots/date-05-08-2017-time-08-55-41.png"/>
-</figure>
-
-<p>On export, you can see these are stored in the metadata as:</p>
-<figure><img src="./screenshots/date-05-08-2017-time-08-56-35.png"/>
-</figure>
-
-<p>These will show as bullets at the top of the ipynb. These are machine readable, so you can access them with any tool that can read json. You can use this to store author names, document id&rsquo;s, etc.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;example.ipynb&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">d</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;org&#39;</span><span class="p">])</span>
-</span></span></code></pre></div><h3 id="use-html-for-fancy-markup">Use HTML for fancy markup</h3>
-<p>You can use html tags directly in the org file. Here are two examples.</p>
-<p>&lt;div class=&ldquo;alert alert-warning&rdquo;&gt;
-&lt;font color=&ldquo;blue&rdquo;&gt;This text will show up as blue.&lt;/font&gt;
-You can use an alert to highlight something you want to stand out.
-&lt;/div&gt;</p>
+<h3 id="사용법">사용법</h3>
       
       </div>
 

@@ -6,7 +6,61 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Thu, 15 Jun 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Jun 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[leetcode] 1672 Richest Customer Wealth</title>
+      <link>https://braindump.frege2godel.me/posts/leetcode_1672_richest_customer_wealth/</link>
+      <pubDate>Sat, 17 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/leetcode_1672_richest_customer_wealth/</guid>
+      <description>문제 링크 You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. Return the wealth that the richest customer</description>
+    </item>
+    
+    <item>
+      <title>python_summary6 function</title>
+      <link>https://braindump.frege2godel.me/posts/python_summary6_function/</link>
+      <pubDate>Sat, 17 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/python_summary6_function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python_summary7 big data and python</title>
+      <link>https://braindump.frege2godel.me/posts/python_summary7_big_data_and_python/</link>
+      <pubDate>Sat, 17 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/python_summary7_big_data_and_python/</guid>
+      <description>대용량 data의 처리 대용량 data의 처리에서 대용량 data는 string이나 array, list 같은 data collection에 있는 data를 말한다. 처리는 검색</description>
+    </item>
+    
+    <item>
+      <title>[github] multi account github problem</title>
+      <link>https://braindump.frege2godel.me/posts/github_multi_account_github_problem/</link>
+      <pubDate>Fri, 16 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/github_multi_account_github_problem/</guid>
+      <description>multi account github problem 맥에서 여러개의 github을 사용할때 git push 403에러가 나는 경우가 있다. 간단한 해결법 key chain에서 login type이 github을 삭제한다.</description>
+    </item>
+    
+    <item>
+      <title>[website] about my brain blog and homepage</title>
+      <link>https://braindump.frege2godel.me/posts/website_about_my_brain_blog_and_homepage/</link>
+      <pubDate>Fri, 16 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/website_about_my_brain_blog_and_homepage/</guid>
+      <description>My homepage 참조: from here (만들당시 기록한 note) 주소: https://frege2godel.me/ github id: holy2frege github repo(dev,publish): main-blog,holy2frege.github.io 사용법 clone local에 repo가 clone되어 있지 않다면 clone부터 한다. Figure 1: main page article 수정</description>
+    </item>
+    
+    <item>
+      <title>[website] make main homepage</title>
+      <link>https://braindump.frege2godel.me/posts/website_make_main_homepage/</link>
+      <pubDate>Fri, 16 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/website_make_main_homepage/</guid>
+      <description>make blog 시작 nmain blog를 만들기로 했다. holy2frege라는 github id를 만들었다. 2개의 repo를 만들었다. main-blog라는 repo와 hol</description>
+    </item>
+    
     <item>
       <title>[emacs] org to ipython notebook</title>
       <link>https://braindump.frege2godel.me/posts/emacs_org_to_ipython_notebook/</link>
@@ -338,15 +392,6 @@
       
       <guid>https://braindump.frege2godel.me/posts/linear_algebra1/</guid>
       <description>linear algebra에 대한 생각 인과 관계(causation)와 상관관계(correlation) 어떤 변수와 다른 어떤 변수와의 연관성이 있을때 rela</description>
-    </item>
-    
-    <item>
-      <title>[leetcode] 1672 Richest Customer Wealth</title>
-      <link>https://braindump.frege2godel.me/posts/leetcode_1672_richest_customer_wealth/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/posts/leetcode_1672_richest_customer_wealth/</guid>
-      <description>문제 링크 You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. Return the wealth that the richest customer</description>
     </item>
     
     <item>
