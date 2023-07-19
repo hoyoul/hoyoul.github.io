@@ -140,6 +140,8 @@
      
     
      
+    
+     
   
 
   
@@ -173,9 +175,9 @@ argument를 건네 받을 수 있다.</p>
 </span></span><span class="line"><span class="cl"><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="s1">&#39;--right&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span> <span class="nb">int</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--operation&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">		    <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;op&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">		    <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Set Operation&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">		    <span class="n">default</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;op&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Set Operation&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">default</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
@@ -232,9 +234,9 @@ argument를 건네 받을 수 있다.</p>
 </span></span></code></pre></div><h3 id="exception-handling-example">exception handling example</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="mi">10</span><span class="o">/</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="mi">10</span><span class="o">/</span><span class="n">i</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Zero Division, skip the number.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Zero Division, skip the number.&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>i가 0이 되면 zero division error가 발생한다. try exception처리가
 없다면, program은 종료한다. exception처리를 했기 때문에 for-loop를
 계속 진행한다.</p>
@@ -294,11 +296,11 @@ exception처리할 수 있는 class는 Exception아래 클래스만 해당한다
 에러를 참조 할 수 있다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="n">value</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;A,B,C중 하나를 입력하세요:&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s2">&#34;ABC&#34;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&#34;잘못된 입력입니다. 종료합니다.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">value</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;A,B,C중 하나를 입력하세요:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s2">&#34;ABC&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&#34;잘못된 입력입니다. 종료합니다.&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;선택된 옵션:&#34;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;선택된 옵션:&#34;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </span></span></code></pre></div><p>위 코드에서 raise로 Exception객체를 만든다. 이렇게 만들어진
@@ -384,24 +386,24 @@ AssertionError가 발생한다. 그리고 except에서 해당 error를 catch해�
 <h3 id="exception-handling-example">Exception Handling Example</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="n">value</span> <span class="o">/=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">        <span class="n">value</span> <span class="o">/=</span> <span class="n">i</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;No value on Value: set 0&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;No value on Value: set 0&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Zero Division: Skip&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Zero Division: Skip&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="k">raise</span> <span class="n">e</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="n">e</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">finally</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;step&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;step&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>첫번째로 발생하는 error는 NameError다. NameError가 발생하는 이유는,
 value /= i에서 발생한다. 이것은 value = value/i인데 좌변은 문제
 없지만 우변이 문제가 있다. 우변의 value는 값을 가지고 있지
@@ -525,9 +527,115 @@ getlogger를 사용한다고 한다.</p>
      
      graph_node_object = {
         
+     "label": "[test] testing!",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/test_testing\/",
+     "id": "test_testing",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("test_testing",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
      
          
      
@@ -723,6 +831,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -734,6 +844,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "python_summary7 big data and python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary7_big_data_and_python\/",
      "id": "python_summary7_big_data_and_python",
+     
+         
      
          
      
@@ -927,6 +1039,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("github_multi_account_github_problem",JSON.stringify(graph_node_object)); 
@@ -1029,6 +1143,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
@@ -1040,6 +1156,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
      
          
      
@@ -1235,6 +1353,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
@@ -1246,6 +1366,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "[kaggle-courses-intro] Arithmetic and Variable",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
      "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
      
          
      
@@ -1439,6 +1561,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
@@ -1450,6 +1574,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "[kaggle] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
      "id": "kaggle_beginning",
+     
+         
      
          
      
@@ -1643,6 +1769,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
@@ -1654,6 +1782,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "[leetcode] 1480 running sum of 1d array",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
      "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
      
          
      
@@ -1849,6 +1979,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
@@ -1860,6 +1992,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "[linear algebra-2] linear independence",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
      "id": "linear_algebra_2_linear_independence",
+     
+         
      
          
      
@@ -2053,6 +2187,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
@@ -2064,6 +2200,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "python_summary5 loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
      "id": "python_summary5_loop",
+     
+         
      
          
      
@@ -2257,6 +2395,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
@@ -2268,6 +2408,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "sop idea1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
      "id": "sop_idea1",
+     
+         
      
          
      
@@ -2461,6 +2603,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_babel_python",JSON.stringify(graph_node_object)); 
@@ -2472,6 +2616,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "[emacs] python lsp setting",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_python_lsp_setting\/",
      "id": "emacs_python_lsp_setting",
+     
+         
      
          
      
@@ -2610,6 +2756,8 @@ getlogger를 사용한다고 한다.</p>
          
      
          
+     
+         
               
          
      
@@ -2682,6 +2830,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "[emacs] anaconda settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
      "id": "emacs_anaconda_settings",
+     
+         
      
          
      
@@ -2877,6 +3027,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -2888,6 +3040,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
      
          
      
@@ -3081,6 +3235,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -3092,6 +3248,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
      
          
      
@@ -3289,6 +3447,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -3300,6 +3460,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "folding test1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
      "id": "folding_test",
+     
+         
      
          
      
@@ -3404,6 +3566,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
+     
+         
      
          
      
@@ -3599,6 +3763,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -3610,6 +3776,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
+     
+         
      
          
      
@@ -3803,6 +3971,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -3814,6 +3984,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
+     
+         
      
          
      
@@ -4007,6 +4179,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -4018,6 +4192,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
+     
+         
      
          
      
@@ -4211,6 +4387,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -4222,6 +4400,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
+     
+         
      
          
      
@@ -4415,6 +4595,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -4426,6 +4608,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
+     
+         
      
          
      
@@ -4619,6 +4803,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -4630,6 +4816,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
+     
+         
      
          
      
@@ -4823,6 +5011,8 @@ getlogger를 사용한다고 한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -4834,6 +5024,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
+     
+         
      
          
      
@@ -4950,6 +5142,8 @@ getlogger를 사용한다고 한다.</p>
          
      
          
+     
+         
               
          
      
@@ -5040,6 +5234,8 @@ getlogger를 사용한다고 한다.</p>
      "label": "python_summary4_data structures",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary4_data_structures\/",
      "id": "python_summary4_data_structures",
+     
+         
      
          
      

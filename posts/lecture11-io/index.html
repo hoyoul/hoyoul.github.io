@@ -140,6 +140,8 @@
      
     
      
+    
+     
   
 
   
@@ -346,7 +348,7 @@ manager형태를 사용하면, 자동으로 fd를 닫아준다고 한다. 아래
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;./data/test.txt&#34;</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="n">contents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">contents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
 </span></span></code></pre></div><p>for-loop를 사용해서 file을 읽는데, read()를 사용하지 않는다. file
@@ -376,7 +378,7 @@ escape문자가 포함된 하나의 string으로 return하게 된다. 즉 3줄�
 <h4 id="write">write()</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;./data/text.txt&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">번째 문장</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">번째 문장</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>open으로 file을 열고, write()를 사용해서 string을 쓴다. string을
 여기서는 fstring으로 만들어 주었다. 변수값이나, 객체값을
 string으로 출력할 목적으로 fstring을 사용하는 것이다.</p>
@@ -502,14 +504,14 @@ seriaization과 restoration이 정의되어 있기 때문에, pickle로 file에
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyComplex</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">real</span><span class="p">,</span> <span class="n">imaginary</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="n">real</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">imaginary</span> <span class="o">=</span> <span class="n">imaginary</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="n">real</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">imaginary</span> <span class="o">=</span> <span class="n">imaginary</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">other</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">MyComplex</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">	    <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">real</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	    <span class="bp">self</span><span class="o">.</span><span class="n">imaginary</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">imaginary</span>
-</span></span><span class="line"><span class="cl">	    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">MyComplex</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">real</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">imaginary</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">imaginary</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">my_complex</span> <span class="o">=</span> <span class="n">MyComplex</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
@@ -573,11 +575,11 @@ tab이나, 공백으로도 처리가 가능하기 때문에 확장자가 .tsv(ta
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test/test.csv&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&#34;&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="n">quoting</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&#34;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">quoting</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
 </span></span></code></pre></div><p>csv의 reader()는 file에서 csv파일의 각줄을 읽고 구분자를 사용해서
 item을 뽑아내서 string으로 만든다. 그후 각각의 item을 원소로 하는
 list 객체를 만들어 return한다. delimiter는 구분자를
@@ -625,10 +627,10 @@ default값을 쓰고 나중에 공부할 때 채워 놓기로 한다.</li>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test/test1.csv&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&#34;&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="n">quoting</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span>
-</span></span><span class="line"><span class="cl">			<span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&#34;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">quoting</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl">    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">([</span><span class="n">I</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;label_</span><span class="si">{</span><span class="n">I</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">I</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </span></span></code></pre></div><p>csv파일을 with open으로 열고, fd를 csv reader에 넣어서 csv reader
@@ -679,11 +681,11 @@ string형, list형 자료형태도 가질 수 있다. json파일 한개는 {}로
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;ID&#34;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;bool&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;bobbies&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="s2">&#34;sports&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">	    <span class="s2">&#34;snowboard&#34;</span>
-</span></span><span class="line"><span class="cl">	    <span class="s2">&#34;volley-ball&#34;</span>
-</span></span><span class="line"><span class="cl">	    <span class="p">]</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;sports&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;snowboard&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;volley-ball&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;test/test2.json&#34;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">fd</span><span class="p">)</span>
@@ -766,9 +768,9 @@ parsing할 수 있다는건 수많은 인터넷 문서, 즉 html로되어 있는
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;test/test.xml&#34;</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">	<span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
-</span></span><span class="line"><span class="cl">	<span class="s1">&#39;html.parser&#39;</span>
-</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;html.parser&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">to_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;to&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">to_tag</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
@@ -901,9 +903,115 @@ library라서 import해서 사용하면 된다.</p>
      
      graph_node_object = {
         
+     "label": "[test] testing!",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/test_testing\/",
+     "id": "test_testing",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("test_testing",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
      
          
      
@@ -1099,6 +1207,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -1110,6 +1220,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "python_summary7 big data and python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary7_big_data_and_python\/",
      "id": "python_summary7_big_data_and_python",
+     
+         
      
          
      
@@ -1303,6 +1415,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("github_multi_account_github_problem",JSON.stringify(graph_node_object)); 
@@ -1405,6 +1519,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
@@ -1416,6 +1532,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
      
          
      
@@ -1611,6 +1729,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
@@ -1622,6 +1742,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "[kaggle-courses-intro] Arithmetic and Variable",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
      "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
      
          
      
@@ -1815,6 +1937,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
@@ -1826,6 +1950,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "[kaggle] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
      "id": "kaggle_beginning",
+     
+         
      
          
      
@@ -2019,6 +2145,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
@@ -2030,6 +2158,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "[leetcode] 1480 running sum of 1d array",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
      "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
      
          
      
@@ -2225,6 +2355,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
@@ -2236,6 +2368,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "[linear algebra-2] linear independence",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
      "id": "linear_algebra_2_linear_independence",
+     
+         
      
          
      
@@ -2429,6 +2563,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
@@ -2440,6 +2576,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "python_summary5 loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
      "id": "python_summary5_loop",
+     
+         
      
          
      
@@ -2633,6 +2771,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
@@ -2644,6 +2784,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "sop idea1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
      "id": "sop_idea1",
+     
+         
      
          
      
@@ -2837,6 +2979,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_babel_python",JSON.stringify(graph_node_object)); 
@@ -2848,6 +2992,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "[emacs] python lsp setting",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_python_lsp_setting\/",
      "id": "emacs_python_lsp_setting",
+     
+         
      
          
      
@@ -2986,6 +3132,8 @@ library라서 import해서 사용하면 된다.</p>
          
      
          
+     
+         
               
          
      
@@ -3058,6 +3206,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "[emacs] anaconda settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
      "id": "emacs_anaconda_settings",
+     
+         
      
          
      
@@ -3253,6 +3403,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -3264,6 +3416,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
      
          
      
@@ -3457,6 +3611,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -3468,6 +3624,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
      
          
      
@@ -3665,6 +3823,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -3676,6 +3836,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "folding test1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
      "id": "folding_test",
+     
+         
      
          
      
@@ -3780,6 +3942,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
+     
+         
      
          
      
@@ -3975,6 +4139,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -3986,6 +4152,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
+     
+         
      
          
      
@@ -4179,6 +4347,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -4190,6 +4360,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
+     
+         
      
          
      
@@ -4383,6 +4555,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -4394,6 +4568,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
+     
+         
      
          
      
@@ -4587,6 +4763,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -4598,6 +4776,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
+     
+         
      
          
      
@@ -4791,6 +4971,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -4802,6 +4984,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
+     
+         
      
          
      
@@ -4995,6 +5179,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -5006,6 +5192,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
+     
+         
      
          
      
@@ -5199,6 +5387,8 @@ library라서 import해서 사용하면 된다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -5210,6 +5400,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
+     
+         
      
          
      
@@ -5326,6 +5518,8 @@ library라서 import해서 사용하면 된다.</p>
          
      
          
+     
+         
               
          
      
@@ -5416,6 +5610,8 @@ library라서 import해서 사용하면 된다.</p>
      "label": "python_summary4_data structures",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary4_data_structures\/",
      "id": "python_summary4_data_structures",
+     
+         
      
          
      

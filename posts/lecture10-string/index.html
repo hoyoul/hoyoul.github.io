@@ -140,6 +140,8 @@
      
     
      
+    
+     
   
 
   
@@ -907,7 +909,7 @@ numeric reference로 참조해서 사용하면 된다.</p>
 <p>capturing(group) 간단 예제</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;([0-9]+) ([0-9]+)&#39;</span><span class="p">,</span> <span class="s1">&#39;10 295 32 54&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="s1">&#39;([0-9]+) ([0-9]+)&#39;</span><span class="p">,</span> <span class="s1">&#39;10 295 32 54&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
@@ -1030,9 +1032,9 @@ non-capturing group을 사용할 수 있다.</p>
 </span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;(?:0|\+82-)\d{1,2}-(\d</span><span class="si">{4}</span><span class="s1">)-\1$&#39;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">text</span><span class="p">,</span><span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;전체문자열&#34;</span><span class="p">,</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;\1 문자열&#34;</span><span class="p">,</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="k">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">text</span><span class="p">,</span><span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;전체문자열&#34;</span><span class="p">,</span><span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;\1 문자열&#34;</span><span class="p">,</span> <span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </span></span></code></pre></div><p>python에서 정규식은 re package를 사용한다. pattern은 r로 시작하는
 문자열로 정의된다. pattern을 통해 text검색하는 함수는 여러개를
 제공한다. 위의 예에도 있지만, re패키지에 보면, finditer라는 함수가
@@ -1058,8 +1060,8 @@ option들을 사용할 수 있다. 여러 option들이 있지만, MULTILINE에
 </span></span></span><span class="line"><span class="cl"><span class="s2">you need python
 </span></span></span><span class="line"><span class="cl"><span class="s2">python three&#34;&#34;&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># match = re.findall(pattern,text,re.MULTILINE)</span>
-</span></span><span class="line"><span class="cl"><span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="n">match</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="k">match</span><span class="p">)</span>
 </span></span></code></pre></div><p>MULTILINE이란 option을 추가하지 않으면, python one만 결과로
 나온다. pattern을 보면, ^는 문자열의 처음을 나타낸다. 주어진
 text는 여러 line으로 이루어져 있음에도, 따옴표때문에 하나의
@@ -1146,16 +1148,16 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
 재사용에 유리하다는 장점을 갖기 때문이다. 또한 코드의 가독성이
 높아진다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span> <span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span> <span class="p">(</span><span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 </span></span></code></pre></div><p>위에는 compile을 사용하지 않고, dataset으로 부터 string을 가져와서
 검색하는 code다. 매번 string을 가져올때마다 pattern이 string에
 적용되게 된다. 이것을 compile하면 다음과 같은 모양이 된다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">compiled</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">match</span> <span class="o">=</span> <span class="n">compiled</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">match</span> <span class="o">=</span> <span class="n">compiled</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 </span></span></code></pre></div><p>re.search가 compiled.search(string)문장으로 대체된다. 가독성도
 좋아지는 것을 볼 수 있다.</p>
       
@@ -1170,9 +1172,115 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
      graph_node_object = {
         
+     "label": "[test] testing!",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/test_testing\/",
+     "id": "test_testing",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("test_testing",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
      
          
      
@@ -1368,6 +1476,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -1379,6 +1489,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "python_summary7 big data and python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary7_big_data_and_python\/",
      "id": "python_summary7_big_data_and_python",
+     
+         
      
          
      
@@ -1572,6 +1684,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("github_multi_account_github_problem",JSON.stringify(graph_node_object)); 
@@ -1674,6 +1788,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
@@ -1685,6 +1801,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
      
          
      
@@ -1880,6 +1998,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
@@ -1891,6 +2011,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "[kaggle-courses-intro] Arithmetic and Variable",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
      "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
      
          
      
@@ -2084,6 +2206,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
@@ -2095,6 +2219,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "[kaggle] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
      "id": "kaggle_beginning",
+     
+         
      
          
      
@@ -2288,6 +2414,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
@@ -2299,6 +2427,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "[leetcode] 1480 running sum of 1d array",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
      "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
      
          
      
@@ -2494,6 +2624,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
@@ -2505,6 +2637,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "[linear algebra-2] linear independence",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
      "id": "linear_algebra_2_linear_independence",
+     
+         
      
          
      
@@ -2698,6 +2832,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
@@ -2709,6 +2845,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "python_summary5 loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
      "id": "python_summary5_loop",
+     
+         
      
          
      
@@ -2902,6 +3040,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
@@ -2913,6 +3053,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "sop idea1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
      "id": "sop_idea1",
+     
+         
      
          
      
@@ -3106,6 +3248,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_babel_python",JSON.stringify(graph_node_object)); 
@@ -3117,6 +3261,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "[emacs] python lsp setting",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_python_lsp_setting\/",
      "id": "emacs_python_lsp_setting",
+     
+         
      
          
      
@@ -3255,6 +3401,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
          
      
          
+     
+         
               
          
      
@@ -3327,6 +3475,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "[emacs] anaconda settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
      "id": "emacs_anaconda_settings",
+     
+         
      
          
      
@@ -3522,6 +3672,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -3533,6 +3685,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
      
          
      
@@ -3726,6 +3880,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -3737,6 +3893,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
      
          
      
@@ -3934,6 +4092,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -3945,6 +4105,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "folding test1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
      "id": "folding_test",
+     
+         
      
          
      
@@ -4049,6 +4211,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
+     
+         
      
          
      
@@ -4244,6 +4408,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -4255,6 +4421,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
+     
+         
      
          
      
@@ -4448,6 +4616,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -4459,6 +4629,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
+     
+         
      
          
      
@@ -4652,6 +4824,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -4663,6 +4837,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
+     
+         
      
          
      
@@ -4856,6 +5032,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -4867,6 +5045,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
+     
+         
      
          
      
@@ -5060,6 +5240,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -5071,6 +5253,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
+     
+         
      
          
      
@@ -5264,6 +5448,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -5275,6 +5461,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
+     
+         
      
          
      
@@ -5468,6 +5656,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -5479,6 +5669,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
+     
+         
      
          
      
@@ -5595,6 +5787,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
          
      
          
+     
+         
               
          
      
@@ -5685,6 +5879,8 @@ compile은 단지 pattern이란 문자열을 객체화한다고 본다. 그렇�
      "label": "python_summary4_data structures",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary4_data_structures\/",
      "id": "python_summary4_data_structures",
+     
+         
      
          
      

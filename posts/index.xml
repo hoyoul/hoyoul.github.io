@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Sat, 17 Jun 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Jul 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[test] testing!</title>
+      <link>https://braindump.frege2godel.me/posts/test_testing/</link>
+      <pubDate>Thu, 20 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/test_testing/</guid>
+      <description>this is test this is test!</description>
+    </item>
+    
     <item>
       <title>[leetcode] 1672 Richest Customer Wealth</title>
       <link>https://braindump.frege2godel.me/posts/leetcode_1672_richest_customer_wealth/</link>

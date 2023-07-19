@@ -60,6 +60,8 @@
      
     
      
+    
+     
         
     
     
@@ -256,15 +258,15 @@ html요소로 transcode한다. org의 요소와 html의 요소는 1:1 mapping되
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;ox-publish</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">org-publish-project-alist</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&#39;</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="s">&#34;my-main-blog&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:base-directory</span> <span class="s">&#34;~/MyProjects/main-blog/org/&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:base-extension</span> <span class="s">&#34;org&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:publishing-directory</span> <span class="s">&#34;~/MyProjects/main-blog/public/&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:publishing-function</span> <span class="nv">org-html-publish-to-html</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:recursive</span> <span class="no">t</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:html-head</span> <span class="s">&#34;&lt;link rel=\&#34;stylesheet\&#34; href=\&#34;../css/styles.css\&#34; type=\&#34;text/css\&#34;/&gt;&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="s">&#34;my-main-blog&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:base-directory</span> <span class="s">&#34;~/MyProjects/main-blog/org/&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:base-extension</span> <span class="s">&#34;org&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:publishing-directory</span> <span class="s">&#34;~/MyProjects/main-blog/public/&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:publishing-function</span> <span class="nv">org-html-publish-to-html</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:recursive</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:html-head</span> <span class="s">&#34;&lt;link rel=\&#34;stylesheet\&#34; href=\&#34;../css/styles.css\&#34; type=\&#34;text/css\&#34;/&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">))</span>
 </span></span></code></pre></div><p>:html-head는 출력되는 html head에 html tag를 넣을 수 있게 한다. 보통
 html head에 들어가는 css, java, meta tag를 넣는다. 여튼 이렇게 하고
 M-x org-publish-all이나 C-c C-e P f를 실행하자. 그러면 위의 project가
@@ -448,25 +450,25 @@ css처리를 하자.</p>
 <h4 id="css-project">css project</h4>
 <p>css를 처리하기 위해선 org-publish의 css project를 만들어야 한다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="s">&#34;my-main-blog-css&#34;</span>
-</span></span><span class="line"><span class="cl">	     <span class="nb">:base-directory</span> <span class="s">&#34;~/MyProjects/main-blog/css&#34;</span>
-</span></span><span class="line"><span class="cl">	     <span class="nb">:base-extension</span> <span class="s">&#34;css\\|scss&#34;</span>
-</span></span><span class="line"><span class="cl">	     <span class="nb">:publishing-directory</span> <span class="s">&#34;~/MyProjects/main-blog/public/css/&#34;</span>
-</span></span><span class="line"><span class="cl">	     <span class="nb">:recursive</span> <span class="no">t</span>
-</span></span><span class="line"><span class="cl">	     <span class="nb">:publishing-function</span> <span class="nv">org-publish-attachment</span>
-</span></span><span class="line"><span class="cl">	    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">             <span class="nb">:base-directory</span> <span class="s">&#34;~/MyProjects/main-blog/css&#34;</span>
+</span></span><span class="line"><span class="cl">             <span class="nb">:base-extension</span> <span class="s">&#34;css\\|scss&#34;</span>
+</span></span><span class="line"><span class="cl">             <span class="nb">:publishing-directory</span> <span class="s">&#34;~/MyProjects/main-blog/public/css/&#34;</span>
+</span></span><span class="line"><span class="cl">             <span class="nb">:recursive</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">             <span class="nb">:publishing-function</span> <span class="nv">org-publish-attachment</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
 </span></span></code></pre></div><p>이것은 개발과정에서 사용되는 css파일을 public폴더로 이동해주는
 역할이다. 실제 html코드에서 css에서 참조할때는 public위치의 css를
 사용하게 해주면 된다. html코드에 삽입을 위해선, org project에서 명시해
 야한다. 일부만 가져왔지만, 아래보면 :html-head에 명시했다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">org-publish-project-alist</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&#39;</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="s">&#34;my-main-blog&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:base-directory</span> <span class="s">&#34;~/MyProjects/main-blog/org/&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:base-extension</span> <span class="s">&#34;org&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:publishing-directory</span> <span class="s">&#34;~/MyProjects/main-blog/public/&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:publishing-function</span> <span class="nv">org-html-publish-to-html</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:recursive</span> <span class="no">t</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:html-head</span> <span class="s">&#34;&lt;link rel=\&#34;stylesheet\&#34; href=\&#34;./css/style.css\&#34; type=\&#34;text/css\&#34;/&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="s">&#34;my-main-blog&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:base-directory</span> <span class="s">&#34;~/MyProjects/main-blog/org/&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:base-extension</span> <span class="s">&#34;org&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:publishing-directory</span> <span class="s">&#34;~/MyProjects/main-blog/public/&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:publishing-function</span> <span class="nv">org-html-publish-to-html</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:recursive</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:html-head</span> <span class="s">&#34;&lt;link rel=\&#34;stylesheet\&#34; href=\&#34;./css/style.css\&#34; type=\&#34;text/css\&#34;/&gt;&#34;</span>
 </span></span></code></pre></div><p>이제 css파일을 설정하자.</p>
 <!--list-separator-->
 <ul>
@@ -680,18 +682,18 @@ container를 하나 더 만들기로 한다. 내용없는 headline에 property�
 그 다음 css에서 처리를 해야한다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">1010px</span><span class="o">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">wrapper</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">page</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">flex</span><span class="p">:</span> <span class="nb">calc</span><span class="p">(</span><span class="mi">20</span><span class="kt">%</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="k">margin-right</span><span class="p">:</span> <span class="mi">50</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">flex</span><span class="p">:</span> <span class="nb">calc</span><span class="p">(</span><span class="mi">20</span><span class="kt">%</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">margin-right</span><span class="p">:</span> <span class="mi">50</span><span class="kt">px</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">700px</span><span class="o">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">wrapper</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">page</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">flex</span><span class="p">:</span> <span class="nb">calc</span><span class="p">(</span><span class="mi">20</span><span class="kt">%</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="k">margin-right</span><span class="p">:</span> <span class="mi">50</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">flex</span><span class="p">:</span> <span class="nb">calc</span><span class="p">(</span><span class="mi">20</span><span class="kt">%</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">margin-right</span><span class="p">:</span> <span class="mi">50</span><span class="kt">px</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">footer</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">margin-top</span><span class="p">:</span> <span class="mi">800</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">margin-top</span><span class="p">:</span> <span class="mi">800</span><span class="kt">px</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>화면이 왼쪽엔 header영역과 오른쪽엔 page영역으로 나눠져 있는데,
@@ -759,8 +761,8 @@ org-export-define-derived-backend라는 함수다.아래는 my-backend를
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nv">org-export-define-derived-backend</span> <span class="ss">&#39;my-backend</span> <span class="ss">&#39;html</span>
 </span></span><span class="line"><span class="cl">  <span class="nb">:menu-entry</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&#39;</span><span class="p">(</span><span class="sc">?z</span> <span class="s">&#34;Test to My Backend&#34;</span> <span class="p">((</span><span class="sc">?H</span> <span class="s">&#34;As HTML buffer&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">				<span class="p">(</span><span class="sc">?h</span> <span class="s">&#34;As HTML file&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">				<span class="p">(</span><span class="sc">?o</span> <span class="s">&#34;As ODT file&#34;</span> <span class="nv">my_func</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">(</span><span class="sc">?h</span> <span class="s">&#34;As HTML file&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">(</span><span class="sc">?o</span> <span class="s">&#34;As ODT file&#34;</span> <span class="nv">my_func</span><span class="p">))))</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">my_func</span><span class="p">(</span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span> <span class="nv">d</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;test&#34;</span><span class="p">))</span>
@@ -789,44 +791,44 @@ project가 기술되어 있다. 3개의 project가 있는데, org,css,image에 �
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;ox-publish</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">org-publish-project-alist</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&#39;</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="s">&#34;my-main-blog&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:base-directory</span> <span class="s">&#34;~/MyProjects/main-blog/org/&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:base-extension</span> <span class="s">&#34;org&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:publishing-directory</span> <span class="s">&#34;~/MyProjects/main-blog/public/&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:publishing-function</span> <span class="nv">org-html-publish-to-html</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:recursive</span> <span class="no">t</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:html-head</span> <span class="s">&#34;&lt;link rel=\&#34;stylesheet\&#34; href=\&#34;./css/style.css\&#34; type=\&#34;text/css\&#34;/&gt;
-</span></span></span><span class="line"><span class="cl"><span class="s">		     &lt;link rel=\&#34;shortcut icon\&#34; href=\&#34;./img/favicon.ico\&#34; type=\&#34;image/x-icon\&#34;&gt;
-</span></span></span><span class="line"><span class="cl"><span class="s">		     &lt;link rel=\&#34;icon\&#34; href=\&#34;./img/favicon.ico\&#34; type=\&#34;image/x-icon\&#34;&gt;&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:html-head-extra</span> <span class="s">&#34;&lt;link rel=\&#34;stylesheet\&#34; href=\&#34;https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0\&#34; /&gt;&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:section-numbers</span> <span class="no">nil</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:section-numbers</span> <span class="no">nil</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:with-toc</span> <span class="no">nil</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:html-head-include-default-style</span> <span class="no">nil</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:html-postamble</span> <span class="no">nil</span>
-</span></span><span class="line"><span class="cl">	 <span class="c1">;; :headline-levels 3</span>
-</span></span><span class="line"><span class="cl">	 <span class="c1">;; :html-tag-class-prefix &#34;my-org-&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:html-postamble</span> <span class="s">&#34;&lt;div class=\&#34;footer\&#34;&gt;This project is maintained and Copyright © holyfrege
-</span></span></span><span class="line"><span class="cl"><span class="s">			 2024. All rights reserved. &lt;br&gt; Hosted on GitHub Pages&lt;/div&gt;&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:html-indent</span> <span class="no">t</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:html-doctype</span> <span class="s">&#34;html5&#34;</span>
-</span></span><span class="line"><span class="cl">	 <span class="nb">:html-html5-fancy</span> <span class="no">t</span>
-</span></span><span class="line"><span class="cl">	 <span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="s">&#34;my-main-blog-css&#34;</span>
-</span></span><span class="line"><span class="cl">	  <span class="nb">:base-directory</span> <span class="s">&#34;~/MyProjects/main-blog/css&#34;</span>
-</span></span><span class="line"><span class="cl">	  <span class="nb">:base-extension</span> <span class="s">&#34;css\\|scss&#34;</span>
-</span></span><span class="line"><span class="cl">	  <span class="nb">:publishing-directory</span> <span class="s">&#34;~/MyProjects/main-blog/public/css/&#34;</span>
-</span></span><span class="line"><span class="cl">	  <span class="nb">:recursive</span> <span class="no">t</span>
-</span></span><span class="line"><span class="cl">	  <span class="nb">:publishing-function</span> <span class="nv">org-publish-attachment</span>
-</span></span><span class="line"><span class="cl">	 <span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="s">&#34;my-main-blog-img&#34;</span>
-</span></span><span class="line"><span class="cl">	  <span class="nb">:base-directory</span> <span class="s">&#34;~/MyProjects/main-blog/img&#34;</span>
-</span></span><span class="line"><span class="cl">	  <span class="nb">:base-extension</span> <span class="s">&#34;png\\|jpg\\|ico\\|mov\\|mp4&#34;</span>
-</span></span><span class="line"><span class="cl">	  <span class="nb">:publishing-directory</span> <span class="s">&#34;~/MyProjects/main-blog/public/img/&#34;</span>
-</span></span><span class="line"><span class="cl">	  <span class="nb">:recursive</span> <span class="no">t</span>
-</span></span><span class="line"><span class="cl">	  <span class="nb">:publishing-function</span> <span class="nv">org-publish-attachment</span>
-</span></span><span class="line"><span class="cl">	 <span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="s">&#34;my-main-blog&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:base-directory</span> <span class="s">&#34;~/MyProjects/main-blog/org/&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:base-extension</span> <span class="s">&#34;org&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:publishing-directory</span> <span class="s">&#34;~/MyProjects/main-blog/public/&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:publishing-function</span> <span class="nv">org-html-publish-to-html</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:recursive</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:html-head</span> <span class="s">&#34;&lt;link rel=\&#34;stylesheet\&#34; href=\&#34;./css/style.css\&#34; type=\&#34;text/css\&#34;/&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">                     &lt;link rel=\&#34;shortcut icon\&#34; href=\&#34;./img/favicon.ico\&#34; type=\&#34;image/x-icon\&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">                     &lt;link rel=\&#34;icon\&#34; href=\&#34;./img/favicon.ico\&#34; type=\&#34;image/x-icon\&#34;&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:html-head-extra</span> <span class="s">&#34;&lt;link rel=\&#34;stylesheet\&#34; href=\&#34;https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0\&#34; /&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:section-numbers</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:section-numbers</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:with-toc</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:html-head-include-default-style</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:html-postamble</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">         <span class="c1">;; :headline-levels 3</span>
+</span></span><span class="line"><span class="cl">         <span class="c1">;; :html-tag-class-prefix &#34;my-org-&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:html-postamble</span> <span class="s">&#34;&lt;div class=\&#34;footer\&#34;&gt;This project is maintained and Copyright © holyfrege
+</span></span></span><span class="line"><span class="cl"><span class="s">                         2024. All rights reserved. &lt;br&gt; Hosted on GitHub Pages&lt;/div&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:html-indent</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:html-doctype</span> <span class="s">&#34;html5&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:html-html5-fancy</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">         <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="s">&#34;my-main-blog-css&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">:base-directory</span> <span class="s">&#34;~/MyProjects/main-blog/css&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">:base-extension</span> <span class="s">&#34;css\\|scss&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">:publishing-directory</span> <span class="s">&#34;~/MyProjects/main-blog/public/css/&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">:recursive</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">:publishing-function</span> <span class="nv">org-publish-attachment</span>
+</span></span><span class="line"><span class="cl">         <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="s">&#34;my-main-blog-img&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">:base-directory</span> <span class="s">&#34;~/MyProjects/main-blog/img&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">:base-extension</span> <span class="s">&#34;png\\|jpg\\|ico\\|mov\\|mp4&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">:publishing-directory</span> <span class="s">&#34;~/MyProjects/main-blog/public/img/&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">:recursive</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">:publishing-function</span> <span class="nv">org-publish-attachment</span>
+</span></span><span class="line"><span class="cl">         <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">))</span>
 </span></span></code></pre></div><h3 id="git에-반영">git에 반영</h3>
 <p>수정이 끝났으면 holy2frege github에 반영하면 된다. publc폴더부터
 반영하고, 그다음 개발 repo를 반영한다. 403에러가 나면 keychain에서
@@ -884,9 +886,115 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
      graph_node_object = {
         
+     "label": "[test] testing!",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/test_testing\/",
+     "id": "test_testing",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("test_testing",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
      
          
      
@@ -1082,6 +1190,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -1093,6 +1203,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "python_summary7 big data and python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary7_big_data_and_python\/",
      "id": "python_summary7_big_data_and_python",
+     
+         
      
          
      
@@ -1286,6 +1398,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("github_multi_account_github_problem",JSON.stringify(graph_node_object)); 
@@ -1388,6 +1502,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
@@ -1399,6 +1515,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
      
          
      
@@ -1594,6 +1712,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
@@ -1605,6 +1725,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "[kaggle-courses-intro] Arithmetic and Variable",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
      "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
      
          
      
@@ -1798,6 +1920,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
@@ -1809,6 +1933,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "[kaggle] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
      "id": "kaggle_beginning",
+     
+         
      
          
      
@@ -2002,6 +2128,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
@@ -2013,6 +2141,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "[leetcode] 1480 running sum of 1d array",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
      "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
      
          
      
@@ -2208,6 +2338,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
@@ -2219,6 +2351,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "[linear algebra-2] linear independence",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
      "id": "linear_algebra_2_linear_independence",
+     
+         
      
          
      
@@ -2412,6 +2546,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
@@ -2423,6 +2559,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "python_summary5 loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
      "id": "python_summary5_loop",
+     
+         
      
          
      
@@ -2616,6 +2754,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
@@ -2627,6 +2767,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "sop idea1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
      "id": "sop_idea1",
+     
+         
      
          
      
@@ -2820,6 +2962,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_babel_python",JSON.stringify(graph_node_object)); 
@@ -2831,6 +2975,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "[emacs] python lsp setting",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_python_lsp_setting\/",
      "id": "emacs_python_lsp_setting",
+     
+         
      
          
      
@@ -2969,6 +3115,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
          
      
          
+     
+         
               
          
      
@@ -3041,6 +3189,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "[emacs] anaconda settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
      "id": "emacs_anaconda_settings",
+     
+         
      
          
      
@@ -3236,6 +3386,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -3247,6 +3399,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
      
          
      
@@ -3440,6 +3594,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -3451,6 +3607,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
      
          
      
@@ -3648,6 +3806,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -3659,6 +3819,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "folding test1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
      "id": "folding_test",
+     
+         
      
          
      
@@ -3763,6 +3925,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
+     
+         
      
          
      
@@ -3958,6 +4122,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -3969,6 +4135,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
+     
+         
      
          
      
@@ -4162,6 +4330,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -4173,6 +4343,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
+     
+         
      
          
      
@@ -4366,6 +4538,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -4377,6 +4551,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
+     
+         
      
          
      
@@ -4570,6 +4746,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -4581,6 +4759,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
+     
+         
      
          
      
@@ -4774,6 +4954,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -4785,6 +4967,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
+     
+         
      
          
      
@@ -4978,6 +5162,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -4989,6 +5175,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
+     
+         
      
          
      
@@ -5182,6 +5370,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -5193,6 +5383,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
+     
+         
      
          
      
@@ -5309,6 +5501,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
          
      
          
+     
+         
               
          
      
@@ -5399,6 +5593,8 @@ pixel로 할지, 다른 단위로 할지도 고민할 거 같다. 여튼 완료�
      "label": "python_summary4_data structures",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary4_data_structures\/",
      "id": "python_summary4_data_structures",
+     
+         
      
          
      

@@ -140,6 +140,8 @@
      
     
      
+    
+     
   
 
   
@@ -152,9 +154,9 @@
 </span></span></code></pre></div><h2 id="default-usage">default usage</h2>
 <p>다음과 같이 src code block을 만든다. 코드를 입력한다.</p>
 <div class="verse">
-<p>#+BEGIN_SRC python<br>
-a = 3<br>
-#+END_SRC<br></p>
+<p>#+BEGIN_SRC python<br />
+a = 3<br />
+#+END_SRC<br /></p>
 </div>
 <p>그리고 <code>C-c c</code> 를 눌러서 실행한다. 그러면 None이라는 결과가
 나온다. org mode에서 code block은 함수와 같다. code block은 python
@@ -164,10 +166,10 @@ a = 3<br>
 </span></span></code></pre></div><p>return문을 사용하면 함수의 결과가 return되고 return된 값을
 출력한다. 또 다른 예를 보자.</p>
 <div class="verse">
-<p>#+BEGIN_SRC python<br>
-  a = 3<br>
-  print(a)<br>
-#+END_SRC<br></p>
+<p>#+BEGIN_SRC python<br />
+  a = 3<br />
+  print(a)<br />
+#+END_SRC<br /></p>
 </div>
 <p>return문을 사용하지 않고 print()를 사용해서 출력하려고 한다. 그런데
 a값은 출력되지 않는다. 왜냐면 print()는 IO를 사용할뿐 함수의
@@ -175,10 +177,10 @@ return값이 아니기 때문이다. 즉 print를 실행한다고 해서 함수�
 않는다. print는 함수의 return값이 아니다. print문의 출력결과를 보기
 위해선 다음과 같이 해야 한다.</p>
 <div class="verse">
-<p>#+BEGIN_SRC python :results output<br>
-  a = 3<br>
-  print(a)<br>
-#+END_SRC<br></p>
+<p>#+BEGIN_SRC python :results output<br />
+  a = 3<br />
+  print(a)<br />
+#+END_SRC<br /></p>
 </div>
 <p><code>:results</code> 라는 argument에 output이라는 값을 줘야 한다. python에 보면
 <code>default argument</code> 라고 있다. 동일하다. :result는 default
@@ -195,9 +197,9 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
 진다. 그런데 이 기능을 이용하려는 것은 아니고, session을 사용하면,
 위에서 return을 통해서 마지막 값을 출력하는 것을 간단히 할 수 있다.</p>
 <div class="verse">
-<p>#+BEGIN_SRC python :session<br>
-  a = 3<br>
-#+END_SRC<br></p>
+<p>#+BEGIN_SRC python :session<br />
+  a = 3<br />
+#+END_SRC<br /></p>
 </div>
 <p>위와 같이 하면 return문 없이도 a값이 출력된다.</p>
 <h2 id="exports">exports</h2>
@@ -209,9 +211,9 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
 <h2 id="요약">요약</h2>
 <p>일반적인 code block은 다음과 같이 사용한다.</p>
 <div class="verse">
-<p>#+BEGIN_SRC python :results output :exports both<br>
-<br>
-#+END_SRC<br></p>
+<p>#+BEGIN_SRC python :results output :exports both<br />
+<br />
+#+END_SRC<br /></p>
 </div>
 <p>나는 이것을 yasnippet에 추가했다.</p>
       
@@ -226,9 +228,115 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
      graph_node_object = {
         
+     "label": "[test] testing!",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/test_testing\/",
+     "id": "test_testing",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("test_testing",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
      
          
      
@@ -424,6 +532,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -435,6 +545,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "python_summary7 big data and python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary7_big_data_and_python\/",
      "id": "python_summary7_big_data_and_python",
+     
+         
      
          
      
@@ -628,6 +740,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("github_multi_account_github_problem",JSON.stringify(graph_node_object)); 
@@ -730,6 +844,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
@@ -741,6 +857,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
      
          
      
@@ -936,6 +1054,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
@@ -947,6 +1067,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "[kaggle-courses-intro] Arithmetic and Variable",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
      "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
      
          
      
@@ -1140,6 +1262,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
@@ -1151,6 +1275,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "[kaggle] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
      "id": "kaggle_beginning",
+     
+         
      
          
      
@@ -1344,6 +1470,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
@@ -1355,6 +1483,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "[leetcode] 1480 running sum of 1d array",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
      "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
      
          
      
@@ -1550,6 +1680,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
@@ -1561,6 +1693,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "[linear algebra-2] linear independence",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
      "id": "linear_algebra_2_linear_independence",
+     
+         
      
          
      
@@ -1754,6 +1888,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
@@ -1765,6 +1901,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "python_summary5 loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
      "id": "python_summary5_loop",
+     
+         
      
          
      
@@ -1958,6 +2096,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
@@ -1969,6 +2109,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "sop idea1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
      "id": "sop_idea1",
+     
+         
      
          
      
@@ -2162,6 +2304,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_babel_python",JSON.stringify(graph_node_object)); 
@@ -2173,6 +2317,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "[emacs] python lsp setting",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_python_lsp_setting\/",
      "id": "emacs_python_lsp_setting",
+     
+         
      
          
      
@@ -2311,6 +2457,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
          
      
          
+     
+         
               
          
      
@@ -2383,6 +2531,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "[emacs] anaconda settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
      "id": "emacs_anaconda_settings",
+     
+         
      
          
      
@@ -2578,6 +2728,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -2589,6 +2741,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
      
          
      
@@ -2782,6 +2936,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -2793,6 +2949,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
      
          
      
@@ -2990,6 +3148,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -3001,6 +3161,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "folding test1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
      "id": "folding_test",
+     
+         
      
          
      
@@ -3105,6 +3267,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
+     
+         
      
          
      
@@ -3300,6 +3464,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -3311,6 +3477,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
+     
+         
      
          
      
@@ -3504,6 +3672,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -3515,6 +3685,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
+     
+         
      
          
      
@@ -3708,6 +3880,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -3719,6 +3893,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
+     
+         
      
          
      
@@ -3912,6 +4088,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -3923,6 +4101,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
+     
+         
      
          
      
@@ -4116,6 +4296,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -4127,6 +4309,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
+     
+         
      
          
      
@@ -4320,6 +4504,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -4331,6 +4517,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
+     
+         
      
          
      
@@ -4524,6 +4712,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -4535,6 +4725,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
+     
+         
      
          
      
@@ -4651,6 +4843,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
          
      
          
+     
+         
               
          
      
@@ -4741,6 +4935,8 @@ interpreter에 의해서 evaluate되기 때문에 연관관계가 없다. 그런
      "label": "python_summary4_data structures",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary4_data_structures\/",
      "id": "python_summary4_data_structures",
+     
+         
      
          
      

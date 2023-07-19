@@ -140,6 +140,8 @@
      
     
      
+    
+     
   
 
   
@@ -160,11 +162,11 @@
 </span></span><span class="line"><span class="cl">       <span class="n">elf</span><span class="o">.</span><span class="n">parcels</span> <span class="o">=</span> <span class="p">[]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">       <span class="k">def</span> <span class="nf">assign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parcel</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	  <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parcel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parcel</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">       <span class="k">def</span> <span class="nf">deliver</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	  <span class="k">for</span> <span class="n">parcel</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	       <span class="nb">print</span><span class="p">(</span><span class="n">parcel</span><span class="p">,</span> <span class="s2">&#34;배달중&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="k">for</span> <span class="n">parcel</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">               <span class="nb">print</span><span class="p">(</span><span class="n">parcel</span><span class="p">,</span> <span class="s2">&#34;배달중&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><ul>
 <li>class 특징들
 <ul>
@@ -189,11 +191,11 @@
 </span></span><span class="line"><span class="cl">       <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span> <span class="o">=</span> <span class="p">[]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">assign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parcel</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">parcels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parcel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parcel</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">deliver</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="n">parcel</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	    <span class="nb">print</span><span class="p">(</span><span class="n">parcel</span><span class="p">,</span> <span class="s2">&#34;배달중&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">parcel</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">parcel</span><span class="p">,</span> <span class="s2">&#34;배달중&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">courier1</span> <span class="o">=</span> <span class="n">Courier</span><span class="p">(</span><span class="s2">&#34;김기사&#34;</span><span class="p">,</span><span class="s2">&#34;경기도 성남시 정자동&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">courier1</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">&#34;-&#34;</span><span class="p">,</span> <span class="n">courier1</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="s2">&#34;근무중&#34;</span><span class="p">)</span>
@@ -261,12 +263,12 @@ method를 수행하는 방식은 2가지가 있다. 하나는 class자체 객체
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Holy</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">class_var</span> <span class="o">=</span> <span class="s2">&#34;temp&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;constructor&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;constructor&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">assign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newname</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">newname</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="s2">&#34;assign method&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">newname</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="s2">&#34;assign method&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">Holy</span><span class="o">.</span><span class="n">class_var</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">tempholy</span> <span class="o">=</span> <span class="n">Holy</span><span class="p">(</span><span class="s2">&#34;holy&#34;</span><span class="p">)</span>
@@ -329,29 +331,29 @@ Collection)을 가지고 있는데, 주기적으로 참조 되지 않는 객체�
 모르겠다. super를 사용하는 예제를 보여준다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Courier</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;courier 생성자&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="s2">&#34;부산&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">parcels</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;courier 생성자&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="s2">&#34;부산&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span> <span class="o">=</span> <span class="p">[]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">assign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parcel</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">parcels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parcel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parcel</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">deliver</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="n">parcel</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	    <span class="nb">print</span><span class="p">(</span><span class="n">parcel</span><span class="p">,</span> <span class="s2">&#34;super 배달중 -&#34;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">parcel</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">parcel</span><span class="p">,</span> <span class="s2">&#34;super 배달중 -&#34;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">JejuCourier</span><span class="p">(</span><span class="n">Courier</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">ticket</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;생성자juju&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="c1"># super().__init__(name)</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">super</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">ticket</span> <span class="o">=</span> <span class="n">ticket</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;생성자juju&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># super().__init__(name)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">ticket</span> <span class="o">=</span> <span class="n">ticket</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">deliver</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ticket</span><span class="p">,</span> <span class="s2">&#34;티켓으로 제주도 이동&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">deliver</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ticket</span><span class="p">,</span> <span class="s2">&#34;티켓으로 제주도 이동&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">deliver</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># courier = JejuCourier(&#34;김기사&#34;, 15)</span>
 </span></span><span class="line"><span class="cl"><span class="n">JejuCourier</span><span class="p">(</span><span class="s2">&#34;김기사&#34;</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
@@ -446,15 +448,15 @@ deliver는 overriding한것이고 __init__은 overloading한 함수다.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nd">@staticmethod</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">static_factory</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">	<span class="n">obj</span> <span class="o">=</span> <span class="n">Number</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="n">obj</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">Number</span><span class="o">.</span><span class="n">Constant</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">obj</span>
+</span></span><span class="line"><span class="cl">        <span class="n">obj</span> <span class="o">=</span> <span class="n">Number</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">obj</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">Number</span><span class="o">.</span><span class="n">Constant</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">obj</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nd">@classmethod</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">class_factory</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="n">obj</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="n">obj</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">Constant</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">obj</span>
+</span></span><span class="line"><span class="cl">        <span class="n">obj</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">obj</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">Constant</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">obj</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">number_static</span> <span class="o">=</span> <span class="n">Number</span><span class="o">.</span><span class="n">static_factory</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="n">number_class</span> <span class="o">=</span> <span class="n">Number</span><span class="o">.</span><span class="n">class_factory</span><span class="p">()</span>
@@ -520,9 +522,9 @@ protected라고 일종의 규약처럼 사용되는데, 문법적 요소는 없�
 <p>예를 들어 보자.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TestClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">attr</span> <span class="o">=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">_attr</span> <span class="o">=</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">__attr</span> <span class="o">=</span><span class="mi">3</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">attr</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_attr</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">__attr</span> <span class="o">=</span><span class="mi">3</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">instance</span> <span class="o">=</span> <span class="n">TestClass</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">instance</span><span class="p">))</span>
@@ -557,13 +559,13 @@ getter라는 method도움없이 직접 입력하는 것과 같은 착시효과�
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Circle</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">PI</span> <span class="o">=</span> <span class="mf">3.141592</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">3.</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">Circle</span><span class="o">.</span><span class="n">PI</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Circle</span><span class="o">.</span><span class="n">PI</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">set_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="p">(</span><span class="n">value</span> <span class="o">/</span> <span class="n">Circle</span><span class="o">.</span><span class="n">PI</span><span class="p">)</span> <span class="o">**</span> <span class="mf">.5</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="p">(</span><span class="n">value</span> <span class="o">/</span> <span class="n">Circle</span><span class="o">.</span><span class="n">PI</span><span class="p">)</span> <span class="o">**</span> <span class="mf">.5</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">5.</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">circle</span><span class="o">.</span><span class="n">get_area</span><span class="p">())</span>
@@ -583,14 +585,14 @@ private한 keyword가 없기 때문에 굳이 get함수를 사용할 필요는
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Circle</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">PI</span> <span class="o">=</span> <span class="mf">3.141592</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mf">3.</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@property</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">Circle</span><span class="o">.</span><span class="n">PI</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">**</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Circle</span><span class="o">.</span><span class="n">PI</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">**</span><span class="mi">2</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nd">@area.setter</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="p">(</span><span class="n">value</span> <span class="o">/</span><span class="n">Circle</span><span class="o">.</span><span class="n">PI</span><span class="p">)</span> <span class="o">**</span> <span class="mf">.5</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="p">(</span><span class="n">value</span> <span class="o">/</span><span class="n">Circle</span><span class="o">.</span><span class="n">PI</span><span class="p">)</span> <span class="o">**</span> <span class="mf">.5</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">5.</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">circle</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
@@ -622,13 +624,13 @@ method는 __를 prefix와 postfix에 사용한다. 그리고 대부분이 object
 <p>indexing method</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">DoubleMapper</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="o">=</span> <span class="p">{}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">index</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">index</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">mapper</span> <span class="o">=</span> <span class="n">DoubleMapper</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">mapper</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">mapper</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
@@ -662,11 +664,11 @@ return된다. 마찬가지로 (1,2)라는 index가 존재하지 않기 때문에
 </span></span></code></pre></div><p>mapper객체의 index가 10인 값은 15로 저장되게 된다. 이렇게
 해서 mapper객체의 값들은 {10:15, (1,2):(1,2,1,2)} 이렇게
 유지된다.</p>
-<p>이렇게 __setitem__과 __getitem__을 사용한다면, index관련한
+<p>이렇게 <span class="underline"><span class="underline">setitem__과 __getitem__을 사용한다면, index관련한
 처리를 재정의가 가능하다. dictionary와 tuple array, list같은
 index를 사용한 연산에서 index의 기능을 재정의하는게
 가능하다. 위에서도 index를 사용해서 값을 return받거나,
-index에 값을 삽입하는 것을 <span class="underline"><span class="underline">getitem</span></span>, __setitem__을
+index에 값을 삽입하는 것을 __getitem</span></span>, __setitem__을
 재정의하면 해당 method가 호출되는 것을 볼 수 있다.</p>
 <p>이런 형태가 pandas나 tensorflow에서 많이 보이는데, 안에
 구조를 보면 setitem과 getitem을 재정의해서 사용하는 경우가
@@ -680,16 +682,16 @@ index에 값을 삽입하는 것을 <span class="underline"><span class="underli
 <p>예제를 먼저 보자.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Dataset</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span><span class="mi">3</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">times</span> <span class="o">=</span> <span class="n">times</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">times</span> <span class="o">=</span> <span class="n">times</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">times</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">times</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="n">index</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	    <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">index</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">index</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">times</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">))</span>
@@ -723,11 +725,11 @@ method의 경우, len(dataset)형태로 많이 사용되어진다는 게
 <p>typing magic method</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Courier</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">+</span> <span class="s1">&#39;담당&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">+</span> <span class="s1">&#39;담당&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">courier</span> <span class="o">=</span> <span class="n">Courier</span><span class="p">(</span><span class="s2">&#34;김기사&#34;</span><span class="p">,</span> <span class="s2">&#34;경기도 성남&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">courier</span><span class="p">)</span>
@@ -741,10 +743,10 @@ type이다. str(courier)라는 형태는 좀 이상해 보이지 않는가? 보�
 전달해서 str객체로 형변환한다고 생각한다. 또다른 예로, int객체
 3이 str생성자에 전달되어 str(3)은 str 객체로 변환된다고 생각한다.
 하지만, 이것은 int 클래스에 정의된 str dunder method의
-호출이다. python에선 그렇다. int라는 class에 __str__메소드가
+호출이다. python에선 그렇다. int라는 class에 <span class="underline"><span class="underline">str__메소드가
 정의되어 있는것이다. 우리가 형변환이라고 부르는 int(courier)이나,
 float(courier), bool(courier) 모두 class의 dunder method로
-정의되어 있다는 것이다. <span class="underline"><span class="underline">str</span></span> dunder method를 정의해서 편리하게
+정의되어 있다는 것이다. __str</span></span> dunder method를 정의해서 편리하게
 쓰는 경우는 객체를 print할 때다. __str__메소드가 리턴하는 값이
 출력된다.</p>
 </li>
@@ -755,11 +757,11 @@ float(courier), bool(courier) 모두 class의 dunder method로
 <p>comparison operator magic method</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Courier</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cid</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">cid</span> <span class="o">=</span> <span class="n">cid</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">cid</span> <span class="o">=</span> <span class="n">cid</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cid</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">cid</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cid</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">cid</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">couriers</span> <span class="o">=</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="n">Courier</span><span class="p">(</span><span class="s2">&#34;김기사&#34;</span><span class="p">,</span> <span class="mi">56</span><span class="p">),</span>
@@ -775,7 +777,7 @@ float(courier), bool(courier) 모두 class의 dunder method로
 </span></span></code></pre></div><p>이전에도 보았듯이 couriers.sorted()의 객체 method가 아닌,
 sorted(couriers)형태가 나온다. 이것은 sorted가 dunder method임을
 말하고, class에 정의되어 있다. couriers객체의 type은
-list이다. 즉 list에 <strong>sorted</strong>()가 정의 되어 있을
+list이다. 즉 list에 <span class="underline"><span class="underline">sorted__()가 정의 되어 있을
 것이다. <strong>sorted</strong>()의 내부 동작은 정확히 모르지만, 객체들의
 <strong>lt</strong>()를 사용해서 크기 비교를 하는것 같다. 예를 들면, a &lt; b,
 a&gt; c, 혹은 if a == b 와 같이 많은 비교를 할 것이다. sorted가
@@ -783,7 +785,7 @@ a&gt; c, 혹은 if a == b 와 같이 많은 비교를 할 것이다. sorted가
 class에서 <strong>lt</strong>()를 정의하고 있다면, a &lt; b라는 일견 평범한
 연산은, a._<em>lt</em>_(b)로 해석될 수 있는 것이다. 즉 python에서는
 모든 것은 객체고, 모든 operator는 method이기
-때문이다. 마찬가지로 <span class="underline"><span class="underline">le</span></span>, <span class="underline"><span class="underline">gq</span></span>, <span class="underline"><span class="underline">ge</span></span>, __ne__등 많은 것이
+때문이다. 마찬가지로 __le</span></span>, <span class="underline"><span class="underline">gq</span></span>, <span class="underline"><span class="underline">ge</span></span>, __ne__등 많은 것이
 존재한다.</p>
 </li>
 </ul>
@@ -837,17 +839,17 @@ len, comparison 연산자들은 모두 객체에서 정의된 그대로 호출 �
 <p>arithmetic operator : magic method</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyComplex</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">real</span><span class="p">,</span> <span class="n">imaginary</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="n">real</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">imaginary</span> <span class="o">=</span> <span class="n">imaginary</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="n">real</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">imaginary</span> <span class="o">=</span> <span class="n">imaginary</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">real</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;+&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imaginary</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;j&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">real</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;+&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imaginary</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;j&#39;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">MyComplex</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">	    <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">real</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	    <span class="bp">self</span><span class="o">.</span><span class="n">imaginary</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">imaginary</span>
-</span></span><span class="line"><span class="cl">	    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">MyComplex</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">real</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">imaginary</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">imaginary</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">MyComplex</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">MyComplex</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
@@ -868,10 +870,10 @@ print문에 사용할 수 있다. <strong>sub</strong>(), <strong>mul</strong>()
 <p>Callable : magic method</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">AdditionNumber</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="n">number</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="n">number</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">number</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">number</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">addition_5</span> <span class="o">=</span> <span class="n">AdditionNumber</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">addition_5</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
@@ -901,9 +903,9 @@ addition5자체는 instance객체의 이름이다. ()는 <span class="underline"
 </span></span><span class="line"><span class="cl"><span class="n">iterable</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="n">elem</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">elem</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="k">break</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
 </span></span></code></pre></div><p>python에서 for문은 다른언어와 다르게 iterable객체에서 값을
 가져와서 처리하게 되어있다. 즉 유한한 값을 반복한다. 그래서
@@ -920,16 +922,16 @@ addition5자체는 instance객체의 이름이다. ()는 <span class="underline"
 <p>context manager: magic method</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Courier</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">parcels</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="bp">self</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">exec_type</span><span class="p">,</span><span class="n">exec_value</span><span class="p">,</span> <span class="n">trace</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="n">parcel</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	    <span class="nb">print</span><span class="p">(</span><span class="n">parcel</span><span class="p">,</span> <span class="s2">&#34;배달 실패&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	    <span class="c1"># parcel.clear()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">parcel</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parcels</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">parcel</span><span class="p">,</span> <span class="s2">&#34;배달 실패&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># parcel.clear()</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">courier</span> <span class="o">=</span> <span class="n">Courier</span><span class="p">(</span><span class="s2">&#34;김기사&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">courier</span><span class="p">:</span>
@@ -962,9 +964,115 @@ exc_value같은 인수를 제공한다.</p>
      
      graph_node_object = {
         
+     "label": "[test] testing!",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/test_testing\/",
+     "id": "test_testing",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("test_testing",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
      
          
      
@@ -1160,6 +1268,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -1171,6 +1281,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "python_summary7 big data and python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary7_big_data_and_python\/",
      "id": "python_summary7_big_data_and_python",
+     
+         
      
          
      
@@ -1364,6 +1476,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("github_multi_account_github_problem",JSON.stringify(graph_node_object)); 
@@ -1466,6 +1580,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
@@ -1477,6 +1593,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
      
          
      
@@ -1672,6 +1790,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
@@ -1683,6 +1803,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "[kaggle-courses-intro] Arithmetic and Variable",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
      "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
      
          
      
@@ -1876,6 +1998,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
@@ -1887,6 +2011,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "[kaggle] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
      "id": "kaggle_beginning",
+     
+         
      
          
      
@@ -2080,6 +2206,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
@@ -2091,6 +2219,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "[leetcode] 1480 running sum of 1d array",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
      "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
      
          
      
@@ -2286,6 +2416,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
@@ -2297,6 +2429,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "[linear algebra-2] linear independence",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
      "id": "linear_algebra_2_linear_independence",
+     
+         
      
          
      
@@ -2490,6 +2624,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
@@ -2501,6 +2637,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "python_summary5 loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
      "id": "python_summary5_loop",
+     
+         
      
          
      
@@ -2694,6 +2832,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
@@ -2705,6 +2845,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "sop idea1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
      "id": "sop_idea1",
+     
+         
      
          
      
@@ -2898,6 +3040,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_babel_python",JSON.stringify(graph_node_object)); 
@@ -2909,6 +3053,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "[emacs] python lsp setting",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_python_lsp_setting\/",
      "id": "emacs_python_lsp_setting",
+     
+         
      
          
      
@@ -3047,6 +3193,8 @@ exc_value같은 인수를 제공한다.</p>
          
      
          
+     
+         
               
          
      
@@ -3119,6 +3267,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "[emacs] anaconda settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
      "id": "emacs_anaconda_settings",
+     
+         
      
          
      
@@ -3314,6 +3464,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -3325,6 +3477,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
      
          
      
@@ -3518,6 +3672,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -3529,6 +3685,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
      
          
      
@@ -3726,6 +3884,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -3737,6 +3897,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "folding test1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
      "id": "folding_test",
+     
+         
      
          
      
@@ -3841,6 +4003,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
+     
+         
      
          
      
@@ -4036,6 +4200,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -4047,6 +4213,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
+     
+         
      
          
      
@@ -4240,6 +4408,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -4251,6 +4421,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
+     
+         
      
          
      
@@ -4444,6 +4616,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -4455,6 +4629,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
+     
+         
      
          
      
@@ -4648,6 +4824,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -4659,6 +4837,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
+     
+         
      
          
      
@@ -4852,6 +5032,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -4863,6 +5045,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
+     
+         
      
          
      
@@ -5056,6 +5240,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -5067,6 +5253,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
+     
+         
      
          
      
@@ -5260,6 +5448,8 @@ exc_value같은 인수를 제공한다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -5271,6 +5461,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
+     
+         
      
          
      
@@ -5387,6 +5579,8 @@ exc_value같은 인수를 제공한다.</p>
          
      
          
+     
+         
               
          
      
@@ -5477,6 +5671,8 @@ exc_value같은 인수를 제공한다.</p>
      "label": "python_summary4_data structures",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary4_data_structures\/",
      "id": "python_summary4_data_structures",
+     
+         
      
          
      
