@@ -168,7 +168,10 @@
 <h3 id="사용법">사용법</h3>
 <h4 id="step1-repo가져오기--clone">[step1] repo가져오기 (clone)</h4>
 <p>local에 repo가 clone되어 있지 않다면 main-blog를 clone부터
-한다. clone하면 아래와 같은 directory구조를 볼 수 있다.</p>
+한다. clone할때는 ssh방식으로 한다. ssh를 하는 이유는 multiple
+account문제 때문이다. 관련된 글은 <a href="/posts/github_multi_account_github_problem/">여기</a>
+를 참조한다.  clone하면 아래와
+같은 directory구조를 볼 수 있다.</p>
 <p><a id="figure--main page"></a></p>
 <figure><img src="/img/blog_homepage/mainblog1.png"
          alt="Figure 1: main page" width="600px"/><figcaption>
@@ -176,38 +179,52 @@
         </figcaption>
 </figure>
 
+<!--list-separator-->
 <ul>
 <li>
-<p>git pull: git pull을 해서 sync를 맞춘다.</p>
+<p>git pull</p>
+<p>git pull을 해서 sync를 맞춘다.</p>
 </li>
+</ul>
+<!--list-separator-->
+<ul>
 <li>
-<p>git submodule init, git submodule update: 이제 publishing repo를
-가져와야 한다. publishing repo는 holy2frege.github.io다. 이 repo는
-main-blog안에 public폴더와 mapping되어 있다. 현재는 비워져
-있다. public폴더로 진입해서 git clone으로 가져와야 할까? 가져오지
-않는다. mapping되어 있다는것은 main-blog에서 mapping정보를 가지고
-있기 때문에, 다른 방법을 사용한다. mapping에 대한 정보는 main-blog의
-.gitmodules에 있다. git submodule init과 git submodule update를
-통해서 holy2.frege.github.io를 가져올 수 있다. 이렇게 가져온 repo는
-HEAD가 detach되어 있다.</p>
+<p>git submodule init &amp; git submodule update</p>
+<p>이제 publishing repo를 가져와야 한다. publishing repo는
+holy2frege.github.io다. 이 repo는 main-blog안에 public폴더와
+mapping되어 있다. 현재는 비워져 있다. public폴더로 진입해서 git
+clone으로 가져와야 할까? 가져오지 않는다. mapping되어 있다는것은
+main-blog에서 mapping정보를 가지고 있기 때문에, 다른 방법을
+사용한다. mapping에 대한 정보는 main-blog의 .gitmodules에 있다. git
+submodule init과 git submodule update를 통해서
+holy2.frege.github.io를 가져올 수 있다. 이렇게 가져온 repo는 HEAD가
+detach되어 있다.</p>
 </li>
+</ul>
+<!--list-separator-->
+<ul>
 <li>
-<p>git submodule foreach git checkout main: 그래서 git submodule
-foreach git checkout main을 해준다. git status를 해도 detach되어
-있다면 git checkout main을 다시 해준다. git submodule update
-&ndash;remote &ndash;merge 해서 다시 update를 했다. 그런데도 detached head라서
-git checkout main을 해주었다.</p>
+<p>git checkout main</p>
+<p>git submodule foreach git checkout main: 그래서 git submodule foreach
+git checkout main을 해준다. git status를 해도 detach되어 있다면 git
+checkout main을 다시 해준다. git submodule update &ndash;remote &ndash;merge
+해서 다시 update를 했다. 그런데도 detached head라서 git checkout
+main을 해주었다.</p>
 </li>
+</ul>
+<!--list-separator-->
+<ul>
 <li>
+<p>git pull</p>
 <p>git pull (in public): 그리고 public 폴더에서 git pull을 했다.</p>
 </li>
 </ul>
 <h4 id="step-2-article-수정">[step 2] article 수정</h4>
 <p>이제 문서를 만들거나 수정하면 된다. org 폴더에 가면 index.org파일
 하나밖에 없다.  2nd-level의 headline에 보면 &lsquo;CUSTOM_ID: page&rsquo;가
-보일텐데, 그 headline이 articles를 모아놓은 page라고 보면
-된다. 거기서 원하는 page를 생성하거나 수정하면 된다. 수정이 끝나면
-다음 단계로 가자.</p>
+보일텐데, 그 headline이 articles를 모아놓은 page라고 보면 된다. 거기서
+원하는 page를 생성하거나 수정하면 된다. 수정이 끝나면 다음 단계로
+가자.</p>
 <h4 id="step-3-m-x-org-publish-all">[step 3] m-x org-publish-all</h4>
 <p>emacs의 설정파일에는 위 명령어를 수행하는 code가 이미 있다. html변환과
 css,js를 처리를 구현하고 있다. 따라서 수행하면 public/index.html이
@@ -231,20 +248,6 @@ keychain이 만들어지고 push가 된다.</p>
 </div>
 </li>
 </ul>
-<h4 id="plus-begin-important">#+begin_important</h4>
-<p><a href="https://hoyoul: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@github.com" target="_blank">https://hoyoul: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@github.com
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-
-<a href="https://holy2frege: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@github.com" target="_blank">https://holy2frege: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@github.com
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-
-<a href="https://holytofrege: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@github.com" target="_blank">https://holytofrege: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@github.com
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-
-#+end_important</p>
 <h2 id="my-braindump-blog">My braindump blog</h2>
 <ul>
 <li>
@@ -342,7 +345,165 @@ fieldset legend로 css처리를 한다.</p>
 <ul>
 <li>
 <p>headlevel</p>
-<p>headlevel은 4개만 정의 했다.</p>
+<p>headlevel은 4개만 정의 했다. org에서 headline을 그대로 사용한다.</p>
+<ul>
+<li>
+<p>level1</p>
+<p><a id="figure--level1"></a></p>
+<figure><img src="/img/blog_homepage/headlevel1.png"
+                 alt="Figure 3: level1" width="600px"/><figcaption>
+                    <p><span class="figure-number">Figure 3: </span>level1</p>
+                </figcaption>
+        </figure>
+
+</li>
+<li>
+<p>level2</p>
+<p><a id="figure--level2"></a></p>
+<figure><img src="/img/blog_homepage/headlevel2.png"
+                 alt="Figure 4: level2" width="600px"/><figcaption>
+                    <p><span class="figure-number">Figure 4: </span>level2</p>
+                </figcaption>
+        </figure>
+
+</li>
+<li>
+<p>level3</p>
+<p><a id="figure--level3"></a></p>
+<figure><img src="/img/blog_homepage/headlevel3.png"
+                 alt="Figure 5: level3" width="600px"/><figcaption>
+                    <p><span class="figure-number">Figure 5: </span>level3</p>
+                </figcaption>
+        </figure>
+
+</li>
+<li>
+<p>level4</p>
+<p><a id="figure--level3"></a></p>
+<figure><img src="/img/blog_homepage/headlevel4.png"
+                 alt="Figure 6: level4" width="600px"/><figcaption>
+                    <p><span class="figure-number">Figure 6: </span>level4</p>
+                </figcaption>
+        </figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>underline</p>
+<p>underline은 _로 둘러싸게 하면 된다.</p>
+<p><a id="figure--underline"></a></p>
+<figure><img src="/img/blog_homepage/underline.png"
+             alt="Figure 7: underline" width="600px"/><figcaption>
+                <p><span class="figure-number">Figure 7: </span>underline</p>
+            </figcaption>
+    </figure>
+
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>equal</p>
+<p>eqaul 두개로 둘러 싸면 아래와 같은 모양이 나온다.</p>
+<p><a id="figure--equal"></a></p>
+<figure><img src="/img/blog_homepage/equal.png"
+             alt="Figure 8: equal" width="600px"/><figcaption>
+                <p><span class="figure-number">Figure 8: </span>equal</p>
+            </figcaption>
+    </figure>
+
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>todo</p>
+<p>todo는 org에서 C-c C-t로 만든다. 이것을 org에서 기술하면 아래와 같이
+보인다.</p>
+<p><a id="figure--todo"></a></p>
+<figure><img src="/img/blog_homepage/todo.png"
+             alt="Figure 9: todo" width="600px"/><figcaption>
+                <p><span class="figure-number">Figure 9: </span>todo</p>
+            </figcaption>
+    </figure>
+
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>verse</p>
+<p>begin_verse로 시작되는 verse block 다음과 같이 보인다.</p>
+<p><a id="figure--verse"></a></p>
+<figure><img src="/img/blog_homepage/verse.png"
+             alt="Figure 10: verse" width="600px"/><figcaption>
+                <p><span class="figure-number">Figure 10: </span>verse</p>
+            </figcaption>
+    </figure>
+
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>source &amp; example &amp; text</p>
+<p>source block은 color가 지원되고, example과 text는 highlight를 지원하지
+않는 차이가 있다.</p>
+<p><a id="figure--source"></a></p>
+<figure><img src="/img/blog_homepage/source.png"
+             alt="Figure 11: source" width="600px"/><figcaption>
+                <p><span class="figure-number">Figure 11: </span>source</p>
+            </figcaption>
+    </figure>
+
+<p><a id="figure--example"></a></p>
+<figure><img src="/img/blog_homepage/example.png"
+             alt="Figure 12: example" width="600px"/><figcaption>
+                <p><span class="figure-number">Figure 12: </span>example</p>
+            </figcaption>
+    </figure>
+
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>기타 blocks</p>
+<p>tip,warning,important,attention은 거의 비슷한 모양이다. 이것들 모두
+yasnippet으로 정의했기 때문에 shortcut으로 사용하면 된다. 모양은
+다음과 같다.</p>
+<p><a id="figure--tip"></a></p>
+<figure><img src="/img/blog_homepage/tip.png"
+             alt="Figure 13: tip" width="600px"/><figcaption>
+                <p><span class="figure-number">Figure 13: </span>tip</p>
+            </figcaption>
+    </figure>
+
+<p><a id="figure--warning"></a></p>
+<figure><img src="/img/blog_homepage/warning.png"
+             alt="Figure 14: warning" width="600px"/><figcaption>
+                <p><span class="figure-number">Figure 14: </span>warning</p>
+            </figcaption>
+    </figure>
+
+<p><a id="figure--important"></a></p>
+<figure><img src="/img/blog_homepage/important.png"
+             alt="Figure 15: important" width="600px"/><figcaption>
+                <p><span class="figure-number">Figure 15: </span>important</p>
+            </figcaption>
+    </figure>
+
+<p><a id="figure--attention"></a></p>
+<figure><img src="/img/blog_homepage/attention.png"
+             alt="Figure 16: attention" width="600px"/><figcaption>
+                <p><span class="figure-number">Figure 16: </span>attention</p>
+            </figcaption>
+    </figure>
+
 </li>
 </ul>
 <h4 id="step-4-make-all">[step 4] make all</h4>
@@ -823,7 +984,7 @@ push할려니 문제가 생기는 것이다. 우선 급한대로 다음과 같�
          
      
          
-     
+              
          
      
          
@@ -904,7 +1065,9 @@ push할려니 문제가 생기는 것이다. 우선 급한대로 다음과 같�
      
          
      
-     "backlinks": []
+         
+     
+     "backlinks": ["website_about_my_brain_blog_and_homepage"]
    }
  sessionStorage.setItem("github_multi_account_github_problem",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);

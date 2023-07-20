@@ -49,7 +49,7 @@
       <pubDate>Fri, 16 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/github_multi_account_github_problem/</guid>
-      <description>multi account github problem 맥에서 여러개의 github을 사용할때 git push 403에러가 나는 경우가 있다. 간단한 해결법 key chain에서 login type이 github을 삭제한다.</description>
+      <description>github의 통신 방법 통신방법은 http와 ssh 방식이 있다. git pull과 git push, git clone은 통신하는 명령어다. git clone할때 보면 http와 ssh</description>
     </item>
     
     <item>
