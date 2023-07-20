@@ -353,16 +353,18 @@ pre code{
 .page > .content{
     padding:32px;
 }
+/* head level1 */
 .page > .content h2{
     background-color: #cfc;
     width:95%;
     text-decoration: underline solid #8f9;
+    text-underline-position: under;    
     text-underline-offset: 4px;
     text-decoration-thickness:5px;    
-    text-underline-position: under;
     padding-bottom: 10px;
     padding-top: 8px;    
 }
+/* head level2 */
 .page > .content h3{
     background-color: #fcc;
     width:95%;
@@ -373,6 +375,26 @@ pre code{
     text-decoration-thickness:3px;        
     padding-bottom: 5px;
     padding-top: 5px;        
+}
+/* head level3 */
+.page > .content h4{
+    width:95%;
+    opacity: 0.7;
+    text-decoration: underline dashed #ddd;
+    text-underline-position: under;
+    text-underline-offset: 2px;
+    text-decoration-thickness:2px;        
+    padding-bottom: 4px;
+    padding-top: 4px;        
+}
+.page > .content h5{
+    width:95%;
+    opacity: 0.7;
+    text-underline-position: under;
+    text-underline-offset: 2px;
+    text-decoration-thickness:2px;        
+    padding-bottom: 4px;
+    padding-top: 4px;
 }
 
 .container.d3{

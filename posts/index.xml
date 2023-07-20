@@ -13,19 +13,7 @@
       <pubDate>Thu, 20 Jul 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/test_testing/</guid>
-      <description>this is test this is test!
-head level test (level1) Nullam rutrum.
-head level test (level2) Nullam eu ante vel est convallis dignissim.
-head level test (level3) Phasellus lacus.
-head level test (level4)
-Fusce commodo.
-underline test
-= test = test
-priority C-c ,
-priority1 priority2 todo C-c C-t
-TODO todo DONE todo2 verse this is verse
-note this is note
-source this is emacs lisp source tip this is tip</description>
+      <description>this is test this is test! head level test (level1) main.css에 정의 되어 있다. level3 까지만 css 설정함. .page &amp;gt; .content 에서 수정하면 됨, head level1은 .page&amp;gt; .content h2로 정의됨. level2는</description>
     </item>
     
     <item>
@@ -65,12 +53,12 @@ source this is emacs lisp source tip this is tip</description>
     </item>
     
     <item>
-      <title>[website] about my brain blog and homepage</title>
+      <title>[website] about my braindump blog and homepage usage</title>
       <link>https://braindump.frege2godel.me/posts/website_about_my_brain_blog_and_homepage/</link>
       <pubDate>Fri, 16 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/website_about_my_brain_blog_and_homepage/</guid>
-      <description>My homepage 참조: from here (만들당시 기록한 note) 주소: https://frege2godel.me/ github id: holy2frege github repo(dev,publish): main-blog,holy2frege.github.io 사용법 clone local에 repo가 clone되어 있지 않다면 clone부터 한다. Figure 1: main page article 수정</description>
+      <description>My homepage 참조: from here (만들당시 기록한 note) homepage 운영 주소: https://frege2godel.me/ github source 주소: github address: https://github.com/holy2frege/main-blog github id: holy2frege github email: github repo(dev,publish): main-blog,holy2frege.github.io pat: 사용법 [step1] repo가져오기 (clone) local에 repo가 clone되</description>
     </item>
     
     <item>
