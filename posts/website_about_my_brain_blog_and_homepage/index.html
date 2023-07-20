@@ -147,7 +147,8 @@
   
 	  
 	</fieldset>
-	<h2 id="my-homepage">My homepage</h2>
+	<h2 id="my-homepage">[My homepage]</h2>
+<h3 id="기본정보">기본정보</h3>
 <ul>
 <li>참조: <a href="/posts/website_make_main_homepage/">from here</a>
  (만들당시 기록한 note)</li>
@@ -167,6 +168,10 @@
 </ul>
 <h3 id="사용법">사용법</h3>
 <h4 id="step1-repo가져오기--clone">[step1] repo가져오기 (clone)</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>기본 정보</p>
 <p>local에 repo가 clone되어 있지 않다면 main-blog를 clone부터
 한다. clone할때는 ssh방식으로 한다. ssh를 하는 이유는 multiple
 account문제 때문이다. 관련된 글은 <a href="/posts/github_multi_account_github_problem/">여기</a>
@@ -174,11 +179,13 @@ account문제 때문이다. 관련된 글은 <a href="/posts/github_multi_accoun
 같은 directory구조를 볼 수 있다.</p>
 <p><a id="figure--main page"></a></p>
 <figure><img src="/img/blog_homepage/mainblog1.png"
-         alt="Figure 1: main page" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 1: </span>main page</p>
-        </figcaption>
-</figure>
+             alt="Figure 1: main page" width="600px"/><figcaption>
+                <p><span class="figure-number">Figure 1: </span>main page</p>
+            </figcaption>
+    </figure>
 
+</li>
+</ul>
 <!--list-separator-->
 <ul>
 <li>
@@ -243,12 +250,13 @@ keychain이 만들어지고 push가 된다.</p>
 <ul>
 <li>
 <p>pat</p>
-<div class="important">
-<p>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</p>
+<div class="verse">
+<p>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<br /></p>
 </div>
 </li>
 </ul>
-<h2 id="my-braindump-blog">My braindump blog</h2>
+<h2 id="my-braindump-blog">[My braindump blog]</h2>
+<h3 id="기본-정보">기본 정보</h3>
 <ul>
 <li>
 <p>homepage 운영주소: <a href="https://braindump.frege2godel.me/?stackedPages=%2F" target="_blank">https://braindump.frege2godel.me/?stackedPages=%2F
@@ -277,35 +285,35 @@ keychain이 만들어지고 push가 된다.</p>
 </li>
 <li>
 <p>pat:</p>
-<div class="important">
-<p>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</p>
+<div class="verse">
+<p>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<br /></p>
 </div>
 </li>
 </ul>
 <h3 id="사용법">사용법</h3>
 <h4 id="step1-repo-가져오기-clone">[step1] repo 가져오기 clone</h4>
-<div class="important">
+<div class="verse">
 <p>git clone <a href="https://github.com/hoyoul/holy-brain.git" target="_blank">https://github.com/hoyoul/holy-brain.git
 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
 </a>
-</p>
+<br /></p>
 </div>
 <p>git pull을 한다.</p>
 <h4 id="step2-submodule-가져오기">[step2] submodule 가져오기</h4>
 <ul>
 <li>
 <p>public과 mapping된 submodule을 가져온다.</p>
-<div class="important">
-<p>git submodule init
-git submodule update</p>
+<div class="verse">
+<p>git submodule init<br />
+git submodule update<br /></p>
 </div>
 </li>
 <li>
 <p>public폴더로 들어가서 update한다.</p>
-<div class="important">
-<p>git submodule foreach git checkout main
-git submodule update &ndash;remote &ndash;merge
-git checkout main</p>
+<div class="verse">
+<p>git submodule foreach git checkout main<br />
+git submodule update &ndash;remote &ndash;merge<br />
+git checkout main<br /></p>
 </div>
 </li>
 </ul>
@@ -315,8 +323,8 @@ git checkout main</p>
 <h4 id="step3-문서-작성및-수정">[step3] 문서 작성및 수정</h4>
 <p>org-roam에서 문서를 작성하기 때문에 emacs.org에서 org-roam 경로가
 맞는지 확인한다.</p>
-<div class="important">
-<p>(org-roam-directory &ldquo;~/hoyoul_projects/holy-brain/org&rdquo;) ; replace with your path</p>
+<div class="verse">
+<p>(org-roam-directory &ldquo;~/hoyoul_projects/holy-brain/org&rdquo;) ; replace with your path<br /></p>
 </div>
 <ul>
 <li>C-c r f로 문서를 수정하거나 만든다. 만들때는 영어로 title을 만들어야 한다.</li>
@@ -371,7 +379,7 @@ fieldset legend로 css처리를 한다.</p>
 <p>level3</p>
 <p><a id="figure--level3"></a></p>
 <figure><img src="/img/blog_homepage/headlevel3.png"
-                 alt="Figure 5: level3" width="600px"/><figcaption>
+                 alt="Figure 5: level3" width="300px"/><figcaption>
                     <p><span class="figure-number">Figure 5: </span>level3</p>
                 </figcaption>
         </figure>
@@ -381,7 +389,7 @@ fieldset legend로 css처리를 한다.</p>
 <p>level4</p>
 <p><a id="figure--level3"></a></p>
 <figure><img src="/img/blog_homepage/headlevel4.png"
-                 alt="Figure 6: level4" width="600px"/><figcaption>
+                 alt="Figure 6: level4" width="300px"/><figcaption>
                     <p><span class="figure-number">Figure 6: </span>level4</p>
                 </figcaption>
         </figure>
@@ -397,7 +405,7 @@ fieldset legend로 css처리를 한다.</p>
 <p>underline은 _로 둘러싸게 하면 된다.</p>
 <p><a id="figure--underline"></a></p>
 <figure><img src="/img/blog_homepage/underline.png"
-             alt="Figure 7: underline" width="600px"/><figcaption>
+             alt="Figure 7: underline" width="300px"/><figcaption>
                 <p><span class="figure-number">Figure 7: </span>underline</p>
             </figcaption>
     </figure>
@@ -411,7 +419,7 @@ fieldset legend로 css처리를 한다.</p>
 <p>eqaul 두개로 둘러 싸면 아래와 같은 모양이 나온다.</p>
 <p><a id="figure--equal"></a></p>
 <figure><img src="/img/blog_homepage/equal.png"
-             alt="Figure 8: equal" width="600px"/><figcaption>
+             alt="Figure 8: equal" width="300px"/><figcaption>
                 <p><span class="figure-number">Figure 8: </span>equal</p>
             </figcaption>
     </figure>
