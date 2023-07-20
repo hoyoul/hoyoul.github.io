@@ -13,7 +13,19 @@
       <pubDate>Thu, 20 Jul 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/test_testing/</guid>
-      <description>this is test this is test!</description>
+      <description>this is test this is test!
+head level test (level1) Nullam rutrum.
+head level test (level2) Nullam eu ante vel est convallis dignissim.
+head level test (level3) Phasellus lacus.
+head level test (level4)
+Fusce commodo.
+underline test
+= test = test
+priority C-c ,
+priority1 priority2 todo C-c C-t
+TODO todo DONE todo2 verse this is verse
+note this is note
+source this is emacs lisp source tip this is tip</description>
     </item>
     
     <item>
