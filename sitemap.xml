@@ -8,6 +8,18 @@
     <loc>https://braindump.frege2godel.me/posts/</loc>
     <lastmod>2023-07-20T00:00:00+09:00</lastmod>
   </url><url>
+    <loc>https://braindump.frege2godel.me/posts/essay_computer_working_principles/</loc>
+    <lastmod>2023-07-10T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/pl_history_of_programming_language/</loc>
+    <lastmod>2023-06-28T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/python_grammar_in_one_shot/</loc>
+    <lastmod>2023-06-28T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/algorithm_thinking_about_algorithms/</loc>
+    <lastmod>2023-06-25T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://braindump.frege2godel.me/posts/leetcode_1672_richest_customer_wealth/</loc>
     <lastmod>2023-06-17T00:00:00+09:00</lastmod>
   </url><url>
@@ -143,11 +155,17 @@
     <loc>https://braindump.frege2godel.me/</loc>
     <lastmod>2023-05-03T03:58:02+09:00</lastmod>
   </url><url>
+    <loc>https://braindump.frege2godel.me/posts/python_grammar_in_one_shot_standard_library_text/</loc>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/website_making_portfolio_page/</loc>
+  </url><url>
     <loc>https://braindump.frege2godel.me/categories/</loc>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/example/</loc>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/python_summary4_data_structures/</loc>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/python_summary8_string/</loc>
   </url><url>
     <loc>https://braindump.frege2godel.me/tags/</loc>
   </url>

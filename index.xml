@@ -17,6 +17,42 @@
     </item>
     
     <item>
+      <title>[essay] computer working principles</title>
+      <link>https://braindump.frege2godel.me/posts/essay_computer_working_principles/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/essay_computer_working_principles/</guid>
+      <description>computer의 구조 자동 제어 구조의 시작 (memory) 컴퓨터는 전기를 사용하는 system이다. system은 전기를 사용하는 device들로 이루어진 집합이</description>
+    </item>
+    
+    <item>
+      <title>[pl] history of programming language</title>
+      <link>https://braindump.frege2godel.me/posts/pl_history_of_programming_language/</link>
+      <pubDate>Wed, 28 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/pl_history_of_programming_language/</guid>
+      <description>잡설 최근 modern programming language중에는 oop언어가 아닌게 없다. functional language도 그렇고 c언어로 대표되는 절차형 언어도 oop를 모두 도입했다고 보면 된</description>
+    </item>
+    
+    <item>
+      <title>[python] grammar in one shot</title>
+      <link>https://braindump.frege2godel.me/posts/python_grammar_in_one_shot/</link>
+      <pubDate>Wed, 28 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/python_grammar_in_one_shot/</guid>
+      <description>목적 python으로 된 code를 보고 이해하는 게 목적이다. 우선 python의 언어적 특징을 알아보자. about python python의 특징 python으로 작성된</description>
+    </item>
+    
+    <item>
+      <title>[algorithm] thinking about algorithms</title>
+      <link>https://braindump.frege2godel.me/posts/algorithm_thinking_about_algorithms/</link>
+      <pubDate>Sun, 25 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/algorithm_thinking_about_algorithms/</guid>
+      <description>Algorithm 알고리즘을 한마디로 말한다면 problem solving이다. Problem 문제가 무엇인가? 문제에 대한 정의를 한마디로 말할순 없을 것이다. 다만 모든 문제는 미지의 것이 있다.</description>
+    </item>
+    
+    <item>
       <title>[leetcode] 1672 Richest Customer Wealth</title>
       <link>https://braindump.frege2godel.me/posts/leetcode_1672_richest_customer_wealth/</link>
       <pubDate>Sat, 17 Jun 2023 00:00:00 +0900</pubDate>
@@ -193,7 +229,7 @@
       <pubDate>Thu, 08 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/emacs_python_lsp_setting/</guid>
-      <description>DOING pyright 설정 create env $ conda create -n pyright python=3.11 RET activate env $ conda activate pyright install pyright on pyright env $ conda install -c conda-forge pyright RET</description>
+      <description>lsp lsp는 server client구조다. eglot emacs python client를 말한다. pyls(server) 이게 가장 오래된 방식이다. google에서 만들었다. 그런데 지금은 관리되지 않는다.</description>
     </item>
     
     <item>
@@ -404,6 +440,24 @@
     </item>
     
     <item>
+      <title>[python] grammar in one shot - standard library (Text)</title>
+      <link>https://braindump.frege2godel.me/posts/python_grammar_in_one_shot_standard_library_text/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/python_grammar_in_one_shot_standard_library_text/</guid>
+      <description>String import sys print(sys.version_info) sys.version_info(major=2, minor=7, micro=16, releaselevel=&amp;#39;final&amp;#39;, serial=0) textwrap regular expression difflib </description>
+    </item>
+    
+    <item>
+      <title>[website] making portfolio page</title>
+      <link>https://braindump.frege2godel.me/posts/website_making_portfolio_page/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/website_making_portfolio_page/</guid>
+      <description>portfolio page만들기</description>
+    </item>
+    
+    <item>
       <title>Example of org to ipynb</title>
       <link>https://braindump.frege2godel.me/posts/example/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -420,6 +474,15 @@ To use this, you have to require the ox-ipynb library. Then you can export this 
       
       <guid>https://braindump.frege2godel.me/posts/python_summary4_data_structures/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>python_summary8 string</title>
+      <link>https://braindump.frege2godel.me/posts/python_summary8_string/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/python_summary8_string/</guid>
+      <description>String python의 코드를 보면 string이 많이 나온다. python code를 이해하고 짜기 위해선 string이 무엇이고 동작방식을 알아야하는데, 그럴려면 내부</description>
     </item>
     
   </channel>
