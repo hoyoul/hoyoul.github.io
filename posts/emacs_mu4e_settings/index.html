@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><title>[essay] computer working principles</title>
+  <head><title>[emacs] mu4e settings</title>
 
 
 <meta charset="utf-8">
@@ -40,14 +40,14 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">[essay] computer working principles</h1>    
+    <h1 class="collapsed-title">[emacs] mu4e settings</h1>    
       <div class="content">
-	<a href="https://braindump.frege2godel.me/posts/essay_computer_working_principles/" alt="[essay] computer working principles" class="permalink" data-singlepage="yes" ><h1>[essay] computer working principles</h1></a>
+	<a href="https://braindump.frege2godel.me/posts/emacs_mu4e_settings/" alt="[emacs] mu4e settings" class="permalink" data-singlepage="yes" ><h1>[emacs] mu4e settings</h1></a>
 	<fieldset>
 	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
-	  <ol class="li"><strong>Title: </strong> [essay] computer working principles </ol>
-	  <ol class="li"><strong>date: </strong> 2023 7.10 </ol>
-	  <ol class="li"><strong>content: </strong>computer 동작에대한 생각들 </ol>
+	  <ol class="li"><strong>Title: </strong> [emacs] mu4e settings </ol>
+	  <ol class="li"><strong>date: </strong> 2023 7.22 </ol>
+	  <ol class="li"><strong>content: </strong>emacs에서 mail관리 </ol>
 	    
   
     
@@ -163,162 +163,415 @@
   
 	  
 	</fieldset>
-	<h2 id="computer의-구조">computer의 구조</h2>
-<h3 id="자동-제어-구조의-시작--memory">자동 제어 구조의 시작 (memory)</h3>
-<p>컴퓨터는 전기를 사용하는 system이다. system은 전기를 사용하는
-device들로 이루어진 집합이다. 컴퓨터를 설명하기 앞서서 간단한 전기적
-device인 motor를 예를 들어 설명하려고 한다. 모터에 배터리를
-연결하자. 배터리로 전원을 공급하면, 모터는 회전한다. 언제까지?
-배터리에 전원이 닳을때까지 돈다. 여기에 모터와 배터리 사이에 스위치를
-연결하면 사람이 스위치를 통해서 모터를 껏다 켰다 할수 있다. 즉 제어가
-가능해진다. 이런 제어를 사람의 손으로 수동적으로 하지 않고 자동화 할
-수 있을까? 즉, 껏다 켯다 껏다 껏다 껏다를 손으로 일일이 스위치를
-눌러서 하는게 아니라, 껏다 켯다 껏다라는 정보들을 어딘가에 기록하고 그
-기록된 값이 motor에 전달되서 자동으로 할 수 있냐는 말이다. 모터가 3d
-printer의 부품이라고 할때, 사람의 손으로 스위치를 눌러서 motor를
-이동시키고, 스위치를 눌러서 motor를 동작시키고 다시 스위치를 눌러서
-motor를 중단하고 이동시키는 복잡한 작업을 계속할 수는 없다. 스위치는
-mechanical한 부품이지만, 전기적인 관점에선 on/off 신호에
-불과하다. 설명이 길었지만, 껏다 켯다 라는 정보를 전달하는 물리적
-장치인 switch를 전기적 소자로 구현한 flip flop이란게 있다. flip flop은
-on/off값을 가지지만, 0 or 1의 값을 가지고 있는 fswitch라고 생각하면
-된다. flip flop은 하나의 switch를 나타내지만, 묶어서 memory란 형태로
-만들면, 수백개 수천개 수만개의 스위치를 가질 수 있다. 이 말은, 이
-수많은 스위치들이 수 많은 device와 연결되어서 수 많은 device를
-자동제어할 수 있다는 것을 의미한다. 또한 메모리의 주소를
-control(반복)해서 전기 신호를 반복해서 motor에게 전달할 수도 있다는
-것을 의미한다. 즉 제어하는 모든 것들을 메모리에 올릴수 있기 때문에,
-program이라는 개념이 나오게 된다. 그런데 궁금한 것이 motor를 제어하는
-제어코드는 motor가 아닌 memory에 있었다. memory에서 motor로 그 신호를
-전달해서 동작했는데, 그렇다면 memory를 제어하는 것도 다른 memory에
-있는 것인가? 하는 것이다. memory를 제어하는 code들은 어디에 있는가?
-memory를 제어하는 code들은 memory에 있는 것이 사실이다. memory를
-동작시키는 코드가 메모리에 있다는 것은 memory가 자신의 출력을 입력으로
-사용한다는 것인가? 그렇지 않다. 여기서 cpu라는게 나온다. memory는
-자신을 제어하는 code들을 memory에 가지고 있지만, 그 code를, 전기신호를
-입력받아야 한다. 스스로 하지 못한다. 다른 누군가가 입력으로 전달해야
-한다. 그게 cpu다. cpu는 memory로부터 제어코드를 가져와서 memory를
-control한다. 그럼 cpu를 제어하는 코드는 어디에 있는가? memory에
-있다. cpu는 자신을 control하는 제어코드를 memory에 넣고 자신의
-제어코드를 메모리로부터 입력받아서 실행한다. 이것을 보면 memory는
-일종의 hub처럼 느껴진다. 연결된 device의 작동코드를 모두 가지고 있는
-일종의 hub다. memory는 아래와 같이 binary code로 되어 있다.</p>
-<p><a id="figure--binary code"></a></p>
-<figure><img src="/img/python/binary.png"
-         alt="Figure 1: binary code" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 1: </span>binary code</p>
+	<h2 id="기본-단계-dot">기본 단계.</h2>
+<div class="note">
+<p>gmail이나 fastmail은 외부에 있는 email server다. 그림에선 remote Mail
+Server로 보면 된다. local에서는 이 email server에 smtp나 imap과같은
+protocol을 연결해서 email을 보내거나 가져올수 있다. 하지만, emacs에서
+직접 smtp나 imap를 연결하진 않는다. smtp나 imap과 연결하는 것은 local
+daemon인 mbsync가 그 역할을 한다. emacs에서는 mu4e라는 front UI가
+있는데, 이 mu4e는 mbsync라는 daemon에게 명령을 내릴 뿐이다. email을
+가져오거나 보내는 명령을 내린다.</p>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/mu4e1.png"
+         alt="neural network" width="100%" height="100%"/><figcaption>
+            <h4>Neural network representation</h4><p><span class="figure-number">Figure 1: </span>overview mu4e</p>
         </figcaption>
 </figure>
 
-<p>메모리에는 있는 수많은 bit는 각각의 switch다. 각 switch들은 연결된
-device들의 동작 코드를 가지고 있다. 예를 들어서 motor가 연결되어 있고,
-speaker, monitor, hdd, fdd, usb 수많은 device가 연결되어 있다면
-memory의 어떤 영역은 speaker영역, 어떤 영역은 monitor영역, 어떤 영역은
-hdd영역 이렇게 나누어져 있어야 한다. 그리고 각각의 영역에서 bit
-sequence는 각 device마다 다르다. 예를 들어서 motor를 turn on하는
-switch가 3개라고 하면 3bit로 표시되고, monitor에서 turn on하는
-switch는 5개라서 5bit로 표시할 수도 있다.</p>
-<p>switch라고 하면
-flip-flop이라는 전기적 소자를 생각해도 되고, 손으로 누르는 switch를
-생각해도 된다. 그러면 모든 device의 동작을 switch로 제어하다가
-memory의 bit로 제어한다고 하면, memory에는 제어하는 switch만 있을까?
-그렇지 않다. 예를 들어서 speaker를 보자. speaker에서 제어하는 code를
-언뜻 생각하면, 껏다 켯다, 볼륨도 크게 작게하는 제어도
-있지만, speaker가 재생하는 음악에 대한 data도 있다. 음악에 대한
-데이터는 speaker를 제어하는 switch 정보를 가지고 있는 binary가
-아니다. 따라서 컴퓨터의 메모리에는 2가지 영역으로 구분했다. device를
-제어하는 code들의 영역과 data의 영역으로 나누어져 있다. 그러면, 이런
-생각을 할 수 있다. 난 memory에 어떤 제어코드가 있던, 어떤 data가
-있던간에 모두 binary로 되어 있단 말이지. 난 복잡한거 모르겠고,
-memory에 임의로 내맘대로 bit로 된 data를 입력하고 싶어. 가능한가?
-그리고 나는 궁금해. 컴퓨터는 내가 입력한 memory에 따라서 동작할까?</p>
-<p>내앞에 컴퓨터가 있다. 컴퓨터는 memory에 제어코드와 data코드를 넣어주면
-그것에 따라 자동으로 동작한다고 했는데, 그렇다면, 내 앞에 있는
-컴퓨터에서 바로 입력하고 싶어! 어떻게 해야하지? 떠오르지
-않는다. 키보드를 사용하면 되지 않나? 그런데 키보드를 연결하고 gui로된
-os에서 키보드를 친다고 메모리에 입력이 되지 않는거 같다.  동작원리를
-알고 있고 컴퓨터도 바로 앞에 있는데, 메모리에 binary code를 입력하는
-방법을 모른다? 답답하네. 그렇다면 개념을 알아서 뭐하냐? 메모리에
-binary데이터를 입력하려면, 현재 컴퓨터에서는 os를 알아야 한다.</p>
-<p>arduino같은 컴퓨터는 좀 더 원시적이다.  arduino는 다른 컴퓨터와
-연결해서 메모리에 데이터를 쓸 수 있다. arduino의 memory가 다른
-컴퓨터의 메모리에 연결되는 것이다. 전기신호를 받아서 써진다. 이렇게
-해서 메모리에 code를 쓸수 있다.</p>
-<p>두번째 질문을 살펴보자. arduino의 메모리나 지금 사용하는 컴퓨터의
-메모리를 임의의 binary로 마구 마구 입력했을때 컴퓨터가 동작할 것인가?
-우선 code와 data영역의 memory는 다르다는 것을 알아야 한다. code영역을
-보자. 모터를 제어하는 것은 껏다 켯다하는 정보 밖에 없다. 그래서 아무런
-의미없이 binary 코드를 입력해놔도 모터는 그에 따라서 동작할
-것이다. speaker를 보자. speaker는 좀 복잡하다. 껏다 켯다만 있는게
-아니다. 데이터 영역에서 음악을 가져와서 입력으로 줘야 하고 볼륨도 컷다
-작았다 할 수 있어야 한다. 데이터 영역에서 음악을 가져오는것도 위치를
-정확히 지정해서 얼마만큼 가져올지도 정해줘야 한다. 이런 동작은
-speaker가 켜져 있을 때만 동작한다는 조건도 있다. 따라서 메모리에
-모터와 스피커가 연결되어 있을때, 메모리에 아무데이터가 넣어져 있다고
-해도 컴퓨터는 동작할 수 없다. 왜냐면 메모리에 있는 전기 신호를 어떤
-device에 주어야 할지도 모르기 때문이다. motor만 메모리에 물려 있을
-때는 memory에 써져있는 데이터는 0,1만 있기 때문에 모터는
-memory전기신호에 맞추어 동작할 것이다. 하지만, speaker도 연결되어
-있다면 어떤 device 사용할지 선택부터 해야 한다. speaker를 선택했다
-할지라도 speaker는 동작하지 않을 것이다. 왜냐면 speaker를 제어하는
-코드는 구조를 갖고 있기 때문이다. speaker를 키고, 데이터를 가져오고,
-볼륨 조절을 하는것은 순서가 정해져 있다. 순서에 맞는 제어코드를 실행할
-때만 동작하기 때문이다. motor처럼 아주 단순한 전기소자가 아닌경우
-제어하는 코드들은 수많은 스위치를 사용해서 제어하고, 스위치 제어에도
-순서가 있다. 스위치 대신에 binary code를 사용한다고 해서 이것이 바뀌지
-않는다. 또한 제어하는 bit를 묶어서 하나의 제어명령어를 만들수
-있다. 따라서 코드 메모리에 있는 제어코드들은 순서도 있고 단위도 가질수
-있다. 아무렇게나 메모리에 입력되서는 안된다. 각각의 device별로
-자신만의 제어코드들이 존재한다. 좀 복잡하다. 수많은 device가 컴퓨터에
-연결될텐데, 컴퓨터는 각각의 device를 선택했을때 device를 동작시키는
-제어코드를 다 알고 있어야 한다.이말은 programmer들은 각각의 device가
-갖는 제어명령어 형태를 알아야 해당 제어코드를 메모리에 입력하고
-device를 동작할 수 있게 된다. 근데 이것은 현실적으로 불가능한
-얘기다. 같은 speaker라해도 회사별로 speaker 제어명령어의 구조나 순서는
-제 각각일수 있다. 100종류의 speaker별로 memory에 올려서 제어한다는
-것은 비합리적이다. 그래서 중앙집권적 형태가 아닌 지방분권적형태를
-사용한다. computer에 연결되는 device들은 모두 각자의 memory가 있고
-동작키는 제어코드들이 함수별로 존재한다. 그리고 필요한 data만 컴퓨터로
-부터 받는 형태로 바뀌게 된다. 모든 device는 컴퓨터의 입장에선 file의
-형태로 추상화된다. 따라서 file을 열고 file에 data를 전달하거나,
-file로부터 데이터를 전달 받고 file close만 한다. 이것은 각각의
-device들이 스스로 자신의 메모리에 있는 제어코드를 실행한다. 컴퓨터는
-device가 가진 제어코드를 처리하지 않고 device들이 자신을 제어하는
-구조로 바뀌게 된다. 그러면 memory라는 전기소자를 제어하는 제어코드는
-어디에 있는가? 각각의 device가 자신을 제어하는 memory를 가지고 있듯이
-memory도 device다. 따라서 memory를 제어하는 제어코드는 자기 자신에
-위치한다.</p>
-<h3 id="memory-code-structure">memory code structure</h3>
-<p>다시 한번 정리해 보자. computer의 메모리는 code와 data영역이
-있다. 여기서 code영역만 우선 보자. code 영역에 아무런 의미없는 binary
-code를 입력하면, 컴퓨터는 동작하지 않았다. 왜냐하면 메모리의
-제어코드는 cpu와 memory라는 device를 동작시키는 제어코드라서 각각
-형식과 순서가 있기 때문이다. 이런 명령어의 순서와 형식을 갖춘 구조로
-memory에 제어코드가 올라가 있어야만 실행할 수 있다.</p>
-<h3 id="memory-code-for-file-i-o">memory code for file i/o</h3>
-<p>초창기 메모리의 제어코드는 cpu, memory뿐만 아니라, 모터, speaker,등
-컴퓨터에 연결된 다양한 device에 대한 제어코드가 존재했었다.  그래서
-해당 device에 대한 제어코드도 메모리에 있었다. 메모리에서 각 device의
-제어코드를 device에 전달해서 실행시켰다. 그런데 지금은 특정 device에
-대한 제어코드를 가지고 있지 않다. 컴퓨터는 device를 file로
-본다. 그래서 file을 선택해서 데이터만 주고 받는다. device를 동작시키는
-건 각자의 device에서 알아서 한다.</p>
-<h3 id="memory-data-structure">memory data structure</h3>
-<p>모두 string으로 되어 있다. 여기서 의문이 들 수 있다. python file이나
-stdin같은 buffer에 저장되는 것은 bytecode로 되어 있을 텐데, 그렇다면
-python interpreter가 입력으로 받는 것은 byte값이지 string이 아니지
-않냐? 이렇게 생각할 수 있다. 예를 들어서 다음과 같은 code가 a.py에
-저장되어 있다고 하자.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
-</span></span></code></pre></div><p>이것의 bytecode는 다음과 같다.</p>
-<p><a id="figure--bytecode1"></a></p>
-<figure><img src="/img/python/bytecode1.png"
-         alt="Figure 2: bytecode1" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 2: </span>bytecode1</p>
+</div>
+<h2 id="step-1-remote-email-server-setting">[step 1] remote email server setting</h2>
+<h3 id="gmail-settings">gmail settings</h3>
+<ul>
+<li>gmail을 먼저 imap,smtp or pop3를 사용할 지 여부를 setting해야
+한다. 그래야 mbsync와 통신이 가능하다. 우리는 imap을 사용할
+것이다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">gmail setting 에서 enable imap.
+</span></span></code></pre></div></li>
+<li>[gmail settings]</li>
+</ul>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/mu4e2.png"
+         alt="neural network" width="100%" height="100%"/><figcaption>
+            <h4>Neural network representation</h4><p><span class="figure-number">Figure 2: </span>gmail settings</p>
         </figcaption>
 </figure>
 
-<p>a.py라는 file로 저장될때 위와 같이 저장될까? 그렇지 않다.</p>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/mu4e3.png"
+         alt="neural network" width="100%" height="100%"/><figcaption>
+            <h4>Neural network representation</h4><p><span class="figure-number">Figure 3: </span>gmail settings2</p>
+        </figcaption>
+</figure>
+
+<h3 id="fastmail-settings">fastmail settings</h3>
+<ul>
+<li>fastmail에서는 imap을 enable하지 않아도 된다.</li>
+</ul>
+<h2 id="step-2-mbsync-setting">[step 2] mbsync setting</h2>
+<ul>
+<li>mbysync에서 하는일은 gmail과 fastmail과 같은 email server와 통신하기
+위한 인증작업.</li>
+<li>gmail과 fastmail에서 받은 email을 local에 저장하기 위한 폴더 생성
+<ul>
+<li>.maildir폴더에 인증파일과 mail을 저장할 폴더 생성.</li>
+</ul>
+</li>
+</ul>
+<h3 id="mbsync-설치">mbsync 설치</h3>
+<ul>
+<li>isync가 mbsync다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">brew install isync
+</span></span></code></pre></div><h3 id="openssl">openssl</h3>
+<h4 id="openssl-설치">openssl 설치</h4>
+<ul>
+<li>mbsync가 gmail이나 fastmail과 같은 email에 연결하기 위해선 보안</li>
+</ul>
+<p>작업을 해야 한다. openssl을 설치하고 opessl로 인증서를 가져온다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">brew install openssl
+</span></span><span class="line"><span class="cl">brew link openssl --force
+</span></span></code></pre></div><h4 id="openssl로-인증서-가져오기">openssl로 인증서 가져오기</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>gmail</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">openssl s_client -connect imap.gmail.com:993 -showcerts
+</span></span></code></pre></div><p>위 명령을 내리면, 3개의 fingerprint가 출력되는 데(즉, begin
+certificate, end certificate로 끝난다.), 이것이 모두
+인증서다. 이것을 복사해서 저장해야 한다. 저장 위치를 난
+<em>Users/hoyoul</em>.maildir/certs 여기에 했다. 파일 이름은 순서대로,
+gmail.crt, google.crt, Equifax.crt로 한다.
+이것을 .mbsyncrc라는 설정파일에 다음과 같이 기술한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">CertificateFile /Users/hoyoul/.maildir/certs/gmail.crt
+</span></span><span class="line"><span class="cl">CertificateFile /Users/hoyoul/.maildir/certs/google.crt
+</span></span><span class="line"><span class="cl">CertificateFile /Users/hoyoul/.maildir/certs/Equifax.crt
+</span></span></code></pre></div></li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>fastmail</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">openssl s_client -connect imap.fastmail.com:993 -showcerts
+</span></span></code></pre></div><ul>
+<li>fastmail은 2개의 certs가 있다.</li>
+</ul>
+ <!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">CertificateFile /Users/hoyoul/.maildir/certs/fm.crt
+</span></span><span class="line"><span class="cl">CertificateFile /Users/hoyoul/.maildir/certs/fastmail.crt
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="app-password">app password</h3>
+<h4 id="app-password">app password</h4>
+<ul>
+<li>.mbsynce를 설정하기에 앞서서, 인증관련 처리를 하나 더 해줘야
+한다. 여기서는 gmail에서 mail을 가져오거나, 보내야 하는데,
+app-password를 발급받아야 한다.</li>
+</ul>
+<h4 id="app-password-발급-방법">app password 발급 방법</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>gmail</p>
+<p><a id="org40a9dd4"></a></p>
+<p><img src="./img/app_pwd.png" alt="">
+여기서 발급받은 key는 .mbsyncrc에 pass에 넣어준다.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>fastmail</p>
+<p><img src="./img/app_pw_fastmail.png" alt="">
+=&gt; eadu273mnpjmpt74</p>
+</li>
+</ul>
+<h3 id="dot-mbsyncrc-설정">.mbsyncrc 설정</h3>
+<ul>
+<li>~/.mbsyncrc라는 mbsync 설정파일을 만든다. 아래 내용을 복사해서 사용한다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">#------------------------------------------------------
+</span></span><span class="line"><span class="cl"># 2개의 imap을 사용한다. 각각의 이름을 Imap account라고 한다.
+</span></span><span class="line"><span class="cl"># (1) gmail =&gt; gmailcon
+</span></span><span class="line"><span class="cl"># (2) fastmail =&gt; fastmailcon
+</span></span><span class="line"><span class="cl">#------------------------------------------------------
+</span></span><span class="line"><span class="cl">IMAPAccount gmailcon
+</span></span><span class="line"><span class="cl">Host imap.gmail.com
+</span></span><span class="line"><span class="cl">Port 993
+</span></span><span class="line"><span class="cl">User hoyoul.park@gmail.com
+</span></span><span class="line"><span class="cl">Pass gsrupwxkyiepvjwh
+</span></span><span class="line"><span class="cl">AuthMechs LOGIN
+</span></span><span class="line"><span class="cl">SSLType IMAPS
+</span></span><span class="line"><span class="cl">CertificateFile /Users/holy/.maildir/certs/gmail.crt
+</span></span><span class="line"><span class="cl">CertificateFile /Users/holy/.maildir/certs/google.crt
+</span></span><span class="line"><span class="cl">CertificateFile /Users/holy/.maildir/certs/Equifax.crt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">#------------------------------------------------------
+</span></span><span class="line"><span class="cl"># gmail의 store를 정의한다. store는 group of mailbox이며,
+</span></span><span class="line"><span class="cl"># 원격에 있는 gmail store와 다운받은 local의 store가 있다.
+</span></span><span class="line"><span class="cl">#------------------------------------------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">IMAPStore gmail-store
+</span></span><span class="line"><span class="cl">Account gmailcon
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">MaildirStore local-store
+</span></span><span class="line"><span class="cl">Path ~/.maildir/Gmail/
+</span></span><span class="line"><span class="cl">Inbox ~/.maildir/Gmail/Inbox
+</span></span><span class="line"><span class="cl">SubFolders Verbatim
+</span></span><span class="line"><span class="cl"># -----------------------------------------------------------
+</span></span><span class="line"><span class="cl">#[gmail channel] channel은 동기화를 담당한다. channel을 만들면
+</span></span><span class="line"><span class="cl"># master와 slave의 동기화를 하겠다는 뜻이다.  master와 slave는 gmail과
+</span></span><span class="line"><span class="cl"># local의 store를 말한다. patterns의 *는 모든 mail box를
+</span></span><span class="line"><span class="cl"># 뜻한다. local에서 mailbox를 만들어도 gmail에 동일하게 mailbox가
+</span></span><span class="line"><span class="cl"># 만들어지고, gmail에서 mailbox를 만들어도 local에 생긴다.  그런데,
+</span></span><span class="line"><span class="cl"># maildirstore에 보면 inbox라는 mailbox가 기술된것을 볼 수 있다.
+</span></span><span class="line"><span class="cl"># inbox는 default mailbox로 gmail server에 있다.  master와 slave에
+</span></span><span class="line"><span class="cl"># 있는 모든(*) mailboxes를 동기화 한다.  양쪽에 없는 mailbox가 있다면
+</span></span><span class="line"><span class="cl"># 만든다.
+</span></span><span class="line"><span class="cl">#------------------------------------------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">#All mail
+</span></span><span class="line"><span class="cl">Channel my-channel
+</span></span><span class="line"><span class="cl">Far :gmail-store:
+</span></span><span class="line"><span class="cl">Near :local-store:
+</span></span><span class="line"><span class="cl">Patterns *
+</span></span><span class="line"><span class="cl">Create Both
+</span></span><span class="line"><span class="cl">Sync Pull
+</span></span><span class="line"><span class="cl">SyncState *
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">#------------------------------------------------------
+</span></span><span class="line"><span class="cl"># [fastmail 설정]
+</span></span><span class="line"><span class="cl">#------------------------------------------------------
+</span></span><span class="line"><span class="cl">IMAPAccount fastmailcon
+</span></span><span class="line"><span class="cl">Host imap.fastmail.com
+</span></span><span class="line"><span class="cl">Port 993
+</span></span><span class="line"><span class="cl">User holy_frege@fastmail.com
+</span></span><span class="line"><span class="cl">Pass eadu273mnpjmpt74
+</span></span><span class="line"><span class="cl">AuthMechs LOGIN
+</span></span><span class="line"><span class="cl">SSLType IMAPS
+</span></span><span class="line"><span class="cl">CertificateFile /Users/holy/.maildir/certs/fm.crt
+</span></span><span class="line"><span class="cl">CertificateFile /Users/holy/.maildir/certs/fastmail.crt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">IMAPStore fastmail-remote
+</span></span><span class="line"><span class="cl">Account fastmailcon
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">MaildirStore fastmail-local
+</span></span><span class="line"><span class="cl">Path ~/.maildir/Fastmail/
+</span></span><span class="line"><span class="cl">Inbox ~/.maildir/Fastmail/INBOX/
+</span></span><span class="line"><span class="cl">Trash ~/.maildir/Fastmail/Trash/
+</span></span><span class="line"><span class="cl">SubFolders Verbatim
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Channel fastmail
+</span></span><span class="line"><span class="cl">Far :fastmail-remote:
+</span></span><span class="line"><span class="cl">Near :fastmail-local:
+</span></span><span class="line"><span class="cl">Patterns *
+</span></span><span class="line"><span class="cl">Expunge None
+</span></span><span class="line"><span class="cl">CopyArrivalDate yes
+</span></span><span class="line"><span class="cl">Sync All
+</span></span><span class="line"><span class="cl">Create Both
+</span></span><span class="line"><span class="cl">SyncState *
+</span></span></code></pre></div><ul>
+<li>.maildir/Gmail과 .maildir/Fastmail 폴더가 있어야 한다.</li>
+</ul>
+<h3 id="test">test</h3>
+<ul>
+<li>실제 email server에서 local로 메일을 가져오는지 test한다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">mbsync -a
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="기본-개념">기본 개념</h3>
+<h4 id="용어들">용어들</h4>
+<ul>
+<li>
+<p>stores: mailbox들을 group화한게 store가 있다. store는 remote와
+local이 있다. remote와 마찬가지로 local에도 mapping되는 store가 있다.</p>
+<p><a id="figure--remote store"></a></p>
+<figure><img src="./img/store.png"
+             alt="Figure 6: remote store"/><figcaption>
+                <p><span class="figure-number">Figure 6: </span>remote store</p>
+            </figcaption>
+    </figure>
+
+</li>
+<li>
+<p>channel: remote와 local의 mailbox들은 서로 대응되어 연결되어
+있다. 이것을 channel이라고 한다.</p>
+</li>
+<li>
+<p>mailbox: store에는 mailbox들이 있다.</p>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/mu4e4.png"
+             alt="neural network" width="50%" height="50%"/><figcaption>
+                <h4>Neural network representation</h4><p><span class="figure-number">Figure 7: </span>mail box</p>
+            </figcaption>
+    </figure>
+
+</li>
+</ul>
+<h4 id="참고">참고</h4>
+<ol>
+<li><a href="http://manpages.ubuntu.com/manpages/xenial/man1/mbsync.1.html" target="_blank">http://manpages.ubuntu.com/manpages/xenial/man1/mbsync.1.html
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+</li>
+<li><a href="https://manpages.debian.org/testing/isync/mbsync.1.en.html" target="_blank">https://manpages.debian.org/testing/isync/mbsync.1.en.html
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+</li>
+<li>group: channel을 묶은것을 의미한다.</li>
+<li>maildir stores: store는 mailbox의 collection을 의미한다. maildir은 local을 의미한다.</li>
+<li>IMAP stores:  IMAP을 사용하는 server의 mailbox collection을 의미한다. gmail에 있는 모든
+mailbox들을 나타낸다고 봐도 된다.</li>
+</ol>
+<h2 id="step-3-mu4e-설정">[step 3] mu4e 설정</h2>
+<h3 id="mu설치">mu설치</h3>
+<ul>
+<li>mu는 mbsync의 maildir에 있는 mail들을 indexing해서 빠른 검색을
+가능하게 해주고, emacs에서 사용할 수 있게 해준다. mu가 곧 emacs의
+mu4e이기 때문이다.</li>
+<li>mu4e(emacs mail app)를 위해선 mu package를 system에 설치 해야
+한다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">brew install mu
+</span></span></code></pre></div></li>
+<li>설치한 mu에는 mu를 사용하는 emacs lisp파일을 제공한다. 이 경로는
+emacs설정시에 사용된다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">/usr/local/share/emacs/site-lisp/mu/mu4e
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="mu-초기화">mu 초기화</h3>
+<ul>
+<li>mu init으로 db를 만든다.</li>
+<li>원리는 다음과 같다. mail이 저장된 local directory인 .maildir을
+mu에게 알려주면 indexing해서 db에 저장한다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">mu init --maildir=~/.maildir
+</span></span></code></pre></div><figure><img src="./img/mu4e5.png"
+         alt="neural network" width="100%" height="100%"/><figcaption>
+            <h4>Neural network representation</h4><p><span class="figure-number">Figure 8: </span>mu init</p>
+        </figcaption>
+</figure>
+
+<h3 id="mu-testing">mu testing</h3>
+<ul>
+<li>mu를 초기화 한 후, mu index로 maildir로부터 mail을 가져와서
+indexing을 해주어야 한다. mu index를 한다. testing을 위해서, mu
+find로 google로 시작되는 메일을 찾아보자.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">mu index
+</span></span><span class="line"><span class="cl">mu find google
+</span></span></code></pre></div><h2 id="step3-mu4e-설정">[step3] mu4e 설정</h2>
+<ul>
+<li>mu를 설치했기 때문에, mu4e도 설치할 수 있다. mu 설치시 mu4e를
+제공하기 때문이다.</li>
+</ul>
+<h3 id="mu4e-설정">mu4e 설정</h3>
+<ul>
+<li>mu4e는 email server에서 mail을 받을 뿐이다. 보내기 위해선 smtp도
+같이 설정한다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(add-to-list &#39;load-path &#34;/usr/local/Cellar/mu/1.4.13/share/emacs/site-lisp/mu/mu4e/&#34;)
+</span></span><span class="line"><span class="cl">(require &#39;mu4e)
+</span></span><span class="line"><span class="cl">(require &#39;smtpmail)
+</span></span><span class="line"><span class="cl">(setq mu4e-maildir (expand-file-name &#34;~/.maildir&#34;))
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">(setq mail-user-agent &#39;mu4e-user-agent)
+</span></span><span class="line"><span class="cl">(setq mu4e-drafts-folder &#34;/[Gmail].Drafts&#34;)
+</span></span><span class="line"><span class="cl">(setq mu4e-sent-folder   &#34;/[Gmail].Sent Mail&#34;)
+</span></span><span class="line"><span class="cl">(setq mu4e-trash-folder  &#34;/[Gmail].Trash&#34;)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">;; smtp mail setting; these are the same that `gnus&#39; uses.
+</span></span><span class="line"><span class="cl">(setq
+</span></span><span class="line"><span class="cl">   message-send-mail-function   &#39;smtpmail-send-it
+</span></span><span class="line"><span class="cl">   smtpmail-default-smtp-server &#34;smtp.gmail.com&#34;
+</span></span><span class="line"><span class="cl">   smtpmail-smtp-server         &#34;smtp.gmail.com&#34;
+</span></span><span class="line"><span class="cl">   smtpmail-local-domain        &#34;gmail.com&#34;)
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="mu4e-설정-설명">mu4e 설정 설명</h3>
+<h4 id="mu4e-경로및-load">mu4e 경로및 load</h4>
+<ul>
+<li>emacs에서 아래를 설정한다.  mu를 설치했을 때 얻은
+site-lisp의 경로다. mu를 설치하면, emacs에서 사용할 수 있게 mu4e
+app을 제공해주기 때문이다.  그래서 (require &lsquo;mu4e)가 가능하다.</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(add-to-list &#39;load-path &#34;/usr/local/share/emacs/site-lisp/mu/mu4e&#34;)
+</span></span><span class="line"><span class="cl"># (add-to-list &#39;load-path &#34;/usr/local/Cellar/mu/1.4.13/share/emacs/site-lisp/mu/mu4e/&#34;)
+</span></span><span class="line"><span class="cl">(require &#39;mu4e)
+</span></span></code></pre></div><h2 id="mu4e-기본-사용법">mu4e 기본 사용법</h2>
+<div class="note">
+<p>기본 사용법은 아래를 참고한다.</p>
+<figure><img src="./img/mu4e6.png"
+         alt="Figure 9: 기본 사용법"/><figcaption>
+            <p><span class="figure-number">Figure 9: </span>기본 사용법</p>
+        </figcaption>
+</figure>
+
+<p>key binding은 다음과 같다.</p>
+<figure><img src="./img/mu4e7-1.png"
+         alt="Figure 10: key binding"/><figcaption>
+            <p><span class="figure-number">Figure 10: </span>key binding</p>
+        </figcaption>
+</figure>
+
+<figure><img src="./img/mu4e7-2.png"
+         alt="Figure 11: keybinding2"/><figcaption>
+            <p><span class="figure-number">Figure 11: </span>keybinding2</p>
+        </figcaption>
+</figure>
+
+</div>
+<h2 id="mu4e-사용법--update">mu4e 사용법 (update)</h2>
+<div class="note">
+<p>C-c C-u: 언제 어디서나 update할 수 있다.</p>
+</div>
+<h2 id="mu4e-사용법--편지-쓰기">mu4e 사용법 (편지 쓰기)</h2>
+<div class="note">
+<ol>
+<li>
+<p>M-x mu4e로 들어간다.</p>
+</li>
+<li>
+<p>편지 쓰기 (C를 누른다) ;; 언제 어디서든 Capital C를 누르면 된다.</p>
+</li>
+<li>
+<p>attachment( C-c C-a를 누른다. )</p>
+</li>
+<li>
+<p>작성을 완료한다. ( C-c C-c )</p>
+</li>
+<li>
+<p>cc 추가</p>
+</li>
+<li>
+<p>C-c C-f C-c (cc field가 만들어진다.)</p>
+</li>
+<li>
+<p>bcc 추가</p>
+</li>
+<li>
+<p>C-c C-f C-b (bcc field가 만들어진다.)</p>
+</li>
+</ol>
+</div>
+<h2 id="mu4e-사용법--답장-편지">mu4e 사용법 (답장 편지)</h2>
+<div class="note">
+<ol>
+<li>편지 읽기</li>
+<li>R(reply)를 누른다.</li>
+<li>작성을 완료한다.(C-c C-c)</li>
+</ol>
+</div>
+<h2 id="mu4e-사용법--org-mode에서-편지쓰기">mu4e 사용법 (org mode에서 편지쓰기)</h2>
+<ul>
+<li>mu4e-org를 사용한다.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(require &#39;mu4e-org)
+</span></span></code></pre></div></li>
+</ul>
       
       </div>
 

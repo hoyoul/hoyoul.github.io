@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Thu, 20 Jul 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jul 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[emacs] mu4e settings</title>
+      <link>https://braindump.frege2godel.me/posts/emacs_mu4e_settings/</link>
+      <pubDate>Sat, 22 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/emacs_mu4e_settings/</guid>
+      <description>기본 단계. gmail이나 fastmail은 외부에 있는 email server다. 그림에선 remote Mail Server로 보면 된다. local에서는 이 email server에</description>
+    </item>
+    
     <item>
       <title>[test] testing!</title>
       <link>https://braindump.frege2godel.me/posts/test_testing/</link>
@@ -26,7 +35,7 @@
     </item>
     
     <item>
-      <title>[pl] history of programming language</title>
+      <title>[pl] history of programming language from calcuation to OOP</title>
       <link>https://braindump.frege2godel.me/posts/pl_history_of_programming_language/</link>
       <pubDate>Wed, 28 Jun 2023 00:00:00 +0900</pubDate>
       
