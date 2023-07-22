@@ -362,7 +362,9 @@ pre code{
     text-underline-offset: 4px;
     text-decoration-thickness:5px;    
     padding-bottom: 10px;
-    padding-top: 8px;    
+    padding-top: 8px;
+    border: 1px;
+    border-color: red;
 }
 /* head level2 */
 .page > .content h3{
