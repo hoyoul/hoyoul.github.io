@@ -13,7 +13,7 @@
       <pubDate>Sat, 22 Jul 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/emacs_mu4e_settings/</guid>
-      <description>기본 단계. gmail이나 fastmail은 외부에 있는 email server다. 그림에선 remote Mail Server로 보면 된다. local에서는 이 email server에</description>
+      <description>개요 emacs에서 email을 읽으려고 한다. 언뜻 생각하면, gmail, fastmail같은 email server에 접속해서 mail을 가져와서 보여주면 되는거 아닌</description>
     </item>
     
     <item>
