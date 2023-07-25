@@ -8,6 +8,24 @@
     <language>ko</language>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[emacs] presentation tools</title>
+      <link>https://braindump.frege2godel.me/posts/emacs_presentation_tools/</link>
+      <pubDate>Mon, 24 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/emacs_presentation_tools/</guid>
+      <description>org에서 다른 문서로의 변환 org에서 다른문서로 변환하는데 3가지 방식이 있다. [첫번째방식] emacs 설정방식 emacs.org에서 설정하는 방식이 있다.</description>
+    </item>
+    
+    <item>
+      <title>[emacs] tex install and usage (latex)</title>
+      <link>https://braindump.frege2godel.me/posts/emacs_tex_install_and_usage/</link>
+      <pubDate>Sun, 23 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/emacs_tex_install_and_usage/</guid>
+      <description>Local에서의 설치 [Local-step1] macTex 설치 mac에서는 tex배포판으로 macTex를 다은 받아 설치한다. 여기 에서 다운 받는다. mac-tex는 live-tex</description>
+    </item>
+    
+    <item>
       <title>[emacs] mu4e settings</title>
       <link>https://braindump.frege2godel.me/posts/emacs_mu4e_settings/</link>
       <pubDate>Sat, 22 Jul 2023 00:00:00 +0900</pubDate>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><title>daily영어(1)-don&#39;t pet my puppy</title>
+  <head><title>[emacs] presentation tools</title>
 
 
 <meta charset="utf-8">
@@ -40,14 +40,14 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">daily영어(1)-don&#39;t pet my puppy</h1>    
+    <h1 class="collapsed-title">[emacs] presentation tools</h1>    
       <div class="content">
-	<a href="https://braindump.frege2godel.me/posts/english1/" alt="daily영어(1)-don&#39;t pet my puppy" class="permalink" data-singlepage="yes" ><h1>daily영어(1)-don&#39;t pet my puppy</h1></a>
+	<a href="https://braindump.frege2godel.me/posts/emacs_presentation_tools/" alt="[emacs] presentation tools" class="permalink" data-singlepage="yes" ><h1>[emacs] presentation tools</h1></a>
 	<fieldset>
 	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
-	  <ol class="li"><strong>Title: </strong> daily영어(1)-don&#39;t pet my puppy </ol>
-	  <ol class="li"><strong>date: </strong> 2023 6.5 </ol>
-	  <ol class="li"><strong>content: </strong>dear annie 에세이. </ol>
+	  <ol class="li"><strong>Title: </strong> [emacs] presentation tools </ol>
+	  <ol class="li"><strong>date: </strong> 2023 7.24 </ol>
+	  <ol class="li"><strong>content: </strong>emacs에서 presentation tools인 org-reveal </ol>
 	    
   
     
@@ -167,89 +167,196 @@
   
 	  
 	</fieldset>
-	<h2 id="dear-annie">Dear Annie</h2>
-<p><a href="~/Dropbox/audiobooks/askmeanything/AskMeAnything_01.mp3">audio-file</a>
+	<h2 id="org에서-다른-문서로의-변환">org에서 다른 문서로의 변환</h2>
+<p>org에서 다른문서로 변환하는데 3가지 방식이 있다.</p>
+<h3 id="첫번째방식-emacs-설정방식">[첫번째방식] emacs 설정방식</h3>
+<p>emacs.org에서 설정하는 방식이 있다. 예를 들면, 아래와 같이 설정한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(add-to-list &#39;org-export-latex-classes
+</span></span><span class="line"><span class="cl">  &#39;(&#34;letter&#34;
+</span></span><span class="line"><span class="cl">   &#34;\\documentclass[11pt]{letter}\n
+</span></span><span class="line"><span class="cl">    \\usepackage[utf8]{inputenc}\n
+</span></span><span class="line"><span class="cl">    \\usepackage[T1]{fontenc}\n
+</span></span><span class="line"><span class="cl">    \\usepackage{color}&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   (&#34;\\section{%s}&#34; . &#34;\\section*{%s}&#34;)
+</span></span><span class="line"><span class="cl">   (&#34;\\subsection{%s}&#34; . &#34;\\subsection*{%s}&#34;)
+</span></span><span class="line"><span class="cl">   (&#34;\\subsubsection{%s}&#34; . &#34;\\subsubsection*{%s}&#34;)
+</span></span><span class="line"><span class="cl">   (&#34;\\paragraph{%s}&#34; . &#34;\\paragraph*{%s}&#34;)
+</span></span><span class="line"><span class="cl">   (&#34;\\subparagraph{%s}&#34; . &#34;\\subparagraph*{%s}&#34;)))
+</span></span></code></pre></div><h3 id="두번째-방식-org문서-head에-작성한다-dot-recommend">[두번째 방식] org문서 head에 작성한다. - recommend</h3>
+<p>org문서의 상단에 다음과 같은것을 기술한다. 보통 yasnippet에 저장해놓고
+불러다 쓴다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">#+TITLE:
+</span></span><span class="line"><span class="cl">#+AUTHOR: Holy frege
+</span></span><span class="line"><span class="cl">#+DESCRIPTION: Org-HTML export made simple.
+</span></span><span class="line"><span class="cl">#+KEYWORDS:  org-mode, export, html, theme, style, css, js, bigblow
+</span></span><span class="line"><span class="cl">#+LANGUAGE:  en
+</span></span><span class="line"><span class="cl">#+OPTIONS:   H:4 toc:t num:2
+</span></span><span class="line"><span class="cl">#+MACRO: color @@html:&lt;font color=&gt;&lt;/font&gt;@@
+</span></span><span class="line"><span class="cl">#+PROPERTY:  header-args :padline no
+</span></span><span class="line"><span class="cl">#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+</span></span><span class="line"><span class="cl">#+LATEX_HEADER: \usepackage{kotex}
+</span></span><span class="line"><span class="cl">#+latex_header: \hypersetup{colorlinks=true}
+</span></span></code></pre></div><h3 id="세번째-방식-export-menu에서-설정">[세번째 방식] export menu에서 설정</h3>
+<p>export dispatch메뉴에서 template을 저장하고 삽입할 수 있다. 하지만,
+어떻게 하는지도 모르고 불편할 듯 해서 나는 사용하지 않는다.</p>
+<p><a id="figure--dispatch"></a></p>
+<figure><img src="/img/presentation/opt1.png"
+         alt="Figure 1: dispatch" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>dispatch</p>
+        </figcaption>
+</figure>
+
+<h3 id="요약">요약</h3>
+<p>세가지 방식중 어떤것을 해도 상관없다. 추천하는건 두번째 방식이다.</p>
+<h2 id="reveal로의-변환">Reveal로의 변환</h2>
+<h3 id="org-reveal-설치법">org reveal 설치법</h3>
+<h4 id="설치">설치</h4>
+<p>org 문서를 reveal로 볼려면 C-c C-e R R로 export해서 보면 된다. C-c
+C-e 했을 때 Reveal 메뉴가 안보이면 설치가 안된것이다. ox-reveal.el과
+reveal.js가 있어야 한다. 자세한 설치과정은 다음사이트를 확인하자.
+<a href="https://github.com/yjwen/org-reveal" target="_blank">https://github.com/yjwen/org-reveal
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+
+<a href="https://github.com/hexmode/ox-reveal" target="_blank">https://github.com/hexmode/ox-reveal
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
 </p>
-<h3 id="1">1</h3>
-<p>내 강아지는 비글 라브라도 리트리버의 mix입니다. 1살이며, 강아지가 하는
-모든 것을 합니다.</p>
-<p>My puppy, a beagle/Labrador mix, is 1 year old and does everything
-puppies do.</p>
-<h3 id="2">2</h3>
-<p>그녀는 매력적입니다. 보는 사람들을 멈추게 만드는 매력이
-있습니다. 그녀를 보면 내 마음이 녹아내립니다.</p>
-<p>She&rsquo;s adorbs. She&rsquo;s a traffic-stopper. My heart melts when
-I see her.</p>
-<h3 id="3">3</h3>
-<p>하지만 그녀는 집 안에서 볼일을 보고, 모든 것을 깨물고, 끝없이 에너지를
-뿜어내고 있습니다. 강아지는 아직 훈련 중이며 적어도 1년 이상은 훈련을
-받을 것입니다.&quot;</p>
-<p>But she also does her business in the house, chews on everything and
-has seemingly endless amounts energy. She is still in training and
-will be in training for another year -at least.</p>
-<h3 id="4">4</h3>
-<p>우리가 지금 하고 있는것(애쓰는것)은 강아지가 사람들에게 뛰어 올라붙지 않도록
-하는 것입니다. 강아지가 뛰기 시작하면, 강아지가 멈출 때까지 돌아서서
-그녀를 무시합니다. 이것을 집에서 할때는 잘 합니다.</p>
-<p>One of things we&rsquo;re working on is getting her to stop jumping up on
-people. If she starts to jump, I&rsquo;m supposed to turn around and ignore
-her until she stops. I do this at home and it works well.</p>
-<h3 id="5">5</h3>
-<p>하지만 강아지와 산책을 할 때마다, 낯선 사람들은 그녀가 얼마나 귀여운지
-보고 만지고 싶어합니다.</p>
-<p>But whenever I take her for walks, strangers see what a cutie she is
-and want to pet her.</p>
-<h3 id="6">6</h3>
-<p>그들이 강아지에가 다가가면 강아지는 점프합니다. 그러면, 그들은 내가 싫어하는 그
-전형적인 문구를 말합니다: &ldquo;괜찮아요. 괜찮아요&rdquo;.</p>
-<p>When they approach her and she jumps, they say that typical phrase
-I&rsquo;ve come to hate: &ldquo;Oh, It&rsquo;s ok. I don&rsquo;t mind.&rdquo;</p>
-<h3 id="7">7</h3>
-<p>이러한 사람들 때문에 내가 매우 좌절합니다. 그리고 나는 &ldquo;하지만 나는
-그렇지 않아요!&rdquo; 라고 따지기 시작합니다.</p>
-<p>I get so frustrated with these people.  I find myself snapping back at
-them, &ldquo;But I do!&rdquo;</p>
-<h3 id="8">8</h3>
-<p>나는 이렇게 하는 모든 사람에게 인내심을 갖고 대하기 어렵습니다. 이러한
-상황이 매번 발생할 때마다, 그것이 강아지의 훈련 과정을 망친다고
-생각하기 때문이에요. 이제부터는 낯선 사람들에게 뭐라고 말해야 할지
-모르겠습니다.</p>
-<p>I am having trouble being patient with every single
-person who does this, because I feel as though every time it happen,
-it ruins the progress of my pup&rsquo;s training. I don&rsquo;t know what to say
-to strangers anymore.</p>
-<h2 id="dear-puppy">Dear Puppy</h2>
-<h3 id="1">1</h3>
-<p>이제는 당신이 알파 독이 되어야 합니다.</p>
-<p>It&rsquo;s time for you to be the alpha dog.</p>
-<h3 id="2">2</h3>
-<p>낯선 사람들과의 교류에서 당신의 강아지에 대한 지배력을 확립해야
-합니다.</p>
-<p>You must assert your dominance over your pup&rsquo;s interactions
-with strangers.</p>
-<h3 id="3">3</h3>
-<p>이런 사람들은 분명 강아지를 훈련한 적이 없을 것이다. 단지 강아지를
-쓰다듬는 것 가지고 화를 내는 것을 보면 그들은 매우 혼란스러울
-것입니다.</p>
-<p>The people who are doing this have obviously never had
-to train a dog before, so they&rsquo;re probably really confused when you
-snap at them - ostensibly just for petting your dog.</p>
-<h3 id="4">4</h3>
-<p>문제가 시작되기 전에 주의 신호를 인식하고 문제가 되는 행동을 중단해야
-합니다.</p>
-<p>Recognize the warning signs and stop the troublesome behavior
-before it starts.</p>
-<h3 id="5">5</h3>
-<p>당신의 강아지를 끌어안고 싶어하는 낯선 사람이 다가오는 모습을 보면,
-&ldquo;만져도 괜찮아요. 하지만 강아지가 점프하지 않도록 부탁드릴게요.</p>
-<p>The next time you see an approaching stranger giving your dog that
-oh-my-gosh-let-me-hug-you look, say, &ldquo;You can pet her, but she&rsquo;s in
-training, so please don&rsquo;t let her jump.</p>
-<h3 id="6">6</h3>
-<p>점프를 하면, 등을 보여주세요&rdquo; 라고 말해보세요. 당신이 능동적이고
-주도적으로 상황을 미리 통제하는 지도자 역할을 수행해야 합니다.</p>
-<p>If she does, turn your back on her.&rdquo; You have to be proactive and take
-control of the situation early-like any good leader of the pack.</p>
+<h4 id="reveal-dot-js-cdn--두번째-방법">reveal.js cdn (두번째 방법)</h4>
+<p>두 번째 방법이 있다. reveal.js를 시스템에 다운받는경우와 org mode에서
+cdn을 사용하는 경우가 있다. 나는 cdn을 사용하기로 한다. org 문서
+상단에 다음을 추가한다. snippet을 추가하자.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">#+REVEAL_ROOT:  https://cdn.jsdelivr.net/npm/reveal.js
+</span></span><span class="line"><span class="cl">#+REVEAL_REVEAL_JS_VERSION:  4
+</span></span></code></pre></div><h4 id="ox-reveal-dot-el-설치--첫번째-방법">ox-reveal.el 설치(첫번째 방법)</h4>
+<p>위의 ox-reveal에서 git을 clone한 후 ox-reveal.el을 .emacs의 lisp폴더에
+넣는다. lisp폴더는 내가 만든 폴더인데, emacs를 실행할때 load할수 있게
+이미 다음과 같이 setting을 했다.</p>
+<div class="important">
+<p>(add-to-list &rsquo;load-path &ldquo;<em>Users/holy</em>.emacs.d/lisp/&rdquo;)</p>
+</div>
+<p>lisp폴더에 넣은후에 require로 load하면 된다.</p>
+<div class="important">
+<p>(require &lsquo;ox-reveal)</p>
+</div>
+<h3 id="org-reveal-설정">org reveal 설정</h3>
+<h4 id="template">template</h4>
+<p>일반적인 template은 다음과 같다. snippet에 저장되어 있어서 C-c s로
+사용하면 된다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">#+AUTHOR:    hoyoul park
+</span></span><span class="line"><span class="cl">#+EMAIL:     holy_frege@fastmail.com
+</span></span><span class="line"><span class="cl">#+OPTIONS:  toc:nil  d:nil ^:nil num:nil
+</span></span><span class="line"><span class="cl">#+REVEAL_INIT_OPTIONS: transition: &#39;linear&#39;
+</span></span><span class="line"><span class="cl">#+REVEAL_THEME: moon
+</span></span><span class="line"><span class="cl">#+REVEAL_TITLE_SLIDE: &lt;h2&gt;%t &lt;br&gt; &lt;h4&gt;%a(%e)
+</span></span><span class="line"><span class="cl">#+REVEAL_ROOT:  https://cdn.jsdelivr.net/npm/reveal.js
+</span></span><span class="line"><span class="cl">#+REVEAL_REVEAL_JS_VERSION:  4
+</span></span><span class="line"><span class="cl">#+REVEAL_EXTRA_CSS: ./modifications.css
+</span></span></code></pre></div><h4 id="options">options</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">#+OPTIONS:  toc:nil  d:nil ^:nil num:nil
+</span></span></code></pre></div><p>toc는 index다. table of contents의 약자다. d:nil은 org-roam의 경우
+properties가 출력되는데, 즉 drawer를 보여줄지 말지를 결정한다. ^:nil로
+한것은 _가 org export시에 subscript로 변환되는데 이것을 문자 그대로
+사용하겠다는 뜻이다. num: nil은 각slide tile앞에 숫자가
+numbering되는데, 그것을 막아준다.</p>
+<h4 id="theme">theme</h4>
+<p>theme는 여러가지가 있다. 보통은 moon을 추천한다.
+black,white,league,beige,sky,night,serif,simple,solarized,blood,moon</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">#+REVEAL_THEME: moon
+</span></span></code></pre></div><h4 id="attr">ATTR</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">#+ATTR_REVEAL: :frag (appear)
+</span></span></code></pre></div><h4 id="html수정">html수정</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">#+REVEAL_HTML: &lt;div class=&#34;column&#34; style=&#34;float:left; width: 50%&#34;&gt;
+</span></span></code></pre></div><h4 id="title수정">title수정</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">#+REVEAL_TITLE_SLIDE: &lt;h2&gt;%t &lt;br&gt; &lt;h4&gt;%a(%e)
+</span></span></code></pre></div><h4 id="transition">transition</h4>
+<p>시각적 효과 수정은 여러 option이 있다. 보통은 linear를 추천한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">#+REVEAL_INIT_OPTIONS: transition: &#39;cube&#39;
+</span></span></code></pre></div><p>default|cube|page|concave|zoom|linear|fade|none.</p>
+<h3 id="org-reveal-사용법">org reveal 사용법</h3>
+<h4 id="chrome-browser에서-presentation시-전체화면">chrome browser에서 presentation시 전체화면</h4>
+<p>f를 누르면 된다.</p>
+<h4 id="video-추가">video 추가</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">@@html:&lt;video controls width=&#34;500&#34; height=&#34;300&#34; src=&#34;./misc/daeun.m4v&#34;&gt;&lt;/video&gt;@@
+</span></span></code></pre></div><h3 id="org-reveal-해킹">org reveal 해킹</h3>
+<h4 id="reveal의-구조">reveal의 구조</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&lt;div class=&#34;reveal&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;div class=&#34;slides&#34;&gt;
+</span></span><span class="line"><span class="cl">    &lt;section&gt;Horizontal Slide&lt;/section&gt;
+</span></span><span class="line"><span class="cl">    &lt;section&gt;
+</span></span><span class="line"><span class="cl">      &lt;section&gt;Vertical Slide 1&lt;/section&gt;
+</span></span><span class="line"><span class="cl">      &lt;section&gt;Vertical Slide 2&lt;/section&gt;
+</span></span><span class="line"><span class="cl">    &lt;/section&gt;
+</span></span><span class="line"><span class="cl">  &lt;/div&gt;
+</span></span><span class="line"><span class="cl">&lt;/div&gt;
+</span></span></code></pre></div><p>slides라는 class아래에 section이 있는데, 우리가 흔히 말하는 슬라이드는
+reveal에선 slides아래에 있는 section을 의미한다. section안에 또 다른
+section이 있을 수 있는데, vertical 슬라이드가 만들어진다. vertical
+슬라이드 안에 level2의 section이 별도의 슬라이드로 들어가는 형태가
+된다. 즉 level1의 section은 하나의 슬라이드가 되고, level2의 section은
+vertical 슬라이드가 된다. 이것을 기준으로 css를 customize할 수
+있다. org mode에서의 mapping관계를 사용해서 설정할 수 있다</p>
+<h4 id="font-size">font size</h4>
+<p>위에서 설명한 reveal구조를 해킹해서 css를 적용할 수 있다. font크기를
+조정하는 이유는 한글때문에 그렇다. 한글의 경우, 영문하고 다르기
+때문이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#+REVEAL_EXTRA_CSS: ./modifications.css
+</span></span></code></pre></div><p>font size를 조정하는 css는 다음과 같다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* slide 제목 크기 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">reveal</span> <span class="nt">h2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">font-size</span><span class="p">:</span> <span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">/* color: #4CAF50; */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c">/* vertical slide 제목 크기 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">reveal</span> <span class="nt">h3</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">font-size</span><span class="p">:</span> <span class="mf">1.2</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">/* color: #008CBA; */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c">/* title slide 제목 크기 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">#</span><span class="nn">sec-title-slide</span> <span class="nt">h2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">font-size</span><span class="p">:</span> <span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">color</span><span class="p">:</span> <span class="mh">#FFF484</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">section</span> <span class="nt">p</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">font-size</span><span class="p">:</span> <span class="mf">0.7</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">line-height</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">section</span> <span class="nt">li</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">font-size</span><span class="p">:</span> <span class="mf">0.7</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.85</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nt">section</span> <span class="nt">pre</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">font-size</span><span class="p">:</span> <span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">color</span><span class="p">:</span> <span class="mh">#FFF484</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="org-tree">org-tree</h2>
+<h2 id="org-readtheorg">org-readtheorg</h2>
+<p>readtheorg 는 아래와 같이 org에 header를 추가하는 방식으로 한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">#+TITLE:
+</span></span><span class="line"><span class="cl">         #+AUTHOR: Holy frege
+</span></span><span class="line"><span class="cl">         #+DESCRIPTION: Org-HTML export made simple.
+</span></span><span class="line"><span class="cl">         #+KEYWORDS:  org-mode, export, html, theme, style, css, js, bigblow
+</span></span><span class="line"><span class="cl">         #+LANGUAGE:  en
+</span></span><span class="line"><span class="cl">         #+OPTIONS:   H:4 toc:t num:2
+</span></span><span class="line"><span class="cl">         #+MACRO: color @@html:&lt;font color=&gt;&lt;/font&gt;@@
+</span></span><span class="line"><span class="cl">         #+PROPERTY:  header-args :padline no
+</span></span><span class="line"><span class="cl">         #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+</span></span><span class="line"><span class="cl">         #+LATEX_HEADER: \usepackage{kotex}
+</span></span><span class="line"><span class="cl">         #+latex_header: \hypersetup{colorlinks=true}
+</span></span></code></pre></div><h2 id="org-beamer">org-beamer</h2>
+<p>전통적인 tex presentation 방식이다. 이걸 사용하기 위해선 system에
+beamer가 설치되어 있어야 한다.</p>
+<p>사용법과 설치는 <a href="http://emacs-fu.blogspot.com/2009/10/writing-presentations-with-org-mode-and.html" target="_blank">다음
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+과 <a href="https://orgmode.org/worg/exporters/beamer/tutorial.html" target="_blank">다음
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+을 참조한다.</p>
       
       </div>
 
