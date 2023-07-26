@@ -8,6 +8,15 @@
     <language>ko</language>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[git] git explained</title>
+      <link>https://braindump.frege2godel.me/posts/git_git_explained/</link>
+      <pubDate>Tue, 25 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/git_git_explained/</guid>
+      <description>Git Explained Git Introduction Git은 Version Control System이다. 또한 Git은 version history라고 부른다. Git에서 commit이라는 자료구조는 version이라고 한다</description>
+    </item>
+    
+    <item>
       <title>[emacs] presentation tools</title>
       <link>https://braindump.frege2godel.me/posts/emacs_presentation_tools/</link>
       <pubDate>Mon, 24 Jul 2023 00:00:00 +0900</pubDate>
