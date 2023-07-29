@@ -52,6 +52,14 @@
   
     
      
+        
+    
+    
+     
+    
+     
+    
+     
     
      
     
@@ -167,10 +175,22 @@
   
 
   
+  <div class="bl-section">
+    <hr/>
+    <h4> (back links) </h4>
+    <div class="backlinks">
+       <ul>
+       
+         <li><a href="/posts/git_git_drill1_repo_and_commit/">[git] git drill1 repo and commit</a></li>
+       
+      </ul>
+    </div>
+  </div>
+
 	  
 	</fieldset>
 	<h2 id="git-explained">Git Explained</h2>
-<h3 id="git-introduction">Git Introduction</h3>
+<h2 id="git-introduction">Git Introduction</h2>
 <div class="attention">
 <p>Git은 Version Control System이다. 또한 Git은 version history라고
 부른다. Git에서 commit이라는 자료구조는 version이라고 한다. history는
@@ -182,7 +202,7 @@ system에서 Git의 사용, 3단계는 remote system에서 Git의 사용, 4단�
 work flow다. 부록으로 Git 내부 명령어를 설명할 수도 있다. 1단계는
 어디가도 있는 내용이라서 그냥 가볍게 읽고 넘어가면 된다.</p>
 </div>
-<h3 id="git-drill-1단계--part-1-repo란-무엇이고-repo-준비">Git Drill-1단계(part 1: repo란 무엇이고, repo 준비)</h3>
+<h2 id="git-drill-1단계--part-1-repo란-무엇이고-repo-준비">Git Drill-1단계(part 1: repo란 무엇이고, repo 준비)</h2>
 <p>누군가가 repository가 무엇이냐고 묻는다면? 어떻게 대답할 수 있을까?
 repo는 container다. repo라는 자신만의 file-system을 가지고 있고,
 자신만의 file system의 변경사항들을 commit이란 형태로
@@ -199,24 +219,24 @@ setting할 수 있다. 이렇게 하면 commit만 만들면 된다. 이것은 pa
 </span></span><span class="line"><span class="cl">        (2) git clone : .git(repository) 폴더를 server에서 가져온다.
 </span></span><span class="line"><span class="cl">        (3) git configure : git을 설정한다. commit에 자신의 정보를 넣기위해서 필요.
 </span></span><span class="line"><span class="cl">        (4) git ignore: git에서 처리하지 않을 파일을 기록
-</span></span></code></pre></div><h4 id="git-설치--brew">git 설치(brew)</h4>
+</span></span></code></pre></div><h3 id="git-설치--brew">git 설치(brew)</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">brew install git
 </span></span></code></pre></div><p>git을 system에 설치, 간단히 brew로 설치</p>
-<h4 id="git-init-git-clone">git init, git clone</h4>
+<h3 id="git-init-git-clone">git init, git clone</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git init
 </span></span><span class="line"><span class="cl">git clone URL
 </span></span></code></pre></div><p>git init으로 현재 폴더안에.git(repository)이란 폴더를 만든다. 처음에는
 commit도 없고, branch도 없다.  git clone URL에서 다른곳에 있는
 .git폴더를 가져오는 것이다. git clone은 remote와 관련이 있기 때문에
 3단계에서도 설명을 할 것이다.</p>
-<h4 id="git-configure">git configure</h4>
+<h3 id="git-configure">git configure</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git config --global user.name &#34;[name]&#34;
 </span></span><span class="line"><span class="cl">git config --global user.email &#34;[name]&#34;
 </span></span></code></pre></div><p>이제 저장할 공간도 확보했기 때문에 저장 하면 된다. 그런데, 좀 해주어야
 할게 있다.  저장은 commit이란 형태로 저장되는데, 여기에는 어떤
 사용자가 저장했는지, 언제 했는지 같은 meta data가 들어간다. 그 meta
 data를 설정해야 한다. 사용자 이름,email주소를 적어주면 된다.</p>
-<h4 id="git-ignore">git ignore</h4>
+<h3 id="git-ignore">git ignore</h3>
 <p>편집기에서 .gitignore이라는 파일을 열고 다음과 같은 내용을 쓴다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">*.log
 </span></span></code></pre></div><p>.gitigonre파일에서 특정 파일을 commit에 포함시키지 않는다. commit을
@@ -225,7 +245,7 @@ data를 설정해야 한다. 사용자 이름,email주소를 적어주면 된다
 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
 </a>
 </p>
-<h3 id="git-drill-1단계--part2-commit-만들기">Git drill - 1단계 (part2-commit 만들기)</h3>
+<h2 id="git-drill-1단계--part2-commit-만들기">Git drill - 1단계 (part2-commit 만들기)</h2>
 <div class="attention">
 <p>Part1에서 git을 사용해서 commit을 할 수 있는 준비가 되었다고
 했다. commit은 git에서 다루는 가장 기본적인 단위다. commit은 동사로도
@@ -234,13 +254,13 @@ linked list 형태로 연결되어 있다.  commit은 git의 가장 fundamental�
 요소다. part2에선 commit을 만들고, 이것이 어떻게 linked list로
 연결되는가?에 대해서 알아본다.</p>
 </div>
-<h4 id="commit">Commit</h4>
+<h3 id="commit">Commit</h3>
 <p>part1에서 repo를 생성하거나 가져왔다. repo에는 commit들의 linked
 list형태로 저장된다고 했다. 그러면 commit은 무엇이냐?라고 물을 수
 있다. 뭐라고 말할 것인가? commit은 변경사항이다. repo가 가진 sub file
 system의 변경사항을 압축한게 commit이다. 난 이렇게 밖에 답할 수 없을
 듯 하다.</p>
-<h4 id="commit-만들기-위한-조건-dot">commit 만들기 위한 조건.</h4>
+<h3 id="commit-만들기-위한-조건-dot">commit 만들기 위한 조건.</h3>
 <p>git은 저장시스템(repository)에 commit을 linked list형태로 저장한다고
 했다. commit은 변경사항을 저장한 것이라고 했다. 변경사항? 어떤
 변경사항인가? repo가 가진 working directory의 변경사항을 뜻한다.
@@ -252,13 +272,13 @@ repo가 유지하는 working directory에서 변경된 파일이 있거나 추�
 directory에서의 변경사항의 기준은 이전 commit이다. 처음 repo를
 작성하면 이전 commit은 없기 때문에 새로 생성되는 모든 파일은 변경사항이
 된다. git은 이 모든 것을 check하고 있다.</p>
-<h4 id="git-status">[git status]</h4>
+<h3 id="git-status">[git status]</h3>
 <p>git이 이전 commit과 현재의 working directory의 차이를 monitoring하고
 있다고 했다. 정말 git이 monitoring하는지 알수 있는 git 명령어가
 제공된다. git status라는 명령어다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git status
 </span></span></code></pre></div><p><a id="figure--git status"></a></p>
-<figure><img src="/img/git/git_status1.png"
+<figure><img src="/img/git/git_status.png"
          alt="Figure 1: git status" width="600px"/><figcaption>
             <p><span class="figure-number">Figure 1: </span>git status</p>
         </figcaption>
@@ -285,7 +305,7 @@ commit과 비교해서 변경된 파일들(changes)를 계속 monitoring한다�
 <code>untracked</code> 는 이전 commit에 없는 새로운 file을 의미한다. <code>untracked</code>
 파일들도 다음 commit을 만들때 선택될 수 있다. 마치 changes가 선택되서
 stage에 올라가듯 untracked file들도 선택되어 stage에 올라갈 수 있다.</p>
-<h4 id="git-add-변경파일--changes--새파일--untracked--들은-선택되어-staged될-수-있다-dot">[git add] - 변경파일(changes),새파일(untracked)들은 선택되어 staged될 수 있다.</h4>
+<h3 id="git-add-변경파일--changes--새파일--untracked--들은-선택되어-staged될-수-있다-dot">[git add] - 변경파일(changes),새파일(untracked)들은 선택되어 staged될 수 있다.</h3>
 <p>모든 changes들이 commit이 되는게 아니라, changes들 중 선택할 수 있다.
 git에선 git add라는 명령어를 제공한다.  git add로 우린 원하는
 changes(변경된 파일)을 선택해서 stage에 올릴 수 있다.</p>
@@ -297,11 +317,11 @@ file들이 변경되거나 추가될 수 있다. 하나 하나 선택하는 건 
 협업을 하게 되면 파일의 수가 많아지는건 너무나 당연하다. 그래서 보통은
 git add . 로 전체를 올린다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git add .
-</span></span></code></pre></div><h4 id="git-commit-stage에-간택된-changes만-commit-dot">[git commit] stage에 간택된 changes만 commit.</h4>
+</span></span></code></pre></div><h3 id="git-commit-stage에-간택된-changes만-commit-dot">[git commit] stage에 간택된 changes만 commit.</h3>
 <p>이렇게 stage에 올린 후에 git commit -m
 &ldquo;message&quot;를 입력하면 commit이란 형태로 repository에 저장된다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git commit -m &#34;message&#34;
-</span></span></code></pre></div><h4 id="git-commit-branch와-head의-역할">[git commit] branch와 HEAD의 역할</h4>
+</span></span></code></pre></div><h3 id="git-commit-branch와-head의-역할">[git commit] branch와 HEAD의 역할</h3>
 <p>앞으로 나오게 될 말이기도 하지만, 최초의 commit이 만들어지면, 그 때
 master(main)라는 branch와 Head가 만들어진다. master는 commit을
 가리키고, Head는 master를 가리킨다. 물론, HEAD나 branch는 모두
@@ -329,11 +349,11 @@ commit이 아니다. 입구 같은 commit이다. 모든 commit들이 linked list
         </figcaption>
 </figure>
 
-<h4 id="git-switch-git-checkout-head-detached-용어">[git switch,git checkout] &lsquo;HEAD detached&rsquo; 용어</h4>
+<h3 id="git-switch-git-checkout-head-detached-용어">[git switch,git checkout] &lsquo;HEAD detached&rsquo; 용어</h3>
 <p>HEAD detached라는 용어가 있다. HEAD는 branch를 가리킨다고 한다. 만일
 HEAD가 branch가 아닌 commit을 가리키면 Head Detached라고
 부른다. HEAD를 이동하는 명령어는 git switch과 git checkout이 있다.</p>
-<h4 id="git-commit-결과-git-log-git-status">[git commit] 결과 [git log],[git status]</h4>
+<h3 id="git-commit-결과-git-log-git-status">[git commit] 결과 [git log],[git status]</h3>
 <p>git commit을 했을때 순차적인 동작은 다음과 같다. commit이 만들어지고,
 HEAD가 가리키는 branch는 새로운 commit으로 이동된다. branch가 이동되면
 HEAD도 같이 이동된다. 이것을 확인하는 것은 git log라는 명령어이다. git
@@ -358,20 +378,17 @@ log는 만들어진 commit과 HEAD와 Branch를 보여준다.</p>
 <p>stage가 깨끗해진다는 것은 이렇게 이해해도 된다. 새롭게 만들어진
 commit에 있는 working directory는 현재 working directory와 동일하기
 때문에 changes가 없는건 당연하다. 라고 이해할 수 있다.</p>
-<h4 id="git-rm-stage에서-내리는법--unstage">[git rm] stage에서 내리는법(unstage)</h4>
+<h3 id="git-rm-stage에서-내리는법--unstage">[git rm] stage에서 내리는법(unstage)</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(use &#34;git rm --cached &lt;file&gt;...&#34; to unstage)
 </span></span></code></pre></div><p>stage를 다른 말로 cached라고 부르기도 한다. git rm으로 stage에
 올린것을 지우면 된다.</p>
-<h4 id="git-reset-commit취소-그리고-이동">[git reset] commit취소 그리고 이동</h4>
+<h3 id="git-reset-commit취소-그리고-이동">[git reset] commit취소 그리고 이동</h3>
 <p>commit을 만들었는데, 잘못 만들었다. 취소하고 싶다. 이것은 좀 복잡한
 내부처리 과정을 거친다. 취소라는 단어보단, 어떻게 보면 Head와
 branch이동인데, 그냥 취소라고 하자. 두 가지 경우가 있다. 하나는 만든
 commit이 최초의 commit인 경우와, 두번째는 만든 commit이 최초 commit이
 아닌 경우다.</p>
-<!--list-separator-->
-<ul>
-<li>
-<p>최초 commit인 경우.</p>
+<h4 id="최초-commit인-경우-dot">최초 commit인 경우.</h4>
 <p>commit을 삭제하면 이전의 상태로 가야 한다. 이전 상태는 아무것도 없는
 상태, 그러면 HEAD와 Branch가 없어야 한다. 그리고 수정된 파일이나,
 새롭게 만든 파일들은 그대로 working directory에 있어야 하고, git
@@ -388,12 +405,7 @@ status를 했을때 변경사항으로 보여져야 한다.</p>
 있다. repo를 지우면 잘못만든 commit이 가지고 있던 file들은 그대로 현
 폴더에 있는 상태지만, HEAD만 지우면, 변경사항들은 index(stage)에
 올려져 있다.</p>
-</li>
-</ul>
-<!--list-separator-->
-<ul>
-<li>
-<p>[git reset] 최초의 commit이 아닌 경우</p>
+<h4 id="git-reset-최초의-commit이-아닌-경우">[git reset] 최초의 commit이 아닌 경우</h4>
 <p>commit을 취소하면 HEAD와 branch가 이전의 commit으로 이동하고 취소된
 commit이 가지고 있던 변경사항들이 stage에 있는것을 원할 것이다. 이 때
 사용하는 명령이 reset이다. reset은 HEAD와 Branch를 함께 움직이는
@@ -412,7 +424,7 @@ checkout은 branch를 인자로 받아서 HEAD를 branch로 이동한다면, res
 올려놓는 것이다.</p>
 </li>
 <li>
-<p>&ndash;mixed:</p>
+<p>&ndash;mixed(default):</p>
 <p>이동하려는 commit과 현재 commit의 차이를 그대로 <code>변경사항영역</code> 에
 놔둔다. 변경 사항들을 지우지 않는다. soft에서는 모두 stage에
 올려놨다면, mixed는 그대로 변경사항으로 남아 있는 것이다.</p>
@@ -421,7 +433,7 @@ checkout은 branch를 인자로 받아서 HEAD를 branch로 이동한다면, res
 <p>&ndash;hard</p>
 </li>
 </ul>
- <!--listend-->
+<!--listend-->
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git reset --hard cd23ed20deb
 </span></span></code></pre></div><p>hard라는 단어에서 느끼듯이 이것은 현재 commit과 해당 commit간의 모든
 변경 사항들은 무시한다. <code>stage에 올려놓거나 변경사항을 유지하지 않는다.</code> 즉 두 commit간의 차이점을 반영하지 않는다. git status를
@@ -430,9 +442,7 @@ commit을 commit했을 때, 당시 시점으로 이동하는것이다. commit한
 시점이기 때문에 git status를 했을 때 아무것도 안보이는 것은 당연한
 일이다. &ndash;hard는 모든 변경했던 파일 정보가 사라지기 때문에 사용에
 신중함이 필요하다.</p>
-</li>
-</ul>
-<h4 id="상대-참조에-관해--head-와-head-n-그리고-commit-hash">상대 참조에 관해(HEAD^와 HEAD~n 그리고 commit hash)</h4>
+<h3 id="상대-참조에-관해--head-와-head-n-그리고-commit-hash">상대 참조에 관해(HEAD^와 HEAD~n 그리고 commit hash)</h3>
 <p>git checkout,switch,reset은 HEAD와 branch를 특정 commit으로 이동하는
 명령어이다. 특정 commit을 가리킬 때는 git log를 통해서 hash값을 알아야
 이동 할 수 있다. hash값을 사용해서 처리하는것은 절대주소를 참조하는
@@ -443,8 +453,13 @@ commit을 commit했을 때, 당시 시점으로 이동하는것이다. commit한
 </span></span><span class="line"><span class="cl">git reset HEAD~3
 </span></span></code></pre></div><p>위와 같이 해서 commit이 가진 hash값을 직접 입력하지 않고 commit을
 참조할 수 있다. Head와 branch 어떤걸로 해도 상관없다.</p>
-<h4 id="summary">summary</h4>
-<div class="note">
+<h3 id="summary">summary</h3>
+<p>git repo와 commit에 대해서 대충 다뤄봤다. commit에서 좀 설명해야 할
+게 있는데, commit의 구조다. commit은 변경사항만 저장하는데, working
+directory구조는 유지하면서 변경사항을 저장한다. 변경된 파일들을
+나열해서 저장하는게 아니라, working diretory의 구조인 tree와
+blob이라는 file형태로 저장한다. 그래서 commit을 보면 아래와 같이
+tree와 blob을 볼 수 있다.</p>
 <p><a id="figure--git commit"></a></p>
 <figure><img src="/img/git/makecommit.png"
          alt="Figure 5: git commit과정"/><figcaption>
@@ -452,16 +467,11 @@ commit을 commit했을 때, 당시 시점으로 이동하는것이다. commit한
         </figcaption>
 </figure>
 
-</div>
-<h4 id="linked-list">linked list</h4>
-<p>git은 version의 history를 linked list로 관리한다. version은
-commit이라는 형태이고 단방향 linked list로 저장된다. linked list로
-관리하면 몇가지 특징이 있다. Head가 있고, 저장한다. 그냥 배열을
-사용해서 무턱대고 집어넣는게 아니다. 배열은 공간의 크기가 정해져
-있지만, linked list는 동적이다. commit들이 link로 연결되어 있는
-것이다. 새로운 commit이 오면 기존의 연결된 commit과 연결되는 것이다.</p>
-<h3 id="git-drill--2단계">git drill(2단계)</h3>
-<h3 id="git-drill3">git drill3</h3>
+<h2 id="git-drill--2단계-local">git drill(2단계 -local)</h2>
+<p>git drill 1단계에서 repo와 commit을 만드는것을 해봤다. 이제 local에서
+branch와 merge같은 작업이 어떻게 이루어지는지 살펴봐야 한다. 그리고
+local에서 주로 사용하는 git 명령어들도 살펴볼 것이다.</p>
+<h2 id="git-drill3">git drill3</h2>
 <p>말하는 점 조직이란게 이런것이다. 새로운 조직원은 말단 조직원을 통해서만 들어올 수 있고, 그 윗선은
 알수가 없다.</p>
 <p>또 다른 예로, 노래테이프도 linked list로 볼 수 있다.</p>
@@ -480,7 +490,7 @@ list는 중간의 data를 알려면, 이전의 data를 거치지 않고는 알 �
 </div>
 <div class="note">
 <p><a id="figure--linked list"></a></p>
-<figure><img src="./img/linkedlist.png"
+<figure><img src="/img/git/linkedlist.png"
          alt="Figure 6: linked list"/><figcaption>
             <p><span class="figure-number">Figure 6: </span>linked list</p>
         </figcaption>
@@ -500,7 +510,7 @@ list는 중간의 data를 알려면, 이전의 data를 거치지 않고는 알 �
 </div>
 <div class="note">
 <p><a id="figure--new list"></a></p>
-<figure><img src="./img/newlist1.png"
+<figure><img src="/img/git/newlist1.png"
          alt="Figure 7: new head list"/><figcaption>
             <p><span class="figure-number">Figure 7: </span>new head list</p>
         </figcaption>
@@ -513,7 +523,7 @@ list는 중간의 data를 알려면, 이전의 data를 거치지 않고는 알 �
 </div>
 <div class="note">
 <p><a id="figure--new head"></a></p>
-<figure><img src="./img/newlist2.png"
+<figure><img src="/img/git/newlist2.png"
          alt="Figure 8: new head"/><figcaption>
             <p><span class="figure-number">Figure 8: </span>new head</p>
         </figcaption>
@@ -523,21 +533,21 @@ list는 중간의 data를 알려면, 이전의 data를 거치지 않고는 알 �
 <div class="note">
 <p>최종 결과는 다음과 같은 모습이 된다.</p>
 <p><a id="figure--summary1"></a></p>
-<figure><img src="./img/list_sum1.png"
+<figure><img src="/img/git/list_sum1.png"
          alt="Figure 9: summary1"/><figcaption>
             <p><span class="figure-number">Figure 9: </span>summary1</p>
         </figcaption>
 </figure>
 
 <p><a id="figure--summary2"></a></p>
-<figure><img src="./img/list_sum2.png"
+<figure><img src="/img/git/list_sum2.png"
          alt="Figure 10: summary2"/><figcaption>
             <p><span class="figure-number">Figure 10: </span>summary2</p>
         </figcaption>
 </figure>
 
 <p><a id="figure--summary3"></a></p>
-<figure><img src="./img/list_sum3.png"
+<figure><img src="/img/git/list_sum3.png"
          alt="Figure 11: summary3"/><figcaption>
             <p><span class="figure-number">Figure 11: </span>summary3</p>
         </figcaption>
@@ -574,7 +584,7 @@ Node를 받은 사람이 그것을 수정해서 다시 서버에 올렸다고 �
 <div class="note">
 <p>git은 변형 linked list를 사용한다고 했다. linked list에서 사용하는 term과 git에서 사용하는 term이 다르기 때문에 정리한다.</p>
 <p><a id="figure--git terms"></a></p>
-<figure><img src="./img/gitdrill3.png"
+<figure><img src="/img/git/gitdrill3.png"
          alt="Figure 12: git term"/><figcaption>
             <p><span class="figure-number">Figure 12: </span>git term</p>
         </figcaption>
@@ -618,7 +628,7 @@ addressable한 특징때문에, content의 내용이 달라지면 새로운 comm
 <p>git commit은 linked list에 commit을 삽입한다. linked list의 HEAD는 branch라고 하는데, default branch는 master란
 이름을 가지고 있다. 그리고 git은 변형 linked list를 사용하기 때문에 HEAD라는 branch를 선택하는 변수가 있다.</p>
 <p><a id="figure--git commit"></a></p>
-<figure><img src="./img/gitcommit.png"
+<figure><img src="/img/git/gitcommit.png"
          alt="Figure 13: git commit"/><figcaption>
             <p><span class="figure-number">Figure 13: </span>git commit</p>
         </figcaption>
@@ -635,7 +645,7 @@ addressable한 특징때문에, content의 내용이 달라지면 새로운 comm
 commit을 접근할 방법이 없다. linked list는 array와 달라서 link가 없으면 접근할 방법이 없다. 그래서
 그냥 놨두면, git garbage collector가 branch가 접근할 수 없는 commit을 삭제한다.</p>
 <p><a id="figure--git commit amend"></a></p>
-<figure><img src="./img/commitamend.png"
+<figure><img src="/img/git/commitamend.png"
          alt="Figure 14: git commit &amp;ndash;amend"/><figcaption>
             <p><span class="figure-number">Figure 14: </span>git commit &ndash;amend</p>
         </figcaption>
@@ -819,7 +829,7 @@ linked list가 작은 line으로 merge된다면 commit을 잃을 순 있어도 c
  <div class="attention">
 <p>3 way merge가 더 일반적인 경우고 conflict가 일어날 확률이 있는 merge다. 아래에서 충돌이 일어나는 경우를 설명한다. 충돌이
 일어나지 않는 경우는 merge commit이 자동으로 만들어지고, 충돌이 일어나면 수동으로 merge commit을 만드는 차이가 있다.</p>
-<p><a id="org139aee2"></a></p>
+<p><a id="orgf9bfb45"></a></p>
 <p><img src="./img/3way1.png" alt="">
 여기서 b.txt란 파일이 양쪽 linked list에 둘다 있다. 그럼 반드시 충돌이 일어나게 되어있다. 왜냐 어떤 linked list에 있는
 b.txt를 선택할지 모르기 때문이다. 아니면, 두개의 contents를 무리하게 하나의 파일로 만들 수도 있겠지만, git은 그렇게 하지 않는다.</p>
@@ -1299,9 +1309,15 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
      graph_node_object = {
         
-     "label": "[git] git explained",
-     "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_explained\/",
-     "id": "git_git_explained",
+     "label": "[git] git drill1 repo and commit",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_drill1_repo_and_commit\/",
+     "id": "git_git_drill1_repo_and_commit",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1419,6 +1435,406 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
      "backlinks": []
    }
+ sessionStorage.setItem("git_git_drill1_repo_and_commit",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[git] git drill2 local",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_drill2_local\/",
+     "id": "git_git_drill2_local",
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["git_git_drill1_repo_and_commit"]
+   }
+ sessionStorage.setItem("git_git_drill2_local",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[sql] programmers sql high score",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score\/",
+     "id": "sql_programmers_sql_high_score",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("sql_programmers_sql_high_score",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[git] git explained",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_explained\/",
+     "id": "git_git_explained",
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["git_git_drill1_repo_and_commit"]
+   }
  sessionStorage.setItem("git_git_explained",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
  
@@ -1428,6 +1844,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[emacs] presentation tools",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_presentation_tools\/",
      "id": "emacs_presentation_tools",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1669,6 +2091,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_tex_install_and_usage",JSON.stringify(graph_node_object)); 
@@ -1680,6 +2108,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[emacs] mu4e settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_mu4e_settings\/",
      "id": "emacs_mu4e_settings",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1921,6 +2355,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_testing",JSON.stringify(graph_node_object)); 
@@ -2047,6 +2487,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("essay_computer_working_principles",JSON.stringify(graph_node_object)); 
@@ -2058,6 +2504,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[pl] history of programming language from calcuation to OOP",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/pl_history_of_programming_language\/",
      "id": "pl_history_of_programming_language",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -2301,6 +2753,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_grammar_in_one_shot",JSON.stringify(graph_node_object)); 
@@ -2427,6 +2885,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("algorithm_thinking_about_algorithms",JSON.stringify(graph_node_object)); 
@@ -2438,6 +2902,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -2681,6 +3151,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -2807,6 +3283,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary7_big_data_and_python",JSON.stringify(graph_node_object)); 
@@ -2818,6 +3300,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[github] multi account github problem",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/github_multi_account_github_problem\/",
      "id": "github_multi_account_github_problem",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3061,6 +3549,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
@@ -3072,6 +3566,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3315,6 +3815,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
@@ -3326,6 +3832,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[kaggle-courses-intro] Arithmetic and Variable",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
      "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3567,6 +4079,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
@@ -3578,6 +4096,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[kaggle] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
      "id": "kaggle_beginning",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3819,6 +4343,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
@@ -3830,6 +4360,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[leetcode] 1480 running sum of 1d array",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
      "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -4073,6 +4609,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
@@ -4084,6 +4626,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[linear algebra-2] linear independence",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
      "id": "linear_algebra_2_linear_independence",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -4325,6 +4873,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
@@ -4336,6 +4890,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "python_summary5 loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
      "id": "python_summary5_loop",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -4577,6 +5137,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
@@ -4588,6 +5154,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "sop idea1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
      "id": "sop_idea1",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -4829,6 +5401,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_babel_python",JSON.stringify(graph_node_object)); 
@@ -4840,6 +5418,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[emacs] python lsp setting",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_python_lsp_setting\/",
      "id": "emacs_python_lsp_setting",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -5020,6 +5604,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
          
      
          
+     
+         
+     
+         
+     
+         
               
          
      
@@ -5098,6 +5688,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[emacs] anaconda settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
      "id": "emacs_anaconda_settings",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -5341,6 +5937,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -5352,6 +5954,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -5593,6 +6201,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -5604,6 +6218,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -5849,6 +6469,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -5860,6 +6486,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "folding test1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
      "id": "folding_test",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -5988,6 +6620,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -6231,6 +6869,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -6242,6 +6886,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -6483,6 +7133,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -6494,6 +7150,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -6735,6 +7397,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -6746,6 +7414,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -6987,6 +7661,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -6998,6 +7678,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -7239,6 +7925,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -7250,6 +7942,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -7491,6 +8189,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -7502,6 +8206,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -7743,6 +8453,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -7754,6 +8470,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -7995,6 +8717,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_grammar_in_one_shot_standard_library_text",JSON.stringify(graph_node_object)); 
@@ -8121,6 +8849,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_making_portfolio_page",JSON.stringify(graph_node_object)); 
@@ -8132,6 +8866,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "Example of org to ipynb",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/example\/",
      "id": "example",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -8375,6 +9115,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary4_data_structures",JSON.stringify(graph_node_object)); 
@@ -8386,6 +9132,12 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "python_summary8 string",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary8_string\/",
      "id": "python_summary8_string",
+     
+         
+     
+         
+     
+         
      
          
      

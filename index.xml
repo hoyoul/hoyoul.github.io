@@ -8,6 +8,33 @@
     <language>ko</language>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[git] git drill1 repo and commit</title>
+      <link>https://braindump.frege2godel.me/posts/git_git_drill1_repo_and_commit/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/git_git_drill1_repo_and_commit/</guid>
+      <description>Git Explained 이전에 작성했던 git관련 문서가 있다. 재작성할 필요를 느꼈다. 옛날 문서 가 있지만,다시정리한다. git drill repo and commit (현재문서) git drill local git drill remote git drill internals Git Introduction G</description>
+    </item>
+    
+    <item>
+      <title>[git] git drill2 local</title>
+      <link>https://braindump.frege2godel.me/posts/git_git_drill2_local/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/git_git_drill2_local/</guid>
+      <description>git drill(2단계 -local) git drill 1단계에서 repo와 commit을 만드는것을 해봤다. 이제 local에서 branch와 merge같은 작업이 어떻게 이루</description>
+    </item>
+    
+    <item>
+      <title>[sql] programmers sql high score</title>
+      <link>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score/</guid>
+      <description>introduction 여기에 쓰는것은 누군가가 나에게 sql좀 알려줘 하면 설명해주는 일종의 pattern이다. 그냥 머리속의 생각이라서 대충 이정도는 머리속에 있고 나머지는 검</description>
+    </item>
+    
+    <item>
       <title>[git] git explained</title>
       <link>https://braindump.frege2godel.me/posts/git_git_explained/</link>
       <pubDate>Tue, 25 Jul 2023 00:00:00 +0900</pubDate>
