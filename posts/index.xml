@@ -6,7 +6,25 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Thu, 27 Jul 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Jul 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[matter.js] tutorial</title>
+      <link>https://braindump.frege2godel.me/posts/matter_js_tutorial/</link>
+      <pubDate>Sat, 29 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/matter_js_tutorial/</guid>
+      <description>Getting started matter.js는 물리엔진이다. 물리엔진을 가지고 노는것은 즐겁다. js파일을 실행하기 위해선 node가 필요하다. node의 기초적인 사용법은</description>
+    </item>
+    
+    <item>
+      <title>[node] npm and node</title>
+      <link>https://braindump.frege2godel.me/posts/node_npm_and_node/</link>
+      <pubDate>Sat, 29 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/node_npm_and_node/</guid>
+      <description>node node는 javascript interpreter로 봐도 된다. python 파일을 실행시키기 위해서 python interpreter가 있듯이 또 ruby를 실행시키기 위해서 ruby</description>
+    </item>
+    
     <item>
       <title>[git] git drill1 repo and commit</title>
       <link>https://braindump.frege2godel.me/posts/git_git_drill1_repo_and_commit/</link>

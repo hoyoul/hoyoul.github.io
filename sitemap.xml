@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://braindump.frege2godel.me/posts/matter_js_tutorial/</loc>
+    <lastmod>2023-07-29T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/node_npm_and_node/</loc>
+    <lastmod>2023-07-29T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/</loc>
+    <lastmod>2023-07-29T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://braindump.frege2godel.me/posts/git_git_drill1_repo_and_commit/</loc>
     <lastmod>2023-07-27T00:00:00+09:00</lastmod>
   </url><url>
@@ -9,9 +18,6 @@
     <lastmod>2023-07-27T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score/</loc>
-    <lastmod>2023-07-27T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://braindump.frege2godel.me/posts/</loc>
     <lastmod>2023-07-27T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/git_git_explained/</loc>

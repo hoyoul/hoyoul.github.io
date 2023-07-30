@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><title>test_page1</title>
+  <head><title>[node] npm and node</title>
 
 
 <meta charset="utf-8">
@@ -40,18 +40,20 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">test_page1</h1>    
+    <h1 class="collapsed-title">[node] npm and node</h1>    
       <div class="content">
-	<a href="https://braindump.frege2godel.me/posts/test_page1/" alt="test_page1" class="permalink" data-singlepage="yes" ><h1>test_page1</h1></a>
+	<a href="https://braindump.frege2godel.me/posts/node_npm_and_node/" alt="[node] npm and node" class="permalink" data-singlepage="yes" ><h1>[node] npm and node</h1></a>
 	<fieldset>
 	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
-	  <ol class="li"><strong>Title: </strong> test_page1 </ol>
-	  <ol class="li"><strong>date: </strong> 2023 6.7 </ol>
-	  <ol class="li"><strong>content: </strong>test </ol>
+	  <ol class="li"><strong>Title: </strong> [node] npm and node </ol>
+	  <ol class="li"><strong>date: </strong> 2023 7.29 </ol>
+	  <ol class="li"><strong>content: </strong>node의 간략한 사용법 </ol>
 	    
   
     
      
+        
+    
     
      
     
@@ -177,10 +179,90 @@
   
 
   
+  <div class="bl-section">
+    <hr/>
+    <h4> (back links) </h4>
+    <div class="backlinks">
+       <ul>
+       
+         <li><a href="/posts/matter_js_tutorial/">[matter.js] tutorial</a></li>
+       
+      </ul>
+    </div>
+  </div>
+
 	  
 	</fieldset>
-	<h2 id="test">test</h2>
-<p>this is test</p>
+	<h2 id="node">node</h2>
+<p>node는 javascript interpreter로 봐도 된다. python 파일을 실행시키기
+위해서 python interpreter가 있듯이 또 ruby를 실행시키기 위해서
+ruby가 있는것과 비슷하다. 위 3가지 언어는 비슷하다.</p>
+<h2 id="npm">npm</h2>
+<p>npm은 package관리자다. ruby에 gem이 있듯이, python에 pip가 있듯이
+package를 설치하는 것은 동일하다. 하지만 package를 위한 project의
+구조와 package의 의존성을 관리하는 방식, package를 배포하는 방식도
+다르다. 여기서는 단순히 몇가지 명령어를 알아보자.</p>
+<h3 id="npm-init-y">npm init -y</h3>
+<p>project를 위해서 폴더를 만들고, 폴더안에서 package init을 하면
+package.json이 만들어진다. 이것이 현재 project가 의존하는 package를
+나타내고 배포가 되었을때도 참조하는 package를 설치할 수 있게
+해준다. package.json에는 entry point라고 해서 시작점에 해당하는 js를
+기술하게 한다.</p>
+<h3 id="npm-install">npm install</h3>
+<p>가장 많이 사용되는 명령어라고 할 수 있다. package를 설치하는
+명령어다. project에서 npm install이라고 하면, package.json에 의존성
+package를 모두 node_modules라는 폴더에 설치한다. npm install
+[package명]은 특정한 package를 설치하고 package.json에 기록한다. pip
+install과 같은거라고 보면 된다. pip install로 package를 설치한다고
+해서 requirement.txt에 기술이 되지 않는데, 어떻게 보면 npm이 project의
+제작과 배포에 더 편리하다고 볼 수 있다.</p>
+<h4 id="npm-install-package명-g">npm install [package명] -g</h4>
+<p>system에 package를 설치한다.</p>
+<h4 id="npm-install-save-package명">npm install &ndash;save [package명]</h4>
+<p>package.json에 기록된다. &ndash;save는 최신버전에서는 default이기 때문에
+npm install package와 같다.  이렇게 기록되면 나중에 배포해서 npm
+install할때 한큐에 설치할 수 있다.</p>
+<h4 id="npm-install-save-dev-package명">npm install &ndash;save-dev [package명]</h4>
+<p>이것은 현재 설치는 하지만, 개발할때만 사용한다.</p>
+<h4 id="npm-uninstall-package명">npm uninstall [package명]</h4>
+<p>package를 uninstall한다.</p>
+<h4 id="npm-run">npm run</h4>
+<p>package.json에 보면 다음과 같이 script가 정의되어 있다.</p>
+<p><a id="org5e1e122"></a></p>
+<p><img src="/img/nodejs/npm.png" alt="npm.png" width="600px" /> script를 실행하는 명령어가 npm
+run이다. 여기에는 test라는 이름으로 script가 되어 있기 때문에 다음과
+같이 실행한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">npm run test
+</span></span></code></pre></div><p>에디터를 열고 다음을 추가해도 된다. 에디터를 사용하지 않는 방법도 있다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&#34;start&#34;: &#34;node index.js&#34;
+</span></span></code></pre></div><p>위와 같이 추가하고,</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">npm run start
+</span></span></code></pre></div><p>하면 된다.</p>
+<h2 id="nvm">nvm</h2>
+<p>node도 python처럼 버전을 많이 탄다. 그래서 가상환경을 사용해야
+한다. ruby에서 rvm이나 rbenv를 사용했던것과 동일하다. python의
+pyvenv나 conda env와도 같다. 사용법은 단순하다.</p>
+<h3 id="brew-install-nvm">brew install nvm</h3>
+<p>brew로 nvm을 설치한다. 그리고</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">mkdir ~/.nvm
+</span></span></code></pre></div><p>을 만들고 .zshrc에 다음을 추가한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">NVM_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.nvm&#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="o">[</span> -s <span class="s2">&#34;/usr/local/opt/nvm/nvm.sh&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="se">\.</span> <span class="s2">&#34;/usr/local/opt/nvm/nvm.sh&#34;</span>  <span class="c1"># This loads nvm</span>
+</span></span><span class="line"><span class="cl"> <span class="o">[</span> -s <span class="s2">&#34;/usr/local/opt/nvm/etc/bash_completion.d/nvm&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="se">\.</span> <span class="s2">&#34;/usr/local/opt/nvm/etc/bash_completion.d/nvm&#34;</span>  <span class="c1"># This loads nvm bash_completion</span>
+</span></span></code></pre></div><p>이것은 brew install nvm을 실행하면 설치하라고 나온다.</p>
+<h3 id="nvm-version">nvm version</h3>
+<p>nvm의 version을 확인한다.</p>
+<h3 id="nvm-list">nvm list</h3>
+<p>현재 설치된 node version들을 확인한다.</p>
+<h3 id="nvm-use">nvm use</h3>
+<p>사용할 node를 선택한다.</p>
+<h3 id="nvm-install-8-dot-0">nvm install 8.0</h3>
+<p>node를 설치한다.</p>
+<h2 id="node로-만들어진-project를-가져오면-해야할-것">node로 만들어진 project를 가져오면 해야할 것</h2>
+<p>가장 먼저 해야 할 것은 사용되는 node의 version에 맞춰 가상환경을
+만드는 것이다. 그 다음, project에서 npm install로 package.json에서
+기술된 의존성 package를 모두 설치한다.</p>
+<h2 id="d41d8c"></h2>
       
       </div>
 
