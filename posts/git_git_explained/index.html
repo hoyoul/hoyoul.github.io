@@ -168,6 +168,10 @@
      
     
      
+        
+    
+    
+     
     
      
     
@@ -186,6 +190,8 @@
        <ul>
        
          <li><a href="/posts/git_git_drill1_repo_and_commit/">[git] git drill1 repo and commit</a></li>
+       
+         <li><a href="/posts/elisp_korean_lorel_ipsum/">[elisp] korean lorem ipsum</a></li>
        
       </ul>
     </div>
@@ -833,7 +839,7 @@ linked list가 작은 line으로 merge된다면 commit을 잃을 순 있어도 c
  <div class="attention">
 <p>3 way merge가 더 일반적인 경우고 conflict가 일어날 확률이 있는 merge다. 아래에서 충돌이 일어나는 경우를 설명한다. 충돌이
 일어나지 않는 경우는 merge commit이 자동으로 만들어지고, 충돌이 일어나면 수동으로 merge commit을 만드는 차이가 있다.</p>
-<p><a id="orge007a9b"></a></p>
+<p><a id="org8e9ea90"></a></p>
 <p><img src="./img/3way1.png" alt="">
 여기서 b.txt란 파일이 양쪽 linked list에 둘다 있다. 그럼 반드시 충돌이 일어나게 되어있다. 왜냐 어떤 linked list에 있는
 b.txt를 선택할지 모르기 때문이다. 아니면, 두개의 contents를 무리하게 하나의 파일로 만들 수도 있겠지만, git은 그렇게 하지 않는다.</p>
@@ -1301,6 +1307,21 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
 가지고 어떤 식으로 작업하는지 알기위해선 workflow을 알아야 한다. git workflow는 git이 실제
 현장에서 어떻게 사용되는지를 보여준다.</p>
 </div>
+<h3 id="git-fork">git fork</h3>
+<p>협업을 위해서 fork를 사용할 수 있다. fork는 일반적으로 다른 사람이
+만든 repo에 contribute하기 위해서 많이 사용한다. github에서 사용하는
+명령어인데 협업을 할때도 fork를 사용한다.</p>
+<h4 id="step1-leader가-repo를-만든다-dot">[step1] leader가 repo를 만든다.</h4>
+<p>leader가 repo를 만들고 project code를 만들고, 코드를 upload한다.</p>
+<h4 id="step2-팀원들이-fork한다-dot">[step2] 팀원들이 fork한다.</h4>
+<p>이렇게 하면 github에 있는 repo와 똑같다고 보면 된다. clone해서
+수정하고 반영할 수 있다. 수정하고 github에 push한다.</p>
+<h4 id="step3-pull-request한다-dot">[step3] pull request한다.</h4>
+<p>pull request는 팀원들이 가지고 있는 repo의 commit은 leader의 repo와
+다르다. 왜냐면 코드를 수정하고 반영했기 때문이다. 그렇기 때문에 Pull
+request를 보낸다.</p>
+<h4 id="step4-code-review를-하고-merge">[step4] code review를 하고 merge</h4>
+<p>leader는 받은 요청에 대해서 code review를하고 merge여부를 결정한다.</p>
       
       </div>
 
@@ -1316,6 +1337,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[matter.js] tutorial",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/matter_js_tutorial\/",
      "id": "matter_js_tutorial",
+     
+         
      
          
      
@@ -1579,6 +1602,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": ["matter_js_tutorial"]
    }
  sessionStorage.setItem("node_npm_and_node",JSON.stringify(graph_node_object)); 
@@ -1590,6 +1615,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[git] git drill1 repo and commit",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_drill1_repo_and_commit\/",
      "id": "git_git_drill1_repo_and_commit",
+     
+         
      
          
      
@@ -1853,6 +1880,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": ["git_git_drill1_repo_and_commit"]
    }
  sessionStorage.setItem("git_git_drill2_local",JSON.stringify(graph_node_object)); 
@@ -1864,6 +1893,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[sql] programmers sql high score",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score\/",
      "id": "sql_programmers_sql_high_score",
+     
+         
      
          
      
@@ -2118,7 +2149,7 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
          
      
          
-     
+              
          
      
          
@@ -2127,7 +2158,11 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
-     "backlinks": ["git_git_drill1_repo_and_commit"]
+         
+     
+         
+     
+     "backlinks": ["git_git_drill1_repo_and_commit","elisp_korean_lorel_ipsum"]
    }
  sessionStorage.setItem("git_git_explained",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
@@ -2138,6 +2173,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[emacs] presentation tools",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_presentation_tools\/",
      "id": "emacs_presentation_tools",
+     
+         
      
          
      
@@ -2399,6 +2436,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_tex_install_and_usage",JSON.stringify(graph_node_object)); 
@@ -2410,6 +2449,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[emacs] mu4e settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_mu4e_settings\/",
      "id": "emacs_mu4e_settings",
+     
+         
      
          
      
@@ -2671,6 +2712,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_testing",JSON.stringify(graph_node_object)); 
@@ -2682,6 +2725,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[essay] computer working principles",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/essay_computer_working_principles\/",
      "id": "essay_computer_working_principles",
+     
+         
      
          
      
@@ -2945,6 +2990,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": ["python_grammar_in_one_shot"]
    }
  sessionStorage.setItem("pl_history_of_programming_language",JSON.stringify(graph_node_object)); 
@@ -3081,6 +3128,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_grammar_in_one_shot",JSON.stringify(graph_node_object)); 
@@ -3092,6 +3141,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[algorithm] thinking about algorithms",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/algorithm_thinking_about_algorithms\/",
      "id": "algorithm_thinking_about_algorithms",
+     
+         
      
          
      
@@ -3355,6 +3406,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": ["leetcode_beginning"]
    }
  sessionStorage.setItem("leetcode_1672_richest_customer_wealth",JSON.stringify(graph_node_object)); 
@@ -3491,6 +3544,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -3502,6 +3557,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "python_summary7 big data and python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary7_big_data_and_python\/",
      "id": "python_summary7_big_data_and_python",
+     
+         
      
          
      
@@ -3765,6 +3822,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": ["website_about_my_brain_blog_and_homepage"]
    }
  sessionStorage.setItem("github_multi_account_github_problem",JSON.stringify(graph_node_object)); 
@@ -3776,6 +3835,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[website] about my braindump blog and homepage usage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_about_my_brain_blog_and_homepage\/",
      "id": "website_about_my_brain_blog_and_homepage",
+     
+         
      
          
      
@@ -4039,6 +4100,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": ["website_about_my_brain_blog_and_homepage"]
    }
  sessionStorage.setItem("website_make_main_homepage",JSON.stringify(graph_node_object)); 
@@ -4050,6 +4113,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[emacs] org to ipython notebook",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_org_to_ipython_notebook\/",
      "id": "emacs_org_to_ipython_notebook",
+     
+         
      
          
      
@@ -4311,6 +4376,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_intro_arithmetic_and_variable",JSON.stringify(graph_node_object)); 
@@ -4322,6 +4389,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[kaggle-courses-python] hello python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_python_hello_python\/",
      "id": "kaggle_courses_python_hello_python",
+     
+         
      
          
      
@@ -4583,6 +4652,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_beginning",JSON.stringify(graph_node_object)); 
@@ -4594,6 +4665,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[leetcode] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_beginning\/",
      "id": "leetcode_beginning",
+     
+         
      
          
      
@@ -4857,6 +4930,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": ["leetcode_beginning"]
    }
  sessionStorage.setItem("leetcode_1480_running_sum_of_1d_array",JSON.stringify(graph_node_object)); 
@@ -4868,6 +4943,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[linear algebra-1] linear algebra introduction",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_1_linear_algebra_introduction\/",
      "id": "linear_algebra_1_linear_algebra_introduction",
+     
+         
      
          
      
@@ -5129,6 +5206,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_2_linear_independence",JSON.stringify(graph_node_object)); 
@@ -5140,6 +5219,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "python_summary3 about class",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary3_about_class\/",
      "id": "python_summary3_about_class",
+     
+         
      
          
      
@@ -5401,6 +5482,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary5_loop",JSON.stringify(graph_node_object)); 
@@ -5412,6 +5495,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "python_summary0-About Python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary0_about_python\/",
      "id": "python_summary0_about_python",
+     
+         
      
          
      
@@ -5673,6 +5758,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sop_idea1",JSON.stringify(graph_node_object)); 
@@ -5684,6 +5771,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[emacs] org-babel -python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_org_babel_python\/",
      "id": "emacs_org_babel_python",
+     
+         
      
          
      
@@ -5947,6 +6036,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": ["python_summary0_about_python"]
    }
  sessionStorage.setItem("emacs_python_lsp_setting",JSON.stringify(graph_node_object)); 
@@ -6037,6 +6128,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
               
+         
+     
          
      
          
@@ -6225,6 +6318,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": ["python_summary0_about_python"]
    }
  sessionStorage.setItem("emacs_anaconda_settings",JSON.stringify(graph_node_object)); 
@@ -6236,6 +6331,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "hugo korean encoding problem",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/hugo_korean_encoding_problem\/",
      "id": "hugo_korean_encoding_problem",
+     
+         
      
          
      
@@ -6497,6 +6594,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary1",JSON.stringify(graph_node_object)); 
@@ -6508,6 +6607,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "test_page1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/test_page1\/",
      "id": "test_page1",
+     
+         
      
          
      
@@ -6773,6 +6874,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": ["emacs_org_to_ipython_notebook","python_summary0_about_python"]
    }
  sessionStorage.setItem("emacs_jupyter_noteboo_settings",JSON.stringify(graph_node_object)); 
@@ -6784,6 +6887,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "daily영어(1)-don\u0027t pet my puppy",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/english1\/",
      "id": "english1",
+     
+         
      
          
      
@@ -7047,6 +7152,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": ["folding_test2"]
    }
  sessionStorage.setItem("folding_test",JSON.stringify(graph_node_object)); 
@@ -7185,6 +7292,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": ["folding_test"]
    }
  sessionStorage.setItem("folding_test2",JSON.stringify(graph_node_object)); 
@@ -7196,6 +7305,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "lecture10-String",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture10-string\/",
      "id": "lecture10-String",
+     
+         
      
          
      
@@ -7457,6 +7568,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture11-IO",JSON.stringify(graph_node_object)); 
@@ -7468,6 +7581,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "lecture12-setting-exception-logging",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture12-setting-exception-logging\/",
      "id": "lecture12-setting-exception-logging",
+     
+         
      
          
      
@@ -7729,6 +7844,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture13-web",JSON.stringify(graph_node_object)); 
@@ -7740,6 +7857,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "lecture3 data structures",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture3_data-structure\/",
      "id": "lecture3_data-structure",
+     
+         
      
          
      
@@ -8001,6 +8120,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture4_condition-and-loop",JSON.stringify(graph_node_object)); 
@@ -8012,6 +8133,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "lecture5_function",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture5_function\/",
      "id": "lecture5_function",
+     
+         
      
          
      
@@ -8273,6 +8396,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture6-Pythonic-Programming",JSON.stringify(graph_node_object)); 
@@ -8284,6 +8409,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "lecture7_Object-Oriented-Programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture7_object-oriented-programming\/",
      "id": "lecture7_Object-Oriented-Programming",
+     
+         
      
          
      
@@ -8545,6 +8672,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture8-module-and-package",JSON.stringify(graph_node_object)); 
@@ -8556,6 +8685,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "lecture9-Advanced-Data-Structure",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture9-advanced-data-structure\/",
      "id": "lecture9-Advanced-Data-Structure",
+     
+         
      
          
      
@@ -8817,6 +8948,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("webcrawler1",JSON.stringify(graph_node_object)); 
@@ -8828,6 +8961,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "lecture2_variable_and_operator",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture2_variable_and_operator\/",
      "id": "lecture2_variable_and_operator",
+     
+         
      
          
      
@@ -9089,6 +9224,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra1",JSON.stringify(graph_node_object)); 
@@ -9097,9 +9234,149 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
      graph_node_object = {
         
+     "label": "[elisp] korean lorem ipsum",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/elisp_korean_lorel_ipsum\/",
+     "id": "elisp_korean_lorel_ipsum",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("elisp_korean_lorel_ipsum",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[python] grammar in one shot - standard library (Text)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_grammar_in_one_shot_standard_library_text\/",
      "id": "python_grammar_in_one_shot_standard_library_text",
+     
+         
      
          
      
@@ -9236,6 +9513,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "[website] making portfolio page",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_making_portfolio_page\/",
      "id": "website_making_portfolio_page",
+     
+         
      
          
      
@@ -9499,6 +9778,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": ["emacs_org_to_ipython_notebook"]
    }
  sessionStorage.setItem("example",JSON.stringify(graph_node_object)); 
@@ -9635,6 +9916,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary4_data_structures",JSON.stringify(graph_node_object)); 
@@ -9646,6 +9929,8 @@ merge를 통해서 release하고, major, minor로 release하는 개발과정을 
      "label": "python_summary8 string",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary8_string\/",
      "id": "python_summary8_string",
+     
+         
      
          
      

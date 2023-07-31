@@ -521,6 +521,15 @@
     </item>
     
     <item>
+      <title>[elisp] korean lorem ipsum</title>
+      <link>https://braindump.frege2godel.me/posts/elisp_korean_lorel_ipsum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/elisp_korean_lorel_ipsum/</guid>
+      <description>introduction 코딩할 때, dummy 문자열을 사용할 일이 많다. 그런데 보통 lorem ipsum으로 영어 문장을 사용한다. emacs자체가 한국어 사용자가 없다보니 한국어 관련한 작업은</description>
+    </item>
+    
+    <item>
       <title>[python] grammar in one shot - standard library (Text)</title>
       <link>https://braindump.frege2godel.me/posts/python_grammar_in_one_shot_standard_library_text/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
