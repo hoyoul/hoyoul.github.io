@@ -234,6 +234,7 @@ summary한 느낌이다. 대표값만을 뽑은 느낌이다. 이렇게 하는 �
 여자는 몇명인가? 남자의 평균 몸무게는? 가장 몸무게가 많이 나가는
 남자는? 이런 질문에 답을 하기 위해선 group by를 사용하는 것이다. 그럼
 이제 group by를 어떻게 사용하는지 확인해 보자.</p>
+<p>이런 table이 있다고 하자.</p>
 <p><a id="figure--table"></a></p>
 <figure><img src="/img/sql/sql1.png"
          alt="Figure 1: table" width="600px"/><figcaption>
@@ -245,12 +246,120 @@ summary한 느낌이다. 대표값만을 뽑은 느낌이다. 이렇게 하는 �
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">SELECT Country
 </span></span><span class="line"><span class="cl">FROM Customers
 </span></span><span class="line"><span class="cl">group by Country
-</span></span></code></pre></div><p>Customers라는 table을 db에서 가져온다. group by country는 Coutry라는
-필드의 data를 대상으로 grouping한다.   Country다. Country라는 column의
-data를 grouping하면 대표값만 남는다. 이상태에서 Country라는 Field를
-선택하면</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select name
-</span></span></code></pre></div><h3 id="select">select</h3>
+</span></span></code></pre></div><p>수행과정을 보자.  Customers라는 table을 db에서 가져온다. group by
+country는 Coutry라는 필드의 data를 대상으로 grouping한다. 즉 대표값만
+남는다. 그래서 21개의 row가 있다. 여기서 select Country하면 대표값만
+남은 Coutry column만 있는 table을 return한다.</p>
+<p><a id="figure--groupby1"></a></p>
+<figure><img src="/img/sql/groupby1.png"
+         alt="Figure 2: groupby1" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 2: </span>groupby1</p>
+        </figcaption>
+</figure>
+
+<p>이것은 기존에 있던 table의 row에서 대표값만을 가져온다고 했다. 그래서
+21개의 row만 가져온다. 원래 table에 Germany라는 값을 갖는 row는 여러개
+있지만 하나만 남게된다.</p>
+<p><a id="figure--groupby2"></a></p>
+<figure><img src="/img/sql/groupby2.png"
+         alt="Figure 3: groupby2" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 3: </span>groupby2</p>
+        </figcaption>
+</figure>
+
+<p>그럼 다음과 같은 명령은 어떻게 될까?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">SELECT *
+</span></span><span class="line"><span class="cl">FROM Customers
+</span></span><span class="line"><span class="cl">group by Country
+</span></span></code></pre></div><p>Customers table을 db에서 가져온다. group by Country를 실행하면,
+Country의 대표값만 남는다. 이 상태에서 select *를 하면 아래와 같은
+결과를 갖는다.</p>
+<p><a id="figure--groupby3"></a></p>
+<figure><img src="/img/sql/groupby3.png"
+         alt="Figure 4: groupby3" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 4: </span>groupby3</p>
+        </figcaption>
+</figure>
+
+<p>여기서 group by로 대표값만 남게 한 상태에서 select *로 모든 column을
+가져온다. 여기서 한가지 궁금한 점이 생긴다. 그림에서도 표시했지만,
+Germany의 경우 Germany값을 갖는 row가 한개가 아니다. 그러면 어떤 row를
+가져와 표시하는가? 하는 질문을 할 수 있다. 답은 제일 첫번째 위치의
+row를 가져온다. 그리고 결과를 보면 Country대표값의 개수만큼 row가
+있다는 것도 알 수 있다. 그런데 group by를 사용하는 것은 단순히 group
+by를 select distinct Country처럼 사용할려는게 아니다. group by는
+group으로 모은 대표값들의 개수라던가, 합이라던가, min,max,average를
+알고 싶을때 사용한다. 특정 목적이 있다. 그런 예를 보자.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">SELECT COUNT(CustomerID), Country
+</span></span><span class="line"><span class="cl">FROM Customers
+</span></span><span class="line"><span class="cl">GROUP BY Country;
+</span></span></code></pre></div><p>customer table을 db에서 가져오고 Country로 grouping을 했다. 그러면
+country column의 row들은 대표값만 갖게 된다. 여기서 select문의 해석이
+달라진다. 집계함수가 사용되기 때문이다. GroupBy로 기준이되는
+column값이 정해졌다. 여기서 count(column)이 사용되는데, 즉 기준값에
+해당하는 group이 가지고 있는 rows에 대해서 계산을 하는것이다. 위에서는
+count(customerid)로 되어 있기 때문에, 각각의 대표값에 해당하는 group이
+가지고 있는 row들에 대한 개수값을 계산한다. 만일 Max(CustomerID)로
+하면 각 group이 가지고 있는 row중에 최대 id값을 return하게 되는
+것이다. average도 마찬가지다. select문에 집계함수 옆의 Country는 그냥
+알아보기 좋게 하려고 추가한 것이다. 결과는 다음과 같다.</p>
+<p><a id="figure--count"></a></p>
+<figure><img src="/img/sql/count1.png"
+         alt="Figure 5: count" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 5: </span>count</p>
+        </figcaption>
+</figure>
+
+<p>max에 대한 처리 결과도 다음과 같다.</p>
+<p><a id="figure--max"></a></p>
+<figure><img src="/img/sql/max1.png"
+         alt="Figure 6: max" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 6: </span>max</p>
+        </figcaption>
+</figure>
+
+<p>avg에 대한 처리 결과는 다음과 같다.</p>
+<p><a id="figure--avg"></a></p>
+<figure><img src="/img/sql/avg1.png"
+         alt="Figure 7: avg" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 7: </span>avg</p>
+        </figcaption>
+</figure>
+
+<p>내가 알고 있는 group by는 이게 전부다.</p>
+<h4 id="group-by에-대한-좋은-예">group by에 대한 좋은 예</h4>
+<p>위에 있는 예는 좀 보기 어렵다. group by로 group화하고 집계함수 쓰는게
+있어서 web에서 긁어왔다. 출처는 다음과 같다. <a href="https://makand.tistory.com/entry/SQL-HAVING-%EA%B5%AC%EB%AC%B8" target="_blank">여기
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+</p>
+<p><a id="figure--exmaple"></a></p>
+<figure><img src="/img/sql/exam1.png"
+         alt="Figure 8: example1" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 8: </span>example1</p>
+        </figcaption>
+</figure>
+
+<h3 id="having">having</h3>
+<p>having은 group by에 포함되는 건데, 외울때 group by having SOL로 외워서
+별도로 해놓았다. 다른곳에선 group by로 group을 만든 후에 having으로
+조건을 건다고 한다. 그런데 내가 봤을때 보통 having으로 조건을 걸고
+group by로 grouping하는 순서가 아닐까 한다. 여튼 그렇다. sql문
+작성순서는 group by다음에 위치한다. 다시한번 말하면 나는 <code>having절은 group by를 하기전에 먼저 조건을 거는 것</code> 이라고 생각한다. 조건을 걸때
+보통 집계함수를 사용해서 제한을 건다. 위에서 좋은예로 설명한 곳에서
+having도 같이 설명했기때문에 붙여넣는다.</p>
+<p><a id="figure--exmaple2"></a></p>
+<figure><img src="/img/sql/exam2.png"
+         alt="Figure 9: example2" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 9: </span>example2</p>
+        </figcaption>
+</figure>
+
+<p>sql을 해석하면 다음과 같다. coffee라는 table을 db에서
+가져온다. group으로 묶기 전에 having을 먼저 처리한다. 즉 coffee name이
+하나 이상인걸로 조건을 걸어버린다. 그러면 아메리카노 밖에 없다. 여기서
+group by를 하면 아메리카노밖에 없다.</p>
+<h3 id="select">select</h3>
 <h4 id="distinct">distinct</h4>
 <p>distinct는 중복을 피하는 keyword다. select절에 포함된다. select절을
 수행할 때 실행되는데, 굉장히 많이 쓰이는 편이다. 예를 들면,</p>
@@ -263,10 +372,26 @@ data를 grouping하면 대표값만 남는다. 이상태에서 Country라는 Fie
 <p>mma cs로 외우자. min,max,average 그리고 count, sum이다. 가장 많이
 쓰이는 집계함수다.</p>
 <h3 id="order-by">order by</h3>
+<p>order by는 내림차순에 해당하는 desc, 오름차순에 해당하는 asc가
+있다. 내림차순이라는건 row의 order(순서)가 내려갈수록 값이
+낮아지는것이고 오름차순은 row의 order(순서)가 내려갈 수록 값이 커지는
+것을 말한다. 사용법은 단순하다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">order by 컬럼 desc, 컬럼 asc
+</span></span></code></pre></div><p>이런 식으로 추가하면 된다. from으로 table을 가져오고 where로 row를
+제한하고, 여기서 having과 groupby로 group화해서 table을 만든다. 여기에
+select로 원하는 table을 return하기 위해서 column을 선택한다. 그런
+다음에, order by로 정렬을 한다. order by는 너무 단순해서 예를 들진
+않겠다.</p>
 <h3 id="limit">limit</h3>
+<p>limit은 최종 return할 table이 만들어졌을 때, row수를 제한한다.
+사용법은 다음과 같다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">limit 시작점, 개수
+</span></span><span class="line"><span class="cl">limit 2,1
+</span></span></code></pre></div><p>limit 2,1은 3번째 row의 row 1개만 보여준다.</p>
 <h3 id="요약">요약</h3>
 <p>이것이 기본적인 select문의 구조다.</p>
 <h2 id="join">join</h2>
+<h3 id="상식적으로-join을-보자-dot">상식적으로 join을 보자.</h3>
 <p>하나의 table에서 column을 선택해서 table을 만드는게 아니라, 2개의
 table에서 column을 뽑아내서 만들 수는 없나? 그럴려면 2개의 table을
 기술해야 한다. 예를 들어서,</p>
@@ -278,8 +403,39 @@ table에서 column을 뽑아내서 만들 수는 없나? 그럴려면 2개의 ta
 </span></span></code></pre></div><p>일견 그럴싸하다. a라는 column은 Atable에서 선택한다는 명확한
 의미전달이 가능하기 때문이다. 그럼 다음과 같은 상황을 살펴보자.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select SeoulElementarySchoolTeachers.a, BusanPeopleTable.b from SeoulElementarySchoolTeachers, BusanPeopleTable
-</span></span></code></pre></div><p>뭔가 불편하지 않은가? 그렇다. table 이름이 길면 불편하다.</p>
-      
+</span></span></code></pre></div><p>뭔가 불편하지 않은가? 그렇다. table 이름이나 column name이 길면 as를 사용한다.</p>
+<h3 id="as-사용법">as 사용법</h3>
+<p>as 사용법은 다음과 같다. 컬럼의 경우,</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">SELECT column_name AS alias_name
+</span></span><span class="line"><span class="cl">FROM table_name;
+</span></span></code></pre></div><p>table의 경우,</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">SELECT column_name(s)
+</span></span><span class="line"><span class="cl">FROM table_name AS alias_name;
+</span></span></code></pre></div><p>이것에 맞추어 다시 수정해보자.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select SeoulElementarySchoolTeachers.a, BusanPeopleTable.b from SeoulElementarySchoolTeachers, BusanPeopleTable
+</span></span></code></pre></div><p>table명만 길기 때문에 from에서 바꿔주면 된다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select Seoul.a, Busan.a from SeoulElementarySchoolTeachesr as Seoul, BusanPeopleTable as Busan
+</span></span></code></pre></div><h3 id="join의-적용">join의 적용</h3>
+<p>위에서 작성한 sql문은 그럴듯하지만 이렇게 사용되지 않는다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select Seoul.a, Busan.b from SeoulElementarySchoolTeachesr as Seoul, BusanPeopleTable as Busan
+</span></span></code></pre></div><p>무엇을 고쳐야 할까? from에는 하나의 table만 온다. 만일 2개의 table을
+불러올려면, join을 사용한다. join은 2개의 table을 연결해서 하나로
+만든다는 얘기다. 그래서 연산이 존재한다. 어떻게 하나로 만들것인가?에
+대한 연산이다. 그런데 상식적으로 2개의 table을 하나로 합친다는게 말이
+안된다. A라는 table에 B라는 table의 column들을 그냥 떼다가 A에
+붙일수는 있다. 그러면 이게 제대로된 table일까? A라는 table은 고객에
+대한 정보를 갖는 table이라고 하자. B는 쇼핑아이템에 대한 정보라고
+하자. 그냥 두개의 table을 합쳤다면 사람에 대한 정보와 쇼핑아이템에
+대한 정보가 아무런 연관도 없는데 그냥 연결해 버린 것이다. table을
+무조건 합치면 안된다.</p>
+<h4 id="on의-사용">ON의 사용</h4>
+<p>그래서 On이라는게 사용된다. On은 2개의 table을 연결하는 공통적인
+접점(column)을 의미한다. 사용법은 다음과 같다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select A.process_id, B.date, B.name
+</span></span><span class="line"><span class="cl">from A inner join B on A.id = B.id
+</span></span></code></pre></div><p>다른 것보다 같은 컬럼을 합치는 부분을 보면된다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">on A.id = B.id
+</span></span></code></pre></div>      
       </div>
 
   </div>
