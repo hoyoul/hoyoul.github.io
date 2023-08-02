@@ -71,6 +71,15 @@
     </item>
     
     <item>
+      <title>[rails] rails from scratch7-practice1</title>
+      <link>https://braindump.frege2godel.me/posts/rails_rails_from_scratch7_practice1/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/rails_rails_from_scratch7_practice1/</guid>
+      <description>제일 먼저 할것은 hello world page rails를 설치하고, CI/CD를 위한 환경이 조성되었다면, hello world를 출력하는 것이다. 이것은 간단하게 routes와 co</description>
+    </item>
+    
+    <item>
       <title>[matter.js] tutorial</title>
       <link>https://braindump.frege2godel.me/posts/matter_js_tutorial/</link>
       <pubDate>Sat, 29 Jul 2023 00:00:00 +0900</pubDate>
