@@ -44,6 +44,15 @@
     </item>
     
     <item>
+      <title>[rails] rails from scratch3-routes</title>
+      <link>https://braindump.frege2godel.me/posts/rails_rails_from_scratch3_routes/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/rails_rails_from_scratch3_routes/</guid>
+      <description>내생각 나는 route file에서 정의하는 URL들을 menu라고 생각한다. page는 menu판이라고 생각한다. 사용자는 browser에서 menu판들을</description>
+    </item>
+    
+    <item>
       <title>[matter.js] tutorial</title>
       <link>https://braindump.frege2godel.me/posts/matter_js_tutorial/</link>
       <pubDate>Sat, 29 Jul 2023 00:00:00 +0900</pubDate>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><title>[leetcode] beginning</title>
+  <head><title>[rails] rails from scratch3-routes</title>
 
 
 <meta charset="utf-8">
@@ -40,14 +40,14 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">[leetcode] beginning</h1>    
+    <h1 class="collapsed-title">[rails] rails from scratch3-routes</h1>    
       <div class="content">
-	<a href="https://braindump.frege2godel.me/posts/leetcode_beginning/" alt="[leetcode] beginning" class="permalink" data-singlepage="yes" ><h1>[leetcode] beginning</h1></a>
+	<a href="https://braindump.frege2godel.me/posts/rails_rails_from_scratch3_routes/" alt="[rails] rails from scratch3-routes" class="permalink" data-singlepage="yes" ><h1>[rails] rails from scratch3-routes</h1></a>
 	<fieldset>
 	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
-	  <ol class="li"><strong>Title: </strong> [leetcode] beginning </ol>
-	  <ol class="li"><strong>date: </strong> 2023 6.15 </ol>
-	  <ol class="li"><strong>content: </strong>leetcode를 시작하기로 했다. 매일 한문제씩 풀기로 한다. </ol>
+	  <ol class="li"><strong>Title: </strong> [rails] rails from scratch3-routes </ol>
+	  <ol class="li"><strong>date: </strong> 2023 8.2 </ol>
+	  <ol class="li"><strong>content: </strong>옛날 자료 취합중 </ol>
 	    
   
     
@@ -191,30 +191,190 @@
   
 	  
 	</fieldset>
-	<h2 id="leet-code">leet code</h2>
-<p>leet code는 학습할 수있는 chapter를 제공한다. explorer -&gt; learn은
-기초중의 기초다.</p>
-<p><a id="figure--leet code"></a></p>
-<figure><img src="/img/leetcode/leetcode_beginning.png"
-         alt="Figure 1: leetcode explorer" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 1: </span>leetcode explorer</p>
+	<h2 id="내생각">내생각</h2>
+<div class="note">
+<p>나는 route file에서 정의하는 URL들을 menu라고 생각한다. page는
+menu판이라고 생각한다. 사용자는 browser에서 menu판들을 요청하고,
+돌려받은 menu판에서 menu를 선택하면 다시 server는 menu판을 돌려주는
+구조라고 생각한다. 이런비유를 어떻게 생각할지 모르지만, 난 그렇게
+생각한다. menu들을 고급스러운 표현으로 API라고 하기도 한다.</p>
+</div>
+<h2 id="web-programming의-기본구조">Web programming의 기본구조</h2>
+<div class="note">
+<p>web programming을 한다는 것은 web server와 web client를 만드는
+것이다. 그리고 webclient와 webserver 사이의 인터페이스 설계도
+포함한다. 우리는 흔히 생각한다. web programming이라는 것은 browser의
+요청에 맞는 page를 web server가 동적으로 혹은 정적으로 page를 만들어서
+제공하는 program을 만드는 것이라고&hellip; 하지만, 이렇게 이해하는 것은 web
+server의 역할만을 강조하는 설명이다. 나는 생각한다.  web programming은
+web server와 web client의 서로의 대화에 대한 시나리오를 짜는
+것이라고&hellip;</p>
+</div>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/generalweb.png"
+         alt="Figure 1: general web" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>general web</p>
         </figcaption>
 </figure>
 
-<p><a id="figure--leet code learn"></a></p>
-<figure><img src="/img/leetcode/leetcode_learn.png"
-         alt="Figure 2: leetcode learn" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 2: </span>leetcode learn</p>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/generalweb2.png"
+         alt="Figure 2: generalweb2" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 2: </span>generalweb2</p>
         </figcaption>
 </figure>
 
-<h2 id="the-leet-code-beginner-s-guide">The Leet Code Beginner&rsquo;s Guide</h2>
-<ul>
-<li><a href="/posts/leetcode_1480_running_sum_of_1d_array/">1st problem</a>
- (1480. Running Sum of 1D Array)</li>
-<li><a href="/posts/leetcode_1672_richest_customer_wealth/">2nd_problem</a>
- (1672. Richest Customer Wealth)</li>
-</ul>
+<h2 id="시나리오에-대해서">시나리오에 대해서</h2>
+<p><a id="figure--"></a></p>
+<figure><img src="./img/scinario.png"
+         alt="Figure 3: scinario" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 3: </span>scinario</p>
+        </figcaption>
+</figure>
+
+<div class="note">
+<p>client는 해당 음식점에 연결하면 음식점(server)은 menu(URL)가 있는
+메뉴판(page)를 전달한다. client의 선택은 menu판을 벗어날 수
+없다. server가 만든 메뉴(url)를 선택하면 다시 server는 menu(url)가
+있는 메뉴판을 만들어서 전송한다. 계속 이렇게 대화하는 시나리오다.</p>
+</div>
+<h2 id="메뉴--url--관리에-관해서">메뉴(URL)관리에 관해서</h2>
+<h3 id="초창기">초창기</h3>
+<div class="note">
+<p>[초창기] 메뉴를 만드는 것은 전적으로 server가 담당한다. 어떤 식으로
+메뉴(URL)을 작성할 것인가?는 별로 중요하지 않은 문제였다. 왜냐면,
+client에게 메뉴라는 것은 URL로 다가오는것이 아니라, 짜장, 짬뽕과 같이
+human readable한 메뉴로 다가오기 때문이다. 복잡한 URL, 그리고 겉으로는
+숨겨져 있는 URL을 다루는것은 server 개발자, backend개발자의 고민이고,
+그들 맘대로 작성했다. 그러나 수백개의 page의 url을 관리하게 되면서,
+backend 개발자의 입장에서는 이것이 관리의 문제로 다가온다.  예를
+들어보자. DB에 100명의 사용자 정보가 있고, 각각의 사용자에 대한 URL을
+만들어서 client가 해당 URL을 선택하면 page가 보여준다고 했을 때, 아주
+옛날에는 100명에 대한 URL을 server관리자가 임의로
+만들었다. <a href="http://230.12.11.3/a" target="_blank">http://230.12.11.3/a
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+, b,c,d,e,f&hellip;이렇게 막 만들수도
+있고&hellip; 예를 들자면, 아래에 표시했는데, 그냥 100개의 url을 만들수
+있다. 규칙적으로 만들 수도 있고, 비규칙적으로 만들수도 있다. 또한
+만들어진 url에 대해서 다른 처리를 할 수 있다. 예를들면, 삭제한다거나,
+수정한다거나&hellip;할때 동일한 URL에 대해서 다른 operation이 적용되게
+하거나, 아예 다른 URL로 처리할 수도 있다. 몇개의 page만 보여주던
+초창기와 달리 최근에는 DB를 사용하게 되면서, 수만개의 record도 URL로
+접근할 수 있게 하는 상황이 되면서, 이런식으로 주구장창 URL을 만드는
+방식보다 좀 더 smart한 방식을 찾게 되었다. 또한 위에 말한대로 동일한
+URL에 대해서 다른 operation이 적용 될때, URL을 만들어서 아래처럼
+처리할 수도 있다. 즉 URL이 엄청나게 만들어질 수 밖에 없다. URL을
+엄청나게 만들던지, 그리고 URL을 어떤 형식으로 만들던지&hellip;그것에
+대해서는 전적으로 server backend관리작의 몫이였다. 이것은 표준이
+없었기 때문에 관리하기가 매우 힘들었다.</p>
+</div>
+<blockquote>
+<p>&lt;규칙적&gt;
+<a href="http://230.12.11.3/users1" target="_blank">http://230.12.11.3/users1
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+, <a href="http://230.12.11.3/users2" target="_blank">http://230.12.11.3/users2
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+, <a href="http://230.12.11.3/users3" target="_blank">http://230.12.11.3/users3
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+,  <a href="http://230.12.11.3/users4" target="_blank">http://230.12.11.3/users4
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+, <a href="http://230.12.11.3/users5" target="_blank">http://230.12.11.3/users5
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+, <a href="http://230.12.11.3/users6" target="_blank">http://230.12.11.3/users6
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+&hellip;.
+&lt;비규칙적&gt;
+<a href="http://230.12.11.3/%EC%B2%A0%EC%88%98" target="_blank">http://230.12.11.3/%EC%B2%A0%EC%88%98
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+,  <a href="http://230.12.11.3/%EC%B2%A0%EC%88%98%EC%B9%9C%EA%B5%AC" target="_blank">http://230.12.11.3/%EC%B2%A0%EC%88%98%EC%B9%9C%EA%B5%AC
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+, <a href="http://230.12.11.3/%EC%98%81%ED%9D%AC" target="_blank">http://230.12.11.3/%EC%98%81%ED%9D%AC
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+, <a href="http://230.12.11.3/%EC%B2%A0%EC%88%98%EC%97%84%EB%A7%88" target="_blank">http://230.12.11.3/%EC%B2%A0%EC%88%98%EC%97%84%EB%A7%88
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+,
+&lt;다른 operation&gt;
+<a href="http://230.12.11.3/%EC%B2%A0%EC%88%98%EC%A7%80%EC%9A%B0%EA%B8%B0" target="_blank">http://230.12.11.3/%EC%B2%A0%EC%88%98%EC%A7%80%EC%9A%B0%EA%B8%B0
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+, <a href="http://230.12.11.3/%EC%B2%A0%EC%88%98%EC%88%98%EC%A0%95" target="_blank">http://230.12.11.3/%EC%B2%A0%EC%88%98%EC%88%98%EC%A0%95
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+</p>
+</blockquote>
+<h3 id="옛날-rails에서-처리">옛날 rails에서 처리</h3>
+<div class="note">
+<p>rails에서는 mvc라는 구조를 채택하면서, URL의 구조도 특정형태를 갖는
+식으로 convention을 만들었다. rails에서는 URL을 routes라는 곳에서
+만들기도 하고 처리도 한다. 처리는 controller라는 곳에서 하는데,
+routes가 URL을 만들때, controller/action의 형태로 만들어버렸다. 그리고
+그것을 convention으로 했다. 어차피 URL은 어떤 형식으로 만들어도
+상관없기 때문에 rails의 구조에 맞춰 사용할 수 있도록 URL을 만든
+것이다. 또한 동일한 URL에 대한 다른
+operation(get,post,put,patch,delete)을 위해서 또다른 URL을 만들어서
+처리하지 않는다. 아래와 같이 URL은 controller/action/:id와 같은 형태로
+규칙적으로 만들어 버렸다. 위에서 <a href="http://230.12.11.3/%EC%B2%A0%EC%88%98" target="_blank">http://230.12.11.3/%EC%B2%A0%EC%88%98
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+,
+<a href="http://230.12.11.3/%EC%B2%A0%EC%88%98%EC%B9%9C%EA%B5%AC" target="_blank">http://230.12.11.3/%EC%B2%A0%EC%88%98%EC%B9%9C%EA%B5%AC
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+ 처럼 그냥 URL을 만들고, 이를 내부적으로
+처리했다면, rails에서는 내부적으로 처리하는 구조가 mvc모델의 규칙화된
+형태이기 때문에 URL도 그것에 맞추어 <a href="http://230.12.11.3/user/show/1" target="_blank">http://230.12.11.3/user/show/1
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+,
+<a href="http://230.12.11.3/user/show/2%EC%99%80" target="_blank">http://230.12.11.3/user/show/2%EC%99%80
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+ 같은 형태로 규칙된 형태로
+바꿨다. user는 내부구조에서는 controller에 대응되고, show는 action에
+대응되고, 1은 철수, 2는 철수 친구에 대응된다.</p>
+</div>
+<blockquote>
+<p>match &lsquo;:controller(<em>:action(</em>:id))&rsquo;, via: [:get , :post, :patch]</p>
+</blockquote>
+<div class="note">
+<p>이 방식은 지금 rails에서도 사용되는 방식이다. 규칙적이고, 패턴화 되어
+있어서 URL만 보고 내부 동작도 유추할 수 있고, 수만개 수천개 만들어질
+수 있는 URL을 일반화하여 표기할 수 있기 때문에 매우 좋은
+방식이다. 그런데 이것과 비슷하게 표준화하려는 시도가 있었고 지금도
+진행중인데, 그것이 RESTFUL한 인터페이스다.</p>
+</div>
+<h3 id="restful-interface">restful interface</h3>
+<div class="note">
+<p>rails에서 사용하는 URL형식도 매우 일반화되어 있지만, restful
+interface가 더욱 이름이 갖는 semantic한 요소를 첨부했고, 처리되는 것을
+더 일반화 했다. 무슨 말이냐면, restful interface에서는 resource라는
+것을 먼저 정의하고 그것으로 부터 URL을 만든다. Resource라는 것은 db의
+테이블도 될 수 있고, 특정 객체도 될 수 있다. 이렇게 resource라는 것을
+정의하는 이유는, URL의 패턴을 보면 대부분 어떤 객체나 table에 대한
+처리를 나타내고 이 객체나 table에 대한 처리하는 method가 정해져 있다는
+것을 알았기 때문이다. 그래서 Restful interface에서는 Resource를
+나타내고 이것에 대한 연산이 7가지로 정해진다. 예를 들면, new,
+edit,show,index,create,update,destroy와 같은 연산이다. url을 만들때,
+옛날 rails는 controller/action/id와 같이 mvc라는 구조에 맞게
+만들어졌지만, restful interface는 resource/action과 같은 형태로
+만들어진다. 예를 들어서, /users/show/1과 같은 URL에서 /users/1/show와
+같은 형태로 변하게 된다. resource가 /users/1이기 때문에 resource를
+나타내고 action을 붙이는 형태로 만든다.</p>
+<p>레일즈에서는 이 restful interface로 제공한다.  즉 routes에서는
+resource:user로 선언하면, 이에 따른 URL이 자동으로 만들어진다. 7개의
+action? method를 고려해서 만들어지게 된다.</p>
+</div>
       
       </div>
 
