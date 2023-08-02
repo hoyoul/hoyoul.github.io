@@ -53,6 +53,24 @@
     </item>
     
     <item>
+      <title>[rails] rails from scratch5-model</title>
+      <link>https://braindump.frege2godel.me/posts/rails_rails_from_scratch5_model/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/rails_rails_from_scratch5_model/</guid>
+      <description>[주의사항] local과 server에서 동일한 DB를 사용할 때 rails를 사용하기 위해서 server와 client를 설치 작업을 할때, local</description>
+    </item>
+    
+    <item>
+      <title>[rails] rails from scratch6-view</title>
+      <link>https://braindump.frege2godel.me/posts/rails_rails_from_scratch6_view/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/rails_rails_from_scratch6_view/</guid>
+      <description>레일즈 assets처리 과정 - 옛날 방식 Figure 1: view1 view를 작성한다는 것은 html파일 작성, css작성, js작성 3가지를 말한다. html은 위에서 보듯</description>
+    </item>
+    
+    <item>
       <title>[matter.js] tutorial</title>
       <link>https://braindump.frege2godel.me/posts/matter_js_tutorial/</link>
       <pubDate>Sat, 29 Jul 2023 00:00:00 +0900</pubDate>
@@ -581,6 +599,15 @@
       
       <guid>https://braindump.frege2godel.me/posts/python_grammar_in_one_shot_standard_library_text/</guid>
       <description>String import sys print(sys.version_info) sys.version_info(major=2, minor=7, micro=16, releaselevel=&amp;#39;final&amp;#39;, serial=0) textwrap regular expression difflib </description>
+    </item>
+    
+    <item>
+      <title>[rails] rails from scratch4-controller</title>
+      <link>https://braindump.frege2godel.me/posts/rails_rails_from_scratch4_controller/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/rails_rails_from_scratch4_controller/</guid>
+      <description>Controller 표기법 controller는 table과 함께 복수형이다. controller를 사용하는 법 rails g controller controller명 actions하면, routing</description>
     </item>
     
     <item>

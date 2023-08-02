@@ -122,24 +122,30 @@
      
     
      
-        
-    
-    
-     
-    
-     
-    
-     
-    
-     
-    
-     
     
      
     
      
         
     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+        
+    
+    
+     
     
      
     
@@ -466,9 +472,9 @@ c:1을 기록한다.</p>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">140546593048008
-</span></span><span class="line"><span class="cl">140546593048008
-</span></span><span class="line"><span class="cl">140546593048008
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">140718426330664
+</span></span><span class="line"><span class="cl">140718426330664
+</span></span><span class="line"><span class="cl">140718426330664
 </span></span></code></pre></div><p>반면에 아래의 예를 보자.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(1) a = [1,2,3]
 </span></span><span class="line"><span class="cl">(2) b = [1,2,3]
@@ -483,9 +489,9 @@ c:1을 기록한다.</p>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4390350928
-</span></span><span class="line"><span class="cl">4390437376
-</span></span><span class="line"><span class="cl">4390511032
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4344213584
+</span></span><span class="line"><span class="cl">4344300032
+</span></span><span class="line"><span class="cl">4344373688
 </span></span></code></pre></div><p>매번 새로운 객체를 만든다.</p>
 <h3 id="변수와-assignment의-예-3">변수와 assignment의 예 3</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">a = b = 2
@@ -518,9 +524,9 @@ object를 evaluate하면 무엇이 나오는가? 객체의 address가 나온다.
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">))</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">3
-</span></span><span class="line"><span class="cl">&lt;__main__.Person instance at 0x101b33368&gt;
+</span></span><span class="line"><span class="cl">&lt;__main__.Person instance at 0x10f0b9368&gt;
 </span></span><span class="line"><span class="cl">3
-</span></span><span class="line"><span class="cl">&lt;__main__.Person instance at 0x101b33368&gt;
+</span></span><span class="line"><span class="cl">&lt;__main__.Person instance at 0x10f0b9368&gt;
 </span></span></code></pre></div><p>객체를 evaluate했을때, literal object와 일반 object의 차이를 설명하는
 예제다. 원래 의도는 evaluate의 결과를 비교하는 것이다. 그런데
 print()로 출력하는것과 evaluate의 결과는 다른거 아니냐고 말할 수 있다.
@@ -782,8 +788,8 @@ data type이고 immutable하기 때문에 객체와 객체의 덧셈은 새로�
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4403667024
-</span></span><span class="line"><span class="cl">4403667024
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4508680272
+</span></span><span class="line"><span class="cl">4508680272
 </span></span><span class="line"><span class="cl">{&#39;a&#39;: [1, 2, 3, 4], &#39;b&#39;: [1, 2, 3, 4], &#39;__builtins__&#39;: &lt;module &#39;__builtin__&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__package__&#39;: None, &#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None}
 </span></span></code></pre></div><p>여기서 interpreter는 a = [1,2,3]에서 [1,2,3]이라는 객체를 생성하고
 a:[1,2,3]을 symbol table에 등록한다. 그 다음, b = a를 보고, a를
@@ -799,8 +805,8 @@ symbol테이블에서 꺼낸 객체 [1,2,3]을 b와 함께 symbol table에
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4463022160
-</span></span><span class="line"><span class="cl">4463182264
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4433662032
+</span></span><span class="line"><span class="cl">4433822136
 </span></span><span class="line"><span class="cl">{&#39;a&#39;: [1, 2, 3, 4], &#39;b&#39;: [1, 2, 3], &#39;__builtins__&#39;: &lt;module &#39;__builtin__&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__package__&#39;: None, &#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None}
 </span></span></code></pre></div><p>a = a + [4]에서 interpreter는 rvalue의 type에 해당하는 list 객체를
 새로 생성한다. 그리고 a +[4]를 계산하여 새로운 객체에 [1,2,3,4]를
@@ -908,8 +914,8 @@ id()로 본 주소는 동일한 값이다. value도 물론 동일하다. 이제 
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4427649104
-</span></span><span class="line"><span class="cl">4427735552
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4545982544
+</span></span><span class="line"><span class="cl">4546068992
 </span></span><span class="line"><span class="cl">True
 </span></span><span class="line"><span class="cl">False
 </span></span></code></pre></div><p>interpreter는 [1,2]라는 list객체를 생성하고 heap넣는다. heap이나
@@ -1361,6 +1367,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nginx_about_nginx",JSON.stringify(graph_node_object)); 
@@ -1372,6 +1384,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[rails] frequently used functions",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_frequently_used_functions\/",
      "id": "rails_frequently_used_functions",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1657,6 +1675,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch1_installment",JSON.stringify(graph_node_object)); 
@@ -1668,6 +1692,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[rails] rails from scratch2-installment2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch2_installment\/",
      "id": "rails_rails_from_scratch2_installment",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1953,6 +1983,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch3_routes",JSON.stringify(graph_node_object)); 
@@ -1961,9 +1997,323 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
      graph_node_object = {
         
+     "label": "[rails] rails from scratch5-model",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch5_model\/",
+     "id": "rails_rails_from_scratch5_model",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("rails_rails_from_scratch5_model",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[rails] rails from scratch6-view",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch6_view\/",
+     "id": "rails_rails_from_scratch6_view",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("rails_rails_from_scratch6_view",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[matter.js] tutorial",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/matter_js_tutorial\/",
      "id": "matter_js_tutorial",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -2124,7 +2474,13 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -2399,6 +2755,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("git_git_drill1_repo_and_commit",JSON.stringify(graph_node_object)); 
@@ -2426,7 +2788,13 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -2697,6 +3065,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score",JSON.stringify(graph_node_object)); 
@@ -2724,119 +3098,125 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
          
               
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
+         
+     
          
      
          
@@ -2860,6 +3240,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[emacs] presentation tools",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_presentation_tools\/",
      "id": "emacs_presentation_tools",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3145,6 +3531,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_tex_install_and_usage",JSON.stringify(graph_node_object)); 
@@ -3156,6 +3548,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[emacs] mu4e settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_mu4e_settings\/",
      "id": "emacs_mu4e_settings",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3441,6 +3839,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_testing",JSON.stringify(graph_node_object)); 
@@ -3452,6 +3856,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[essay] computer working principles",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/essay_computer_working_principles\/",
      "id": "essay_computer_working_principles",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3636,7 +4046,13 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -3750,6 +4166,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[python] grammar in one shot",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_grammar_in_one_shot\/",
      "id": "python_grammar_in_one_shot",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -4035,6 +4457,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("algorithm_thinking_about_algorithms",JSON.stringify(graph_node_object)); 
@@ -4046,6 +4474,10 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
+     
+         
      
          
      
@@ -4185,6 +4617,8 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
      "backlinks": ["leetcode_beginning"]
    }
  sessionStorage.setItem("leetcode_1672_richest_customer_wealth",JSON.stringify(graph_node_object)); 
@@ -4196,6 +4630,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "python_summary6 function",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary6_function\/",
      "id": "python_summary6_function",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -4481,6 +4921,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary7_big_data_and_python",JSON.stringify(graph_node_object)); 
@@ -4540,7 +4986,13 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -4779,6 +5231,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
@@ -4790,6 +5248,10 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
+     
+         
      
          
      
@@ -4929,6 +5391,8 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
      "backlinks": ["website_about_my_brain_blog_and_homepage"]
    }
  sessionStorage.setItem("website_make_main_homepage",JSON.stringify(graph_node_object)); 
@@ -4940,6 +5404,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[emacs] org to ipython notebook",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_org_to_ipython_notebook\/",
      "id": "emacs_org_to_ipython_notebook",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -5225,6 +5695,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_intro_arithmetic_and_variable",JSON.stringify(graph_node_object)); 
@@ -5236,6 +5712,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[kaggle-courses-python] hello python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_python_hello_python\/",
      "id": "kaggle_courses_python_hello_python",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -5521,6 +6003,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_beginning",JSON.stringify(graph_node_object)); 
@@ -5532,6 +6020,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[leetcode] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_beginning\/",
      "id": "leetcode_beginning",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -5740,7 +6234,13 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -5830,6 +6330,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[linear algebra-1] linear algebra introduction",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_1_linear_algebra_introduction\/",
      "id": "linear_algebra_1_linear_algebra_introduction",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -6115,6 +6621,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_2_linear_independence",JSON.stringify(graph_node_object)); 
@@ -6126,6 +6638,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "python_summary3 about class",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary3_about_class\/",
      "id": "python_summary3_about_class",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -6411,6 +6929,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary5_loop",JSON.stringify(graph_node_object)); 
@@ -6422,6 +6946,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "python_summary0-About Python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary0_about_python\/",
      "id": "python_summary0_about_python",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -6707,6 +7237,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sop_idea1",JSON.stringify(graph_node_object)); 
@@ -6718,6 +7254,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[emacs] org-babel -python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_org_babel_python\/",
      "id": "emacs_org_babel_python",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -6938,7 +7480,13 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -7088,23 +7636,29 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
          
               
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
+         
+     
          
      
          
@@ -7240,7 +7794,13 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -7318,6 +7878,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "hugo korean encoding problem",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/hugo_korean_encoding_problem\/",
      "id": "hugo_korean_encoding_problem",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -7603,6 +8169,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary1",JSON.stringify(graph_node_object)); 
@@ -7614,6 +8186,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "test_page1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/test_page1\/",
      "id": "test_page1",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -7814,29 +8392,35 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
          
               
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
+         
+     
          
      
          
@@ -7914,6 +8498,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "daily영어(1)-don\u0027t pet my puppy",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/english1\/",
      "id": "english1",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -8158,7 +8748,13 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -8306,7 +8902,13 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -8362,6 +8964,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "lecture10-String",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture10-string\/",
      "id": "lecture10-String",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -8647,6 +9255,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture11-IO",JSON.stringify(graph_node_object)); 
@@ -8658,6 +9272,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "lecture12-setting-exception-logging",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture12-setting-exception-logging\/",
      "id": "lecture12-setting-exception-logging",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -8943,6 +9563,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture13-web",JSON.stringify(graph_node_object)); 
@@ -8954,6 +9580,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "lecture3 data structures",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture3_data-structure\/",
      "id": "lecture3_data-structure",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -9239,6 +9871,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture4_condition-and-loop",JSON.stringify(graph_node_object)); 
@@ -9250,6 +9888,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "lecture5_function",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture5_function\/",
      "id": "lecture5_function",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -9535,6 +10179,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture6-Pythonic-Programming",JSON.stringify(graph_node_object)); 
@@ -9546,6 +10196,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "lecture7_Object-Oriented-Programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture7_object-oriented-programming\/",
      "id": "lecture7_Object-Oriented-Programming",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -9831,6 +10487,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture8-module-and-package",JSON.stringify(graph_node_object)); 
@@ -9842,6 +10504,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "lecture9-Advanced-Data-Structure",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture9-advanced-data-structure\/",
      "id": "lecture9-Advanced-Data-Structure",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -10127,6 +10795,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("webcrawler1",JSON.stringify(graph_node_object)); 
@@ -10138,6 +10812,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "lecture2_variable_and_operator",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture2_variable_and_operator\/",
      "id": "lecture2_variable_and_operator",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -10423,6 +11103,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra1",JSON.stringify(graph_node_object)); 
@@ -10434,6 +11120,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[elisp] korean lorem ipsum",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/elisp_korean_lorel_ipsum\/",
      "id": "elisp_korean_lorel_ipsum",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -10719,6 +11411,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_grammar_in_one_shot_standard_library_text",JSON.stringify(graph_node_object)); 
@@ -10727,9 +11425,169 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
      graph_node_object = {
         
+     "label": "[rails] rails from scratch4-controller",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch4_controller\/",
+     "id": "rails_rails_from_scratch4_controller",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("rails_rails_from_scratch4_controller",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[website] making portfolio page",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_making_portfolio_page\/",
      "id": "website_making_portfolio_page",
+     
+         
+     
+         
+     
+         
      
          
      
@@ -10930,7 +11788,13 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -11165,6 +12029,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary4_data_structures",JSON.stringify(graph_node_object)); 
@@ -11176,6 +12046,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "python_summary8 string",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary8_string\/",
      "id": "python_summary8_string",
+     
+         
+     
+         
+     
+         
      
          
      
