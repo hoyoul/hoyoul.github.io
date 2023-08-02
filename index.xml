@@ -17,6 +17,24 @@
     </item>
     
     <item>
+      <title>[rails] frequently used functions</title>
+      <link>https://braindump.frege2godel.me/posts/rails_frequently_used_functions/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/rails_frequently_used_functions/</guid>
+      <description>Frequently used Functions Provide &amp;amp; yield function test할 때 주로 사용되는 function이다. view의 경우 controller에서 값이 넘어와서 처리하는 경우가 많다. 이것을 테스</description>
+    </item>
+    
+    <item>
+      <title>[rails] rails from scratch1-installment</title>
+      <link>https://braindump.frege2godel.me/posts/rails_rails_from_scratch1_installment/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/rails_rails_from_scratch1_installment/</guid>
+      <description>맨 처음 해야 하는것(1. Local 개발환경 만들기) local에서 작업할수 있는 환경을 만든다. gorails에서 지시하는대로 한다. 그 다음 capistran</description>
+    </item>
+    
+    <item>
       <title>[matter.js] tutorial</title>
       <link>https://braindump.frege2godel.me/posts/matter_js_tutorial/</link>
       <pubDate>Sat, 29 Jul 2023 00:00:00 +0900</pubDate>
