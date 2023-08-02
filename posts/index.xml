@@ -35,6 +35,15 @@
     </item>
     
     <item>
+      <title>[rails] rails from scratch2-installment2</title>
+      <link>https://braindump.frege2godel.me/posts/rails_rails_from_scratch2_installment/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/rails_rails_from_scratch2_installment/</guid>
+      <description>개요 우선 rails from scratch1을 통해서 서버의 설치와 capistrano의 개발환경이 완료되었다는 가정하에 시작한다. 설치가 다 되었다 하더라도 webp</description>
+    </item>
+    
+    <item>
       <title>[matter.js] tutorial</title>
       <link>https://braindump.frege2godel.me/posts/matter_js_tutorial/</link>
       <pubDate>Sat, 29 Jul 2023 00:00:00 +0900</pubDate>
