@@ -8,6 +8,15 @@
     <language>ko</language>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[nginx] about nginx</title>
+      <link>https://braindump.frege2godel.me/posts/nginx_about_nginx/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/nginx_about_nginx/</guid>
+      <description>Nginx에 관하여 Nginx의 역할은 web server의 역할이다. 사용자가 URL로 요청을 하면 처리하는 역할인데, 구체적으로 보면, static webpage를</description>
+    </item>
+    
+    <item>
       <title>[matter.js] tutorial</title>
       <link>https://braindump.frege2godel.me/posts/matter_js_tutorial/</link>
       <pubDate>Sat, 29 Jul 2023 00:00:00 +0900</pubDate>
