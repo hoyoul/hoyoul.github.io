@@ -474,9 +474,9 @@ c:1을 기록한다.</p>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">140480761341768
-</span></span><span class="line"><span class="cl">140480761341768
-</span></span><span class="line"><span class="cl">140480761341768
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">140587850304872
+</span></span><span class="line"><span class="cl">140587850304872
+</span></span><span class="line"><span class="cl">140587850304872
 </span></span></code></pre></div><p>반면에 아래의 예를 보자.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(1) a = [1,2,3]
 </span></span><span class="line"><span class="cl">(2) b = [1,2,3]
@@ -491,9 +491,9 @@ c:1을 기록한다.</p>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4531261520
-</span></span><span class="line"><span class="cl">4531347968
-</span></span><span class="line"><span class="cl">4531421624
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4511088720
+</span></span><span class="line"><span class="cl">4511175168
+</span></span><span class="line"><span class="cl">4511248824
 </span></span></code></pre></div><p>매번 새로운 객체를 만든다.</p>
 <h3 id="변수와-assignment의-예-3">변수와 assignment의 예 3</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">a = b = 2
@@ -526,9 +526,9 @@ object를 evaluate하면 무엇이 나오는가? 객체의 address가 나온다.
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">))</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">3
-</span></span><span class="line"><span class="cl">&lt;__main__.Person instance at 0x100e9d368&gt;
+</span></span><span class="line"><span class="cl">&lt;__main__.Person instance at 0x102f8a368&gt;
 </span></span><span class="line"><span class="cl">3
-</span></span><span class="line"><span class="cl">&lt;__main__.Person instance at 0x100e9d368&gt;
+</span></span><span class="line"><span class="cl">&lt;__main__.Person instance at 0x102f8a368&gt;
 </span></span></code></pre></div><p>객체를 evaluate했을때, literal object와 일반 object의 차이를 설명하는
 예제다. 원래 의도는 evaluate의 결과를 비교하는 것이다. 그런데
 print()로 출력하는것과 evaluate의 결과는 다른거 아니냐고 말할 수 있다.
@@ -790,8 +790,8 @@ data type이고 immutable하기 때문에 객체와 객체의 덧셈은 새로�
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4535279696
-</span></span><span class="line"><span class="cl">4535279696
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4377387088
+</span></span><span class="line"><span class="cl">4377387088
 </span></span><span class="line"><span class="cl">{&#39;a&#39;: [1, 2, 3, 4], &#39;b&#39;: [1, 2, 3, 4], &#39;__builtins__&#39;: &lt;module &#39;__builtin__&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__package__&#39;: None, &#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None}
 </span></span></code></pre></div><p>여기서 interpreter는 a = [1,2,3]에서 [1,2,3]이라는 객체를 생성하고
 a:[1,2,3]을 symbol table에 등록한다. 그 다음, b = a를 보고, a를
@@ -807,8 +807,8 @@ symbol테이블에서 꺼낸 객체 [1,2,3]을 b와 함께 symbol table에
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4385960016
-</span></span><span class="line"><span class="cl">4386120120
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4399513680
+</span></span><span class="line"><span class="cl">4399673784
 </span></span><span class="line"><span class="cl">{&#39;a&#39;: [1, 2, 3, 4], &#39;b&#39;: [1, 2, 3], &#39;__builtins__&#39;: &lt;module &#39;__builtin__&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__package__&#39;: None, &#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None}
 </span></span></code></pre></div><p>a = a + [4]에서 interpreter는 rvalue의 type에 해당하는 list 객체를
 새로 생성한다. 그리고 a +[4]를 계산하여 새로운 객체에 [1,2,3,4]를
@@ -916,8 +916,8 @@ id()로 본 주소는 동일한 값이다. value도 물론 동일하다. 이제 
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4332961872
-</span></span><span class="line"><span class="cl">4333048320
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4404019280
+</span></span><span class="line"><span class="cl">4404105728
 </span></span><span class="line"><span class="cl">True
 </span></span><span class="line"><span class="cl">False
 </span></span></code></pre></div><p>interpreter는 [1,2]라는 list객체를 생성하고 heap넣는다. heap이나

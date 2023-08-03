@@ -423,9 +423,13 @@ table에서 column을 뽑아내서 만들 수는 없나? 그럴려면 2개의 ta
 있을 수 있다. 따라서 이런 표기법은 문제가 있다. 다음 표기법은 어떤가?</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select Atable.a,Btable.b from Atable, Btable
 </span></span></code></pre></div><p>일견 그럴싸하다. a라는 column은 Atable에서 선택한다는 명확한
-의미전달이 가능하기 때문이다. 그럼 다음과 같은 상황을 살펴보자.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select SeoulElementarySchoolTeachers.a, BusanPeopleTable.b from SeoulElementarySchoolTeachers, BusanPeopleTable
-</span></span></code></pre></div><p>뭔가 불편하지 않은가? 그렇다. table 이름이나 column name이 길면 as를 사용한다.</p>
+의미전달이 가능하기 때문이다. 하지만 이렇게 사용하진
+않는다. join이라는 keyword를 사용해서 표현한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select Atable.a,Btable.b from Atable join Btable
+</span></span></code></pre></div><p>그럼 다음과 같은 상황을 살펴보자.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select SeoulElementarySchoolTeachers.a, BusanPeopleTable.b from SeoulElementarySchoolTeachers join BusanPeopleTable
+</span></span></code></pre></div><p>뭔가 불편하지 않은가? 그렇다. table 이름이나 column name이 길면 as를
+사용한다.</p>
 <h3 id="as-사용법">as 사용법</h3>
 <p>as 사용법은 다음과 같다. 컬럼의 경우, select에서 as를 사용한다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">SELECT column_name AS alias_name
@@ -434,22 +438,29 @@ table에서 column을 뽑아내서 만들 수는 없나? 그럴려면 2개의 ta
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">SELECT column_name(s)
 </span></span><span class="line"><span class="cl">FROM table_name AS alias_name;
 </span></span></code></pre></div><p>이것에 맞추어 다시 수정해보자.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select SeoulElementarySchoolTeachers.a, BusanPeopleTable.b from SeoulElementarySchoolTeachers, BusanPeopleTable
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select SeoulElementarySchoolTeachers.a, BusanPeopleTable.b from SeoulElementarySchoolTeachers join BusanPeopleTable
 </span></span></code></pre></div><p>table명만 길기 때문에 from에서 바꿔주면 된다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select Seoul.a, Busan.a from SeoulElementarySchoolTeachesr as Seoul, BusanPeopleTable as Busan
-</span></span></code></pre></div><h3 id="join의-적용">join의 적용</h3>
-<p>위에서 작성한 sql문은 그럴듯하지만 이렇게 사용되지 않는다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select Seoul.a, Busan.b from SeoulElementarySchoolTeachesr as Seoul, BusanPeopleTable as Busan
-</span></span></code></pre></div><p>무엇을 고쳐야 할까? from에는 하나의 table만 온다. 만일 2개의 table을
-불러올려면, join을 사용한다. join은 2개의 table을 연결해서 하나로
-만든다는 얘기다. 그래서 연산이 존재한다. 어떻게 하나로 만들것인가?에
-대한 연산이다. 그런데 상식적으로 2개의 table을 하나로 합친다는게 말이
-안된다. A라는 table에 B라는 table의 column들을 그냥 떼다가 A에
-붙일수는 있다. 그러면 이게 제대로된 table일까? A라는 table은 고객에
-대한 정보를 갖는 table이라고 하자. B는 쇼핑아이템에 대한 정보라고
-하자. 그냥 두개의 table을 합쳤다면 사람에 대한 정보와 쇼핑아이템에
-대한 정보가 아무런 연관도 없는데 그냥 연결해 버린 것이다. table을
-무조건 합치면 안된다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select Seoul.a, Busan.a from SeoulElementarySchoolTeachesr as Seoul join BusanPeopleTable as Busan
+</span></span></code></pre></div><p>위에서 join을 마치 아무 table을 2개 연결해서 하나의 table을 만들어서
+사용하듯이 얘기했지만, 실은 원래 하나인 table을 여러개로 쪼갠 후에
+연결해서 사용하는 것이다. 즉 원래 table을 쪼개서 여러개의 table로
+만드는 것이 시간상 위에 위치하게 된다. 이것은 정규화와 관련된 얘기라서
+나중에 join을 다시 설명할때 얘기 하기로 하자.</p>
+<h3 id="join의-적용">join의 적용</h3>
+<p>위에서 설명을 했지만, join이라는게 아무 table이나 합쳐서 새로운
+table을 만드는 것이 아니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select Seoul.a, Busan.b from SeoulElementarySchoolTeachesr as Seoul join BusanPeopleTable as Busan
+</span></span></code></pre></div><p>join이라는게 2개의 table을 연결해서 하나로 만든다고 했는데, 상식적으로
+아무 관계도 없는 2개의 table을 하나로 합친다는게 말이 안된다. 물론
+아무 관계도 없는 A라는 table에 B라는 table의 column들을 그냥 떼다가
+A에 붙일수는 있다. sql의 join을 사용해서 붙이도록 동작 시킬수
+있다. 붙여지게 된다. 하지만 이게 제대로된 table일까? A라는 table은
+고객에 대한 정보를 갖는 table이라고 하자. B는 쇼핑아이템에 대한
+정보라고 하자. 그냥 두개의 table을 합쳤다면 사람에 대한 정보와
+쇼핑아이템에 대한 정보가 아무런 연관도 없는데 그냥 연결해 버린
+것이다. 이렇게 아무 관련 없는 table을 합치게 하게 위해서 join이라는게
+나온건 아니다. 위에서도 말했듯이 한개의 table을 이미 이전에 쪼개
+놓았다. 이 전제를 잊으면 안된다.</p>
 <h4 id="on의-사용">ON의 사용</h4>
 <!--list-separator-->
 <ul>
