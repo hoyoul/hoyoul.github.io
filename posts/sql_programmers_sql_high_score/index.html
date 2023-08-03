@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><title>[sql] programmers sql high score</title>
+  <head><title>[sql] programmers sql high score1</title>
 
 
 <meta charset="utf-8">
@@ -40,12 +40,12 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">[sql] programmers sql high score</h1>    
+    <h1 class="collapsed-title">[sql] programmers sql high score1</h1>    
       <div class="content">
-	<a href="https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score/" alt="[sql] programmers sql high score" class="permalink" data-singlepage="yes" ><h1>[sql] programmers sql high score</h1></a>
+	<a href="https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score/" alt="[sql] programmers sql high score1" class="permalink" data-singlepage="yes" ><h1>[sql] programmers sql high score1</h1></a>
 	<fieldset>
 	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
-	  <ol class="li"><strong>Title: </strong> [sql] programmers sql high score </ol>
+	  <ol class="li"><strong>Title: </strong> [sql] programmers sql high score1 </ol>
 	  <ol class="li"><strong>date: </strong> 2023 7.27 </ol>
 	  <ol class="li"><strong>content: </strong>sql programmers 고득점 kit풀기 </ol>
 	    
@@ -238,6 +238,10 @@ busan과 같다는 조건을 걸었다. 선택된 column이 일종의 변수와 
 역할을 한다. 이것도 local이라는 table을 db에서 꺼낸다. 그 다음
 district가 busan인것만 추린 table에서 district column만 선택해서 꺼낸
 table을 return한다. 순서는 다음과 같다. <code>from =&gt; where =&gt; select</code>.</p>
+<h4 id="like">like</h4>
+<p>where에서 조건을 나타낼때 수치로 조건을 나타낼 때와 문자열로 조건을
+나타낼 때가 있다. 여기서 다른 연산자가 사용된다. 예를 들어서, a == 30
+이거나, a like &lsquo;bread&rsquo; 처럼 조건을 표시할 수 있다.</p>
 <h3 id="group-by">group by</h3>
 <p>group by는 특정 column의 row data를 group별로 묶는다. 왜 묶을까?
 보통은 집계함수(mma cs)를 사용하려고 묶는다. row를 group으로
@@ -408,7 +412,7 @@ select로 원하는 table을 return하기 위해서 column을 선택한다. 그�
 </span></span></code></pre></div><p>limit 2,1은 3번째 row의 row 1개만 보여준다.</p>
 <h3 id="요약">요약</h3>
 <p>이것이 기본적인 select문의 구조다.</p>
-<h2 id="join">join</h2>
+<h2 id="join-개념들">join 개념들</h2>
 <h3 id="상식적으로-join을-보자-dot">상식적으로 join을 보자.</h3>
 <p>하나의 table에서 column을 선택해서 table을 만드는게 아니라, 2개의
 table에서 column을 뽑아내서 만들 수는 없나? 그럴려면 2개의 table을
@@ -423,10 +427,10 @@ table에서 column을 뽑아내서 만들 수는 없나? 그럴려면 2개의 ta
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select SeoulElementarySchoolTeachers.a, BusanPeopleTable.b from SeoulElementarySchoolTeachers, BusanPeopleTable
 </span></span></code></pre></div><p>뭔가 불편하지 않은가? 그렇다. table 이름이나 column name이 길면 as를 사용한다.</p>
 <h3 id="as-사용법">as 사용법</h3>
-<p>as 사용법은 다음과 같다. 컬럼의 경우,</p>
+<p>as 사용법은 다음과 같다. 컬럼의 경우, select에서 as를 사용한다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">SELECT column_name AS alias_name
 </span></span><span class="line"><span class="cl">FROM table_name;
-</span></span></code></pre></div><p>table의 경우,</p>
+</span></span></code></pre></div><p>table의 경우, from에서 as를 사용한다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">SELECT column_name(s)
 </span></span><span class="line"><span class="cl">FROM table_name AS alias_name;
 </span></span></code></pre></div><p>이것에 맞추어 다시 수정해보자.</p>
@@ -447,13 +451,103 @@ table에서 column을 뽑아내서 만들 수는 없나? 그럴려면 2개의 ta
 대한 정보가 아무런 연관도 없는데 그냥 연결해 버린 것이다. table을
 무조건 합치면 안된다.</p>
 <h4 id="on의-사용">ON의 사용</h4>
+<!--list-separator-->
+<ul>
+<li>
+<p>on의 사용법</p>
 <p>그래서 On이라는게 사용된다. On은 2개의 table을 연결하는 공통적인
 접점(column)을 의미한다. 사용법은 다음과 같다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">select A.process_id, B.date, B.name
 </span></span><span class="line"><span class="cl">from A inner join B on A.id = B.id
 </span></span></code></pre></div><p>다른 것보다 같은 컬럼을 합치는 부분을 보면된다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">on A.id = B.id
-</span></span></code></pre></div>      
+</span></span></code></pre></div></li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>foreign key에 대해서</p>
+<p>on을 설명하기 위해선 foreign key와 primary key라는 용어가
+등장한다. 알아둘 필요가 있어서 생각나는대로 쓴다.  여기서 A table의
+id는 primary key이고 B table의 id는 foreign key이거나 하다. db를
+배운사람들은 알겠지만, table에 primary key가 있는 것은 당연하다. 모든
+table에는 primary key가 있어야 하기 때문이다. 그런데 다른 table의
+primary key인 foreign key column으로 들어와 있는 경우는 일반적이진
+않다. foreign key가 들어있다는 것은 foreign key를 primary key로
+사용하는 table과 원래 하나의 table이였으나 중복문제로 별도의 table로
+떼어냈다고 보기 때문이다. 즉, 정규화 과정을 거친것이다. 이렇게 별도의
+table로 떼어내면, 별도의 table에선 중복을 하지 않게 처리한다. 그리고
+원래의 table은 foreign key로 참조하기 때문에 중복되지 않은 data를
+참조하는 것이다. 이것에 대한 설명을 할려고 하는데, 막 한달전 쯤
+생활코딩이라는 데에서 sql join에 대한 별도의 강의를 만들었고 여기서
+그것을 설명한다. 좋은 설명이다. 내가 할려던 설명이였다. <a href="https://www.youtube.com/watch?v=yCbJ1D1Ylik&amp;list=PLuHgQVnccGMAG1O1BRZCT3wkD_aPmPylq&amp;index=2" target="_blank">참조
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+, 나는
+강의를 다 보지는 않았지만, 영상에선 제2 정규화를 얘기하는 것
+같다. db에서 table을 design할 때, 가장 먼저 하는건 table설계다. table
+설계할 때, 큰 뭉텅이로 table을 만든다. 일종의 객체의 모든 정보를
+table과 mapping하는 것이다. 학생이면 학생이란 객체의 모든 속성값을
+학생 table의 column으로 때려박는다. 하지만 이렇게 table에 여러개의
+column을 사용하면 반드시 중복되는 데이터가 생기게 된다. 그래서
+정규화를 한다. data값이 여러개이면 하나의 값을 갖도록하는 1정규화도
+있고 column을 자르는 2정규화도 있다. 5정규화까지 아마 있을
+것이다. 여튼 학생이란 속성을 학생이란 table에 박아넣으면 30개의
+column을 가진 table을 만들수 있을 것이다. 이렇게 하면 중복되는 column
+data도 문제지만, query하면 속도도 느려진다. 그러나 요즘은 워낙 기술이
+발달해서 이정도로는 체감될 정도는 아니다. 하지만 data의 양이 늘어나면
+속도저하가 필연적이다. 그러면 table을 무조건 쪼개는게 능사일까?
+그렇지는 않다. 장단점이 있기 때문이다. 장점은 program에서 사용하기
+편하다. 코딩하기 편한것이다. 그냥 table의 학생 data를 꺼내서 학생
+객체에 매핑만 하면 된다. query가 간단해진다. 예를 들어서 select * from
+student where student_id =1; 과 같이 사용하면 된다. table을 쪼개개
+되면, 학생 id가 1인 데이터를 꺼내기 위해선 join을 통해서 다시 하나의
+table로 만드는 과정이 필요하다. 즉 sql이 복잡해진다. 레고블럭처럼
+table을 작은 단위로 하면, 자유도는 증가한다. 예를들어 원래 학생
+table을 여러개로 쪼갠 상태에서 내가 원하는 table이 학생의 모든 정보가
+아닌, 학생이 속한 학교와 학생 개인정보라면 2개의 table만 join해서
+하나의 table을 만들수 있기 때문이다. programmer가 개입하는 자유도와
+만들수 있는 학생 data도 많이 늘어난다. 그리고 중복 문제도 없애고
+여러모로 좋다. 다만 programmer의 table 설계능력과 조합능력을 필요로
+한다는 것이다. 즉 coding이 어려워진다. 여튼 아는대로 씨부려 봤다.ㅎㅎ
+다시 한번 정리하면 여기서 primary key와 foreign key가 등장하는 이유를
+설명했다. 즉 원래 한 table을 쪼갯기 때문에 foreign key가 필요한
+것이다.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>on과 join</p>
+<p>위에서도 말했듯이 join은 이미 쪼개진 table을 조합해서 새로운 table을
+만드는 것이다. 여기서 on은 조건인데 이 조건에 따라 만들어지는 table이
+달라진다.라고 어떤 책에서 얘기하는데, 그렇지는 않다.  join 종류에 따라
+만들어지는 table이 달라지는 것이다. on은 모든 join에서 공통적이라고
+보면 된다.</p>
+<p><a id="figure--join"></a></p>
+<figure><img src="/img/sql/join1.png"
+             alt="Figure 10: join" width="600px"/><figcaption>
+                <p><span class="figure-number">Figure 10: </span>join</p>
+            </figcaption>
+    </figure>
+
+<p>이 그림들에 대한 설명을 이제 설명할 것이다.</p>
+</li>
+</ul>
+<h2 id="inner-join--default">inner join (default)</h2>
+<h2 id="outer-join">outer join</h2>
+<h2 id="lefter-join">lefter join</h2>
+<h2 id="right-join">right join</h2>
+<h2 id="subquery">subquery</h2>
+<h2 id="요약">요약</h2>
+<p>query문을 작성하는 순서</p>
+<h3 id="1--from작성한다-dot">(1) from작성한다.</h3>
+<h3 id="2--join할께-있다면-from-a-join-b를-작성한다-dot">(2) join할께 있다면 from A join B를 작성한다.</h3>
+<h3 id="3--alias를-한다-dot-from-a-as-a-join-b-as-b">(3) alias를 한다. from A as a join B as b</h3>
+<h3 id="4--where을-작성한다-dot-from-a-asa-join-b-as-b-where-blah-blah">(4) where을 작성한다. from A asa join B as b where blah blah</h3>
+<h3 id="5--from-where만-해서-만들어진-table을꺼내기-위해서-select를-써서-query를-만든다-dot">(5) from where만 해서 만들어진 table을꺼내기 위해서 select를 써서 query를 만든다.</h3>
+<h3 id="6--group-by-having-sol을-사용해서-추가적-제한을-건다음에-select를-써서-query를-만든다-dot">(6) group by having SOL을 사용해서 추가적 제한을 건다음에 select를 써서 query를 만든다.</h3>
+      
       </div>
 
   </div>
@@ -2341,7 +2435,7 @@ table에서 column을 뽑아내서 만들 수는 없나? 그럴려면 2개의 ta
      
      graph_node_object = {
         
-     "label": "[sql] programmers sql high score",
+     "label": "[sql] programmers sql high score1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score\/",
      "id": "sql_programmers_sql_high_score",
      
