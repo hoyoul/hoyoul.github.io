@@ -196,6 +196,10 @@
      
     
      
+    
+     
+    
+     
   
 
   
@@ -224,105 +228,103 @@
 </figure>
 
 <h2 id="풀이">풀이</h2>
-<h2 id="problem3-서울에-위치한-식당-목록-출력하기--level4">problem3: 서울에 위치한 식당 목록 출력하기(level4)</h2>
-<p><a id="figure--problem3-1"></a></p>
-<figure><img src="/img/sql/p3-1.png"
-         alt="Figure 1: problem3-1" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 1: </span>problem3-1</p>
-        </figcaption>
+<p>하나의 table에서 조회하는 것이다. 풀이 순서는 동일하다. from부터
+시작한다.</p>
+<h3 id="from-doctor">from DOCTOR</h3>
+<p>=&gt; table을 db에서 가져온다. 이건 어렵지않다.</p>
+<h3 id="where-mcdp-cd-like-cs-or-mcdp-cd-like-gs">where MCDP_CD like &ldquo;CS&rdquo; or  MCDP_CD like &ldquo;GS&rdquo;</h3>
+<p>=&gt; cs 나 gs인 경우, 이것도 어렵지 않다. 수치의 경우 MCDP_CD =3 이런
+식으로 나타낸다면 문자열의 경우 like를 사용한다. 정도? like는
+문자열에서 사용되는데 좋은점이 있다. date like &ldquo;2002-03%&rdquo; 라는 식의
+wildcard를 사용할 수 있다는 것이다.</p>
+<div class="important">
+<p>where절에서 and or not in을 사용할 수 있다. 위에서 or대신에 <code>in</code> 을
+사용할 수 있다.  where MCDP_CD in (&lsquo;cs&rsquo;, &lsquo;gs&rsquo;)</p>
+</div>
+<h3 id="select-dr-name-dr-id-mcdp-cd-date-format--hire-ymd-y-m-d--as-date-format">select DR_NAME, DR_ID,MCDP_CD, DATE_FORMAT(HIRE_YMD,&quot;%Y-%m-%d&quot;) as DATE_FORMAT</h3>
+<p>=&gt; select에선 column값을 선택만 하는게 아니라 출력형태를 바꿔서 출력할
+수 있다. 이 때, 함수를 사용하는데, 대표적인게 mmacs라는 집계함수와
+date format()이다.</p>
+<h3 id="최종">[최종]</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="n">DR_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">DR_ID</span><span class="p">,</span><span class="n">MCDP_CD</span><span class="p">,</span><span class="w"> </span><span class="nf">DATE_FORMAT</span><span class="p">(</span><span class="n">HIRE_YMD</span><span class="p">,</span><span class="s2">&#34;%Y-%m-%d&#34;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">DATE_FORMAT</span><span class="w">
+</span></span></span></code></pre></div><h2 id="problem3-서울에-위치한-식당-목록-출력하기--level4">problem3: 서울에 위치한 식당 목록 출력하기(level4)</h2>
+<figure><img src="/img/sql/p3-1.png" width="600px"/>
 </figure>
 
-<p><a id="figure--problem3-2"></a></p>
-<figure><img src="/img/sql/p3-2.png"
-         alt="Figure 2: problem3-2" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 2: </span>problem3-2</p>
-        </figcaption>
+<figure><img src="/img/sql/p3-2.png" width="600px"/>
 </figure>
 
-<p><a id="figure--problem3-3"></a></p>
-<figure><img src="/img/sql/p3-3.png"
-         alt="Figure 3: problem3-3" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 3: </span>problem3-3</p>
-        </figcaption>
+<figure><img src="/img/sql/p3-3.png" width="600px"/>
 </figure>
 
-<p><a id="figure--problem3-4"></a></p>
-<figure><img src="/img/sql/p3-4.png"
-         alt="Figure 4: problem3-4" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 4: </span>problem3-4</p>
-        </figcaption>
+<figure><img src="/img/sql/p3-4.png" width="600px"/>
 </figure>
 
 <h2 id="풀이">풀이</h2>
 <h2 id="problem4-조건에-맞는-도서-리스트-출력하기--level1">problem4: 조건에 맞는 도서 리스트 출력하기(level1)</h2>
-<p><a id="figure--problem4-1"></a></p>
-<figure><img src="/img/sql/p4-1.png"
-         alt="Figure 5: problem4-1" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 5: </span>problem4-1</p>
-        </figcaption>
+<figure><img src="/img/sql/p4-1.png" width="600px"/>
 </figure>
 
-<p><a id="figure--problem4-2"></a></p>
-<figure><img src="/img/sql/p4-2.png"
-         alt="Figure 6: problem4-2" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 6: </span>problem4-2</p>
-        </figcaption>
+<figure><img src="/img/sql/p4-2.png" width="600px"/>
 </figure>
 
 <h2 id="풀이">풀이</h2>
 <h2 id="problem5-과일로-만든-아이스크림-고르기--level1">problem5: 과일로 만든 아이스크림 고르기(level1)</h2>
-<p><a id="figure--problem5-1"></a></p>
-<figure><img src="/img/sql/p5-1.png"
-         alt="Figure 7: problem5-1" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 7: </span>problem5-1</p>
-        </figcaption>
+<figure><img src="/img/sql/p5-1.png" width="600px"/>
 </figure>
 
-<p><a id="figure--problem5-2"></a></p>
-<figure><img src="/img/sql/p5-2.png"
-         alt="Figure 8: problem5-2" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 8: </span>problem5-2</p>
-        </figcaption>
+<figure><img src="/img/sql/p5-2.png" width="600px"/>
 </figure>
 
-<p><a id="figure--problem5-3"></a></p>
-<figure><img src="/img/sql/p5-3.png"
-         alt="Figure 9: problem5-3" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 9: </span>problem5-3</p>
-        </figcaption>
+<figure><img src="/img/sql/p5-3.png" width="600px"/>
 </figure>
 
 <h2 id="풀이">풀이</h2>
 <h2 id="problem6-평균-일일-대여-요금-구하기--level1">problem6: 평균 일일 대여 요금 구하기(level1)</h2>
-<p><a id="figure--problem6-1"></a></p>
-<figure><img src="/img/sql/p6-1.png"
-         alt="Figure 10: problem6-1" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 10: </span>problem6-1</p>
-        </figcaption>
+<figure><img src="/img/sql/p6-1.png" width="600px"/>
 </figure>
 
-<p><a id="figure--problem6-2"></a></p>
-<figure><img src="/img/sql/p6-2.png"
-         alt="Figure 11: problem6-2" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 11: </span>problem6-2</p>
-        </figcaption>
+<figure><img src="/img/sql/p6-2.png" width="600px"/>
 </figure>
 
 <h2 id="풀이">풀이</h2>
 <h2 id="problem7-조건에-부합하는-중고거래-댓글-조회하기--level1">problem7: 조건에 부합하는 중고거래 댓글 조회하기(level1)</h2>
-<p><a id="figure--problem7-2"></a></p>
-<figure><img src="/img/sql/p7-1.png"
-         alt="Figure 12: problem7-1" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 12: </span>problem7-1</p>
-        </figcaption>
+<figure><img src="/img/sql/p7-1.png" width="600px"/>
+</figure>
+
+<figure><img src="/img/sql/p7-2.png" width="600px"/>
+</figure>
+
+<figure><img src="/img/sql/p7-3.png" width="600px"/>
 </figure>
 
 <h2 id="풀이">풀이</h2>
 <h2 id="problem8-인기-있는-아이스크림--level1">problem8: 인기 있는 아이스크림(level1)</h2>
+<figure><img src="/img/sql/p8-1.png" width="600px"/>
+</figure>
+
+<figure><img src="/img/sql/p8-2.png" width="600px"/>
+</figure>
+
+<figure><img src="/img/sql/p8-3.png" width="600px"/>
+</figure>
+
 <h2 id="풀이">풀이</h2>
 <h2 id="problem9-3월에-태어난-여성-회원-목록-출력하기--level2">problem9: 3월에 태어난 여성 회원 목록 출력하기(level2)</h2>
+<figure><img src="/img/sql/p9-1.png" width="600px"/>
+</figure>
+
+<figure><img src="/img/sql/p9-2.png" width="600px"/>
+</figure>
+
 <h2 id="풀이">풀이</h2>
 <h2 id="problem10-12세-이하인-여자환자-목록-출력하기--level1">problem10: 12세 이하인 여자환자 목록 출력하기(level1)</h2>
+<figure><img src="/img/sql/p10-1.png" width="600px"/>
+</figure>
+
+<figure><img src="/img/sql/p10-2.png" width="600px"/>
+</figure>
+
 <h2 id="풀이">풀이</h2>
 <h2 id="problem11-모든-레코드-조회하기--level1">problem11: 모든 레코드 조회하기(level1)</h2>
 <h2 id="풀이">풀이</h2>
@@ -356,9 +358,337 @@
      
      graph_node_object = {
         
+     "label": "[emacs] database sql usage",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_database_sql_usage\/",
+     "id": "emacs_database_sql_usage",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("emacs_database_sql_usage",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[rails] rails from scratch8 aws rails settings",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch8_aws_rails_settings\/",
+     "id": "rails_rails_from_scratch8_aws_rails_settings",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("rails_rails_from_scratch8_aws_rails_settings",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[sql] programmers sql high score2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score2\/",
      "id": "sql_programmers_sql_high_score2",
+     
+         
+     
+         
      
          
      
@@ -664,6 +994,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nginx_about_nginx",JSON.stringify(graph_node_object)); 
@@ -675,6 +1009,10 @@
      "label": "[rails] frequently used functions",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_frequently_used_functions\/",
      "id": "rails_frequently_used_functions",
+     
+         
+     
+         
      
          
      
@@ -980,6 +1318,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch1_installment",JSON.stringify(graph_node_object)); 
@@ -991,6 +1333,10 @@
      "label": "[rails] rails from scratch2-installment2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch2_installment\/",
      "id": "rails_rails_from_scratch2_installment",
+     
+         
+     
+         
      
          
      
@@ -1296,6 +1642,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch3_routes",JSON.stringify(graph_node_object)); 
@@ -1307,6 +1657,10 @@
      "label": "[rails] rails from scratch5-model",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch5_model\/",
      "id": "rails_rails_from_scratch5_model",
+     
+         
+     
+         
      
          
      
@@ -1612,6 +1966,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch6_view",JSON.stringify(graph_node_object)); 
@@ -1623,6 +1981,10 @@
      "label": "[rails] rails from scratch7-practice1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch7_practice1\/",
      "id": "rails_rails_from_scratch7_practice1",
+     
+         
+     
+         
      
          
      
@@ -1928,6 +2290,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("matter_js_tutorial",JSON.stringify(graph_node_object)); 
@@ -1939,6 +2305,10 @@
      "label": "[node] npm and node",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/node_npm_and_node\/",
      "id": "node_npm_and_node",
+     
+         
+     
+         
      
          
      
@@ -2246,6 +2616,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("git_git_drill1_repo_and_commit",JSON.stringify(graph_node_object)); 
@@ -2257,6 +2631,10 @@
      "label": "[git] git drill2 local",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_drill2_local\/",
      "id": "git_git_drill2_local",
+     
+         
+     
+         
      
          
      
@@ -2564,6 +2942,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score",JSON.stringify(graph_node_object)); 
@@ -2575,6 +2957,10 @@
      "label": "[git] git explained",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_explained\/",
      "id": "git_git_explained",
+     
+         
+     
+         
      
          
      
@@ -2884,6 +3270,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_presentation_tools",JSON.stringify(graph_node_object)); 
@@ -2895,6 +3285,10 @@
      "label": "[emacs] tex install and usage (latex)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_tex_install_and_usage\/",
      "id": "emacs_tex_install_and_usage",
+     
+         
+     
+         
      
          
      
@@ -3200,6 +3594,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_mu4e_settings",JSON.stringify(graph_node_object)); 
@@ -3211,6 +3609,10 @@
      "label": "[test] testing!",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/test_testing\/",
      "id": "test_testing",
+     
+         
+     
+         
      
          
      
@@ -3516,6 +3918,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("essay_computer_working_principles",JSON.stringify(graph_node_object)); 
@@ -3527,6 +3933,10 @@
      "label": "[pl] history of programming language from calcuation to OOP",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/pl_history_of_programming_language\/",
      "id": "pl_history_of_programming_language",
+     
+         
+     
+         
      
          
      
@@ -3834,6 +4244,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_grammar_in_one_shot",JSON.stringify(graph_node_object)); 
@@ -3992,6 +4406,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("algorithm_thinking_about_algorithms",JSON.stringify(graph_node_object)); 
@@ -4003,6 +4421,10 @@
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
+     
+         
      
          
      
@@ -4310,6 +4732,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -4468,6 +4894,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary7_big_data_and_python",JSON.stringify(graph_node_object)); 
@@ -4479,6 +4909,10 @@
      "label": "[github] multi account github problem",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/github_multi_account_github_problem\/",
      "id": "github_multi_account_github_problem",
+     
+         
+     
+         
      
          
      
@@ -4786,6 +5220,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
@@ -4797,6 +5235,10 @@
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
+     
+         
      
          
      
@@ -5104,6 +5546,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
@@ -5115,6 +5561,10 @@
      "label": "[kaggle-courses-intro] Arithmetic and Variable",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
      "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
+     
+         
      
          
      
@@ -5420,6 +5870,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
@@ -5431,6 +5885,10 @@
      "label": "[kaggle] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
      "id": "kaggle_beginning",
+     
+         
+     
+         
      
          
      
@@ -5736,6 +6194,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
@@ -5747,6 +6209,10 @@
      "label": "[leetcode] 1480 running sum of 1d array",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
      "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
+     
+         
      
          
      
@@ -6054,6 +6520,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
@@ -6065,6 +6535,10 @@
      "label": "[linear algebra-2] linear independence",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
      "id": "linear_algebra_2_linear_independence",
+     
+         
+     
+         
      
          
      
@@ -6370,6 +6844,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
@@ -6381,6 +6859,10 @@
      "label": "python_summary5 loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
      "id": "python_summary5_loop",
+     
+         
+     
+         
      
          
      
@@ -6686,6 +7168,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
@@ -6697,6 +7183,10 @@
      "label": "sop idea1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
      "id": "sop_idea1",
+     
+         
+     
+         
      
          
      
@@ -7002,6 +7492,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_babel_python",JSON.stringify(graph_node_object)); 
@@ -7013,6 +7507,10 @@
      "label": "[emacs] python lsp setting",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_python_lsp_setting\/",
      "id": "emacs_python_lsp_setting",
+     
+         
+     
+         
      
          
      
@@ -7253,6 +7751,10 @@
          
      
          
+     
+         
+     
+         
               
          
      
@@ -7335,6 +7837,10 @@
      "label": "[emacs] anaconda settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
      "id": "emacs_anaconda_settings",
+     
+         
+     
+         
      
          
      
@@ -7642,6 +8148,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -7653,6 +8163,10 @@
      "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
+     
+         
      
          
      
@@ -7958,6 +8472,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -7969,6 +8487,10 @@
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
+     
+         
      
          
      
@@ -8278,6 +8800,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -8289,6 +8815,10 @@
      "label": "folding test1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
      "id": "folding_test",
+     
+         
+     
+         
      
          
      
@@ -8449,6 +8979,10 @@
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
+     
+         
+     
+         
      
          
      
@@ -8756,6 +9290,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -8767,6 +9305,10 @@
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
+     
+         
+     
+         
      
          
      
@@ -9072,6 +9614,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -9083,6 +9629,10 @@
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
+     
+         
+     
+         
      
          
      
@@ -9388,6 +9938,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -9399,6 +9953,10 @@
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
+     
+         
+     
+         
      
          
      
@@ -9704,6 +10262,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -9715,6 +10277,10 @@
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
+     
+         
+     
+         
      
          
      
@@ -10020,6 +10586,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -10031,6 +10601,10 @@
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
+     
+         
+     
+         
      
          
      
@@ -10336,6 +10910,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -10347,6 +10925,10 @@
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
+     
+         
+     
+         
      
          
      
@@ -10652,6 +11234,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -10663,6 +11249,10 @@
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
+     
+         
+     
+         
      
          
      
@@ -10968,6 +11558,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("elisp_korean_lorel_ipsum",JSON.stringify(graph_node_object)); 
@@ -10979,6 +11573,10 @@
      "label": "[python] grammar in one shot - standard library (Text)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_grammar_in_one_shot_standard_library_text\/",
      "id": "python_grammar_in_one_shot_standard_library_text",
+     
+         
+     
+         
      
          
      
@@ -11284,6 +11882,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch4_controller",JSON.stringify(graph_node_object)); 
@@ -11442,6 +12044,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_making_portfolio_page",JSON.stringify(graph_node_object)); 
@@ -11453,6 +12059,10 @@
      "label": "Example of org to ipynb",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/example\/",
      "id": "example",
+     
+         
+     
+         
      
          
      
@@ -11760,6 +12370,10 @@
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary4_data_structures",JSON.stringify(graph_node_object)); 
@@ -11771,6 +12385,10 @@
      "label": "python_summary8 string",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary8_string\/",
      "id": "python_summary8_string",
+     
+         
+     
+         
      
          
      

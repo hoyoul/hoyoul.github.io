@@ -8,6 +8,24 @@
     <language>ko</language>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[emacs] database sql usage</title>
+      <link>https://braindump.frege2godel.me/posts/emacs_database_sql_usage/</link>
+      <pubDate>Fri, 04 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/emacs_database_sql_usage/</guid>
+      <description>db client 사람들은 db client로 GUI db client를 사용한다. 내경우 phpadmin에서 querious로 바꿨탔다. querious3에서 quer</description>
+    </item>
+    
+    <item>
+      <title>[rails] rails from scratch8 aws rails settings</title>
+      <link>https://braindump.frege2godel.me/posts/rails_rails_from_scratch8_aws_rails_settings/</link>
+      <pubDate>Fri, 04 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/rails_rails_from_scratch8_aws_rails_settings/</guid>
+      <description>AWS EC2 Server Settings AWS 계정 만들기 Figure 1: aws1 AWS EC2와 Web Server Settings(ROR) EC2 생성 login한 후에 aws ec2를 만들자. Launch instance 실행 Figure 2: launch instance ubuntu 20.04를 선택 Figure 3: ubuntu 20.04 image 선택 3)ins</description>
+    </item>
+    
+    <item>
       <title>[sql] programmers sql high score2</title>
       <link>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score2/</link>
       <pubDate>Thu, 03 Aug 2023 00:00:00 +0900</pubDate>
