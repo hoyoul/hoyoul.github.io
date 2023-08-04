@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Wed, 02 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[sql] programmers sql high score2</title>
+      <link>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score2/</link>
+      <pubDate>Thu, 03 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score2/</guid>
+      <description>problem1: 강원도에 위치한 생상공장 목록 출력하기(level1) Figure 1: problem1-1 Figure 2: problem1-2 풀이 problem2: 흉부외과 또는 일반 외과 의사 목록 출력하기(level1) Figure 3: problem2-1 Figure 4: problem2-2 Figure 5: problem2-3</description>
+    </item>
+    
     <item>
       <title>[nginx] about nginx</title>
       <link>https://braindump.frege2godel.me/posts/nginx_about_nginx/</link>
