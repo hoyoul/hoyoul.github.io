@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><title>[leetcode] 1480 running sum of 1d array</title>
+  <head><title>[rails] rails from scratch8-before local settings</title>
 
 
 <meta charset="utf-8">
@@ -40,14 +40,14 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">[leetcode] 1480 running sum of 1d array</h1>    
+    <h1 class="collapsed-title">[rails] rails from scratch8-before local settings</h1>    
       <div class="content">
-	<a href="https://braindump.frege2godel.me/posts/leetcode_1480_running_sum_of_1d_array/" alt="[leetcode] 1480 running sum of 1d array" class="permalink" data-singlepage="yes" ><h1>[leetcode] 1480 running sum of 1d array</h1></a>
+	<a href="https://braindump.frege2godel.me/posts/rails_rails_from_scratch8_before_local_settings/" alt="[rails] rails from scratch8-before local settings" class="permalink" data-singlepage="yes" ><h1>[rails] rails from scratch8-before local settings</h1></a>
 	<fieldset>
 	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
-	  <ol class="li"><strong>Title: </strong> [leetcode] 1480 running sum of 1d array </ol>
-	  <ol class="li"><strong>date: </strong> 2023 6.14 </ol>
-	  <ol class="li"><strong>content: </strong>leet code expolore에서 첫번째로 제시하는 문제 </ol>
+	  <ol class="li"><strong>Title: </strong> [rails] rails from scratch8-before local settings </ol>
+	  <ol class="li"><strong>date: </strong> 2023 8.4 </ol>
+	  <ol class="li"><strong>content: </strong>지난 자료들 취합중 </ol>
 	    
   
     
@@ -124,8 +124,6 @@
      
     
      
-        
-    
     
      
     
@@ -207,114 +205,131 @@
   
 
   
-  <div class="bl-section">
-    <hr/>
-    <h4> (back links) </h4>
-    <div class="backlinks">
-       <ul>
-       
-         <li><a href="/posts/leetcode_beginning/">[leetcode] beginning</a></li>
-       
-      </ul>
-    </div>
-  </div>
-
 	  
 	</fieldset>
-	<h2 id="문제-위치">문제 위치</h2>
-<p><a href="https://leetcode.com/problems/running-sum-of-1d-array/" target="_blank">여기
+	<h2 id="local-rails-settings">Local Rails Settings</h2>
+<p><a href="https://gorails.com/setup/osx/11.0-big-sur" target="_blank">goRails
 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
 </a>
-</p>
-<h2 id="문제">문제</h2>
-<div class="important">
-<p>Given an array nums. We define a running sum of an array as
-runningSum[i] = sum(nums[0]…nums[i]).  Return the running sum of nums.</p>
-</div>
-<h3 id="example1">example1</h3>
-<div class="note">
-<p>Input: nums = [1,2,3,4]
-Output: [1,3,6,10]
-Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4].</p>
-</div>
-<h3 id="example2">example2</h3>
-<div class="note">
-<p>Input: nums = [1,1,1,1,1]
-Output: [1,2,3,4,5]
-Explanation: Running sum is obtained as follows: [1, 1+1, 1+1+1, 1+1+1+1, 1+1+1+1+1].</p>
-</div>
-<h3 id="example3">example3</h3>
-<div class="note">
-<p>Input: nums = [3,1,2,10,1]
-Output: [3,4,6,16,17]</p>
-</div>
-<h3 id="constraints">constraints</h3>
-<div class="note">
+에 나온 설명을 바탕으로 setting을 진행한다.</p>
+<h3 id="ruby--3-dot-0-dot-1--설치">ruby (3.0.1) 설치</h3>
+<ol>
+<li>chsh -s /bin/zsh : zshell로 change</li>
+<li>brew 설치.</li>
+<li>rbenv로 ruby(3.0.1) 설치
 <ul>
-<li>1 &lt;= nums.length &lt;= 1000</li>
-<li>-10^6 &lt;= nums[i] &lt;= 10^6</li>
+<li>
+<p>ruby를 설치할 때, rbenv로 version에 맞는 ruby를 설치할 수 있다. 그래서 rbenv를 먼저 설치한다. 설치 과정은 다음과 같다.</p>
+<p><a id="org1b0ec48"></a></p>
+<img src="/img/web_monitoring/ruby_install.png" alt="ruby_install.png" width="600px" />
+각각의 내용은 이해가 안갈 수 있다. 하지만, 이렇게 해서 rbenv를 설치한다고 이해하면 될듯 하다.
+</li>
 </ul>
-</div>
-<h2 id="풀이">풀이</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">    <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">sum</span> <span class="o">=</span> <span class="n">value</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">index</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">            <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">v</span>
-</span></span><span class="line"><span class="cl">        <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">output</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="p">())</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[1, 3, 6, 10]
-</span></span></code></pre></div><h2 id="의도">의도</h2>
-<p>우선 nums라는 list에 가리키는 pointer가 2개 있어야 한다고
-생각했다. double for-loop을 생각한 것은 첫번째 pointer가 가리킬 때마다
-첫번째 원소부터 첫번째 pointer까지 list가 생성되고 그 list의 합을
-구해야 하기때문에 2개의 pointer가 필요하다고 생각했다. 이것을
-for-loop이 아닌 recursive function으로 구현하는게 더 좋을거 같긴
-하지만, 언뜻 생각나는게 for-loop이였다. 구현할때 index가 필요할꺼
-같아서 enumerate를 사용해서 index를 얻어왔다. 두번째 for-loop는
-slicing을 이용했는데, nums[0:0]은 for-loop안으로 진입하지 못하는거
-같다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">for v in nums[0:index]:
-</span></span></code></pre></div><p>그래서 첫번째 원소 처리를 첫번째 for-loop에서 가져온 첫번째 원소를
-출력 list의 첫번째 원소값으로 하기위해 다음과 같은 처리를 했다. 이게
-맞는지 모르겠다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">for index,value in enumerate(nums):
-</span></span><span class="line"><span class="cl">    sum = value
-</span></span></code></pre></div><p>accept되긴 했지만 찜찜하다.</p>
-<h2 id="참고">참고</h2>
-<p>좋은 solution이 많은데, 몇개를 옮겨쓰면 다음과 같다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">runningSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
-</span></span><span class="line"><span class="cl">            <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">nums</span>
-</span></span></code></pre></div><p>for-loop을 한개만 사용했다. nums를 계산하는 과정이 흥미롭다. 이렇게도
-짤수 있구나 하는 생각이 든다. 아래에 있는 것도 신선하다. sum()가
-list를 인자로 받으면 list의 모든 원소를 합하기 때문에 두번째
-for-loop은 필요없다는 것을 말하고 있다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl"><span class="n">num</span> <span class="o">=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">num</span><span class="p">])))</span>
-</span></span><span class="line"><span class="cl">    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="n">lst</span>
-</span></span></code></pre></div><p>더 간단하게 짠것도 있다. itertools라는 module의 accumulate함수를
-사용한 건데, 문제를 구현한 함수 같다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">accumulate</span>
-</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">accumulate</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">accumulate</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">runningSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">accumulate</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>
-</span></span></code></pre></div><h2 id="요약">요약</h2>
-<p>우선 내 코드는 상당히 잘못되었다. double loop를 쓴것부터
-잘못되었다. 한번의 loop는 돌려야 하는건 맞는거 같다. 그리고, 업무에서는
-accumulate함수를 사용하면 될것이다.</p>
+</li>
+</ol>
+<h3 id="rails--6-dot-1-dot-3-dot-2--설치">rails(6.1.3.2) 설치</h3>
+<ul>
+<li>ruby를 설치했기 때문에 gem을 사용할 수 있다.</li>
+</ul>
+<p><a id="figure--rails install"></a></p>
+<figure><img src="/img/web_monitoring/rails_install.png"
+         alt="Figure 2: rails install" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 2: </span>rails install</p>
+        </figcaption>
+</figure>
+
+<h3 id="database--mariadb--설정">Database(mariadb) 설정</h3>
+<ul>
+<li>
+<p>uninstall mariadb
+-&gt; mariadb를 처음 설치하면, postamble이 설치되지 않는 문제가 있다. 이것을 해결하기 위해선 기존의 mysql을 깨끗하게 삭제한 후에 다시 mysql을 설치하면 된다. 자세한 내용은 다음을 <a href="https://gist.github.com/brandonsimpson/5204ce8a46f7a20071b5" target="_blank">참조
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+하자.</p>
+<blockquote>
+<p>Warning: The post-install step did not complete successfully
+You can try again using:
+brew postinstall mariadb</p>
+</blockquote>
+</li>
+</ul>
+<p>위의 지시대로 하면 삭제한 후에 다시  mariadb를 설치하는 것이다. 이렇게 해서 안되는 경우도 있다.
+그럴때는 다음과 같이 해서 해결하긴 했다. 그런데 이것이 solution은 아닌 거 같다.</p>
+<blockquote>
+<p>brew cleanup
+sudo touch /etc/my.cnf</p>
+</blockquote>
+<h4 id="또다른-해결책">또다른 해결책</h4>
+<p>Mac air m1의 경우, brew의 저장위치가 opt/homebrew에 되어 있다. /opt/homebrew/etc/my.cnf에 보면 mysqlx-bind-address=127.0.0.1이라는 항목이 있다. 이 항목을 주석처리한후 다시 uninstall한후 설치했다. uninstall해도 /opt/homebrew/etc/my.cnf가 그대로 있는 것으로 보아서 mysqlx-bind-address가 영향을 미쳤다고 생각한다.</p>
+<h3 id="nokogiri-pg-install을-위한-처리">Nokogiri, pg install을 위한 처리</h3>
+<blockquote>
+<p>sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /</p>
+</blockquote>
+<p>이건 제대로 되지 않는다.</p>
+<h3 id="rails로-app을-만들어-보자-dot">rails로 app을 만들어 보자.</h3>
+<p><a id="figure--rails app"></a></p>
+<figure><img src="/img/web_monitoring/railsapp.png"
+         alt="Figure 3: rails app" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 3: </span>rails app</p>
+        </figcaption>
+</figure>
+
+<p>순서대로 하면, 다음과 같다.</p>
+<blockquote>
+<p>rails new myapp -d mysql</p>
+</blockquote>
+<p>여기서 에러가 난다.</p>
+<p><a id="figure--rails app error"></a></p>
+<figure><img src="/img/web_monitoring/railsapperror.png"
+         alt="Figure 4: rails app error" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 4: </span>rails app error</p>
+        </figcaption>
+</figure>
+
+<h4 id="solution">solution</h4>
+<p><a href="https://1023labs.com/posts/ruby-osx-mariadb-error/" target="_blank">참조
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+사이트가 있다. 나는 다음과 같이 수정했다.</p>
+<blockquote>
+<p>bundle config build.mysql2 &ndash;with-mysql-config=/opt/homebrew/Cellar/mariadb/10.6.3/bin/mysql_config
+cd -&gt;myapp
+bundle
+그냥 다시 myapp을 지우고, 다시 설치한다. rails new myapp -d mysql</p>
+</blockquote>
+<p>macbook air m1은 &ndash;with-mysql-config의 위치가 다르다. brew의 위치가 option/homebrew에 있기 때문이다.
+에러없이 설치됨을 알수 있다.</p>
+<h3 id="rake-db-create">rake db:create</h3>
+<p>별다른 문제없이 m1에선 되지만, intel pc에선 잘 안된다.
+Access Denied문제가 발생할 수 있다.</p>
+<blockquote>
+<p>Access denied for user &lsquo;root&rsquo;@&rsquo;localhost&rsquo;
+If you received an error that said Access denied for user &lsquo;root&rsquo;@&rsquo;localhost&rsquo; (using password: NO) then you need to update your config/database.yml file to match the database username and password.</p>
+<p>=&gt; 해결책
+sudo mysql -u root -p로 접속
+password: systempw(1234)
+SET PASSWORD FOR &lsquo;root&rsquo;@&rsquo;localhost&rsquo; = PASSWORD(&lsquo;root1234’);</p>
+<p>and in databse.yml
+development:
+adapter: mysql2
+database: mydb
+host: localhost
+username: root
+password: root1234</p>
+<p>=&gt; development가 default를 참조하기 때문에 default에 생성하면 된다.</p>
+</blockquote>
+<!--quoteend-->
+<blockquote>
+<p>rails server 실행해보자.</p>
+</blockquote>
+<p><a id="figure--rails server"></a></p>
+<figure><img src="/img/web_monitoring/rails_server.png"
+         alt="Figure 5: rails server 실행" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 5: </span>rails server 실행</p>
+        </figcaption>
+</figure>
+
+<p>=&gt; 127.0.0.1을 실행하면 웹페이지를 볼 수 있다.</p>
       
       </div>
 
