@@ -6,7 +6,124 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Fri, 04 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[build_tools] about ninja</title>
+      <link>https://braindump.frege2godel.me/posts/build_tools_about_ninja/</link>
+      <pubDate>Sun, 06 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/build_tools_about_ninja/</guid>
+      <description>build tool이란 소스파일과 같은 어떤 파일에 관해서 처리를 할려고한다. 예를 들면 소스파일 하나에 compile해서 실행파일을 만든다고 하자. 이런 경우는 간단</description>
+    </item>
+    
+    <item>
+      <title>[emacs] about org-roam</title>
+      <link>https://braindump.frege2godel.me/posts/emacs_about_org_roam/</link>
+      <pubDate>Sun, 06 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/emacs_about_org_roam/</guid>
+      <description>org-roam이란? 여러개의 note를 link로 연결시켜서 관리한다. hierarchy하지 않다. html문서에서 다른 문서를 hyperlin</description>
+    </item>
+    
+    <item>
+      <title>[emacs] misc and qna</title>
+      <link>https://braindump.frege2godel.me/posts/emacs_misc_and_qna/</link>
+      <pubDate>Sun, 06 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/emacs_misc_and_qna/</guid>
+      <description>key 설정법 global key 설정 기본설정 global-set-key는 모든 buffer에 key를 설정한다는 뜻. (global-set-key (kbd &amp;#34;M-a&amp;#34;) &amp;#39;backward-char) ; Alt+a (global-set-key (kbd &amp;#34;C-a&amp;#34;) &amp;#39;backward-char) ; Ctrl+a (global-set-key (kbd &amp;#34;C-c t&amp;#34;) &amp;#39;backward-char) ; Ctrl+c t (global-set-key (kbd &amp;#34;&amp;lt;f7&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>[mysql] restore db and table</title>
+      <link>https://braindump.frege2godel.me/posts/mysql_restore_db_and_table/</link>
+      <pubDate>Sun, 06 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/mysql_restore_db_and_table/</guid>
+      <description>data backup and restore in mysql database 백업 및 복원 mysql의 백업과 복원은 간단하다. &amp;gt;(redirection)을 쓰면 되기 때문이다. 우선 backup하려는 db를</description>
+    </item>
+    
+    <item>
+      <title>[ruby] about ruby</title>
+      <link>https://braindump.frege2godel.me/posts/ruby_about_ruby/</link>
+      <pubDate>Sun, 06 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/ruby_about_ruby/</guid>
+      <description>Shim shim은 단축어가 아니다. 원래 뜻은 건축자재(나무,금속)를 뜻한다. 예를 들어 나사와 볼트를 연결할 때 와꾸가 안 맞으면 헐렁헐렁하다. 연결하려는 두 물체</description>
+    </item>
+    
+    <item>
+      <title>[unity] about unity settings</title>
+      <link>https://braindump.frege2godel.me/posts/unity_about_unity_settings/</link>
+      <pubDate>Sun, 06 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/unity_about_unity_settings/</guid>
+      <description>설치 unityhub 다운 여기 에서 unity hub를 다운받는다. unity 다운 unityhub는 여러개의 unity가 설치될 수 있는 hub다. unity를 설치해보자. unity version 선택 android,</description>
+    </item>
+    
+    <item>
+      <title>[electron] about electron.js and swift other and language</title>
+      <link>https://braindump.frege2godel.me/posts/electron_about_electron_js/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/electron_about_electron_js/</guid>
+      <description>programming language에 대해서 언어는 대개 다 비슷하다. c언어를 해봤다면, 그리고 coding test를 했다면 대용량 데이터를 어떻게 하면 효율적으로 계산할까?와 관련</description>
+    </item>
+    
+    <item>
+      <title>[electron] make electron app-1</title>
+      <link>https://braindump.frege2godel.me/posts/electron_make_electron_app_1/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/electron_make_electron_app_1/</guid>
+      <description>hello world 모든 program이 그러하듯, hello world를 출력하는 앱을 만들자. basic_electron_app이라는 git repo를 만들고 시작하자. 시</description>
+    </item>
+    
+    <item>
+      <title>[electron] make electron app-2</title>
+      <link>https://braindump.frege2godel.me/posts/electron_make_electron_app_2/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/electron_make_electron_app_2/</guid>
+      <description>예제 youtube에서 옛날꺼긴 하지만, 좋은 강의같은게 있어서 참고 해보기로 한다. 내가 예젠에 electron을 사용할때와 version이 달라서 많은</description>
+    </item>
+    
+    <item>
+      <title>[emacs] screen capture</title>
+      <link>https://braindump.frege2godel.me/posts/emacs_screen_capture/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/emacs_screen_capture/</guid>
+      <description>screencasting emacs화면을 녹화하는 것이다. gif 움짤로 저장한다. M-x gif-screencastmode를 enable한 후 C-x g를 하면 영상 촬영이 시작되고 C-x g</description>
+    </item>
+    
+    <item>
+      <title>[nodejs] crawling1 - naver지도 검색</title>
+      <link>https://braindump.frege2godel.me/posts/nodejs_crawling1/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/nodejs_crawling1/</guid>
+      <description>참조 사이트 아주 오래된 내용이지만, 그래도 python이 아닌 nodejs로 된 강좌다. 여기 를 참조한다. python으로 하는 web scrpaing책은 다</description>
+    </item>
+    
+    <item>
+      <title>[python] web scraping with python-1</title>
+      <link>https://braindump.frege2godel.me/posts/python_web_scraping_with_python_1/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/python_web_scraping_with_python_1/</guid>
+      <description>web scraping with python 이 책은 Ryan Mitchell이 쓴 책을 정리한 것이다. 원서는 아니고, 어떻게 해서 얻었다. 한국사람이던 외국사람이던 다리 건너서 듣거나 읽거나 공부하면</description>
+    </item>
+    
+    <item>
+      <title>[rails] rails from scratch10-about mariadb</title>
+      <link>https://braindump.frege2godel.me/posts/rails_rails_from_scratch10_about_mariadb/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/rails_rails_from_scratch10_about_mariadb/</guid>
+      <description>my.cnf 위치 확인 mysqld &amp;ndash;verbose &amp;ndash;help | grep -A 1 &amp;lsquo;Default options&amp;rsquo; 보통 mariadb는 /etc/mysql/my.cnf에 있다. mariadb와 mysql은 동일한 이름을 쓴다고 보면</description>
+    </item>
+    
     <item>
       <title>[emacs] database sql usage</title>
       <link>https://braindump.frege2godel.me/posts/emacs_database_sql_usage/</link>
@@ -35,7 +152,16 @@
     </item>
     
     <item>
-      <title>[sql] programmers sql high score2</title>
+      <title>[rails] rails from scratch9 Emacs settings for ROR</title>
+      <link>https://braindump.frege2godel.me/posts/rails_rails_from_scratch9_emacs_settings_for_ror/</link>
+      <pubDate>Fri, 04 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/rails_rails_from_scratch9_emacs_settings_for_ror/</guid>
+      <description>Emacs Settings for ROR rbenv 설치와 사용법 [osx]에서 설치와 사용법 설치 brew install rbenv 설치 가능한 ruby목록 rbenv install -l rbenv install -L 설치된 목록 확인 rbenv versions 설치된 ruby에서 global</description>
+    </item>
+    
+    <item>
+      <title>[sql] programmers sql high score2-select</title>
       <link>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score2/</link>
       <pubDate>Thu, 03 Aug 2023 00:00:00 +0900</pubDate>
       

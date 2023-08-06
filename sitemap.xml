@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://braindump.frege2godel.me/posts/build_tools_about_ninja/</loc>
+    <lastmod>2023-08-06T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/emacs_about_org_roam/</loc>
+    <lastmod>2023-08-06T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/emacs_misc_and_qna/</loc>
+    <lastmod>2023-08-06T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/mysql_restore_db_and_table/</loc>
+    <lastmod>2023-08-06T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/ruby_about_ruby/</loc>
+    <lastmod>2023-08-06T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/unity_about_unity_settings/</loc>
+    <lastmod>2023-08-06T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/</loc>
+    <lastmod>2023-08-06T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/electron_about_electron_js/</loc>
+    <lastmod>2023-08-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/electron_make_electron_app_1/</loc>
+    <lastmod>2023-08-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/electron_make_electron_app_2/</loc>
+    <lastmod>2023-08-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/emacs_screen_capture/</loc>
+    <lastmod>2023-08-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/nodejs_crawling1/</loc>
+    <lastmod>2023-08-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/python_web_scraping_with_python_1/</loc>
+    <lastmod>2023-08-05T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/rails_rails_from_scratch10_about_mariadb/</loc>
+    <lastmod>2023-08-05T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://braindump.frege2godel.me/posts/emacs_database_sql_usage/</loc>
     <lastmod>2023-08-04T00:00:00+09:00</lastmod>
   </url><url>
@@ -11,7 +53,7 @@
     <loc>https://braindump.frege2godel.me/posts/rails_rails_from_scratch8_before_local_settings/</loc>
     <lastmod>2023-08-04T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://braindump.frege2godel.me/posts/</loc>
+    <loc>https://braindump.frege2godel.me/posts/rails_rails_from_scratch9_emacs_settings_for_ror/</loc>
     <lastmod>2023-08-04T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score2/</loc>
