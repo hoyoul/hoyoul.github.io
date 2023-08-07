@@ -17,6 +17,51 @@
     </item>
     
     <item>
+      <title>[sql] programmers sql high score3-sum,max,min</title>
+      <link>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score3_sum_max_min/</link>
+      <pubDate>Mon, 07 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score3_sum_max_min/</guid>
+      <description>problem1: 가격이 제일 비싼 식품의 정보 출력하기(level2) 풀이 problem2: 가장 비싼 상품 구하기(level1) 풀이 problem3: 최댓값 구하기(level1) 풀이 problem4: 최솟값 구하</description>
+    </item>
+    
+    <item>
+      <title>[sql] programmers sql high score4-group by</title>
+      <link>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score4_group_by/</link>
+      <pubDate>Mon, 07 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score4_group_by/</guid>
+      <description>problem1: 성분으로 구분한 아이스크림 총 주문량 (level2) 풀이 problem2: 즐겨찾기가 가장 많은 식당 정보 출력하기(level3) 풀이 problem3: 조건에 맞ㄴ는 사용자와 총 거래금액 조회하기(l</description>
+    </item>
+    
+    <item>
+      <title>[sql] programmers sql high score5-is_NULL</title>
+      <link>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score5_is_null/</link>
+      <pubDate>Mon, 07 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score5_is_null/</guid>
+      <description>problem1:경기도에 위치한 식품창고 목록 출력하기(level1) 풀이 problem2:이름이 없는 동물의 아이디(level1) 풀이 prob</description>
+    </item>
+    
+    <item>
+      <title>[sql] programmers sql high score6-join</title>
+      <link>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score6_join/</link>
+      <pubDate>Mon, 07 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score6_join/</guid>
+      <description>problem1: 그룹별 조건에 맞는 식당 목록 출력하기(level4) 풀이 problem2:주문량이 많은 아이스크림 조회하기(level4) 풀이 problem3:</description>
+    </item>
+    
+    <item>
+      <title>[sql] programmers sql high score7-string,date</title>
+      <link>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score7_string_date/</link>
+      <pubDate>Mon, 07 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/sql_programmers_sql_high_score7_string_date/</guid>
+      <description>problem1: 대여기록이 존재하는 자동차 리스트 구하기 풀이 problem2: 자동차 평균 대여 기간 구하기 풀이 problem3: 조건에 부합하는 중고거래 상태 조회하기 풀이 problem4: 취소되지 않은 진료 예약 조회하</description>
+    </item>
+    
+    <item>
       <title>[build_tools] about ninja</title>
       <link>https://braindump.frege2godel.me/posts/build_tools_about_ninja/</link>
       <pubDate>Sun, 06 Aug 2023 00:00:00 +0900</pubDate>
