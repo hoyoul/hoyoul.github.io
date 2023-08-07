@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Mon, 07 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[machine learning] day17-multiple-variable-regression</title>
+      <link>https://braindump.frege2godel.me/posts/machine_learning_day17_multiple_variable_regression/</link>
+      <pubDate>Tue, 08 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/machine_learning_day17_multiple_variable_regression/</guid>
+      <description>이번 강의의 특징 이번 강의의 순서는 좀 뒤죽박죽이다. 알아서 정리하기로 한다. Multiple Variable data 다음과 같은 여러개의 집에 관한 여러 feature가 있는 data가 있다고</description>
+    </item>
+    
     <item>
       <title>[machine learning] day16-one variable regression</title>
       <link>https://braindump.frege2godel.me/posts/machine_learning_day16_one_variable_regression/</link>
