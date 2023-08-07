@@ -256,26 +256,37 @@
 	<h2 id="machine-learning에-대한-내생각">Machine Learning에 대한 내생각</h2>
 <h3 id="machine-learning이란-단어">machine learning이란 단어</h3>
 <h4 id="machine-이란">&ldquo;machine&quot;이란?</h4>
-<p>Machine Learning이라는 분야에서는 사용되는 용어가 있다. 기존에
-어디서 보았던 용어도 machine learning에서는 다른 용어로 사용된다.
+<p>Machine Learning이라는 분야에서는 사용되는 용어가 있다. 기존에 어디서
+보았던 용어도 machine learning분야에서는 다른 용어로 사용된다.
 &ldquo;Machine Learning&quot;이란 단어를 생각해보자. machine learning에서
-&ldquo;machine&quot;은 turing과 church의 관점에선 function이다. 입력이
-주어지면 출력이 나오는 function이다. 예를 들어, 1차방정식 y= 2x +
-4는 machine이고, 이 기계에 1을 넣으면 6이나온다. 이런 값이 나오는
-이유는 입력되는 data 1과 machine이 가진 계수와 연산자에 의한
+&ldquo;machine&quot;은 turing과 church의 관점에선 function이다. 입력이 주어지면
+출력이 나오는 function이다. 예를 들어, 1차방정식 y= 2x + 4는
+machine이고, 이 기계에 1을 넣으면 6이나온다. 이런 값이 나오는 이유는
+입력되는 data 1과 machine이 가진 계수와 연산자에 의한
 결과다. machine이 가진 계수와 연산자들은 function형태고, 이것을
 model이라고 부른다. 6이란 결과는 기계가 만들어내는 값이다. 이 값을
-예측값이라고 한다.</p>
+예측값이라고 한다. 그런데 여기서 한가지! turing과 church혹은 godel이
+제시했던 recursion한 machine조차도 deductive한 rule을 사용한다는
+것이다. 이 말은 y = 2x + 4라는 기계에서는 big data가 필요 없다는
+뜻이다.  원하는 data를 입력하면 원하는 예측치가 확정적으로 나오기
+때문이다. model이 고정적이다.  반면에 &ldquo;machine learning&quot;에서의
+machine은 inductive한 rule을 사용한다. y=2x +4라는 기계의 계수들이
+data에 의해 변한다. 양질의 그리고 많은(big) data가 제공될때의
+function과 그렇지 않을때의 function은 다른 model을 갖는 기계가 된다.</p>
 <h4 id="learning-이란">&ldquo;Learning&quot;이란?</h4>
-<p>Machine의 model을 update하는 것을 &ldquo;Learning&quot;이라고 한다. machine은
-function이기때문에, 다양한 function들이 machine에 있을 수
-있다. function을 이루는 계수와 연산들이 있다. 예를 들어서
-1차방정식 y=2x+4가 있다고 하면, 2와 4는 function을 이루는 부품들로
-볼수 있다. 여기서 계수를 update하는 것이 learning이다. 예를 들어,
-y=2x+4를 update해서 y = 4x+1 하는 것이다. model이 1차방정식이나
-2차방정식 같은 경우에는 계수를 update하는게 learning이지만, 어떤
-경우에는 model내에 중심값이라는 변수를 유지하고, 이 변수를
-update하는게 learning이 되기도한다. clustering같은 경우가 있다.</p>
+<p>&ldquo;machine learning&quot;에서의 machine의 model은 data에 의해 규정되고
+변한다. Machine의 model을 update하는 것을 &ldquo;Learning&quot;이라고
+부른다. machine을 구성하는 부품들이 있고, 이를 update하듯이,
+function을 구성하는 부품인 계수가 있고 계수를 update하는데, 이것이
+learning이다. 예를 들어서 1차방정식 y=2x+4가 있다고 하면, 2와 4는
+function을 이루는 부품들로 볼수 있다. 여기서 계수를 update하는 것이
+learning이다. 예를 들어, y=2x+4를 update해서 y = 4x+1 로 변경한다면,
+그것은 learning이 이루어진 것이다. model이 1차방정식이나 2차방정식
+같은 경우에는 계수값을 update하는게 learning이지만,모든 경우가
+그런것은 아니다. 어떤 경우에는 model내에 중심값이라는 변수를 유지하고,
+이 변수를 update하는게 learning이 되기도한다. clustering같은 경우가
+있다. 또한 확률론으로 machine을 본다면, 베이지언 확률이 update하는
+rule이 된다.</p>
 <h4 id="machine-learning-이란">&ldquo;Machine Learning&quot;이란</h4>
 <p>위에서 &ldquo;machine&quot;과 &ldquo;learning&quot;에 대해서 알아봤다. &ldquo;Machine
 Learning&quot;이라고 쓴 이유는 machine learning의 process를 말할려고
