@@ -8,6 +8,15 @@
     <language>ko</language>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[machine learning] day16-one variable regression</title>
+      <link>https://braindump.frege2godel.me/posts/machine_learning_day16_one_variable_regression/</link>
+      <pubDate>Mon, 07 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/machine_learning_day16_one_variable_regression/</guid>
+      <description>Machine Learning에 대한 내생각 machine learning이란 단어 &amp;ldquo;machine&amp;quot;이란? Machine Learning이라는 분야에서는 사용</description>
+    </item>
+    
+    <item>
       <title>[nodejs] crawling-naver webtoon-4</title>
       <link>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_4/</link>
       <pubDate>Mon, 07 Aug 2023 00:00:00 +0900</pubDate>
