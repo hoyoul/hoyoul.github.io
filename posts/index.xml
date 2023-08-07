@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Sun, 06 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[nodejs] crawling-naver webtoon-4</title>
+      <link>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_4/</link>
+      <pubDate>Mon, 07 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_4/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>[build_tools] about ninja</title>
       <link>https://braindump.frege2godel.me/posts/build_tools_about_ninja/</link>
@@ -41,6 +50,24 @@
       
       <guid>https://braindump.frege2godel.me/posts/mysql_restore_db_and_table/</guid>
       <description>data backup and restore in mysql database 백업 및 복원 mysql의 백업과 복원은 간단하다. &amp;gt;(redirection)을 쓰면 되기 때문이다. 우선 backup하려는 db를</description>
+    </item>
+    
+    <item>
+      <title>[nodejs] crawling2-session and cookies</title>
+      <link>https://braindump.frege2godel.me/posts/nodejs_crawling2_session_and_cookies/</link>
+      <pubDate>Sun, 06 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/nodejs_crawling2_session_and_cookies/</guid>
+      <description>session과 쿠키 동영상에서도 설명을 하는데, 맞는지는 모르겠다. 내가 아는 수준에서 얘기해 보겠다. session과 cookies는 http라는 통</description>
+    </item>
+    
+    <item>
+      <title>[nodejs] crawling3-session and cookies2</title>
+      <link>https://braindump.frege2godel.me/posts/nodejs_crawling3_session_and_cookies2/</link>
+      <pubDate>Sun, 06 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/nodejs_crawling3_session_and_cookies2/</guid>
+      <description>daum에서 session cookie 찾기 session cookie를 찾기 위해서 EditThisCookie라는 plugin을 사용하는 것은 동일하다. login하기전의 cook</description>
     </item>
     
     <item>
@@ -103,7 +130,7 @@
       <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/nodejs_crawling1/</guid>
-      <description>참조 사이트 아주 오래된 내용이지만, 그래도 python이 아닌 nodejs로 된 강좌다. 여기 를 참조한다. python으로 하는 web scrpaing책은 다</description>
+      <description>참조 사이트 아주 오래된 내용이지만, 그래도 python이 아닌 nodejs로 된 강좌다. 여기 를 참조한다. 그런데 너무 오래되서 동작하는게 아무것도 없다. 다</description>
     </item>
     
     <item>
