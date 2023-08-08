@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>[machine learning] day18-logistic-regression</title>
+      <link>https://braindump.frege2godel.me/posts/machine_learning_day18_logistic_regression/</link>
+      <pubDate>Tue, 08 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/machine_learning_day18_logistic_regression/</guid>
+      <description>Logistic Regression logistic regression이란 무엇이냐? 이 강의에선 분류 문제를 다룬다. 분류는 yes or no로 분류하는 것을 말한다. 분류가 2개면, binary classifica</description>
+    </item>
+    
+    <item>
       <title>[machine learning] day16-one variable regression</title>
       <link>https://braindump.frege2godel.me/posts/machine_learning_day16_one_variable_regression/</link>
       <pubDate>Mon, 07 Aug 2023 00:00:00 +0900</pubDate>
