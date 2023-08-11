@@ -252,12 +252,138 @@
      
     
      
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
   
 
   
 	  
 	</fieldset>
-	      
+	<h2 id="request-package">request package</h2>
+<h3 id="request-package-소개">request package 소개</h3>
+<p>크롤링은 인터넷에 있는 data를 가져온다. 동영상,음악,사진과 같은
+multimedia한 데이터, 문서에 있는 text data도 통신을 해서
+가져온다. url만 있다면 가져올 수 있다. 보통 multimedia한 data들은
+url이 html문서안에 숨어 있기때문에 찾는 과정이 필요하지만, 이것은
+별도의 package로 처리하고 여기서는 request package를 사용할 수 밖에
+없는 이유에 대해서 말할려고 한다. 어떤 data라 할지라도 http통신을
+해야만 한다. request package는 url을 제공하면 url을 다운받는다. 따라서
+크롤링을 한다고 하면 100% 사용하는 package다. 하지만 불행히도 이
+module은 2020년에 depreciated되었다. 하지만 그냥 쓰기로 한다.</p>
+<h3 id="request-package-사용법">request package 사용법</h3>
+<p>webapp을 사용하는 경우 node project를 만들어서 사용하는게 편하다. node
+project를 만들자.</p>
+<h4 id="step1-github에-project를-만든다-dot">[step1] github에 project를 만든다.</h4>
+<p>mini-crawling이라는 project를 만들었다. local에 clone한다.</p>
+<h4 id="step2-nvm-use-v18-dot-17-dot-0">[step2] nvm use v18.17.0</h4>
+<p>최신 node를 설정한다.</p>
+<h4 id="step3-npm-init">[step3] npm init</h4>
+<p>package.json이 만들어진다.</p>
+<h4 id="step4-npm-install-save-request">[step4] npm install &ndash;save request</h4>
+<p>request package를 local에 설치한다.</p>
+<h4 id="step5-touch-index-dot-html-index-dot-js">[step5] touch index.html index.js</h4>
+<p>index.html과 index.js를 만든다.</p>
+<h4 id="step6-index-dot-js에-코드를-작성한다-dot">[step6] index.js에 코드를 작성한다.</h4>
+<p>request를 load하고 사용하는 code를 작성한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">request</span><span class="p">(</span><span class="s1">&#39;http://www.google.com&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span><span class="nx">body</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;error:&#39;</span><span class="p">,</span><span class="nx">error</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;statuscode:&#39;</span><span class="p">,</span> <span class="nx">response</span> <span class="o">&amp;&amp;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;body:&#39;</span><span class="p">,</span> <span class="nx">body</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><h4 id="step7-node-index-dot-js">[step7] node index.js</h4>
+<p>node로 js파일을 실행한다. node는 python같은 interpreter라고 생각하면
+된다.</p>
+<h3 id="webtoon-문서-가져오기">webtoon 문서 가져오기</h3>
+<p>webtoon을 하나 선택해서 만화가 있는 page의 url을 request에 넣고 문서를
+가져오는지 확인한다. 얼짱시대라는 웹툰이다.
+<a href="https://comic.naver.com/webtoon/detail?titleId=813335&amp;no=1" target="_blank">https://comic.naver.com/webtoon/detail?titleId=813335&amp;no=1
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+
+이 주소를 넣었다.</p>
+<h3 id="request의-callback-function-response와-body">request의 callback function-response와 body</h3>
+<p>request의 callback함수를 보면, response와 body가 있다. response는
+응답헤더도 포함하고 요청에 대한 문서가 body에 포함되어 있다. request
+callback함수에 body가 별도로 있는데, 이것은 url요청에 대한 응답문서를
+보내준다. 차이점이 있다. response의 header에 포함된 body는 사람이
+알아보기 힘들지만, body는 사람이 알아보기 쉽게 되어 있다는 것이다.</p>
+<h2 id="html-문서-파싱">html 문서 파싱</h2>
+<p>request를 사용해서 html문서를 가져왔지만, 실제 우리가 원하는
+resource의 url은 html문서내에 숨어있다. 따라서, html문서 내에서
+img태그를 찾을 수 있어야 한다.</p>
+<h3 id="개발자-도구에서-만화-이미지-찾기">개발자 도구에서 만화 이미지 찾기</h3>
+<p>우리의 목표는 웹툰의 image를 찾는 것이다. 개발자도구에서 html문서를
+볼수 있다. 그리고 JQuery를 사용해서 img태그를 배열로 가져올 수
+있다. 이렇게 원하는 것을 가져올 수 있어야 한다. 다음 그림을 보자.</p>
+<p><a id="figure--jquery"></a></p>
+<figure><img src="/img/crawling/jquery1.png"
+         alt="Figure 1: jquery" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>jquery</p>
+        </figcaption>
+</figure>
+
+<p>아마도 web toon image viewer를 뜻하는 거 같은데, class명으로 선택해서
+img를 찾을수가 있다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$(&#34;.wt_viewer img&#34;)
+</span></span></code></pre></div><p>jquery를 지원하지 않는 경우도 있다고 한다. 이럴때는 query selector를
+사용할 수 있다.</p>
+<div class="tip">
+<p>document.querySelector(&quot;.wt_viewer&quot;);</p>
+</div>
+<p>하지만, jquery를 사용하는게 나중에 사용될 package때문에 더 선호된다고
+한다. cheerio라는 모듈을 사용하게 될텐데, 거기서 jquery를 사용하는
+모양이다. 그래서 jquery를 어떻게든 사용하게 만들어야 한다고
+한다. 개발자도구에의 console에서 jquery를 사용하게 하는건 간단하다.
+jquery source code를 구글링해서 얻어온 후에 개발자 도구 console창에서
+복사 붙여넣기로 넣은 후 enter를 누르면 jquery를 사용할 수 있다고
+한다. 이제 jquery를 사용할 수 있게 되었다. 그런데 한가지 알아야 할 게
+있다. jquery로 검색할때, 다음과 같은 html태그가 있다고 하자.</p>
+<p><a id="figure--html code"></a></p>
+<figure><img src="/img/crawling/jquery2.png"
+         alt="Figure 2: html code" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 2: </span>html code</p>
+        </figcaption>
+</figure>
+
+<p>selector인 .wt_viewer를 접근할때 아래와 같은 code를 사용하면 &lt;div
+class=&lsquo;wt_viewer&rsquo; &hellip;&gt; 가 return할 꺼 같지만, jquery object만 return
+받는다. 아래를 보자.</p>
+<p><a id="figure--html code"></a></p>
+<figure><img src="/img/crawling/jquery3.png"
+         alt="Figure 3: html code" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 3: </span>html code</p>
+        </figcaption>
+</figure>
+
+<p>0번째에 우리가 원하는 tag가 있다. 그래서 아래와 같이 해줘야 한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$(&#39;.wt_viewer&#39;)[0]
+</span></span></code></pre></div><p>이렇게 해주면, div태그가 포함하는 img태그를 모두 얻을 수
+있다. 하지만, 각각의 img태그를 접근하는건 아니다. img태그를 포함하는
+div태그에 접근한 것일뿐이다. img태그를 접근하는건 간단히</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$(&#39;.wt_viewer img&#39;)
+</span></span></code></pre></div><p>위와 같이 하면 접근할 수 있다.</p>
+<h2 id="정리">정리</h2>
+<p>여기서는 request라는 module을 사용하면 html문서를 가져올 수 있고,
+html문서에 숨겨진 resources들을 찾아서 가져올 수 있다는 가능성을
+개발자 도구에서 엿봤다. 다음에는 crawling에서 cheerio를 사용해서
+우리가 진짜 원하는 resource를 가져오는 것을 살펴볼 것이다.</p>
+      
       </div>
 
   </div>
@@ -269,9 +395,1407 @@
      
      graph_node_object = {
         
+     "label": "[electron] basic principles",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_basic_principles\/",
+     "id": "electron_basic_principles",
+     
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["electron_drag_n_drop"]
+   }
+ sessionStorage.setItem("electron_basic_principles",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[electron] drag n drop",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_drag_n_drop\/",
+     "id": "electron_drag_n_drop",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("electron_drag_n_drop",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[electron] make dmg installer",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_dmg_installer\/",
+     "id": "electron_make_dmg_installer",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("electron_make_dmg_installer",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[nodejs] crawling-naver webtoon-7",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_7\/",
+     "id": "nodejs_crawling_naver_webtoon_7",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("nodejs_crawling_naver_webtoon_7",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[nodejs] crawling-naver webtoon-8",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_8\/",
+     "id": "nodejs_crawling_naver_webtoon_8",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("nodejs_crawling_naver_webtoon_8",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[nodejs] crawling9",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling9\/",
+     "id": "nodejs_crawling9",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("nodejs_crawling9",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[machine learning] day17-multiple-variable-regression",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/machine_learning_day17_multiple_variable_regression\/",
      "id": "machine_learning_day17_multiple_variable_regression",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -689,6 +2213,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("machine_learning_day18_logistic_regression",JSON.stringify(graph_node_object)); 
@@ -697,9 +2237,485 @@
      
      graph_node_object = {
         
+     "label": "[nodejs] crawling-naver webtoon-5",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_5\/",
+     "id": "nodejs_crawling_naver_webtoon_5",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("nodejs_crawling_naver_webtoon_5",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[nodejs] crawling-naver webtoon-6",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_6\/",
+     "id": "nodejs_crawling_naver_webtoon_6",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("nodejs_crawling_naver_webtoon_6",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[machine learning] day16-one variable regression",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/machine_learning_day16_one_variable_regression\/",
      "id": "machine_learning_day16_one_variable_regression",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1117,6 +3133,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_4",JSON.stringify(graph_node_object)); 
@@ -1128,6 +3160,22 @@
      "label": "[sql] programmers sql high score3-sum,max,min",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score3_sum_max_min\/",
      "id": "sql_programmers_sql_high_score3_sum_max_min",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1545,6 +3593,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score4_group_by",JSON.stringify(graph_node_object)); 
@@ -1556,6 +3620,22 @@
      "label": "[sql] programmers sql high score5-is_NULL",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score5_is_null\/",
      "id": "sql_programmers_sql_high_score5_is_null",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1973,6 +4053,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score6_join",JSON.stringify(graph_node_object)); 
@@ -1984,6 +4080,22 @@
      "label": "[sql] programmers sql high score7-string,date",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score7_string_date\/",
      "id": "sql_programmers_sql_high_score7_string_date",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -2401,6 +4513,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("build_tools_about_ninja",JSON.stringify(graph_node_object)); 
@@ -2412,6 +4540,22 @@
      "label": "[emacs] about org-roam",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_about_org_roam\/",
      "id": "emacs_about_org_roam",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -2829,6 +4973,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_misc_and_qna",JSON.stringify(graph_node_object)); 
@@ -2840,6 +5000,22 @@
      "label": "[mysql] restore db and table",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/mysql_restore_db_and_table\/",
      "id": "mysql_restore_db_and_table",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3257,6 +5433,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling2_session_and_cookies",JSON.stringify(graph_node_object)); 
@@ -3268,6 +5460,22 @@
      "label": "[nodejs] crawling3-session and cookies2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling3_session_and_cookies2\/",
      "id": "nodejs_crawling3_session_and_cookies2",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3685,6 +5893,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("ruby_about_ruby",JSON.stringify(graph_node_object)); 
@@ -3696,6 +5920,22 @@
      "label": "[unity] about unity settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/unity_about_unity_settings\/",
      "id": "unity_about_unity_settings",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -4113,6 +6353,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_about_electron_js",JSON.stringify(graph_node_object)); 
@@ -4124,6 +6380,22 @@
      "label": "[electron] make electron app-1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_electron_app_1\/",
      "id": "electron_make_electron_app_1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -4541,6 +6813,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_make_electron_app_2",JSON.stringify(graph_node_object)); 
@@ -4552,6 +6840,22 @@
      "label": "[emacs] screen capture",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_screen_capture\/",
      "id": "emacs_screen_capture",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -4969,6 +7273,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling1",JSON.stringify(graph_node_object)); 
@@ -4980,6 +7300,22 @@
      "label": "[python] web scraping with python-1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_web_scraping_with_python_1\/",
      "id": "python_web_scraping_with_python_1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -5399,6 +7735,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch10_about_mariadb",JSON.stringify(graph_node_object)); 
@@ -5410,6 +7762,22 @@
      "label": "[emacs] database sql usage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_database_sql_usage\/",
      "id": "emacs_database_sql_usage",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -5827,6 +8195,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch8_aws_rails_settings",JSON.stringify(graph_node_object)); 
@@ -5838,6 +8222,22 @@
      "label": "[rails] rails from scratch8-before local settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch8_before_local_settings\/",
      "id": "rails_rails_from_scratch8_before_local_settings",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -6255,6 +8655,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch9_emacs_settings_for_ror",JSON.stringify(graph_node_object)); 
@@ -6266,6 +8682,22 @@
      "label": "[sql] programmers sql high score2-select",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score2\/",
      "id": "sql_programmers_sql_high_score2",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -6683,6 +9115,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nginx_about_nginx",JSON.stringify(graph_node_object)); 
@@ -6694,6 +9142,22 @@
      "label": "[rails] frequently used functions",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_frequently_used_functions\/",
      "id": "rails_frequently_used_functions",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -7111,6 +9575,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch1_installment",JSON.stringify(graph_node_object)); 
@@ -7122,6 +9602,22 @@
      "label": "[rails] rails from scratch2-installment2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch2_installment\/",
      "id": "rails_rails_from_scratch2_installment",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -7539,6 +10035,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch3_routes",JSON.stringify(graph_node_object)); 
@@ -7550,6 +10062,22 @@
      "label": "[rails] rails from scratch5-model",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch5_model\/",
      "id": "rails_rails_from_scratch5_model",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -7967,6 +10495,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch6_view",JSON.stringify(graph_node_object)); 
@@ -7978,6 +10522,22 @@
      "label": "[rails] rails from scratch7-practice1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch7_practice1\/",
      "id": "rails_rails_from_scratch7_practice1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -8395,6 +10955,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("matter_js_tutorial",JSON.stringify(graph_node_object)); 
@@ -8406,6 +10982,22 @@
      "label": "[node] npm and node",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/node_npm_and_node\/",
      "id": "node_npm_and_node",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -8825,6 +11417,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("git_git_drill1_repo_and_commit",JSON.stringify(graph_node_object)); 
@@ -8836,6 +11444,22 @@
      "label": "[git] git drill2 local",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_drill2_local\/",
      "id": "git_git_drill2_local",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -9255,6 +11879,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score",JSON.stringify(graph_node_object)); 
@@ -9266,6 +11906,22 @@
      "label": "[git] git explained",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_explained\/",
      "id": "git_git_explained",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -9687,6 +12343,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_presentation_tools",JSON.stringify(graph_node_object)); 
@@ -9698,6 +12370,22 @@
      "label": "[emacs] tex install and usage (latex)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_tex_install_and_usage\/",
      "id": "emacs_tex_install_and_usage",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -10115,6 +12803,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_mu4e_settings",JSON.stringify(graph_node_object)); 
@@ -10126,6 +12830,22 @@
      "label": "[test] testing!",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/test_testing\/",
      "id": "test_testing",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -10543,6 +13263,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("essay_computer_working_principles",JSON.stringify(graph_node_object)); 
@@ -10554,6 +13290,22 @@
      "label": "[pl] history of programming language from calcuation to OOP",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/pl_history_of_programming_language\/",
      "id": "pl_history_of_programming_language",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -10973,6 +13725,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_grammar_in_one_shot",JSON.stringify(graph_node_object)); 
@@ -11187,6 +13955,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("algorithm_thinking_about_algorithms",JSON.stringify(graph_node_object)); 
@@ -11198,6 +13982,22 @@
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -11617,6 +14417,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -11831,6 +14647,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary7_big_data_and_python",JSON.stringify(graph_node_object)); 
@@ -11842,6 +14674,22 @@
      "label": "[github] multi account github problem",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/github_multi_account_github_problem\/",
      "id": "github_multi_account_github_problem",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -12261,6 +15109,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
@@ -12272,6 +15136,22 @@
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -12691,6 +15571,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
@@ -12702,6 +15598,22 @@
      "label": "[kaggle-courses-intro] Arithmetic and Variable",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
      "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -13119,6 +16031,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
@@ -13130,6 +16058,22 @@
      "label": "[kaggle] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
      "id": "kaggle_beginning",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -13547,6 +16491,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
@@ -13558,6 +16518,22 @@
      "label": "[leetcode] 1480 running sum of 1d array",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
      "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -13977,6 +16953,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
@@ -13988,6 +16980,22 @@
      "label": "[linear algebra-2] linear independence",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
      "id": "linear_algebra_2_linear_independence",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -14405,6 +17413,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
@@ -14416,6 +17440,22 @@
      "label": "python_summary5 loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
      "id": "python_summary5_loop",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -14833,6 +17873,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
@@ -14844,6 +17900,22 @@
      "label": "sop idea1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
      "id": "sop_idea1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -15261,6 +18333,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_babel_python",JSON.stringify(graph_node_object)); 
@@ -15272,6 +18360,22 @@
      "label": "[emacs] python lsp setting",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_python_lsp_setting\/",
      "id": "emacs_python_lsp_setting",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -15624,6 +18728,22 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
          
      
@@ -15706,6 +18826,22 @@
      "label": "[emacs] anaconda settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
      "id": "emacs_anaconda_settings",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -16125,6 +19261,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -16136,6 +19288,22 @@
      "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -16553,6 +19721,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -16564,6 +19748,22 @@
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -16985,6 +20185,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -16996,6 +20212,22 @@
      "label": "folding test1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
      "id": "folding_test",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -17212,6 +20444,22 @@
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -17631,6 +20879,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -17642,6 +20906,22 @@
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -18059,6 +21339,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -18070,6 +21366,22 @@
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -18487,6 +21799,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -18498,6 +21826,22 @@
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -18915,6 +22259,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -18926,6 +22286,22 @@
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -19343,6 +22719,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -19354,6 +22746,22 @@
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -19771,6 +23179,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -19782,6 +23206,22 @@
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -20199,6 +23639,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -20210,6 +23666,22 @@
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -20627,6 +24099,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("elisp_korean_lorel_ipsum",JSON.stringify(graph_node_object)); 
@@ -20638,6 +24126,22 @@
      "label": "[python] grammar in one shot - standard library (Text)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_grammar_in_one_shot_standard_library_text\/",
      "id": "python_grammar_in_one_shot_standard_library_text",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -21055,6 +24559,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch4_controller",JSON.stringify(graph_node_object)); 
@@ -21269,6 +24789,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_making_portfolio_page",JSON.stringify(graph_node_object)); 
@@ -21280,6 +24816,22 @@
      "label": "Example of org to ipynb",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/example\/",
      "id": "example",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -21699,6 +25251,22 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary4_data_structures",JSON.stringify(graph_node_object)); 
@@ -21710,6 +25278,22 @@
      "label": "python_summary8 string",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary8_string\/",
      "id": "python_summary8_string",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      

@@ -6,7 +6,61 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Tue, 08 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 11 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[electron] basic principles</title>
+      <link>https://braindump.frege2godel.me/posts/electron_basic_principles/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/electron_basic_principles/</guid>
+      <description>main process와 renderer process electron에는 2개의 process가 있다. main process와 renderer process라고 하는데, main process는 node pr</description>
+    </item>
+    
+    <item>
+      <title>[electron] drag n drop</title>
+      <link>https://braindump.frege2godel.me/posts/electron_drag_n_drop/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/electron_drag_n_drop/</guid>
+      <description>의도 electron으로 drag n drop을 사용할 일이 많을 듯하다. file이나 url을 drag n drop으로 electron app에 넣는 것을 해보자. 이것은 electronprinciples 에 대한 이해</description>
+    </item>
+    
+    <item>
+      <title>[electron] make dmg installer</title>
+      <link>https://braindump.frege2godel.me/posts/electron_make_dmg_installer/</link>
+      <pubDate>Wed, 09 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/electron_make_dmg_installer/</guid>
+      <description>dmg installer란? 우선 dmg installer가 뭔지 알아야 한다. dmg installer는 아래와 같은 모양이다. Figure 1: dmg installer mac에서 실행되는 app</description>
+    </item>
+    
+    <item>
+      <title>[nodejs] crawling-naver webtoon-7</title>
+      <link>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_7/</link>
+      <pubDate>Wed, 09 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_7/</guid>
+      <description>webtoon viewer crawling의 일반화 title명과 회수 지금까지 한건, 특정 제목을 가진 webtoon의 특정 page를 url로 전달해서 만화 image를 다운</description>
+    </item>
+    
+    <item>
+      <title>[nodejs] crawling-naver webtoon-8</title>
+      <link>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_8/</link>
+      <pubDate>Wed, 09 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_8/</guid>
+      <description>성인 인증 crawling 네이버 성인만화의 경우 naver login을 해야 한다. 성인물의 경우 그렇다. 지금까지 만든 crawler에 성인물 만화의 titleid와 한 회차만 t</description>
+    </item>
+    
+    <item>
+      <title>[nodejs] crawling9</title>
+      <link>https://braindump.frege2godel.me/posts/nodejs_crawling9/</link>
+      <pubDate>Wed, 09 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/nodejs_crawling9/</guid>
+      <description>selenium vs open api vs 내부 api request로 page를 다운로드 하고 cheerio로 분석하는 방식은 selenium에서 사용하는 방식과 유사하다. 이 방식의 문제</description>
+    </item>
+    
     <item>
       <title>[machine learning] day17-multiple-variable-regression</title>
       <link>https://braindump.frege2godel.me/posts/machine_learning_day17_multiple_variable_regression/</link>
@@ -26,6 +80,24 @@
     </item>
     
     <item>
+      <title>[nodejs] crawling-naver webtoon-5</title>
+      <link>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_5/</link>
+      <pubDate>Tue, 08 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_5/</guid>
+      <description>cheerio 모듈 이전에 개발자도구에서 jquery를 사용해서 원하는 tag를 가져올 수 있었다. 이것을 jquery가 아닌 cheerio를 사용해서 가져올 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>[nodejs] crawling-naver webtoon-6</title>
+      <link>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_6/</link>
+      <pubDate>Tue, 08 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_6/</guid>
+      <description>webtoon 이미지 down받기 webtoon image의 url을 html을 cheerio로 parsing해서 다 꺼낼수 있었다. url만 안다면 동영상이던, 음악이던 만화</description>
+    </item>
+    
+    <item>
       <title>[machine learning] day16-one variable regression</title>
       <link>https://braindump.frege2godel.me/posts/machine_learning_day16_one_variable_regression/</link>
       <pubDate>Mon, 07 Aug 2023 00:00:00 +0900</pubDate>
@@ -40,7 +112,7 @@
       <pubDate>Mon, 07 Aug 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_4/</guid>
-      <description></description>
+      <description>request package request package 소개 크롤링은 인터넷에 있는 data를 가져온다. 동영상,음악,사진과 같은 multimedia한 데이터, 문서에 있는 text data도 통신을 해서 가</description>
     </item>
     
     <item>

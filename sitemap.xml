@@ -2,13 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://braindump.frege2godel.me/posts/electron_basic_principles/</loc>
+    <lastmod>2023-08-11T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/electron_drag_n_drop/</loc>
+    <lastmod>2023-08-11T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/</loc>
+    <lastmod>2023-08-11T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/electron_make_dmg_installer/</loc>
+    <lastmod>2023-08-09T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_7/</loc>
+    <lastmod>2023-08-09T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_8/</loc>
+    <lastmod>2023-08-09T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/nodejs_crawling9/</loc>
+    <lastmod>2023-08-09T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://braindump.frege2godel.me/posts/machine_learning_day17_multiple_variable_regression/</loc>
     <lastmod>2023-08-08T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/machine_learning_day18_logistic_regression/</loc>
     <lastmod>2023-08-08T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://braindump.frege2godel.me/posts/</loc>
+    <loc>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_5/</loc>
+    <lastmod>2023-08-08T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/nodejs_crawling_naver_webtoon_6/</loc>
     <lastmod>2023-08-08T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/machine_learning_day16_one_variable_regression/</loc>
