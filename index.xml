@@ -8,6 +8,24 @@
     <language>ko</language>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[css] css principles</title>
+      <link>https://braindump.frege2godel.me/posts/css_css_principles/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/css_css_principles/</guid>
+      <description>html 문서의 본질 html 문서란? html은 문자열로된 문서다. 혹은 도화지로 봐도 된다. 눈에 보이지 않는 line으로 구성되어 있다. html tag를 사용하면 같은 문자열</description>
+    </item>
+    
+    <item>
+      <title>[design] beginning figma</title>
+      <link>https://braindump.frege2godel.me/posts/design_beginning_figma/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/design_beginning_figma/</guid>
+      <description>design을 하고싶다. 무언가를 만들 때, 시작은 design이다. 어떻게 머리속의 디자인을 도화지로 표현할 것인가? 그런 다음 이것을 web이나 app으</description>
+    </item>
+    
+    <item>
       <title>[electron] basic principles</title>
       <link>https://braindump.frege2godel.me/posts/electron_basic_principles/</link>
       <pubDate>Fri, 11 Aug 2023 00:00:00 +0900</pubDate>
@@ -500,15 +518,6 @@
       
       <guid>https://braindump.frege2godel.me/posts/test_testing/</guid>
       <description>this is test this is test! head level test (level1) main.css에 정의 되어 있다. level3 까지만 css 설정함. .page &amp;gt; .content 에서 수정하면 됨, head level1은 .page&amp;gt; .content h2로 정의됨. level2는</description>
-    </item>
-    
-    <item>
-      <title>[essay] computer working principles</title>
-      <link>https://braindump.frege2godel.me/posts/essay_computer_working_principles/</link>
-      <pubDate>Mon, 10 Jul 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/posts/essay_computer_working_principles/</guid>
-      <description>computer의 구조 자동 제어 구조의 시작 (memory) 컴퓨터는 전기를 사용하는 system이다. system은 전기를 사용하는 device들로 이루어진 집합이</description>
     </item>
     
     <item>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><title>[electron] drag n drop</title>
+  <head><title>[design] beginning figma</title>
 
 
 <meta charset="utf-8">
@@ -40,14 +40,14 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">[electron] drag n drop</h1>    
+    <h1 class="collapsed-title">[design] beginning figma</h1>    
       <div class="content">
-	<a href="https://braindump.frege2godel.me/posts/electron_drag_n_drop/" alt="[electron] drag n drop" class="permalink" data-singlepage="yes" ><h1>[electron] drag n drop</h1></a>
+	<a href="https://braindump.frege2godel.me/posts/design_beginning_figma/" alt="[design] beginning figma" class="permalink" data-singlepage="yes" ><h1>[design] beginning figma</h1></a>
 	<fieldset>
 	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
-	  <ol class="li"><strong>Title: </strong> [electron] drag n drop </ol>
-	  <ol class="li"><strong>date: </strong> 2023 8.11 </ol>
-	  <ol class="li"><strong>content: </strong>drag n drop </ol>
+	  <ol class="li"><strong>Title: </strong> [design] beginning figma </ol>
+	  <ol class="li"><strong>date: </strong> 2023 8.12 </ol>
+	  <ol class="li"><strong>content: </strong>디자인에 대한 생각 </ol>
 	    
   
     
@@ -275,103 +275,11 @@
   
 	  
 	</fieldset>
-	<h2 id="의도">의도</h2>
-<p>electron으로 drag n drop을 사용할 일이 많을 듯하다. file이나 url을
-drag n drop으로 electron app에 넣는 것을 해보자. 이것은 <a href="/posts/electron_basic_principles/">electronprinciples</a>
-에 대한 이해가 필요하다.</p>
-<h3 id="electron-project-만들기">electron project 만들기</h3>
-<p>먼저 project를 만들자. nvm use v18.0.0으로 한후 만든다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npx create-electron-app ddapp
-</span></span></code></pre></div><p>index.html이 이미 src폴더 아래 만들어졌다. 다음 tag를 추가한다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id </span><span class="o">=</span> <span class="s">&#34;dropzone&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>동일한 위치에 style.css를 만든다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"> <span class="o">*</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nt">body</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">vw</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">#</span><span class="nn">dropzone</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">border-radius</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">margin</span><span class="p">:</span><span class="mi">10</span><span class="kt">px</span> <span class="kc">auto</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">width</span><span class="p">:</span> <span class="mi">70</span><span class="kt">vw</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">height</span><span class="p">:</span> <span class="mi">40</span><span class="kt">vh</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">border</span><span class="p">:</span> <span class="mi">30</span><span class="n">x</span> <span class="kc">dotted</span> <span class="kc">crimson</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>renderer.js도 만든다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">dropzone</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;dropzone&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">dropzone</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;dragover&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)=&gt;{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span><span class="line"><span class="cl"><span class="nx">dropzone</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;drop&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">})</span>
-</span></span></code></pre></div><p>여기까지 하면 renderer process를 만든것이다. 즉, main process는
-package.json에 기술된 index.js이고, index.html,style.css.renderer.js는
-renderer process가 된다. process와 main process에 대한 설명은 <a href="/posts/electron_basic_principles/">여기</a>
-를
-참조한다. 여기까지 하고 npm start로 실행시켜 보자.</p>
-<p><a id="figure--dd1"></a></p>
-<figure><img src="/img/electron/dd1.png"
-         alt="Figure 1: dd1" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 1: </span>dd1</p>
-        </figcaption>
-</figure>
-
-<p>예상과 다르다. 위에서 기술한 index.html과 renderer.js가 실행되지 않고
-개발자도구가 켜져 있다. 아무래도 이것은 main process에서 renderer
-process를 실행하지 않는듯하다. renderer에 해당하는 index.html에서
-css와 js연결이 잘못 되어 있고, main process에 보니 개발자 도구가 켜져
-있다.  // mainWindow.webContents.openDevTools(); 그래서 주석처리하고
-다시 실행했다.</p>
-<p><a id="figure--dd2"></a></p>
-<figure><img src="/img/electron/dd2.png"
-         alt="Figure 2: dd2" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 2: </span>dd2</p>
-        </figcaption>
-</figure>
-
-<p>제대로 동작했다. 여기서 renderer js에 event handler를 만들었는데,
-제대로 동작하는지 확인해 보자.</p>
-<h4 id="개발자-도구와-refresh">개발자 도구와 refresh</h4>
-<p>그런데 개발 도구 창을 닫아버렸다. 개발 도구창을 f12누르면 나올 수
-있도록 ipc처리를 해보자. renderer에서 f12를 누르면 main에게 알려서
-개발도구창을 열게 하는 것이다. f5를 누르면 refresh도 하게 하자.</p>
-<p>main process에 해당하는 index.js를 수정하자. ipcmain을 사용할 수 있게
-하고 on함수를 사용하자.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">BrowserWindow</span><span class="p">,</span> <span class="nx">ipcmain</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">);</span>
-</span></span></code></pre></div><p>ipcmain을 가져오고, 여기서 renderer가 보내는 message를 처리한다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">//렌더러프로세스에서 보내는 메시지 처리
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ipcMain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;toggle-debug&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">arg</span><span class="p">)=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">//디버기 툴 토글(on/off)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">win</span><span class="p">.</span><span class="nx">webContents</span><span class="p">.</span><span class="nx">toggleDevTools</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">})</span>
-</span></span><span class="line"><span class="cl"><span class="nx">ipcMain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;refresh&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">arg</span><span class="p">)=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">//페이지 갱신
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">win</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl"><span class="p">})</span>
-</span></span></code></pre></div><p>renderer process에 해당하는 renderer.js도 수정해야 한다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">ipcRenderer</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 키보드 입력
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span><span class="o">==</span><span class="mi">123</span><span class="p">){</span> <span class="c1">//F12
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//메인프로세스로 toggle-debug 메시지 전송 (디버그 툴 토글시켜라)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">ipcRenderer</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;toggle-debug&#39;</span><span class="p">,</span> <span class="s1">&#39;an-argument&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span><span class="o">==</span><span class="mi">116</span><span class="p">){</span> <span class="c1">//F5
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//메인프로세스로 refresh 메시지 전송 (페이지를 갱신시켜라)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">ipcRenderer</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;refresh&#39;</span><span class="p">,</span> <span class="s1">&#39;an-argument&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">})</span>
-</span></span></code></pre></div><p>근데, 여기서 main process에서 renderrer process가 보내는 값에 따라
-에러가 발생한다.</p>
+	<h2 id="design을-하고싶다-dot">design을 하고싶다.</h2>
+<p>무언가를 만들 때, 시작은 design이다. 어떻게 머리속의 디자인을 도화지로
+표현할 것인가? 그런 다음 이것을 web이나 app으로 표현하는 단계를
+공부하고 싶다. 그래서 오늘 udemy 강좌를 구입했다. 조금씩 시간 나는대로
+공부하기로 한다.</p>
       
       </div>
 
