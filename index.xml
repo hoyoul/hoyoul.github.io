@@ -521,6 +521,15 @@
     </item>
     
     <item>
+      <title>[essay] computer working principles</title>
+      <link>https://braindump.frege2godel.me/posts/essay_computer_working_principles/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/essay_computer_working_principles/</guid>
+      <description>computer의 구조 자동 제어 구조의 시작 (memory) 컴퓨터는 전기를 사용하는 system이다. system은 전기를 사용하는 device들로 이루어진 집합이</description>
+    </item>
+    
+    <item>
       <title>[pl] history of programming language from calcuation to OOP</title>
       <link>https://braindump.frege2godel.me/posts/pl_history_of_programming_language/</link>
       <pubDate>Wed, 28 Jun 2023 00:00:00 +0900</pubDate>
