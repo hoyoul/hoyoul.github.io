@@ -272,6 +272,8 @@
      
     
      
+    
+     
   
 
   
@@ -406,6 +408,9 @@ customization loader가 있을 수 있다. loader를 load하고 symbol table에
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;실행 모드:&#34;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>  <span class="c1"># 인터프리터 실행 경로</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;환경 변수:&#34;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># 모듈 검색 경로</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;플랫폼:&#34;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="p">)</span>  <span class="c1"># 운영 체제 플랫폼 정보</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">실행 모드: /Users/fregeholy/anaconda3/envs/playground_3.10/bin/python
+</span></span><span class="line"><span class="cl">환경 변수: [&#39;&#39;, &#39;/Users/fregeholy/anaconda3/envs/playground_3.10/lib/python310.zip&#39;, &#39;/Users/fregeholy/anaconda3/envs/playground_3.10/lib/python3.10&#39;, &#39;/Users/fregeholy/anaconda3/envs/playground_3.10/lib/python3.10/lib-dynload&#39;, &#39;/Users/fregeholy/anaconda3/envs/playground_3.10/lib/python3.10/site-packages&#39;]
+</span></span><span class="line"><span class="cl">플랫폼: darwin
 </span></span></code></pre></div><h4 id="4--loading-built-in-function">(4) loading built-in function</h4>
 <p>두번째로 built-in module을 load하는데, built-in function들이
 있다. 그리고 exception 관련 class를 loading한다.</p>
@@ -424,8 +429,8 @@ symbol table의 요소들이다. locals()는 local symbol table이고
 globals()는 global(전역) symbol table이다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">globals</span><span class="p">())</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{&#39;__builtins__&#39;: &lt;module &#39;__builtin__&#39; (built-in)&gt;, &#39;__name__&#39;: &#39;__main__&#39;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: None}
-</span></span><span class="line"><span class="cl">{&#39;__builtins__&#39;: &lt;module &#39;__builtin__&#39; (built-in)&gt;, &#39;__name__&#39;: &#39;__main__&#39;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: None}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{&#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: None, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: None, &#39;__annotations__&#39;: {}, &#39;__builtins__&#39;: &lt;module &#39;builtins&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__cached__&#39;: None}
+</span></span><span class="line"><span class="cl">{&#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: None, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: None, &#39;__annotations__&#39;: {}, &#39;__builtins__&#39;: &lt;module &#39;builtins&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__cached__&#39;: None}
 </span></span></code></pre></div><!--list-separator-->
 <ul>
 <li>
@@ -442,7 +447,7 @@ main이름을 갖는다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">hello
-</span></span><span class="line"><span class="cl">{&#39;__builtins__&#39;: &lt;module &#39;__builtin__&#39; (built-in)&gt;, &#39;__name__&#39;: &#39;__main__&#39;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: None}
+</span></span><span class="line"><span class="cl">{&#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: None, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: None, &#39;__annotations__&#39;: {}, &#39;__builtins__&#39;: &lt;module &#39;builtins&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__cached__&#39;: None}
 </span></span></code></pre></div><p>다음 예를 보자. a.py와 b.py 두개의 file이 있다고 하자. 아래는 a.py다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;this is a.py&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
@@ -498,7 +503,7 @@ doc string은 string literal로 작성되기 때문에 symbol table에 저장하
 위해서 &lsquo;<span class="underline"><span class="underline">doc</span></span>&lsquo;라는 key값으로 저장한다. 아래를 보자.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39; this is doc string &#39;&#39;&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{&#39;__builtins__&#39;: &lt;module &#39;__builtin__&#39; (built-in)&gt;, &#39;__name__&#39;: &#39;__main__&#39;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__doc__&#39;: &#39; this is doc string &#39;, &#39;__package__&#39;: None}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{&#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: &#39; this is doc string &#39;, &#39;__package__&#39;: None, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: None, &#39;__annotations__&#39;: {}, &#39;__builtins__&#39;: &lt;module &#39;builtins&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__cached__&#39;: None}
 </span></span></code></pre></div></li>
 </ul>
 <!--list-separator-->
@@ -579,7 +584,7 @@ python code를 보기전에 python interpreter가 되어보는건 어떨까?</p>
 <p>python interpreter가 load된 다음 built-in function을 load해서 symbol
 table에 저장한다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">globals</span><span class="p">())</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{&#39;__builtins__&#39;: &lt;module &#39;__builtin__&#39; (built-in)&gt;, &#39;__name__&#39;: &#39;__main__&#39;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: None}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{&#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: None, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: None, &#39;__annotations__&#39;: {}, &#39;__builtins__&#39;: &lt;module &#39;builtins&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__cached__&#39;: None}
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&#39;__builtins__&#39;: &lt;module &#39;builtins&#39; (built-in)&gt;}
 </span></span></code></pre></div><p>built-in module에 built-in function들과 exception, warning들이
 포함되어 있다.</p>
@@ -640,7 +645,7 @@ package다. sys와 os를 path에서 찾는다. 그리고 eval()한다.</li>
 <h4 id="module-package-찾기">module, package 찾기</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[&#39;&#39;, &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python27.zip&#39;, &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7&#39;, &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin&#39;, &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac&#39;, &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages&#39;, &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk&#39;, &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-old&#39;, &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-dynload&#39;, &#39;/Library/Python/2.7/site-packages&#39;, &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python&#39;, &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/PyObjC&#39;]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[&#39;&#39;, &#39;/Users/fregeholy/anaconda3/envs/playground_3.10/lib/python310.zip&#39;, &#39;/Users/fregeholy/anaconda3/envs/playground_3.10/lib/python3.10&#39;, &#39;/Users/fregeholy/anaconda3/envs/playground_3.10/lib/python3.10/lib-dynload&#39;, &#39;/Users/fregeholy/anaconda3/envs/playground_3.10/lib/python3.10/site-packages&#39;]
 </span></span></code></pre></div><p>python interpreter가 초기화 될 때, sys의 path를 os의 environment
 variable PATH를 읽어서 세팅하다. 그래서 import문을 보면 load할
 module이나 package의 위치를 찾을 수 있는 것이다. 만일 package나
@@ -698,8 +703,8 @@ struct를 보면, linked list처럼 pointer로 연결되어 있다.</p>
 </span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">140195339998520
-</span></span><span class="line"><span class="cl">140195339998496
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">140330397597936
+</span></span><span class="line"><span class="cl">140330397597968
 </span></span></code></pre></div><p>따라서 heap에
 integer객체를 새로 생성하지 않는다. 그림을 보자.</p>
 <p><a id="figure--integer cached"></a></p>
@@ -776,8 +781,7 @@ heap에 위치한다. symbol table등록하는 과정은 아래와 같다.</p>
 </span></span><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>
 </span></span><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c</span> <span class="ow">is</span> <span class="n">d</span><span class="p">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">2.7.16 (default, Aug 29 2022, 10:34:32)
-</span></span><span class="line"><span class="cl">[GCC Apple LLVM 12.0.5 (clang-1205.0.19.59.6) [+internal-os, ptrauth-isa=deploy
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">3.10.12 (main, Jul  5 2023, 15:34:07) [Clang 14.0.6 ]
 </span></span><span class="line"><span class="cl">True
 </span></span><span class="line"><span class="cl">True
 </span></span></code></pre></div><p><a id="figure--results"></a></p>
@@ -845,7 +849,7 @@ int객체를 만든다.</p>
 어떻게 동작하는가?</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">500</span> <span class="o">/</span> <span class="mi">23</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">21
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">21.73913043478261
 </span></span></code></pre></div><p>500이라는 값은 binary로 나타낸다. 23도 binary로 나타내진다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
@@ -872,6 +876,12 @@ unpacking개념이 녹아 있다. 즉 assignment는 packing, unpacking이
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">cs1</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">1
+</span></span><span class="line"><span class="cl">2
+</span></span><span class="line"><span class="cl">[]
+</span></span><span class="line"><span class="cl">1
+</span></span><span class="line"><span class="cl">2
+</span></span><span class="line"><span class="cl">[3, 4, 5, 6]
 </span></span></code></pre></div><p>rvalue는 1,2다. 이것은 (1,2)로도 표시될 수 있다. ()는 생략된
 것이다. ()가 있다고 생각하면, 이것은 primitive data를 ()로 packing한
 것이다. 여기서 tuple객체가 만들어진다. tuple객체가 처음 생성되면
@@ -912,7 +922,7 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="mf">5.0</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">True
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">False
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">True
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="o">==</span> <span class="p">(</span><span class="kc">False</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">False</span><span class="p">]))</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">False
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="o">==</span> <span class="kc">False</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">False</span><span class="p">])</span>
@@ -939,9 +949,247 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
      graph_node_object = {
         
+     "label": "[electron] make electron app-3",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_electron_app_3\/",
+     "id": "electron_make_electron_app_3",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("electron_make_electron_app_3",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[css] css principles",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/css_css_principles\/",
      "id": "css_css_principles",
+     
+         
      
          
      
@@ -1399,6 +1647,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("design_beginning_figma",JSON.stringify(graph_node_object)); 
@@ -1410,6 +1660,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[electron] basic principles",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_basic_principles\/",
      "id": "electron_basic_principles",
+     
+         
      
          
      
@@ -1869,6 +2121,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_drag_n_drop",JSON.stringify(graph_node_object)); 
@@ -1880,6 +2134,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[electron] make dmg installer",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_dmg_installer\/",
      "id": "electron_make_dmg_installer",
+     
+         
      
          
      
@@ -2337,6 +2593,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_7",JSON.stringify(graph_node_object)); 
@@ -2348,6 +2606,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[nodejs] crawling-naver webtoon-8",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_8\/",
      "id": "nodejs_crawling_naver_webtoon_8",
+     
+         
      
          
      
@@ -2805,6 +3065,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling9",JSON.stringify(graph_node_object)); 
@@ -2816,6 +3078,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[machine learning] day17-multiple-variable-regression",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/machine_learning_day17_multiple_variable_regression\/",
      "id": "machine_learning_day17_multiple_variable_regression",
+     
+         
      
          
      
@@ -3273,6 +3537,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("machine_learning_day18_logistic_regression",JSON.stringify(graph_node_object)); 
@@ -3284,6 +3550,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[nodejs] crawling-naver webtoon-5",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_5\/",
      "id": "nodejs_crawling_naver_webtoon_5",
+     
+         
      
          
      
@@ -3741,6 +4009,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_6",JSON.stringify(graph_node_object)); 
@@ -3752,6 +4022,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[machine learning] day16-one variable regression",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/machine_learning_day16_one_variable_regression\/",
      "id": "machine_learning_day16_one_variable_regression",
+     
+         
      
          
      
@@ -4209,6 +4481,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_4",JSON.stringify(graph_node_object)); 
@@ -4220,6 +4494,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[sql] programmers sql high score3-sum,max,min",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score3_sum_max_min\/",
      "id": "sql_programmers_sql_high_score3_sum_max_min",
+     
+         
      
          
      
@@ -4677,6 +4953,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score4_group_by",JSON.stringify(graph_node_object)); 
@@ -4688,6 +4966,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[sql] programmers sql high score5-is_NULL",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score5_is_null\/",
      "id": "sql_programmers_sql_high_score5_is_null",
+     
+         
      
          
      
@@ -5145,6 +5425,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score6_join",JSON.stringify(graph_node_object)); 
@@ -5156,6 +5438,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[sql] programmers sql high score7-string,date",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score7_string_date\/",
      "id": "sql_programmers_sql_high_score7_string_date",
+     
+         
      
          
      
@@ -5613,6 +5897,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("build_tools_about_ninja",JSON.stringify(graph_node_object)); 
@@ -5624,6 +5910,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[emacs] about org-roam",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_about_org_roam\/",
      "id": "emacs_about_org_roam",
+     
+         
      
          
      
@@ -6081,6 +6369,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_misc_and_qna",JSON.stringify(graph_node_object)); 
@@ -6092,6 +6382,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[mysql] restore db and table",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/mysql_restore_db_and_table\/",
      "id": "mysql_restore_db_and_table",
+     
+         
      
          
      
@@ -6549,6 +6841,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling2_session_and_cookies",JSON.stringify(graph_node_object)); 
@@ -6560,6 +6854,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[nodejs] crawling3-session and cookies2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling3_session_and_cookies2\/",
      "id": "nodejs_crawling3_session_and_cookies2",
+     
+         
      
          
      
@@ -7017,6 +7313,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("ruby_about_ruby",JSON.stringify(graph_node_object)); 
@@ -7028,6 +7326,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[unity] about unity settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/unity_about_unity_settings\/",
      "id": "unity_about_unity_settings",
+     
+         
      
          
      
@@ -7485,6 +7785,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_about_electron_js",JSON.stringify(graph_node_object)); 
@@ -7496,6 +7798,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[electron] make electron app-1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_electron_app_1\/",
      "id": "electron_make_electron_app_1",
+     
+         
      
          
      
@@ -7732,6 +8036,10 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "id": "electron_make_electron_app_2",
      
          
+              
+         
+     
+         
      
          
      
@@ -7953,7 +8261,7 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
-     "backlinks": []
+     "backlinks": ["electron_make_electron_app_3"]
    }
  sessionStorage.setItem("electron_make_electron_app_2",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
@@ -7964,6 +8272,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[emacs] screen capture",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_screen_capture\/",
      "id": "emacs_screen_capture",
+     
+         
      
          
      
@@ -8421,6 +8731,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling1",JSON.stringify(graph_node_object)); 
@@ -8432,6 +8744,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[python] web scraping with python-1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_web_scraping_with_python_1\/",
      "id": "python_web_scraping_with_python_1",
+     
+         
      
          
      
@@ -8891,6 +9205,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch10_about_mariadb",JSON.stringify(graph_node_object)); 
@@ -8902,6 +9218,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[emacs] database sql usage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_database_sql_usage\/",
      "id": "emacs_database_sql_usage",
+     
+         
      
          
      
@@ -9359,6 +9677,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch8_aws_rails_settings",JSON.stringify(graph_node_object)); 
@@ -9370,6 +9690,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[rails] rails from scratch8-before local settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch8_before_local_settings\/",
      "id": "rails_rails_from_scratch8_before_local_settings",
+     
+         
      
          
      
@@ -9827,6 +10149,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch9_emacs_settings_for_ror",JSON.stringify(graph_node_object)); 
@@ -9838,6 +10162,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[sql] programmers sql high score2-select",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score2\/",
      "id": "sql_programmers_sql_high_score2",
+     
+         
      
          
      
@@ -10295,6 +10621,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nginx_about_nginx",JSON.stringify(graph_node_object)); 
@@ -10306,6 +10634,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[rails] frequently used functions",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_frequently_used_functions\/",
      "id": "rails_frequently_used_functions",
+     
+         
      
          
      
@@ -10763,6 +11093,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch1_installment",JSON.stringify(graph_node_object)); 
@@ -10774,6 +11106,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[rails] rails from scratch2-installment2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch2_installment\/",
      "id": "rails_rails_from_scratch2_installment",
+     
+         
      
          
      
@@ -11231,6 +11565,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch3_routes",JSON.stringify(graph_node_object)); 
@@ -11242,6 +11578,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[rails] rails from scratch5-model",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch5_model\/",
      "id": "rails_rails_from_scratch5_model",
+     
+         
      
          
      
@@ -11699,6 +12037,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch6_view",JSON.stringify(graph_node_object)); 
@@ -11710,6 +12050,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[rails] rails from scratch7-practice1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch7_practice1\/",
      "id": "rails_rails_from_scratch7_practice1",
+     
+         
      
          
      
@@ -12167,6 +12509,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("matter_js_tutorial",JSON.stringify(graph_node_object)); 
@@ -12178,6 +12522,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[node] npm and node",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/node_npm_and_node\/",
      "id": "node_npm_and_node",
+     
+         
      
          
      
@@ -12637,6 +12983,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("git_git_drill1_repo_and_commit",JSON.stringify(graph_node_object)); 
@@ -12648,6 +12996,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[git] git drill2 local",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_drill2_local\/",
      "id": "git_git_drill2_local",
+     
+         
      
          
      
@@ -13107,6 +13457,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score",JSON.stringify(graph_node_object)); 
@@ -13118,6 +13470,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[git] git explained",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_explained\/",
      "id": "git_git_explained",
+     
+         
      
          
      
@@ -13579,6 +13933,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_presentation_tools",JSON.stringify(graph_node_object)); 
@@ -13590,6 +13946,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[emacs] tex install and usage (latex)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_tex_install_and_usage\/",
      "id": "emacs_tex_install_and_usage",
+     
+         
      
          
      
@@ -14047,6 +14405,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_mu4e_settings",JSON.stringify(graph_node_object)); 
@@ -14058,6 +14418,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[test] testing!",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/test_testing\/",
      "id": "test_testing",
+     
+         
      
          
      
@@ -14515,6 +14877,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("essay_computer_working_principles",JSON.stringify(graph_node_object)); 
@@ -14526,6 +14890,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[pl] history of programming language from calcuation to OOP",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/pl_history_of_programming_language\/",
      "id": "pl_history_of_programming_language",
+     
+         
      
          
      
@@ -14985,6 +15351,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_grammar_in_one_shot",JSON.stringify(graph_node_object)); 
@@ -15219,6 +15587,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("algorithm_thinking_about_algorithms",JSON.stringify(graph_node_object)); 
@@ -15230,6 +15600,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
      
          
      
@@ -15689,6 +16061,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -15923,6 +16297,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary7_big_data_and_python",JSON.stringify(graph_node_object)); 
@@ -15934,6 +16310,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[github] multi account github problem",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/github_multi_account_github_problem\/",
      "id": "github_multi_account_github_problem",
+     
+         
      
          
      
@@ -16393,6 +16771,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
@@ -16404,6 +16784,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
      
          
      
@@ -16863,6 +17245,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
@@ -16874,6 +17258,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[kaggle-courses-intro] Arithmetic and Variable",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
      "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
      
          
      
@@ -17331,6 +17717,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
@@ -17342,6 +17730,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[kaggle] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
      "id": "kaggle_beginning",
+     
+         
      
          
      
@@ -17799,6 +18189,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
@@ -17810,6 +18202,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[leetcode] 1480 running sum of 1d array",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
      "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
      
          
      
@@ -18269,6 +18663,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
@@ -18280,6 +18676,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[linear algebra-2] linear independence",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
      "id": "linear_algebra_2_linear_independence",
+     
+         
      
          
      
@@ -18737,6 +19135,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
@@ -18748,6 +19148,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "python_summary5 loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
      "id": "python_summary5_loop",
+     
+         
      
          
      
@@ -19205,6 +19607,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
@@ -19216,6 +19620,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "sop idea1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
      "id": "sop_idea1",
+     
+         
      
          
      
@@ -19673,6 +20079,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_babel_python",JSON.stringify(graph_node_object)); 
@@ -19684,6 +20092,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[emacs] python lsp setting",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_python_lsp_setting\/",
      "id": "emacs_python_lsp_setting",
+     
+         
      
          
      
@@ -20076,6 +20486,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
          
      
          
+     
+         
               
          
      
@@ -20158,6 +20570,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[emacs] anaconda settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
      "id": "emacs_anaconda_settings",
+     
+         
      
          
      
@@ -20617,6 +21031,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -20628,6 +21044,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
      
          
      
@@ -21085,6 +21503,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -21096,6 +21516,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
      
          
      
@@ -21557,6 +21979,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -21568,6 +21992,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "folding test1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
      "id": "folding_test",
+     
+         
      
          
      
@@ -21804,6 +22230,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
+     
+         
      
          
      
@@ -22263,6 +22691,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -22274,6 +22704,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
+     
+         
      
          
      
@@ -22731,6 +23163,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -22742,6 +23176,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
+     
+         
      
          
      
@@ -23199,6 +23635,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -23210,6 +23648,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
+     
+         
      
          
      
@@ -23667,6 +24107,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -23678,6 +24120,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
+     
+         
      
          
      
@@ -24135,6 +24579,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -24146,6 +24592,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
+     
+         
      
          
      
@@ -24603,6 +25051,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -24614,6 +25064,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
+     
+         
      
          
      
@@ -25071,6 +25523,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -25082,6 +25536,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
+     
+         
      
          
      
@@ -25539,6 +25995,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("elisp_korean_lorel_ipsum",JSON.stringify(graph_node_object)); 
@@ -25550,6 +26008,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "[python] grammar in one shot - standard library (Text)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_grammar_in_one_shot_standard_library_text\/",
      "id": "python_grammar_in_one_shot_standard_library_text",
+     
+         
      
          
      
@@ -26007,6 +26467,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch4_controller",JSON.stringify(graph_node_object)); 
@@ -26241,6 +26703,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_making_portfolio_page",JSON.stringify(graph_node_object)); 
@@ -26252,6 +26716,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "Example of org to ipynb",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/example\/",
      "id": "example",
+     
+         
      
          
      
@@ -26711,6 +27177,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary4_data_structures",JSON.stringify(graph_node_object)); 
@@ -26722,6 +27190,8 @@ unpacking이일어난다. unpacking이라는 것은 tuple 객체가 가지고 �
      "label": "python_summary8 string",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary8_string\/",
      "id": "python_summary8_string",
+     
+         
      
          
      

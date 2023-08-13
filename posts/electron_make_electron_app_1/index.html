@@ -272,12 +272,37 @@
      
     
      
+    
+     
   
 
   
 	  
 	</fieldset>
-	<h2 id="hello-world">hello world</h2>
+	<h2 id="electron이란">electron이란?</h2>
+<p>electron은 system에서 동작하는 js interpreter와 browser를 연결해서
+하나의 app으로 만든 것이다. system에서 동작하는 js interpreter를
+node라고 부른다. node는 system에 설치된 js interpreter라서 local file
+system도 접근하고, js로 된 파일도 해석한다. 마치 python이나 java를
+system에 설치해서 사용하는 것과 같다. java a.java, python a.py를
+실행하듯, node a.js를 실행하는 것이다. ui가 있는 program을 만들때,
+java는 swing을 쓰고 파이썬은 qt를 사용해서 ui를 나타낸다. node는
+chromium이라는 browser를 사용한다. browser의 ui화면을 사용하겠다는
+것이다. electron의 entry point에서는 node가 실행할 js코드가 있는데
+여기서는 browser를 생성하는 code가 있고, browser가 생성되면 2개의
+process가 떠있게 된다. ui를 나타내는 browser process와 node의 main
+process다. main process는 daemon처럼 계속 실행되는 형태다. while
+loop가 돌고 있는 것이다. android나 ios app의 모든 app들의 종료는
+사용자에 의해서 결정되기 때문에 무한 loop를 돌도록 설계
+되었다. program의 code가 끝났다고 끝나는게 아니다. 무한 loop이 돌고
+있어서 죽지 않는다. life cycle이 존재한다. electron도 똑같다. life
+cycle이 있고 무한 루프를 돈다. event에 의해서 동작된다. 말이 길었지만,
+electron은 다른 app과 비슷한 구조일 뿐이다. electron structure에 대한
+좋은 그림이 있어서 가져왔다.</p>
+<p><a id="orgea55710"></a></p>
+<img src="/img/electron/electron_structure.png" alt="electron_structure.png" width="600px" />
+참조주소: [다음](https://kadamon.tistory.com/30) 과 같다.
+<h2 id="hello-world">hello world</h2>
 <p>모든 program이 그러하듯, hello world를 출력하는 앱을
 만들자. basic_electron_app이라는 git repo를 만들고 시작하자.</p>
 <h3 id="시작--app-만들기">시작 (app 만들기)</h3>
@@ -294,8 +319,8 @@
 하면 된다.</p>
 <p><a id="figure--package.json"></a></p>
 <figure><img src="/img/node/package1.png"
-         alt="Figure 1: package.json" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 1: </span>package.json</p>
+         alt="Figure 2: package.json" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 2: </span>package.json</p>
         </figcaption>
 </figure>
 
@@ -306,48 +331,39 @@ package.json에 기술된 entry.js는 main.js이고 이것은 아직 파일에 �
 때문이다.</p>
 <p><a id="figure--package.json"></a></p>
 <figure><img src="/img/node/package1.png"
-         alt="Figure 2: package.json" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 2: </span>package.json</p>
+         alt="Figure 3: package.json" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 3: </span>package.json</p>
         </figcaption>
 </figure>
 
 <h4 id="error의-해결">error의 해결</h4>
 <p>root폴더에 main.js를 만든다. error는 안나지만 아무런 동작도 하지 않는다.</p>
-<h4 id="index-dot-html">index.html</h4>
-<p>node package는 web app을 만든다. web app은 html문서로 만들어지는
-DOM이라는 data에 js로 manipulation을 하는것이다. 기본 데이터인 DOM은
-필수적이다. 따라서 html파일이 있어야 한다. web server를 만들던, web
-client를 만들던, electron으로 어플을 만들던, DOM이란 data가 필요하다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP --&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;Content-Security-Policy&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;default-src &#39;self&#39;; script-src &#39;self&#39;&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hello World!<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello World!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    We are using Node.js <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;node-version&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>,
-</span></span><span class="line"><span class="cl">    Chromium <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;chrome-version&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>,
-</span></span><span class="line"><span class="cl">    and Electron <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;electron-version&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>.
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</span></span></code></pre></div><h4 id="unpacking-app-and-browserwindow-module-in-main-dot-js">unpacking  app and browserWindow module in main.js</h4>
-<p>html을 시각적으로 보여주는것은 browser를 사용한다. 그런데
-electron에서는 자체적으로 html을 화면에 보여준다. 이렇게 하기위해서
-electron에는 browserwindow라는 module이 있다. 화면에 보여줄 수 있는
-module이다. 그리고 우리가 만드는 것도 app이다. 따라서 app의 life
-cycle을 관리하는 app 모듈도 있다. android나 ios에서 만드는 app들이
-life cycle이 있는것과 동일하다.  main.js에서 electron.js를 load해서
-unpacking한다. app과 BrowserWindow라는 module을 unpacking해서 사용할
-수 있다.</p>
+<h4 id="main-process">main process</h4>
+<p>electron project에서 entry point로 지정된 js는 main process다. main
+process는 android나 ios app처럼 죽지 않는 daemon이다. while true와
+같이 무한 loop를 돈다. 그래서 life cycle이 있다. 그리고 ui를 위한
+process인 renderer process를 생성한다. x window system하고도
+비슷하다. x server에서 xclient라는 window창을 만들고 서로
+통신한다. window도 ios도 android도 모두 비슷한 구조다. 각각의
+window창은 xclient라고 봐도 된다. electron에서 main process는
+browser를 생성한다. xclient라고 보면된다. browser는 xclient가 자신만의
+xwidget으로 모양을 꾸미듯이 browser도 html,css,js로 모양을 꾸민다. x
+server는 xclient를 관리하고 자신의 life cycle을 관리한다. electron도
+똑같다. 자신의 life cycle과 browser통신하고 관리하는게 주임무다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">BrowserWindow</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">)</span>
-</span></span></code></pre></div><h4 id="ready-event-in-app">ready event in app</h4>
-<p>app에서 ready event가 발생하면 createWindow()가 호출된다. 여기서
-browserWindow객체를 만들고, index.html을 load해서 보여준다. 그런데,
-createwindow()라는게 event handler는 아니다. ready event의 event
-handler는 WhenReady()다. 여기서 createwindow()를 호출할 뿐이다.</p>
+</span></span></code></pre></div><p>위의 코드는 main process에서 lifecycle을 위한 app과 browserwindow라는
+client를 생성하기 위한 코드다.</p>
+<h4 id="ready-event-in-app">ready event in app</h4>
+<p>main process는 life cycle이 있다고 했다. main process는 무한 loop를
+돌기 때문에 죽지 않는다. 대신에 life cycle이 있는데, 이것은 event
+driven 방식이다. event를 받으면, 그것이 system에서 발생했던, renderer
+process에서 발생했던, event가 발생하면 상태가 변하는 것이다. 그때 call
+back함수를 처리하는 방식이다. app이 처음 시작할때 system이 app에게
+ready event를 보낸다. 그때 main process는 createWindow()를 호출해서
+browserWindow객체를 만든다. 즉 renderer process를 만들고 index.html을
+load해서 보여준다.  ready event가 발생할 때 createWindow를 호출한다고
+했는데, 그때 event handler는 WhenReady()다. 여기서 createwindow()를
+호출한다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">createWindow</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">win</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BrowserWindow</span><span class="p">({</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">width</span><span class="o">:</span> <span class="mi">800</span><span class="p">,</span>
@@ -360,11 +376,11 @@ handler는 WhenReady()다. 여기서 createwindow()를 호출할 뿐이다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">app</span><span class="p">.</span><span class="nx">whenReady</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">createWindow</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">})</span>
-</span></span></code></pre></div><p>이렇게 하고 npm start로 실행하면 다음과 같은 window를 볼 수 있다.</p>
+</span></span></code></pre></div><p>이렇게 처리를 하면, npm start로 app을 실행하면 다음과 같은 window를 볼 수 있다.</p>
 <p><a id="figure--window"></a></p>
 <figure><img src="/img/node/bw1.png"
-         alt="Figure 3: window" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 3: </span>window</p>
+         alt="Figure 4: window" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 4: </span>window</p>
         </figcaption>
 </figure>
 
@@ -374,10 +390,10 @@ handler는 WhenReady()다. 여기서 createwindow()를 호출할 뿐이다.</p>
 <li>
 <p>개요</p>
 <p>app이 만들어졌다면 app은 상태를 갖는다. app은 event에 반응하는 event
-handler들이 있는데, 이것은 개발자들이 구현해야 한다. 그런데 이것이
-platform마다 기술하는게 다르다. 위에서 ready event는 먼저
-살펴봤다. app이 생성되면 최초로 받는 event다. 이제 다른 event를
-살펴보자.</p>
+handler들을 만들면 된다. 어떤 event가 있는지는 manual에 있고, 이것은
+개발자들이 구현해야 한다. 그런데 이것이 platform마다 다르다고 한다.
+여튼 app이 생성되면 최초로 받는 ready event는 위에서 처리했고, 이것을
+처리해야 뭔가를 볼수 있는것이다. 다른 event도 살펴보자.</p>
 </li>
 </ul>
 <!--list-separator-->
@@ -400,7 +416,7 @@ exit하게 처리한다. 그래서 &lsquo;window-all-closed&rsquo;라는 event�
 <!--list-separator-->
 <ul>
 <li>
-<p>activate</p>
+<p>activate event</p>
 <p>mac에서는 window all close event에는 어떤 반응을 하지 않아도
 된다. 반면에 mac에는 window나 linux와 달리, window가 없어도 app은
 여전히 살아 있다.  window나 linux에서는 열려진 window가 없다면 app이
@@ -421,44 +437,92 @@ window가 아예 없는 경우에서 받을 수도 있다는 말이다. 그래�
 <!--list-separator-->
 <ul>
 <li>
-<p>개념</p>
-<p>app을 만들고, 만들어진 app이 life cycle을 가지며, event가 발생했을때
-event처리는 모두 main process의 역할이다. app을 만들때
-windowBrowser라는 module을 생성시키고, html을 인자로 받아서 window를
-만들지만, window에 내용을 rendering하는 것은 renderer라고 하는 별도의
-program이 있다. html문서가 DOM으로 만들어질때는 static한 text는 그대로
-출력되지만, js로 변경되는 부분은 renderer process에서 별도 처리 과정을
-거쳐서 화면에 보여진다. 그래서 app의 version정보가 출력이 안된
-것이다. 그냥 main process에서 version정보를 가져와서 DOM에 붙이는
-작업까지 다 해도 되는데 안한 이유는 access할 권한이 없기
-때문이다. DOM의 window객체와 Document객체에 접근할 수 있는 Renederer
-process는 preload.js를 호출하는데, 개발자는 이 js파일에서 DOM이 가진
-객체에 접근할 수 있다. 따라서, preload.js를 만들어야 한다.</p>
+<p>index.html</p>
+<p>ui를 나타내는 browser process는 main process에서 생성한다. browser
+process는 renderer process라고 하는데 ui를 나타내기 위해서
+html,css,js가 필요하다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;Content-Security-Policy&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;default-src &#39;self&#39;; script-src &#39;self&#39;&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hello World!<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello World!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    We are using Node.js <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;node-version&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>,
+</span></span><span class="line"><span class="cl">    Chromium <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;chrome-version&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>,
+</span></span><span class="line"><span class="cl">    and Electron <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;electron-version&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>.
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>여기서는 chromium이라는 renderer process가 사용하는 html문서다. node의
+version,chromium의 version, electron의 version을 화면에 출력한다. 그런데 좀 이상하다.</p>
+ <div class="important">
+<p>id로 version을 기술한 것은 js에서 처리하려고 하는데, js를 include하지
+않았다. 그렇다면 span의 값들인 version정보를 js에서 처리해서 보여줄
+생각이 없다는 의미인가?</p>
+ </div>
+<p>여기서 js를 script src를 통해서 접근하지 않는데, renderer의
+preload.js에 대한 설명을 할려고 이런 예를 들었다. 이것에 대한
+설명은 계속 될 것이다.</p>
 </li>
 </ul>
 <!--list-separator-->
 <ul>
 <li>
 <p>preload.js</p>
-<p>preload는 js 문법이다. DOM을 load했을때는 replacetext라는 함수를
-만들었다. 이 함수는 html의 id의 값을 for-loop을 돌면서 replace한다. 이
-때, process는 nodejs의 내장객체다. process 객체를 통해서 node나 chrom,
-electron의 version을 구할 수 있다.</p>
+<p>app을 만들고, 만들어진 app이 life cycle을 가진다. 그것에 대한 처리,
+그리고 event가 발생했을때 event처리, 이 모든 것은 main process의
+역할이다.main process는 windowBrowser라는 chromium을 ready event를
+받으면 생성시켰다. 이렇게 생성된 process를 renderer process라고 하고,
+html,css,js로 화면을 구성한다.  html문서는 renderer인 chromium에
+의해서 DOM으로 만들어진다. 위에서 보면 DOM은 만들어졌을 것이다. 그런데
+chromium,node,electron의 version정보는 renderer process에서는 알수가
+없다. 왜냐 main process에서 사용되는 것들이기 때문이다. main
+process에게 요청해서 정보를 얻어서 화면에 보여줘야 한다. 그런데 그렇게
+할려면 서로 다른 process에서의 통신이기 때문에 IPC를 사용해서 정보를
+얻어오고 js에서 보여줘야 하는게 일반적 방식이다. 그런데 여기선
+preload.js에서 처리한다. 어떻게 preload.js에서 처리한단 말인가?
+preload.js는 main process가 renderer process에 보낸
+자객이다. preload.js를 생성하는건 main process다. 그리고 renderer
+process가 동작할때 thread로 분기해서 실행되기 때문에 renderer에 대한
+정보에도 접근할 수 있고 node에 대한 정보에도 접근할 수 있다. 나는
+spy라고 표현했지만, bridge라는 더 좋은 용어도 있다. 여튼 위의 예에서
+node,chromium,electron의 version을 화면에 보여줄려면, preload를
+이용해서 보여줄 수 있다. 그런데 preload의 사용은 많지 않고, ipcmain과
+ipc renderer 사이의 직접적인 통신으로 data를 주고 받는다고 한다.</p>
+</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>preload.js</p>
+<p>preload는 spy다. chromium이 DOM을 load했을때 event가 발생한다. 이
+event를 preload.js에서 가로챈다. 이렇게 가로챌수 있는것은 chromium
+browser가 index를 load하고 초기화할때 preload.js도 같이 실행되기
+때문이다. chromium이 생성되고, index.html을 DOM으로 만들면 event가
+발생되고, preload.js에 event handler가 수행된다. 그런후 renderer의
+초기화 과정이 끝나면 preload.js도 수행된다. 이때 replacetext라는
+함수를 호출해서 버전 처리를 한다.이 함수는 html의 id의 값을 for-loop을
+돌면서 replace한다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">replaceText</span> <span class="o">=</span> <span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">text</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">selector</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="nx">element</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">text</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">dependency</span> <span class="k">of</span> <span class="p">[</span><span class="s1">&#39;chrome&#39;</span><span class="p">,</span> <span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;electron&#39;</span><span class="p">])</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">replaceText</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">dependency</span><span class="si">}</span><span class="sb">-version`</span><span class="p">,</span> <span class="nx">process</span><span class="p">.</span><span class="nx">versions</span><span class="p">[</span><span class="nx">dependency</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">})</span>
-</span></span></code></pre></div><p>preload.js에서는 DOM의 내용을 생성 변경할 수 있다. 이것은 app의 entry
-point인 main.js의 실행 흐름과는 다른 흐름을 갖는다고 했다. renderer
-process에 의해서 호출되고 사용되는데, 그렇게 하기 위해선 main.js에서
-windowBrowser객체가 생성될때, webPreferences에 path를 설정해서 load
-해서 실행하게 한다. main.js를 다시 작성하면 다음과 같이 된다.</p>
+</span></span></code></pre></div><p>preload.js가 main프로세스가 가지고 있는 node,chromium,electron의
+version정보에 접근할 수 있는 이유는, main process가 preload를
+renderer의 thread로 실행시키기 때문에 별도 연락하는 채널이
+있는것이다. 그것이 process다. process는 main process를
+가리킨다. 위에서 process를 통해서 version정보를 가져오는 코드를 확인
+할 수 있다. 아래는 main process에서 chromium을 생성할때 별도의
+thread로 preload를 실행 시키는 코드다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">BrowserWindow</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// include the Node.js &#39;path&#39; module at the top of your file
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
@@ -476,20 +540,16 @@ windowBrowser객체가 생성될때, webPreferences에 path를 설정해서 load
 </span></span><span class="line"><span class="cl">  <span class="nx">win</span><span class="p">.</span><span class="nx">loadFile</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// ...
-</span></span></span></code></pre></div><p>path를 load해서 path객체를 사용할 수 있게 한 후에 preload.js를
-BrowserWindow객체를 생성할 때 넘겨준다. BrowserWindow객체를 생성할때
-renderer에 해당하는 preload.js를 load하면, win.loadFile에서 html파일을
-load해서 DOM을 만든 이후에 rendering을 한다.</p>
-<p>코드를 잠깐 살펴보면 다음과 같다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">webPreferences</span><span class="o">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">preload</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;preload.js&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span></code></pre></div><p>__dirname은 root폴더를 의미한다. path.join은 concat해서 preload.js의
-path를 만들어낸다.</p>
+</span></span></span></code></pre></div><p>path를 지정하는 이유는 preload.js를 browser가 thread로 만들기 위해서
+필요한것이다. main process에서 BrowserWindow객체를 생성하고,
+browser객체가 preload를 thread로 만드는 것이다. 이렇게 해서 browser와
+main이 모두 접근할 수 있는 spy가 되는 것이다.</p>
 </li>
 </ul>
 <h3 id="배포">배포</h3>
-<p>Electron Forge를 사용해서 배포를 하는 게 가장 빠르다.</p>
+<p>Electron Forge를 사용해서 배포를 하는 게 가장 빠르다. electron forge는
+mac app을 만드는 도구다. app파일이 만들어진다. 만일 window라면 exe라는
+파일이 만들어진다.</p>
 <h4 id="step1">[step1]</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">npm install --save-dev @electron-forge/cli
 </span></span><span class="line"><span class="cl">npx electron-forge import
@@ -508,9 +568,247 @@ path를 만들어낸다.</p>
      
      graph_node_object = {
         
+     "label": "[electron] make electron app-3",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_electron_app_3\/",
+     "id": "electron_make_electron_app_3",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("electron_make_electron_app_3",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[css] css principles",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/css_css_principles\/",
      "id": "css_css_principles",
+     
+         
      
          
      
@@ -968,6 +1266,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("design_beginning_figma",JSON.stringify(graph_node_object)); 
@@ -979,6 +1279,8 @@ path를 만들어낸다.</p>
      "label": "[electron] basic principles",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_basic_principles\/",
      "id": "electron_basic_principles",
+     
+         
      
          
      
@@ -1438,6 +1740,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_drag_n_drop",JSON.stringify(graph_node_object)); 
@@ -1449,6 +1753,8 @@ path를 만들어낸다.</p>
      "label": "[electron] make dmg installer",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_dmg_installer\/",
      "id": "electron_make_dmg_installer",
+     
+         
      
          
      
@@ -1906,6 +2212,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_7",JSON.stringify(graph_node_object)); 
@@ -1917,6 +2225,8 @@ path를 만들어낸다.</p>
      "label": "[nodejs] crawling-naver webtoon-8",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_8\/",
      "id": "nodejs_crawling_naver_webtoon_8",
+     
+         
      
          
      
@@ -2374,6 +2684,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling9",JSON.stringify(graph_node_object)); 
@@ -2385,6 +2697,8 @@ path를 만들어낸다.</p>
      "label": "[machine learning] day17-multiple-variable-regression",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/machine_learning_day17_multiple_variable_regression\/",
      "id": "machine_learning_day17_multiple_variable_regression",
+     
+         
      
          
      
@@ -2842,6 +3156,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("machine_learning_day18_logistic_regression",JSON.stringify(graph_node_object)); 
@@ -2853,6 +3169,8 @@ path를 만들어낸다.</p>
      "label": "[nodejs] crawling-naver webtoon-5",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_5\/",
      "id": "nodejs_crawling_naver_webtoon_5",
+     
+         
      
          
      
@@ -3310,6 +3628,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_6",JSON.stringify(graph_node_object)); 
@@ -3321,6 +3641,8 @@ path를 만들어낸다.</p>
      "label": "[machine learning] day16-one variable regression",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/machine_learning_day16_one_variable_regression\/",
      "id": "machine_learning_day16_one_variable_regression",
+     
+         
      
          
      
@@ -3778,6 +4100,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_4",JSON.stringify(graph_node_object)); 
@@ -3789,6 +4113,8 @@ path를 만들어낸다.</p>
      "label": "[sql] programmers sql high score3-sum,max,min",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score3_sum_max_min\/",
      "id": "sql_programmers_sql_high_score3_sum_max_min",
+     
+         
      
          
      
@@ -4246,6 +4572,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score4_group_by",JSON.stringify(graph_node_object)); 
@@ -4257,6 +4585,8 @@ path를 만들어낸다.</p>
      "label": "[sql] programmers sql high score5-is_NULL",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score5_is_null\/",
      "id": "sql_programmers_sql_high_score5_is_null",
+     
+         
      
          
      
@@ -4714,6 +5044,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score6_join",JSON.stringify(graph_node_object)); 
@@ -4725,6 +5057,8 @@ path를 만들어낸다.</p>
      "label": "[sql] programmers sql high score7-string,date",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score7_string_date\/",
      "id": "sql_programmers_sql_high_score7_string_date",
+     
+         
      
          
      
@@ -5182,6 +5516,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("build_tools_about_ninja",JSON.stringify(graph_node_object)); 
@@ -5193,6 +5529,8 @@ path를 만들어낸다.</p>
      "label": "[emacs] about org-roam",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_about_org_roam\/",
      "id": "emacs_about_org_roam",
+     
+         
      
          
      
@@ -5650,6 +5988,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_misc_and_qna",JSON.stringify(graph_node_object)); 
@@ -5661,6 +6001,8 @@ path를 만들어낸다.</p>
      "label": "[mysql] restore db and table",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/mysql_restore_db_and_table\/",
      "id": "mysql_restore_db_and_table",
+     
+         
      
          
      
@@ -6118,6 +6460,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling2_session_and_cookies",JSON.stringify(graph_node_object)); 
@@ -6129,6 +6473,8 @@ path를 만들어낸다.</p>
      "label": "[nodejs] crawling3-session and cookies2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling3_session_and_cookies2\/",
      "id": "nodejs_crawling3_session_and_cookies2",
+     
+         
      
          
      
@@ -6586,6 +6932,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("ruby_about_ruby",JSON.stringify(graph_node_object)); 
@@ -6597,6 +6945,8 @@ path를 만들어낸다.</p>
      "label": "[unity] about unity settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/unity_about_unity_settings\/",
      "id": "unity_about_unity_settings",
+     
+         
      
          
      
@@ -7054,6 +7404,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_about_electron_js",JSON.stringify(graph_node_object)); 
@@ -7065,6 +7417,8 @@ path를 만들어낸다.</p>
      "label": "[electron] make electron app-1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_electron_app_1\/",
      "id": "electron_make_electron_app_1",
+     
+         
      
          
      
@@ -7301,6 +7655,10 @@ path를 만들어낸다.</p>
      "id": "electron_make_electron_app_2",
      
          
+              
+         
+     
+         
      
          
      
@@ -7522,7 +7880,7 @@ path를 만들어낸다.</p>
      
          
      
-     "backlinks": []
+     "backlinks": ["electron_make_electron_app_3"]
    }
  sessionStorage.setItem("electron_make_electron_app_2",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
@@ -7533,6 +7891,8 @@ path를 만들어낸다.</p>
      "label": "[emacs] screen capture",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_screen_capture\/",
      "id": "emacs_screen_capture",
+     
+         
      
          
      
@@ -7990,6 +8350,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling1",JSON.stringify(graph_node_object)); 
@@ -8001,6 +8363,8 @@ path를 만들어낸다.</p>
      "label": "[python] web scraping with python-1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_web_scraping_with_python_1\/",
      "id": "python_web_scraping_with_python_1",
+     
+         
      
          
      
@@ -8460,6 +8824,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch10_about_mariadb",JSON.stringify(graph_node_object)); 
@@ -8471,6 +8837,8 @@ path를 만들어낸다.</p>
      "label": "[emacs] database sql usage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_database_sql_usage\/",
      "id": "emacs_database_sql_usage",
+     
+         
      
          
      
@@ -8928,6 +9296,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch8_aws_rails_settings",JSON.stringify(graph_node_object)); 
@@ -8939,6 +9309,8 @@ path를 만들어낸다.</p>
      "label": "[rails] rails from scratch8-before local settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch8_before_local_settings\/",
      "id": "rails_rails_from_scratch8_before_local_settings",
+     
+         
      
          
      
@@ -9396,6 +9768,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch9_emacs_settings_for_ror",JSON.stringify(graph_node_object)); 
@@ -9407,6 +9781,8 @@ path를 만들어낸다.</p>
      "label": "[sql] programmers sql high score2-select",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score2\/",
      "id": "sql_programmers_sql_high_score2",
+     
+         
      
          
      
@@ -9864,6 +10240,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nginx_about_nginx",JSON.stringify(graph_node_object)); 
@@ -9875,6 +10253,8 @@ path를 만들어낸다.</p>
      "label": "[rails] frequently used functions",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_frequently_used_functions\/",
      "id": "rails_frequently_used_functions",
+     
+         
      
          
      
@@ -10332,6 +10712,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch1_installment",JSON.stringify(graph_node_object)); 
@@ -10343,6 +10725,8 @@ path를 만들어낸다.</p>
      "label": "[rails] rails from scratch2-installment2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch2_installment\/",
      "id": "rails_rails_from_scratch2_installment",
+     
+         
      
          
      
@@ -10800,6 +11184,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch3_routes",JSON.stringify(graph_node_object)); 
@@ -10811,6 +11197,8 @@ path를 만들어낸다.</p>
      "label": "[rails] rails from scratch5-model",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch5_model\/",
      "id": "rails_rails_from_scratch5_model",
+     
+         
      
          
      
@@ -11268,6 +11656,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch6_view",JSON.stringify(graph_node_object)); 
@@ -11279,6 +11669,8 @@ path를 만들어낸다.</p>
      "label": "[rails] rails from scratch7-practice1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch7_practice1\/",
      "id": "rails_rails_from_scratch7_practice1",
+     
+         
      
          
      
@@ -11736,6 +12128,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("matter_js_tutorial",JSON.stringify(graph_node_object)); 
@@ -11747,6 +12141,8 @@ path를 만들어낸다.</p>
      "label": "[node] npm and node",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/node_npm_and_node\/",
      "id": "node_npm_and_node",
+     
+         
      
          
      
@@ -12206,6 +12602,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("git_git_drill1_repo_and_commit",JSON.stringify(graph_node_object)); 
@@ -12217,6 +12615,8 @@ path를 만들어낸다.</p>
      "label": "[git] git drill2 local",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_drill2_local\/",
      "id": "git_git_drill2_local",
+     
+         
      
          
      
@@ -12676,6 +13076,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score",JSON.stringify(graph_node_object)); 
@@ -12687,6 +13089,8 @@ path를 만들어낸다.</p>
      "label": "[git] git explained",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_explained\/",
      "id": "git_git_explained",
+     
+         
      
          
      
@@ -13148,6 +13552,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_presentation_tools",JSON.stringify(graph_node_object)); 
@@ -13159,6 +13565,8 @@ path를 만들어낸다.</p>
      "label": "[emacs] tex install and usage (latex)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_tex_install_and_usage\/",
      "id": "emacs_tex_install_and_usage",
+     
+         
      
          
      
@@ -13616,6 +14024,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_mu4e_settings",JSON.stringify(graph_node_object)); 
@@ -13627,6 +14037,8 @@ path를 만들어낸다.</p>
      "label": "[test] testing!",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/test_testing\/",
      "id": "test_testing",
+     
+         
      
          
      
@@ -14084,6 +14496,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("essay_computer_working_principles",JSON.stringify(graph_node_object)); 
@@ -14095,6 +14509,8 @@ path를 만들어낸다.</p>
      "label": "[pl] history of programming language from calcuation to OOP",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/pl_history_of_programming_language\/",
      "id": "pl_history_of_programming_language",
+     
+         
      
          
      
@@ -14554,6 +14970,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_grammar_in_one_shot",JSON.stringify(graph_node_object)); 
@@ -14788,6 +15206,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("algorithm_thinking_about_algorithms",JSON.stringify(graph_node_object)); 
@@ -14799,6 +15219,8 @@ path를 만들어낸다.</p>
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
      
          
      
@@ -15258,6 +15680,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -15492,6 +15916,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary7_big_data_and_python",JSON.stringify(graph_node_object)); 
@@ -15503,6 +15929,8 @@ path를 만들어낸다.</p>
      "label": "[github] multi account github problem",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/github_multi_account_github_problem\/",
      "id": "github_multi_account_github_problem",
+     
+         
      
          
      
@@ -15962,6 +16390,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
@@ -15973,6 +16403,8 @@ path를 만들어낸다.</p>
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
      
          
      
@@ -16432,6 +16864,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
@@ -16443,6 +16877,8 @@ path를 만들어낸다.</p>
      "label": "[kaggle-courses-intro] Arithmetic and Variable",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
      "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
      
          
      
@@ -16900,6 +17336,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
@@ -16911,6 +17349,8 @@ path를 만들어낸다.</p>
      "label": "[kaggle] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
      "id": "kaggle_beginning",
+     
+         
      
          
      
@@ -17368,6 +17808,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
@@ -17379,6 +17821,8 @@ path를 만들어낸다.</p>
      "label": "[leetcode] 1480 running sum of 1d array",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
      "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
      
          
      
@@ -17838,6 +18282,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
@@ -17849,6 +18295,8 @@ path를 만들어낸다.</p>
      "label": "[linear algebra-2] linear independence",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
      "id": "linear_algebra_2_linear_independence",
+     
+         
      
          
      
@@ -18306,6 +18754,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
@@ -18317,6 +18767,8 @@ path를 만들어낸다.</p>
      "label": "python_summary5 loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
      "id": "python_summary5_loop",
+     
+         
      
          
      
@@ -18774,6 +19226,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
@@ -18785,6 +19239,8 @@ path를 만들어낸다.</p>
      "label": "sop idea1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
      "id": "sop_idea1",
+     
+         
      
          
      
@@ -19242,6 +19698,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_babel_python",JSON.stringify(graph_node_object)); 
@@ -19253,6 +19711,8 @@ path를 만들어낸다.</p>
      "label": "[emacs] python lsp setting",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_python_lsp_setting\/",
      "id": "emacs_python_lsp_setting",
+     
+         
      
          
      
@@ -19645,6 +20105,8 @@ path를 만들어낸다.</p>
          
      
          
+     
+         
               
          
      
@@ -19727,6 +20189,8 @@ path를 만들어낸다.</p>
      "label": "[emacs] anaconda settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
      "id": "emacs_anaconda_settings",
+     
+         
      
          
      
@@ -20186,6 +20650,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -20197,6 +20663,8 @@ path를 만들어낸다.</p>
      "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
      
          
      
@@ -20654,6 +21122,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -20665,6 +21135,8 @@ path를 만들어낸다.</p>
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
      
          
      
@@ -21126,6 +21598,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -21137,6 +21611,8 @@ path를 만들어낸다.</p>
      "label": "folding test1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
      "id": "folding_test",
+     
+         
      
          
      
@@ -21373,6 +21849,8 @@ path를 만들어낸다.</p>
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
+     
+         
      
          
      
@@ -21832,6 +22310,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -21843,6 +22323,8 @@ path를 만들어낸다.</p>
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
+     
+         
      
          
      
@@ -22300,6 +22782,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -22311,6 +22795,8 @@ path를 만들어낸다.</p>
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
+     
+         
      
          
      
@@ -22768,6 +23254,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -22779,6 +23267,8 @@ path를 만들어낸다.</p>
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
+     
+         
      
          
      
@@ -23236,6 +23726,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -23247,6 +23739,8 @@ path를 만들어낸다.</p>
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
+     
+         
      
          
      
@@ -23704,6 +24198,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -23715,6 +24211,8 @@ path를 만들어낸다.</p>
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
+     
+         
      
          
      
@@ -24172,6 +24670,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -24183,6 +24683,8 @@ path를 만들어낸다.</p>
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
+     
+         
      
          
      
@@ -24640,6 +25142,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -24651,6 +25155,8 @@ path를 만들어낸다.</p>
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
+     
+         
      
          
      
@@ -25108,6 +25614,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("elisp_korean_lorel_ipsum",JSON.stringify(graph_node_object)); 
@@ -25119,6 +25627,8 @@ path를 만들어낸다.</p>
      "label": "[python] grammar in one shot - standard library (Text)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_grammar_in_one_shot_standard_library_text\/",
      "id": "python_grammar_in_one_shot_standard_library_text",
+     
+         
      
          
      
@@ -25576,6 +26086,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch4_controller",JSON.stringify(graph_node_object)); 
@@ -25810,6 +26322,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_making_portfolio_page",JSON.stringify(graph_node_object)); 
@@ -25821,6 +26335,8 @@ path를 만들어낸다.</p>
      "label": "Example of org to ipynb",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/example\/",
      "id": "example",
+     
+         
      
          
      
@@ -26280,6 +26796,8 @@ path를 만들어낸다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary4_data_structures",JSON.stringify(graph_node_object)); 
@@ -26291,6 +26809,8 @@ path를 만들어낸다.</p>
      "label": "python_summary8 string",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary8_string\/",
      "id": "python_summary8_string",
+     
+         
      
          
      

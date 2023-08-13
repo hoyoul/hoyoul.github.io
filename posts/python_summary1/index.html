@@ -272,6 +272,8 @@
      
     
      
+    
+     
   
 
   
@@ -332,7 +334,7 @@ python에서 객체를 생성하면, 객체에 있는 method가 궁금하다. �
 method가 있을까? 이것을 확인할수 있는게 dir()다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[&#39;__abs__&#39;, &#39;__add__&#39;, &#39;__and__&#39;, &#39;__class__&#39;, &#39;__cmp__&#39;, &#39;__coerce__&#39;, &#39;__delattr__&#39;, &#39;__div__&#39;, &#39;__divmod__&#39;, &#39;__doc__&#39;, &#39;__float__&#39;, &#39;__floordiv__&#39;, &#39;__format__&#39;, &#39;__getattribute__&#39;, &#39;__getnewargs__&#39;, &#39;__hash__&#39;, &#39;__hex__&#39;, &#39;__index__&#39;, &#39;__init__&#39;, &#39;__int__&#39;, &#39;__invert__&#39;, &#39;__long__&#39;, &#39;__lshift__&#39;, &#39;__mod__&#39;, &#39;__mul__&#39;, &#39;__neg__&#39;, &#39;__new__&#39;, &#39;__nonzero__&#39;, &#39;__oct__&#39;, &#39;__or__&#39;, &#39;__pos__&#39;, &#39;__pow__&#39;, &#39;__radd__&#39;, &#39;__rand__&#39;, &#39;__rdiv__&#39;, &#39;__rdivmod__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__rfloordiv__&#39;, &#39;__rlshift__&#39;, &#39;__rmod__&#39;, &#39;__rmul__&#39;, &#39;__ror__&#39;, &#39;__rpow__&#39;, &#39;__rrshift__&#39;, &#39;__rshift__&#39;, &#39;__rsub__&#39;, &#39;__rtruediv__&#39;, &#39;__rxor__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__sub__&#39;, &#39;__subclasshook__&#39;, &#39;__truediv__&#39;, &#39;__trunc__&#39;, &#39;__xor__&#39;, &#39;bit_length&#39;, &#39;conjugate&#39;, &#39;denominator&#39;, &#39;imag&#39;, &#39;numerator&#39;, &#39;real&#39;]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[&#39;__abs__&#39;, &#39;__add__&#39;, &#39;__and__&#39;, &#39;__bool__&#39;, &#39;__ceil__&#39;, &#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dir__&#39;, &#39;__divmod__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__float__&#39;, &#39;__floor__&#39;, &#39;__floordiv__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__getnewargs__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__index__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__int__&#39;, &#39;__invert__&#39;, &#39;__le__&#39;, &#39;__lshift__&#39;, &#39;__lt__&#39;, &#39;__mod__&#39;, &#39;__mul__&#39;, &#39;__ne__&#39;, &#39;__neg__&#39;, &#39;__new__&#39;, &#39;__or__&#39;, &#39;__pos__&#39;, &#39;__pow__&#39;, &#39;__radd__&#39;, &#39;__rand__&#39;, &#39;__rdivmod__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__rfloordiv__&#39;, &#39;__rlshift__&#39;, &#39;__rmod__&#39;, &#39;__rmul__&#39;, &#39;__ror__&#39;, &#39;__round__&#39;, &#39;__rpow__&#39;, &#39;__rrshift__&#39;, &#39;__rshift__&#39;, &#39;__rsub__&#39;, &#39;__rtruediv__&#39;, &#39;__rxor__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__sub__&#39;, &#39;__subclasshook__&#39;, &#39;__truediv__&#39;, &#39;__trunc__&#39;, &#39;__xor__&#39;, &#39;as_integer_ratio&#39;, &#39;bit_count&#39;, &#39;bit_length&#39;, &#39;conjugate&#39;, &#39;denominator&#39;, &#39;from_bytes&#39;, &#39;imag&#39;, &#39;numerator&#39;, &#39;real&#39;, &#39;to_bytes&#39;]
 </span></span></code></pre></div><p>위에서 보면 객체의 사용되는 method들을 dir()로 확인할 수 있다. <code>객체를 생성하는 방식은 python에서는 import로 만들거나 assignment로 만드는데.</code>
 둘다 dirs()로 확인할 수 있다. import로 만드는 객체에 대한 예시는
 아래와 같다. 그리고 assignment에 대한 자세한 설명은 <a href="/posts/python_summary2_assignment_and_variables/">여기</a>
@@ -340,8 +342,8 @@ method가 있을까? 이것을 확인할수 있는게 dir()다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">np</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[&#39;ALLOW_THREADS&#39;, &#39;BUFSIZE&#39;, &#39;CLIP&#39;, &#39;ComplexWarning&#39;, &#39;DataSource&#39;, &#39;ERR_CALL&#39;, &#39;ERR_DEFAULT&#39;, &#39;ERR_DEFAULT2&#39;, &#39;ERR_IGNORE&#39;, &#39;ERR_LOG&#39;, &#39;ERR_PRINT&#39;, &#39;ERR_RAISE&#39;, &#39;ERR_WARN&#39;, &#39;FLOATING_POINT_SUPPORT&#39;, &#39;FPE_DIVIDEBYZERO&#39;, &#39;FPE_INVALID&#39;, &#39;FPE_OVERFLOW&#39;, &#39;FPE_UNDERFLOW&#39;, &#39;False_&#39;, &#39;Inf&#39;, &#39;Infinity&#39;, &#39;MAXDIMS&#39;, &#39;MachAr&#39;, &#39;ModuleDeprecationWarning&#39;, &#39;NAN&#39;, &#39;NINF&#39;, &#39;NZERO&#39;, &#39;NaN&#39;, &#39;NanWarning&#39;, &#39;PINF&#39;, &#39;PZERO&#39;, &#39;PackageLoader&#39;, &#39;RAISE&#39;, &#39;RankWarning&#39;, &#39;SHIFT_DIVIDEBYZERO&#39;, &#39;SHIFT_INVALID&#39;, &#39;SHIFT_OVERFLOW&#39;, &#39;SHIFT_UNDERFLOW&#39;, &#39;ScalarType&#39;, &#39;Tester&#39;, &#39;True_&#39;, &#39;UFUNC_BUFSIZE_DEFAULT&#39;, &#39;UFUNC_PYVALS_NAME&#39;, &#39;WRAP&#39;, &#39;__NUMPY_SETUP__&#39;, &#39;__all__&#39;, &#39;__builtins__&#39;, &#39;__config__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;, &#39;__git_revision__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__path__&#39;, &#39;__version__&#39;, &#39;_import_tools&#39;, &#39;_mat&#39;, &#39;abs&#39;, &#39;absolute&#39;, &#39;absolute_import&#39;, &#39;add&#39;, &#39;add_docstring&#39;, &#39;add_newdoc&#39;, &#39;add_newdoc_ufunc&#39;, &#39;add_newdocs&#39;, &#39;alen&#39;, &#39;all&#39;, &#39;allclose&#39;, &#39;alltrue&#39;, &#39;alterdot&#39;, &#39;amax&#39;, &#39;amin&#39;, &#39;angle&#39;, &#39;any&#39;, &#39;append&#39;, &#39;apply_along_axis&#39;, &#39;apply_over_axes&#39;, &#39;arange&#39;, &#39;arccos&#39;, &#39;arccosh&#39;, &#39;arcsin&#39;, &#39;arcsinh&#39;, &#39;arctan&#39;, &#39;arctan2&#39;, &#39;arctanh&#39;, &#39;argmax&#39;, &#39;argmin&#39;, &#39;argpartition&#39;, &#39;argsort&#39;, &#39;argwhere&#39;, &#39;around&#39;, &#39;array&#39;, &#39;array2string&#39;, &#39;array_equal&#39;, &#39;array_equiv&#39;, &#39;array_repr&#39;, &#39;array_split&#39;, &#39;array_str&#39;, &#39;asanyarray&#39;, &#39;asarray&#39;, &#39;asarray_chkfinite&#39;, &#39;ascontiguousarray&#39;, &#39;asfarray&#39;, &#39;asfortranarray&#39;, &#39;asmatrix&#39;, &#39;asscalar&#39;, &#39;atleast_1d&#39;, &#39;atleast_2d&#39;, &#39;atleast_3d&#39;, &#39;average&#39;, &#39;bartlett&#39;, &#39;base_repr&#39;, &#39;bench&#39;, &#39;binary_repr&#39;, &#39;bincount&#39;, &#39;bitwise_and&#39;, &#39;bitwise_not&#39;, &#39;bitwise_or&#39;, &#39;bitwise_xor&#39;, &#39;blackman&#39;, &#39;bmat&#39;, &#39;bool&#39;, &#39;bool8&#39;, &#39;bool_&#39;, &#39;broadcast&#39;, &#39;broadcast_arrays&#39;, &#39;busday_count&#39;, &#39;busday_offset&#39;, &#39;busdaycalendar&#39;, &#39;byte&#39;, &#39;byte_bounds&#39;, &#39;bytes_&#39;, &#39;c_&#39;, &#39;can_cast&#39;, &#39;cast&#39;, &#39;cdouble&#39;, &#39;ceil&#39;, &#39;cfloat&#39;, &#39;char&#39;, &#39;character&#39;, &#39;chararray&#39;, &#39;choose&#39;, &#39;clip&#39;, &#39;clongdouble&#39;, &#39;clongfloat&#39;, &#39;column_stack&#39;, &#39;common_type&#39;, &#39;compare_chararrays&#39;, &#39;compat&#39;, &#39;complex&#39;, &#39;complex128&#39;, &#39;complex256&#39;, &#39;complex64&#39;, &#39;complex_&#39;, &#39;complexfloating&#39;, &#39;compress&#39;, &#39;concatenate&#39;, &#39;conj&#39;, &#39;conjugate&#39;, &#39;convolve&#39;, &#39;copy&#39;, &#39;copysign&#39;, &#39;copyto&#39;, &#39;core&#39;, &#39;corrcoef&#39;, &#39;correlate&#39;, &#39;cos&#39;, &#39;cosh&#39;, &#39;count_nonzero&#39;, &#39;cov&#39;, &#39;cross&#39;, &#39;csingle&#39;, &#39;ctypeslib&#39;, &#39;cumprod&#39;, &#39;cumproduct&#39;, &#39;cumsum&#39;, &#39;datetime64&#39;, &#39;datetime_as_string&#39;, &#39;datetime_data&#39;, &#39;deg2rad&#39;, &#39;degrees&#39;, &#39;delete&#39;, &#39;deprecate&#39;, &#39;deprecate_with_doc&#39;, &#39;diag&#39;, &#39;diag_indices&#39;, &#39;diag_indices_from&#39;, &#39;diagflat&#39;, &#39;diagonal&#39;, &#39;diff&#39;, &#39;digitize&#39;, &#39;disp&#39;, &#39;divide&#39;, &#39;division&#39;, &#39;dot&#39;, &#39;double&#39;, &#39;dsplit&#39;, &#39;dstack&#39;, &#39;dtype&#39;, &#39;e&#39;, &#39;ediff1d&#39;, &#39;einsum&#39;, &#39;emath&#39;, &#39;empty&#39;, &#39;empty_like&#39;, &#39;equal&#39;, &#39;errstate&#39;, &#39;euler_gamma&#39;, &#39;exp&#39;, &#39;exp2&#39;, &#39;expand_dims&#39;, &#39;expm1&#39;, &#39;extract&#39;, &#39;eye&#39;, &#39;fabs&#39;, &#39;fastCopyAndTranspose&#39;, &#39;fft&#39;, &#39;fill_diagonal&#39;, &#39;find_common_type&#39;, &#39;finfo&#39;, &#39;fix&#39;, &#39;flatiter&#39;, &#39;flatnonzero&#39;, &#39;flexible&#39;, &#39;fliplr&#39;, &#39;flipud&#39;, &#39;float&#39;, &#39;float128&#39;, &#39;float16&#39;, &#39;float32&#39;, &#39;float64&#39;, &#39;float_&#39;, &#39;floating&#39;, &#39;floor&#39;, &#39;floor_divide&#39;, &#39;fmax&#39;, &#39;fmin&#39;, &#39;fmod&#39;, &#39;format_parser&#39;, &#39;frexp&#39;, &#39;frombuffer&#39;, &#39;fromfile&#39;, &#39;fromfunction&#39;, &#39;fromiter&#39;, &#39;frompyfunc&#39;, &#39;fromregex&#39;, &#39;fromstring&#39;, &#39;full&#39;, &#39;full_like&#39;, &#39;fv&#39;, &#39;generic&#39;, &#39;genfromtxt&#39;, &#39;get_array_wrap&#39;, &#39;get_include&#39;, &#39;get_numarray_include&#39;, &#39;get_printoptions&#39;, &#39;getbuffer&#39;, &#39;getbufsize&#39;, &#39;geterr&#39;, &#39;geterrcall&#39;, &#39;geterrobj&#39;, &#39;gradient&#39;, &#39;greater&#39;, &#39;greater_equal&#39;, &#39;half&#39;, &#39;hamming&#39;, &#39;hanning&#39;, &#39;histogram&#39;, &#39;histogram2d&#39;, &#39;histogramdd&#39;, &#39;hsplit&#39;, &#39;hstack&#39;, &#39;hypot&#39;, &#39;i0&#39;, &#39;identity&#39;, &#39;iinfo&#39;, &#39;imag&#39;, &#39;in1d&#39;, &#39;index_exp&#39;, &#39;indices&#39;, &#39;inexact&#39;, &#39;inf&#39;, &#39;info&#39;, &#39;infty&#39;, &#39;inner&#39;, &#39;insert&#39;, &#39;int&#39;, &#39;int0&#39;, &#39;int16&#39;, &#39;int32&#39;, &#39;int64&#39;, &#39;int8&#39;, &#39;int_&#39;, &#39;int_asbuffer&#39;, &#39;intc&#39;, &#39;integer&#39;, &#39;interp&#39;, &#39;intersect1d&#39;, &#39;intp&#39;, &#39;invert&#39;, &#39;ipmt&#39;, &#39;irr&#39;, &#39;is_busday&#39;, &#39;isclose&#39;, &#39;iscomplex&#39;, &#39;iscomplexobj&#39;, &#39;isfinite&#39;, &#39;isfortran&#39;, &#39;isinf&#39;, &#39;isnan&#39;, &#39;isneginf&#39;, &#39;isposinf&#39;, &#39;isreal&#39;, &#39;isrealobj&#39;, &#39;isscalar&#39;, &#39;issctype&#39;, &#39;issubclass_&#39;, &#39;issubdtype&#39;, &#39;issubsctype&#39;, &#39;iterable&#39;, &#39;ix_&#39;, &#39;kaiser&#39;, &#39;kron&#39;, &#39;ldexp&#39;, &#39;left_shift&#39;, &#39;less&#39;, &#39;less_equal&#39;, &#39;lexsort&#39;, &#39;lib&#39;, &#39;linalg&#39;, &#39;linspace&#39;, &#39;little_endian&#39;, &#39;load&#39;, &#39;loads&#39;, &#39;loadtxt&#39;, &#39;log&#39;, &#39;log10&#39;, &#39;log1p&#39;, &#39;log2&#39;, &#39;logaddexp&#39;, &#39;logaddexp2&#39;, &#39;logical_and&#39;, &#39;logical_not&#39;, &#39;logical_or&#39;, &#39;logical_xor&#39;, &#39;logspace&#39;, &#39;long&#39;, &#39;longcomplex&#39;, &#39;longdouble&#39;, &#39;longfloat&#39;, &#39;longlong&#39;, &#39;lookfor&#39;, &#39;ma&#39;, &#39;mafromtxt&#39;, &#39;mask_indices&#39;, &#39;mat&#39;, &#39;math&#39;, &#39;matrix&#39;, &#39;matrixlib&#39;, &#39;max&#39;, &#39;maximum&#39;, &#39;maximum_sctype&#39;, &#39;may_share_memory&#39;, &#39;mean&#39;, &#39;median&#39;, &#39;memmap&#39;, &#39;meshgrid&#39;, &#39;mgrid&#39;, &#39;min&#39;, &#39;min_scalar_type&#39;, &#39;minimum&#39;, &#39;mintypecode&#39;, &#39;mirr&#39;, &#39;mod&#39;, &#39;modf&#39;, &#39;msort&#39;, &#39;multiply&#39;, &#39;nan&#39;, &#39;nan_to_num&#39;, &#39;nanargmax&#39;, &#39;nanargmin&#39;, &#39;nanmax&#39;, &#39;nanmean&#39;, &#39;nanmin&#39;, &#39;nanstd&#39;, &#39;nansum&#39;, &#39;nanvar&#39;, &#39;nbytes&#39;, &#39;ndarray&#39;, &#39;ndenumerate&#39;, &#39;ndfromtxt&#39;, &#39;ndim&#39;, &#39;ndindex&#39;, &#39;nditer&#39;, &#39;negative&#39;, &#39;nested_iters&#39;, &#39;newaxis&#39;, &#39;newbuffer&#39;, &#39;nextafter&#39;, &#39;nonzero&#39;, &#39;not_equal&#39;, &#39;nper&#39;, &#39;npv&#39;, &#39;number&#39;, &#39;obj2sctype&#39;, &#39;object&#39;, &#39;object0&#39;, &#39;object_&#39;, &#39;ogrid&#39;, &#39;ones&#39;, &#39;ones_like&#39;, &#39;outer&#39;, &#39;packbits&#39;, &#39;pad&#39;, &#39;partition&#39;, &#39;percentile&#39;, &#39;pi&#39;, &#39;piecewise&#39;, &#39;pkgload&#39;, &#39;place&#39;, &#39;pmt&#39;, &#39;poly&#39;, &#39;poly1d&#39;, &#39;polyadd&#39;, &#39;polyder&#39;, &#39;polydiv&#39;, &#39;polyfit&#39;, &#39;polyint&#39;, &#39;polymul&#39;, &#39;polynomial&#39;, &#39;polysub&#39;, &#39;polyval&#39;, &#39;power&#39;, &#39;ppmt&#39;, &#39;print_function&#39;, &#39;prod&#39;, &#39;product&#39;, &#39;promote_types&#39;, &#39;ptp&#39;, &#39;put&#39;, &#39;putmask&#39;, &#39;pv&#39;, &#39;r_&#39;, &#39;rad2deg&#39;, &#39;radians&#39;, &#39;random&#39;, &#39;rank&#39;, &#39;rate&#39;, &#39;ravel&#39;, &#39;ravel_multi_index&#39;, &#39;real&#39;, &#39;real_if_close&#39;, &#39;rec&#39;, &#39;recarray&#39;, &#39;recfromcsv&#39;, &#39;recfromtxt&#39;, &#39;reciprocal&#39;, &#39;record&#39;, &#39;remainder&#39;, &#39;repeat&#39;, &#39;require&#39;, &#39;reshape&#39;, &#39;resize&#39;, &#39;restoredot&#39;, &#39;result_type&#39;, &#39;right_shift&#39;, &#39;rint&#39;, &#39;roll&#39;, &#39;rollaxis&#39;, &#39;roots&#39;, &#39;rot90&#39;, &#39;round&#39;, &#39;round_&#39;, &#39;row_stack&#39;, &#39;s_&#39;, &#39;safe_eval&#39;, &#39;save&#39;, &#39;savetxt&#39;, &#39;savez&#39;, &#39;savez_compressed&#39;, &#39;sctype2char&#39;, &#39;sctypeDict&#39;, &#39;sctypeNA&#39;, &#39;sctypes&#39;, &#39;searchsorted&#39;, &#39;select&#39;, &#39;set_numeric_ops&#39;, &#39;set_printoptions&#39;, &#39;set_string_function&#39;, &#39;setbufsize&#39;, &#39;setdiff1d&#39;, &#39;seterr&#39;, &#39;seterrcall&#39;, &#39;seterrobj&#39;, &#39;setxor1d&#39;, &#39;shape&#39;, &#39;short&#39;, &#39;show_config&#39;, &#39;sign&#39;, &#39;signbit&#39;, &#39;signedinteger&#39;, &#39;sin&#39;, &#39;sinc&#39;, &#39;single&#39;, &#39;singlecomplex&#39;, &#39;sinh&#39;, &#39;size&#39;, &#39;sometrue&#39;, &#39;sort&#39;, &#39;sort_complex&#39;, &#39;source&#39;, &#39;spacing&#39;, &#39;split&#39;, &#39;sqrt&#39;, &#39;square&#39;, &#39;squeeze&#39;, &#39;std&#39;, &#39;str&#39;, &#39;str_&#39;, &#39;string0&#39;, &#39;string_&#39;, &#39;subtract&#39;, &#39;sum&#39;, &#39;swapaxes&#39;, &#39;sys&#39;, &#39;take&#39;, &#39;tan&#39;, &#39;tanh&#39;, &#39;tensordot&#39;, &#39;test&#39;, &#39;testing&#39;, &#39;tile&#39;, &#39;timedelta64&#39;, &#39;trace&#39;, &#39;transpose&#39;, &#39;trapz&#39;, &#39;tri&#39;, &#39;tril&#39;, &#39;tril_indices&#39;, &#39;tril_indices_from&#39;, &#39;trim_zeros&#39;, &#39;triu&#39;, &#39;triu_indices&#39;, &#39;triu_indices_from&#39;, &#39;true_divide&#39;, &#39;trunc&#39;, &#39;typeDict&#39;, &#39;typeNA&#39;, &#39;typecodes&#39;, &#39;typename&#39;, &#39;ubyte&#39;, &#39;ufunc&#39;, &#39;uint&#39;, &#39;uint0&#39;, &#39;uint16&#39;, &#39;uint32&#39;, &#39;uint64&#39;, &#39;uint8&#39;, &#39;uintc&#39;, &#39;uintp&#39;, &#39;ulonglong&#39;, &#39;unicode&#39;, &#39;unicode0&#39;, &#39;unicode_&#39;, &#39;union1d&#39;, &#39;unique&#39;, &#39;unpackbits&#39;, &#39;unravel_index&#39;, &#39;unsignedinteger&#39;, &#39;unwrap&#39;, &#39;ushort&#39;, &#39;vander&#39;, &#39;var&#39;, &#39;vdot&#39;, &#39;vectorize&#39;, &#39;version&#39;, &#39;void&#39;, &#39;void0&#39;, &#39;vsplit&#39;, &#39;vstack&#39;, &#39;warnings&#39;, &#39;where&#39;, &#39;who&#39;, &#39;zeros&#39;, &#39;zeros_like&#39;]
-</span></span><span class="line"><span class="cl">/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/numpy/__init__.pyc
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[&#39;ALLOW_THREADS&#39;, &#39;BUFSIZE&#39;, &#39;CLIP&#39;, &#39;DataSource&#39;, &#39;ERR_CALL&#39;, &#39;ERR_DEFAULT&#39;, &#39;ERR_IGNORE&#39;, &#39;ERR_LOG&#39;, &#39;ERR_PRINT&#39;, &#39;ERR_RAISE&#39;, &#39;ERR_WARN&#39;, &#39;FLOATING_POINT_SUPPORT&#39;, &#39;FPE_DIVIDEBYZERO&#39;, &#39;FPE_INVALID&#39;, &#39;FPE_OVERFLOW&#39;, &#39;FPE_UNDERFLOW&#39;, &#39;False_&#39;, &#39;Inf&#39;, &#39;Infinity&#39;, &#39;MAXDIMS&#39;, &#39;MAY_SHARE_BOUNDS&#39;, &#39;MAY_SHARE_EXACT&#39;, &#39;NAN&#39;, &#39;NINF&#39;, &#39;NZERO&#39;, &#39;NaN&#39;, &#39;PINF&#39;, &#39;PZERO&#39;, &#39;RAISE&#39;, &#39;RankWarning&#39;, &#39;SHIFT_DIVIDEBYZERO&#39;, &#39;SHIFT_INVALID&#39;, &#39;SHIFT_OVERFLOW&#39;, &#39;SHIFT_UNDERFLOW&#39;, &#39;ScalarType&#39;, &#39;True_&#39;, &#39;UFUNC_BUFSIZE_DEFAULT&#39;, &#39;UFUNC_PYVALS_NAME&#39;, &#39;WRAP&#39;, &#39;_CopyMode&#39;, &#39;_NoValue&#39;, &#39;_UFUNC_API&#39;, &#39;__NUMPY_SETUP__&#39;, &#39;__all__&#39;, &#39;__builtins__&#39;, &#39;__cached__&#39;, &#39;__config__&#39;, &#39;__deprecated_attrs__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__expired_functions__&#39;, &#39;__file__&#39;, &#39;__former_attrs__&#39;, &#39;__future_scalars__&#39;, &#39;__getattr__&#39;, &#39;__git_version__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__path__&#39;, &#39;__spec__&#39;, &#39;__version__&#39;, &#39;_add_newdoc_ufunc&#39;, &#39;_builtins&#39;, &#39;_distributor_init&#39;, &#39;_financial_names&#39;, &#39;_get_promotion_state&#39;, &#39;_globals&#39;, &#39;_int_extended_msg&#39;, &#39;_mat&#39;, &#39;_no_nep50_warning&#39;, &#39;_pyinstaller_hooks_dir&#39;, &#39;_pytesttester&#39;, &#39;_set_promotion_state&#39;, &#39;_specific_msg&#39;, &#39;_typing&#39;, &#39;_using_numpy2_behavior&#39;, &#39;_utils&#39;, &#39;_version&#39;, &#39;abs&#39;, &#39;absolute&#39;, &#39;add&#39;, &#39;add_docstring&#39;, &#39;add_newdoc&#39;, &#39;add_newdoc_ufunc&#39;, &#39;all&#39;, &#39;allclose&#39;, &#39;alltrue&#39;, &#39;amax&#39;, &#39;amin&#39;, &#39;angle&#39;, &#39;any&#39;, &#39;append&#39;, &#39;apply_along_axis&#39;, &#39;apply_over_axes&#39;, &#39;arange&#39;, &#39;arccos&#39;, &#39;arccosh&#39;, &#39;arcsin&#39;, &#39;arcsinh&#39;, &#39;arctan&#39;, &#39;arctan2&#39;, &#39;arctanh&#39;, &#39;argmax&#39;, &#39;argmin&#39;, &#39;argpartition&#39;, &#39;argsort&#39;, &#39;argwhere&#39;, &#39;around&#39;, &#39;array&#39;, &#39;array2string&#39;, &#39;array_equal&#39;, &#39;array_equiv&#39;, &#39;array_repr&#39;, &#39;array_split&#39;, &#39;array_str&#39;, &#39;asanyarray&#39;, &#39;asarray&#39;, &#39;asarray_chkfinite&#39;, &#39;ascontiguousarray&#39;, &#39;asfarray&#39;, &#39;asfortranarray&#39;, &#39;asmatrix&#39;, &#39;atleast_1d&#39;, &#39;atleast_2d&#39;, &#39;atleast_3d&#39;, &#39;average&#39;, &#39;bartlett&#39;, &#39;base_repr&#39;, &#39;binary_repr&#39;, &#39;bincount&#39;, &#39;bitwise_and&#39;, &#39;bitwise_not&#39;, &#39;bitwise_or&#39;, &#39;bitwise_xor&#39;, &#39;blackman&#39;, &#39;block&#39;, &#39;bmat&#39;, &#39;bool_&#39;, &#39;broadcast&#39;, &#39;broadcast_arrays&#39;, &#39;broadcast_shapes&#39;, &#39;broadcast_to&#39;, &#39;busday_count&#39;, &#39;busday_offset&#39;, &#39;busdaycalendar&#39;, &#39;byte&#39;, &#39;byte_bounds&#39;, &#39;bytes_&#39;, &#39;c_&#39;, &#39;can_cast&#39;, &#39;cast&#39;, &#39;cbrt&#39;, &#39;cdouble&#39;, &#39;ceil&#39;, &#39;cfloat&#39;, &#39;char&#39;, &#39;character&#39;, &#39;chararray&#39;, &#39;choose&#39;, &#39;clip&#39;, &#39;clongdouble&#39;, &#39;clongfloat&#39;, &#39;column_stack&#39;, &#39;common_type&#39;, &#39;compare_chararrays&#39;, &#39;compat&#39;, &#39;complex128&#39;, &#39;complex256&#39;, &#39;complex64&#39;, &#39;complex_&#39;, &#39;complexfloating&#39;, &#39;compress&#39;, &#39;concatenate&#39;, &#39;conj&#39;, &#39;conjugate&#39;, &#39;convolve&#39;, &#39;copy&#39;, &#39;copysign&#39;, &#39;copyto&#39;, &#39;corrcoef&#39;, &#39;correlate&#39;, &#39;cos&#39;, &#39;cosh&#39;, &#39;count_nonzero&#39;, &#39;cov&#39;, &#39;cross&#39;, &#39;csingle&#39;, &#39;ctypeslib&#39;, &#39;cumprod&#39;, &#39;cumproduct&#39;, &#39;cumsum&#39;, &#39;datetime64&#39;, &#39;datetime_as_string&#39;, &#39;datetime_data&#39;, &#39;deg2rad&#39;, &#39;degrees&#39;, &#39;delete&#39;, &#39;deprecate&#39;, &#39;deprecate_with_doc&#39;, &#39;diag&#39;, &#39;diag_indices&#39;, &#39;diag_indices_from&#39;, &#39;diagflat&#39;, &#39;diagonal&#39;, &#39;diff&#39;, &#39;digitize&#39;, &#39;disp&#39;, &#39;divide&#39;, &#39;divmod&#39;, &#39;dot&#39;, &#39;double&#39;, &#39;dsplit&#39;, &#39;dstack&#39;, &#39;dtype&#39;, &#39;dtypes&#39;, &#39;e&#39;, &#39;ediff1d&#39;, &#39;einsum&#39;, &#39;einsum_path&#39;, &#39;emath&#39;, &#39;empty&#39;, &#39;empty_like&#39;, &#39;equal&#39;, &#39;error_message&#39;, &#39;errstate&#39;, &#39;euler_gamma&#39;, &#39;exceptions&#39;, &#39;exp&#39;, &#39;exp2&#39;, &#39;expand_dims&#39;, &#39;expm1&#39;, &#39;extract&#39;, &#39;eye&#39;, &#39;fabs&#39;, &#39;fastCopyAndTranspose&#39;, &#39;fft&#39;, &#39;fill_diagonal&#39;, &#39;find_common_type&#39;, &#39;finfo&#39;, &#39;fix&#39;, &#39;flatiter&#39;, &#39;flatnonzero&#39;, &#39;flexible&#39;, &#39;flip&#39;, &#39;fliplr&#39;, &#39;flipud&#39;, &#39;float128&#39;, &#39;float16&#39;, &#39;float32&#39;, &#39;float64&#39;, &#39;float_&#39;, &#39;float_power&#39;, &#39;floating&#39;, &#39;floor&#39;, &#39;floor_divide&#39;, &#39;fmax&#39;, &#39;fmin&#39;, &#39;fmod&#39;, &#39;format_float_positional&#39;, &#39;format_float_scientific&#39;, &#39;format_parser&#39;, &#39;frexp&#39;, &#39;from_dlpack&#39;, &#39;frombuffer&#39;, &#39;fromfile&#39;, &#39;fromfunction&#39;, &#39;fromiter&#39;, &#39;frompyfunc&#39;, &#39;fromregex&#39;, &#39;fromstring&#39;, &#39;full&#39;, &#39;full_like&#39;, &#39;gcd&#39;, &#39;generic&#39;, &#39;genfromtxt&#39;, &#39;geomspace&#39;, &#39;get_array_wrap&#39;, &#39;get_include&#39;, &#39;get_printoptions&#39;, &#39;getbufsize&#39;, &#39;geterr&#39;, &#39;geterrcall&#39;, &#39;geterrobj&#39;, &#39;gradient&#39;, &#39;greater&#39;, &#39;greater_equal&#39;, &#39;half&#39;, &#39;hamming&#39;, &#39;hanning&#39;, &#39;heaviside&#39;, &#39;histogram&#39;, &#39;histogram2d&#39;, &#39;histogram_bin_edges&#39;, &#39;histogramdd&#39;, &#39;hsplit&#39;, &#39;hstack&#39;, &#39;hypot&#39;, &#39;i0&#39;, &#39;identity&#39;, &#39;iinfo&#39;, &#39;imag&#39;, &#39;in1d&#39;, &#39;index_exp&#39;, &#39;indices&#39;, &#39;inexact&#39;, &#39;inf&#39;, &#39;info&#39;, &#39;infty&#39;, &#39;inner&#39;, &#39;insert&#39;, &#39;int16&#39;, &#39;int32&#39;, &#39;int64&#39;, &#39;int8&#39;, &#39;int_&#39;, &#39;intc&#39;, &#39;integer&#39;, &#39;interp&#39;, &#39;intersect1d&#39;, &#39;intp&#39;, &#39;invert&#39;, &#39;is_busday&#39;, &#39;isclose&#39;, &#39;iscomplex&#39;, &#39;iscomplexobj&#39;, &#39;isfinite&#39;, &#39;isfortran&#39;, &#39;isin&#39;, &#39;isinf&#39;, &#39;isnan&#39;, &#39;isnat&#39;, &#39;isneginf&#39;, &#39;isposinf&#39;, &#39;isreal&#39;, &#39;isrealobj&#39;, &#39;isscalar&#39;, &#39;issctype&#39;, &#39;issubclass_&#39;, &#39;issubdtype&#39;, &#39;issubsctype&#39;, &#39;iterable&#39;, &#39;ix_&#39;, &#39;kaiser&#39;, &#39;kron&#39;, &#39;lcm&#39;, &#39;ldexp&#39;, &#39;left_shift&#39;, &#39;less&#39;, &#39;less_equal&#39;, &#39;lexsort&#39;, &#39;lib&#39;, &#39;linalg&#39;, &#39;linspace&#39;, &#39;little_endian&#39;, &#39;load&#39;, &#39;loadtxt&#39;, &#39;log&#39;, &#39;log10&#39;, &#39;log1p&#39;, &#39;log2&#39;, &#39;logaddexp&#39;, &#39;logaddexp2&#39;, &#39;logical_and&#39;, &#39;logical_not&#39;, &#39;logical_or&#39;, &#39;logical_xor&#39;, &#39;logspace&#39;, &#39;longcomplex&#39;, &#39;longdouble&#39;, &#39;longfloat&#39;, &#39;longlong&#39;, &#39;lookfor&#39;, &#39;ma&#39;, &#39;mask_indices&#39;, &#39;mat&#39;, &#39;matmul&#39;, &#39;matrix&#39;, &#39;max&#39;, &#39;maximum&#39;, &#39;maximum_sctype&#39;, &#39;may_share_memory&#39;, &#39;mean&#39;, &#39;median&#39;, &#39;memmap&#39;, &#39;meshgrid&#39;, &#39;mgrid&#39;, &#39;min&#39;, &#39;min_scalar_type&#39;, &#39;minimum&#39;, &#39;mintypecode&#39;, &#39;mod&#39;, &#39;modf&#39;, &#39;moveaxis&#39;, &#39;msort&#39;, &#39;multiply&#39;, &#39;nan&#39;, &#39;nan_to_num&#39;, &#39;nanargmax&#39;, &#39;nanargmin&#39;, &#39;nancumprod&#39;, &#39;nancumsum&#39;, &#39;nanmax&#39;, &#39;nanmean&#39;, &#39;nanmedian&#39;, &#39;nanmin&#39;, &#39;nanpercentile&#39;, &#39;nanprod&#39;, &#39;nanquantile&#39;, &#39;nanstd&#39;, &#39;nansum&#39;, &#39;nanvar&#39;, &#39;nbytes&#39;, &#39;ndarray&#39;, &#39;ndenumerate&#39;, &#39;ndim&#39;, &#39;ndindex&#39;, &#39;nditer&#39;, &#39;negative&#39;, &#39;nested_iters&#39;, &#39;newaxis&#39;, &#39;nextafter&#39;, &#39;nonzero&#39;, &#39;not_equal&#39;, &#39;numarray&#39;, &#39;number&#39;, &#39;obj2sctype&#39;, &#39;object_&#39;, &#39;ogrid&#39;, &#39;oldnumeric&#39;, &#39;ones&#39;, &#39;ones_like&#39;, &#39;outer&#39;, &#39;packbits&#39;, &#39;pad&#39;, &#39;partition&#39;, &#39;percentile&#39;, &#39;pi&#39;, &#39;piecewise&#39;, &#39;place&#39;, &#39;poly&#39;, &#39;poly1d&#39;, &#39;polyadd&#39;, &#39;polyder&#39;, &#39;polydiv&#39;, &#39;polyfit&#39;, &#39;polyint&#39;, &#39;polymul&#39;, &#39;polynomial&#39;, &#39;polysub&#39;, &#39;polyval&#39;, &#39;positive&#39;, &#39;power&#39;, &#39;printoptions&#39;, &#39;prod&#39;, &#39;product&#39;, &#39;promote_types&#39;, &#39;ptp&#39;, &#39;put&#39;, &#39;put_along_axis&#39;, &#39;putmask&#39;, &#39;quantile&#39;, &#39;r_&#39;, &#39;rad2deg&#39;, &#39;radians&#39;, &#39;random&#39;, &#39;ravel&#39;, &#39;ravel_multi_index&#39;, &#39;real&#39;, &#39;real_if_close&#39;, &#39;rec&#39;, &#39;recarray&#39;, &#39;recfromcsv&#39;, &#39;recfromtxt&#39;, &#39;reciprocal&#39;, &#39;record&#39;, &#39;remainder&#39;, &#39;repeat&#39;, &#39;require&#39;, &#39;reshape&#39;, &#39;resize&#39;, &#39;result_type&#39;, &#39;right_shift&#39;, &#39;rint&#39;, &#39;roll&#39;, &#39;rollaxis&#39;, &#39;roots&#39;, &#39;rot90&#39;, &#39;round&#39;, &#39;round_&#39;, &#39;row_stack&#39;, &#39;s_&#39;, &#39;safe_eval&#39;, &#39;save&#39;, &#39;savetxt&#39;, &#39;savez&#39;, &#39;savez_compressed&#39;, &#39;sctype2char&#39;, &#39;sctypeDict&#39;, &#39;sctypes&#39;, &#39;searchsorted&#39;, &#39;select&#39;, &#39;set_numeric_ops&#39;, &#39;set_printoptions&#39;, &#39;set_string_function&#39;, &#39;setbufsize&#39;, &#39;setdiff1d&#39;, &#39;seterr&#39;, &#39;seterrcall&#39;, &#39;seterrobj&#39;, &#39;setxor1d&#39;, &#39;shape&#39;, &#39;shares_memory&#39;, &#39;short&#39;, &#39;show_config&#39;, &#39;show_runtime&#39;, &#39;sign&#39;, &#39;signbit&#39;, &#39;signedinteger&#39;, &#39;sin&#39;, &#39;sinc&#39;, &#39;single&#39;, &#39;singlecomplex&#39;, &#39;sinh&#39;, &#39;size&#39;, &#39;sometrue&#39;, &#39;sort&#39;, &#39;sort_complex&#39;, &#39;source&#39;, &#39;spacing&#39;, &#39;split&#39;, &#39;sqrt&#39;, &#39;square&#39;, &#39;squeeze&#39;, &#39;stack&#39;, &#39;std&#39;, &#39;str_&#39;, &#39;string_&#39;, &#39;subtract&#39;, &#39;sum&#39;, &#39;swapaxes&#39;, &#39;take&#39;, &#39;take_along_axis&#39;, &#39;tan&#39;, &#39;tanh&#39;, &#39;tensordot&#39;, &#39;test&#39;, &#39;testing&#39;, &#39;tile&#39;, &#39;timedelta64&#39;, &#39;trace&#39;, &#39;tracemalloc_domain&#39;, &#39;transpose&#39;, &#39;trapz&#39;, &#39;tri&#39;, &#39;tril&#39;, &#39;tril_indices&#39;, &#39;tril_indices_from&#39;, &#39;trim_zeros&#39;, &#39;triu&#39;, &#39;triu_indices&#39;, &#39;triu_indices_from&#39;, &#39;true_divide&#39;, &#39;trunc&#39;, &#39;typecodes&#39;, &#39;typename&#39;, &#39;ubyte&#39;, &#39;ufunc&#39;, &#39;uint&#39;, &#39;uint16&#39;, &#39;uint32&#39;, &#39;uint64&#39;, &#39;uint8&#39;, &#39;uintc&#39;, &#39;uintp&#39;, &#39;ulonglong&#39;, &#39;unicode_&#39;, &#39;union1d&#39;, &#39;unique&#39;, &#39;unpackbits&#39;, &#39;unravel_index&#39;, &#39;unsignedinteger&#39;, &#39;unwrap&#39;, &#39;ushort&#39;, &#39;vander&#39;, &#39;var&#39;, &#39;vdot&#39;, &#39;vectorize&#39;, &#39;version&#39;, &#39;void&#39;, &#39;vsplit&#39;, &#39;vstack&#39;, &#39;w&#39;, &#39;where&#39;, &#39;who&#39;, &#39;zeros&#39;, &#39;zeros_like&#39;]
+</span></span><span class="line"><span class="cl">/Users/fregeholy/anaconda3/envs/playground_3.10/lib/python3.10/site-packages/numpy/__init__.py
 </span></span></code></pre></div><h2 id="from">from</h2>
 <p>import는 package나 module에 있는 것들을 모두 객체 생성한다. 즉 import
 numpy라고 하면 numpy라는 객체가 생성되고 그 내부에는 수많은 객체도
@@ -367,9 +369,247 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
      graph_node_object = {
         
+     "label": "[electron] make electron app-3",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_electron_app_3\/",
+     "id": "electron_make_electron_app_3",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("electron_make_electron_app_3",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[css] css principles",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/css_css_principles\/",
      "id": "css_css_principles",
+     
+         
      
          
      
@@ -827,6 +1067,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("design_beginning_figma",JSON.stringify(graph_node_object)); 
@@ -838,6 +1080,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[electron] basic principles",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_basic_principles\/",
      "id": "electron_basic_principles",
+     
+         
      
          
      
@@ -1297,6 +1541,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_drag_n_drop",JSON.stringify(graph_node_object)); 
@@ -1308,6 +1554,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[electron] make dmg installer",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_dmg_installer\/",
      "id": "electron_make_dmg_installer",
+     
+         
      
          
      
@@ -1765,6 +2013,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_7",JSON.stringify(graph_node_object)); 
@@ -1776,6 +2026,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[nodejs] crawling-naver webtoon-8",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_8\/",
      "id": "nodejs_crawling_naver_webtoon_8",
+     
+         
      
          
      
@@ -2233,6 +2485,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling9",JSON.stringify(graph_node_object)); 
@@ -2244,6 +2498,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[machine learning] day17-multiple-variable-regression",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/machine_learning_day17_multiple_variable_regression\/",
      "id": "machine_learning_day17_multiple_variable_regression",
+     
+         
      
          
      
@@ -2701,6 +2957,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("machine_learning_day18_logistic_regression",JSON.stringify(graph_node_object)); 
@@ -2712,6 +2970,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[nodejs] crawling-naver webtoon-5",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_5\/",
      "id": "nodejs_crawling_naver_webtoon_5",
+     
+         
      
          
      
@@ -3169,6 +3429,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_6",JSON.stringify(graph_node_object)); 
@@ -3180,6 +3442,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[machine learning] day16-one variable regression",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/machine_learning_day16_one_variable_regression\/",
      "id": "machine_learning_day16_one_variable_regression",
+     
+         
      
          
      
@@ -3637,6 +3901,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_4",JSON.stringify(graph_node_object)); 
@@ -3648,6 +3914,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[sql] programmers sql high score3-sum,max,min",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score3_sum_max_min\/",
      "id": "sql_programmers_sql_high_score3_sum_max_min",
+     
+         
      
          
      
@@ -4105,6 +4373,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score4_group_by",JSON.stringify(graph_node_object)); 
@@ -4116,6 +4386,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[sql] programmers sql high score5-is_NULL",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score5_is_null\/",
      "id": "sql_programmers_sql_high_score5_is_null",
+     
+         
      
          
      
@@ -4573,6 +4845,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score6_join",JSON.stringify(graph_node_object)); 
@@ -4584,6 +4858,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[sql] programmers sql high score7-string,date",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score7_string_date\/",
      "id": "sql_programmers_sql_high_score7_string_date",
+     
+         
      
          
      
@@ -5041,6 +5317,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("build_tools_about_ninja",JSON.stringify(graph_node_object)); 
@@ -5052,6 +5330,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[emacs] about org-roam",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_about_org_roam\/",
      "id": "emacs_about_org_roam",
+     
+         
      
          
      
@@ -5509,6 +5789,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_misc_and_qna",JSON.stringify(graph_node_object)); 
@@ -5520,6 +5802,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[mysql] restore db and table",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/mysql_restore_db_and_table\/",
      "id": "mysql_restore_db_and_table",
+     
+         
      
          
      
@@ -5977,6 +6261,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling2_session_and_cookies",JSON.stringify(graph_node_object)); 
@@ -5988,6 +6274,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[nodejs] crawling3-session and cookies2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling3_session_and_cookies2\/",
      "id": "nodejs_crawling3_session_and_cookies2",
+     
+         
      
          
      
@@ -6445,6 +6733,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("ruby_about_ruby",JSON.stringify(graph_node_object)); 
@@ -6456,6 +6746,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[unity] about unity settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/unity_about_unity_settings\/",
      "id": "unity_about_unity_settings",
+     
+         
      
          
      
@@ -6913,6 +7205,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_about_electron_js",JSON.stringify(graph_node_object)); 
@@ -6924,6 +7218,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[electron] make electron app-1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_electron_app_1\/",
      "id": "electron_make_electron_app_1",
+     
+         
      
          
      
@@ -7160,6 +7456,10 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "id": "electron_make_electron_app_2",
      
          
+              
+         
+     
+         
      
          
      
@@ -7381,7 +7681,7 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
-     "backlinks": []
+     "backlinks": ["electron_make_electron_app_3"]
    }
  sessionStorage.setItem("electron_make_electron_app_2",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
@@ -7392,6 +7692,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[emacs] screen capture",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_screen_capture\/",
      "id": "emacs_screen_capture",
+     
+         
      
          
      
@@ -7849,6 +8151,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling1",JSON.stringify(graph_node_object)); 
@@ -7860,6 +8164,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[python] web scraping with python-1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_web_scraping_with_python_1\/",
      "id": "python_web_scraping_with_python_1",
+     
+         
      
          
      
@@ -8319,6 +8625,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch10_about_mariadb",JSON.stringify(graph_node_object)); 
@@ -8330,6 +8638,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[emacs] database sql usage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_database_sql_usage\/",
      "id": "emacs_database_sql_usage",
+     
+         
      
          
      
@@ -8787,6 +9097,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch8_aws_rails_settings",JSON.stringify(graph_node_object)); 
@@ -8798,6 +9110,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[rails] rails from scratch8-before local settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch8_before_local_settings\/",
      "id": "rails_rails_from_scratch8_before_local_settings",
+     
+         
      
          
      
@@ -9255,6 +9569,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch9_emacs_settings_for_ror",JSON.stringify(graph_node_object)); 
@@ -9266,6 +9582,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[sql] programmers sql high score2-select",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score2\/",
      "id": "sql_programmers_sql_high_score2",
+     
+         
      
          
      
@@ -9723,6 +10041,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nginx_about_nginx",JSON.stringify(graph_node_object)); 
@@ -9734,6 +10054,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[rails] frequently used functions",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_frequently_used_functions\/",
      "id": "rails_frequently_used_functions",
+     
+         
      
          
      
@@ -10191,6 +10513,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch1_installment",JSON.stringify(graph_node_object)); 
@@ -10202,6 +10526,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[rails] rails from scratch2-installment2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch2_installment\/",
      "id": "rails_rails_from_scratch2_installment",
+     
+         
      
          
      
@@ -10659,6 +10985,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch3_routes",JSON.stringify(graph_node_object)); 
@@ -10670,6 +10998,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[rails] rails from scratch5-model",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch5_model\/",
      "id": "rails_rails_from_scratch5_model",
+     
+         
      
          
      
@@ -11127,6 +11457,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch6_view",JSON.stringify(graph_node_object)); 
@@ -11138,6 +11470,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[rails] rails from scratch7-practice1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch7_practice1\/",
      "id": "rails_rails_from_scratch7_practice1",
+     
+         
      
          
      
@@ -11595,6 +11929,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("matter_js_tutorial",JSON.stringify(graph_node_object)); 
@@ -11606,6 +11942,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[node] npm and node",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/node_npm_and_node\/",
      "id": "node_npm_and_node",
+     
+         
      
          
      
@@ -12065,6 +12403,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("git_git_drill1_repo_and_commit",JSON.stringify(graph_node_object)); 
@@ -12076,6 +12416,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[git] git drill2 local",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_drill2_local\/",
      "id": "git_git_drill2_local",
+     
+         
      
          
      
@@ -12535,6 +12877,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score",JSON.stringify(graph_node_object)); 
@@ -12546,6 +12890,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[git] git explained",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_explained\/",
      "id": "git_git_explained",
+     
+         
      
          
      
@@ -13007,6 +13353,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_presentation_tools",JSON.stringify(graph_node_object)); 
@@ -13018,6 +13366,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[emacs] tex install and usage (latex)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_tex_install_and_usage\/",
      "id": "emacs_tex_install_and_usage",
+     
+         
      
          
      
@@ -13475,6 +13825,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_mu4e_settings",JSON.stringify(graph_node_object)); 
@@ -13486,6 +13838,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[test] testing!",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/test_testing\/",
      "id": "test_testing",
+     
+         
      
          
      
@@ -13943,6 +14297,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("essay_computer_working_principles",JSON.stringify(graph_node_object)); 
@@ -13954,6 +14310,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[pl] history of programming language from calcuation to OOP",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/pl_history_of_programming_language\/",
      "id": "pl_history_of_programming_language",
+     
+         
      
          
      
@@ -14413,6 +14771,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_grammar_in_one_shot",JSON.stringify(graph_node_object)); 
@@ -14647,6 +15007,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("algorithm_thinking_about_algorithms",JSON.stringify(graph_node_object)); 
@@ -14658,6 +15020,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
      
          
      
@@ -15117,6 +15481,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -15351,6 +15717,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary7_big_data_and_python",JSON.stringify(graph_node_object)); 
@@ -15362,6 +15730,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[github] multi account github problem",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/github_multi_account_github_problem\/",
      "id": "github_multi_account_github_problem",
+     
+         
      
          
      
@@ -15821,6 +16191,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
@@ -15832,6 +16204,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
      
          
      
@@ -16291,6 +16665,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
@@ -16302,6 +16678,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[kaggle-courses-intro] Arithmetic and Variable",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
      "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
      
          
      
@@ -16759,6 +17137,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
@@ -16770,6 +17150,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[kaggle] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
      "id": "kaggle_beginning",
+     
+         
      
          
      
@@ -17227,6 +17609,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
@@ -17238,6 +17622,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[leetcode] 1480 running sum of 1d array",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
      "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
      
          
      
@@ -17697,6 +18083,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
@@ -17708,6 +18096,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[linear algebra-2] linear independence",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
      "id": "linear_algebra_2_linear_independence",
+     
+         
      
          
      
@@ -18165,6 +18555,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
@@ -18176,6 +18568,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "python_summary5 loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
      "id": "python_summary5_loop",
+     
+         
      
          
      
@@ -18633,6 +19027,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
@@ -18644,6 +19040,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "sop idea1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
      "id": "sop_idea1",
+     
+         
      
          
      
@@ -19101,6 +19499,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_babel_python",JSON.stringify(graph_node_object)); 
@@ -19112,6 +19512,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[emacs] python lsp setting",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_python_lsp_setting\/",
      "id": "emacs_python_lsp_setting",
+     
+         
      
          
      
@@ -19504,6 +19906,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
          
      
          
+     
+         
               
          
      
@@ -19586,6 +19990,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[emacs] anaconda settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
      "id": "emacs_anaconda_settings",
+     
+         
      
          
      
@@ -20045,6 +20451,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -20056,6 +20464,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
      
          
      
@@ -20513,6 +20923,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -20524,6 +20936,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
      
          
      
@@ -20985,6 +21399,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -20996,6 +21412,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "folding test1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
      "id": "folding_test",
+     
+         
      
          
      
@@ -21232,6 +21650,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
+     
+         
      
          
      
@@ -21691,6 +22111,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -21702,6 +22124,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
+     
+         
      
          
      
@@ -22159,6 +22583,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -22170,6 +22596,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
+     
+         
      
          
      
@@ -22627,6 +23055,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -22638,6 +23068,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
+     
+         
      
          
      
@@ -23095,6 +23527,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -23106,6 +23540,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
+     
+         
      
          
      
@@ -23563,6 +23999,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -23574,6 +24012,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
+     
+         
      
          
      
@@ -24031,6 +24471,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -24042,6 +24484,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
+     
+         
      
          
      
@@ -24499,6 +24943,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -24510,6 +24956,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
+     
+         
      
          
      
@@ -24967,6 +25415,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("elisp_korean_lorel_ipsum",JSON.stringify(graph_node_object)); 
@@ -24978,6 +25428,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "[python] grammar in one shot - standard library (Text)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_grammar_in_one_shot_standard_library_text\/",
      "id": "python_grammar_in_one_shot_standard_library_text",
+     
+         
      
          
      
@@ -25435,6 +25887,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch4_controller",JSON.stringify(graph_node_object)); 
@@ -25669,6 +26123,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_making_portfolio_page",JSON.stringify(graph_node_object)); 
@@ -25680,6 +26136,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "Example of org to ipynb",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/example\/",
      "id": "example",
+     
+         
      
          
      
@@ -26139,6 +26597,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary4_data_structures",JSON.stringify(graph_node_object)); 
@@ -26150,6 +26610,8 @@ pi,sqrt method를 그대로 사용할 수 있다.</p>
      "label": "python_summary8 string",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary8_string\/",
      "id": "python_summary8_string",
+     
+         
      
          
      

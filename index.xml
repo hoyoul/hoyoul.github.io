@@ -8,6 +8,15 @@
     <language>ko</language>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[electron] make electron app-3</title>
+      <link>https://braindump.frege2godel.me/posts/electron_make_electron_app_3/</link>
+      <pubDate>Sun, 13 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/electron_make_electron_app_3/</guid>
+      <description>renderer에서 crawling 기능 추가 renderer에서 crawling하기 위해서, crawling하는 코드를 가져온다. crawl.js naver webtoon을 다운받</description>
+    </item>
+    
+    <item>
       <title>[css] css principles</title>
       <link>https://braindump.frege2godel.me/posts/css_css_principles/</link>
       <pubDate>Sat, 12 Aug 2023 00:00:00 +0900</pubDate>
@@ -265,7 +274,7 @@
       <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/electron_make_electron_app_1/</guid>
-      <description>hello world 모든 program이 그러하듯, hello world를 출력하는 앱을 만들자. basic_electron_app이라는 git repo를 만들고 시작하자. 시</description>
+      <description>electron이란? electron은 system에서 동작하는 js interpreter와 browser를 연결해서 하나의 app으로 만든 것이다</description>
     </item>
     
     <item>
@@ -958,7 +967,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/python_grammar_in_one_shot_standard_library_text/</guid>
-      <description>String import sys print(sys.version_info) sys.version_info(major=2, minor=7, micro=16, releaselevel=&amp;#39;final&amp;#39;, serial=0) textwrap regular expression difflib </description>
+      <description>String import sys print(sys.version_info) sys.version_info(major=3, minor=10, micro=12, releaselevel=&amp;#39;final&amp;#39;, serial=0) textwrap regular expression difflib </description>
     </item>
     
     <item>
