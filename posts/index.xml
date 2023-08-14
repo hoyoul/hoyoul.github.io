@@ -17,6 +17,24 @@
     </item>
     
     <item>
+      <title>[electron] make electron app-4</title>
+      <link>https://braindump.frege2godel.me/posts/electron_make_electron_app_4/</link>
+      <pubDate>Sun, 13 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/electron_make_electron_app_4/</guid>
+      <description>file 선택창 webtoon의 이미지를 저장하는 파일 선택창은 input tag에서 변경한다. input tag의 type을 file로 하면 된다. Figure 1: file exploer 코드도 보면 다음과 같</description>
+    </item>
+    
+    <item>
+      <title>[electron] make electron app-5</title>
+      <link>https://braindump.frege2godel.me/posts/electron_make_electron_app_5/</link>
+      <pubDate>Sun, 13 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/electron_make_electron_app_5/</guid>
+      <description>ui 입력값 가져오기 form창의 input에 입력된 값은, start download버튼을 누르면 가져오게 해야 한다. renderer의 js에 startDow</description>
+    </item>
+    
+    <item>
       <title>[css] css principles</title>
       <link>https://braindump.frege2godel.me/posts/css_css_principles/</link>
       <pubDate>Sat, 12 Aug 2023 00:00:00 +0900</pubDate>
