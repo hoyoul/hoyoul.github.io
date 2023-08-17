@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><title>[emacs] misc and qna</title>
+  <head><title>[project 4] about K-smart water</title>
 
 
 <meta charset="utf-8">
@@ -40,20 +40,22 @@
 
 <div class="container">
   <div class="page">
-    <h1 class="collapsed-title">[emacs] misc and qna</h1>    
+    <h1 class="collapsed-title">[project 4] about K-smart water</h1>    
       <div class="content">
-	<a href="https://braindump.frege2godel.me/posts/emacs_misc_and_qna/" alt="[emacs] misc and qna" class="permalink" data-singlepage="yes" ><h1>[emacs] misc and qna</h1></a>
+	<a href="https://braindump.frege2godel.me/posts/project_4_about_k_smart_water/" alt="[project 4] about K-smart water" class="permalink" data-singlepage="yes" ><h1>[project 4] about K-smart water</h1></a>
 	<fieldset>
 	  <legend><i class="far fa-star"></i> [ document summary ] </legend>
-	  <ol class="li"><strong>Title: </strong> [emacs] misc and qna </ol>
-	  <ol class="li"><strong>date: </strong> 2023 8.6 </ol>
-	  <ol class="li"><strong>content: </strong>옛날 자료 취합중 </ol>
+	  <ol class="li"><strong>Title: </strong> [project 4] about K-smart water </ol>
+	  <ol class="li"><strong>date: </strong> 2023 8.17 </ol>
+	  <ol class="li"><strong>content: </strong>k smart water에 대해서 </ol>
 	    
   
     
      
     
      
+        
+    
     
      
     
@@ -299,226 +301,42 @@
   
 
   
+  <div class="bl-section">
+    <hr/>
+    <h4> (back links) </h4>
+    <div class="backlinks">
+       <ul>
+       
+         <li><a href="/posts/project_3_about_solar_monitoring_system/">[project 3] about solar monitoring system</a></li>
+       
+      </ul>
+    </div>
+  </div>
+
 	  
 	</fieldset>
-	<h2 id="key-설정법">key 설정법</h2>
-<h3 id="global-key-설정">global key 설정</h3>
+	<h2 id="참조">참조</h2>
 <ul>
-<li>기본설정 global-set-key는 모든 buffer에 key를 설정한다는 뜻.</li>
-</ul>
-<!--listend-->
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(global-set-key (kbd &#34;M-a&#34;) &#39;backward-char) ; Alt+a
-</span></span><span class="line"><span class="cl">(global-set-key (kbd &#34;C-a&#34;) &#39;backward-char) ; Ctrl+a
-</span></span><span class="line"><span class="cl">(global-set-key (kbd &#34;C-c t&#34;) &#39;backward-char) ; Ctrl+c t
-</span></span><span class="line"><span class="cl">(global-set-key (kbd &#34;&lt;f7&gt; &lt;f8&gt;&#34;) &#39;whitespace-mode)    ; F7 F8
-</span></span></code></pre></div><ul>
-<li>snippet처럼 사용도 가능
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(global-set-key (kbd &#34;M-0&#34;) &#34;kyc1682@gmail.com&#34;)
-</span></span></code></pre></div></li>
-</ul>
-<h3 id="특정모드에서-key설정">특정모드에서 key설정</h3>
-<ul>
-<li>hook을 걸어서 local-set-key로 설정
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(defun my-go-mode-hook ()
-</span></span><span class="line"><span class="cl">    (local-set-key (kbd &#34;&lt;f8&gt;&#34;) &#39;dap-breakpoint-toggle)
-</span></span><span class="line"><span class="cl">)
-</span></span><span class="line"><span class="cl">(add-hook &#39;go-mode-hook &#39;my-go-mode-hook)
-</span></span></code></pre></div></li>
-</ul>
-<h2 id="cua-mode-사용법--세로-편집">cua mode 사용법 (세로 편집)</h2>
-<ul>
-<li>M-x cua-mode를 누르면 column editing이 가능하다.</li>
-<li>C-enter를 누르면 region 선택이 가능하다.</li>
-<li>region을 선택한 후, 문자를 입력하면 동일한 문자가 나온다.</li>
-<li>유용한 기능으로 numbering을 붙이고 싶을 때는, M-n을 누르면 start
-number와 increase를 선택하고 formatting도 설정할 수 있다.</li>
-</ul>
-<h2 id="ivy에서-candidates-선택-문제">ivy에서 candidates 선택 문제</h2>
-<ul>
-<li>partially matching만 되도, 선택해야 한다. 어떨때는 새로운 file을
-만들거나, 새로운 node를 만들때 부분 매칭되는 candidate를 선택할
-수밖에 없는 경우가 있다. 이럴때는 C-M-j를 눌러서 완전히 일치되는것만
-보이게 만든다.</li>
-</ul>
-<h2 id="general-package">general package</h2>
-<ul>
-<li>key를 binding한다.</li>
-</ul>
-<h2 id="completion-system">completion system</h2>
-<ul>
-<li>completion system에 쓰이는 아래 패키지들은 모두 독립적이다. 필요에
-따라 쓰면 된다. completion system에 대해 설명을 하자면, 예를
-드는게 편하다. C-x C-f를 누르면 minibuffer에서 원하는 file을
-찾을려고 입력을 하면 candidates가 나온다. 이런것이 completion
-system이다. M-x를 눌러도 이런 candidate가 나온다. ido-mode,
-icomplete, helm같은게 이런 역할을 한다. 물론 ivy도 그렇다.
-여기서는 selectrum과 vertico를 설명한다. 둘다 completion이지만,
-orderless와 같이 사용된다.</li>
-</ul>
-<h3 id="selectrum">Selectrum</h3>
-<ul>
-<li>기존의 ivy의 counsel-find-file이라던가, ivy-switch-buffer를 보면,
-minibuffer가 보여지고 자동완성기능이 있었는데, 이것을 selectrum이
-대신한다고 보면 된다.</li>
-</ul>
-<h3 id="vertico">vertico</h3>
-<ul>
-<li>vertico도 selectrum처럼 자동완성기능을 도와준다고 보면 된다.</li>
-</ul>
-<h3 id="orderless">orderless</h3>
-<ul>
-<li>spectrum에서 보여지는 minibuffer에서 candidate를 찾기 위해서
-문자열을 입력하면 이에 매핑하는 candidate를 찾아준다. 찾아주는
-방식이 orderless하다. 순서에 상관없다. 단어를 두개 입력하면
-두개가 포함된 candidate를 찾아주는 것이다. 완전히 일치하지 않고,
-부분적으로 일치하는 것을 찾아준다.예를 들어, C-h f에서 describe
-function에서 name buffer를 입력하면, name buffer가 들어간 모든
-function을 list해서 보여준다. regular expression도 사용할 수
-있다. 매우 빠르게 찾아줄 수 있다고 한다. Prec</li>
-</ul>
-<h3 id="consult">consult</h3>
-<ul>
-<li>consult는 찾기기능이라고 보면된다. grep과 find를 사용할 수 있는데
-그 기능이 막강하다고 한다.dired buffer에서 특정 string을
-검색하기도 쉽다고 한다.</li>
-</ul>
-<h3 id="embark">embark</h3>
-<ul>
-<li>embark는 dwim을 이용한 tool이라고 보면된다. doing what u
-think하는 도구다. context에 따라서 어떤 행동을 해야할 지가
-결정된다. 예를 들어서, region을 설정하고, C-.을 누르면 해야할
-action들이 보여진다. <a href="https://www.naver.com" target="_blank">www.naver.com
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
-을 region선택하고 C-.을 누르면
-browser에서 볼 수 있다. dired buffer에서 특정 파일을 선택하고
-C-.을 선택하면 action들을 선택할 수 있다.</li>
-</ul>
-<h3 id="marginalia">marginalia</h3>
-<ul>
-<li>minibuffer에서 보여지는 candidate에대한 부가설명이 나온다.
-meta정보라고하는 것을 볼 수 있다.</li>
-</ul>
-<h2 id="package-system">Package system</h2>
-<h3 id="straight-dot-el">straight.el</h3>
-<ul>
-<li>straight는 기존의 package.el에서 사용했던, melpa나 elpa같은
-repository에서 package를 다운받아서 설치하는 구조를 바꿨다.
-straight를 사용하면 github에서 가져온다. 원하는 package를
-github에서 찾은후에 down받는다. use-package하고 연동해서
-사용하는데, use-package에서 ensure t를 하면, melpa나 elpa에서
-다운로드했다면, :ensure t대신에 :straight t를 사용하면 github에서
-가져온다.</li>
-</ul>
-<h2 id="org-사용과-문제-general">org 사용과 문제 [general]</h2>
-<h3 id="org-babel-source-외부버퍼에서-편집">org-babel source 외부버퍼에서 편집</h3>
-<ul>
-<li>org mode에서 소스블락에서 정렬이 잘 안된다. 이럴 경우, 아래와
-같이 버퍼를 만들어서 편집하는게 편하다.</li>
-</ul>
-<div class="note">
-<p>org-edit-special: C-c '</p>
-</div>
-<h3 id="foot-note-사용법">foot note 사용법</h3>
-<ul>
-<li>주석을 달고자하는 문장을 선택한 후 C-c C-x f를 누르면
-footnote항목이 생긴다.</li>
-</ul>
-<h3 id="math-symbol-사용법">math symbol 사용법</h3>
-<ul>
-<li>$ $사이에 수식 사용
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$\frac{a}{b}$
-</span></span></code></pre></div></li>
-</ul>
-<h2 id="org-exporting문제들-ipynb">org exporting문제들 [ipynb]</h2>
-<h3 id="org-to-ipynb-or-org-to-markdown-exporting시-image-size문제">org to ipynb or org to markdown exporting시 image size문제</h3>
-<ul>
-<li>org에서 작성한 image를 ipynb나 markdown으로 export할 때 문제가
-있다. image size조정이 안된다.  image의 size를 조정할려면, org
-mode에서 option으로 html tag를 직접 기술할 수 밖에 없다.</li>
-</ul>
-<div class="note">
-<img src="img/test.png" width="600px">
-</div>
-<ul>
-<li>yasnippet에도 ipynb_image로 설정</li>
-</ul>
-<h3 id="underscore-to-sub-문제">underscore to sub 문제</h3>
-<ul>
-<li>org 문서를 ipynb로 exporting할 때, underscore가 sub로 변환된다.</li>
-<li>org 문서를 html로 exporting할 때 똑같은 문제가 있었는데, 이것은
-option ^nil로 해결했지만, ipynb로 exporting할 때 적용되지
-않는다.</li>
-<li>(setq org-export-with-sub-superscripts nil)로 아예 _ 가 sub로 변환되지 않게 했다.</li>
-</ul>
-<h2 id="org-exporting문제들-html-reveal-latex">org exporting문제들 [html, reveal, latex]</h2>
-<h3 id="underscore-문제">underscore 문제</h3>
-<div class="note">
-<p>org mode에서 글을 쓸때 underbar를 사용하면, export할 때, superscript가 되는 문제가 있다. export할 때 아래와 같이 처리하면 된다.</p>
-</div>
-<div class="tip">
-<p>\#+OPTIONS: ^:nil</p>
-</div>
-<h3 id="color-text-사용법">color text 사용법</h3>
-<h4 id="org-mode-export-html-with-colored-text">org mode export html with colored text</h4>
-<p>John Kitchen이 만든 org-colored-tex.el을 사용하면, org mode에서
-html로 export할 때 color를 사용할 수 있다고 한다.  사용법은
-snippet을 만들었는데, text_color라는 snippet이다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[[color:green][text is green ]
-</span></span></code></pre></div><p>아래는 참조</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[[https://kitchingroup.cheme.cmu.edu/blog/2016/01/16/Colored-text-in-org-mode-with-export-to-HTML/][참조]]
-</span></span></code></pre></div><h4 id="org-mode-export-latex-with-colored-text">org mode export latex with colored text</h4>
-<p>latex에서 color text를 표현하기 위해서는, 두가지를 해줘야 한다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">1. #+MACRO: color @@latex:{\color{}@@@@latex:}@@ 를 org header에 추가해야 한다.
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">2. latex snippet을 작성한다.
-</span></span><span class="line"><span class="cl">   {{{color(,this is colored text)}}}
-</span></span><span class="line"><span class="cl">@@latex:{\color{blue}@@ This text is in org but will come out blue.@@latex:}@@ And this text will be normal.
-</span></span></code></pre></div><h2 id="org-presentation-사용법">Org presentation 사용법</h2>
-<h3 id="reveal-presentation-사용">reveal presentation 사용</h3>
-<p>org mode에서 presentation을 사용하는 가장 일반적인 방법이 reveal이다. 그런데 reveal은 setting을 해야 제대로 쓸 수 있다.
-다음과 같이 설정한다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">ox-reveal</span>
-</span></span><span class="line"><span class="cl"><span class="nb">:ensure</span> <span class="nv">ox-reveal</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">org-reveal-root</span> <span class="s">&#34;http://cdn.jsdelivr.net/npm/reveal.js&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">org-reveal-mathjax</span> <span class="no">t</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">htmlize</span>
-</span></span><span class="line"><span class="cl"><span class="nb">:ensure</span> <span class="no">t</span><span class="p">)</span>
-</span></span></code></pre></div><h3 id="org-beamer-presentation-사용">org-Beamer presentation 사용</h3>
-<ul>
-<li>org-beamer는 C-c e를 누를때 org export option에서 안보이면 우선
-org mode에서 M-x org-beamer-export-pdf를 실행해본다. 그러면
-export option에서 보일수 있다.</li>
-</ul>
-<h3 id="org-tree-slides-사용">org-tree-slides 사용</h3>
-<h2 id="blog">Blog</h2>
-<h3 id="hugo-plus-org-plus-github">hugo + org + github</h3>
-<h2 id="org-export-css">org export css</h2>
-<h2 id="ibuffer-사용법">ibuffer 사용법</h2>
-<ul>
-<li>C-x C-b를 누르면 buffer list가 보이는데, 이게 너무 중구 난방이다.
-그래서 category화 한다. 이게 필요한 이유는, buffer들이 너무 많으면
-emacs가 느려질 수 있다. 안 사용하는 buffer는 지워주어야 한다.</li>
-<li>[참고]<a href="https://cestlaz.github.io/posts/using-emacs-34-ibuffer-emmet/" target="_blank">https://cestlaz.github.io/posts/using-emacs-34-ibuffer-emmet/
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-</a>
+<li>project1: <a href="/posts/project_about_tech_blog/">tech blog</a>
 </li>
+<li>project2: <a href="/posts/project_about_wayland/">wayland</a>
+</li>
+<li>project3: <a href="/posts/project_3_about_solar_monitoring_system/">solar monitoring system</a>
+</li>
+<li>project4: K-smart water</li>
+<li>project5:</li>
 </ul>
-<h2 id="json-format">json format</h2>
-<ul>
-<li>json 데이터를 인터넷에서 구해서 copy &amp; paste할 때, 보기에 힘들다.</li>
-<li>json-format이라는 함수를 emacs에 설정하고, json을 붙여넣은 후
-block을 정하고 M-x json-format을 호출하면 보기좋게 정렬된 것을 볼 수
-있다.
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(defun json-format ()
-</span></span><span class="line"><span class="cl">(interactive)
-</span></span><span class="line"><span class="cl">(save-excursion
-</span></span><span class="line"><span class="cl">(shell-command-on-region (mark) (point) &#34;python -m json.tool&#34; (buffer-name) t)
-</span></span><span class="line"><span class="cl">)
-</span></span><span class="line"><span class="cl">)
-</span></span></code></pre></div></li>
-</ul>
+<h2 id="idea">Idea</h2>
+<p>smart water라는 것은 디지털 계량기 사업이다. 디지털 계량기는 5개의
+센서가 라즈베리파이에서 rs485방식으로 연결되어 있다. 연결된 센서로부터
+수량,ph,수온,유속,다른 한가지는 기억나지 않지만, 5가지 data를 읽어
+들여서 maria db로 전송한다. rest api서버는 db로 부터 데이터를 가져와서
+json으로 뿌린다. 이 project는 우여 곡절이 있다. 원래는 vue.js와 fast
+api로 작성중 이였으나, 새로운 직원이 ruby on rails를 한다고 해서 다시
+변경했으나, 그직원이 한달도 안되서 퇴사 했다. 혼자서 모든 것을 한
+project다.</p>
+<h2 id="구현-노트">구현 노트</h2>
+<p>이것도 구현노트가 회사의 server와 gitlab에 보관되어 있다.</p>
       
       </div>
 

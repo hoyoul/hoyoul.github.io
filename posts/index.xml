@@ -13,7 +13,25 @@
       <pubDate>Thu, 17 Aug 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/project_about_tech_blog/</guid>
-      <description>참고 project1: tech blog project2: wayland project3: project4: project5: Idea python을 가르치는 알바를 했었다. 개념 설명하다가 stack이 나왔다. stack은 몰라도 되지 않냐? 라는 질문을 받았다. 코</description>
+      <description>참조 project1: tech blog project2: wayland project3: solar monitoring system project4: k smart water project5: Idea python을 가르치는 알바를 했었다. 개념 설명하다가 stack이 나왔다. stack은 몰라도 되지 않냐? 라는 질문</description>
+    </item>
+    
+    <item>
+      <title>[project 3] about solar monitoring system</title>
+      <link>https://braindump.frege2godel.me/posts/project_3_about_solar_monitoring_system/</link>
+      <pubDate>Thu, 17 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/project_3_about_solar_monitoring_system/</guid>
+      <description>참고 project1: tech blog project2: wayland project3: solar monitoring system project4: k smart water project5: Idea Idea는 별거 없다. 지도에서 태양광 발전소를 표시하고 누르면 상세 정보가 표시된다. 회사에서 원하는 정보를 표현했을 뿐</description>
+    </item>
+    
+    <item>
+      <title>[project 4] about K-smart water</title>
+      <link>https://braindump.frege2godel.me/posts/project_4_about_k_smart_water/</link>
+      <pubDate>Thu, 17 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/project_4_about_k_smart_water/</guid>
+      <description>참조 project1: tech blog project2: wayland project3: solar monitoring system project4: K-smart water project5: Idea smart water라는 것은 디지털 계량기 사업이다. 디지털 계량기는 5개의 센서가 라즈베리파이에서 rs485방식으로 연결되</description>
     </item>
     
     <item>
