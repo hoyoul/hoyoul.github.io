@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>[project 2] about wayland</title>
+      <link>https://braindump.frege2godel.me/posts/project_about_wayland/</link>
+      <pubDate>Thu, 17 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/project_about_wayland/</guid>
+      <description>참고 project1: tech blog project2: wayland project3: solar monitoring system project4: k smart water project5: idea LG에서 손목시계(watch)를 개발하기로 했었다. Figure 1: lg watch 여기서 어떻게 하면 최소의 resource를 가지고 최</description>
+    </item>
+    
+    <item>
       <title>[project 3] about solar monitoring system</title>
       <link>https://braindump.frege2godel.me/posts/project_3_about_solar_monitoring_system/</link>
       <pubDate>Thu, 17 Aug 2023 00:00:00 +0900</pubDate>
@@ -32,15 +41,6 @@
       
       <guid>https://braindump.frege2godel.me/posts/project_4_about_k_smart_water/</guid>
       <description>참조 project1: tech blog project2: wayland project3: solar monitoring system project4: K-smart water project5: Idea smart water라는 것은 디지털 계량기 사업이다. 디지털 계량기는 5개의 센서가 라즈베리파이에서 rs485방식으로 연결되</description>
-    </item>
-    
-    <item>
-      <title>[project] about wayland</title>
-      <link>https://braindump.frege2godel.me/posts/project_about_wayland/</link>
-      <pubDate>Thu, 17 Aug 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2godel.me/posts/project_about_wayland/</guid>
-      <description>참고 project1: tech blog project2: wayland project3: project4: project5: idea LG에서 손목시계(watch)를 개발하기로 했었다. Figure 1: lg watch 여기서 어떻게 하면 최소의 resource를 가지고 최대의 효율을 갖</description>
     </item>
     
     <item>
