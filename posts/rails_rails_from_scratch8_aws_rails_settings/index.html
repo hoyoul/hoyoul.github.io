@@ -290,6 +290,8 @@
      
     
      
+    
+     
   
 
   
@@ -458,7 +460,7 @@ PermitRootLogin prohibit-password yes로 바꾼다.</p>
 <li>ssh root로 접근</li>
 <li>deploy계정 생성</li>
 </ol>
-<p><a id="org927d772"></a></p>
+<p><a id="org22cdf41"></a></p>
 <img src="/img/web_monitoring/deployaccount.png" alt="deployaccount.png" width="600px" />
 나머지 설정도 해준다.
 <ol>
@@ -637,13 +639,13 @@ http server는 정적인 파일(test.html, test.png..)을 처리한다. 반면 w
 <ul>
 <li><strong>Problem</strong>: 예상치 못한 에러 발생</li>
 </ul>
-<p><a id="org9001ca3"></a></p>
+<p><a id="org07ccc57"></a></p>
 <img src="/img/web_monitoring/nginx4.png" alt="nginx4.png" width="1000px" />
 journalctl -xe를 실행해서 에러의 원인이 뭔지 알고 싶었다. 다음과 같은 메시지가 있었다.
-<p><a id="orgbaa023e"></a></p>
+<p><a id="org09e2fee"></a></p>
 <img src="/img/web_monitoring/pam.png" alt="pam.png" width="600px" />
 더 정확한 확인을 위해서 nginx의 log를 확인해 보자
-<p><a id="org2c09819"></a></p>
+<p><a id="org2000123"></a></p>
 <img src="/img/web_monitoring/errorlog.png" alt="errorlog.png" width="1000px" />
 위에 보면 gzip_static_on에 문제가 있어 보인다.
 <ul>
@@ -748,7 +750,7 @@ cap install STAGES=production</p>
 <p>bundle을 실행하면, gemfile에 기술된 gem들이 install된다. capistrano도 installed되어서 cap이란 명령어를 실행할 수 있다.
 cap install을 실행하면, deploy를 위한 설정 파일(.rb)들을 만들어 낸다.
 만일 cap명령어를 실행하나 수행되지 않을 때는 rbenv rehash를 하고 다시 실행한다.</p>
-<p><a id="org1079484"></a></p>
+<p><a id="orga3cd1e0"></a></p>
  <img src="/img/web_monitoring/rehash.png" alt="rehash.png" width="400px" />
 cap으로 만들어지는 파일은 capfile, deploy.rb, staging.rb,production.rb같은 deploy같은 설정파일들이다.
 <h4 id="capfile-설정">Capfile 설정</h4>
@@ -770,19 +772,19 @@ set :rbenv_ruby, &lsquo;3.0.1&rsquo;</p>
 
 <h3 id="capistrano-error">Capistrano Error</h3>
 <h4 id="thread-error">Thread error</h4>
-<p><a id="org6588f87"></a></p>
+<p><a id="org953affc"></a></p>
 <img src="/img/web_monitoring/cap1.png" alt="cap1.png" width="600px" />
 =&gt; cap은 aws에 접근할 수 있는 pem키가 없다면, cap이 진행되지 않고 바로 exception이 난다.
 ssh-add 를 사용해서 key를 등록한다. ssh-add ~/.ssh/company-ec2-keys.pem을 수행한다.
 <h4 id="git-check-error-permission-denied-error">git:check error-permission denied error</h4>
-<p><a id="org27c01be"></a></p>
+<p><a id="orga08207a"></a></p>
 <img src="/img/web_monitoring/cap2.png" alt="cap2.png" width="600px" />
    =&gt; ssh-add ~/.ssh/id-rsa 를 해보면 될 수 있다.
 <h4 id="git-create-release-master-error">git:create_release master error</h4>
 <p>=&gt; set branch main in deploy.rb</p>
 <h4 id="bundle-install">bundle:install</h4>
 <p>=&gt; [arm64-darwin-20] but your local platform is x86_64-linux</p>
-<p><a id="org79ca710"></a></p>
+<p><a id="org679477e"></a></p>
    <img src="/img/web_monitoring/deploy_local.png" alt="deploy_local.png" width="600px" />
 이것의 원인은 capistrano처리중에 github에서 rails app source를 가지고 와서 배포서버의 release폴더에 넣은 후에 bundler를 실행할 때 발생되는 에러같다. bundler가 Gemfile.lock을 실행하는 데 Platform이 local에서는 arm64-darwin-20은 정해져 있으나, x86-64-linux가 기술되어 있지 않다는 것이다. local에서는 bundle lock --add-platform x86_64-linux를 실행해서 변경할 수 있다고 하는데, Gemfile.lock에서 x86_64-linux가 추가된 것을 확인할 수 있다. 그런데 실제 배포server의 release폴더에 있는 Gemfile.lock에는 반영되지 않은 것을 볼 수 있다. 이것의 원인을 찾고자, 배포 서버에 접속해서 log를 살펴보았다.
 <blockquote>
@@ -800,19 +802,19 @@ ssh-add 를 사용해서 key를 등록한다. ssh-add ~/.ssh/company-ec2-keys.pe
 <p>=&gt; 해결책
 우선 cap production deploy할 때, 배포 서버에서 실행하는것은 무조건 github의 내용이다. 만일 local에서 무언가를 고치거나, 수정했다면, github에 commit한 후에 cap production deploy를 해야할 듯하다.</p>
 <h3 id="bundler-install-failed-to-build-gem-native-extension">bundler:install, Failed to build gem native extension</h3>
-<p><a id="org4e19135"></a></p>
+<p><a id="org9ea816f"></a></p>
 <img src="/img/web_monitoring/bundle_error.png" alt="bundle_error.png" width="600px" />
 이 문제에 대한 처리 과정은 다음과 같다.
-<p><a id="orgdef3768"></a></p>
+<p><a id="org1ef4de4"></a></p>
 <p><img src="/img/web_monitoring/extsolution1.png" alt="extsolution1.png" width="600px" />\</p>
 <p>우선 위에 적힌대로 해보자. 그런데, 근본적인
 문제는 mysql2 설치 문제다. 배포 서버에 들어가서 mysql2를 설치해 보자.
 동일한 에러가 발생한다.</p>
-<p><a id="org10dcedb"></a></p>
+<p><a id="org4fcda6c"></a></p>
 <img src="/img/web_monitoring/mysql2error.png" alt="mysql2error.png" width="600px" />
 =&gt; 해결 :  sudo apt-get install libmysqlclient-dev를 설치하니 무사히 설치되었다.
 <h3 id="deploy-migrating-error">deploy:migrating error</h3>
-<p><a id="org2c6b4a7"></a></p>
+<p><a id="org7b51b12"></a></p>
    <img src="/img/web_monitoring/mysqlhosterror.png" alt="mysqlhosterror.png" width="600px" />
 우선 mysql관련 설정환경을 배포 서버의 .rbenv-vars파일에 기술했었는데, 그게 문제일 수도 있다는 생각이 들었다. capistrano가 db에 접속을 해야 하는데, 접속은 URL로 하고, URL정보는 .rbenv-vars파일에 기술했기 때문이다. 그래서 다음과 같이 .rbenv-vars파일을 변경해 보았다.
 <blockquote>
@@ -886,11 +888,11 @@ GRANT ALL PRIVILEGES ON myapp.* TO &lsquo;deploy&rsquo;@&rsquo;%&rsquo;;
 FLUSH PRIVILEGES;</p>
 </blockquote>
 <h3 id="cap-production-deploy-하자마자-sshkit-error">cap production deploy 하자마자 sshkit error</h3>
-<p><a id="org8ef5dab"></a></p>
+<p><a id="orgc6ccea1"></a></p>
 <img src="/img/web_monitoring/capproduction.png" alt="capproduction.png" width="600px" />
 이것은 aws pem키가 등록되지 않았다는 에러다. ssh-add ~/.ssh/company-ec2-keys.pem로 등록을 해야 한다.
 <h3 id="git-permission-error">git permission error</h3>
-<p><a id="org94995a5"></a></p>
+<p><a id="org34c348d"></a></p>
 <img src="/img/web_monitoring/gitcheckerror.png" alt="gitcheckerror.png" width="600px" />
 이것은 git ssh public key가 등록되지 않았다는 에러다. ssh-add ~/.ssh/id_rsa로 등록을 해준다.
 <h3 id="phusion-messager-is-not-running">phusion messager is not running</h3>
@@ -940,7 +942,7 @@ FLUSH PRIVILEGES;</p>
 <p>EDITOR=vim rails credentials:edit</p>
 </blockquote>
 <p>이렇게 하면 credentials를 읽을 수 있다.</p>
-<p><a id="org64c8edc"></a></p>
+<p><a id="org2db42ef"></a></p>
 <img src="/img/web_monitoring/credentials.png" alt="credentials.png" width="600px" />
 그리고 secret_key_base를 볼 수 있다. 이것을 복사해서 운영서버로 가서 myapp/.rbenv-vars에 붙여넣기 한다.
 <p>이렇게 하고 cap production deploy를 실행해보자.</p>
@@ -1066,10 +1068,10 @@ tails -f /var/log/nginx/error.log</p>
 
 <p>설치할 MFA기기는 가상기기이고, 내 경우, google authenticator를 설치했다.
 중간에 보면 <strong>show QR code</strong> 가 있다. 이것을 누르면 QR code가 보인다. 그리고 code1과 code2를 기입한다.</p>
-<p><a id="orgb594fb3"></a></p>
+<p><a id="orgc73ea62"></a></p>
 <img src="/img/web_monitoring/root5.png" alt="root5.png" width="600px" />
 이제 root에 대한 MFA처리가 끝났다.
-<p><a id="org8dfc5f5"></a></p>
+<p><a id="org6bc3dbf"></a></p>
 <img src="/img/web_monitoring/root6.png" alt="root6.png" width="600px" />
 앞으로 root login은 mfa로 묻는다.
 이제 IAM계정을 만든다.
@@ -1090,7 +1092,7 @@ tails -f /var/log/nginx/error.log</p>
 </figure>
 
 <p>위와같이 user id를 만들고, pw를 설정한다. pw를 임시로 설정하고, 실제 login시 사용자가 설정하도록 한다.</p>
-<p><a id="orged78c9b"></a></p>
+<p><a id="org6321f7a"></a></p>
 <img src="/img/web_monitoring/user3.png" alt="user3.png" width="600px" />
 정책을 선택한다.
 <p><a id="figure--user 생성"></a></p>
@@ -1100,7 +1102,7 @@ tails -f /var/log/nginx/error.log</p>
         </figcaption>
 </figure>
 
-<p><a id="org7ae82c7"></a></p>
+<p><a id="org0500422"></a></p>
 <img src="/img/web_monitoring/user5.png" alt="user5.png" width="600px" />
 tag 생성은 넘어간다.
 <p><a id="figure--"></a></p>
@@ -1176,7 +1178,7 @@ ec2 dashboard로 접근한다. 그 다음 ec2 instance의 정보를 보자.</p>
         </figcaption>
 </figure>
 
-<p><a id="org9fec882"></a></p>
+<p><a id="orgb70011c"></a></p>
 <img src="/img/web_monitoring/route_53_1-2.png" alt="route_53_1-2.png" width="600px" />
 위에서 원하는 domain주소를 구입할 수 있다. 가격은 그렇게 비싸지 않은듯 하다.
 domain주소를 구입한 후에 등록을 한다.
@@ -1605,11 +1607,271 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
      graph_node_object = {
         
+     "label": "[project 1] about tech blog",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/project_about_tech_blog\/",
+     "id": "project_about_tech_blog",
+     
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["project_about_wayland"]
+   }
+ sessionStorage.setItem("project_about_tech_blog",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[project] about wayland",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/project_about_wayland\/",
      "id": "project_about_wayland",
      
          
+              
+         
+     
+         
      
          
      
@@ -1849,7 +2111,7 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
-     "backlinks": []
+     "backlinks": ["project_about_tech_blog"]
    }
  sessionStorage.setItem("project_about_wayland",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
@@ -1860,6 +2122,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[org] export options",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/org_export_options\/",
      "id": "org_export_options",
+     
+         
      
          
      
@@ -2355,6 +2619,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("org_how_to_use_reveal",JSON.stringify(graph_node_object)); 
@@ -2366,6 +2632,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[web] kakao map",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/web_kakao_map\/",
      "id": "web_kakao_map",
+     
+         
      
          
      
@@ -2859,6 +3127,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_about_selecting_directory_in_electron",JSON.stringify(graph_node_object)); 
@@ -2870,6 +3140,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[electron] make electron app-3",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_electron_app_3\/",
      "id": "electron_make_electron_app_3",
+     
+         
      
          
      
@@ -3363,6 +3635,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_make_electron_app_4",JSON.stringify(graph_node_object)); 
@@ -3374,6 +3648,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[electron] make electron app-5",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_electron_app_5\/",
      "id": "electron_make_electron_app_5",
+     
+         
      
          
      
@@ -3867,6 +4143,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("css_css_principles",JSON.stringify(graph_node_object)); 
@@ -4119,6 +4397,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("design_beginning_figma",JSON.stringify(graph_node_object)); 
@@ -4130,6 +4410,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[electron] basic principles",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_basic_principles\/",
      "id": "electron_basic_principles",
+     
+         
      
          
      
@@ -4625,6 +4907,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_drag_n_drop",JSON.stringify(graph_node_object)); 
@@ -4636,6 +4920,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[electron] make dmg installer",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_dmg_installer\/",
      "id": "electron_make_dmg_installer",
+     
+         
      
          
      
@@ -5129,6 +5415,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_7",JSON.stringify(graph_node_object)); 
@@ -5140,6 +5428,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[nodejs] crawling-naver webtoon-8",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_8\/",
      "id": "nodejs_crawling_naver_webtoon_8",
+     
+         
      
          
      
@@ -5633,6 +5923,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling9",JSON.stringify(graph_node_object)); 
@@ -5644,6 +5936,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[machine learning] day17-multiple-variable-regression",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/machine_learning_day17_multiple_variable_regression\/",
      "id": "machine_learning_day17_multiple_variable_regression",
+     
+         
      
          
      
@@ -6137,6 +6431,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("machine_learning_day18_logistic_regression",JSON.stringify(graph_node_object)); 
@@ -6148,6 +6444,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[nodejs] crawling-naver webtoon-5",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_5\/",
      "id": "nodejs_crawling_naver_webtoon_5",
+     
+         
      
          
      
@@ -6641,6 +6939,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_6",JSON.stringify(graph_node_object)); 
@@ -6652,6 +6952,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[machine learning] day16-one variable regression",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/machine_learning_day16_one_variable_regression\/",
      "id": "machine_learning_day16_one_variable_regression",
+     
+         
      
          
      
@@ -7145,6 +7447,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_4",JSON.stringify(graph_node_object)); 
@@ -7156,6 +7460,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[sql] programmers sql high score3-sum,max,min",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score3_sum_max_min\/",
      "id": "sql_programmers_sql_high_score3_sum_max_min",
+     
+         
      
          
      
@@ -7649,6 +7955,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score4_group_by",JSON.stringify(graph_node_object)); 
@@ -7660,6 +7968,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[sql] programmers sql high score5-is_NULL",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score5_is_null\/",
      "id": "sql_programmers_sql_high_score5_is_null",
+     
+         
      
          
      
@@ -8153,6 +8463,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score6_join",JSON.stringify(graph_node_object)); 
@@ -8164,6 +8476,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[sql] programmers sql high score7-string,date",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score7_string_date\/",
      "id": "sql_programmers_sql_high_score7_string_date",
+     
+         
      
          
      
@@ -8657,6 +8971,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("build_tools_about_ninja",JSON.stringify(graph_node_object)); 
@@ -8668,6 +8984,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[emacs] about org-roam",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_about_org_roam\/",
      "id": "emacs_about_org_roam",
+     
+         
      
          
      
@@ -9161,6 +9479,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_misc_and_qna",JSON.stringify(graph_node_object)); 
@@ -9172,6 +9492,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[mysql] restore db and table",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/mysql_restore_db_and_table\/",
      "id": "mysql_restore_db_and_table",
+     
+         
      
          
      
@@ -9665,6 +9987,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling2_session_and_cookies",JSON.stringify(graph_node_object)); 
@@ -9676,6 +10000,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[nodejs] crawling3-session and cookies2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling3_session_and_cookies2\/",
      "id": "nodejs_crawling3_session_and_cookies2",
+     
+         
      
          
      
@@ -10169,6 +10495,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("ruby_about_ruby",JSON.stringify(graph_node_object)); 
@@ -10180,6 +10508,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[unity] about unity settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/unity_about_unity_settings\/",
      "id": "unity_about_unity_settings",
+     
+         
      
          
      
@@ -10673,6 +11003,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_about_electron_js",JSON.stringify(graph_node_object)); 
@@ -10925,6 +11257,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_make_electron_app_1",JSON.stringify(graph_node_object)); 
@@ -10936,6 +11270,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[electron] make electron app-2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_electron_app_2\/",
      "id": "electron_make_electron_app_2",
+     
+         
      
          
      
@@ -11431,6 +11767,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_screen_capture",JSON.stringify(graph_node_object)); 
@@ -11683,6 +12021,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling1",JSON.stringify(graph_node_object)); 
@@ -11694,6 +12034,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[python] web scraping with python-1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_web_scraping_with_python_1\/",
      "id": "python_web_scraping_with_python_1",
+     
+         
      
          
      
@@ -12189,6 +12531,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch10_about_mariadb",JSON.stringify(graph_node_object)); 
@@ -12200,6 +12544,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[emacs] database sql usage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_database_sql_usage\/",
      "id": "emacs_database_sql_usage",
+     
+         
      
          
      
@@ -12693,6 +13039,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch8_aws_rails_settings",JSON.stringify(graph_node_object)); 
@@ -12704,6 +13052,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[rails] rails from scratch8-before local settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch8_before_local_settings\/",
      "id": "rails_rails_from_scratch8_before_local_settings",
+     
+         
      
          
      
@@ -13197,6 +13547,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch9_emacs_settings_for_ror",JSON.stringify(graph_node_object)); 
@@ -13208,6 +13560,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[sql] programmers sql high score2-select",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score2\/",
      "id": "sql_programmers_sql_high_score2",
+     
+         
      
          
      
@@ -13701,6 +14055,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nginx_about_nginx",JSON.stringify(graph_node_object)); 
@@ -13712,6 +14068,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[rails] frequently used functions",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_frequently_used_functions\/",
      "id": "rails_frequently_used_functions",
+     
+         
      
          
      
@@ -14205,6 +14563,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch1_installment",JSON.stringify(graph_node_object)); 
@@ -14216,6 +14576,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[rails] rails from scratch2-installment2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch2_installment\/",
      "id": "rails_rails_from_scratch2_installment",
+     
+         
      
          
      
@@ -14709,6 +15071,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch3_routes",JSON.stringify(graph_node_object)); 
@@ -14720,6 +15084,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[rails] rails from scratch5-model",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch5_model\/",
      "id": "rails_rails_from_scratch5_model",
+     
+         
      
          
      
@@ -15213,6 +15579,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch6_view",JSON.stringify(graph_node_object)); 
@@ -15224,6 +15592,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[rails] rails from scratch7-practice1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch7_practice1\/",
      "id": "rails_rails_from_scratch7_practice1",
+     
+         
      
          
      
@@ -15717,6 +16087,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("matter_js_tutorial",JSON.stringify(graph_node_object)); 
@@ -15728,6 +16100,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[node] npm and node",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/node_npm_and_node\/",
      "id": "node_npm_and_node",
+     
+         
      
          
      
@@ -16223,6 +16597,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("git_git_drill1_repo_and_commit",JSON.stringify(graph_node_object)); 
@@ -16234,6 +16610,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[git] git drill2 local",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_drill2_local\/",
      "id": "git_git_drill2_local",
+     
+         
      
          
      
@@ -16729,6 +17107,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score",JSON.stringify(graph_node_object)); 
@@ -16740,6 +17120,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[git] git explained",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_explained\/",
      "id": "git_git_explained",
+     
+         
      
          
      
@@ -17237,6 +17619,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_presentation_tools",JSON.stringify(graph_node_object)); 
@@ -17248,6 +17632,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[emacs] tex install and usage (latex)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_tex_install_and_usage\/",
      "id": "emacs_tex_install_and_usage",
+     
+         
      
          
      
@@ -17741,6 +18127,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_mu4e_settings",JSON.stringify(graph_node_object)); 
@@ -17752,6 +18140,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[test] testing!",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/test_testing\/",
      "id": "test_testing",
+     
+         
      
          
      
@@ -18245,6 +18635,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("essay_computer_working_principles",JSON.stringify(graph_node_object)); 
@@ -18256,6 +18648,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[pl] history of programming language from calcuation to OOP",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/pl_history_of_programming_language\/",
      "id": "pl_history_of_programming_language",
+     
+         
      
          
      
@@ -18751,6 +19145,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_grammar_in_one_shot",JSON.stringify(graph_node_object)); 
@@ -19003,6 +19399,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("algorithm_thinking_about_algorithms",JSON.stringify(graph_node_object)); 
@@ -19014,6 +19412,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
      
          
      
@@ -19509,6 +19909,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -19520,6 +19922,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "python_summary7 big data and python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary7_big_data_and_python\/",
      "id": "python_summary7_big_data_and_python",
+     
+         
      
          
      
@@ -19920,6 +20324,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
          
      
          
+     
+         
               
          
      
@@ -20028,6 +20434,10 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "id": "website_about_my_brain_blog_and_homepage",
      
          
+              
+         
+     
+         
      
          
      
@@ -20267,7 +20677,7 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
-     "backlinks": []
+     "backlinks": ["project_about_tech_blog"]
    }
  sessionStorage.setItem("website_about_my_brain_blog_and_homepage",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
@@ -20278,6 +20688,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
      
          
      
@@ -20773,6 +21185,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
@@ -20784,6 +21198,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[kaggle-courses-intro] Arithmetic and Variable",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
      "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
      
          
      
@@ -21277,6 +21693,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
@@ -21288,6 +21706,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[kaggle] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
      "id": "kaggle_beginning",
+     
+         
      
          
      
@@ -21781,6 +22201,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
@@ -21792,6 +22214,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[leetcode] 1480 running sum of 1d array",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
      "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
      
          
      
@@ -22287,6 +22711,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
@@ -22298,6 +22724,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[linear algebra-2] linear independence",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
      "id": "linear_algebra_2_linear_independence",
+     
+         
      
          
      
@@ -22791,6 +23219,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
@@ -22802,6 +23232,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "python_summary5 loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
      "id": "python_summary5_loop",
+     
+         
      
          
      
@@ -23295,6 +23727,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
@@ -23306,6 +23740,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "sop idea1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
      "id": "sop_idea1",
+     
+         
      
          
      
@@ -23799,6 +24235,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_babel_python",JSON.stringify(graph_node_object)); 
@@ -23810,6 +24248,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[emacs] python lsp setting",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_python_lsp_setting\/",
      "id": "emacs_python_lsp_setting",
+     
+         
      
          
      
@@ -24236,6 +24676,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
          
      
          
+     
+         
               
          
      
@@ -24320,6 +24762,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[emacs] anaconda settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
      "id": "emacs_anaconda_settings",
+     
+         
      
          
      
@@ -24815,6 +25259,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -24826,6 +25272,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
      
          
      
@@ -25319,6 +25767,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -25330,6 +25780,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
      
          
      
@@ -25827,6 +26279,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -25838,6 +26292,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "folding test1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
      "id": "folding_test",
+     
+         
      
          
      
@@ -26092,6 +26548,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
+     
+         
      
          
      
@@ -26587,6 +27045,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -26598,6 +27058,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
+     
+         
      
          
      
@@ -27091,6 +27553,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -27102,6 +27566,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
+     
+         
      
          
      
@@ -27595,6 +28061,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -27606,6 +28074,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
+     
+         
      
          
      
@@ -28099,6 +28569,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -28110,6 +28582,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
+     
+         
      
          
      
@@ -28603,6 +29077,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -28614,6 +29090,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
+     
+         
      
          
      
@@ -29107,6 +29585,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -29118,6 +29598,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
+     
+         
      
          
      
@@ -29611,6 +30093,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -29622,6 +30106,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
+     
+         
      
          
      
@@ -30115,6 +30601,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("elisp_korean_lorel_ipsum",JSON.stringify(graph_node_object)); 
@@ -30126,6 +30614,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[python] grammar in one shot - standard library (Text)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_grammar_in_one_shot_standard_library_text\/",
      "id": "python_grammar_in_one_shot_standard_library_text",
+     
+         
      
          
      
@@ -30619,6 +31109,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch4_controller",JSON.stringify(graph_node_object)); 
@@ -30630,6 +31122,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "[small_project] face recognition",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/small_project_face_recognition\/",
      "id": "small_project_face_recognition",
+     
+         
      
          
      
@@ -31123,6 +31617,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_making_portfolio_page",JSON.stringify(graph_node_object)); 
@@ -31134,6 +31630,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "Example of org to ipynb",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/example\/",
      "id": "example",
+     
+         
      
          
      
@@ -31629,6 +32127,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      
          
      
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary4_data_structures",JSON.stringify(graph_node_object)); 
@@ -31640,6 +32140,8 @@ cname레코드가 추가되는 이유는 검증용이다. cname record를 추가
      "label": "python_summary8 string",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary8_string\/",
      "id": "python_summary8_string",
+     
+         
      
          
      

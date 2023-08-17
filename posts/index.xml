@@ -8,12 +8,21 @@
     <language>ko</language>
     <lastBuildDate>Thu, 17 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[project 1] about tech blog</title>
+      <link>https://braindump.frege2godel.me/posts/project_about_tech_blog/</link>
+      <pubDate>Thu, 17 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/project_about_tech_blog/</guid>
+      <description>참고 project1: tech blog project2: wayland project3: project4: project5: Idea python을 가르치는 알바를 했었다. 개념 설명하다가 stack이 나왔다. stack은 몰라도 되지 않냐? 라는 질문을 받았다. 코</description>
+    </item>
+    
+    <item>
       <title>[project] about wayland</title>
       <link>https://braindump.frege2godel.me/posts/project_about_wayland/</link>
       <pubDate>Thu, 17 Aug 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/project_about_wayland/</guid>
-      <description>idea LG에서 손목시계(watch)를 개발하기로 했었다. Figure 1: lg watch 여기서 어떻게 하면 최소의 resource를 가지고 최대의 효율을 갖는 손목시계를 만들 수 있</description>
+      <description>참고 project1: tech blog project2: wayland project3: project4: project5: idea LG에서 손목시계(watch)를 개발하기로 했었다. Figure 1: lg watch 여기서 어떻게 하면 최소의 resource를 가지고 최대의 효율을 갖</description>
     </item>
     
     <item>
