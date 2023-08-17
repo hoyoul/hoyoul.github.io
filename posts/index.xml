@@ -6,7 +6,52 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Sun, 13 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[project] about wayland</title>
+      <link>https://braindump.frege2godel.me/posts/project_about_wayland/</link>
+      <pubDate>Thu, 17 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/project_about_wayland/</guid>
+      <description>idea LG에서 손목시계(watch)를 개발하기로 했었다. Figure 1: lg watch 여기서 어떻게 하면 최소의 resource를 가지고 최대의 효율을 갖는 손목시계를 만들 수 있</description>
+    </item>
+    
+    <item>
+      <title>[org] export options</title>
+      <link>https://braindump.frege2godel.me/posts/org_export_options/</link>
+      <pubDate>Wed, 16 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/org_export_options/</guid>
+      <description>org를 export할 때 option이 있다. 여기 를 참조한다.</description>
+    </item>
+    
+    <item>
+      <title>[org] how to use reveal</title>
+      <link>https://braindump.frege2godel.me/posts/org_how_to_use_reveal/</link>
+      <pubDate>Tue, 15 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/org_how_to_use_reveal/</guid>
+      <description>reveal의 구조 Figure 1: reveal reveal option에 대해 나의 options는 다음과 같다. #+OPTIONS: toc:nil d:nil ^:nil num:nil org파일을 export할때, option이 있는데, 이</description>
+    </item>
+    
+    <item>
+      <title>[web] kakao map</title>
+      <link>https://braindump.frege2godel.me/posts/web_kakao_map/</link>
+      <pubDate>Tue, 15 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/web_kakao_map/</guid>
+      <description>개발자 등록 login한다. Figure 1: 1st 애플리케션을 만든다. Figure 2: 2nd 애플리케이션을 등록한다. Figure 3: 3rd 플랫폼에 들어간다. Figure 4: 4th web 플랫폼에 들어간다. Figure 5: 5th web</description>
+    </item>
+    
+    <item>
+      <title>[electron] about selecting directory in electron</title>
+      <link>https://braindump.frege2godel.me/posts/electron_about_selecting_directory_in_electron/</link>
+      <pubDate>Mon, 14 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/electron_about_selecting_directory_in_electron/</guid>
+      <description>electron에서 folder에 접근하기에 대한 생각 내가 만드는 webtoon downloader의 경우 폴더를 선택하고, 선택된 폴더에 저장하는 기능이 있다. e</description>
+    </item>
+    
     <item>
       <title>[electron] make electron app-3</title>
       <link>https://braindump.frege2godel.me/posts/electron_make_electron_app_3/</link>
@@ -985,7 +1030,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/python_grammar_in_one_shot_standard_library_text/</guid>
-      <description>String import sys print(sys.version_info) sys.version_info(major=3, minor=10, micro=12, releaselevel=&amp;#39;final&amp;#39;, serial=0) textwrap regular expression difflib </description>
+      <description>String import sys print(sys.version_info) sys.version_info(major=2, minor=7, micro=16, releaselevel=&amp;#39;final&amp;#39;, serial=0) textwrap regular expression difflib </description>
     </item>
     
     <item>
@@ -995,6 +1040,15 @@
       
       <guid>https://braindump.frege2godel.me/posts/rails_rails_from_scratch4_controller/</guid>
       <description>Controller 표기법 controller는 table과 함께 복수형이다. controller를 사용하는 법 rails g controller controller명 actions하면, routing</description>
+    </item>
+    
+    <item>
+      <title>[small_project] face recognition</title>
+      <link>https://braindump.frege2godel.me/posts/small_project_face_recognition/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/small_project_face_recognition/</guid>
+      <description></description>
     </item>
     
     <item>

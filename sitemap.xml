@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://braindump.frege2godel.me/posts/project_about_wayland/</loc>
+    <lastmod>2023-08-17T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/</loc>
+    <lastmod>2023-08-17T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/org_export_options/</loc>
+    <lastmod>2023-08-16T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/org_how_to_use_reveal/</loc>
+    <lastmod>2023-08-15T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/web_kakao_map/</loc>
+    <lastmod>2023-08-15T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/electron_about_selecting_directory_in_electron/</loc>
+    <lastmod>2023-08-14T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://braindump.frege2godel.me/posts/electron_make_electron_app_3/</loc>
     <lastmod>2023-08-13T00:00:00+09:00</lastmod>
   </url><url>
@@ -9,9 +27,6 @@
     <lastmod>2023-08-13T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/electron_make_electron_app_5/</loc>
-    <lastmod>2023-08-13T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://braindump.frege2godel.me/posts/</loc>
     <lastmod>2023-08-13T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/css_css_principles/</loc>
@@ -337,6 +352,8 @@
     <loc>https://braindump.frege2godel.me/posts/python_grammar_in_one_shot_standard_library_text/</loc>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/rails_rails_from_scratch4_controller/</loc>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/small_project_face_recognition/</loc>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/website_making_portfolio_page/</loc>
   </url><url>
