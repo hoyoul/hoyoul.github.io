@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://braindump.frege2godel.me/posts/dart_about_package/</loc>
+    <lastmod>2023-08-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/dart_simple_dart_program_analysis/</loc>
+    <lastmod>2023-08-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/</loc>
+    <lastmod>2023-08-18T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://braindump.frege2godel.me/posts/project_about_tech_blog/</loc>
     <lastmod>2023-08-17T00:00:00+09:00</lastmod>
   </url><url>
@@ -12,9 +21,6 @@
     <lastmod>2023-08-17T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/project_4_about_k_smart_water/</loc>
-    <lastmod>2023-08-17T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://braindump.frege2godel.me/posts/</loc>
     <lastmod>2023-08-17T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/org_export_options/</loc>

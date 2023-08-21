@@ -204,6 +204,10 @@
      
     
      
+    
+     
+    
+     
         
     
     
@@ -315,48 +319,59 @@
 
 	  
 	</fieldset>
-	<h2 id="github의-통신-방법">github의 통신 방법</h2>
-<p>통신방법은 http와 ssh 방식이 있다. git pull과 git push, git clone은
-통신하는 명령어다. git clone할때 보면 http와 ssh가 있는 것을 볼 수
-있다.</p>
-<h2 id="github-인증-방법">github 인증 방법</h2>
-<p>대부분 public repo이기 때문에 git pull시에는 인증이 필요없다. 그러나
-git push는 github에 쓰는 것이기 때문에 인증이 필요하다. 인증은
-통신하는 방법에 따라 다르다. http는 PAT라는 토큰으로 인증할수 있고,
-ssh는 ssh자체에 인증이 필요하다.</p>
-<h2 id="http로-통신-방법">http로 통신 방법</h2>
-<p>http를 사용할 경우, git push때 github은 PAT를 요구한다. PAT를 입력해서
-push를 하면 그 다음 부터 mac에서는 PAT가 osxkeychain에
-보관된다. 보관되는 이유는 git config에서 credential helper로
-osxkeychain을 설정했기 때문이다. 그런데 http방식의 문제는 multiple
-github계정을 사용할 경우 매번 osxkeychain의 github 아이템을 매번
-지우고 새로 입력해야하는 문제가 있다.</p>
-<h2 id="ssh로-설정해서-통신">ssh로 설정해서 통신</h2>
+	<h2 id="multiple-github-account사용에-대한-알아야-할것들">multiple github account사용에 대한 알아야 할것들</h2>
+<h3 id="github-clone-방식">github clone 방식</h3>
+<p>clone은 3가지의 방식이 있다. http,ssh,cli가 있는데, 여기서는
+multi-account를 해결하는 방식으로 ssh방식을 사용하고 설명한다.</p>
+<h3 id="push의-인증-문제">push의 인증 문제</h3>
+<p>public repo를 다운받거나 clone하는 것은 문제가 없다. 하지만,
+push할때는 인증이 필요하다. http는 pat를 사용하고 ssh는 ssh는
+public/private key를 사용한 rsa방식을 사용해야 한다.</p>
+<h3 id="http-사용-push의-문제">http 사용 push의 문제</h3>
+<p>http를 사용할 경우, pat로 인증을해서 push하면 된다. 하지만 multi
+계정에선 복잡해진다. 왜냐면 pat가 osxkeychain에 등록되고 보관되는데,
+한개만 보관되기 때문이다. github.com에 대한 한개의 pat만
+보관된다. 여러개를 하려면 매번 keychain에서 계정을 지우고 다시
+등록해야 한다. 그래서 http보단 ssh가 선호된다.</p>
+<h3 id="ssh로-설정해서-통신">ssh로 설정해서 통신</h3>
 <p>ssh를 설정하는 이유는 multiple account를 사용할 수 있기 때문이다.</p>
+<h2 id="multiple-github-account-사용법">multiple github account 사용법</h2>
 <h2 id="ssh키로-multiple-accounts-설정">ssh키로 multiple accounts 설정</h2>
 <h3 id="ssh-key-생성">ssh key 생성</h3>
+<p>ssh로 개인키와 공인키를 만들어야 한다. 옛날에는 rsa를 사용했는데,
+지금은 간단한 방식을 사용한다. ed25519를 사용한다.
+(참조:<a href="https://docs.github.com/ko/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank">여기
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+)</p>
 <ul>
-<li>hoyoul 계정</li>
+<li>holy2frege 계정(main-blog)</li>
 </ul>
 <!--listend-->
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ssh-keygen -t rsa -C <span class="s2">&#34;hoyoul.park@gmail.com&#34;</span> -f ~/.ssh/id_hoyoul
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ssh-keygen -t ed25519 -C <span class="s2">&#34;holy2frege.nil@gmail.com&#34;</span> -f ~/.ssh/id_holy2frege
 </span></span></code></pre></div><ul>
-<li>holy2frege 계정</li>
+<li>hoyoul 계정(brain-dump)</li>
 </ul>
 <!--listend-->
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ssh-keygen -t rsa -C <span class="s2">&#34;holy2frege.nil@gmail.com&#34;</span> -f ~/.ssh/id_holy2frege
-</span></span></code></pre></div><p>만들어진 key를 각 github에 등록한다.</p>
-<ul>
-<li>holytofrege 계정</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ssh-keygen -t ed25519 -C <span class="s2">&#34;hoyoul.park@gmail.com&#34;</span> -f ~/.ssh/id_hoyoul
+</span></span></code></pre></div><ul>
+<li>holytofrege 계정(portfolio)</li>
 </ul>
 <!--listend-->
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ssh-keygen -t rsa -C <span class="s2">&#34;holytofrege@fastmail.com&#34;</span> -f ~/.ssh/id_holytofrege
-</span></span></code></pre></div><h3 id="dot-ssh-config-설정">~/.ssh/config 설정</h3>
-<p>다음과 같이 설정한다. 여기서 host명이 중요하다. host명에 따라
-github에서 repo를 clone할 때, 이 host명이 쓰이기 때문이다. 그래서
-가능하면 github에서 복사한값과 유사하게 만든다. github.com이
-github에서 복사한 값이기 때문에 -hoyoul로 postfix를 붙이는 방법을
-사용한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ssh-keygen -t ed25519 -C <span class="s2">&#34;holytofrege@fastmail.com&#34;</span> -f ~/.ssh/id_holytofrege
+</span></span></code></pre></div><h3 id="ssh-public-key-등록">ssh public key 등록</h3>
+<p>만들어진 key를 각 github에 등록한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="nv">cd</span> <span class="nv">~/.ssh</span>
+</span></span></code></pre></div><p>위에 경로에 보면 pub라는 postfix를 가진 파일이 있다. 이것을 복사해서
+github-&gt;settings-&gt;ssh &amp; gpg에 등록한다.</p>
+<h3 id="dot-ssh-config-설정과-agent">~/.ssh/config 설정과 agent</h3>
+<p>매번 다른 github에 연결해서 push를 할때 key 인증이 실행되는데,
+multiple account를 등록했기 때문에 중앙에서 이를 control할께
+필요하다. agent가 그런일을 하는데,</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><p>이렇게 실행한다. config를 설정된 정보를 agent가 처리하는데, config를
+설정하기전 미리 실행해도 상관없다. 이제 config를 설정하자.
+다음과 같이 설정한다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"># 첫 번째 계정
 </span></span><span class="line"><span class="cl">Host github.com-hoyoul
 </span></span><span class="line"><span class="cl">    HostName github.com
@@ -369,25 +384,46 @@ github에서 복사한 값이기 때문에 -hoyoul로 postfix를 붙이는 방�
 </span></span><span class="line"><span class="cl">    User holy2frege
 </span></span><span class="line"><span class="cl">    IdentityFile ~/.ssh/id_holy2frege
 </span></span><span class="line"><span class="cl"># 세번째 계정
-</span></span><span class="line"><span class="cl">Host github.com-portfolio
+</span></span><span class="line"><span class="cl">Host github.com-holytofrege
 </span></span><span class="line"><span class="cl">    HostName github.com
 </span></span><span class="line"><span class="cl">    User holytofrege
 </span></span><span class="line"><span class="cl">    IdentityFile ~/.ssh/id_holytofrege
-</span></span></code></pre></div><h3 id="server-연결-test">server 연결 test</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ssh -T git@ host명
-</span></span><span class="line"><span class="cl">ssh -T git@holy2frege_github
-</span></span><span class="line"><span class="cl">ssh -T git@hoyoul_github
-</span></span><span class="line"><span class="cl">ssh -T git@holytofrege_github
+</span></span></code></pre></div><p>여기서 눈여겨 봐야 하는건, 첫번째 줄의 HOST다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Host github.com-holytofrege
+</span></span></code></pre></div><p>이게 왜 중요하냐면 git clone할때, github의 repo를 들어가서 주소를
+복사한 후</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git clone 주소붙여넣기
+</span></span></code></pre></div><p>위와 같이 하는데, 이게 안된다. 이렇게 하면 안된다. 수정이 필요한데,
+위에서 적은 HOST정보를 추가해야 한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git clone git@github.com-holytofrege/adfasf/asdfa/
+</span></span></code></pre></div><p>위와 같이 github.com 다음에 -holytofrege같이 host에 있는 정보를
+붙여줘야 한다.</p>
+<h3 id="server-연결-test">server 연결 test</h3>
+<p>위와 같이 config와 ssh agent가 떠 있는 상태에서 연결을 테스트
+해보자. 기본적으로 아래와 같이 한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="nv">ssh</span> <span class="nv">-T</span> <span class="nv">git@</span> <span class="nv">host명</span>
+</span></span></code></pre></div><p>각 계정별 하는 법은 아래와 같다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ssh -T git@github.com-holy2frege
+</span></span><span class="line"><span class="cl">ssh -T git@github.com-hoyoul
+</span></span><span class="line"><span class="cl">ssh -T git@github.com-holytofrege
 </span></span></code></pre></div><p>사용자를 git으로 하고, host명을 입력해서 server에 접속 유무를 test할
 수 있다.</p>
+<p><a id="figure--ssh연결"></a></p>
+<figure><img src="/img/github/ssh.png"
+         alt="Figure 1: ssh연결" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>ssh연결</p>
+        </figcaption>
+</figure>
+
 <h3 id="ssh로-clone을-해서-사용한다-dot">ssh로 clone을 해서 사용한다.</h3>
-<p>github에서 clone을 한다. clone시에 http, ssh인지 github cli가 있는데,
-ssh를 선택한다. 그런데 그 주소는 직접 github주소와 연결되어 있다. 이걸
-좀 변경해야 한다. 어떻게 변경해야 하냐면, 이전에 ~/.ssh/config의
-설정을 사용해서 github에 접근해야 한다. 따라서 github에서 복사한
-주소는 아래와 같다면,</p>
+<p>이제 github에서 repo를 clone해보자. 이전에도 말했지만, repo를
+clone시에 http, ssh인지 github cli가 있는데, ssh를 선택한다. 그리고
+github주소를 변경해야 한다. 어떻게 변경해야 하냐면, 이전에
+~/.ssh/config의 설정할 때 HOST에 있는 postfix를 추가하는 것이다. 예를
+들어서, github에서 복사한 주소는 아래와 같다면,</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git@github.com:hoyoul/holy-brain.git
-</span></span></code></pre></div><p>지금의 github.com은 ssh/config에서 설정한 host명으로 바꿔야 한다.</p>
+</span></span></code></pre></div><p>github.com옆에 postfix를 붙인다. ssh/config에서 설정한 host명으로
+바꿔야 한다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git@github.com-hoyoul:hoyoul/holy-brain.git
 </span></span></code></pre></div><h2 id="braindump와-homepage에서-multiple-계정으로-인한-submodule-trouble-shooting">braindump와 homepage에서 multiple 계정으로 인한 submodule trouble shooting</h2>
 <p>multiple 계정을 사용하기 위해서 ssh방식으로 바뀌면서 homepage와
@@ -412,9 +448,537 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
      graph_node_object = {
         
+     "label": "[dart] about package",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/dart_about_package\/",
+     "id": "dart_about_package",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("dart_about_package",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[dart] simple dart program analysis",
+     "url": "https:\/\/braindump.frege2godel.me\/posts\/dart_simple_dart_program_analysis\/",
+     "id": "dart_simple_dart_program_analysis",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("dart_simple_dart_program_analysis",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[project 1] about tech blog",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/project_about_tech_blog\/",
      "id": "project_about_tech_blog",
+     
+         
+     
+         
      
          
      
@@ -681,6 +1245,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "id": "project_about_wayland",
      
          
+     
+         
+     
+         
               
          
      
@@ -943,6 +1511,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[project 3] about solar monitoring system",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/project_3_about_solar_monitoring_system\/",
      "id": "project_3_about_solar_monitoring_system",
+     
+         
+     
+         
      
          
               
@@ -1211,6 +1783,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
          
      
          
+     
+         
+     
+         
               
          
      
@@ -1469,6 +2045,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[org] export options",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/org_export_options\/",
      "id": "org_export_options",
+     
+         
+     
+         
      
          
      
@@ -1976,6 +2556,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("org_how_to_use_reveal",JSON.stringify(graph_node_object)); 
@@ -1987,6 +2571,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[web] kakao map",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/web_kakao_map\/",
      "id": "web_kakao_map",
+     
+         
+     
+         
      
          
      
@@ -2492,6 +3080,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_about_selecting_directory_in_electron",JSON.stringify(graph_node_object)); 
@@ -2503,6 +3095,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[electron] make electron app-3",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_electron_app_3\/",
      "id": "electron_make_electron_app_3",
+     
+         
+     
+         
      
          
      
@@ -3008,6 +3604,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_make_electron_app_4",JSON.stringify(graph_node_object)); 
@@ -3019,6 +3619,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[electron] make electron app-5",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_electron_app_5\/",
      "id": "electron_make_electron_app_5",
+     
+         
+     
+         
      
          
      
@@ -3524,6 +4128,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("css_css_principles",JSON.stringify(graph_node_object)); 
@@ -3782,6 +4390,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("design_beginning_figma",JSON.stringify(graph_node_object)); 
@@ -3793,6 +4405,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[electron] basic principles",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_basic_principles\/",
      "id": "electron_basic_principles",
+     
+         
+     
+         
      
          
      
@@ -4300,6 +4916,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_drag_n_drop",JSON.stringify(graph_node_object)); 
@@ -4311,6 +4931,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[electron] make dmg installer",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_dmg_installer\/",
      "id": "electron_make_dmg_installer",
+     
+         
+     
+         
      
          
      
@@ -4816,6 +5440,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_7",JSON.stringify(graph_node_object)); 
@@ -4827,6 +5455,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[nodejs] crawling-naver webtoon-8",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_8\/",
      "id": "nodejs_crawling_naver_webtoon_8",
+     
+         
+     
+         
      
          
      
@@ -5332,6 +5964,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling9",JSON.stringify(graph_node_object)); 
@@ -5343,6 +5979,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[machine learning] day17-multiple-variable-regression",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/machine_learning_day17_multiple_variable_regression\/",
      "id": "machine_learning_day17_multiple_variable_regression",
+     
+         
+     
+         
      
          
      
@@ -5848,6 +6488,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("machine_learning_day18_logistic_regression",JSON.stringify(graph_node_object)); 
@@ -5859,6 +6503,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[nodejs] crawling-naver webtoon-5",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_5\/",
      "id": "nodejs_crawling_naver_webtoon_5",
+     
+         
+     
+         
      
          
      
@@ -6364,6 +7012,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_6",JSON.stringify(graph_node_object)); 
@@ -6375,6 +7027,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[machine learning] day16-one variable regression",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/machine_learning_day16_one_variable_regression\/",
      "id": "machine_learning_day16_one_variable_regression",
+     
+         
+     
+         
      
          
      
@@ -6880,6 +7536,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_4",JSON.stringify(graph_node_object)); 
@@ -6891,6 +7551,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[sql] programmers sql high score3-sum,max,min",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score3_sum_max_min\/",
      "id": "sql_programmers_sql_high_score3_sum_max_min",
+     
+         
+     
+         
      
          
      
@@ -7396,6 +8060,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score4_group_by",JSON.stringify(graph_node_object)); 
@@ -7407,6 +8075,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[sql] programmers sql high score5-is_NULL",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score5_is_null\/",
      "id": "sql_programmers_sql_high_score5_is_null",
+     
+         
+     
+         
      
          
      
@@ -7912,6 +8584,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score6_join",JSON.stringify(graph_node_object)); 
@@ -7923,6 +8599,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[sql] programmers sql high score7-string,date",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score7_string_date\/",
      "id": "sql_programmers_sql_high_score7_string_date",
+     
+         
+     
+         
      
          
      
@@ -8428,6 +9108,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("build_tools_about_ninja",JSON.stringify(graph_node_object)); 
@@ -8439,6 +9123,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[emacs] about org-roam",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_about_org_roam\/",
      "id": "emacs_about_org_roam",
+     
+         
+     
+         
      
          
      
@@ -8944,6 +9632,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_misc_and_qna",JSON.stringify(graph_node_object)); 
@@ -8955,6 +9647,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[mysql] restore db and table",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/mysql_restore_db_and_table\/",
      "id": "mysql_restore_db_and_table",
+     
+         
+     
+         
      
          
      
@@ -9460,6 +10156,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling2_session_and_cookies",JSON.stringify(graph_node_object)); 
@@ -9471,6 +10171,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[nodejs] crawling3-session and cookies2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/nodejs_crawling3_session_and_cookies2\/",
      "id": "nodejs_crawling3_session_and_cookies2",
+     
+         
+     
+         
      
          
      
@@ -9976,6 +10680,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("ruby_about_ruby",JSON.stringify(graph_node_object)); 
@@ -9987,6 +10695,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[unity] about unity settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/unity_about_unity_settings\/",
      "id": "unity_about_unity_settings",
+     
+         
+     
+         
      
          
      
@@ -10492,6 +11204,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_about_electron_js",JSON.stringify(graph_node_object)); 
@@ -10750,6 +11466,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_make_electron_app_1",JSON.stringify(graph_node_object)); 
@@ -10761,6 +11481,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[electron] make electron app-2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/electron_make_electron_app_2\/",
      "id": "electron_make_electron_app_2",
+     
+         
+     
+         
      
          
      
@@ -11268,6 +11992,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_screen_capture",JSON.stringify(graph_node_object)); 
@@ -11526,6 +12254,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling1",JSON.stringify(graph_node_object)); 
@@ -11537,6 +12269,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[python] web scraping with python-1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_web_scraping_with_python_1\/",
      "id": "python_web_scraping_with_python_1",
+     
+         
+     
+         
      
          
      
@@ -12044,6 +12780,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch10_about_mariadb",JSON.stringify(graph_node_object)); 
@@ -12055,6 +12795,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[emacs] database sql usage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_database_sql_usage\/",
      "id": "emacs_database_sql_usage",
+     
+         
+     
+         
      
          
      
@@ -12560,6 +13304,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch8_aws_rails_settings",JSON.stringify(graph_node_object)); 
@@ -12571,6 +13319,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[rails] rails from scratch8-before local settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch8_before_local_settings\/",
      "id": "rails_rails_from_scratch8_before_local_settings",
+     
+         
+     
+         
      
          
      
@@ -13076,6 +13828,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch9_emacs_settings_for_ror",JSON.stringify(graph_node_object)); 
@@ -13087,6 +13843,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[sql] programmers sql high score2-select",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sql_programmers_sql_high_score2\/",
      "id": "sql_programmers_sql_high_score2",
+     
+         
+     
+         
      
          
      
@@ -13592,6 +14352,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nginx_about_nginx",JSON.stringify(graph_node_object)); 
@@ -13603,6 +14367,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[rails] frequently used functions",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_frequently_used_functions\/",
      "id": "rails_frequently_used_functions",
+     
+         
+     
+         
      
          
      
@@ -14108,6 +14876,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch1_installment",JSON.stringify(graph_node_object)); 
@@ -14119,6 +14891,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[rails] rails from scratch2-installment2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch2_installment\/",
      "id": "rails_rails_from_scratch2_installment",
+     
+         
+     
+         
      
          
      
@@ -14624,6 +15400,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch3_routes",JSON.stringify(graph_node_object)); 
@@ -14635,6 +15415,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[rails] rails from scratch5-model",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch5_model\/",
      "id": "rails_rails_from_scratch5_model",
+     
+         
+     
+         
      
          
      
@@ -15140,6 +15924,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch6_view",JSON.stringify(graph_node_object)); 
@@ -15151,6 +15939,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[rails] rails from scratch7-practice1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/rails_rails_from_scratch7_practice1\/",
      "id": "rails_rails_from_scratch7_practice1",
+     
+         
+     
+         
      
          
      
@@ -15656,6 +16448,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("matter_js_tutorial",JSON.stringify(graph_node_object)); 
@@ -15667,6 +16463,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[node] npm and node",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/node_npm_and_node\/",
      "id": "node_npm_and_node",
+     
+         
+     
+         
      
          
      
@@ -16174,6 +16974,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("git_git_drill1_repo_and_commit",JSON.stringify(graph_node_object)); 
@@ -16185,6 +16989,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[git] git drill2 local",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_drill2_local\/",
      "id": "git_git_drill2_local",
+     
+         
+     
+         
      
          
      
@@ -16692,6 +17500,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score",JSON.stringify(graph_node_object)); 
@@ -16703,6 +17515,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[git] git explained",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/git_git_explained\/",
      "id": "git_git_explained",
+     
+         
+     
+         
      
          
      
@@ -17212,6 +18028,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_presentation_tools",JSON.stringify(graph_node_object)); 
@@ -17223,6 +18043,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[emacs] tex install and usage (latex)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_tex_install_and_usage\/",
      "id": "emacs_tex_install_and_usage",
+     
+         
+     
+         
      
          
      
@@ -17728,6 +18552,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_mu4e_settings",JSON.stringify(graph_node_object)); 
@@ -17739,6 +18567,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[test] testing!",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/test_testing\/",
      "id": "test_testing",
+     
+         
+     
+         
      
          
      
@@ -18244,6 +19076,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("essay_computer_working_principles",JSON.stringify(graph_node_object)); 
@@ -18255,6 +19091,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[pl] history of programming language from calcuation to OOP",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/pl_history_of_programming_language\/",
      "id": "pl_history_of_programming_language",
+     
+         
+     
+         
      
          
      
@@ -18762,6 +19602,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_grammar_in_one_shot",JSON.stringify(graph_node_object)); 
@@ -19020,6 +19864,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("algorithm_thinking_about_algorithms",JSON.stringify(graph_node_object)); 
@@ -19031,6 +19879,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
+     
+         
      
          
      
@@ -19538,6 +20390,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary6_function",JSON.stringify(graph_node_object)); 
@@ -19549,6 +20405,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "python_summary7 big data and python",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary7_big_data_and_python\/",
      "id": "python_summary7_big_data_and_python",
+     
+         
+     
+         
      
          
      
@@ -19961,6 +20821,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
          
      
          
+     
+         
+     
+         
               
          
      
@@ -20067,6 +20931,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[website] about my braindump blog and homepage usage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_about_my_brain_blog_and_homepage\/",
      "id": "website_about_my_brain_blog_and_homepage",
+     
+         
+     
+         
      
          
               
@@ -20327,6 +21195,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[website] make main homepage",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/website_make_main_homepage\/",
      "id": "website_make_main_homepage",
+     
+         
+     
+         
      
          
      
@@ -20834,6 +21706,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_to_ipython_notebook",JSON.stringify(graph_node_object)); 
@@ -20845,6 +21721,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[kaggle-courses-intro] Arithmetic and Variable",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_courses_intro_arithmetic_and_variable\/",
      "id": "kaggle_courses_intro_arithmetic_and_variable",
+     
+         
+     
+         
      
          
      
@@ -21350,6 +22230,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_python_hello_python",JSON.stringify(graph_node_object)); 
@@ -21361,6 +22245,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[kaggle] beginning",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/kaggle_beginning\/",
      "id": "kaggle_beginning",
+     
+         
+     
+         
      
          
      
@@ -21866,6 +22754,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("leetcode_beginning",JSON.stringify(graph_node_object)); 
@@ -21877,6 +22769,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[leetcode] 1480 running sum of 1d array",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/leetcode_1480_running_sum_of_1d_array\/",
      "id": "leetcode_1480_running_sum_of_1d_array",
+     
+         
+     
+         
      
          
      
@@ -22384,6 +23280,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_1_linear_algebra_introduction",JSON.stringify(graph_node_object)); 
@@ -22395,6 +23295,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[linear algebra-2] linear independence",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra_2_linear_independence\/",
      "id": "linear_algebra_2_linear_independence",
+     
+         
+     
+         
      
          
      
@@ -22900,6 +23804,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary3_about_class",JSON.stringify(graph_node_object)); 
@@ -22911,6 +23819,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "python_summary5 loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary5_loop\/",
      "id": "python_summary5_loop",
+     
+         
+     
+         
      
          
      
@@ -23416,6 +24328,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary0_about_python",JSON.stringify(graph_node_object)); 
@@ -23427,6 +24343,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "sop idea1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/sop_idea1\/",
      "id": "sop_idea1",
+     
+         
+     
+         
      
          
      
@@ -23932,6 +24852,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_org_babel_python",JSON.stringify(graph_node_object)); 
@@ -23943,6 +24867,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[emacs] python lsp setting",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_python_lsp_setting\/",
      "id": "emacs_python_lsp_setting",
+     
+         
+     
+         
      
          
      
@@ -24381,6 +25309,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
          
      
          
+     
+         
+     
+         
               
          
      
@@ -24465,6 +25397,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[emacs] anaconda settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_anaconda_settings\/",
      "id": "emacs_anaconda_settings",
+     
+         
+     
+         
      
          
      
@@ -24972,6 +25908,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("hugo_korean_encoding_problem",JSON.stringify(graph_node_object)); 
@@ -24983,6 +25923,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "python_summary1-import and module",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary1\/",
      "id": "python_summary1",
+     
+         
+     
+         
      
          
      
@@ -25488,6 +26432,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_page1",JSON.stringify(graph_node_object)); 
@@ -25499,6 +26447,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[emacs] jupyter notebook settings",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/emacs_jupyter_noteboo_settings\/",
      "id": "emacs_jupyter_noteboo_settings",
+     
+         
+     
+         
      
          
      
@@ -26008,6 +26960,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("english1",JSON.stringify(graph_node_object)); 
@@ -26019,6 +26975,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "folding test1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test\/",
      "id": "folding_test",
+     
+         
+     
+         
      
          
      
@@ -26279,6 +27239,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "folding test2",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/folding_test2\/",
      "id": "folding_test2",
+     
+         
+     
+         
      
          
      
@@ -26786,6 +27750,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture10-String",JSON.stringify(graph_node_object)); 
@@ -26797,6 +27765,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "lecture11-IO",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture11-io\/",
      "id": "lecture11-IO",
+     
+         
+     
+         
      
          
      
@@ -27302,6 +28274,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture12-setting-exception-logging",JSON.stringify(graph_node_object)); 
@@ -27313,6 +28289,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "lecture13-web",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture13-web\/",
      "id": "lecture13-web",
+     
+         
+     
+         
      
          
      
@@ -27818,6 +28798,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture3_data-structure",JSON.stringify(graph_node_object)); 
@@ -27829,6 +28813,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "lecture4_condition-and-loop",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture4_condition-and-loop\/",
      "id": "lecture4_condition-and-loop",
+     
+         
+     
+         
      
          
      
@@ -28334,6 +29322,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture5_function",JSON.stringify(graph_node_object)); 
@@ -28345,6 +29337,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "lecture6-pythonic programming",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture6-pythonic-programming\/",
      "id": "lecture6-Pythonic-Programming",
+     
+         
+     
+         
      
          
      
@@ -28850,6 +29846,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture7_Object-Oriented-Programming",JSON.stringify(graph_node_object)); 
@@ -28861,6 +29861,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "lecture8-module-and-package",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/lecture8-module-and-package\/",
      "id": "lecture8-module-and-package",
+     
+         
+     
+         
      
          
      
@@ -29366,6 +30370,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture9-Advanced-Data-Structure",JSON.stringify(graph_node_object)); 
@@ -29377,6 +30385,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "web scraping1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/webcrawler1\/",
      "id": "webcrawler1",
+     
+         
+     
+         
      
          
      
@@ -29882,6 +30894,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture2_variable_and_operator",JSON.stringify(graph_node_object)); 
@@ -29893,6 +30909,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "linear_algebra1",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/linear_algebra1\/",
      "id": "linear_algebra1",
+     
+         
+     
+         
      
          
      
@@ -30398,6 +31418,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("elisp_korean_lorel_ipsum",JSON.stringify(graph_node_object)); 
@@ -30409,6 +31433,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[python] grammar in one shot - standard library (Text)",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_grammar_in_one_shot_standard_library_text\/",
      "id": "python_grammar_in_one_shot_standard_library_text",
+     
+         
+     
+         
      
          
      
@@ -30914,6 +31942,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch4_controller",JSON.stringify(graph_node_object)); 
@@ -30925,6 +31957,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "[small_project] face recognition",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/small_project_face_recognition\/",
      "id": "small_project_face_recognition",
+     
+         
+     
+         
      
          
      
@@ -31430,6 +32466,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_making_portfolio_page",JSON.stringify(graph_node_object)); 
@@ -31441,6 +32481,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "Example of org to ipynb",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/example\/",
      "id": "example",
+     
+         
+     
+         
      
          
      
@@ -31948,6 +32992,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      
          
      
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary4_data_structures",JSON.stringify(graph_node_object)); 
@@ -31959,6 +33007,10 @@ braindump의 submodule주소도 변경해야 한다. .gitmodules를 열고 url�
      "label": "python_summary8 string",
      "url": "https:\/\/braindump.frege2godel.me\/posts\/python_summary8_string\/",
      "id": "python_summary8_string",
+     
+         
+     
+         
      
          
      

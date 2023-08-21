@@ -6,7 +6,25 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Thu, 17 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[dart] about package</title>
+      <link>https://braindump.frege2godel.me/posts/dart_about_package/</link>
+      <pubDate>Fri, 18 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/dart_about_package/</guid>
+      <description>package program을 만들면 배포를 해야 한다. 이 배포란 것이 택배 시스템보단 온라인 쇼핑몰과 더 비슷하다. 갑자기 택배시스템이냐고? 누군가가 택배시스템으로 비</description>
+    </item>
+    
+    <item>
+      <title>[dart] simple dart program analysis</title>
+      <link>https://braindump.frege2godel.me/posts/dart_simple_dart_program_analysis/</link>
+      <pubDate>Fri, 18 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/dart_simple_dart_program_analysis/</guid>
+      <description>dart program의 예 import &amp;#39;dart:math&amp;#39;; import &amp;#39;package:flutter/material.dart&amp;#39;; void main() { runApp(const MyApp()); } class MyApp extends StatelessWidget { const MyApp({Key? key}) : super(key: key); @override Widget build(BuildContext context) { return MaterialApp( home: Scaffold( appBar: AppBar( title: const Text(&amp;#39;Rebuild only when necessary&amp;#39;), ), body: const Align( alignment: Alignment.topCenter, child: Column( mainAxisSize: MainAxisSize.min, children: [ SizedBox(height: 16), SizedBox( width: 300, child: Text(&amp;#39;Flutter\&amp;#39;s algorithms for rebuilding</description>
+    </item>
+    
     <item>
       <title>[project 1] about tech blog</title>
       <link>https://braindump.frege2godel.me/posts/project_about_tech_blog/</link>
@@ -688,7 +706,7 @@
       <pubDate>Fri, 16 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/github_multi_account_github_problem/</guid>
-      <description>github의 통신 방법 통신방법은 http와 ssh 방식이 있다. git pull과 git push, git clone은 통신하는 명령어다. git clone할때 보면 http와 ssh</description>
+      <description>multiple github account사용에 대한 알아야 할것들 github clone 방식 clone은 3가지의 방식이 있다. http,ssh,cli가 있는데, 여기서는 multi-acc</description>
     </item>
     
     <item>
@@ -697,7 +715,7 @@
       <pubDate>Fri, 16 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2godel.me/posts/website_about_my_brain_blog_and_homepage/</guid>
-      <description>[My homepage setting from scratch] 기본정보 참조: from here (만들당시 기록한 note) homepage 운영 주소: https://frege2godel.me/ github source 주소: github address: https://github.com/holy2frege/main-blog github id: holy2frege github email: github repo(dev,publish): main-blog,holy2frege.github.io pat: 사용법 [step1] repo가져오기 (clone) 기본 정보 local에</description>
+      <description>my blogs 나는 3개의 blog를 운영하고 있다. main-blog,braindump,portfolio다. main-blog(holy2frege) 기본정보 참조: from here (만들당시 기록한 note) homepage</description>
     </item>
     
     <item>
