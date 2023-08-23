@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://braindump.frege2godel.me/posts/flutter_how_to_install_flutter_on_bigsur/</loc>
+    <lastmod>2023-08-23T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2godel.me/posts/</loc>
+    <lastmod>2023-08-23T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://braindump.frege2godel.me/posts/dart_about_package/</loc>
     <lastmod>2023-08-18T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/dart_simple_dart_program_analysis/</loc>
-    <lastmod>2023-08-18T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://braindump.frege2godel.me/posts/</loc>
     <lastmod>2023-08-18T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2godel.me/posts/project_about_tech_blog/</loc>
