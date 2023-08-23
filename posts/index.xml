@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>[os] install from scratch1</title>
+      <link>https://braindump.frege2godel.me/posts/os_install_from_scratch1/</link>
+      <pubDate>Wed, 23 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2godel.me/posts/os_install_from_scratch1/</guid>
+      <description>system preference 제일 먼저할 것은 우선 system preference에서 설정한다. Figure 1: system App Store App store login 에서 필요한것들 다 다운 받는다. 그 중 res를 다운받는다. 왜냐하면 모니터</description>
+    </item>
+    
+    <item>
       <title>[dart] about package</title>
       <link>https://braindump.frege2godel.me/posts/dart_about_package/</link>
       <pubDate>Fri, 18 Aug 2023 00:00:00 +0900</pubDate>
