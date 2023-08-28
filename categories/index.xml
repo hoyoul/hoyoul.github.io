@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Holy Frege</title>
-    <link>https://braindump.frege2godel.me/categories/</link>
+    <link>https://bd.frege2godel.me/categories/</link>
     <description>Recent content in Categories on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko</language><atom:link href="https://braindump.frege2godel.me/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>ko</language><atom:link href="https://bd.frege2godel.me/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
