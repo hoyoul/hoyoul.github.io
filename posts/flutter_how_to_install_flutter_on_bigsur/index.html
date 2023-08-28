@@ -326,7 +326,22 @@
 </span></span><span class="line"><span class="cl">- xcode 13.2.1
 </span></span><span class="line"><span class="cl">- flutter sdk 2.8.1
 </span></span></code></pre></div><p>최신을 설치하면 안된다. 다 옛날 버전에 맞춰서 설치한다.</p>
-      
+<h2 id="xcode">xcode</h2>
+<p>xcode는 git으로 버전 관리가 안되기 때문에, apple 개발자 센터에서
+다운받아야 한다.
+<a href="https://developer.apple.com/xcode/resources/" target="_blank">여기
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+</p>
+<h2 id="flutter">flutter</h2>
+<p>flutter는 최신버전을 설치하면 안된다. git으로 clone했다면, git tag에서
+version을 확인한 후에, git checkout 2.8.1를 실행한다. head가
+detach된다고 나오지만 신경쓰지 않아도 된다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">flutter --version
+</span></span></code></pre></div><p>flutter로 버전만 확인해도 변경작업이 실행된다.
+system이 최신이라면 flutter는 항상 udgrade 해 놓는다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">flutter upgrade
+</span></span></code></pre></div>      
       </div>
 
   </div>

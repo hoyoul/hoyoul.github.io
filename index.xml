@@ -13,7 +13,7 @@
       <pubDate>Sun, 27 Aug 2023 00:00:00 +0900</pubDate>
       
       <guid>https://bd.frege2godel.me/posts/dart_practice4_aync_programming/</guid>
-      <description>동기와 비동기 순차적으로 코드가 실행되면, 동기화 program. 좀 더 정확히는 하나의 코드 instruction이 실행이 끝난 후 다음 instruction이 실행되면</description>
+      <description>동기와 비동기 순차적으로 코드가 실행되면, 동기화 program이라고 한다. 좀 더 정확히는 하나의 코드 instruction이 실행이 끝난 후 다음 inst</description>
     </item>
     
     <item>
