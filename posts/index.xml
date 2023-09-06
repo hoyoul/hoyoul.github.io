@@ -6,14 +6,59 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Sun, 27 Aug 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://bd.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Sep 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://bd.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[dart] practice4- aync programming</title>
+      <title>[idea] how to come out idea.</title>
+      <link>https://bd.frege2godel.me/posts/idea_how_to_come_out_idea/</link>
+      <pubDate>Sun, 03 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/idea_how_to_come_out_idea/</guid>
+      <description>red ocean red ocean은 경쟁업체가 많아서 들어가기 힘든 업종이란 뜻, 역으로 말하면 수요가 많다는 것이다. 여기선 그 업종을 해선 안되고, 그 업종에서 필요한 원자재를</description>
+    </item>
+    
+    <item>
+      <title>[flutter] flutter UI basics</title>
+      <link>https://bd.frege2godel.me/posts/flutter_flutter_ui_basics/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/flutter_flutter_ui_basics/</guid>
+      <description>flutter UI의 사용 다음 그림 부터 보자. Figure 1: flutter ui structure UI를 만든다고 하면, widget을 2개 만든다.</description>
+    </item>
+    
+    <item>
+      <title>[tistory] org export tistory</title>
+      <link>https://bd.frege2godel.me/posts/tistory_org_export_tistory/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/tistory_org_export_tistory/</guid>
+      <description>org-export-dispatch에 메뉴 작성 게시함수 작성 C-c C-e를 누르면 export dispatch에 menu를 선택하면 tistory에 글이 게시되</description>
+    </item>
+    
+    <item>
+      <title>[audacity] change playspeed and the export</title>
+      <link>https://bd.frege2godel.me/posts/audacity_change_playspeed_and_the_export/</link>
+      <pubDate>Wed, 30 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/audacity_change_playspeed_and_the_export/</guid>
+      <description>[step1] 영역 설정 Figure 1: 영역설정 [step2] 속도 조절 Figure 2: 속도 조절1 Figure 3: 속도 조절2</description>
+    </item>
+    
+    <item>
+      <title>[electron] python use electron</title>
+      <link>https://bd.frege2godel.me/posts/electron_python_use_electron/</link>
+      <pubDate>Tue, 29 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/electron_python_use_electron/</guid>
+      <description>electron project를 만들자. nvm use v18.0.0 git clone https://github.com/electron/electron-quick-start cd electron-quick-start npm install npm start npm install python-shell</description>
+    </item>
+    
+    <item>
+      <title>[dart] practice4- async programming</title>
       <link>https://bd.frege2godel.me/posts/dart_practice4_aync_programming/</link>
       <pubDate>Sun, 27 Aug 2023 00:00:00 +0900</pubDate>
       
       <guid>https://bd.frege2godel.me/posts/dart_practice4_aync_programming/</guid>
-      <description>동기와 비동기 순차적으로 코드가 실행되면, 동기화 program이라고 한다. 좀 더 정확히는 하나의 코드 instruction이 실행이 끝난 후 다음 inst</description>
+      <description>동기와 비동기 동기 순차적으로 코드가 실행되면, 동기화 program이라고 한다. 동기화 program은 하나의 코드 instruction이 실행이 끝난</description>
     </item>
     
     <item>
