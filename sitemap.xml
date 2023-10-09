@@ -2,10 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://bd.frege2godel.me/posts/idea_how_to_come_out_idea/</loc>
-    <lastmod>2023-09-03T00:00:00+09:00</lastmod>
+    <loc>https://bd.frege2godel.me/posts/emacs_straight_usage/</loc>
+    <lastmod>2023-10-04T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://bd.frege2godel.me/posts/</loc>
+    <lastmod>2023-10-04T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/ai_chatgpt_and_copilot/</loc>
+    <lastmod>2023-10-03T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/docker_getting_started_with_docker/</loc>
+    <lastmod>2023-09-27T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/asdf_unified_version_management/</loc>
+    <lastmod>2023-09-22T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/rails7_install_ruby_on_rails7/</loc>
+    <lastmod>2023-09-22T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/emacs_perspective_package/</loc>
+    <lastmod>2023-09-20T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/flutter_align_widget/</loc>
+    <lastmod>2023-09-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/flutter_container_widget/</loc>
+    <lastmod>2023-09-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/procreator_make_icon1/</loc>
+    <lastmod>2023-09-15T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/flutter_center_widget/</loc>
+    <lastmod>2023-09-14T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/flutter_text_widget/</loc>
+    <lastmod>2023-09-14T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/flutter_flutter_dev1/</loc>
+    <lastmod>2023-09-12T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/flutter_flutter_dev2_user_interface/</loc>
+    <lastmod>2023-09-12T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/web_hosting_netlify_and_github_pages/</loc>
+    <lastmod>2023-09-11T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/idea_hand_push_pressure/</loc>
+    <lastmod>2023-09-10T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/lsp_how_to_use_lsp/</loc>
+    <lastmod>2023-09-08T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/idea_how_to_come_out_idea/</loc>
     <lastmod>2023-09-03T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://bd.frege2godel.me/posts/flutter_flutter_ui_basics/</loc>
@@ -402,6 +450,8 @@
     <lastmod>2023-05-03T03:58:02+09:00</lastmod>
   </url><url>
     <loc>https://bd.frege2godel.me/posts/elisp_korean_lorel_ipsum/</loc>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/flutter_iconbutton_widget/</loc>
   </url><url>
     <loc>https://bd.frege2godel.me/posts/python_grammar_in_one_shot_standard_library_text/</loc>
   </url><url>

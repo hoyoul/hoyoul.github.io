@@ -324,21 +324,118 @@
      
     
      
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
   
 
   
 	  
 	</fieldset>
-	<h2 id="flutter-ui의-사용">flutter UI의 사용</h2>
-<p>다음 그림 부터 보자.</p>
-<p><a id="figure--flutter ui structure"></a></p>
-<figure><img src="/img/flutter/flutterui1.png"
-         alt="Figure 1: flutter ui structure" width="600px"/><figcaption>
-            <p><span class="figure-number">Figure 1: </span>flutter ui structure</p>
+	<h2 id="flutter란">flutter란?</h2>
+<p>flutter는 dart의 UI SDK다. UI관련 library와 gui programming을 가능하게
+하는 framework임과 동시에 여러가지 tool을 가지고 있는 sdk다. flutter는
+ios와 android라는 2개의 UI 와꾸를 가질 수 있게 설계되었다. flutter에서
+개발해서 두개의 UI를 다 만들 수 있다.</p>
+<p><a id="figure--two uis"></a></p>
+<figure><img src="/img/flutter/uis1.png"
+         alt="Figure 1: two uis" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 1: </span>two uis</p>
         </figcaption>
 </figure>
 
-<p>UI를 만든다고 하면, widget을 2개 만든다.</p>
+<p>왼쪽은 material desineged ui고 오른쪽은 ios designed guideline을 따른
+cupertino다. material은 android 기기의 UI고, Cupertino는 IOS의
+UI다. 기본적인 형태와 style이 각각의 UI마다 정해져 있다. 따라서, 어떤
+theme를 사용하느냐에 따라서, 정해진 형태의 UI를 사용하게 된다. theme를
+따르지 않고, 자신만의 UI를 만들고 싶다면 Material Designed 를 변형해서
+사용한다. 그래서 flutter의 강의들은 모두 material designed UI를
+가르친다.</p>
+<h2 id="material-designed-ui의-사용">Material Designed UI의 사용</h2>
+<p>custom designed의 app을 만들더라도 material designed를 사용하기
+때문에, material designed app을 만들기 위한 default 처리과정이 있다.</p>
+<h3 id="pubspec-dot-yaml">pubspec.yaml</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">uses-material-design</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div><h3 id="material-design-구조">material design 구조</h3>
+<p>다음 그림 부터 보자.</p>
+<p><a id="figure--flutter ui structure"></a></p>
+<figure><img src="/img/flutter/flutterui1.png"
+         alt="Figure 2: flutter ui structure" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 2: </span>flutter ui structure</p>
+        </figcaption>
+</figure>
+
+<p>Material designed UI를 만든다고 하면, 2개의 widget이
+필수적이다. 첫번째 materialApp widget이다. runApp()에서
+materialApp이라는 widget을 만들면, materialApp이란 widget을 flutter
+framework에서 가져와서 보여주게 된다. materialApp이란 widget은
+navigator를 가지고 있어서 root widget으로 지정되면, widget tree를
+만들고, navigating을 할 수 있다. navigating을 할수 있다는 게
+중요하다. 그런 widget이 별로 없기 때문이다. navigating이 가능하면,
+여러 page를 가진 app을 만들 수 있고, 이동도 가능하다는 얘기다. 또한
+material design이 가진 icon도 사용가능 하다. 두 번째로 scaffold라는
+widget이다. scaffold는 page를 나타내는 widget이고, 머리 가슴 배로
+구성되어 있다. <a href="https://codingapple.com/unit/flutter-basic-layout-design/" target="_blank">코딩애플
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+</a>
+ 이란 곳에서 가져온 이미지를 보자.</p>
+<p><a id="figure--scaffold"></a></p>
+<figure><img src="/img/flutter/scaffold1.png"
+         alt="Figure 3: scaffold" width="600px"/><figcaption>
+            <p><span class="figure-number">Figure 3: </span>scaffold</p>
+        </figcaption>
+</figure>
+
+<p>scaffold를 사용하면 appbar, body, bottomsheet의 3개로 나눠진다. page의
+구조가 거의 정해져 있다고 보면 된다. material design app을
+만든다는것은 이렇게 이미 짜여진 모양의 app을 만든다는 것과 같다.</p>
+<p>그래서, materialApp과 scaffold는 필수적 요소라고 보면 된다.</p>
+<h2 id="layout">layout</h2>
+<p>materialApp과 scaffold가 기본적으로 있고, 우리가 하는 program은
+widget을 body안에 배치하는게 주된 작업이다. UI programming이란것은
+widget을 어떤 공간안에 배치하고 size를 정해주는 일이다. 옛날 부터 이런
+UI programming에서 사용되어 왔던 전통적인 방법이 있었다. 전통적인
+방법은 절대 좌표계를 사용하고, 여기에 widget의 location에 좌표값을
+정해주는 방식이다. 예를 들어서, &lsquo;abc&rsquo;라는 text를 (50,50)에
+위치시켜라. 이런식이다. 그리고 size는 width 100px, height 100px로
+해라. 화면에는 오직 하나의 절대 좌표계가 있고, 이 좌표계에 따라 page에
+사용되는 widget을 배치하는 것이다. 그런데, 지금은 이런 방식은 사용되지
+않는다. 왜냐하면 절대 좌표계를 사용하려면 전제 조건이 있다. screen의
+size가 정해져 있어야 한다. 그래야만 의도한 ui화면이 그대로 나오기
+때문이다. 여러개의 screen size를 가지고 있는 smartphone들에서 절대
+좌표계는 사용될 수 없다. 상대 좌표를 사용하게 되고, layout,
+constraints라는 용어가 나온다.</p>
       
       </div>
 
@@ -351,9 +448,5163 @@
      
      graph_node_object = {
         
+     "label": "[emacs] straight usage",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_straight_usage\/",
+     "id": "emacs_straight_usage",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("emacs_straight_usage",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[ai] chatgpt and copilot",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/ai_chatgpt_and_copilot\/",
+     "id": "ai_chatgpt_and_copilot",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("ai_chatgpt_and_copilot",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[docker] getting started with docker",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/docker_getting_started_with_docker\/",
+     "id": "docker_getting_started_with_docker",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("docker_getting_started_with_docker",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[asdf] unified version management",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/asdf_unified_version_management\/",
+     "id": "asdf_unified_version_management",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("asdf_unified_version_management",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[rails7] install ruby on rails7",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/rails7_install_ruby_on_rails7\/",
+     "id": "rails7_install_ruby_on_rails7",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("rails7_install_ruby_on_rails7",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[emacs] perspective package",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_perspective_package\/",
+     "id": "emacs_perspective_package",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("emacs_perspective_package",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[flutter] Align widget",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/flutter_align_widget\/",
+     "id": "flutter_align_widget",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("flutter_align_widget",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[flutter] Container widget",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/flutter_container_widget\/",
+     "id": "flutter_container_widget",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("flutter_container_widget",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[procreator] make icon1",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/procreator_make_icon1\/",
+     "id": "procreator_make_icon1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("procreator_make_icon1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[flutter] Center widget",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/flutter_center_widget\/",
+     "id": "flutter_center_widget",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("flutter_center_widget",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[flutter] Text widget",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/flutter_text_widget\/",
+     "id": "flutter_text_widget",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("flutter_text_widget",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[flutter] flutter.dev1-get started (material app)",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/flutter_flutter_dev1\/",
+     "id": "flutter_flutter_dev1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("flutter_flutter_dev1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[flutter] flutter.dev2-User Interface-introduction-hello world",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/flutter_flutter_dev2_user_interface\/",
+     "id": "flutter_flutter_dev2_user_interface",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("flutter_flutter_dev2_user_interface",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[web] hosting(netlify and github pages) and heroku, firebase",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/web_hosting_netlify_and_github_pages\/",
+     "id": "web_hosting_netlify_and_github_pages",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("web_hosting_netlify_and_github_pages",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[idea] hand push pressure",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/idea_hand_push_pressure\/",
+     "id": "idea_hand_push_pressure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("idea_hand_push_pressure",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[lsp] how to use lsp",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/lsp_how_to_use_lsp\/",
+     "id": "lsp_how_to_use_lsp",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lsp_how_to_use_lsp",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[idea] how to come out idea.",
      "url": "https:\/\/bd.frege2godel.me\/posts\/idea_how_to_come_out_idea\/",
      "id": "idea_how_to_come_out_idea",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -915,6 +6166,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("flutter_flutter_ui_basics",JSON.stringify(graph_node_object)); 
@@ -926,6 +6211,40 @@
      "label": "[tistory] org export tistory",
      "url": "https:\/\/bd.frege2godel.me\/posts\/tistory_org_export_tistory\/",
      "id": "tistory_org_export_tistory",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1487,6 +6806,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("audacity_change_playspeed_and_the_export",JSON.stringify(graph_node_object)); 
@@ -1498,6 +6851,40 @@
      "label": "[electron] python use electron",
      "url": "https:\/\/bd.frege2godel.me\/posts\/electron_python_use_electron\/",
      "id": "electron_python_use_electron",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -2059,6 +7446,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("dart_practice4_aync_programming",JSON.stringify(graph_node_object)); 
@@ -2070,6 +7491,40 @@
      "label": "[dart] install dart and flutter on emacs",
      "url": "https:\/\/bd.frege2godel.me\/posts\/dart_install_dart_and_flutter_on_emacs\/",
      "id": "dart_install_dart_and_flutter_on_emacs",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -2631,6 +8086,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("dart_practice3_functional_language",JSON.stringify(graph_node_object)); 
@@ -2642,6 +8131,40 @@
      "label": "[sop] nuisance",
      "url": "https:\/\/bd.frege2godel.me\/posts\/sop_nuisance\/",
      "id": "sop_nuisance",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3203,6 +8726,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("dart_practice2_oop",JSON.stringify(graph_node_object)); 
@@ -3214,6 +8771,40 @@
      "label": "[dart] practice1- basic",
      "url": "https:\/\/bd.frege2godel.me\/posts\/dart_practice1\/",
      "id": "dart_practice1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3775,6 +9366,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("flutter_how_to_install_flutter_on_bigsur",JSON.stringify(graph_node_object)); 
@@ -3786,6 +9411,40 @@
      "label": "[os] install from scratch1",
      "url": "https:\/\/bd.frege2godel.me\/posts\/os_install_from_scratch1\/",
      "id": "os_install_from_scratch1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -4347,6 +10006,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("dart_about_package",JSON.stringify(graph_node_object)); 
@@ -4358,6 +10051,40 @@
      "label": "[dart] simple dart program analysis",
      "url": "https:\/\/bd.frege2godel.me\/posts\/dart_simple_dart_program_analysis\/",
      "id": "dart_simple_dart_program_analysis",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -4678,7 +10405,35 @@
          
      
          
-              
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
          
      
          
@@ -4687,6 +10442,12 @@
      
          
               
+         
+     
+         
+              
+         
+     
          
      
          
@@ -4968,7 +10729,33 @@
          
      
          
-              
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
          
      
          
@@ -4978,7 +10765,15 @@
          
      
          
+     
+         
               
+         
+     
+         
+              
+         
+     
          
      
          
@@ -5260,7 +11055,35 @@
          
      
          
-              
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
          
      
          
@@ -5268,9 +11091,15 @@
          
      
          
+              
+         
+     
+         
      
          
               
+         
+     
          
      
          
@@ -5554,11 +11383,45 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
          
      
          
               
+         
+     
          
      
          
@@ -5852,7 +11715,41 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -6098,6 +11995,40 @@
      "label": "[org] how to use reveal",
      "url": "https:\/\/bd.frege2godel.me\/posts\/org_how_to_use_reveal\/",
      "id": "org_how_to_use_reveal",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -6659,6 +12590,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("web_kakao_map",JSON.stringify(graph_node_object)); 
@@ -6670,6 +12635,40 @@
      "label": "[electron] about selecting directory in electron",
      "url": "https:\/\/bd.frege2godel.me\/posts\/electron_about_selecting_directory_in_electron\/",
      "id": "electron_about_selecting_directory_in_electron",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -7231,6 +13230,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_make_electron_app_3",JSON.stringify(graph_node_object)); 
@@ -7242,6 +13275,40 @@
      "label": "[electron] make electron app-4",
      "url": "https:\/\/bd.frege2godel.me\/posts\/electron_make_electron_app_4\/",
      "id": "electron_make_electron_app_4",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -7803,6 +13870,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_make_electron_app_5",JSON.stringify(graph_node_object)); 
@@ -7814,6 +13915,40 @@
      "label": "[css] css principles",
      "url": "https:\/\/bd.frege2godel.me\/posts\/css_css_principles\/",
      "id": "css_css_principles",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -8375,6 +14510,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("design_beginning_figma",JSON.stringify(graph_node_object)); 
@@ -8386,6 +14555,38 @@
      "label": "[electron] basic principles",
      "url": "https:\/\/bd.frege2godel.me\/posts\/electron_basic_principles\/",
      "id": "electron_basic_principles",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -8663,6 +14864,8 @@
      
          
      
+         
+     
      "backlinks": ["electron_drag_n_drop"]
    }
  sessionStorage.setItem("electron_basic_principles",JSON.stringify(graph_node_object)); 
@@ -8674,6 +14877,40 @@
      "label": "[electron] drag n drop",
      "url": "https:\/\/bd.frege2godel.me\/posts\/electron_drag_n_drop\/",
      "id": "electron_drag_n_drop",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -9235,6 +15472,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_make_dmg_installer",JSON.stringify(graph_node_object)); 
@@ -9246,6 +15517,40 @@
      "label": "[nodejs] crawling-naver webtoon-7",
      "url": "https:\/\/bd.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_7\/",
      "id": "nodejs_crawling_naver_webtoon_7",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -9807,6 +16112,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_8",JSON.stringify(graph_node_object)); 
@@ -9818,6 +16157,40 @@
      "label": "[nodejs] crawling9",
      "url": "https:\/\/bd.frege2godel.me\/posts\/nodejs_crawling9\/",
      "id": "nodejs_crawling9",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -10379,6 +16752,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("machine_learning_day17_multiple_variable_regression",JSON.stringify(graph_node_object)); 
@@ -10390,6 +16797,40 @@
      "label": "[machine learning] day18-logistic-regression",
      "url": "https:\/\/bd.frege2godel.me\/posts\/machine_learning_day18_logistic_regression\/",
      "id": "machine_learning_day18_logistic_regression",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -10951,6 +17392,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_5",JSON.stringify(graph_node_object)); 
@@ -10962,6 +17437,40 @@
      "label": "[nodejs] crawling-naver webtoon-6",
      "url": "https:\/\/bd.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_6\/",
      "id": "nodejs_crawling_naver_webtoon_6",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -11523,6 +18032,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("machine_learning_day16_one_variable_regression",JSON.stringify(graph_node_object)); 
@@ -11534,6 +18077,40 @@
      "label": "[nodejs] crawling-naver webtoon-4",
      "url": "https:\/\/bd.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_4\/",
      "id": "nodejs_crawling_naver_webtoon_4",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -12095,6 +18672,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score3_sum_max_min",JSON.stringify(graph_node_object)); 
@@ -12106,6 +18717,40 @@
      "label": "[sql] programmers sql high score4-group by",
      "url": "https:\/\/bd.frege2godel.me\/posts\/sql_programmers_sql_high_score4_group_by\/",
      "id": "sql_programmers_sql_high_score4_group_by",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -12667,6 +19312,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score5_is_null",JSON.stringify(graph_node_object)); 
@@ -12678,6 +19357,40 @@
      "label": "[sql] programmers sql high score6-join",
      "url": "https:\/\/bd.frege2godel.me\/posts\/sql_programmers_sql_high_score6_join\/",
      "id": "sql_programmers_sql_high_score6_join",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -13239,6 +19952,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score7_string_date",JSON.stringify(graph_node_object)); 
@@ -13250,6 +19997,40 @@
      "label": "[build_tools] about ninja",
      "url": "https:\/\/bd.frege2godel.me\/posts\/build_tools_about_ninja\/",
      "id": "build_tools_about_ninja",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -13811,6 +20592,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_about_org_roam",JSON.stringify(graph_node_object)); 
@@ -13822,6 +20637,40 @@
      "label": "[emacs] misc and qna",
      "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_misc_and_qna\/",
      "id": "emacs_misc_and_qna",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -14383,6 +21232,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("mysql_restore_db_and_table",JSON.stringify(graph_node_object)); 
@@ -14394,6 +21277,40 @@
      "label": "[nodejs] crawling2-session and cookies",
      "url": "https:\/\/bd.frege2godel.me\/posts\/nodejs_crawling2_session_and_cookies\/",
      "id": "nodejs_crawling2_session_and_cookies",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -14955,6 +21872,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling3_session_and_cookies2",JSON.stringify(graph_node_object)); 
@@ -14966,6 +21917,40 @@
      "label": "[ruby] about ruby",
      "url": "https:\/\/bd.frege2godel.me\/posts\/ruby_about_ruby\/",
      "id": "ruby_about_ruby",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -15527,6 +22512,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("unity_about_unity_settings",JSON.stringify(graph_node_object)); 
@@ -15538,6 +22557,40 @@
      "label": "[electron] about electron.js and swift other and language",
      "url": "https:\/\/bd.frege2godel.me\/posts\/electron_about_electron_js\/",
      "id": "electron_about_electron_js",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -16099,6 +23152,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_make_electron_app_1",JSON.stringify(graph_node_object)); 
@@ -16110,6 +23197,38 @@
      "label": "[electron] make electron app-2",
      "url": "https:\/\/bd.frege2godel.me\/posts\/electron_make_electron_app_2\/",
      "id": "electron_make_electron_app_2",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -16387,6 +23506,8 @@
      
          
      
+         
+     
      "backlinks": ["electron_make_electron_app_3"]
    }
  sessionStorage.setItem("electron_make_electron_app_2",JSON.stringify(graph_node_object)); 
@@ -16398,6 +23519,40 @@
      "label": "[emacs] screen capture",
      "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_screen_capture\/",
      "id": "emacs_screen_capture",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -16959,6 +24114,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling1",JSON.stringify(graph_node_object)); 
@@ -16970,6 +24159,38 @@
      "label": "[python] web scraping with python-1",
      "url": "https:\/\/bd.frege2godel.me\/posts\/python_web_scraping_with_python_1\/",
      "id": "python_web_scraping_with_python_1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -17247,6 +24468,8 @@
      
          
      
+         
+     
      "backlinks": ["nodejs_crawling1"]
    }
  sessionStorage.setItem("python_web_scraping_with_python_1",JSON.stringify(graph_node_object)); 
@@ -17258,6 +24481,40 @@
      "label": "[rails] rails from scratch10-about mariadb",
      "url": "https:\/\/bd.frege2godel.me\/posts\/rails_rails_from_scratch10_about_mariadb\/",
      "id": "rails_rails_from_scratch10_about_mariadb",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -17819,6 +25076,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_database_sql_usage",JSON.stringify(graph_node_object)); 
@@ -17830,6 +25121,40 @@
      "label": "[rails] rails from scratch8 aws rails settings",
      "url": "https:\/\/bd.frege2godel.me\/posts\/rails_rails_from_scratch8_aws_rails_settings\/",
      "id": "rails_rails_from_scratch8_aws_rails_settings",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -18391,6 +25716,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch8_before_local_settings",JSON.stringify(graph_node_object)); 
@@ -18402,6 +25761,40 @@
      "label": "[rails] rails from scratch9 Emacs settings for ROR",
      "url": "https:\/\/bd.frege2godel.me\/posts\/rails_rails_from_scratch9_emacs_settings_for_ror\/",
      "id": "rails_rails_from_scratch9_emacs_settings_for_ror",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -18963,6 +26356,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score2",JSON.stringify(graph_node_object)); 
@@ -18974,6 +26401,40 @@
      "label": "[nginx] about nginx",
      "url": "https:\/\/bd.frege2godel.me\/posts\/nginx_about_nginx\/",
      "id": "nginx_about_nginx",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -19535,6 +26996,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_frequently_used_functions",JSON.stringify(graph_node_object)); 
@@ -19546,6 +27041,40 @@
      "label": "[rails] rails from scratch1-installment",
      "url": "https:\/\/bd.frege2godel.me\/posts\/rails_rails_from_scratch1_installment\/",
      "id": "rails_rails_from_scratch1_installment",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -20107,6 +27636,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch2_installment",JSON.stringify(graph_node_object)); 
@@ -20118,6 +27681,40 @@
      "label": "[rails] rails from scratch3-routes",
      "url": "https:\/\/bd.frege2godel.me\/posts\/rails_rails_from_scratch3_routes\/",
      "id": "rails_rails_from_scratch3_routes",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -20679,6 +28276,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch5_model",JSON.stringify(graph_node_object)); 
@@ -20690,6 +28321,40 @@
      "label": "[rails] rails from scratch6-view",
      "url": "https:\/\/bd.frege2godel.me\/posts\/rails_rails_from_scratch6_view\/",
      "id": "rails_rails_from_scratch6_view",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -21251,6 +28916,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch7_practice1",JSON.stringify(graph_node_object)); 
@@ -21262,6 +28961,40 @@
      "label": "[matter.js] tutorial",
      "url": "https:\/\/bd.frege2godel.me\/posts\/matter_js_tutorial\/",
      "id": "matter_js_tutorial",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -21696,7 +29429,41 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -21836,6 +29603,40 @@
      "label": "[git] git drill1 repo and commit",
      "url": "https:\/\/bd.frege2godel.me\/posts\/git_git_drill1_repo_and_commit\/",
      "id": "git_git_drill1_repo_and_commit",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -22274,7 +30075,41 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -22410,6 +30245,40 @@
      "label": "[sql] programmers sql high score1",
      "url": "https:\/\/bd.frege2godel.me\/posts\/sql_programmers_sql_high_score\/",
      "id": "sql_programmers_sql_high_score",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -22848,86 +30717,6 @@
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
@@ -22961,6 +30750,120 @@
      
          
               
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
+         
+     
          
      
          
@@ -22986,6 +30889,40 @@
      "label": "[emacs] presentation tools",
      "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_presentation_tools\/",
      "id": "emacs_presentation_tools",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -23547,6 +31484,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_tex_install_and_usage",JSON.stringify(graph_node_object)); 
@@ -23558,6 +31529,40 @@
      "label": "[emacs] mu4e settings",
      "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_mu4e_settings\/",
      "id": "emacs_mu4e_settings",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -24119,6 +32124,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_testing",JSON.stringify(graph_node_object)); 
@@ -24130,6 +32169,40 @@
      "label": "[essay] computer working principles",
      "url": "https:\/\/bd.frege2godel.me\/posts\/essay_computer_working_principles\/",
      "id": "essay_computer_working_principles",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -24588,7 +32661,41 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -24704,6 +32811,40 @@
      "label": "[python] grammar in one shot",
      "url": "https:\/\/bd.frege2godel.me\/posts\/python_grammar_in_one_shot\/",
      "id": "python_grammar_in_one_shot",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -25265,6 +33406,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("algorithm_thinking_about_algorithms",JSON.stringify(graph_node_object)); 
@@ -25276,6 +33451,38 @@
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/bd.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -25553,6 +33760,8 @@
      
          
      
+         
+     
      "backlinks": ["leetcode_beginning"]
    }
  sessionStorage.setItem("leetcode_1672_richest_customer_wealth",JSON.stringify(graph_node_object)); 
@@ -25564,6 +33773,40 @@
      "label": "python_summary6 function",
      "url": "https:\/\/bd.frege2godel.me\/posts\/python_summary6_function\/",
      "id": "python_summary6_function",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -26125,6 +34368,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary7_big_data_and_python",JSON.stringify(graph_node_object)); 
@@ -26320,7 +34597,41 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -26456,7 +34767,41 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -26896,7 +35241,41 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -27000,6 +35379,40 @@
      "label": "[emacs] org to ipython notebook",
      "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_org_to_ipython_notebook\/",
      "id": "emacs_org_to_ipython_notebook",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -27561,6 +35974,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_intro_arithmetic_and_variable",JSON.stringify(graph_node_object)); 
@@ -27572,6 +36019,40 @@
      "label": "[kaggle-courses-python] hello python",
      "url": "https:\/\/bd.frege2godel.me\/posts\/kaggle_courses_python_hello_python\/",
      "id": "kaggle_courses_python_hello_python",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -28133,6 +36614,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_beginning",JSON.stringify(graph_node_object)); 
@@ -28144,6 +36659,40 @@
      "label": "[leetcode] beginning",
      "url": "https:\/\/bd.frege2godel.me\/posts\/leetcode_beginning\/",
      "id": "leetcode_beginning",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -28626,7 +37175,41 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -28718,6 +37301,40 @@
      "label": "[linear algebra-1] linear algebra introduction",
      "url": "https:\/\/bd.frege2godel.me\/posts\/linear_algebra_1_linear_algebra_introduction\/",
      "id": "linear_algebra_1_linear_algebra_introduction",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -29279,6 +37896,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_2_linear_independence",JSON.stringify(graph_node_object)); 
@@ -29290,6 +37941,40 @@
      "label": "python_summary3 about class",
      "url": "https:\/\/bd.frege2godel.me\/posts\/python_summary3_about_class\/",
      "id": "python_summary3_about_class",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -29851,6 +38536,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary5_loop",JSON.stringify(graph_node_object)); 
@@ -29862,6 +38581,40 @@
      "label": "python_summary0-About Python",
      "url": "https:\/\/bd.frege2godel.me\/posts\/python_summary0_about_python\/",
      "id": "python_summary0_about_python",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -30423,6 +39176,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sop_idea1",JSON.stringify(graph_node_object)); 
@@ -30434,6 +39221,40 @@
      "label": "[emacs] org-babel -python",
      "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_org_babel_python\/",
      "id": "emacs_org_babel_python",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -30928,7 +39749,41 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -31216,6 +40071,38 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
          
      
@@ -31233,6 +40120,8 @@
      
          
               
+         
+     
          
      
          
@@ -31506,7 +40395,41 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -31586,6 +40509,40 @@
      "label": "hugo korean encoding problem",
      "url": "https:\/\/bd.frege2godel.me\/posts\/hugo_korean_encoding_problem\/",
      "id": "hugo_korean_encoding_problem",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -32147,6 +41104,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary1",JSON.stringify(graph_node_object)); 
@@ -32158,6 +41149,40 @@
      "label": "test_page1",
      "url": "https:\/\/bd.frege2godel.me\/posts\/test_page1\/",
      "id": "test_page1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -32632,6 +41657,38 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
          
      
@@ -32655,6 +41712,8 @@
      
          
               
+         
+     
          
      
          
@@ -32734,6 +41793,40 @@
      "label": "daily영어(1)-don\u0027t pet my puppy",
      "url": "https:\/\/bd.frege2godel.me\/posts\/english1\/",
      "id": "english1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -33252,7 +42345,41 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -33538,7 +42665,41 @@
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -33596,6 +42757,40 @@
      "label": "lecture10-String",
      "url": "https:\/\/bd.frege2godel.me\/posts\/lecture10-string\/",
      "id": "lecture10-String",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -34157,6 +43352,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture11-IO",JSON.stringify(graph_node_object)); 
@@ -34168,6 +43397,40 @@
      "label": "lecture12-setting-exception-logging",
      "url": "https:\/\/bd.frege2godel.me\/posts\/lecture12-setting-exception-logging\/",
      "id": "lecture12-setting-exception-logging",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -34729,6 +43992,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture13-web",JSON.stringify(graph_node_object)); 
@@ -34740,6 +44037,40 @@
      "label": "lecture3 data structures",
      "url": "https:\/\/bd.frege2godel.me\/posts\/lecture3_data-structure\/",
      "id": "lecture3_data-structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -35301,6 +44632,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture4_condition-and-loop",JSON.stringify(graph_node_object)); 
@@ -35312,6 +44677,40 @@
      "label": "lecture5_function",
      "url": "https:\/\/bd.frege2godel.me\/posts\/lecture5_function\/",
      "id": "lecture5_function",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -35873,6 +45272,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture6-Pythonic-Programming",JSON.stringify(graph_node_object)); 
@@ -35884,6 +45317,40 @@
      "label": "lecture7_Object-Oriented-Programming",
      "url": "https:\/\/bd.frege2godel.me\/posts\/lecture7_object-oriented-programming\/",
      "id": "lecture7_Object-Oriented-Programming",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -36445,6 +45912,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture8-module-and-package",JSON.stringify(graph_node_object)); 
@@ -36456,6 +45957,40 @@
      "label": "lecture9-Advanced-Data-Structure",
      "url": "https:\/\/bd.frege2godel.me\/posts\/lecture9-advanced-data-structure\/",
      "id": "lecture9-Advanced-Data-Structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -37017,6 +46552,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("webcrawler1",JSON.stringify(graph_node_object)); 
@@ -37028,6 +46597,40 @@
      "label": "lecture2_variable_and_operator",
      "url": "https:\/\/bd.frege2godel.me\/posts\/lecture2_variable_and_operator\/",
      "id": "lecture2_variable_and_operator",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -37589,6 +47192,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra1",JSON.stringify(graph_node_object)); 
@@ -37875,6 +47512,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("elisp_korean_lorel_ipsum",JSON.stringify(graph_node_object)); 
@@ -37883,9 +47554,363 @@
      
      graph_node_object = {
         
+     "label": "[flutter] IconButton widget",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/flutter_iconbutton_widget\/",
+     "id": "flutter_iconbutton_widget",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("flutter_iconbutton_widget",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[python] grammar in one shot - standard library (Text)",
      "url": "https:\/\/bd.frege2godel.me\/posts\/python_grammar_in_one_shot_standard_library_text\/",
      "id": "python_grammar_in_one_shot_standard_library_text",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -38447,6 +48472,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch4_controller",JSON.stringify(graph_node_object)); 
@@ -38458,6 +48517,40 @@
      "label": "[small_project] face recognition",
      "url": "https:\/\/bd.frege2godel.me\/posts\/small_project_face_recognition\/",
      "id": "small_project_face_recognition",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -39019,6 +49112,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_making_portfolio_page",JSON.stringify(graph_node_object)); 
@@ -39305,6 +49432,40 @@
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary4_data_structures",JSON.stringify(graph_node_object)); 
@@ -39316,6 +49477,40 @@
      "label": "python_summary8 string",
      "url": "https:\/\/bd.frege2godel.me\/posts\/python_summary8_string\/",
      "id": "python_summary8_string",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      

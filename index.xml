@@ -8,6 +8,150 @@
     <language>ko</language>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://bd.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[emacs] straight usage</title>
+      <link>https://bd.frege2godel.me/posts/emacs_straight_usage/</link>
+      <pubDate>Wed, 04 Oct 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/emacs_straight_usage/</guid>
+      <description>straight란? package가 melpa,elpa같은 중앙집권적인 repo에만 있지 않음. 개인이 관리하는 package도 있기 때문에, re</description>
+    </item>
+    
+    <item>
+      <title>[ai] chatgpt and copilot</title>
+      <link>https://bd.frege2godel.me/posts/ai_chatgpt_and_copilot/</link>
+      <pubDate>Tue, 03 Oct 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/ai_chatgpt_and_copilot/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>[docker] getting started with docker</title>
+      <link>https://bd.frege2godel.me/posts/docker_getting_started_with_docker/</link>
+      <pubDate>Wed, 27 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/docker_getting_started_with_docker/</guid>
+      <description>Docker의 idea와 필요성 docker는 배포와 설치문제의 어려움을 해결해준다. 우리가 어떤 java 프로그램을 만들었다고 하자. java program은 여러</description>
+    </item>
+    
+    <item>
+      <title>[asdf] unified version management</title>
+      <link>https://bd.frege2godel.me/posts/asdf_unified_version_management/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/asdf_unified_version_management/</guid>
+      <description>asdf asdf는 version manager다. 여러 programming 언어는 제 각기 version manager를 가지고 있다. node는 nvm, ruby는 rvm, rbenv, python은 pyenv, conda 등등, 각 언어들은</description>
+    </item>
+    
+    <item>
+      <title>[rails7] install ruby on rails7</title>
+      <link>https://bd.frege2godel.me/posts/rails7_install_ruby_on_rails7/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/rails7_install_ruby_on_rails7/</guid>
+      <description>gorails로 설치 GoRails 에 보면 설치 과정이 쉽게 나와 있다. 이대로 따르면 된다. ruby 설치 asdf 설치 참고 , asdf는 node.js와 ruby의 version관</description>
+    </item>
+    
+    <item>
+      <title>[emacs] perspective package</title>
+      <link>https://bd.frege2godel.me/posts/emacs_perspective_package/</link>
+      <pubDate>Wed, 20 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/emacs_perspective_package/</guid>
+      <description>perspective package perspective는 workspace의 다른말이다. emacs에서 여러개의 workspace를 사용하게 해준다. 이것은 Mac에서의 sp</description>
+    </item>
+    
+    <item>
+      <title>[flutter] Align widget</title>
+      <link>https://bd.frege2godel.me/posts/flutter_align_widget/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/flutter_align_widget/</guid>
+      <description>Align widget에 대해서 내가 느낀 align widget은 그냥 좌표계이다. 좌표계를 widget화 한 것이다. 좌표가 사용되는 이유는 child를 배치하기 위함이</description>
+    </item>
+    
+    <item>
+      <title>[flutter] Container widget</title>
+      <link>https://bd.frege2godel.me/posts/flutter_container_widget/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/flutter_container_widget/</guid>
+      <description>container widget에 관해 container widget은 Align처럼 좌표계만 가지고 있거나, 가짜 영역을 만들지 않는다. container는 실제 자신만의 영역이 있다.</description>
+    </item>
+    
+    <item>
+      <title>[procreator] make icon1</title>
+      <link>https://bd.frege2godel.me/posts/procreator_make_icon1/</link>
+      <pubDate>Fri, 15 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/procreator_make_icon1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[flutter] Center widget</title>
+      <link>https://bd.frege2godel.me/posts/flutter_center_widget/</link>
+      <pubDate>Thu, 14 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/flutter_center_widget/</guid>
+      <description>Center widget Center widget은 align widget을 상속했다. 쉽게 말해서 Center widget은 Align Widget의 align속성이 center인 widget에 불과하다</description>
+    </item>
+    
+    <item>
+      <title>[flutter] Text widget</title>
+      <link>https://bd.frege2godel.me/posts/flutter_text_widget/</link>
+      <pubDate>Thu, 14 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/flutter_text_widget/</guid>
+      <description>Text widget flutter에서 제공하는 primitive한 widget이다. primitive한 위젯이라서 다른 widget의 child나 childr</description>
+    </item>
+    
+    <item>
+      <title>[flutter] flutter.dev1-get started (material app)</title>
+      <link>https://bd.frege2godel.me/posts/flutter_flutter_dev1/</link>
+      <pubDate>Tue, 12 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/flutter_flutter_dev1/</guid>
+      <description>Get Started flutter란? flutter는 Dart의 GUI SDK다. SDK는 flutter framework + build tools를 합친 용어다. flutter라는 project를 만드는</description>
+    </item>
+    
+    <item>
+      <title>[flutter] flutter.dev2-User Interface-introduction-hello world</title>
+      <link>https://bd.frege2godel.me/posts/flutter_flutter_dev2_user_interface/</link>
+      <pubDate>Tue, 12 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/flutter_flutter_dev2_user_interface/</guid>
+      <description>Hello world import &amp;#39;package:flutter/material.dart&amp;#39;; void main() { runApp( const Center( child: Text( &amp;#39;Hello, world!&amp;#39;, textDirection: TextDirection.ltr, ), ), ); </description>
+    </item>
+    
+    <item>
+      <title>[web] hosting(netlify and github pages) and heroku, firebase</title>
+      <link>https://bd.frege2godel.me/posts/web_hosting_netlify_and_github_pages/</link>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/web_hosting_netlify_and_github_pages/</guid>
+      <description>web 개발 webpage를 만드는 방식은 2가지다. html과 js로 page를 만든다. 필요한 data는 rest api로 가져와서 보여준다. 만들어서 모든 사람에</description>
+    </item>
+    
+    <item>
+      <title>[idea] hand push pressure</title>
+      <link>https://bd.frege2godel.me/posts/idea_hand_push_pressure/</link>
+      <pubDate>Sun, 10 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/idea_hand_push_pressure/</guid>
+      <description>선풍기의 속도 조절을 손의 압력으로 컨트롤 할 수 없을까? 손의 압력은 사람마다 다르다. 가장 세게 누를 때와 잡고 있을때를 기준으로 threshold값을 정한다.</description>
+    </item>
+    
+    <item>
+      <title>[lsp] how to use lsp</title>
+      <link>https://bd.frege2godel.me/posts/lsp_how_to_use_lsp/</link>
+      <pubDate>Fri, 08 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/lsp_how_to_use_lsp/</guid>
+      <description>LSP mode(client) LSP는 server/client로 동작한다. client는 emacs다. emacs에서 lsp-mode를 적용하면 emacs는 lsp clie</description>
+    </item>
+    
+    <item>
       <title>[idea] how to come out idea.</title>
       <link>https://bd.frege2godel.me/posts/idea_how_to_come_out_idea/</link>
       <pubDate>Sun, 03 Sep 2023 00:00:00 +0900</pubDate>
@@ -22,7 +166,7 @@
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0900</pubDate>
       
       <guid>https://bd.frege2godel.me/posts/flutter_flutter_ui_basics/</guid>
-      <description>flutter UI의 사용 다음 그림 부터 보자. Figure 1: flutter ui structure UI를 만든다고 하면, widget을 2개 만든다.</description>
+      <description>flutter란? flutter는 dart의 UI SDK다. UI관련 library와 gui programming을 가능하게 하는 framework임과</description>
     </item>
     
     <item>
@@ -1187,12 +1331,21 @@
     </item>
     
     <item>
+      <title>[flutter] IconButton widget</title>
+      <link>https://bd.frege2godel.me/posts/flutter_iconbutton_widget/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/flutter_iconbutton_widget/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>[python] grammar in one shot - standard library (Text)</title>
       <link>https://bd.frege2godel.me/posts/python_grammar_in_one_shot_standard_library_text/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://bd.frege2godel.me/posts/python_grammar_in_one_shot_standard_library_text/</guid>
-      <description>String import sys print(sys.version_info) sys.version_info(major=2, minor=7, micro=16, releaselevel=&amp;#39;final&amp;#39;, serial=0) textwrap regular expression difflib </description>
+      <description>String import sys print(sys.version_info) sys.version_info(major=3, minor=11, micro=4, releaselevel=&amp;#39;final&amp;#39;, serial=0) textwrap regular expression difflib </description>
     </item>
     
     <item>

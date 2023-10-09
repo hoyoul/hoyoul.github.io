@@ -258,6 +258,38 @@
      
     
      
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
         
     
     
@@ -276,6 +308,8 @@
      
         
     
+    
+     
     
      
     
@@ -581,7 +615,9 @@ a라는 symbol에 해당하는 값을 symbol table에서 가져온다. 가져온
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">((</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">byteorder</span><span class="o">=</span><span class="s2">&#34;big&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[&#39;__abs__&#39;, &#39;__add__&#39;, &#39;__and__&#39;, &#39;__class__&#39;, &#39;__cmp__&#39;, &#39;__coerce__&#39;, &#39;__delattr__&#39;, &#39;__div__&#39;, &#39;__divmod__&#39;, &#39;__doc__&#39;, &#39;__float__&#39;, &#39;__floordiv__&#39;, &#39;__format__&#39;, &#39;__getattribute__&#39;, &#39;__getnewargs__&#39;, &#39;__hash__&#39;, &#39;__hex__&#39;, &#39;__index__&#39;, &#39;__init__&#39;, &#39;__int__&#39;, &#39;__invert__&#39;, &#39;__long__&#39;, &#39;__lshift__&#39;, &#39;__mod__&#39;, &#39;__mul__&#39;, &#39;__neg__&#39;, &#39;__new__&#39;, &#39;__nonzero__&#39;, &#39;__oct__&#39;, &#39;__or__&#39;, &#39;__pos__&#39;, &#39;__pow__&#39;, &#39;__radd__&#39;, &#39;__rand__&#39;, &#39;__rdiv__&#39;, &#39;__rdivmod__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__rfloordiv__&#39;, &#39;__rlshift__&#39;, &#39;__rmod__&#39;, &#39;__rmul__&#39;, &#39;__ror__&#39;, &#39;__rpow__&#39;, &#39;__rrshift__&#39;, &#39;__rshift__&#39;, &#39;__rsub__&#39;, &#39;__rtruediv__&#39;, &#39;__rxor__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__sub__&#39;, &#39;__subclasshook__&#39;, &#39;__truediv__&#39;, &#39;__trunc__&#39;, &#39;__xor__&#39;, &#39;bit_length&#39;, &#39;conjugate&#39;, &#39;denominator&#39;, &#39;imag&#39;, &#39;numerator&#39;, &#39;real&#39;]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[&#39;__abs__&#39;, &#39;__add__&#39;, &#39;__and__&#39;, &#39;__bool__&#39;, &#39;__ceil__&#39;, &#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dir__&#39;, &#39;__divmod__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__float__&#39;, &#39;__floor__&#39;, &#39;__floordiv__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__getnewargs__&#39;, &#39;__getstate__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__index__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__int__&#39;, &#39;__invert__&#39;, &#39;__le__&#39;, &#39;__lshift__&#39;, &#39;__lt__&#39;, &#39;__mod__&#39;, &#39;__mul__&#39;, &#39;__ne__&#39;, &#39;__neg__&#39;, &#39;__new__&#39;, &#39;__or__&#39;, &#39;__pos__&#39;, &#39;__pow__&#39;, &#39;__radd__&#39;, &#39;__rand__&#39;, &#39;__rdivmod__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__rfloordiv__&#39;, &#39;__rlshift__&#39;, &#39;__rmod__&#39;, &#39;__rmul__&#39;, &#39;__ror__&#39;, &#39;__round__&#39;, &#39;__rpow__&#39;, &#39;__rrshift__&#39;, &#39;__rshift__&#39;, &#39;__rsub__&#39;, &#39;__rtruediv__&#39;, &#39;__rxor__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__sub__&#39;, &#39;__subclasshook__&#39;, &#39;__truediv__&#39;, &#39;__trunc__&#39;, &#39;__xor__&#39;, &#39;as_integer_ratio&#39;, &#39;bit_count&#39;, &#39;bit_length&#39;, &#39;conjugate&#39;, &#39;denominator&#39;, &#39;from_bytes&#39;, &#39;imag&#39;, &#39;numerator&#39;, &#39;real&#39;, &#39;to_bytes&#39;]
+</span></span><span class="line"><span class="cl">b&#39;\x00\x0f&#39;
+</span></span><span class="line"><span class="cl">4346701152
 </span></span></code></pre></div><p>따라서 b와 15를 mapping해서 b:15를 symbol table에
 기록한다.  (3)의 경우는 evaluate하면 symbol table에서 b를 찾아서
 가져온다. 15를 가져오지만, 그 값은 쓰여지지 않는다. 이후 print를 해서 그
@@ -604,9 +640,9 @@ c:1을 기록한다.</p>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">140423435685912
-</span></span><span class="line"><span class="cl">140423435685912
-</span></span><span class="line"><span class="cl">140423435685912
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4376519584
+</span></span><span class="line"><span class="cl">4376519584
+</span></span><span class="line"><span class="cl">4376519584
 </span></span></code></pre></div><p>반면에 아래의 예를 보자.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(1) a = [1,2,3]
 </span></span><span class="line"><span class="cl">(2) b = [1,2,3]
@@ -621,9 +657,9 @@ c:1을 기록한다.</p>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4507107480
-</span></span><span class="line"><span class="cl">4507177544
-</span></span><span class="line"><span class="cl">4507263488
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4344992576
+</span></span><span class="line"><span class="cl">4345092096
+</span></span><span class="line"><span class="cl">4345752320
 </span></span></code></pre></div><p>매번 새로운 객체를 만든다.</p>
 <h3 id="변수와-assignment의-예-3">변수와 assignment의 예 3</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">a = b = 2
@@ -656,9 +692,9 @@ object를 evaluate하면 무엇이 나오는가? 객체의 address가 나온다.
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">))</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">3
-</span></span><span class="line"><span class="cl">&lt;__main__.Person instance at 0x10c96f3b0&gt;
+</span></span><span class="line"><span class="cl">&lt;__main__.Person object at 0x1031a31d0&gt;
 </span></span><span class="line"><span class="cl">3
-</span></span><span class="line"><span class="cl">&lt;__main__.Person instance at 0x10c96f3b0&gt;
+</span></span><span class="line"><span class="cl">&lt;__main__.Person object at 0x1031a31d0&gt;
 </span></span></code></pre></div><p>객체를 evaluate했을때, literal object와 일반 object의 차이를 설명하는
 예제다. 원래 의도는 evaluate의 결과를 비교하는 것이다. 그런데
 print()로 출력하는것과 evaluate의 결과는 다른거 아니냐고 말할 수 있다.
@@ -858,7 +894,7 @@ immutable하기 때문에 (1)과 (2)를 구별할 필요가 없다.</p>
 </span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
 </span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">+=</span><span class="mi">1</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{&#39;a&#39;: 4, &#39;b&#39;: 3, &#39;__builtins__&#39;: &lt;module &#39;__builtin__&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__package__&#39;: None, &#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{&#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: None, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: None, &#39;__annotations__&#39;: {}, &#39;__builtins__&#39;: &lt;module &#39;builtins&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__cached__&#39;: None, &#39;a&#39;: 4, &#39;b&#39;: 3}
 </span></span></code></pre></div><p>a = 3은 assignment이기 때문에 새로운 객체를 생성하거나
 update한다. 그리고 symbol table에 등록한다. 따라서 Int 객체 3을
 생성하고 symbol table에 a:3을 등록한다. 그 다음, b = a를 수행
@@ -896,7 +932,7 @@ data type 객체라서 그렇다. 다른 예를 보자.</p>
 </span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
 </span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{&#39;a&#39;: 4, &#39;b&#39;: 3, &#39;__builtins__&#39;: &lt;module &#39;__builtin__&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__package__&#39;: None, &#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{&#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: None, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: None, &#39;__annotations__&#39;: {}, &#39;__builtins__&#39;: &lt;module &#39;builtins&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__cached__&#39;: None, &#39;a&#39;: 4, &#39;b&#39;: 3}
 </span></span></code></pre></div><p>이것은 일반적인 assignment를 수행한다. a = a + 1에서 rvalue를
 계산해보자. a가 참조하는 객체 3을 가지고 와서 객체 1과
 더한다. primitive 객체의 연산은 새로운 객체를 만들어낸다. 객체1에 있는
@@ -920,9 +956,9 @@ data type이고 immutable하기 때문에 객체와 객체의 덧셈은 새로�
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4389322904
-</span></span><span class="line"><span class="cl">4389322904
-</span></span><span class="line"><span class="cl">{&#39;a&#39;: [1, 2, 3, 4], &#39;b&#39;: [1, 2, 3, 4], &#39;__builtins__&#39;: &lt;module &#39;__builtin__&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__package__&#39;: None, &#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4380595008
+</span></span><span class="line"><span class="cl">4380595008
+</span></span><span class="line"><span class="cl">{&#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: None, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: None, &#39;__annotations__&#39;: {}, &#39;__builtins__&#39;: &lt;module &#39;builtins&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__cached__&#39;: None, &#39;a&#39;: [1, 2, 3, 4], &#39;b&#39;: [1, 2, 3, 4]}
 </span></span></code></pre></div><p>여기서 interpreter는 a = [1,2,3]에서 [1,2,3]이라는 객체를 생성하고
 a:[1,2,3]을 symbol table에 등록한다. 그 다음, b = a를 보고, a를
 symbol테이블에서 꺼낸 객체 [1,2,3]을 b와 함께 symbol table에
@@ -937,9 +973,9 @@ symbol테이블에서 꺼낸 객체 [1,2,3]을 b와 함께 symbol table에
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4353470616
-</span></span><span class="line"><span class="cl">4353626624
-</span></span><span class="line"><span class="cl">{&#39;a&#39;: [1, 2, 3, 4], &#39;b&#39;: [1, 2, 3], &#39;__builtins__&#39;: &lt;module &#39;__builtin__&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__package__&#39;: None, &#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4313600832
+</span></span><span class="line"><span class="cl">4314360576
+</span></span><span class="line"><span class="cl">{&#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: None, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: None, &#39;__annotations__&#39;: {}, &#39;__builtins__&#39;: &lt;module &#39;builtins&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__cached__&#39;: None, &#39;a&#39;: [1, 2, 3, 4], &#39;b&#39;: [1, 2, 3]}
 </span></span></code></pre></div><p>a = a + [4]에서 interpreter는 rvalue의 type에 해당하는 list 객체를
 새로 생성한다. 그리고 a +[4]를 계산하여 새로운 객체에 [1,2,3,4]를
 넣는다.</p>
@@ -1046,8 +1082,8 @@ id()로 본 주소는 동일한 값이다. value도 물론 동일하다. 이제 
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4361293976
-</span></span><span class="line"><span class="cl">4361364040
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4307620672
+</span></span><span class="line"><span class="cl">4307720192
 </span></span><span class="line"><span class="cl">True
 </span></span><span class="line"><span class="cl">False
 </span></span></code></pre></div><p>interpreter는 [1,2]라는 list객체를 생성하고 heap넣는다. heap이나
@@ -1340,7 +1376,7 @@ conversion이 가능하고, int는 float로 conversion이 가능하다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">123</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="nb">float</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&lt;type &#39;int&#39;&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&lt;class &#39;int&#39;&gt;
 </span></span><span class="line"><span class="cl">False
 </span></span></code></pre></div><p>123을 interpreter는 문자열을 읽고 cache에서 123이라는 Int객체를
 가져온다. 그리고 symbol table에 a:123을 기록한다. type(a)는
@@ -1359,9 +1395,5163 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
      graph_node_object = {
         
+     "label": "[emacs] straight usage",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_straight_usage\/",
+     "id": "emacs_straight_usage",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("emacs_straight_usage",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[ai] chatgpt and copilot",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/ai_chatgpt_and_copilot\/",
+     "id": "ai_chatgpt_and_copilot",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("ai_chatgpt_and_copilot",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[docker] getting started with docker",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/docker_getting_started_with_docker\/",
+     "id": "docker_getting_started_with_docker",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("docker_getting_started_with_docker",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[asdf] unified version management",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/asdf_unified_version_management\/",
+     "id": "asdf_unified_version_management",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("asdf_unified_version_management",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[rails7] install ruby on rails7",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/rails7_install_ruby_on_rails7\/",
+     "id": "rails7_install_ruby_on_rails7",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("rails7_install_ruby_on_rails7",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[emacs] perspective package",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_perspective_package\/",
+     "id": "emacs_perspective_package",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("emacs_perspective_package",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[flutter] Align widget",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/flutter_align_widget\/",
+     "id": "flutter_align_widget",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("flutter_align_widget",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[flutter] Container widget",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/flutter_container_widget\/",
+     "id": "flutter_container_widget",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("flutter_container_widget",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[procreator] make icon1",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/procreator_make_icon1\/",
+     "id": "procreator_make_icon1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("procreator_make_icon1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[flutter] Center widget",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/flutter_center_widget\/",
+     "id": "flutter_center_widget",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("flutter_center_widget",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[flutter] Text widget",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/flutter_text_widget\/",
+     "id": "flutter_text_widget",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("flutter_text_widget",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[flutter] flutter.dev1-get started (material app)",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/flutter_flutter_dev1\/",
+     "id": "flutter_flutter_dev1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("flutter_flutter_dev1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[flutter] flutter.dev2-User Interface-introduction-hello world",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/flutter_flutter_dev2_user_interface\/",
+     "id": "flutter_flutter_dev2_user_interface",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("flutter_flutter_dev2_user_interface",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[web] hosting(netlify and github pages) and heroku, firebase",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/web_hosting_netlify_and_github_pages\/",
+     "id": "web_hosting_netlify_and_github_pages",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("web_hosting_netlify_and_github_pages",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[idea] hand push pressure",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/idea_hand_push_pressure\/",
+     "id": "idea_hand_push_pressure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("idea_hand_push_pressure",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[lsp] how to use lsp",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/lsp_how_to_use_lsp\/",
+     "id": "lsp_how_to_use_lsp",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("lsp_how_to_use_lsp",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[idea] how to come out idea.",
      "url": "https:\/\/bd.frege2godel.me\/posts\/idea_how_to_come_out_idea\/",
      "id": "idea_how_to_come_out_idea",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -1923,6 +7113,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("flutter_flutter_ui_basics",JSON.stringify(graph_node_object)); 
@@ -1934,6 +7158,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[tistory] org export tistory",
      "url": "https:\/\/bd.frege2godel.me\/posts\/tistory_org_export_tistory\/",
      "id": "tistory_org_export_tistory",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -2495,6 +7753,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("audacity_change_playspeed_and_the_export",JSON.stringify(graph_node_object)); 
@@ -2506,6 +7798,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[electron] python use electron",
      "url": "https:\/\/bd.frege2godel.me\/posts\/electron_python_use_electron\/",
      "id": "electron_python_use_electron",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3067,6 +8393,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("dart_practice4_aync_programming",JSON.stringify(graph_node_object)); 
@@ -3078,6 +8438,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[dart] install dart and flutter on emacs",
      "url": "https:\/\/bd.frege2godel.me\/posts\/dart_install_dart_and_flutter_on_emacs\/",
      "id": "dart_install_dart_and_flutter_on_emacs",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -3639,6 +9033,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("dart_practice3_functional_language",JSON.stringify(graph_node_object)); 
@@ -3650,6 +9078,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[sop] nuisance",
      "url": "https:\/\/bd.frege2godel.me\/posts\/sop_nuisance\/",
      "id": "sop_nuisance",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -4211,6 +9673,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("dart_practice2_oop",JSON.stringify(graph_node_object)); 
@@ -4222,6 +9718,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[dart] practice1- basic",
      "url": "https:\/\/bd.frege2godel.me\/posts\/dart_practice1\/",
      "id": "dart_practice1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -4783,6 +10313,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("flutter_how_to_install_flutter_on_bigsur",JSON.stringify(graph_node_object)); 
@@ -4794,6 +10358,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[os] install from scratch1",
      "url": "https:\/\/bd.frege2godel.me\/posts\/os_install_from_scratch1\/",
      "id": "os_install_from_scratch1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -5355,6 +10953,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("dart_about_package",JSON.stringify(graph_node_object)); 
@@ -5366,6 +10998,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[dart] simple dart program analysis",
      "url": "https:\/\/bd.frege2godel.me\/posts\/dart_simple_dart_program_analysis\/",
      "id": "dart_simple_dart_program_analysis",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -5686,7 +11352,35 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
          
      
          
@@ -5695,6 +11389,12 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
               
+         
+     
+         
+              
+         
+     
          
      
          
@@ -5976,7 +11676,33 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
          
      
          
@@ -5986,7 +11712,15 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
               
+         
+     
+         
+              
+         
+     
          
      
          
@@ -6268,7 +12002,35 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
          
      
          
@@ -6276,9 +12038,15 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+              
+         
+     
+         
      
          
               
+         
+     
          
      
          
@@ -6562,11 +12330,45 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
          
      
          
               
+         
+     
          
      
          
@@ -6860,7 +12662,41 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -7106,6 +12942,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[org] how to use reveal",
      "url": "https:\/\/bd.frege2godel.me\/posts\/org_how_to_use_reveal\/",
      "id": "org_how_to_use_reveal",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -7667,6 +13537,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("web_kakao_map",JSON.stringify(graph_node_object)); 
@@ -7678,6 +13582,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[electron] about selecting directory in electron",
      "url": "https:\/\/bd.frege2godel.me\/posts\/electron_about_selecting_directory_in_electron\/",
      "id": "electron_about_selecting_directory_in_electron",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -8239,6 +14177,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_make_electron_app_3",JSON.stringify(graph_node_object)); 
@@ -8250,6 +14222,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[electron] make electron app-4",
      "url": "https:\/\/bd.frege2godel.me\/posts\/electron_make_electron_app_4\/",
      "id": "electron_make_electron_app_4",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -8811,6 +14817,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_make_electron_app_5",JSON.stringify(graph_node_object)); 
@@ -8822,6 +14862,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[css] css principles",
      "url": "https:\/\/bd.frege2godel.me\/posts\/css_css_principles\/",
      "id": "css_css_principles",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -9383,6 +15457,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("design_beginning_figma",JSON.stringify(graph_node_object)); 
@@ -9394,6 +15502,38 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[electron] basic principles",
      "url": "https:\/\/bd.frege2godel.me\/posts\/electron_basic_principles\/",
      "id": "electron_basic_principles",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -9671,6 +15811,8 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
      "backlinks": ["electron_drag_n_drop"]
    }
  sessionStorage.setItem("electron_basic_principles",JSON.stringify(graph_node_object)); 
@@ -9682,6 +15824,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[electron] drag n drop",
      "url": "https:\/\/bd.frege2godel.me\/posts\/electron_drag_n_drop\/",
      "id": "electron_drag_n_drop",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -10243,6 +16419,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_make_dmg_installer",JSON.stringify(graph_node_object)); 
@@ -10254,6 +16464,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[nodejs] crawling-naver webtoon-7",
      "url": "https:\/\/bd.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_7\/",
      "id": "nodejs_crawling_naver_webtoon_7",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -10815,6 +17059,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_8",JSON.stringify(graph_node_object)); 
@@ -10826,6 +17104,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[nodejs] crawling9",
      "url": "https:\/\/bd.frege2godel.me\/posts\/nodejs_crawling9\/",
      "id": "nodejs_crawling9",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -11387,6 +17699,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("machine_learning_day17_multiple_variable_regression",JSON.stringify(graph_node_object)); 
@@ -11398,6 +17744,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[machine learning] day18-logistic-regression",
      "url": "https:\/\/bd.frege2godel.me\/posts\/machine_learning_day18_logistic_regression\/",
      "id": "machine_learning_day18_logistic_regression",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -11959,6 +18339,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling_naver_webtoon_5",JSON.stringify(graph_node_object)); 
@@ -11970,6 +18384,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[nodejs] crawling-naver webtoon-6",
      "url": "https:\/\/bd.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_6\/",
      "id": "nodejs_crawling_naver_webtoon_6",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -12531,6 +18979,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("machine_learning_day16_one_variable_regression",JSON.stringify(graph_node_object)); 
@@ -12542,6 +19024,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[nodejs] crawling-naver webtoon-4",
      "url": "https:\/\/bd.frege2godel.me\/posts\/nodejs_crawling_naver_webtoon_4\/",
      "id": "nodejs_crawling_naver_webtoon_4",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -13103,6 +19619,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score3_sum_max_min",JSON.stringify(graph_node_object)); 
@@ -13114,6 +19664,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[sql] programmers sql high score4-group by",
      "url": "https:\/\/bd.frege2godel.me\/posts\/sql_programmers_sql_high_score4_group_by\/",
      "id": "sql_programmers_sql_high_score4_group_by",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -13675,6 +20259,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score5_is_null",JSON.stringify(graph_node_object)); 
@@ -13686,6 +20304,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[sql] programmers sql high score6-join",
      "url": "https:\/\/bd.frege2godel.me\/posts\/sql_programmers_sql_high_score6_join\/",
      "id": "sql_programmers_sql_high_score6_join",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -14247,6 +20899,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score7_string_date",JSON.stringify(graph_node_object)); 
@@ -14258,6 +20944,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[build_tools] about ninja",
      "url": "https:\/\/bd.frege2godel.me\/posts\/build_tools_about_ninja\/",
      "id": "build_tools_about_ninja",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -14819,6 +21539,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_about_org_roam",JSON.stringify(graph_node_object)); 
@@ -14830,6 +21584,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[emacs] misc and qna",
      "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_misc_and_qna\/",
      "id": "emacs_misc_and_qna",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -15391,6 +22179,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("mysql_restore_db_and_table",JSON.stringify(graph_node_object)); 
@@ -15402,6 +22224,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[nodejs] crawling2-session and cookies",
      "url": "https:\/\/bd.frege2godel.me\/posts\/nodejs_crawling2_session_and_cookies\/",
      "id": "nodejs_crawling2_session_and_cookies",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -15963,6 +22819,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling3_session_and_cookies2",JSON.stringify(graph_node_object)); 
@@ -15974,6 +22864,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[ruby] about ruby",
      "url": "https:\/\/bd.frege2godel.me\/posts\/ruby_about_ruby\/",
      "id": "ruby_about_ruby",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -16535,6 +23459,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("unity_about_unity_settings",JSON.stringify(graph_node_object)); 
@@ -16546,6 +23504,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[electron] about electron.js and swift other and language",
      "url": "https:\/\/bd.frege2godel.me\/posts\/electron_about_electron_js\/",
      "id": "electron_about_electron_js",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -17107,6 +24099,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("electron_make_electron_app_1",JSON.stringify(graph_node_object)); 
@@ -17118,6 +24144,38 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[electron] make electron app-2",
      "url": "https:\/\/bd.frege2godel.me\/posts\/electron_make_electron_app_2\/",
      "id": "electron_make_electron_app_2",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -17395,6 +24453,8 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
      "backlinks": ["electron_make_electron_app_3"]
    }
  sessionStorage.setItem("electron_make_electron_app_2",JSON.stringify(graph_node_object)); 
@@ -17406,6 +24466,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[emacs] screen capture",
      "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_screen_capture\/",
      "id": "emacs_screen_capture",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -17967,6 +25061,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("nodejs_crawling1",JSON.stringify(graph_node_object)); 
@@ -17978,6 +25106,38 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[python] web scraping with python-1",
      "url": "https:\/\/bd.frege2godel.me\/posts\/python_web_scraping_with_python_1\/",
      "id": "python_web_scraping_with_python_1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -18255,6 +25415,8 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
      "backlinks": ["nodejs_crawling1"]
    }
  sessionStorage.setItem("python_web_scraping_with_python_1",JSON.stringify(graph_node_object)); 
@@ -18266,6 +25428,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[rails] rails from scratch10-about mariadb",
      "url": "https:\/\/bd.frege2godel.me\/posts\/rails_rails_from_scratch10_about_mariadb\/",
      "id": "rails_rails_from_scratch10_about_mariadb",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -18827,6 +26023,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_database_sql_usage",JSON.stringify(graph_node_object)); 
@@ -18838,6 +26068,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[rails] rails from scratch8 aws rails settings",
      "url": "https:\/\/bd.frege2godel.me\/posts\/rails_rails_from_scratch8_aws_rails_settings\/",
      "id": "rails_rails_from_scratch8_aws_rails_settings",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -19399,6 +26663,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch8_before_local_settings",JSON.stringify(graph_node_object)); 
@@ -19410,6 +26708,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[rails] rails from scratch9 Emacs settings for ROR",
      "url": "https:\/\/bd.frege2godel.me\/posts\/rails_rails_from_scratch9_emacs_settings_for_ror\/",
      "id": "rails_rails_from_scratch9_emacs_settings_for_ror",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -19971,6 +27303,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sql_programmers_sql_high_score2",JSON.stringify(graph_node_object)); 
@@ -19982,6 +27348,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[nginx] about nginx",
      "url": "https:\/\/bd.frege2godel.me\/posts\/nginx_about_nginx\/",
      "id": "nginx_about_nginx",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -20543,6 +27943,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_frequently_used_functions",JSON.stringify(graph_node_object)); 
@@ -20554,6 +27988,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[rails] rails from scratch1-installment",
      "url": "https:\/\/bd.frege2godel.me\/posts\/rails_rails_from_scratch1_installment\/",
      "id": "rails_rails_from_scratch1_installment",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -21115,6 +28583,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch2_installment",JSON.stringify(graph_node_object)); 
@@ -21126,6 +28628,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[rails] rails from scratch3-routes",
      "url": "https:\/\/bd.frege2godel.me\/posts\/rails_rails_from_scratch3_routes\/",
      "id": "rails_rails_from_scratch3_routes",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -21687,6 +29223,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch5_model",JSON.stringify(graph_node_object)); 
@@ -21698,6 +29268,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[rails] rails from scratch6-view",
      "url": "https:\/\/bd.frege2godel.me\/posts\/rails_rails_from_scratch6_view\/",
      "id": "rails_rails_from_scratch6_view",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -22259,6 +29863,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch7_practice1",JSON.stringify(graph_node_object)); 
@@ -22270,6 +29908,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[matter.js] tutorial",
      "url": "https:\/\/bd.frege2godel.me\/posts\/matter_js_tutorial\/",
      "id": "matter_js_tutorial",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -22704,7 +30376,41 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -22844,6 +30550,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[git] git drill1 repo and commit",
      "url": "https:\/\/bd.frege2godel.me\/posts\/git_git_drill1_repo_and_commit\/",
      "id": "git_git_drill1_repo_and_commit",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -23282,7 +31022,41 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -23418,6 +31192,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[sql] programmers sql high score1",
      "url": "https:\/\/bd.frege2godel.me\/posts\/sql_programmers_sql_high_score\/",
      "id": "sql_programmers_sql_high_score",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -23856,86 +31664,6 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
@@ -23969,6 +31697,120 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
               
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
+         
+     
          
      
          
@@ -23994,6 +31836,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[emacs] presentation tools",
      "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_presentation_tools\/",
      "id": "emacs_presentation_tools",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -24555,6 +32431,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("emacs_tex_install_and_usage",JSON.stringify(graph_node_object)); 
@@ -24566,6 +32476,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[emacs] mu4e settings",
      "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_mu4e_settings\/",
      "id": "emacs_mu4e_settings",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -25127,6 +33071,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("test_testing",JSON.stringify(graph_node_object)); 
@@ -25138,6 +33116,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[essay] computer working principles",
      "url": "https:\/\/bd.frege2godel.me\/posts\/essay_computer_working_principles\/",
      "id": "essay_computer_working_principles",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -25596,7 +33608,41 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -25712,6 +33758,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[python] grammar in one shot",
      "url": "https:\/\/bd.frege2godel.me\/posts\/python_grammar_in_one_shot\/",
      "id": "python_grammar_in_one_shot",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -26273,6 +34353,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("algorithm_thinking_about_algorithms",JSON.stringify(graph_node_object)); 
@@ -26284,6 +34398,38 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[leetcode] 1672 Richest Customer Wealth",
      "url": "https:\/\/bd.frege2godel.me\/posts\/leetcode_1672_richest_customer_wealth\/",
      "id": "leetcode_1672_richest_customer_wealth",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -26561,6 +34707,8 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
      "backlinks": ["leetcode_beginning"]
    }
  sessionStorage.setItem("leetcode_1672_richest_customer_wealth",JSON.stringify(graph_node_object)); 
@@ -26572,6 +34720,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "python_summary6 function",
      "url": "https:\/\/bd.frege2godel.me\/posts\/python_summary6_function\/",
      "id": "python_summary6_function",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -27133,6 +35315,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary7_big_data_and_python",JSON.stringify(graph_node_object)); 
@@ -27328,7 +35544,41 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -27464,7 +35714,41 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -27904,7 +36188,41 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -28008,6 +36326,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[emacs] org to ipython notebook",
      "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_org_to_ipython_notebook\/",
      "id": "emacs_org_to_ipython_notebook",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -28569,6 +36921,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_courses_intro_arithmetic_and_variable",JSON.stringify(graph_node_object)); 
@@ -28580,6 +36966,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[kaggle-courses-python] hello python",
      "url": "https:\/\/bd.frege2godel.me\/posts\/kaggle_courses_python_hello_python\/",
      "id": "kaggle_courses_python_hello_python",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -29141,6 +37561,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("kaggle_beginning",JSON.stringify(graph_node_object)); 
@@ -29152,6 +37606,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[leetcode] beginning",
      "url": "https:\/\/bd.frege2godel.me\/posts\/leetcode_beginning\/",
      "id": "leetcode_beginning",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -29634,7 +38122,41 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -29726,6 +38248,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[linear algebra-1] linear algebra introduction",
      "url": "https:\/\/bd.frege2godel.me\/posts\/linear_algebra_1_linear_algebra_introduction\/",
      "id": "linear_algebra_1_linear_algebra_introduction",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -30287,6 +38843,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra_2_linear_independence",JSON.stringify(graph_node_object)); 
@@ -30298,6 +38888,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "python_summary3 about class",
      "url": "https:\/\/bd.frege2godel.me\/posts\/python_summary3_about_class\/",
      "id": "python_summary3_about_class",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -30859,6 +39483,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary5_loop",JSON.stringify(graph_node_object)); 
@@ -30870,6 +39528,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "python_summary0-About Python",
      "url": "https:\/\/bd.frege2godel.me\/posts\/python_summary0_about_python\/",
      "id": "python_summary0_about_python",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -31431,6 +40123,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("sop_idea1",JSON.stringify(graph_node_object)); 
@@ -31442,6 +40168,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[emacs] org-babel -python",
      "url": "https:\/\/bd.frege2godel.me\/posts\/emacs_org_babel_python\/",
      "id": "emacs_org_babel_python",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -31936,7 +40696,41 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -32224,6 +41018,38 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
          
      
@@ -32241,6 +41067,8 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
               
+         
+     
          
      
          
@@ -32514,7 +41342,41 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -32594,6 +41456,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "hugo korean encoding problem",
      "url": "https:\/\/bd.frege2godel.me\/posts\/hugo_korean_encoding_problem\/",
      "id": "hugo_korean_encoding_problem",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -33155,6 +42051,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary1",JSON.stringify(graph_node_object)); 
@@ -33166,6 +42096,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "test_page1",
      "url": "https:\/\/bd.frege2godel.me\/posts\/test_page1\/",
      "id": "test_page1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -33640,6 +42604,38 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
          
      
@@ -33663,6 +42659,8 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
               
+         
+     
          
      
          
@@ -33742,6 +42740,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "daily영어(1)-don\u0027t pet my puppy",
      "url": "https:\/\/bd.frege2godel.me\/posts\/english1\/",
      "id": "english1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -34260,7 +43292,41 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -34546,7 +43612,41 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
               
+         
+     
          
      
          
@@ -34604,6 +43704,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "lecture10-String",
      "url": "https:\/\/bd.frege2godel.me\/posts\/lecture10-string\/",
      "id": "lecture10-String",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -35165,6 +44299,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture11-IO",JSON.stringify(graph_node_object)); 
@@ -35176,6 +44344,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "lecture12-setting-exception-logging",
      "url": "https:\/\/bd.frege2godel.me\/posts\/lecture12-setting-exception-logging\/",
      "id": "lecture12-setting-exception-logging",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -35737,6 +44939,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture13-web",JSON.stringify(graph_node_object)); 
@@ -35748,6 +44984,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "lecture3 data structures",
      "url": "https:\/\/bd.frege2godel.me\/posts\/lecture3_data-structure\/",
      "id": "lecture3_data-structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -36309,6 +45579,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture4_condition-and-loop",JSON.stringify(graph_node_object)); 
@@ -36320,6 +45624,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "lecture5_function",
      "url": "https:\/\/bd.frege2godel.me\/posts\/lecture5_function\/",
      "id": "lecture5_function",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -36881,6 +46219,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture6-Pythonic-Programming",JSON.stringify(graph_node_object)); 
@@ -36892,6 +46264,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "lecture7_Object-Oriented-Programming",
      "url": "https:\/\/bd.frege2godel.me\/posts\/lecture7_object-oriented-programming\/",
      "id": "lecture7_Object-Oriented-Programming",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -37453,6 +46859,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("lecture8-module-and-package",JSON.stringify(graph_node_object)); 
@@ -37464,6 +46904,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "lecture9-Advanced-Data-Structure",
      "url": "https:\/\/bd.frege2godel.me\/posts\/lecture9-advanced-data-structure\/",
      "id": "lecture9-Advanced-Data-Structure",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -38025,6 +47499,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("webcrawler1",JSON.stringify(graph_node_object)); 
@@ -38036,6 +47544,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "lecture2_variable_and_operator",
      "url": "https:\/\/bd.frege2godel.me\/posts\/lecture2_variable_and_operator\/",
      "id": "lecture2_variable_and_operator",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -38597,6 +48139,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("linear_algebra1",JSON.stringify(graph_node_object)); 
@@ -38883,6 +48459,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("elisp_korean_lorel_ipsum",JSON.stringify(graph_node_object)); 
@@ -38891,9 +48501,363 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
      graph_node_object = {
         
+     "label": "[flutter] IconButton widget",
+     "url": "https:\/\/bd.frege2godel.me\/posts\/flutter_iconbutton_widget\/",
+     "id": "flutter_iconbutton_widget",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("flutter_iconbutton_widget",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
      "label": "[python] grammar in one shot - standard library (Text)",
      "url": "https:\/\/bd.frege2godel.me\/posts\/python_grammar_in_one_shot_standard_library_text\/",
      "id": "python_grammar_in_one_shot_standard_library_text",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -39455,6 +49419,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("rails_rails_from_scratch4_controller",JSON.stringify(graph_node_object)); 
@@ -39466,6 +49464,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "[small_project] face recognition",
      "url": "https:\/\/bd.frege2godel.me\/posts\/small_project_face_recognition\/",
      "id": "small_project_face_recognition",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -40027,6 +50059,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("website_making_portfolio_page",JSON.stringify(graph_node_object)); 
@@ -40313,6 +50379,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
      "backlinks": []
    }
  sessionStorage.setItem("python_summary4_data_structures",JSON.stringify(graph_node_object)); 
@@ -40324,6 +50424,40 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "label": "python_summary8 string",
      "url": "https:\/\/bd.frege2godel.me\/posts\/python_summary8_string\/",
      "id": "python_summary8_string",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
