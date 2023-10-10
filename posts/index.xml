@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Wed, 04 Oct 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://bd.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Oct 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://bd.frege2godel.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[test] domain test</title>
+      <link>https://bd.frege2godel.me/posts/test_domain_test/</link>
+      <pubDate>Tue, 10 Oct 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/test_domain_test/</guid>
+      <description>domain test Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere. Donec vitae dolor. Nullam tristique diam non turpis. Cras placerat accumsan nulla. Nullam rutrum. Nam vestibulum accumsan nisl.</description>
+    </item>
+    
     <item>
       <title>[emacs] straight usage</title>
       <link>https://bd.frege2godel.me/posts/emacs_straight_usage/</link>
@@ -1345,7 +1354,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://bd.frege2godel.me/posts/python_grammar_in_one_shot_standard_library_text/</guid>
-      <description>String import sys print(sys.version_info) sys.version_info(major=3, minor=11, micro=4, releaselevel=&amp;#39;final&amp;#39;, serial=0) textwrap regular expression difflib </description>
+      <description>String import sys print(sys.version_info) sys.version_info(major=3, minor=11, micro=5, releaselevel=&amp;#39;final&amp;#39;, serial=0) textwrap regular expression difflib </description>
     </item>
     
     <item>
