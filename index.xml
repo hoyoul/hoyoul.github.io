@@ -8,6 +8,24 @@
     <language>ko</language>
     <lastBuildDate>Wed, 03 May 2023 03:58:02 +0900</lastBuildDate><atom:link href="https://bd.frege2godel.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[github] multiple account and cooperate team</title>
+      <link>https://bd.frege2godel.me/posts/github_multiple_account_and_cooperate_team/</link>
+      <pubDate>Wed, 11 Oct 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/github_multiple_account_and_cooperate_team/</guid>
+      <description>계요 나는 지금 whitebrew 개발팀에 합류했고, github으로 협업하게 되었다. 팀에서는 협업을 위해서 내 github email주소를 요청했다. 그리고 team에서는 내 em</description>
+    </item>
+    
+    <item>
+      <title>[rails7] install ruby on rails7</title>
+      <link>https://bd.frege2godel.me/posts/rails7_install_ruby_on_rails7/</link>
+      <pubDate>Tue, 10 Oct 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://bd.frege2godel.me/posts/rails7_install_ruby_on_rails7/</guid>
+      <description>gorails로 설치 GoRails 에 보면 설치 과정이 쉽게 나와 있다. 이대로 따르면 된다. 내 computer는 m1 mac이고, os는 ventura를 사용한다. ruby 설</description>
+    </item>
+    
+    <item>
       <title>[test] domain test</title>
       <link>https://bd.frege2godel.me/posts/test_domain_test/</link>
       <pubDate>Tue, 10 Oct 2023 00:00:00 +0900</pubDate>
@@ -50,15 +68,6 @@
       
       <guid>https://bd.frege2godel.me/posts/asdf_unified_version_management/</guid>
       <description>asdf asdf는 version manager다. 여러 programming 언어는 제 각기 version manager를 가지고 있다. node는 nvm, ruby는 rvm, rbenv, python은 pyenv, conda 등등, 각 언어들은</description>
-    </item>
-    
-    <item>
-      <title>[rails7] install ruby on rails7</title>
-      <link>https://bd.frege2godel.me/posts/rails7_install_ruby_on_rails7/</link>
-      <pubDate>Fri, 22 Sep 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://bd.frege2godel.me/posts/rails7_install_ruby_on_rails7/</guid>
-      <description>gorails로 설치 GoRails 에 보면 설치 과정이 쉽게 나와 있다. 이대로 따르면 된다. ruby 설치 asdf 설치 참고 , asdf는 node.js와 ruby의 version관</description>
     </item>
     
     <item>

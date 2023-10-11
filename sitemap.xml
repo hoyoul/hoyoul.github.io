@@ -2,10 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://bd.frege2godel.me/posts/test_domain_test/</loc>
-    <lastmod>2023-10-10T00:00:00+09:00</lastmod>
+    <loc>https://bd.frege2godel.me/posts/github_multiple_account_and_cooperate_team/</loc>
+    <lastmod>2023-10-11T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://bd.frege2godel.me/posts/</loc>
+    <lastmod>2023-10-11T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/rails7_install_ruby_on_rails7/</loc>
+    <lastmod>2023-10-10T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://bd.frege2godel.me/posts/test_domain_test/</loc>
     <lastmod>2023-10-10T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://bd.frege2godel.me/posts/emacs_straight_usage/</loc>
@@ -18,9 +24,6 @@
     <lastmod>2023-09-27T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://bd.frege2godel.me/posts/asdf_unified_version_management/</loc>
-    <lastmod>2023-09-22T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://bd.frege2godel.me/posts/rails7_install_ruby_on_rails7/</loc>
     <lastmod>2023-09-22T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://bd.frege2godel.me/posts/emacs_perspective_package/</loc>
