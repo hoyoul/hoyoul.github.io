@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://braindump.frege2turing.me/posts/k_holdem_flutter_dealt_with_oauth2_0/</loc>
+    <lastmod>2023-10-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2turing.me/posts/</loc>
+    <lastmod>2023-10-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2turing.me/posts/cloud_gcp_google_cloud_platform/</loc>
+    <lastmod>2023-10-17T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2turing.me/posts/oauth_google_login_using_flutter_practice/</loc>
+    <lastmod>2023-10-17T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2turing.me/posts/oauth_google_login/</loc>
+    <lastmod>2023-10-17T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://braindump.frege2turing.me/posts/flutter_ios_simulator_add/</loc>
     <lastmod>2023-10-16T00:00:00+09:00</lastmod>
   </url><url>
@@ -9,9 +24,6 @@
     <lastmod>2023-10-16T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2turing.me/posts/k_holdem_rails_analysis_source/</loc>
-    <lastmod>2023-10-16T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://braindump.frege2turing.me/posts/</loc>
     <lastmod>2023-10-16T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2turing.me/posts/pl_about_frameworks/</loc>

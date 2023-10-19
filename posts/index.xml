@@ -6,7 +6,43 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Mon, 16 Oct 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2turing.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Oct 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2turing.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[k-holdem-flutter] dealt with oauth2.0</title>
+      <link>https://braindump.frege2turing.me/posts/k_holdem_flutter_dealt_with_oauth2_0/</link>
+      <pubDate>Wed, 18 Oct 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/k_holdem_flutter_dealt_with_oauth2_0/</guid>
+      <description>개요 - Oauth(Open Authorization)를 사용하는 이유 보통 app에선 회원가입을 하고 인증처리를 한다. 그런데,우리 app에선 google login을 통해서 인증</description>
+    </item>
+    
+    <item>
+      <title>[cloud] GCP(Google Cloud Platform)</title>
+      <link>https://braindump.frege2turing.me/posts/cloud_gcp_google_cloud_platform/</link>
+      <pubDate>Tue, 17 Oct 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/cloud_gcp_google_cloud_platform/</guid>
+      <description>Google Cloud Platform이란 google에서 제공하는 cloud storage와 api를 제공하는 platform이다. Amazon처럼 가상 머신을 만들수 있다</description>
+    </item>
+    
+    <item>
+      <title>[oauth] google login using flutter-practice</title>
+      <link>https://braindump.frege2turing.me/posts/oauth_google_login_using_flutter_practice/</link>
+      <pubDate>Tue, 17 Oct 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/oauth_google_login_using_flutter_practice/</guid>
+      <description>flutter project만들기 shell에서 flutter package(project)를 만든다. flutter create란 명령어를 사용한다. package명은 모두 소문</description>
+    </item>
+    
+    <item>
+      <title>[oauth] google login using oauth2.0-principles</title>
+      <link>https://braindump.frege2turing.me/posts/oauth_google_login/</link>
+      <pubDate>Tue, 17 Oct 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/oauth_google_login/</guid>
+      <description>OAuth(Open Authorization)란? OAuth는 인증 프로토콜로 알려져 있다. 내 생각엔 OAuth는 인증(Authentification)보다는 r</description>
+    </item>
+    
     <item>
       <title>[flutter] ios simulator add</title>
       <link>https://braindump.frege2turing.me/posts/flutter_ios_simulator_add/</link>
@@ -94,7 +130,7 @@
       <pubDate>Wed, 11 Oct 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/github_multiple_account_and_cooperate_team/</guid>
-      <description>계요 나는 지금 whitebrew 개발팀에 합류했고, github으로 협업하게 되었다. 팀에서는 협업을 위해서 내 github email주소를 요청했다. 그리고 team에서는 내 em</description>
+      <description>개요 나는 지금 whitebrew 개발팀에 합류했고, github으로 협업하게 되었다. 팀에서는 협업을 위해서 내 github email주소를 요청했다. 그리고 team에서는 내 em</description>
     </item>
     
     <item>
@@ -1066,7 +1102,7 @@
       <pubDate>Fri, 16 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/github_multi_account_github_problem/</guid>
-      <description>multiple github account사용에 대한 알아야 할것들 github clone 방식 clone은 3가지의 방식이 있다. http,ssh,cli가 있는데, 여기서는 multi-acc</description>
+      <description>github 연결 방식 local computer에서 github에 연결하는 방식은 크게 3가지가 있다. http, ssh, github cli다. local에서 github을 사용한다는 것은 인증</description>
     </item>
     
     <item>
