@@ -18,6 +18,15 @@
     
     <item>
       <title>[cloud] GCP(Google Cloud Platform)</title>
+      <link>https://braindump.frege2turing.me/posts/cloud_gcp_google_cloud_platform-3/</link>
+      <pubDate>Tue, 17 Oct 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/cloud_gcp_google_cloud_platform-3/</guid>
+      <description>Google Cloud Platform이란 google에서 제공하는 cloud storage와 api를 제공하는 platform이다. Amazon처럼 가상 머신을 만들수 있다</description>
+    </item>
+    
+    <item>
+      <title>[cloud] GCP(Google Cloud Platform)</title>
       <link>https://braindump.frege2turing.me/posts/cloud_gcp_google_cloud_platform/</link>
       <pubDate>Tue, 17 Oct 2023 00:00:00 +0900</pubDate>
       
@@ -54,10 +63,28 @@
     
     <item>
       <title>[k-holdem-flutter] analysis source-install</title>
+      <link>https://braindump.frege2turing.me/posts/k_holdem_flutter_analysis_source_install-2/</link>
+      <pubDate>Mon, 16 Oct 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/k_holdem_flutter_analysis_source_install-2/</guid>
+      <description>개요 k-holdem을 처음 설치하고 local에서 실행하는 것까지 다룬다. 대충 rough하게 정리한 note지만, 나중에 다시 정리할것이다. 여튼 처음</description>
+    </item>
+    
+    <item>
+      <title>[k-holdem-flutter] analysis source-install</title>
       <link>https://braindump.frege2turing.me/posts/k_holdem_flutter_analysis_source_install/</link>
       <pubDate>Mon, 16 Oct 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/k_holdem_flutter_analysis_source_install/</guid>
+      <description>개요 k-holdem을 처음 설치하고 local에서 실행하는 것까지 다룬다. 대충 rough하게 정리한 note지만, 나중에 다시 정리할것이다. 여튼 처음</description>
+    </item>
+    
+    <item>
+      <title>[k-holdem-rails] local server</title>
+      <link>https://braindump.frege2turing.me/posts/k_holdem_rails_analysis_source-2/</link>
+      <pubDate>Mon, 16 Oct 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/k_holdem_rails_analysis_source-2/</guid>
       <description>개요 k-holdem을 처음 설치하고 local에서 실행하는 것까지 다룬다. 대충 rough하게 정리한 note지만, 나중에 다시 정리할것이다. 여튼 처음</description>
     </item>
     
@@ -126,6 +153,15 @@
     
     <item>
       <title>[github] multiple account and cooperate team</title>
+      <link>https://braindump.frege2turing.me/posts/github_multiple_account_and_cooperate_team-2/</link>
+      <pubDate>Wed, 11 Oct 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/github_multiple_account_and_cooperate_team-2/</guid>
+      <description>개요 나는 지금 whitebrew 개발팀에 합류했고, github으로 협업하게 되었다. 팀에서는 협업을 위해서 내 github email주소를 요청했다. 그리고 team에서는 내 em</description>
+    </item>
+    
+    <item>
+      <title>[github] multiple account and cooperate team</title>
       <link>https://braindump.frege2turing.me/posts/github_multiple_account_and_cooperate_team/</link>
       <pubDate>Wed, 11 Oct 2023 00:00:00 +0900</pubDate>
       
@@ -162,11 +198,29 @@
     
     <item>
       <title>[ai] chatgpt and copilot</title>
+      <link>https://braindump.frege2turing.me/posts/ai_chatgpt_and_copilot-2/</link>
+      <pubDate>Tue, 03 Oct 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/ai_chatgpt_and_copilot-2/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>[ai] chatgpt and copilot</title>
       <link>https://braindump.frege2turing.me/posts/ai_chatgpt_and_copilot/</link>
       <pubDate>Tue, 03 Oct 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/ai_chatgpt_and_copilot/</guid>
       <description> </description>
+    </item>
+    
+    <item>
+      <title>[docker] getting started with docker</title>
+      <link>https://braindump.frege2turing.me/posts/docker_getting_started_with_docker-2/</link>
+      <pubDate>Wed, 27 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/docker_getting_started_with_docker-2/</guid>
+      <description>Docker의 idea와 필요성 docker는 배포와 설치문제의 어려움을 해결해준다. 우리가 어떤 java 프로그램을 만들었다고 하자. java program은 여러</description>
     </item>
     
     <item>
@@ -180,11 +234,29 @@
     
     <item>
       <title>[asdf] unified version management</title>
+      <link>https://braindump.frege2turing.me/posts/asdf_unified_version_management-2/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/asdf_unified_version_management-2/</guid>
+      <description>asdf asdf는 version manager다. 여러 programming 언어는 제 각기 version manager를 가지고 있다. node는 nvm, ruby는 rvm, rbenv, python은 pyenv, conda 등등, 각 언어들은</description>
+    </item>
+    
+    <item>
+      <title>[asdf] unified version management</title>
       <link>https://braindump.frege2turing.me/posts/asdf_unified_version_management/</link>
       <pubDate>Fri, 22 Sep 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/asdf_unified_version_management/</guid>
       <description>asdf asdf는 version manager다. 여러 programming 언어는 제 각기 version manager를 가지고 있다. node는 nvm, ruby는 rvm, rbenv, python은 pyenv, conda 등등, 각 언어들은</description>
+    </item>
+    
+    <item>
+      <title>[emacs] perspective package</title>
+      <link>https://braindump.frege2turing.me/posts/emacs_perspective_package-3/</link>
+      <pubDate>Wed, 20 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/emacs_perspective_package-3/</guid>
+      <description>perspective package perspective는 workspace의 다른말이다. emacs에서 여러개의 workspace를 사용하게 해준다. 이것은 Mac에서의 sp</description>
     </item>
     
     <item>
@@ -198,11 +270,29 @@
     
     <item>
       <title>[flutter] Align widget</title>
+      <link>https://braindump.frege2turing.me/posts/flutter_align_widget-3/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/flutter_align_widget-3/</guid>
+      <description>Align widget에 대해서 내가 느낀 align widget은 그냥 좌표계이다. 좌표계를 widget화 한 것이다. 좌표가 사용되는 이유는 child를 배치하기 위함이</description>
+    </item>
+    
+    <item>
+      <title>[flutter] Align widget</title>
       <link>https://braindump.frege2turing.me/posts/flutter_align_widget/</link>
       <pubDate>Mon, 18 Sep 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/flutter_align_widget/</guid>
       <description>Align widget에 대해서 내가 느낀 align widget은 그냥 좌표계이다. 좌표계를 widget화 한 것이다. 좌표가 사용되는 이유는 child를 배치하기 위함이</description>
+    </item>
+    
+    <item>
+      <title>[flutter] Container widget</title>
+      <link>https://braindump.frege2turing.me/posts/flutter_container_widget-3/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/flutter_container_widget-3/</guid>
+      <description>container widget에 관해 container widget은 Align처럼 좌표계만 가지고 있거나, 가짜 영역을 만들지 않는다. container는 실제 자신만의 영역이 있다.</description>
     </item>
     
     <item>
@@ -270,6 +360,15 @@
     
     <item>
       <title>[idea] hand push pressure</title>
+      <link>https://braindump.frege2turing.me/posts/idea_hand_push_pressure-2/</link>
+      <pubDate>Sun, 10 Sep 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/idea_hand_push_pressure-2/</guid>
+      <description>선풍기의 속도 조절을 손의 압력으로 컨트롤 할 수 없을까? 손의 압력은 사람마다 다르다. 가장 세게 누를 때와 잡고 있을때를 기준으로 threshold값을 정한다.</description>
+    </item>
+    
+    <item>
+      <title>[idea] hand push pressure</title>
       <link>https://braindump.frege2turing.me/posts/idea_hand_push_pressure/</link>
       <pubDate>Sun, 10 Sep 2023 00:00:00 +0900</pubDate>
       
@@ -315,11 +414,29 @@
     
     <item>
       <title>[audacity] change playspeed and the export</title>
+      <link>https://braindump.frege2turing.me/posts/audacity_change_playspeed_and_the_export-3/</link>
+      <pubDate>Wed, 30 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/audacity_change_playspeed_and_the_export-3/</guid>
+      <description>[step1] 영역 설정 Figure 1: 영역설정 [step2] 속도 조절 Figure 2: 속도 조절1 Figure 3: 속도 조절2</description>
+    </item>
+    
+    <item>
+      <title>[audacity] change playspeed and the export</title>
       <link>https://braindump.frege2turing.me/posts/audacity_change_playspeed_and_the_export/</link>
       <pubDate>Wed, 30 Aug 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/audacity_change_playspeed_and_the_export/</guid>
       <description>[step1] 영역 설정 Figure 1: 영역설정 [step2] 속도 조절 Figure 2: 속도 조절1 Figure 3: 속도 조절2</description>
+    </item>
+    
+    <item>
+      <title>[electron] python use electron</title>
+      <link>https://braindump.frege2turing.me/posts/electron_python_use_electron-3/</link>
+      <pubDate>Tue, 29 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/electron_python_use_electron-3/</guid>
+      <description>electron project를 만들자. nvm use v18.0.0 git clone https://github.com/electron/electron-quick-start cd electron-quick-start npm install npm start npm install python-shell</description>
     </item>
     
     <item>
@@ -333,6 +450,15 @@
     
     <item>
       <title>[dart] practice4- async programming</title>
+      <link>https://braindump.frege2turing.me/posts/dart_practice4_aync_programming-3/</link>
+      <pubDate>Sun, 27 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/dart_practice4_aync_programming-3/</guid>
+      <description>동기와 비동기 동기 순차적으로 코드가 실행되면, 동기화 program이라고 한다. 동기화 program은 하나의 코드 instruction이 실행이 끝난</description>
+    </item>
+    
+    <item>
+      <title>[dart] practice4- async programming</title>
       <link>https://braindump.frege2turing.me/posts/dart_practice4_aync_programming/</link>
       <pubDate>Sun, 27 Aug 2023 00:00:00 +0900</pubDate>
       
@@ -342,11 +468,29 @@
     
     <item>
       <title>[dart] install dart and flutter on emacs</title>
+      <link>https://braindump.frege2turing.me/posts/dart_install_dart_and_flutter_on_emacs-3/</link>
+      <pubDate>Sat, 26 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/dart_install_dart_and_flutter_on_emacs-3/</guid>
+      <description>a:PROPERTIES: :ID: 31E225F4-4071-4D4D-8302-021C91903B49 :mtime: 20231013085829 20231012194828 20231012101822 20230827100518 20230827090224 20230827020035 20230826222824 :ctime: 20230826222824 :END: dart lsp install dart sdk local system에 dart sdk를 설치한다. brew install dart-sdk emacs 설정 dart-mode를 설정한다. flutter를 위해 ho</description>
+    </item>
+    
+    <item>
+      <title>[dart] install dart and flutter on emacs</title>
       <link>https://braindump.frege2turing.me/posts/dart_install_dart_and_flutter_on_emacs/</link>
       <pubDate>Sat, 26 Aug 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/dart_install_dart_and_flutter_on_emacs/</guid>
       <description>a:PROPERTIES: :ID: 31E225F4-4071-4D4D-8302-021C91903B49 :mtime: 20231013085829 20231012194828 20231012101822 20230827100518 20230827090224 20230827020035 20230826222824 :ctime: 20230826222824 :END: dart lsp install dart sdk local system에 dart sdk를 설치한다. brew install dart-sdk emacs 설정 dart-mode를 설정한다. flutter를 위해 ho</description>
+    </item>
+    
+    <item>
+      <title>[dart] practice3 functional language</title>
+      <link>https://braindump.frege2turing.me/posts/dart_practice3_functional_language-2/</link>
+      <pubDate>Sat, 26 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/dart_practice3_functional_language-2/</guid>
+      <description>[1-type casting] List -&amp;gt; Map List를 Map으로 변환(asMap 사용) key는 0,1,2가 붙는다. Map은 {}로 표현된다. void main(){ List&amp;lt;String&amp;gt; black = [&amp;#39;a&amp;#39;,&amp;#39;b&amp;#39;,&amp;#39;c&amp;#39;]; print(black.asMap()); } [2-type casting] List -&amp;gt; Set set으로</description>
     </item>
     
     <item>
@@ -365,6 +509,15 @@
       
       <guid>https://braindump.frege2turing.me/posts/sop_nuisance/</guid>
       <description>context context에 따라, 즉 환경이나 이전 상황에 따라서 object의 기능이 변화하듯이, 예를 들면, 칼이 밤에 요리사, 도둑, 어떤 상황에 따라 객체의 의미가</description>
+    </item>
+    
+    <item>
+      <title>[dart] practice2 - oop</title>
+      <link>https://braindump.frege2turing.me/posts/dart_practice2_oop-3/</link>
+      <pubDate>Fri, 25 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/dart_practice2_oop-3/</guid>
+      <description>[1-class] class만들고 instance의 member 변수,함수 출력하기 void main(){ Idol black = Idol(); print(black.name); print(black.members); black.sayHello(); black.introduce(); } class Idol { String name = &amp;#34;blackpink&amp;#34;; List&amp;lt;String&amp;gt; members = [ &amp;#39;harry&amp;#39;,&amp;#39;john&amp;#39;,&amp;#39;paul&amp;#39;]; void sayHello(){ print(&amp;#34;hi blackpink&amp;#34;); } void introduce(){ print(&amp;#34;저</description>
     </item>
     
     <item>
@@ -405,11 +558,29 @@
     
     <item>
       <title>[dart] about package</title>
+      <link>https://braindump.frege2turing.me/posts/dart_about_package-3/</link>
+      <pubDate>Fri, 18 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/dart_about_package-3/</guid>
+      <description>package program을 만들면 배포를 해야 한다. 이 배포란 것이 택배 시스템보단 온라인 쇼핑몰과 더 비슷하다. 갑자기 택배시스템이냐고? 누군가가 택배시스템으로 비</description>
+    </item>
+    
+    <item>
+      <title>[dart] about package</title>
       <link>https://braindump.frege2turing.me/posts/dart_about_package/</link>
       <pubDate>Fri, 18 Aug 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/dart_about_package/</guid>
       <description>package program을 만들면 배포를 해야 한다. 이 배포란 것이 택배 시스템보단 온라인 쇼핑몰과 더 비슷하다. 갑자기 택배시스템이냐고? 누군가가 택배시스템으로 비</description>
+    </item>
+    
+    <item>
+      <title>[dart] simple dart program analysis</title>
+      <link>https://braindump.frege2turing.me/posts/dart_simple_dart_program_analysis-2/</link>
+      <pubDate>Fri, 18 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/dart_simple_dart_program_analysis-2/</guid>
+      <description>dart program의 예 import &amp;#39;dart:math&amp;#39;; import &amp;#39;package:flutter/material.dart&amp;#39;; void main() { runApp(const MyApp()); } class MyApp extends StatelessWidget { const MyApp({Key? key}) : super(key: key); @override Widget build(BuildContext context) { return MaterialApp( home: Scaffold( appBar: AppBar( title: const Text(&amp;#39;Rebuild only when necessary&amp;#39;), ), body: const Align( alignment: Alignment.topCenter, child: Column( mainAxisSize: MainAxisSize.min, children: [ SizedBox(height: 16), SizedBox( width: 300, child: Text(&amp;#39;Flutter\&amp;#39;s algorithms for rebuilding</description>
     </item>
     
     <item>
@@ -495,11 +666,29 @@
     
     <item>
       <title>[electron] make electron app-3</title>
+      <link>https://braindump.frege2turing.me/posts/electron_make_electron_app_3-3/</link>
+      <pubDate>Sun, 13 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/electron_make_electron_app_3-3/</guid>
+      <description>renderer에서 crawling 기능 추가 renderer에서 crawling하기 위해서, crawling하는 코드를 가져온다. crawl.js naver webtoon을 다운받</description>
+    </item>
+    
+    <item>
+      <title>[electron] make electron app-3</title>
       <link>https://braindump.frege2turing.me/posts/electron_make_electron_app_3/</link>
       <pubDate>Sun, 13 Aug 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/electron_make_electron_app_3/</guid>
       <description>renderer에서 crawling 기능 추가 renderer에서 crawling하기 위해서, crawling하는 코드를 가져온다. crawl.js naver webtoon을 다운받</description>
+    </item>
+    
+    <item>
+      <title>[electron] make electron app-4</title>
+      <link>https://braindump.frege2turing.me/posts/electron_make_electron_app_4-3/</link>
+      <pubDate>Sun, 13 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/electron_make_electron_app_4-3/</guid>
+      <description>file 선택창 webtoon의 이미지를 저장하는 파일 선택창은 input tag에서 변경한다. input tag의 type을 file로 하면 된다. Figure 1: file exploer 코드도 보면 다음과 같</description>
     </item>
     
     <item>
@@ -522,11 +711,29 @@
     
     <item>
       <title>[css] css principles</title>
+      <link>https://braindump.frege2turing.me/posts/css_css_principles-3/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/css_css_principles-3/</guid>
+      <description>html 문서의 본질 html 문서란? html은 문자열로된 문서다. 혹은 도화지로 봐도 된다. 눈에 보이지 않는 line으로 구성되어 있다. html tag를 사용하면 같은 문자열</description>
+    </item>
+    
+    <item>
+      <title>[css] css principles</title>
       <link>https://braindump.frege2turing.me/posts/css_css_principles/</link>
       <pubDate>Sat, 12 Aug 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/css_css_principles/</guid>
       <description>html 문서의 본질 html 문서란? html은 문자열로된 문서다. 혹은 도화지로 봐도 된다. 눈에 보이지 않는 line으로 구성되어 있다. html tag를 사용하면 같은 문자열</description>
+    </item>
+    
+    <item>
+      <title>[design] beginning figma</title>
+      <link>https://braindump.frege2turing.me/posts/design_beginning_figma-3/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/design_beginning_figma-3/</guid>
+      <description>design을 하고싶다. 무언가를 만들 때, 시작은 design이다. 어떻게 머리속의 디자인을 도화지로 표현할 것인가? 그런 다음 이것을 web이나 app으</description>
     </item>
     
     <item>
@@ -540,11 +747,29 @@
     
     <item>
       <title>[electron] basic principles</title>
+      <link>https://braindump.frege2turing.me/posts/electron_basic_principles-2/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/electron_basic_principles-2/</guid>
+      <description>main process와 renderer process electron에는 2개의 process가 있다. main process와 renderer process라고 하는데, main process는 node pr</description>
+    </item>
+    
+    <item>
+      <title>[electron] basic principles</title>
       <link>https://braindump.frege2turing.me/posts/electron_basic_principles/</link>
       <pubDate>Fri, 11 Aug 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/electron_basic_principles/</guid>
       <description>main process와 renderer process electron에는 2개의 process가 있다. main process와 renderer process라고 하는데, main process는 node pr</description>
+    </item>
+    
+    <item>
+      <title>[electron] drag n drop</title>
+      <link>https://braindump.frege2turing.me/posts/electron_drag_n_drop-3/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/electron_drag_n_drop-3/</guid>
+      <description>의도 electron으로 drag n drop을 사용할 일이 많을 듯하다. file이나 url을 drag n drop으로 electron app에 넣는 것을 해보자. 이것은 electronprinciples 에 대한 이해</description>
     </item>
     
     <item>
@@ -693,6 +918,15 @@
     
     <item>
       <title>[build_tools] about ninja</title>
+      <link>https://braindump.frege2turing.me/posts/build_tools_about_ninja-3/</link>
+      <pubDate>Sun, 06 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/build_tools_about_ninja-3/</guid>
+      <description>build tool이란 소스파일과 같은 어떤 파일에 관해서 처리를 할려고한다. 예를 들면 소스파일 하나에 compile해서 실행파일을 만든다고 하자. 이런 경우는 간단</description>
+    </item>
+    
+    <item>
+      <title>[build_tools] about ninja</title>
       <link>https://braindump.frege2turing.me/posts/build_tools_about_ninja/</link>
       <pubDate>Sun, 06 Aug 2023 00:00:00 +0900</pubDate>
       
@@ -707,6 +941,15 @@
       
       <guid>https://braindump.frege2turing.me/posts/emacs_about_org_roam/</guid>
       <description>org-roam이란? 여러개의 note를 link로 연결시켜서 관리한다. hierarchy하지 않다. html문서에서 다른 문서를 hyperlin</description>
+    </item>
+    
+    <item>
+      <title>[emacs] misc and qna</title>
+      <link>https://braindump.frege2turing.me/posts/emacs_misc_and_qna-2/</link>
+      <pubDate>Sun, 06 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/emacs_misc_and_qna-2/</guid>
+      <description>key 설정법 global key 설정 기본설정 global-set-key는 모든 buffer에 key를 설정한다는 뜻. (global-set-key (kbd &amp;#34;M-a&amp;#34;) &amp;#39;backward-char) ; Alt+a (global-set-key (kbd &amp;#34;C-a&amp;#34;) &amp;#39;backward-char) ; Ctrl+a (global-set-key (kbd &amp;#34;C-c t&amp;#34;) &amp;#39;backward-char) ; Ctrl+c t (global-set-key (kbd &amp;#34;&amp;lt;f7&amp;gt;</description>
     </item>
     
     <item>
@@ -765,6 +1008,15 @@
     
     <item>
       <title>[electron] about electron.js and swift other and language</title>
+      <link>https://braindump.frege2turing.me/posts/electron_about_electron_js-3/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/electron_about_electron_js-3/</guid>
+      <description>programming language에 대해서 언어는 대개 다 비슷하다. c언어를 해봤다면, 그리고 coding test를 했다면 대용량 데이터를 어떻게 하면 효율적으로 계산할까?와 관련</description>
+    </item>
+    
+    <item>
+      <title>[electron] about electron.js and swift other and language</title>
       <link>https://braindump.frege2turing.me/posts/electron_about_electron_js/</link>
       <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
       
@@ -774,11 +1026,29 @@
     
     <item>
       <title>[electron] make electron app-1</title>
+      <link>https://braindump.frege2turing.me/posts/electron_make_electron_app_1-3/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/electron_make_electron_app_1-3/</guid>
+      <description>electron이란? electron은 system에서 동작하는 js interpreter와 browser를 연결해서 하나의 app으로 만든 것이다</description>
+    </item>
+    
+    <item>
+      <title>[electron] make electron app-1</title>
       <link>https://braindump.frege2turing.me/posts/electron_make_electron_app_1/</link>
       <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/electron_make_electron_app_1/</guid>
       <description>electron이란? electron은 system에서 동작하는 js interpreter와 browser를 연결해서 하나의 app으로 만든 것이다</description>
+    </item>
+    
+    <item>
+      <title>[electron] make electron app-2</title>
+      <link>https://braindump.frege2turing.me/posts/electron_make_electron_app_2-2/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/electron_make_electron_app_2-2/</guid>
+      <description>예제 youtube에서 옛날꺼긴 하지만, 좋은 강의같은게 있어서 참고 해보기로 한다. 내가 예젠에 electron을 사용할때와 version이 달라서 많은</description>
     </item>
     
     <item>
@@ -963,6 +1233,15 @@
     
     <item>
       <title>[git] git drill1 repo and commit</title>
+      <link>https://braindump.frege2turing.me/posts/git_git_drill1_repo_and_commit-3/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/git_git_drill1_repo_and_commit-3/</guid>
+      <description>Git Explained 이전에 작성했던 git관련 문서가 있다. 재작성할 필요를 느꼈다. 옛날 문서 가 있지만,다시정리한다. git drill repo and commit (현재문서) git drill local git drill remote git drill internals Git Introduction G</description>
+    </item>
+    
+    <item>
+      <title>[git] git drill1 repo and commit</title>
       <link>https://braindump.frege2turing.me/posts/git_git_drill1_repo_and_commit/</link>
       <pubDate>Thu, 27 Jul 2023 00:00:00 +0900</pubDate>
       
@@ -986,6 +1265,15 @@
       
       <guid>https://braindump.frege2turing.me/posts/sql_programmers_sql_high_score/</guid>
       <description>introduction 여기에 쓰는것은 누군가가 나에게 sql좀 알려줘 하면 설명해주는 일종의 pattern이다. 그냥 머리속의 생각이라서 대충 이정도는 머리속에 있고 나머지는 검</description>
+    </item>
+    
+    <item>
+      <title>[git] git explained</title>
+      <link>https://braindump.frege2turing.me/posts/git_git_explained-3/</link>
+      <pubDate>Tue, 25 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/git_git_explained-3/</guid>
+      <description>Git Explained Git Introduction Git은 Version Control System이다. 또한 Git은 version history라고 부른다. Git에서 commit이라는 자료구조는 version이라고 한다</description>
     </item>
     
     <item>
@@ -1035,6 +1323,15 @@
     
     <item>
       <title>[essay] computer working principles</title>
+      <link>https://braindump.frege2turing.me/posts/essay_computer_working_principles-3/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/essay_computer_working_principles-3/</guid>
+      <description>computer의 구조 자동 제어 구조의 시작 (memory) 컴퓨터는 전기를 사용하는 system이다. system은 전기를 사용하는 device들로 이루어진 집합이</description>
+    </item>
+    
+    <item>
+      <title>[essay] computer working principles</title>
       <link>https://braindump.frege2turing.me/posts/essay_computer_working_principles/</link>
       <pubDate>Mon, 10 Jul 2023 00:00:00 +0900</pubDate>
       
@@ -1058,6 +1355,15 @@
       
       <guid>https://braindump.frege2turing.me/posts/python_grammar_in_one_shot/</guid>
       <description>목적 python으로 된 code를 보고 이해하는 게 목적이다. 우선 python의 언어적 특징을 알아보자. about python python의 특징 python으로 작성된</description>
+    </item>
+    
+    <item>
+      <title>[algorithm] thinking about algorithms</title>
+      <link>https://braindump.frege2turing.me/posts/algorithm_thinking_about_algorithms-2/</link>
+      <pubDate>Sun, 25 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/algorithm_thinking_about_algorithms-2/</guid>
+      <description>Algorithm 알고리즘을 한마디로 말한다면 problem solving이다. Problem 문제가 무엇인가? 문제에 대한 정의를 한마디로 말할순 없을 것이다. 다만 모든 문제는 미지의 것이 있다.</description>
     </item>
     
     <item>
@@ -1125,6 +1431,15 @@
     
     <item>
       <title>[emacs] org to ipython notebook</title>
+      <link>https://braindump.frege2turing.me/posts/emacs_org_to_ipython_notebook-3/</link>
+      <pubDate>Thu, 15 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/emacs_org_to_ipython_notebook-3/</guid>
+      <description>org to .ipynb emacs에서 ipython notebook을 직접 다루려면 ein package 를 사용한다. 즉 notebook을 다운로드 받고 notebook형식을 유지한채 편집하고 다</description>
+    </item>
+    
+    <item>
+      <title>[emacs] org to ipython notebook</title>
       <link>https://braindump.frege2turing.me/posts/emacs_org_to_ipython_notebook/</link>
       <pubDate>Thu, 15 Jun 2023 00:00:00 +0900</pubDate>
       
@@ -1139,6 +1454,15 @@
       
       <guid>https://braindump.frege2turing.me/posts/kaggle_courses_intro_arithmetic_and_variable/</guid>
       <description>Arithemetic and Variables Printing 가장 중요한 명령어라고 한다. print(&amp;#34;hello world&amp;#34;) hello world Arithemetic print(1+2) print(9-5) 3 4 Comments Variables</description>
+    </item>
+    
+    <item>
+      <title>[kaggle-courses-python] hello python</title>
+      <link>https://braindump.frege2turing.me/posts/kaggle_courses_python_hello_python-3/</link>
+      <pubDate>Thu, 15 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/kaggle_courses_python_hello_python-3/</guid>
+      <description>Hello python </description>
     </item>
     
     <item>
@@ -1260,6 +1584,15 @@
     
     <item>
       <title>[emacs] anaconda settings</title>
+      <link>https://braindump.frege2turing.me/posts/emacs_anaconda_settings-2/</link>
+      <pubDate>Wed, 07 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/emacs_anaconda_settings-2/</guid>
+      <description>system 설정 emacs에서 anaconda를 사용하기 위해선, mac에 anaconda를 설치한다. 여기(from here) 에서 다운받아서 설치하면 된다. virtual environment 개</description>
+    </item>
+    
+    <item>
+      <title>[emacs] anaconda settings</title>
       <link>https://braindump.frege2turing.me/posts/emacs_anaconda_settings/</link>
       <pubDate>Wed, 07 Jun 2023 00:00:00 +0900</pubDate>
       
@@ -1296,6 +1629,15 @@
     
     <item>
       <title>[emacs] jupyter notebook settings</title>
+      <link>https://braindump.frege2turing.me/posts/emacs_jupyter_noteboo_settings-3/</link>
+      <pubDate>Tue, 06 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/emacs_jupyter_noteboo_settings-3/</guid>
+      <description>python, ipython, jupyter notebook, google colab이란? python의 동작방식 python은 interpreter와 compiler 두가지 모드가 있다. interpreter는 REPL(Read Evaluate Print Lo</description>
+    </item>
+    
+    <item>
+      <title>[emacs] jupyter notebook settings</title>
       <link>https://braindump.frege2turing.me/posts/emacs_jupyter_noteboo_settings/</link>
       <pubDate>Tue, 06 Jun 2023 00:00:00 +0900</pubDate>
       
@@ -1314,11 +1656,29 @@
     
     <item>
       <title>folding test1</title>
+      <link>https://braindump.frege2turing.me/posts/folding_test-2/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/folding_test-2/</guid>
+      <description>folding test 아래를 누르세요. folding test2</description>
+    </item>
+    
+    <item>
+      <title>folding test1</title>
       <link>https://braindump.frege2turing.me/posts/folding_test/</link>
       <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/folding_test/</guid>
       <description>folding test 아래를 누르세요. folding test2</description>
+    </item>
+    
+    <item>
+      <title>folding test2</title>
+      <link>https://braindump.frege2turing.me/posts/folding_test2-3/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/folding_test2-3/</guid>
+      <description>folding test 아래를 누르세요. folding test1</description>
     </item>
     
     <item>
@@ -1382,6 +1742,15 @@
       
       <guid>https://braindump.frege2turing.me/posts/lecture4_condition-and-loop/</guid>
       <description>Condition &amp;amp; Loop 조건문은 if else, 반복문은 while-for 들여 쓰기: space 4칸, tab을 써도 된다. Conditional Statement if문 사용법1 - if,elif,else 사용법 if를 사용해서 원하는 조건을 만족하면 수행하게 한다.</description>
+    </item>
+    
+    <item>
+      <title>lecture5_function</title>
+      <link>https://braindump.frege2turing.me/posts/lecture5_function-2/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/lecture5_function-2/</guid>
+      <description>function python에서 모든것은 객체다. function은 method이면서 객체다. function이 method인건, 내부인자로 self를 넣을 수</description>
     </item>
     
     <item>
@@ -1463,6 +1832,15 @@
       
       <guid>https://braindump.frege2turing.me/posts/elisp_korean_lorel_ipsum/</guid>
       <description>introduction 코딩할 때, dummy 문자열을 사용할 일이 많다. 그런데 보통 lorem ipsum으로 영어 문장을 사용한다. emacs자체가 한국어 사용자가 없다보니 한국어 관련한 작업은</description>
+    </item>
+    
+    <item>
+      <title>[emacs] emacs settings from scratch</title>
+      <link>https://braindump.frege2turing.me/posts/emacs_emacs_settings_from_scratch-2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/emacs_emacs_settings_from_scratch-2/</guid>
+      <description>pre processing emacs를 처음 실행해서 편집하려면, 불편한 사항이 몇개 있다. 이것을 미리 해둔다. keybindings keybinding이 제대로 되어 있지 않기 때문에, 매우 불편하</description>
     </item>
     
     <item>
