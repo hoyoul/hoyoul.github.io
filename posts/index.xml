@@ -9,15 +9,6 @@
     <lastBuildDate>Wed, 18 Oct 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2turing.me/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[k-holdem-flutter] dealt with oauth2.0</title>
-      <link>https://braindump.frege2turing.me/posts/k_holdem_flutter_dealt_with_oauth2_0-3/</link>
-      <pubDate>Wed, 18 Oct 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/k_holdem_flutter_dealt_with_oauth2_0-3/</guid>
-      <description>개요 - Oauth(Open Authorization)를 사용하는 이유 보통 app에선 회원가입을 하고 인증처리를 한다. 그런데,우리 app에선 google login을 통해서 인증</description>
-    </item>
-    
-    <item>
-      <title>[k-holdem-flutter] dealt with oauth2.0</title>
       <link>https://braindump.frege2turing.me/posts/k_holdem_flutter_dealt_with_oauth2_0/</link>
       <pubDate>Wed, 18 Oct 2023 00:00:00 +0900</pubDate>
       
@@ -54,15 +45,6 @@
     
     <item>
       <title>[flutter] ios simulator add</title>
-      <link>https://braindump.frege2turing.me/posts/flutter_ios_simulator_add-3/</link>
-      <pubDate>Mon, 16 Oct 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/flutter_ios_simulator_add-3/</guid>
-      <description>ios simulator 추가 open -a simulator에서 나오는 ios simulator는 iphone15 pro max로 되어 있다. 다른 simulator를 사용하기 위해서, simulato</description>
-    </item>
-    
-    <item>
-      <title>[flutter] ios simulator add</title>
       <link>https://braindump.frege2turing.me/posts/flutter_ios_simulator_add/</link>
       <pubDate>Mon, 16 Oct 2023 00:00:00 +0900</pubDate>
       
@@ -72,28 +54,10 @@
     
     <item>
       <title>[k-holdem-flutter] analysis source-install</title>
-      <link>https://braindump.frege2turing.me/posts/k_holdem_flutter_analysis_source_install-3/</link>
-      <pubDate>Mon, 16 Oct 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/k_holdem_flutter_analysis_source_install-3/</guid>
-      <description>개요 k-holdem을 처음 설치하고 local에서 실행하는 것까지 다룬다. 대충 rough하게 정리한 note지만, 나중에 다시 정리할것이다. 여튼 처음</description>
-    </item>
-    
-    <item>
-      <title>[k-holdem-flutter] analysis source-install</title>
       <link>https://braindump.frege2turing.me/posts/k_holdem_flutter_analysis_source_install/</link>
       <pubDate>Mon, 16 Oct 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/k_holdem_flutter_analysis_source_install/</guid>
-      <description>개요 k-holdem을 처음 설치하고 local에서 실행하는 것까지 다룬다. 대충 rough하게 정리한 note지만, 나중에 다시 정리할것이다. 여튼 처음</description>
-    </item>
-    
-    <item>
-      <title>[k-holdem-rails] local server</title>
-      <link>https://braindump.frege2turing.me/posts/k_holdem_rails_analysis_source-3/</link>
-      <pubDate>Mon, 16 Oct 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/k_holdem_rails_analysis_source-3/</guid>
       <description>개요 k-holdem을 처음 설치하고 local에서 실행하는 것까지 다룬다. 대충 rough하게 정리한 note지만, 나중에 다시 정리할것이다. 여튼 처음</description>
     </item>
     
@@ -135,29 +99,11 @@
     
     <item>
       <title>[flutter] flutter from scratch (1) - princple concepts</title>
-      <link>https://braindump.frege2turing.me/posts/kholdem_flutter_from_scratch-3/</link>
-      <pubDate>Thu, 12 Oct 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/kholdem_flutter_from_scratch-3/</guid>
-      <description>개요 Mobile App을 만드는 데 사용되는 Flutter의 구조와 동작 방식을 생각해 본다. 그러기 위해선 Dart도 살펴봐야 한다. 순전히 뇌피셜이고, 나만의 재해석</description>
-    </item>
-    
-    <item>
-      <title>[flutter] flutter from scratch (1) - princple concepts</title>
       <link>https://braindump.frege2turing.me/posts/kholdem_flutter_from_scratch/</link>
       <pubDate>Thu, 12 Oct 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/kholdem_flutter_from_scratch/</guid>
       <description>개요 Mobile App을 만드는 데 사용되는 Flutter의 구조와 동작 방식을 생각해 본다. 그러기 위해선 Dart도 살펴봐야 한다. 순전히 뇌피셜이고, 나만의 재해석</description>
-    </item>
-    
-    <item>
-      <title>[k-holdem-flutter] analysis source- import</title>
-      <link>https://braindump.frege2turing.me/posts/k_holdem_flutter_analysis_source-3/</link>
-      <pubDate>Thu, 12 Oct 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/k_holdem_flutter_analysis_source-3/</guid>
-      <description>flutter import문 소스코드를 처음 보면 import문이 나온다. import문이 무엇이고 어떻게 사용하는지 보자. import는 package나 lib</description>
     </item>
     
     <item>
@@ -171,29 +117,11 @@
     
     <item>
       <title>[flutter] how to install flutter on m1 or m2</title>
-      <link>https://braindump.frege2turing.me/posts/flutter_how_to_install_flutter_on_m1_or_m2-3/</link>
-      <pubDate>Wed, 11 Oct 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/flutter_how_to_install_flutter_on_m1_or_m2-3/</guid>
-      <description>flutter 설치 여기 에 설치법이 나와 있다. rosetta 설치 sudo softwareupdate --install-rosetta --agree-to-license SDK 설치 SDK는 intel과 silicon이 다르기 때문에, 구분에서 다운받아서 설치한다. 설치위치는 D</description>
-    </item>
-    
-    <item>
-      <title>[flutter] how to install flutter on m1 or m2</title>
       <link>https://braindump.frege2turing.me/posts/flutter_how_to_install_flutter_on_m1_or_m2/</link>
       <pubDate>Wed, 11 Oct 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/flutter_how_to_install_flutter_on_m1_or_m2/</guid>
       <description>flutter 설치 여기 에 설치법이 나와 있다. rosetta 설치 sudo softwareupdate --install-rosetta --agree-to-license SDK 설치 SDK는 intel과 silicon이 다르기 때문에, 구분에서 다운받아서 설치한다. 설치위치는 D</description>
-    </item>
-    
-    <item>
-      <title>[github] multiple account and cooperate team</title>
-      <link>https://braindump.frege2turing.me/posts/github_multiple_account_and_cooperate_team-3/</link>
-      <pubDate>Wed, 11 Oct 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/github_multiple_account_and_cooperate_team-3/</guid>
-      <description>개요 나는 지금 whitebrew 개발팀에 합류했고, github으로 협업하게 되었다. 팀에서는 협업을 위해서 내 github email주소를 요청했다. 그리고 team에서는 내 em</description>
     </item>
     
     <item>
@@ -306,15 +234,6 @@
     
     <item>
       <title>[flutter] Text widget</title>
-      <link>https://braindump.frege2turing.me/posts/flutter_text_widget-3/</link>
-      <pubDate>Thu, 14 Sep 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/flutter_text_widget-3/</guid>
-      <description>Text widget flutter에서 제공하는 primitive한 widget이다. primitive한 위젯이라서 다른 widget의 child나 childr</description>
-    </item>
-    
-    <item>
-      <title>[flutter] Text widget</title>
       <link>https://braindump.frege2turing.me/posts/flutter_text_widget/</link>
       <pubDate>Thu, 14 Sep 2023 00:00:00 +0900</pubDate>
       
@@ -324,29 +243,11 @@
     
     <item>
       <title>[flutter] flutter.dev1-get started (material app)</title>
-      <link>https://braindump.frege2turing.me/posts/flutter_flutter_dev1-3/</link>
-      <pubDate>Tue, 12 Sep 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/flutter_flutter_dev1-3/</guid>
-      <description>Get Started flutter란? flutter는 Dart의 GUI SDK다. SDK는 flutter framework + build tools를 합친 용어다. flutter라는 project를 만드는</description>
-    </item>
-    
-    <item>
-      <title>[flutter] flutter.dev1-get started (material app)</title>
       <link>https://braindump.frege2turing.me/posts/flutter_flutter_dev1/</link>
       <pubDate>Tue, 12 Sep 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/flutter_flutter_dev1/</guid>
       <description>Get Started flutter란? flutter는 Dart의 GUI SDK다. SDK는 flutter framework + build tools를 합친 용어다. flutter라는 project를 만드는</description>
-    </item>
-    
-    <item>
-      <title>[flutter] flutter.dev2-User Interface-introduction-hello world</title>
-      <link>https://braindump.frege2turing.me/posts/flutter_flutter_dev2_user_interface-3/</link>
-      <pubDate>Tue, 12 Sep 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/flutter_flutter_dev2_user_interface-3/</guid>
-      <description>Hello world import &amp;#39;package:flutter/material.dart&amp;#39;; void main() { runApp( const Center( child: Text( &amp;#39;Hello, world!&amp;#39;, textDirection: TextDirection.ltr, ), ), ); </description>
     </item>
     
     <item>
@@ -369,15 +270,6 @@
     
     <item>
       <title>[idea] hand push pressure</title>
-      <link>https://braindump.frege2turing.me/posts/idea_hand_push_pressure-3/</link>
-      <pubDate>Sun, 10 Sep 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/idea_hand_push_pressure-3/</guid>
-      <description>선풍기의 속도 조절을 손의 압력으로 컨트롤 할 수 없을까? 손의 압력은 사람마다 다르다. 가장 세게 누를 때와 잡고 있을때를 기준으로 threshold값을 정한다.</description>
-    </item>
-    
-    <item>
-      <title>[idea] hand push pressure</title>
       <link>https://braindump.frege2turing.me/posts/idea_hand_push_pressure/</link>
       <pubDate>Sun, 10 Sep 2023 00:00:00 +0900</pubDate>
       
@@ -396,29 +288,11 @@
     
     <item>
       <title>[idea] how to come out idea.</title>
-      <link>https://braindump.frege2turing.me/posts/idea_how_to_come_out_idea-3/</link>
-      <pubDate>Sun, 03 Sep 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/idea_how_to_come_out_idea-3/</guid>
-      <description>red ocean red ocean은 경쟁업체가 많아서 들어가기 힘든 업종이란 뜻, 역으로 말하면 수요가 많다는 것이다. 여기선 그 업종을 해선 안되고, 그 업종에서 필요한 원자재를</description>
-    </item>
-    
-    <item>
-      <title>[idea] how to come out idea.</title>
       <link>https://braindump.frege2turing.me/posts/idea_how_to_come_out_idea/</link>
       <pubDate>Sun, 03 Sep 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/idea_how_to_come_out_idea/</guid>
       <description>red ocean red ocean은 경쟁업체가 많아서 들어가기 힘든 업종이란 뜻, 역으로 말하면 수요가 많다는 것이다. 여기선 그 업종을 해선 안되고, 그 업종에서 필요한 원자재를</description>
-    </item>
-    
-    <item>
-      <title>[flutter] flutter UI basics</title>
-      <link>https://braindump.frege2turing.me/posts/flutter_flutter_ui_basics-3/</link>
-      <pubDate>Fri, 01 Sep 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/flutter_flutter_ui_basics-3/</guid>
-      <description>flutter란? flutter는 dart의 UI SDK다. UI관련 library와 gui programming을 가능하게 하는 framework임과</description>
     </item>
     
     <item>
@@ -509,15 +383,6 @@
       
       <guid>https://braindump.frege2turing.me/posts/dart_practice1/</guid>
       <description>[1] hello world void main(){ print(&amp;#39;hello world&amp;#39;); } [2-var] var (var로 값 만들고 출력) 값에 따라 type이 결정, build time(compile time)에 결정. void main(){ var name1 = &amp;#39;holy&amp;#39;; print(name1); name1 = &amp;#39;frege&amp;#39;; print(name1); } [3-var] var로 값 변경하고 출력 void</description>
-    </item>
-    
-    <item>
-      <title>[flutter] how to install flutter on bigsur</title>
-      <link>https://braindump.frege2turing.me/posts/flutter_how_to_install_flutter_on_bigsur-3/</link>
-      <pubDate>Wed, 23 Aug 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/flutter_how_to_install_flutter_on_bigsur-3/</guid>
-      <description>요구 사항 flutter는 최신 기기와 sw를 요구한다. 오래된 컴퓨터는 사용할 수 없다. 그런데 사용하려고 한다. 방법은 있다. 다음은 requirement</description>
     </item>
     
     <item>
@@ -1098,29 +963,11 @@
     
     <item>
       <title>[git] git drill1 repo and commit</title>
-      <link>https://braindump.frege2turing.me/posts/git_git_drill1_repo_and_commit-3/</link>
-      <pubDate>Thu, 27 Jul 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/git_git_drill1_repo_and_commit-3/</guid>
-      <description>Git Explained 이전에 작성했던 git관련 문서가 있다. 재작성할 필요를 느꼈다. 옛날 문서 가 있지만,다시정리한다. git drill repo and commit (현재문서) git drill local git drill remote git drill internals Git Introduction G</description>
-    </item>
-    
-    <item>
-      <title>[git] git drill1 repo and commit</title>
       <link>https://braindump.frege2turing.me/posts/git_git_drill1_repo_and_commit/</link>
       <pubDate>Thu, 27 Jul 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/git_git_drill1_repo_and_commit/</guid>
       <description>Git Explained 이전에 작성했던 git관련 문서가 있다. 재작성할 필요를 느꼈다. 옛날 문서 가 있지만,다시정리한다. git drill repo and commit (현재문서) git drill local git drill remote git drill internals Git Introduction G</description>
-    </item>
-    
-    <item>
-      <title>[git] git drill2 local</title>
-      <link>https://braindump.frege2turing.me/posts/git_git_drill2_local-3/</link>
-      <pubDate>Thu, 27 Jul 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/git_git_drill2_local-3/</guid>
-      <description>git drill(2단계 -local) git drill 1단계에서 repo와 commit을 만드는것을 해봤다. 이제 local에서 branch와 merge같은 작업이 어떻게 이루</description>
     </item>
     
     <item>
@@ -1139,15 +986,6 @@
       
       <guid>https://braindump.frege2turing.me/posts/sql_programmers_sql_high_score/</guid>
       <description>introduction 여기에 쓰는것은 누군가가 나에게 sql좀 알려줘 하면 설명해주는 일종의 pattern이다. 그냥 머리속의 생각이라서 대충 이정도는 머리속에 있고 나머지는 검</description>
-    </item>
-    
-    <item>
-      <title>[git] git explained</title>
-      <link>https://braindump.frege2turing.me/posts/git_git_explained-3/</link>
-      <pubDate>Tue, 25 Jul 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/git_git_explained-3/</guid>
-      <description>Git Explained Git Introduction Git은 Version Control System이다. 또한 Git은 version history라고 부른다. Git에서 commit이라는 자료구조는 version이라고 한다</description>
     </item>
     
     <item>
@@ -1233,15 +1071,6 @@
     
     <item>
       <title>[leetcode] 1672 Richest Customer Wealth</title>
-      <link>https://braindump.frege2turing.me/posts/leetcode_1672_richest_customer_wealth-2/</link>
-      <pubDate>Sat, 17 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/leetcode_1672_richest_customer_wealth-2/</guid>
-      <description>문제 링크 You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. Return the wealth that the richest customer</description>
-    </item>
-    
-    <item>
-      <title>[leetcode] 1672 Richest Customer Wealth</title>
       <link>https://braindump.frege2turing.me/posts/leetcode_1672_richest_customer_wealth/</link>
       <pubDate>Sat, 17 Jun 2023 00:00:00 +0900</pubDate>
       
@@ -1265,15 +1094,6 @@
       
       <guid>https://braindump.frege2turing.me/posts/python_summary7_big_data_and_python/</guid>
       <description>대용량 data의 처리 대용량 data의 처리에서 대용량 data는 string이나 array, list 같은 data collection에 있는 data를 말한다. 처리는 검색</description>
-    </item>
-    
-    <item>
-      <title>[github] multi account github problem</title>
-      <link>https://braindump.frege2turing.me/posts/github_multi_account_github_problem-3/</link>
-      <pubDate>Fri, 16 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/github_multi_account_github_problem-3/</guid>
-      <description>github 연결 방식 local computer에서 github에 연결하는 방식은 크게 3가지가 있다. http, ssh, github cli다. local에서 github을 사용한다는 것은 인증</description>
     </item>
     
     <item>
@@ -1314,29 +1134,11 @@
     
     <item>
       <title>[kaggle-courses-intro] Arithmetic and Variable</title>
-      <link>https://braindump.frege2turing.me/posts/kaggle_courses_intro_arithmetic_and_variable-3/</link>
-      <pubDate>Thu, 15 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/kaggle_courses_intro_arithmetic_and_variable-3/</guid>
-      <description>Arithemetic and Variables Printing 가장 중요한 명령어라고 한다. print(&amp;#34;hello world&amp;#34;) Arithemetic print(1+2) print(9-5) Comments Variables</description>
-    </item>
-    
-    <item>
-      <title>[kaggle-courses-intro] Arithmetic and Variable</title>
       <link>https://braindump.frege2turing.me/posts/kaggle_courses_intro_arithmetic_and_variable/</link>
       <pubDate>Thu, 15 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/kaggle_courses_intro_arithmetic_and_variable/</guid>
       <description>Arithemetic and Variables Printing 가장 중요한 명령어라고 한다. print(&amp;#34;hello world&amp;#34;) hello world Arithemetic print(1+2) print(9-5) 3 4 Comments Variables</description>
-    </item>
-    
-    <item>
-      <title>[kaggle-courses-python] hello python</title>
-      <link>https://braindump.frege2turing.me/posts/kaggle_courses_python_hello_python-3/</link>
-      <pubDate>Thu, 15 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/kaggle_courses_python_hello_python-3/</guid>
-      <description>Hello python </description>
     </item>
     
     <item>
@@ -1350,29 +1152,11 @@
     
     <item>
       <title>[kaggle] beginning</title>
-      <link>https://braindump.frege2turing.me/posts/kaggle_beginning-3/</link>
-      <pubDate>Thu, 15 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/kaggle_beginning-3/</guid>
-      <description>kaggle kaggle은 초보자를 위한 guide를 제공한다. Learn이란 section이 있는데 기본중에 기본을 다룬다. 그것을 먼저 알아볼 필요가 있고, 그것</description>
-    </item>
-    
-    <item>
-      <title>[kaggle] beginning</title>
       <link>https://braindump.frege2turing.me/posts/kaggle_beginning/</link>
       <pubDate>Thu, 15 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/kaggle_beginning/</guid>
       <description>kaggle kaggle은 초보자를 위한 guide를 제공한다. Learn이란 section이 있는데 기본중에 기본을 다룬다. 그것을 먼저 알아볼 필요가 있고, 그것</description>
-    </item>
-    
-    <item>
-      <title>[leetcode] beginning</title>
-      <link>https://braindump.frege2turing.me/posts/leetcode_beginning-2/</link>
-      <pubDate>Thu, 15 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/leetcode_beginning-2/</guid>
-      <description>leet code leet code는 학습할 수있는 chapter를 제공한다. explorer -&amp;gt; learn은 기초중의 기초다. Figure 1: leetcode explorer Figure 2: leetcode learn The Leet Code Beginner&amp;rsquo;s Guide 1st problem (1480. Running Sum of 1D Array) 2nd_problem (1672. Richest Customer Wealth)</description>
     </item>
     
     <item>
@@ -1386,29 +1170,11 @@
     
     <item>
       <title>[leetcode] 1480 running sum of 1d array</title>
-      <link>https://braindump.frege2turing.me/posts/leetcode_1480_running_sum_of_1d_array-2/</link>
-      <pubDate>Wed, 14 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/leetcode_1480_running_sum_of_1d_array-2/</guid>
-      <description>문제 위치 여기 문제 Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]). Return the running sum of nums. example1 Input: nums = [1,2,3,4] Output: [1,3,6,10] Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4]. example2 Input:</description>
-    </item>
-    
-    <item>
-      <title>[leetcode] 1480 running sum of 1d array</title>
       <link>https://braindump.frege2turing.me/posts/leetcode_1480_running_sum_of_1d_array/</link>
       <pubDate>Wed, 14 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/leetcode_1480_running_sum_of_1d_array/</guid>
       <description>문제 위치 여기 문제 Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]). Return the running sum of nums. example1 Input: nums = [1,2,3,4] Output: [1,3,6,10] Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4]. example2 Input:</description>
-    </item>
-    
-    <item>
-      <title>[linear algebra-1] linear algebra introduction</title>
-      <link>https://braindump.frege2turing.me/posts/linear_algebra_1_linear_algebra_introduction-2/</link>
-      <pubDate>Wed, 14 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/linear_algebra_1_linear_algebra_introduction-2/</guid>
-      <description>linear algebra에 대한 생각 인과 관계(causation)와 상관관계(correlation) 어떤 변수와 다른 어떤 변수와의 연관성이 있을때 rela</description>
     </item>
     
     <item>
@@ -1503,15 +1269,6 @@
     
     <item>
       <title>hugo korean encoding problem</title>
-      <link>https://braindump.frege2turing.me/posts/hugo_korean_encoding_problem-3/</link>
-      <pubDate>Wed, 07 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/hugo_korean_encoding_problem-3/</guid>
-      <description>org-roam과 한글 org-roam에서 title을 한글로 하면 한글명의 org파일이 만들어지고, ox-hugo를 실행하면 contents/p</description>
-    </item>
-    
-    <item>
-      <title>hugo korean encoding problem</title>
       <link>https://braindump.frege2turing.me/posts/hugo_korean_encoding_problem/</link>
       <pubDate>Wed, 07 Jun 2023 00:00:00 +0900</pubDate>
       
@@ -1557,29 +1314,11 @@
     
     <item>
       <title>folding test1</title>
-      <link>https://braindump.frege2turing.me/posts/folding_test-3/</link>
-      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/folding_test-3/</guid>
-      <description>folding test 아래를 누르세요. folding test2</description>
-    </item>
-    
-    <item>
-      <title>folding test1</title>
       <link>https://braindump.frege2turing.me/posts/folding_test/</link>
       <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/folding_test/</guid>
       <description>folding test 아래를 누르세요. folding test2</description>
-    </item>
-    
-    <item>
-      <title>folding test2</title>
-      <link>https://braindump.frege2turing.me/posts/folding_test2-3/</link>
-      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/folding_test2-3/</guid>
-      <description>folding test 아래를 누르세요. folding test1</description>
     </item>
     
     <item>
@@ -1593,29 +1332,11 @@
     
     <item>
       <title>lecture10-String</title>
-      <link>https://braindump.frege2turing.me/posts/lecture10-string-3/</link>
-      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/lecture10-string-3/</guid>
-      <description>String의 기본 자연어 처리에 있어서 문자열은 매우 중요하다. regular expression이 매우 많이 쓰인다. string의 특징 immutable 이다. 표기법: &amp;lsquo;&amp;rsquo;&amp;rsquo;, &amp;ldquo;&amp;rdquo;&amp;quot;, &amp;ldquo;, &amp;</description>
-    </item>
-    
-    <item>
-      <title>lecture10-String</title>
       <link>https://braindump.frege2turing.me/posts/lecture10-string/</link>
       <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/lecture10-string/</guid>
       <description>String의 기본 자연어 처리에 있어서 문자열은 매우 중요하다. regular expression이 매우 많이 쓰인다. string의 특징 immutable 이다. 표기법: &amp;lsquo;&amp;rsquo;&amp;rsquo;, &amp;ldquo;&amp;rdquo;&amp;quot;, &amp;ldquo;, &amp;</description>
-    </item>
-    
-    <item>
-      <title>lecture11-IO</title>
-      <link>https://braindump.frege2turing.me/posts/lecture11-io-3/</link>
-      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/lecture11-io-3/</guid>
-      <description>standard Input/output 개요 input과 output의 의미 program이 하는 일은 대부분 변수나 객체 생성, for-loop, if로 이루어져 있다. 변수나 객체를 생성하는 것은, cpu와</description>
     </item>
     
     <item>
@@ -1629,29 +1350,11 @@
     
     <item>
       <title>lecture12-setting-exception-logging</title>
-      <link>https://braindump.frege2turing.me/posts/lecture12-setting-exception-logging-2/</link>
-      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/lecture12-setting-exception-logging-2/</guid>
-      <description>Command Line Argument 개요 python을 실행할때, gpu개수, epoch같은 변수들을 program이 동작할때 cmd line interface에서 argument에서 전</description>
-    </item>
-    
-    <item>
-      <title>lecture12-setting-exception-logging</title>
       <link>https://braindump.frege2turing.me/posts/lecture12-setting-exception-logging/</link>
       <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/lecture12-setting-exception-logging/</guid>
       <description>Command Line Argument 개요 python을 실행할때, gpu개수, epoch같은 변수들을 program이 동작할때 cmd line interface에서 argument에서 전</description>
-    </item>
-    
-    <item>
-      <title>lecture13-web</title>
-      <link>https://braindump.frege2turing.me/posts/lecture13-web-2/</link>
-      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/lecture13-web-2/</guid>
-      <description>web crawling web crawling 개요 우리가 browser로 보는 화면은 html문서를 formatting한 것이다. web 문서인 html문서를 browser가 우리 컴퓨터에 d</description>
     </item>
     
     <item>
@@ -1665,29 +1368,11 @@
     
     <item>
       <title>lecture3 data structures</title>
-      <link>https://braindump.frege2turing.me/posts/lecture3_data-structure-2/</link>
-      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/lecture3_data-structure-2/</guid>
-      <description>Data Structure List list의 특징 대괄호로 만들어진다. 아무 type의 객체를 가리킬수 있다. list가 con cell로 이루어져있고 car, cdr이 모두 pointer라서</description>
-    </item>
-    
-    <item>
-      <title>lecture3 data structures</title>
       <link>https://braindump.frege2turing.me/posts/lecture3_data-structure/</link>
       <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/lecture3_data-structure/</guid>
       <description>Data Structure List list의 특징 대괄호로 만들어진다. 아무 type의 객체를 가리킬수 있다. list가 con cell로 이루어져있고 car, cdr이 모두 pointer라서</description>
-    </item>
-    
-    <item>
-      <title>lecture4_condition-and-loop</title>
-      <link>https://braindump.frege2turing.me/posts/lecture4_condition-and-loop-2/</link>
-      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/lecture4_condition-and-loop-2/</guid>
-      <description>Condition &amp;amp; Loop 조건문은 if else, 반복문은 while-for 들여 쓰기: space 4칸, tab을 써도 된다. Conditional Statement if문 사용법1 - if,elif,else 사용법 if를 사용해서 원하는 조건을 만족하면 수행하게 한다.</description>
     </item>
     
     <item>
@@ -1701,29 +1386,11 @@
     
     <item>
       <title>lecture5_function</title>
-      <link>https://braindump.frege2turing.me/posts/lecture5_function-2/</link>
-      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/lecture5_function-2/</guid>
-      <description>function python에서 모든것은 객체다. function은 method이면서 객체다. function이 method인건, 내부인자로 self를 넣을 수</description>
-    </item>
-    
-    <item>
-      <title>lecture5_function</title>
       <link>https://braindump.frege2turing.me/posts/lecture5_function/</link>
       <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/lecture5_function/</guid>
       <description>function python에서 모든것은 객체다. function은 method이면서 객체다. function이 method인건, 내부인자로 self를 넣을 수</description>
-    </item>
-    
-    <item>
-      <title>lecture6-pythonic programming</title>
-      <link>https://braindump.frege2turing.me/posts/lecture6-pythonic-programming-2/</link>
-      <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/lecture6-pythonic-programming-2/</guid>
-      <description>Pythonic Programming for-in-iterator-loop, iterator,generator in predicate &amp;lsquo;in&amp;rsquo; keywords를 사용하는 건 2가지가 있다. predicate으로 in과 for-in-loop에서 사용이 있다. 내가 보기에 &amp;lsq</description>
     </item>
     
     <item>
@@ -1773,29 +1440,11 @@
     
     <item>
       <title>lecture2_variable_and_operator</title>
-      <link>https://braindump.frege2turing.me/posts/lecture2_variable_and_operator-2/</link>
-      <pubDate>Sun, 04 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/lecture2_variable_and_operator-2/</guid>
-      <description>[lecture2] variable &amp;amp; operator 변수와 assignment 변수는 lisp에선 symbol이라고 부르고, 모든 symbol은 동일한 형태의 structure를 가졌다. symbol의 이름은 u</description>
-    </item>
-    
-    <item>
-      <title>lecture2_variable_and_operator</title>
       <link>https://braindump.frege2turing.me/posts/lecture2_variable_and_operator/</link>
       <pubDate>Sun, 04 Jun 2023 00:00:00 +0900</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/lecture2_variable_and_operator/</guid>
       <description>[lecture2] variable &amp;amp; operator 변수와 assignment 변수는 lisp에선 symbol이라고 부르고, 모든 symbol은 동일한 형태의 structure를 가졌다. symbol의 이름은 u</description>
-    </item>
-    
-    <item>
-      <title>linear_algebra1</title>
-      <link>https://braindump.frege2turing.me/posts/linear_algebra1-2/</link>
-      <pubDate>Sun, 04 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/linear_algebra1-2/</guid>
-      <description>linear algebra에 대한 생각 인과 관계(causation)와 상관관계(correlation) 어떤 변수와 다른 어떤 변수와의 연관성이 있을때 rela</description>
     </item>
     
     <item>
@@ -1823,15 +1472,6 @@
       
       <guid>https://braindump.frege2turing.me/posts/emacs_emacs_settings_from_scratch/</guid>
       <description>pre processing emacs를 처음 실행해서 편집하려면, 불편한 사항이 몇개 있다. 이것을 미리 해둔다. keybindings keybinding이 제대로 되어 있지 않기 때문에, 매우 불편하</description>
-    </item>
-    
-    <item>
-      <title>[flutter] IconButton widget</title>
-      <link>https://braindump.frege2turing.me/posts/flutter_iconbutton_widget-3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/flutter_iconbutton_widget-3/</guid>
-      <description></description>
     </item>
     
     <item>
