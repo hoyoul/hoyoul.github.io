@@ -80,6 +80,8 @@
      
     
      
+        
+    
     
      
     
@@ -393,6 +395,18 @@
   
 
   
+  <div class="bl-section">
+    <hr/>
+    <h4> (back links) </h4>
+    <div class="backlinks">
+       <ul>
+       
+         <li><a href="/posts/rails7_install_ruby_on_rails7/">[rails7] install ruby on rails7</a></li>
+       
+      </ul>
+    </div>
+  </div>
+
 	  
 	</fieldset>
 	<h2 id="개요">개요</h2>
@@ -483,31 +497,43 @@ system에 설치하기로 한다.
 설치해도 된다. 현재 14가 stable버전인듯 하다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew tap homebrew/core
 </span></span><span class="line"><span class="cl">brew install postgresql
-</span></span></code></pre></div><p>server는 db를 이용하기 때문에 시작과 함께 실행 시킨다. 나는 원래 직접
-필요할 때만 실행 시켰지만, 상관없다. 아래와 같이 하는게 편하다.</p>
+</span></span></code></pre></div><p>server는 db를 이용하기 때문에 system 시작과 함께 실행 시킨다. 나는
+원래 직접 필요할 때만 실행 시켰지만, 상관없다. 아래와 같이 하는게
+편하다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew services start postgresql
-</span></span></code></pre></div></li>
+</span></span></code></pre></div><p>아래처럼 login item에 등록된다.</p>
+<p><a id="figure--login item"></a></p>
+<figure><img src="/img/k-holdem/loginitem1.png"
+             alt="Figure 2: login item" width="400px"/><figcaption>
+                <p><span class="figure-number">Figure 2: </span>login item</p>
+            </figcaption>
+    </figure>
+
+</li>
 </ul>
 <h2 id="local에서-실행">local에서 실행</h2>
-<p>local에서 rails s로 바로 server를 실행시키면 안된다. bundler후에 db처리를 해줘야
-한다. db가 텅비워져 있기 때문이다.</p>
+<p>local에서 rails s로 바로 server를 실행시키면 안된다. project가
+사용하는 gem을 설치하고, db도 처리를 해줘야 한다. db가 텅비워져 있기
+때문이다.</p>
 <h3 id="bundler">bundler</h3>
 <p>project의 root에서</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">bundle install
-</span></span></code></pre></div><p>하면 된다.</p>
+</span></span></code></pre></div><p>하면 gemfile에 있는 gem들이 설치된다.</p>
 <h3 id="db-처리">db 처리</h3>
 <h4 id="database-생성">database 생성</h4>
-<p>db에 database를 만든다. 만드는건 수동으로 만들어도 되지만, rails
-db:create로 자동으로 만들자. rake를 써도 상관없다. db:create는 rails
-root project의 config/database.yml에 지정된 database를 참조해서
-database를 만든다. database이름은 kholdem_server_development다.</p>
+<p>postgresql에 database를 만든다. database를 만들어야 안에 table을 만들
+수 있다. database를 만들때, db에 접속해서 sql을 사용해서 수동으로
+만들어도 되지만, rails에는 db:create란 명령어가 있다.  db:create는
+rails root project의 config/database.yml에 지정된 database를 참조해서
+database를 자동으로 만든다. database이름은 kholdem_server_development다.</p>
 <p><a id="figure--db1"></a></p>
 <figure><img src="/img/k-holdem/db1.png"
-         alt="Figure 2: db1" width="400px"/><figcaption>
-            <p><span class="figure-number">Figure 2: </span>db1</p>
+         alt="Figure 3: db1" width="400px"/><figcaption>
+            <p><span class="figure-number">Figure 3: </span>db1</p>
         </figcaption>
 </figure>
 
+<p>아래는 rails명령어를 썼지만, rake를 사용해도 된다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">rails db:create
 </span></span></code></pre></div><h4 id="schema-load">schema load</h4>
 <p>처음 db를 setting하면 schema를 load하면 된다. 기존의 table이 있다면
@@ -517,11 +543,35 @@ migrate만 하면 되겠지만, 나는 어차피 database만 있고 table이 하
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">rails db:schema:load
 </span></span></code></pre></div><h4 id="db-확인">db 확인</h4>
 <p>나는 mysql을 사용했기 때문에 querious라는 mysql전용 db client를
-썼다. postgresql이라서 TablePlus로 확인했다.</p>
+썼다. postgresql이라서 TablePlus를 사용하기로 했다. 우선 설치를 한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install --cask tableplus
+</span></span></code></pre></div><p>그리고 다음과 같이 설정한다.</p>
+<p><a id="figure--db-set1"></a></p>
+<figure><img src="/img/k-holdem/db_set1.png"
+         alt="Figure 4: db_set1" width="400px"/><figcaption>
+            <p><span class="figure-number">Figure 4: </span>db_set1</p>
+        </figcaption>
+</figure>
+
+<p><a id="figure--db-set2"></a></p>
+<figure><img src="/img/k-holdem/db_set2.png"
+         alt="Figure 5: db_set2" width="400px"/><figcaption>
+            <p><span class="figure-number">Figure 5: </span>db_set2</p>
+        </figcaption>
+</figure>
+
+<p><a id="figure--db-set3"></a></p>
+<figure><img src="/img/k-holdem/db_set3.png"
+         alt="Figure 6: db_set3" width="400px"/><figcaption>
+            <p><span class="figure-number">Figure 6: </span>db_set3</p>
+        </figcaption>
+</figure>
+
+<p>그리고 posgresql에서 접속해서 table을 확인한다.</p>
 <p><a id="figure--table1"></a></p>
 <figure><img src="/img/k-holdem/table1.png"
-         alt="Figure 3: table1" width="400px"/><figcaption>
-            <p><span class="figure-number">Figure 3: </span>table1</p>
+         alt="Figure 7: table1" width="400px"/><figcaption>
+            <p><span class="figure-number">Figure 7: </span>table1</p>
         </figcaption>
 </figure>
 
@@ -531,16 +581,16 @@ migrate만 하면 되겠지만, 나는 어차피 database만 있고 table이 하
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">rails s
 </span></span></code></pre></div><p><a id="figure--server1"></a></p>
 <figure><img src="/img/k-holdem/server1.png"
-         alt="Figure 4: server1" width="400px"/><figcaption>
-            <p><span class="figure-number">Figure 4: </span>server1</p>
+         alt="Figure 8: server1" width="400px"/><figcaption>
+            <p><span class="figure-number">Figure 8: </span>server1</p>
         </figcaption>
 </figure>
 
 <p>server가 local에서 실행되었음을 알 수 있다. browser에서 연결을 해보자.</p>
 <p><a id="figure--error1"></a></p>
 <figure><img src="/img/k-holdem/error1.png"
-         alt="Figure 5: error1" width="400px"/><figcaption>
-            <p><span class="figure-number">Figure 5: </span>error1</p>
+         alt="Figure 9: error1" width="400px"/><figcaption>
+            <p><span class="figure-number">Figure 9: </span>error1</p>
         </figcaption>
 </figure>
 
@@ -2703,6 +2753,8 @@ migrate만 하면 되겠지만, 나는 어차피 database만 있고 table이 하
          
      
          
+              
+         
      
          
      
@@ -3014,7 +3066,7 @@ migrate만 하면 되겠지만, 나는 어차피 database만 있고 table이 하
      
          
      
-     "backlinks": []
+     "backlinks": ["rails7_install_ruby_on_rails7"]
    }
  sessionStorage.setItem("k_holdem_rails_analysis_source",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
