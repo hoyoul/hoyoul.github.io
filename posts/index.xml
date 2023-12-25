@@ -6,7 +6,25 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Wed, 01 Nov 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2turing.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Dec 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2turing.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[emacs] how to use tex on emacs tutorial1</title>
+      <link>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial1/</link>
+      <pubDate>Mon, 25 Dec 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial1/</guid>
+      <description>참조 about_pagelayout about section about figure about cv https://www.youtube.com/watch?v=jufEPC-7v0s&amp;amp;list=PLLybgCU6QCGU2Hh8R3oCwZnVZry-ICY5R tutorial1 용어 (command, environment, package) environment 정의 block이라고도 하는데, 쌍으로 된 begin~end로 된 block을 정의한다. 그리고 그 안의 name을 e</description>
+    </item>
+    
+    <item>
+      <title>[emacs] how to use tex on emacs tutorial2-pagelayout</title>
+      <link>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout/</link>
+      <pubDate>Mon, 25 Dec 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout/</guid>
+      <description>참조 basic tex about section about figure about cv letter page의 size나 margin을 조절하는 가장 간단한 방법은 letter로 설정하는 것이다. \documentclass[letter]{article} 위와 같이 설정하면 변화가 없다.</description>
+    </item>
+    
     <item>
       <title>[discord] make channel</title>
       <link>https://braindump.frege2turing.me/posts/discord_make_channel/</link>
@@ -1629,30 +1647,12 @@ For example, last weekend, our mutual friend had a barbecue. This particular fri
     </item>
     
     <item>
-      <title>[emacs] how to use tex on emacs tutorial1</title>
-      <link>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial1/</guid>
-      <description>참조 https://www.youtube.com/watch?v=jufEPC-7v0s&amp;amp;list=PLLybgCU6QCGU2Hh8R3oCwZnVZry-ICY5R tutorial1 용어 (command, environment, package) environment 정의 block이라고도 하는데, 쌍으로 된 begin~end로 된 block을 정의한다. 그리고 그 안의 name을 environm</description>
-    </item>
-    
-    <item>
       <title>[emacs] how to use tex on emacs tutorial10 cv</title>
       <link>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial10_cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial10_cv/</guid>
       <description> </description>
-    </item>
-    
-    <item>
-      <title>[emacs] how to use tex on emacs tutorial2-pagelayout</title>
-      <link>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout/</guid>
-      <description>letter page의 size나 margin을 조절하는 가장 간단한 방법은 letter로 설정하는 것이다. \documentclass[letter]{article} 위와 같이 설정하면 변화가 없다. 왜냐면 article</description>
     </item>
     
     <item>

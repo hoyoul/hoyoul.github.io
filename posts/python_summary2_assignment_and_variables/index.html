@@ -348,18 +348,6 @@
      
     
      
-        
-    
-    
-     
-    
-     
-    
-     
-    
-     
-    
-     
     
      
     
@@ -370,6 +358,18 @@
      
     
      
+    
+     
+    
+     
+    
+     
+    
+     
+    
+     
+        
+    
     
      
     
@@ -717,7 +717,7 @@ a라는 symbol에 해당하는 값을 symbol table에서 가져온다. 가져온
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[&#39;__abs__&#39;, &#39;__add__&#39;, &#39;__and__&#39;, &#39;__bool__&#39;, &#39;__ceil__&#39;, &#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dir__&#39;, &#39;__divmod__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__float__&#39;, &#39;__floor__&#39;, &#39;__floordiv__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__getnewargs__&#39;, &#39;__getstate__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__index__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__int__&#39;, &#39;__invert__&#39;, &#39;__le__&#39;, &#39;__lshift__&#39;, &#39;__lt__&#39;, &#39;__mod__&#39;, &#39;__mul__&#39;, &#39;__ne__&#39;, &#39;__neg__&#39;, &#39;__new__&#39;, &#39;__or__&#39;, &#39;__pos__&#39;, &#39;__pow__&#39;, &#39;__radd__&#39;, &#39;__rand__&#39;, &#39;__rdivmod__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__rfloordiv__&#39;, &#39;__rlshift__&#39;, &#39;__rmod__&#39;, &#39;__rmul__&#39;, &#39;__ror__&#39;, &#39;__round__&#39;, &#39;__rpow__&#39;, &#39;__rrshift__&#39;, &#39;__rshift__&#39;, &#39;__rsub__&#39;, &#39;__rtruediv__&#39;, &#39;__rxor__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__sub__&#39;, &#39;__subclasshook__&#39;, &#39;__truediv__&#39;, &#39;__trunc__&#39;, &#39;__xor__&#39;, &#39;as_integer_ratio&#39;, &#39;bit_count&#39;, &#39;bit_length&#39;, &#39;conjugate&#39;, &#39;denominator&#39;, &#39;from_bytes&#39;, &#39;imag&#39;, &#39;numerator&#39;, &#39;real&#39;, &#39;to_bytes&#39;]
 </span></span><span class="line"><span class="cl">b&#39;\x00\x0f&#39;
-</span></span><span class="line"><span class="cl">4336346776
+</span></span><span class="line"><span class="cl">4383024792
 </span></span></code></pre></div><p>따라서 b와 15를 mapping해서 b:15를 symbol table에
 기록한다.  (3)의 경우는 evaluate하면 symbol table에서 b를 찾아서
 가져온다. 15를 가져오지만, 그 값은 쓰여지지 않는다. 이후 print를 해서 그
@@ -740,9 +740,9 @@ c:1을 기록한다.</p>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4309099736
-</span></span><span class="line"><span class="cl">4309099736
-</span></span><span class="line"><span class="cl">4309099736
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4334167256
+</span></span><span class="line"><span class="cl">4334167256
+</span></span><span class="line"><span class="cl">4334167256
 </span></span></code></pre></div><p>반면에 아래의 예를 보자.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(1) a = [1,2,3]
 </span></span><span class="line"><span class="cl">(2) b = [1,2,3]
@@ -757,9 +757,9 @@ c:1을 기록한다.</p>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4342895872
-</span></span><span class="line"><span class="cl">4342996480
-</span></span><span class="line"><span class="cl">4343655424
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4316435712
+</span></span><span class="line"><span class="cl">4316536320
+</span></span><span class="line"><span class="cl">4317195264
 </span></span></code></pre></div><p>매번 새로운 객체를 만든다.</p>
 <h3 id="변수와-assignment의-예-3">변수와 assignment의 예 3</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">a = b = 2
@@ -792,9 +792,9 @@ object를 evaluate하면 무엇이 나오는가? 객체의 address가 나온다.
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">))</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">3
-</span></span><span class="line"><span class="cl">&lt;__main__.Person object at 0x102e5f290&gt;
+</span></span><span class="line"><span class="cl">&lt;__main__.Person object at 0x100bbf290&gt;
 </span></span><span class="line"><span class="cl">3
-</span></span><span class="line"><span class="cl">&lt;__main__.Person object at 0x102e5f290&gt;
+</span></span><span class="line"><span class="cl">&lt;__main__.Person object at 0x100bbf290&gt;
 </span></span></code></pre></div><p>객체를 evaluate했을때, literal object와 일반 object의 차이를 설명하는
 예제다. 원래 의도는 evaluate의 결과를 비교하는 것이다. 그런데
 print()로 출력하는것과 evaluate의 결과는 다른거 아니냐고 말할 수 있다.
@@ -1056,8 +1056,8 @@ data type이고 immutable하기 때문에 객체와 객체의 덧셈은 새로�
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4346729728
-</span></span><span class="line"><span class="cl">4346729728
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4369962240
+</span></span><span class="line"><span class="cl">4369962240
 </span></span><span class="line"><span class="cl">{&#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: None, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: None, &#39;__annotations__&#39;: {}, &#39;__builtins__&#39;: &lt;module &#39;builtins&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__cached__&#39;: None, &#39;a&#39;: [1, 2, 3, 4], &#39;b&#39;: [1, 2, 3, 4]}
 </span></span></code></pre></div><p>여기서 interpreter는 a = [1,2,3]에서 [1,2,3]이라는 객체를 생성하고
 a:[1,2,3]을 symbol table에 등록한다. 그 다음, b = a를 보고, a를
@@ -1073,8 +1073,8 @@ symbol테이블에서 꺼낸 객체 [1,2,3]을 b와 함께 symbol table에
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4352398592
-</span></span><span class="line"><span class="cl">4353158144
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4341454080
+</span></span><span class="line"><span class="cl">4342213632
 </span></span><span class="line"><span class="cl">{&#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None, &#39;__package__&#39;: None, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: None, &#39;__annotations__&#39;: {}, &#39;__builtins__&#39;: &lt;module &#39;builtins&#39; (built-in)&gt;, &#39;__file__&#39;: &#39;&lt;stdin&gt;&#39;, &#39;__cached__&#39;: None, &#39;a&#39;: [1, 2, 3, 4], &#39;b&#39;: [1, 2, 3]}
 </span></span></code></pre></div><p>a = a + [4]에서 interpreter는 rvalue의 type에 해당하는 list 객체를
 새로 생성한다. 그리고 a +[4]를 계산하여 새로운 객체에 [1,2,3,4]를
@@ -1182,8 +1182,8 @@ id()로 본 주소는 동일한 값이다. value도 물론 동일하다. 이제 
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4339569920
-</span></span><span class="line"><span class="cl">4339670528
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">4349809920
+</span></span><span class="line"><span class="cl">4349910528
 </span></span><span class="line"><span class="cl">True
 </span></span><span class="line"><span class="cl">False
 </span></span></code></pre></div><p>interpreter는 [1,2]라는 list객체를 생성하고 heap넣는다. heap이나
@@ -1491,6 +1491,848 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
 <script>
  graph_objects = []; 
 
+ 
+     
+     graph_node_object = {
+        
+     "label": "[emacs] how to use tex on emacs tutorial1",
+     "url": "https:\/\/braindump.frege2turing.me\/posts\/emacs_how_to_use_tex_on_emacs_tutorial1\/",
+     "id": "emacs_how_to_use_tex_on_emacs_tutorial1",
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": []
+   }
+ sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial1",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[emacs] how to use tex on emacs tutorial2-pagelayout",
+     "url": "https:\/\/braindump.frege2turing.me\/posts\/emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout\/",
+     "id": "emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout",
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial1"]
+   }
+ sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
  
      
      graph_node_object = {
@@ -2064,11 +2906,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -4126,11 +4968,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -5300,11 +6142,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -6566,11 +7408,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -11652,11 +12494,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -12020,50 +12862,6 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
@@ -12073,6 +12871,50 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -14228,11 +15070,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -15016,58 +15858,6 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
@@ -15077,6 +15867,58 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -26842,6 +27684,10 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
          
      
@@ -26851,10 +27697,6 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
               
-         
-     
-         
-     
          
      
          
@@ -27266,8 +28108,6 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
-         
      
          
      
@@ -27276,11 +28116,13 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
               
          
      
          
-     
+              
          
      
          
@@ -27692,12 +28534,6 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
-         
-     
-         
-              
-         
      
          
      
@@ -27706,7 +28542,13 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+              
+         
      
+         
+     
+         
+              
          
      
          
@@ -28120,15 +28962,15 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
          
      
          
               
-         
-     
-         
-     
          
      
          
@@ -28552,11 +29394,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -32352,11 +33194,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -43682,11 +44524,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -45012,11 +45854,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -51766,11 +52608,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -52612,11 +53454,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -53454,116 +54296,6 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
@@ -53573,6 +54305,116 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -54172,11 +55014,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -54594,11 +55436,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -56002,11 +56844,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -57288,11 +58130,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -58328,56 +59170,6 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
@@ -58436,6 +59228,60 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -58543,10 +59389,6 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
               
-         
-     
-         
-     
          
      
          
@@ -58812,11 +59654,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -59386,11 +60228,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -61920,11 +62762,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -65294,11 +66136,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -65716,18 +66558,6 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
@@ -65737,6 +66567,18 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -66140,11 +66982,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -67802,24 +68644,6 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
@@ -67829,6 +68653,24 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -68690,11 +69532,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -69110,11 +69952,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -76048,11 +76890,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+     
+         
+     
+         
               
-         
-     
-         
-     
          
      
          
@@ -76778,6 +77620,8 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
          
      
          
+              
+         
      
          
      
@@ -77183,429 +78027,9 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
-     "backlinks": []
+     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout"]
    }
  sessionStorage.setItem("emacs_how_to_use_tex_on_emacs",JSON.stringify(graph_node_object)); 
- graph_objects.push(graph_node_object);
- 
-     
-     graph_node_object = {
-        
-     "label": "[emacs] how to use tex on emacs tutorial1",
-     "url": "https:\/\/braindump.frege2turing.me\/posts\/emacs_how_to_use_tex_on_emacs_tutorial1\/",
-     "id": "emacs_how_to_use_tex_on_emacs_tutorial1",
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-     "backlinks": []
-   }
- sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial1",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
  
      
@@ -77616,7 +78040,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "id": "emacs_how_to_use_tex_on_emacs_tutorial10_cv",
      
          
+              
+         
      
+         
+              
          
      
          
@@ -78023,429 +78451,9 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
-     "backlinks": []
+     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial1","emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout"]
    }
  sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial10_cv",JSON.stringify(graph_node_object)); 
- graph_objects.push(graph_node_object);
- 
-     
-     graph_node_object = {
-        
-     "label": "[emacs] how to use tex on emacs tutorial2-pagelayout",
-     "url": "https:\/\/braindump.frege2turing.me\/posts\/emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout\/",
-     "id": "emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout",
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-     "backlinks": []
-   }
- sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
  
      
@@ -78456,7 +78464,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "id": "emacs_how_to_use_tex_on_emacs_tutorial3_section",
      
          
+              
+         
      
+         
+              
          
      
          
@@ -78863,7 +78875,7 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
-     "backlinks": []
+     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial1","emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout"]
    }
  sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial3_section",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
@@ -78876,7 +78888,11 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      "id": "emacs_how_to_use_tex_on_emacs_tutorial4_figures",
      
          
+              
+         
      
+         
+              
          
      
          
@@ -79283,7 +79299,7 @@ a는 int고 type은 float다. 따라서 False값이 나온다.</p>
      
          
      
-     "backlinks": []
+     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial1","emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout"]
    }
  sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial4_figures",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);

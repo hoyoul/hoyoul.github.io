@@ -2,10 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://braindump.frege2turing.me/posts/discord_make_channel/</loc>
-    <lastmod>2023-11-01T00:00:00+09:00</lastmod>
+    <loc>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial1/</loc>
+    <lastmod>2023-12-25T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout/</loc>
+    <lastmod>2023-12-25T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2turing.me/posts/</loc>
+    <lastmod>2023-12-25T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2turing.me/posts/discord_make_channel/</loc>
     <lastmod>2023-11-01T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2turing.me/posts/design_first_seeing_figma_design/</loc>
@@ -546,11 +552,7 @@
   </url><url>
     <loc>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs/</loc>
   </url><url>
-    <loc>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial1/</loc>
-  </url><url>
     <loc>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial10_cv/</loc>
-  </url><url>
-    <loc>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout/</loc>
   </url><url>
     <loc>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial3_section/</loc>
   </url><url>
