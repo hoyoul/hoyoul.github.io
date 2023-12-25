@@ -827,7 +827,7 @@ stateless widget의 life cycle과 state
 <p>hoyoul — 11/03/2023 8:15 PM 코드를 짜는데, 내가 key에대해서도 개념이
 없다는 걸 알았다. 그냥 java에서 class짜듯이 멤버변수 만들고,
 생성자에서 입력받게 하니까&hellip;ㅠㅠ</p>
-<p><a id="org2b1b023"></a></p>
+<p><a id="org5e2fa4c"></a></p>
 <img src="/img/k-holdem/stateless1.png" alt="stateless1.png" width="400px" />
 내가 원한건 pressed me를 누르면 container의 색을 변경하려고 했다.
 [8:31 PM]
@@ -905,7 +905,7 @@ page, Center, Column 다 생성자로 전달해줘야 한다. 코드도 복잡�
 빨간색이던 stateless page의 container가 blue로 바뀌었다. 이것은
 onPressed: runApp(mycolor: Colors.blue) 처럼 widget tree를 다시 만들기
 위해서 runApp()을 다시 호출한것이다.</p>
-<p><a id="org2e6e72b"></a></p>
+<p><a id="org98dede7"></a></p>
 <img src="/img/k-holdem/stateless2.png" alt="stateless2.png" width="400px" />
 stateless widget이나 stateful widget은 widget을 상속받고 widget은 immutable이다. 이말은 위에서 봤듯이 widget tree를 만들면 widget tree변경이 안된다. 상태를 반영하기 위해서 runApp()을 호출했던것 처럼, widget tree의 재생성이다. 이것을 하지 않기 위해서 stateful widget을 사용하는데, stateful의  state 객체가 이런일을 한다. 즉, root에서 데이터 전달하지도 않고 처리가 가능하게 해준다.
  (edited)
@@ -943,7 +943,7 @@ stateful은 dirty, clean상태 말고도 life cycle에 따른 호출되는 함�
         </figcaption>
 </figure>
 
-<p><a id="org28245de"></a></p>
+<p><a id="orgd22b3cc"></a></p>
 <img src="/img/k-holdem/stateless-life2.png" alt="stateless-life2.png" width="400px" />
 위의 life cycle에 따라서 함수호출을 찍어보자.
 <h2 id="11-dot-5">11.5</h2>
@@ -1049,7 +1049,7 @@ dart.dev에는 너무 간단하게 설명되어 있다. <a href="https://dart.de
 </a>
 
 json.dart를 열어보니, 일반적인 dart와는 다르다.</p>
-<p><a id="orge2de4c1"></a></p>
+<p><a id="org7e559e8"></a></p>
 <img src="/img/oauth/example2.png" alt="example2.png" width="400px" />
 다른 import문은 해석의 어려움은 없다.
 <p><a id="figure--example3"></a></p>
@@ -1069,7 +1069,7 @@ src는 소스에 있는것이고&hellip;
 (edited)
 [9:56 AM]
 stateful widget은 왜 써야하고, 쓸수 밖에 없고 어떻게 쓰는지는 이미 공부했다.</p>
-<p><a id="org4181a69"></a></p>
+<p><a id="org0559aae"></a></p>
 <img src="/img/oauth/example4.png" alt="example4.png" width="400px" />
 initState를 보자.
 <p>hoyoul — 11/06/2023 10:19 AM
@@ -1123,7 +1123,7 @@ _handleSignIn()를 보면 된다.
 _handleSignIn()
 (edited)
 [10:39 AM]</p>
-<p><a id="orgadb5657"></a></p>
+<p><a id="org884764d"></a></p>
 <img src="/img/oauth/example7.png" alt="example7.png" width="400px" />
 찾았다! 이 부분이다. 그냥 단순하다. \_googleSignIn.signIn()를 호출할 뿐이다.
 [10:48 AM]
@@ -1246,7 +1246,7 @@ GoogleService-info.plist란?
 credential 정보를 가지고 있는 파일인데, 설정할 때 봤듯이 bundle id만 설정한다.  bundle id를 가진 app이 GCP에 연결할 수 있는 client ID로 보면 된다.
 [2:06 PM]
 그래서 이 파일에는 client ID가 있다고 표현한다.</p>
-<p><a id="org2fef0eb"></a></p>
+<p><a id="orgdd1e330"></a></p>
 <img src="/img/oauth/client2.png" alt="client2.png" width="400px" />
 실제로 client ID가 있다.
 <p>hoyoul — 11/06/2023 2:18 PM
@@ -1294,7 +1294,7 @@ app의 info.plist에서 다음 키와 value를 추가한다.
 &lt;/dict&gt;
 &lt;/array&gt;</p>
 <p>성공했다.</p>
-<p><a id="org08a567d"></a></p>
+<p><a id="org1b22c94"></a></p>
 <p>&lt;/img/oauth/consent1.mp4&gt;</p>
 <p>원했던 consent 화면은 처리했다.
 [2:38 PM]
@@ -1345,7 +1345,7 @@ page가 없기 때문에, 제자리로 온다. 이전에 만든 k-holdem 피그�
 만든 화면으로 다시 테스트해서 redirect하는것까지 해보자. redirect가
 되고 정보를 가져오는거까지 하면, kholdem flutter 소스를 분석하고
 수정하고 테스트하는 작업으로 진행될듯하다.</p>
-<p><a id="orgf452575"></a></p>
+<p><a id="org8c3b4c0"></a></p>
 <p>&lt;/img/oauth/aaa.mp4&gt;</p>
 <p>아&hellip;근데 좀 이상한게 있다. consent화면이 맞는지 모르겠다. 나는 consent에 이미지도 넣었는데, 이미지가 보이지도 않는다.
 [3:30 PM]
@@ -2345,7 +2345,7 @@ light theme</p>
 ThemeData에서 brightness를 light로 하면 light theme가 된다. 그리고 themeMode로 어떤 theme을 선택할지 정해줘야 한다. (edited)</p>
 <p>hoyoul — 11/08/2023 4:35 PM
 ventura에서도 xcode먹통되는 현상이 발견되었다. xcode에서 simulator띄어서 했더니&hellip;먹통..</p>
-<p><a id="org69ec09a"></a></p>
+<p><a id="org7fe2d6e"></a></p>
 <p>&lt;/img/oauth/theme.mp4&gt;</p>
 <p>dart theme [4:50 PM]
 dark theme을 만드는것도 비슷하다. theme을 직접
@@ -2361,7 +2361,7 @@ dark theme을 만드는것도 비슷하다. theme을 직접
 </span></span><span class="line"><span class="cl">    <span class="p">),</span>
 </span></span><span class="line"><span class="cl">    <span class="nl">themeMode:</span> <span class="n">ThemeMode</span><span class="p">.</span><span class="n">dark</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nl">home:</span> <span class="n">Scaffold</span><span class="p">(</span>
-</span></span></code></pre></div><p><a id="org376c9ff"></a></p>
+</span></span></code></pre></div><p><a id="orgb47ed3c"></a></p>
 <img src="/img/oauth/dark.png" alt="dark.png" width="400px" />
 brightness:라는 속성을 dark로 했더니, appbar나 body의 color가 변했다. 그리고 text도 white로 변했다. 나는 text나 배경색 color를 설정한건 없다. 단지 ThemeData의 brightness를 dark로 했을뿐이다. 하나를 설정했는데, 여러속성들이 적용된건, 이 기능이 일종의 black box가 되어 버린다. (edited)
 [4:55 PM]
@@ -3550,9 +3550,15 @@ November 10, 2023</p>
          
      
          
+              
+         
      
          
+              
+         
      
+         
+              
          
      
          
@@ -3953,9 +3959,1289 @@ November 10, 2023</p>
      
          
      
-     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial1"]
+     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial1","emacs_how_to_use_tex_on_emacs_tutorial3_section","emacs_how_to_use_tex_on_emacs_tutorial4_figures","emacs_how_to_use_tex_on_emacs_tutorial5_table"]
    }
  sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[emacs] how to use tex on emacs tutorial3- section",
+     "url": "https:\/\/braindump.frege2turing.me\/posts\/emacs_how_to_use_tex_on_emacs_tutorial3_section\/",
+     "id": "emacs_how_to_use_tex_on_emacs_tutorial3_section",
+     
+         
+              
+         
+     
+         
+              
+         
+     
+         
+     
+         
+              
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial1","emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout","emacs_how_to_use_tex_on_emacs_tutorial4_figures","emacs_how_to_use_tex_on_emacs_tutorial5_table"]
+   }
+ sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial3_section",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[emacs] how to use tex on emacs tutorial4-figures",
+     "url": "https:\/\/braindump.frege2turing.me\/posts\/emacs_how_to_use_tex_on_emacs_tutorial4_figures\/",
+     "id": "emacs_how_to_use_tex_on_emacs_tutorial4_figures",
+     
+         
+              
+         
+     
+         
+              
+         
+     
+         
+              
+         
+     
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial1","emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout","emacs_how_to_use_tex_on_emacs_tutorial3_section","emacs_how_to_use_tex_on_emacs_tutorial5_table"]
+   }
+ sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial4_figures",JSON.stringify(graph_node_object)); 
+ graph_objects.push(graph_node_object);
+ 
+     
+     graph_node_object = {
+        
+     "label": "[emacs] how to use tex on emacs tutorial5-table",
+     "url": "https:\/\/braindump.frege2turing.me\/posts\/emacs_how_to_use_tex_on_emacs_tutorial5_table\/",
+     "id": "emacs_how_to_use_tex_on_emacs_tutorial5_table",
+     
+         
+     
+         
+     
+         
+              
+         
+     
+         
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial3_section","emacs_how_to_use_tex_on_emacs_tutorial4_figures"]
+   }
+ sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial5_table",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
  
      
@@ -4534,13 +5820,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -6596,13 +7882,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -7770,13 +9056,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -9036,13 +10322,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -14122,13 +15408,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -14490,48 +15776,6 @@ November 10, 2023</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
@@ -14545,6 +15789,48 @@ November 10, 2023</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -16698,13 +17984,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -17486,56 +18772,6 @@ November 10, 2023</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
@@ -17549,6 +18785,56 @@ November 10, 2023</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -29312,6 +30598,12 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
          
      
@@ -29321,12 +30613,6 @@ November 10, 2023</p>
      
          
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -29736,6 +31022,12 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
          
      
@@ -29747,12 +31039,6 @@ November 10, 2023</p>
      
          
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -30162,6 +31448,12 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
          
      
@@ -30173,12 +31465,6 @@ November 10, 2023</p>
      
          
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -30590,17 +31876,17 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
          
      
          
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -31022,13 +32308,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -34822,13 +36108,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -46152,13 +47438,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -47482,13 +48768,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -54236,13 +55522,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -55082,13 +56368,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -55924,114 +57210,6 @@ November 10, 2023</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
@@ -56045,6 +57223,114 @@ November 10, 2023</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -56642,13 +57928,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -57064,13 +58350,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -58472,13 +59758,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -59758,13 +61044,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -60798,54 +62084,6 @@ November 10, 2023</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
@@ -60906,6 +62144,60 @@ November 10, 2023</p>
          
      
          
+              
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
      
          
      
@@ -61013,12 +62305,6 @@ November 10, 2023</p>
      
          
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -61282,13 +62568,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -61856,13 +63142,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -64390,13 +65676,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -67764,13 +69050,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -68186,16 +69472,6 @@ November 10, 2023</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
@@ -68209,6 +69485,16 @@ November 10, 2023</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -68610,13 +69896,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -70272,22 +71558,6 @@ November 10, 2023</p>
          
      
          
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
      
          
      
@@ -70301,6 +71571,22 @@ November 10, 2023</p>
      
          
      
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+     
+         
+              
          
      
          
@@ -71160,13 +72446,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -71580,13 +72866,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -78518,13 +79804,13 @@ November 10, 2023</p>
          
      
          
+     
+         
+     
+         
+     
+         
               
-         
-     
-         
-     
-         
-     
          
      
          
@@ -79248,9 +80534,15 @@ November 10, 2023</p>
          
      
          
+              
+         
      
          
+              
+         
      
+         
+              
          
      
          
@@ -79651,7 +80943,7 @@ November 10, 2023</p>
      
          
      
-     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout"]
+     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout","emacs_how_to_use_tex_on_emacs_tutorial3_section","emacs_how_to_use_tex_on_emacs_tutorial4_figures","emacs_how_to_use_tex_on_emacs_tutorial5_table"]
    }
  sessionStorage.setItem("emacs_how_to_use_tex_on_emacs",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
@@ -79672,9 +80964,15 @@ November 10, 2023</p>
          
      
          
+              
+         
      
          
+              
+         
      
+         
+              
          
      
          
@@ -80075,1277 +81373,9 @@ November 10, 2023</p>
      
          
      
-     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial1","emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout"]
+     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial1","emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout","emacs_how_to_use_tex_on_emacs_tutorial3_section","emacs_how_to_use_tex_on_emacs_tutorial4_figures","emacs_how_to_use_tex_on_emacs_tutorial5_table"]
    }
  sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial10_cv",JSON.stringify(graph_node_object)); 
- graph_objects.push(graph_node_object);
- 
-     
-     graph_node_object = {
-        
-     "label": "[emacs] how to use tex on emacs tutorial3- section",
-     "url": "https:\/\/braindump.frege2turing.me\/posts\/emacs_how_to_use_tex_on_emacs_tutorial3_section\/",
-     "id": "emacs_how_to_use_tex_on_emacs_tutorial3_section",
-     
-         
-              
-         
-     
-         
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial1","emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout"]
-   }
- sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial3_section",JSON.stringify(graph_node_object)); 
- graph_objects.push(graph_node_object);
- 
-     
-     graph_node_object = {
-        
-     "label": "[emacs] how to use tex on emacs tutorial4-figures",
-     "url": "https:\/\/braindump.frege2turing.me\/posts\/emacs_how_to_use_tex_on_emacs_tutorial4_figures\/",
-     "id": "emacs_how_to_use_tex_on_emacs_tutorial4_figures",
-     
-         
-              
-         
-     
-         
-              
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-     "backlinks": ["emacs_how_to_use_tex_on_emacs_tutorial1","emacs_how_to_use_tex_on_emacs_tutorial2_pagelayout"]
-   }
- sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial4_figures",JSON.stringify(graph_node_object)); 
- graph_objects.push(graph_node_object);
- 
-     
-     graph_node_object = {
-        
-     "label": "[emacs] how to use tex on emacs tutorial5-table",
-     "url": "https:\/\/braindump.frege2turing.me\/posts\/emacs_how_to_use_tex_on_emacs_tutorial5_table\/",
-     "id": "emacs_how_to_use_tex_on_emacs_tutorial5_table",
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-         
-     
-     "backlinks": []
-   }
- sessionStorage.setItem("emacs_how_to_use_tex_on_emacs_tutorial5_table",JSON.stringify(graph_node_object)); 
  graph_objects.push(graph_node_object);
  
      

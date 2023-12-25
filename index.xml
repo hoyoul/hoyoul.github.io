@@ -26,6 +26,33 @@
     </item>
     
     <item>
+      <title>[emacs] how to use tex on emacs tutorial3- section</title>
+      <link>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial3_section/</link>
+      <pubDate>Mon, 25 Dec 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial3_section/</guid>
+      <description>참조 page layout basic tex about figure table about cv section tex문서에서 section은 heading으로 봐도 된다.다음 예를 보자. \documentclass[a4paper]{article} \usepackage{blindtext} \begin{document} \section{First Section} \blindtext \section{Second Section} \blindtext \section{Third Section} this is third section \end{document} 그런데 sec</description>
+    </item>
+    
+    <item>
+      <title>[emacs] how to use tex on emacs tutorial4-figures</title>
+      <link>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial4_figures/</link>
+      <pubDate>Mon, 25 Dec 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial4_figures/</guid>
+      <description>참조 page layout basic tex section table about cv figure figure는 그림이다. 이것을 어떻게 문서에 나타낼것인가? 인데, 우선 image파일이 같은 경로에 있는 경우를 살펴보자. ima</description>
+    </item>
+    
+    <item>
+      <title>[emacs] how to use tex on emacs tutorial5-table</title>
+      <link>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial5_table/</link>
+      <pubDate>Mon, 25 Dec 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial5_table/</guid>
+      <description>참조 page layout basic tex figures section about cv table block 위와 같이 table안에 tabular라는 block을 넣는다. tablular에선 column의 개수를 정하는데, 그 방식</description>
+    </item>
+    
+    <item>
       <title>[discord] make channel</title>
       <link>https://braindump.frege2turing.me/posts/discord_make_channel/</link>
       <pubDate>Wed, 01 Nov 2023 00:00:00 +0900</pubDate>
@@ -1653,33 +1680,6 @@ For example, last weekend, our mutual friend had a barbecue. This particular fri
       
       <guid>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial10_cv/</guid>
       <description> </description>
-    </item>
-    
-    <item>
-      <title>[emacs] how to use tex on emacs tutorial3- section</title>
-      <link>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial3_section/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial3_section/</guid>
-      <description>section tex문서에서 section은 heading으로 봐도 된다.다음 예를 보자. \documentclass[a4paper]{article} \usepackage{blindtext} \begin{document} \section{First Section} \blindtext \section{Second Section} \blindtext \section{Third Section} this is third section \end{document} 그런데 section다음의 문단이나</description>
-    </item>
-    
-    <item>
-      <title>[emacs] how to use tex on emacs tutorial4-figures</title>
-      <link>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial4_figures/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial4_figures/</guid>
-      <description>figure figure는 그림이다. 이것을 어떻게 문서에 나타낼것인가? 인데, 우선 image파일이 같은 경로에 있는 경우를 살펴보자. image파일이 필요하다.</description>
-    </item>
-    
-    <item>
-      <title>[emacs] how to use tex on emacs tutorial5-table</title>
-      <link>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial5_table/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial5_table/</guid>
-      <description>table block 위와 같이 table안에 tabular라는 block을 넣는다. tablular에선 column의 개수를 정하는데, 그 방식이 특이하다. opti</description>
     </item>
     
     <item>
