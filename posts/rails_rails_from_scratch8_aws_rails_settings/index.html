@@ -630,7 +630,7 @@ PermitRootLogin prohibit-password yes로 바꾼다.</p>
 <li>ssh root로 접근</li>
 <li>deploy계정 생성</li>
 </ol>
-<p><a id="org057cada"></a></p>
+<p><a id="org3927fee"></a></p>
 <img src="/img/web_monitoring/deployaccount.png" alt="deployaccount.png" width="600px" />
 나머지 설정도 해준다.
 <ol>
@@ -809,13 +809,13 @@ http server는 정적인 파일(test.html, test.png..)을 처리한다. 반면 w
 <ul>
 <li><strong>Problem</strong>: 예상치 못한 에러 발생</li>
 </ul>
-<p><a id="orge3eacad"></a></p>
+<p><a id="orgaf6a38b"></a></p>
 <img src="/img/web_monitoring/nginx4.png" alt="nginx4.png" width="1000px" />
 journalctl -xe를 실행해서 에러의 원인이 뭔지 알고 싶었다. 다음과 같은 메시지가 있었다.
-<p><a id="orgc16d239"></a></p>
+<p><a id="orgdbc219c"></a></p>
 <img src="/img/web_monitoring/pam.png" alt="pam.png" width="600px" />
 더 정확한 확인을 위해서 nginx의 log를 확인해 보자
-<p><a id="org4601c32"></a></p>
+<p><a id="orge9c0f74"></a></p>
 <img src="/img/web_monitoring/errorlog.png" alt="errorlog.png" width="1000px" />
 위에 보면 gzip_static_on에 문제가 있어 보인다.
 <ul>
@@ -920,7 +920,7 @@ cap install STAGES=production</p>
 <p>bundle을 실행하면, gemfile에 기술된 gem들이 install된다. capistrano도 installed되어서 cap이란 명령어를 실행할 수 있다.
 cap install을 실행하면, deploy를 위한 설정 파일(.rb)들을 만들어 낸다.
 만일 cap명령어를 실행하나 수행되지 않을 때는 rbenv rehash를 하고 다시 실행한다.</p>
-<p><a id="org69a783c"></a></p>
+<p><a id="orga9f022e"></a></p>
  <img src="/img/web_monitoring/rehash.png" alt="rehash.png" width="400px" />
 cap으로 만들어지는 파일은 capfile, deploy.rb, staging.rb,production.rb같은 deploy같은 설정파일들이다.
 <h4 id="capfile-설정">Capfile 설정</h4>
@@ -942,19 +942,19 @@ set :rbenv_ruby, &lsquo;3.0.1&rsquo;</p>
 
 <h3 id="capistrano-error">Capistrano Error</h3>
 <h4 id="thread-error">Thread error</h4>
-<p><a id="org0bc74c4"></a></p>
+<p><a id="orga1dfdc2"></a></p>
 <img src="/img/web_monitoring/cap1.png" alt="cap1.png" width="600px" />
 =&gt; cap은 aws에 접근할 수 있는 pem키가 없다면, cap이 진행되지 않고 바로 exception이 난다.
 ssh-add 를 사용해서 key를 등록한다. ssh-add ~/.ssh/company-ec2-keys.pem을 수행한다.
 <h4 id="git-check-error-permission-denied-error">git:check error-permission denied error</h4>
-<p><a id="org172b715"></a></p>
+<p><a id="org6dd450a"></a></p>
 <img src="/img/web_monitoring/cap2.png" alt="cap2.png" width="600px" />
    =&gt; ssh-add ~/.ssh/id-rsa 를 해보면 될 수 있다.
 <h4 id="git-create-release-master-error">git:create_release master error</h4>
 <p>=&gt; set branch main in deploy.rb</p>
 <h4 id="bundle-install">bundle:install</h4>
 <p>=&gt; [arm64-darwin-20] but your local platform is x86_64-linux</p>
-<p><a id="orgce7a140"></a></p>
+<p><a id="org1357621"></a></p>
    <img src="/img/web_monitoring/deploy_local.png" alt="deploy_local.png" width="600px" />
 이것의 원인은 capistrano처리중에 github에서 rails app source를 가지고 와서 배포서버의 release폴더에 넣은 후에 bundler를 실행할 때 발생되는 에러같다. bundler가 Gemfile.lock을 실행하는 데 Platform이 local에서는 arm64-darwin-20은 정해져 있으나, x86-64-linux가 기술되어 있지 않다는 것이다. local에서는 bundle lock --add-platform x86_64-linux를 실행해서 변경할 수 있다고 하는데, Gemfile.lock에서 x86_64-linux가 추가된 것을 확인할 수 있다. 그런데 실제 배포server의 release폴더에 있는 Gemfile.lock에는 반영되지 않은 것을 볼 수 있다. 이것의 원인을 찾고자, 배포 서버에 접속해서 log를 살펴보았다.
 <blockquote>
@@ -972,19 +972,19 @@ ssh-add 를 사용해서 key를 등록한다. ssh-add ~/.ssh/company-ec2-keys.pe
 <p>=&gt; 해결책
 우선 cap production deploy할 때, 배포 서버에서 실행하는것은 무조건 github의 내용이다. 만일 local에서 무언가를 고치거나, 수정했다면, github에 commit한 후에 cap production deploy를 해야할 듯하다.</p>
 <h3 id="bundler-install-failed-to-build-gem-native-extension">bundler:install, Failed to build gem native extension</h3>
-<p><a id="orgeb47b47"></a></p>
+<p><a id="org9d8d8b6"></a></p>
 <img src="/img/web_monitoring/bundle_error.png" alt="bundle_error.png" width="600px" />
 이 문제에 대한 처리 과정은 다음과 같다.
-<p><a id="orgc09328e"></a></p>
+<p><a id="orgb8a326e"></a></p>
 <p><img src="/img/web_monitoring/extsolution1.png" alt="extsolution1.png" width="600px" />\</p>
 <p>우선 위에 적힌대로 해보자. 그런데, 근본적인
 문제는 mysql2 설치 문제다. 배포 서버에 들어가서 mysql2를 설치해 보자.
 동일한 에러가 발생한다.</p>
-<p><a id="org37215fd"></a></p>
+<p><a id="org48986bb"></a></p>
 <img src="/img/web_monitoring/mysql2error.png" alt="mysql2error.png" width="600px" />
 =&gt; 해결 :  sudo apt-get install libmysqlclient-dev를 설치하니 무사히 설치되었다.
 <h3 id="deploy-migrating-error">deploy:migrating error</h3>
-<p><a id="org13eac20"></a></p>
+<p><a id="org903713c"></a></p>
    <img src="/img/web_monitoring/mysqlhosterror.png" alt="mysqlhosterror.png" width="600px" />
 우선 mysql관련 설정환경을 배포 서버의 .rbenv-vars파일에 기술했었는데, 그게 문제일 수도 있다는 생각이 들었다. capistrano가 db에 접속을 해야 하는데, 접속은 URL로 하고, URL정보는 .rbenv-vars파일에 기술했기 때문이다. 그래서 다음과 같이 .rbenv-vars파일을 변경해 보았다.
 <blockquote>
@@ -1058,11 +1058,11 @@ GRANT ALL PRIVILEGES ON myapp.* TO &lsquo;deploy&rsquo;@&rsquo;%&rsquo;;
 FLUSH PRIVILEGES;</p>
 </blockquote>
 <h3 id="cap-production-deploy-하자마자-sshkit-error">cap production deploy 하자마자 sshkit error</h3>
-<p><a id="org4d537f3"></a></p>
+<p><a id="org73b135d"></a></p>
 <img src="/img/web_monitoring/capproduction.png" alt="capproduction.png" width="600px" />
 이것은 aws pem키가 등록되지 않았다는 에러다. ssh-add ~/.ssh/company-ec2-keys.pem로 등록을 해야 한다.
 <h3 id="git-permission-error">git permission error</h3>
-<p><a id="org80beb3a"></a></p>
+<p><a id="org06f029a"></a></p>
 <img src="/img/web_monitoring/gitcheckerror.png" alt="gitcheckerror.png" width="600px" />
 이것은 git ssh public key가 등록되지 않았다는 에러다. ssh-add ~/.ssh/id_rsa로 등록을 해준다.
 <h3 id="phusion-messager-is-not-running">phusion messager is not running</h3>
@@ -1112,7 +1112,7 @@ FLUSH PRIVILEGES;</p>
 <p>EDITOR=vim rails credentials:edit</p>
 </blockquote>
 <p>이렇게 하면 credentials를 읽을 수 있다.</p>
-<p><a id="org17328b7"></a></p>
+<p><a id="orgb9f5a4a"></a></p>
 <img src="/img/web_monitoring/credentials.png" alt="credentials.png" width="600px" />
 그리고 secret_key_base를 볼 수 있다. 이것을 복사해서 운영서버로 가서 myapp/.rbenv-vars에 붙여넣기 한다.
 <p>이렇게 하고 cap production deploy를 실행해보자.</p>
@@ -1238,10 +1238,10 @@ tails -f /var/log/nginx/error.log</p>
 
 <p>설치할 MFA기기는 가상기기이고, 내 경우, google authenticator를 설치했다.
 중간에 보면 <strong>show QR code</strong> 가 있다. 이것을 누르면 QR code가 보인다. 그리고 code1과 code2를 기입한다.</p>
-<p><a id="org60a72c9"></a></p>
+<p><a id="org4cfd62c"></a></p>
 <img src="/img/web_monitoring/root5.png" alt="root5.png" width="600px" />
 이제 root에 대한 MFA처리가 끝났다.
-<p><a id="org9325153"></a></p>
+<p><a id="org9db5cc0"></a></p>
 <img src="/img/web_monitoring/root6.png" alt="root6.png" width="600px" />
 앞으로 root login은 mfa로 묻는다.
 이제 IAM계정을 만든다.
@@ -1262,7 +1262,7 @@ tails -f /var/log/nginx/error.log</p>
 </figure>
 
 <p>위와같이 user id를 만들고, pw를 설정한다. pw를 임시로 설정하고, 실제 login시 사용자가 설정하도록 한다.</p>
-<p><a id="orga4bf0c9"></a></p>
+<p><a id="orgae06cf4"></a></p>
 <img src="/img/web_monitoring/user3.png" alt="user3.png" width="600px" />
 정책을 선택한다.
 <p><a id="figure--user 생성"></a></p>
@@ -1272,7 +1272,7 @@ tails -f /var/log/nginx/error.log</p>
         </figcaption>
 </figure>
 
-<p><a id="orgcf9d72c"></a></p>
+<p><a id="orgb15e4e0"></a></p>
 <img src="/img/web_monitoring/user5.png" alt="user5.png" width="600px" />
 tag 생성은 넘어간다.
 <p><a id="figure--"></a></p>
@@ -1348,7 +1348,7 @@ ec2 dashboard로 접근한다. 그 다음 ec2 instance의 정보를 보자.</p>
         </figcaption>
 </figure>
 
-<p><a id="org40ac438"></a></p>
+<p><a id="org3d6fb64"></a></p>
 <img src="/img/web_monitoring/route_53_1-2.png" alt="route_53_1-2.png" width="600px" />
 위에서 원하는 domain주소를 구입할 수 있다. 가격은 그렇게 비싸지 않은듯 하다.
 domain주소를 구입한 후에 등록을 한다.
