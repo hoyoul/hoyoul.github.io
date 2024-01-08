@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://braindump.frege2turing.me/posts/cv_make_cv_on_github_pages/</loc>
+    <lastmod>2024-01-01T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://braindump.frege2turing.me/posts/</loc>
+    <lastmod>2024-01-01T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial1/</loc>
     <lastmod>2023-12-25T00:00:00+09:00</lastmod>
   </url><url>
@@ -15,9 +21,6 @@
     <lastmod>2023-12-25T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial5_table/</loc>
-    <lastmod>2023-12-25T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://braindump.frege2turing.me/posts/</loc>
     <lastmod>2023-12-25T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2turing.me/posts/discord_make_channel/</loc>
@@ -552,6 +555,8 @@
     <lastmod>2023-05-03T03:58:02+09:00</lastmod>
   </url><url>
     <loc>https://braindump.frege2turing.me/posts/ai_1st_chapter/</loc>
+  </url><url>
+    <loc>https://braindump.frege2turing.me/posts/algorithm_thinking_of_algorithm/</loc>
   </url><url>
     <loc>https://braindump.frege2turing.me/posts/elisp_korean_lorel_ipsum/</loc>
   </url><url>

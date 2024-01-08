@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Holy Frege</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Mon, 25 Dec 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2turing.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0900</lastBuildDate><atom:link href="https://braindump.frege2turing.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[cv] make cv on github-pages</title>
+      <link>https://braindump.frege2turing.me/posts/cv_make_cv_on_github_pages/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0900</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/cv_make_cv_on_github_pages/</guid>
+      <description>create email account 우선 email을 만들기로 했다. email이 있어야만 github계정을 만들수 있기 때문이다. hoyoulcv@gmail.com create github account email주소가 있으면, github계</description>
+    </item>
+    
     <item>
       <title>[emacs] how to use tex on emacs tutorial1</title>
       <link>https://braindump.frege2turing.me/posts/emacs_how_to_use_tex_on_emacs_tutorial1/</link>
@@ -1635,6 +1644,15 @@ For example, last weekend, our mutual friend had a barbecue. This particular fri
       
       <guid>https://braindump.frege2turing.me/posts/ai_1st_chapter/</guid>
       <description>Introduction Figure 1: a1 ai가 왜 연구할 가치가 있는 주제인가?를 설명하려고 한다. 하지만, 그것을 시작하기에 앞서, A.I가 무엇인지를 결정하는게 더 좋을 것이다. Homo sap</description>
+    </item>
+    
+    <item>
+      <title>[algorithm] thinking of algorithm</title>
+      <link>https://braindump.frege2turing.me/posts/algorithm_thinking_of_algorithm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://braindump.frege2turing.me/posts/algorithm_thinking_of_algorithm/</guid>
+      <description>problem and solving what is problem and what is solving? what is algorithm? problem과 solution 그리고 algorithm은 turing이 나오기전까진 모호한 단어였다. turing은 computa</description>
     </item>
     
     <item>
