@@ -523,15 +523,6 @@ For example, last weekend, our mutual friend had a barbecue. This particular fri
     
     <item>
       <title>[tistory] org export tistory</title>
-      <link>https://braindump.frege2turing.me/posts/tistory_org_export_tistory-2/</link>
-      <pubDate>Fri, 01 Sep 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/tistory_org_export_tistory-2/</guid>
-      <description>org-export-dispatch에 메뉴 작성 게시함수 작성 C-c C-e를 누르면 export dispatch에 menu를 선택하면 tistory에 글이 게시되</description>
-    </item>
-    
-    <item>
-      <title>[tistory] org export tistory</title>
       <link>https://braindump.frege2turing.me/posts/tistory_org_export_tistory/</link>
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0900</pubDate>
       
@@ -946,15 +937,6 @@ For example, last weekend, our mutual friend had a barbecue. This particular fri
     
     <item>
       <title>[unity] about unity settings</title>
-      <link>https://braindump.frege2turing.me/posts/unity_about_unity_settings-2/</link>
-      <pubDate>Sun, 06 Aug 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/unity_about_unity_settings-2/</guid>
-      <description>설치 unityhub 다운 여기 에서 unity hub를 다운받는다. unity 다운 unityhub는 여러개의 unity가 설치될 수 있는 hub다. unity를 설치해보자. unity version 선택 android,</description>
-    </item>
-    
-    <item>
-      <title>[unity] about unity settings</title>
       <link>https://braindump.frege2turing.me/posts/unity_about_unity_settings/</link>
       <pubDate>Sun, 06 Aug 2023 00:00:00 +0900</pubDate>
       
@@ -1302,15 +1284,6 @@ For example, last weekend, our mutual friend had a barbecue. This particular fri
       
       <guid>https://braindump.frege2turing.me/posts/github_multi_account_github_problem/</guid>
       <description>github 연결 방식 local computer에서 github에 연결하는 방식은 크게 3가지가 있다. http, ssh, github cli다. local에서 github을 사용한다는 것은 인증</description>
-    </item>
-    
-    <item>
-      <title>[website] about my braindump blog and homepage usage</title>
-      <link>https://braindump.frege2turing.me/posts/website_about_my_brain_blog_and_homepage-2/</link>
-      <pubDate>Fri, 16 Jun 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://braindump.frege2turing.me/posts/website_about_my_brain_blog_and_homepage-2/</guid>
-      <description>my blogs 나는 3개의 blog를 운영하고 있다. main-blog,braindump,portfolio다. main-blog(holy2frege) 기본정보 참조: from here (만들당시 기록한 note) homepage</description>
     </item>
     
     <item>
